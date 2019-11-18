@@ -20,6 +20,9 @@ Your AWS account has the following limits for Amazon Personalize\.
 | Maximum number of PutEvents requests\. | 1000/sec | 
 | Maximum number of events in a PutEvents call\. | 10 | 
 | Maximum size of an event\. | 10 KB | 
+| Maximum number of input files in a batch inference job\. | 1000 | 
+| Maximum size of batch inference job input\. | 1 GB | 
+| Maximum number of records per input file in a batch inference job\. | 50 million | 
 
 Your AWS account has the following limits per region for Amazon Personalize\.
 

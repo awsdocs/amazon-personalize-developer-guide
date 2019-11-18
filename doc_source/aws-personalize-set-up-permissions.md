@@ -95,6 +95,9 @@ A user needs permission to create the IAM role\. To give a user permission, see 
            {
                "Sid": "PersonalizeS3BucketAccessPolicy",
                "Effect": "Allow",
+               "Principal": {
+                   "Service": "personalize.amazonaws.com"
+               },
                "Action": [
                    "s3:GetObject",
                    "s3:ListBucket"
@@ -118,11 +121,11 @@ A user needs permission to create the IAM role\. To give a user permission, see 
 
 1. In the navigation pane, choose **Roles**, and choose the new role\.
 
-1. For **Permissions**, choose **PersonalizeS3BucketPolicy**\.
+1. For **Permissions**, choose **PersonalizeS3BucketAccessPolicy**\.
 
    1. To display the policy in the list, type part of the policy name in the **Filter policies** filter box\.
 
-   1. Choose the check box next to **PersonalizeS3BucketPolicy**\.
+   1. Choose the check box next to **PersonalizeS3BucketAccessPolicy**\.
 
    1. Choose **Attach policy**\.
 

@@ -1,6 +1,7 @@
 # Actions<a name="API_Operations"></a>
 
 The following actions are supported by Amazon Personalize:
++  [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) 
 +  [CreateCampaign](API_CreateCampaign.md) 
 +  [CreateDataset](API_CreateDataset.md) 
 +  [CreateDatasetGroup](API_CreateDatasetGroup.md) 
@@ -16,6 +17,7 @@ The following actions are supported by Amazon Personalize:
 +  [DeleteSchema](API_DeleteSchema.md) 
 +  [DeleteSolution](API_DeleteSolution.md) 
 +  [DescribeAlgorithm](API_DescribeAlgorithm.md) 
++  [DescribeBatchInferenceJob](API_DescribeBatchInferenceJob.md) 
 +  [DescribeCampaign](API_DescribeCampaign.md) 
 +  [DescribeDataset](API_DescribeDataset.md) 
 +  [DescribeDatasetGroup](API_DescribeDatasetGroup.md) 
@@ -27,6 +29,7 @@ The following actions are supported by Amazon Personalize:
 +  [DescribeSolution](API_DescribeSolution.md) 
 +  [DescribeSolutionVersion](API_DescribeSolutionVersion.md) 
 +  [GetSolutionMetrics](API_GetSolutionMetrics.md) 
++  [ListBatchInferenceJobs](API_ListBatchInferenceJobs.md) 
 +  [ListCampaigns](API_ListCampaigns.md) 
 +  [ListDatasetGroups](API_ListDatasetGroups.md) 
 +  [ListDatasetImportJobs](API_ListDatasetImportJobs.md) 
