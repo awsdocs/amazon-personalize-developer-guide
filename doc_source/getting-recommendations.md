@@ -13,10 +13,12 @@ After you have created a campaign, you can use it in your applications to get re
 
 To get recommendations, call the [GetRecommendations](API_RS_GetRecommendations.md) API\. Supply either the user ID or item ID, dependent on the recipe type used to create the solution the campaign is based on\.
 
+To get situational recommendations, you can also include contextual metadata on your user\. For instance, you might include information on the user's current location or device \(desktop, mobile, tablet\) so that Amazon Personalize can get recommendations based on that user's previous situational behavior\. Any metadata context fields must be included in the schema of the campaign's user\-item interaction dataset\.
+
 **Note**  
 The solution backing the campaign must have been created using a recipe of type USER\_PERSONALIZATION or RELATED\_ITEMS\. For more information, see [Using Predefined Recipes](working-with-predefined-recipes.md)\.
 
-**Get therecommendations using the AWS Python SDK**
+**Get the recommendations using the AWS Python SDK**
 
 Use the following code to get a recommendation\. Change the value of `userId` to a user ID that is in the data you used to train the solution\. A list of recommended items for the user is displayed\.
 
@@ -26,8 +28,28 @@ import boto3
 personalizeRt = boto3.client('personalize-runtime')
 
 response = personalizeRt.get_recommendations(
-    campaignArn = "Campaign ARN",
+    campaignArn = 'Campaign ARN',
     userId = 'User ID')
+
+print("Recommended items")
+for item in response['itemList']:
+    print (item['itemId'])
+```
+
+Use the following code to get a recommendation based on contextual metadata\. Change the value of the context key\-value pair to that of a metadata field that is your training data\. A list of recommended items for the user is displayed\.
+
+```
+import boto3
+
+personalizeRt = boto3.client('personalize-runtime')
+
+response = personalizeRt.get_recommendations(
+    campaignArn = 'Campaign ARN',
+    userId = 'User ID',
+    context = {
+      'key': 'value'
+    }
+)
 
 print("Recommended items")
 for item in response['itemList']:
@@ -52,12 +74,33 @@ personalizeRt = boto3.client('personalize-runtime')
 
 response = personalizeRt.get_personalized_ranking(
     campaignArn = "Campaign arn",
-    userId = 'UserID',
+    userId = "UserID",
     inputList = ['ItemID1','ItemID2'])
 
 print("Personalized Ranking")
 for item in response['personalizedRanking']:
     print (item['itemId'])
+```
+
+Use the following code to get a personalized ranking based on contextual metadata\. Change the value of the context key\-value pair to that of a metadata field that is in your training data\. The first item in the list is considered by Amazon Personalize to be of most interest to the user\.
+
+```
+import boto3
+
+personalizeRt = boto3.client('personalize-runtime')
+
+response = personalizeRt.get_personalized_ranking(
+    campaignArn = "Campaign arn",
+    userId = "UserID",
+    inputList = ['ItemID1', 'ItemID2'],
+    context = {
+      'key': 'value'
+    }
+)
+
+print("Personalized Ranking")
+for item in response['personalizedRanking']:
+  print(item['itemId'])
 ```
 
 ## Get Batch Recommendations<a name="recommendations-batch"></a>
@@ -130,9 +173,9 @@ The [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) uses a chosen solu
 #### [ Output ]
 
 ```
-{"input": {"userId": "891", "itemIds": ["27", "886", "101"]}, "output": {"recommendedItems": ["28", "887", "102"]}}
-{"input": {"userId": "445", "itemIds": ["527", "55", "901"]}, "output": {"recommendedItems": ["631", "56", "877"]}}
-{"input": {"userId": "71", "itemIds": ["27", "351", "101"]}, "output": {"recommendedItems": ["25", "347", "105"]}}
+{"input": {"userId": "891", "itemIds": ["27", "886", "101"]}, "output": {"recommendedItems": ["27", "101", "886"]}}
+{"input": {"userId": "445", "itemIds": ["527", "55", "901"]}, "output": {"recommendedItems": ["901", "527", "55"]}}
+{"input": {"userId": "71", "itemIds": ["29", "351", "199"]}, "output": {"recommendedItems": ["351", "29", "199"]}}
 ...
 ```
 
@@ -146,7 +189,7 @@ The [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) uses a chosen solu
 ```
 {"itemId": "105"}
 {"itemId": "106"}
-{"items": "441"}
+{"itemId": "441"}
 ...
 ```
 
@@ -196,36 +239,40 @@ Creating a batch inference job takes time\.
 
 ### Getting Batch Recommendations \(AWS CLI\)<a name="batch-cli"></a>
 
-The following is an example of a batch inference workflow using the AWS CLI\. A JSON file called `batch.json` is passed as input, and the output file, `batch.json.out`, is returned to an Amazon S3 bucket\. If successful, the operation returns the ARN of the batch inference job\.
+The following is an example of a batch inference workflow using the AWS CLI\. A JSON file called `batch.json` is passed as input, and the output file, `batch.json.out`, is returned to an Amazon S3 bucket\.
 
 ```
 aws personalize create-batch-inference-job --job-name batchTest \
-                --solution-version-arn arn:aws:personalize:us-west-2:000000000000:solution/batch-test-solution-version/1234abcd \
-                --jobInput s3DataSource="s3://personalize/batch/input/batch-test-input.json" \
-                --jobOutput s3DataSource="s3://personalize/batch/output/" \
-                --role-arn arn:aws:iam::01234567891011:role/import-export-role
+                --solution-version-arn arn:aws:personalize:us-west-2:012345678901:solution/batch-test-solution-version/1234abcd \
+                --job-input s3DataSource={path=s3://personalize/batch/input/batch-test-input.json} \
+                --job-output s3DataDestination={path=s3://personalize/batch/output/} \
+                --role-arn arn:aws:iam::012345678901:role/import-export-role
       
 {
-   "batchInferenceJobArn": "arn:aws:personalize:us-west-2:01234567891011:batch-inference-job/batch-test"
+   "batchInferenceJobArn": "arn:aws:personalize:us-west-2:012345678901:batch-inference-job/batchTest"
 }
 ```
 
-Once a batch inference job is created, you can inspect it further with the [DescribeBatchInferenceJob](API_DescribeBatchInferenceJob.md)operation\.
+Once a batch inference job is created, you can inspect it further with the [DescribeBatchInferenceJob](API_DescribeBatchInferenceJob.md) operation\.
 
 ```
-aws personalize describe-batch-inference-job --batch-inference-job-arn arn:aws:personalize:us-west-2:01234567891011:batch-inference-job/batch-test
+aws personalize describe-batch-inference-job --batch-inference-job-arn arn:aws:personalize:us-west-2:012345678901:batch-inference-job/batchTest
 
 {
   "jobName": "batchTest",
-  "batchInferenceJobArn": "arn:aws:personalize:us-west-2:01234567891011:batch-inference-job/batch-test",
-  "solutionVersionArn": "arn:aws:personalize:us-west-2:000000000000:solution/batch-test-solution-version/1234abcd",
+  "batchInferenceJobArn": "arn:aws:personalize:us-west-2:012345678901:batch-inference-job/batchTest",
+  "solutionVersionArn": "arn:aws:personalize:us-west-2:012345678901:solution/batch-test-solution-version/1234abcd",
   "jobInput": { 
-      "s3InputPath": "s3://personalize/batch/input/batch.json"
+      "s3DataSource": {
+          "path": "s3://personalize/batch/input/batch.json"
+        }
   },
   "jobOutput": { 
-      "s3OutputPath": "s3://personalize/batch/output/" 
+      "s3DataDestination": {
+          "path": "s3://personalize/batch/output/" 
+        }
   },
-  "roleArn": "arn:aws:iam::01234567891011:role/import-export-role",
+  "roleArn": "arn:aws:iam::012345678901:role/import-export-role",
   "status": "ACTIVE",
   "creationDateTime": 1542392161.837,
   "lastUpdateDateTime: 1542393013.377
@@ -239,15 +286,18 @@ Use the following code to get batch recommendations using the AWS Python SDK\. T
  The first item in the response file is considered by Amazon Personalize to be of most interest to the user\.
 
 ```
-personalize_rec = boto3.client(service_name='personalize-rec')
+import boto3
+
+personalize_rec = boto3.client(service_name='personalize')
+
 personalize_rec.create_batch_inference_job (
-solutionVerisonArn = "Solution version ARN",
-jobName = "Batch job name",
-roleArn = "IAM role ARN
-jobInput = 
- {"S3InputPath": "S3 path"},
-jobOutput = 
- {"S3OutputPath": "S3 path"}
+    solutionVersionArn = "Solution version ARN",
+    jobName = "Batch job name",
+    roleArn = "IAM role ARN",
+    jobInput = 
+       {"s3DataSource": {"path": S3 input path}},
+    jobOutput = 
+       {"s3DataDestination": {"path":S3 output path"}}
 )
 ```
 

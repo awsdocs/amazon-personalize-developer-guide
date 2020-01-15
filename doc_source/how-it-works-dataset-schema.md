@@ -3,7 +3,7 @@
 Amazon Personalize recognizes three types of historical datasets\. Each type has an associated schema with a *name* key whose value matches the dataset type\. The three types are:
 + **Users** – This dataset is intended to provide metadata about your users\. This might include information such as age, gender, or loyalty membership, which can be important signals in personalization systems\.
 + **Items** – This dataset is intended to provide metadata about your items\. This might include information such as price, SKU type, or availability\.
-+ **Interactions** – This dataset is intended to provide historical interaction data between users and items\.
++ **Interactions** – This dataset is intended to provide historical interaction data between users and items\. It can also provide metadata on youe user's browsing context, such as their location or device \(mobile, tablet, desktop, and so on\)\.
 
 The Users and Items dataset types are known as metadata types and are only used by certain recipes\. For more information, see [Using Predefined Recipes](working-with-predefined-recipes.md)\. For metadata datasets, all strings, except for `USER_ID` and `ITEM_ID`, must be marked as `categorical` in the schema, as shown in the following examples\.
 
@@ -31,7 +31,7 @@ When you create a schema, you must follow these guidelines:
 + If you add your own metadata field of type `string`, it must include the `"categorical"` attribute\. Otherwise, you can’t use it to train a model\.
 + A schema, and its related dataset, can contain up to five metadata fields\.
 
-The following example shows an Interactions schema\. The `EVENT_TYPE` and `EVENT_VALUE` fields are optional, and are reserved keywords recognized by Amazon Personalize\.
+The following example shows an Interactions schema\. The `EVENT_TYPE` and `EVENT_VALUE` fields are optional, and are reserved keywords recognized by Amazon Personalize\. `LOCATION` and `DEVICE` are optional contextual metadata fields\.
 
 ```
 {
@@ -54,6 +54,16 @@ The following example shows an Interactions schema\. The `EVENT_TYPE` and `EVENT
       {
           "name": "EVENT_VALUE",
           "type": "float"
+      },
+      {
+          "name": "LOCATION",
+          "type": "string",
+          "categorical": true
+      },
+      {
+          "name": "DEVICE",
+          "type": "string",
+          "categorical": true
       },
       {
           "name": "TIMESTAMP",

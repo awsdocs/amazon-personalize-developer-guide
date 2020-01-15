@@ -1,5 +1,22 @@
 # Limits in Amazon Personalize<a name="limits"></a>
 
+The following sections contain information about Amazon Personalize guidelines and limits\.
+
+**Topics**
++ [Supported AWS Regions](#regions)
++ [Compliance](#ompliance)
++ [Service Limits](#limits-table)
+
+## Supported AWS Regions<a name="regions"></a>
+
+For a list of AWS Regions that support Amazon Personalize, see [AWS Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/personalize.html) in the *Amazon Web Services General Reference*\.
+
+## Compliance<a name="ompliance"></a>
+
+For more information about Amazon Personalize compliance programs, see [AWS Compliance](https://aws.amazon.com/compliance/), [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/), and [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope)\.
+
+## Service Limits<a name="limits-table"></a>
+
 Your AWS account has the following limits for Amazon Personalize\.
 
 

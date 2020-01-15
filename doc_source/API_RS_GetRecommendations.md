@@ -15,6 +15,9 @@ Content-type: application/json
 
 {
    "[campaignArn](#personalize-RS_GetRecommendations-request-campaignArn)": "string",
+   "[context](#personalize-RS_GetRecommendations-request-context)": { 
+      "string" : "string" 
+   },
    "[itemId](#personalize-RS_GetRecommendations-request-itemId)": "string",
    "[numResults](#personalize-RS_GetRecommendations-request-numResults)": number,
    "[userId](#personalize-RS_GetRecommendations-request-userId)": "string"
@@ -35,6 +38,14 @@ Type: String
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: Yes
+
+ ** [context](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-context"></a>
+The contextual metadata to use when getting recommendations\. Contextual metadata includes any interaction information that might be relevant when getting a user's recommendations, such as the user's current location or device type\.  
+Type: String to string map  
+Key Length Constraints: Maximum length of 150\.  
+Key Pattern: `[A-Za-z\d_]+`   
+Value Length Constraints: Maximum length of 1000\.  
+Required: No
 
  ** [itemId](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-itemId"></a>
 The item ID to provide recommendations for\.  

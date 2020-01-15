@@ -5,7 +5,7 @@ Describes the configuration properties for the solution\.
 ## Contents<a name="API_SolutionConfig_Contents"></a>
 
  **algorithmHyperParameters**   <a name="personalize-Type-SolutionConfig-algorithmHyperParameters"></a>
-Lists the hyperparameter names and ranges\.  
+Lists the hyperparameter names and ranges used when training the solution\.  
 Type: String to string map  
 Key Length Constraints: Maximum length of 256\.  
 Value Length Constraints: Maximum length of 1000\.  
@@ -14,6 +14,11 @@ Required: No
  **autoMLConfig**   <a name="personalize-Type-SolutionConfig-autoMLConfig"></a>
 The [AutoMLConfig](API_AutoMLConfig.md) object containing a list of recipes to search when AutoML is performed\.  
 Type: [AutoMLConfig](API_AutoMLConfig.md) object  
+Required: No
+
+ **eventsConfig**   <a name="personalize-Type-SolutionConfig-eventsConfig"></a>
+The properties of the events to be considered during solution training\.  
+Type: [EventsConfig](API_EventsConfig.md) object  
 Required: No
 
  **eventValueThreshold**   <a name="personalize-Type-SolutionConfig-eventValueThreshold"></a>

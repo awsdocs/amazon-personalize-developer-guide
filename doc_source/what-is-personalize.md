@@ -16,6 +16,8 @@ To give recommendations to your users, call one of the recommendation APIs, and 
 
 Amazon Personalize can improve its recommendations over time as new user activity data is collected\. For example, a new movie rental event by a user can result in better movie recommendations\.
 
+Amazon Personalize can provide recommendations based on a user's browsing context\. For example, Amazon Personalize can provide different recommendations when a user is browsing on a mobile device than when that same user is browsing on a desktop\.
+
 With Amazon Personalize you can train a solution for different use cases\. For example, user personalization, items related to an item, and re\-ranking of items\. You choose a recipe based on your use case and provide the input data\. A recipe performs featurization of your data, and applies a choice of learning algorithms, along with default hyperparameters, and hyperparameter optimization job configuration\.
 
 Recipes in Amazon Personalize allow you to create custom personalization models without needing machine learning expertise\. You can choose which recipe to use to train a solution version, or let Amazon Personalize decide on the best recipe to use for your data\. To help you decide which recipe to use, Amazon Personalize provides extensive metrics on the performance of a trained solution version\.

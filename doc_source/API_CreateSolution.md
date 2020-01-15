@@ -40,6 +40,15 @@ To get the status of the solution, call [DescribeSolution](API_DescribeSolution.
          "[metricName](API_AutoMLConfig.md#personalize-Type-AutoMLConfig-metricName)": "string",
          "[recipeList](API_AutoMLConfig.md#personalize-Type-AutoMLConfig-recipeList)": [ "string" ]
       },
+      "[eventsConfig](API_SolutionConfig.md#personalize-Type-SolutionConfig-eventsConfig)": { 
+         "[eventParametersList](API_EventsConfig.md#personalize-Type-EventsConfig-eventParametersList)": [ 
+            { 
+               "[eventType](API_EventParameters.md#personalize-Type-EventParameters-eventType)": "string",
+               "[eventValueThreshold](API_EventParameters.md#personalize-Type-EventParameters-eventValueThreshold)": number,
+               "[weight](API_EventParameters.md#personalize-Type-EventParameters-weight)": number
+            }
+         ]
+      },
       "[eventValueThreshold](API_SolutionConfig.md#personalize-Type-SolutionConfig-eventValueThreshold)": "string",
       "[featureTransformationParameters](API_SolutionConfig.md#personalize-Type-SolutionConfig-featureTransformationParameters)": { 
          "string" : "string" 

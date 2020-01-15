@@ -27,6 +27,8 @@ The following data types are supported by Amazon Personalize:
 +  [DefaultContinuousHyperParameterRange](API_DefaultContinuousHyperParameterRange.md) 
 +  [DefaultHyperParameterRanges](API_DefaultHyperParameterRanges.md) 
 +  [DefaultIntegerHyperParameterRange](API_DefaultIntegerHyperParameterRange.md) 
++  [EventParameters](API_EventParameters.md) 
++  [EventsConfig](API_EventsConfig.md) 
 +  [EventTracker](API_EventTracker.md) 
 +  [EventTrackerSummary](API_EventTrackerSummary.md) 
 +  [FeatureTransformation](API_FeatureTransformation.md) 

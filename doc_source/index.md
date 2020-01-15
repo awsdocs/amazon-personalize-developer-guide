@@ -1,7 +1,7 @@
 # Amazon Personalize Developer Guide
 
 -----
-*****Copyright &copy; 2019 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -129,6 +129,8 @@ Amazon's trademarks and trade dress may not be used in
          + [DefaultContinuousHyperParameterRange](API_DefaultContinuousHyperParameterRange.md)
          + [DefaultHyperParameterRanges](API_DefaultHyperParameterRanges.md)
          + [DefaultIntegerHyperParameterRange](API_DefaultIntegerHyperParameterRange.md)
+         + [EventParameters](API_EventParameters.md)
+         + [EventsConfig](API_EventsConfig.md)
          + [EventTracker](API_EventTracker.md)
          + [EventTrackerSummary](API_EventTrackerSummary.md)
          + [FeatureTransformation](API_FeatureTransformation.md)
