@@ -173,9 +173,9 @@ The [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) uses a chosen solu
 #### [ Output ]
 
 ```
-{"input": {"userId": "891", "itemIds": ["27", "886", "101"]}, "output": {"recommendedItems": ["27", "101", "886"]}}
-{"input": {"userId": "445", "itemIds": ["527", "55", "901"]}, "output": {"recommendedItems": ["901", "527", "55"]}}
-{"input": {"userId": "71", "itemIds": ["29", "351", "199"]}, "output": {"recommendedItems": ["351", "29", "199"]}}
+{"input": {"userId": "891", "itemList": ["27", "886", "101"]}, "output": {"recommendedItems": ["27", "101", "886"]}}
+{"input": {"userId": "445", "itemList": ["527", "55", "901"]}, "output": {"recommendedItems": ["901", "527", "55"]}}
+{"input": {"userId": "71", "itemList": ["29", "351", "199"]}, "output": {"recommendedItems": ["351", "29", "199"]}}
 ...
 ```
 

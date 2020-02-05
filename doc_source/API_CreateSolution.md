@@ -103,6 +103,7 @@ Required: Yes
 
  ** [eventType](#API_CreateSolution_RequestSyntax) **   <a name="personalize-CreateSolution-request-eventType"></a>
 When your have multiple event types \(using an `EVENT_TYPE` schema field\), this parameter specifies which event type \(for example, 'click' or 'like'\) is used for training the model\.  
+If you want to specify [custom events](https://docs.aws.amazon.com/personalize/latest/dg/custom-events.html), include this field in the [EventsConfig](API_EventsConfig.md) object instead\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Required: No

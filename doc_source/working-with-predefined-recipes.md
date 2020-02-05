@@ -10,7 +10,7 @@ The predefined recipes use the following during training:
 
 To optimize your model, you can override many of these parameters when you create a soluton\. For more information, see [Hyperparameters and HPO](customizing-solution-config-hpo.md)\.
 
-Amazon Personalize can automatically choose the most appropriate hierarchical recurrent neural network \(HRNN\) recipe based on its analysis of the input data\. This option is called AutoML\. To perform AutoML, set the `performAutoML` parameter to `true` when you call the [CreateSolution](API_CreateSolution.md) API\. Alternatively, you can choose a specific recipe based on what you want to accomplish and how famliar you are with the recipes\. Each recipe is designed for a specific use case\. When creating a solution, choose the recipe that best fits your needs\.
+Amazon Personalize can automatically choose the most appropriate hierarchical recurrent neural network \(HRNN\) recipe based on its analysis of the input data\. This option is called AutoML\. To perform AutoML, set the `performAutoML` parameter to `true` when you call the [CreateSolution](API_CreateSolution.md) API\. Alternatively, you can choose a specific recipe based on what you want to accomplish and how familiar you are with the recipes\. Each recipe is designed for a specific use case\. When creating a solution, choose the recipe that best fits your needs\.
 
 To see a list of available recipes:
 + In the Amazon Personalize console, choose a dataset group\. From the navigation pane, choose **Solutions and recipes**, and choose the **Recipes** tab\. 

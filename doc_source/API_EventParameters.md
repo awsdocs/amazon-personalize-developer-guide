@@ -11,7 +11,7 @@ Length Constraints: Maximum length of 256\.
 Required: No
 
  **eventValueThreshold**   <a name="personalize-Type-EventParameters-eventValueThreshold"></a>
-The minimum value required for the event to be included in solution training\.   
+The minimum value required for the event to take on a custom weight\. Events with values below the threshold will be given the the default weight\.  
 Type: Double  
 Valid Range: Minimum value of \-1000000\. Maximum value of 1000000\.  
 Required: No
