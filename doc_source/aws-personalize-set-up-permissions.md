@@ -72,6 +72,9 @@ A user needs permission to create the IAM role\. To give a user permission, see 
           "Statement": [
               {
                   "Effect": "Allow",
+                  "Principal": {
+                      "Service": "personalize.amazonaws.com"
+                  },
                   "Action": "sts:AssumeRole"
               }
           ]
@@ -92,9 +95,6 @@ A user needs permission to create the IAM role\. To give a user permission, see 
            {
                "Sid": "PersonalizeS3BucketAccessPolicy",
                "Effect": "Allow",
-               "Principal": {
-                   "Service": "personalize.amazonaws.com"
-               },
                "Action": [
                    "s3:GetObject",
                    "s3:ListBucket"

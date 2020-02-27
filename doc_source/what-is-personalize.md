@@ -39,3 +39,7 @@ If you are a first\-time user of Amazon Personalize, we recommend that you read 
 1. **[Creating a Campaign](campaigns.md)** – This section provides information about deploying a solution version as a campaign\.
 
 1. **[Getting Recommendations](getting-recommendations.md)** – This section show how to get recommendations from a campaign\.
+
+## Are You an Experienced Amazon Personalize User?<a name="experienced-user"></a>
+
+If you are an experienced Amazon Personalize user, you can find in\-depth tutorials and code samples in the [amazon\-personalize\-samples GitHub repository](https://github.com/aws-samples/amazon-personalize-samples/tree/master/advanced_examples)\.

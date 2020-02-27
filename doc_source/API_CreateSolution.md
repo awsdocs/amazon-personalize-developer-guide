@@ -40,15 +40,6 @@ To get the status of the solution, call [DescribeSolution](API_DescribeSolution.
          "[metricName](API_AutoMLConfig.md#personalize-Type-AutoMLConfig-metricName)": "string",
          "[recipeList](API_AutoMLConfig.md#personalize-Type-AutoMLConfig-recipeList)": [ "string" ]
       },
-      "[eventsConfig](API_SolutionConfig.md#personalize-Type-SolutionConfig-eventsConfig)": { 
-         "[eventParametersList](API_EventsConfig.md#personalize-Type-EventsConfig-eventParametersList)": [ 
-            { 
-               "[eventType](API_EventParameters.md#personalize-Type-EventParameters-eventType)": "string",
-               "[eventValueThreshold](API_EventParameters.md#personalize-Type-EventParameters-eventValueThreshold)": number,
-               "[weight](API_EventParameters.md#personalize-Type-EventParameters-weight)": number
-            }
-         ]
-      },
       "[eventValueThreshold](API_SolutionConfig.md#personalize-Type-SolutionConfig-eventValueThreshold)": "string",
       "[featureTransformationParameters](API_SolutionConfig.md#personalize-Type-SolutionConfig-featureTransformationParameters)": { 
          "string" : "string" 
@@ -103,7 +94,6 @@ Required: Yes
 
  ** [eventType](#API_CreateSolution_RequestSyntax) **   <a name="personalize-CreateSolution-request-eventType"></a>
 When your have multiple event types \(using an `EVENT_TYPE` schema field\), this parameter specifies which event type \(for example, 'click' or 'like'\) is used for training the model\.  
-If you want to specify [custom events](https://docs.aws.amazon.com/personalize/latest/dg/custom-events.html), include this field in the [EventsConfig](API_EventsConfig.md) object instead\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Required: No
@@ -192,4 +182,4 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-2018-05-22/CreateSolution) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/CreateSolution) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/CreateSolution) 
-+  [AWS SDK for Ruby V2](https://docs.aws.amazon.com/goto/SdkForRubyV2/personalize-2018-05-22/CreateSolution) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/CreateSolution) 

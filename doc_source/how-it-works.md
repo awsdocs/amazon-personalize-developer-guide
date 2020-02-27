@@ -94,6 +94,6 @@ For user\-personalization and related\-items recipes, the [GetRecommendations](A
 
 For personalized\-ranking recipes, the [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) API re\-ranks a list of recommended items based on a specified query\.
 
-You can also use a [batch workflow](getting-recommendations.md#recommendations-batch) to get recommendations for large datasets that do not require real\-time updates\. 
+You can also use a [batch workflow](recommendations-batch.md) to get recommendations for large datasets that do not require real\-time updates\. 
 
 For more information, see [Getting Recommendations](getting-recommendations.md)\.

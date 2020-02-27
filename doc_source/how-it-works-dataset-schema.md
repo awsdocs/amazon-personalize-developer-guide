@@ -29,7 +29,7 @@ When you create a schema, you must follow these guidelines:
 + Added fields that are not required or don't use a reserved keyword are metadata\. Metadata fields can be either a string or non\-string type\.
 + The users and items schemas require at least one metadata field\.
 + If you add your own metadata field of type `string`, it must include the `"categorical"` attribute\. Otherwise, you can’t use it to train a model\.
-+ A schema, and its related dataset, can contain up to five metadata fields\.
++ A Users or Interactions dataset can contain up to 5 metadata fields\. An Items dataset can contain up to 50 metadata fields\.
 
 The following example shows an Interactions schema\. The `EVENT_TYPE` and `EVENT_VALUE` fields are optional, and are reserved keywords recognized by Amazon Personalize\. `LOCATION` and `DEVICE` are optional contextual metadata fields\.
 

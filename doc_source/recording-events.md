@@ -18,6 +18,8 @@ To record events, you need the following:
 
  Amazon Personalize predefined recipes are compatible with the `PutEvents` API\. This includes the required `sessionId` parameter which makes these recipes aware of sessions\.
 
+For a sample Jupyter notebook that shows you how to use the PutEvents operation to record and implement new customer data, see [Using the PutEvents API with Personalize](https://github.com/aws-samples/amazon-personalize-samples/blob/master/advanced_examples/personalize_putEvents_demo.ipynb) in the [amazon\-personalize\-samples](https://github.com/aws-samples/amazon-personalize-samples) GitHub repository\.
+
 **Topics**
 + [Creating a Dataset Group](#event-dataset-group)
 + [Getting a Tracking ID](#event-get-tracker)

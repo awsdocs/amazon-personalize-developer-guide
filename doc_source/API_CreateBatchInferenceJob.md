@@ -1,6 +1,6 @@
 # CreateBatchInferenceJob<a name="API_CreateBatchInferenceJob"></a>
 
-Creates a batch inference job\. The operation can handle up to 50 million records and the input file must be in JSON format\. For more information, see [Get Batch Recommendations](getting-recommendations.md#recommendations-batch)\.
+Creates a batch inference job\. The operation can handle up to 50 million records and the input file must be in JSON format\. For more information, see [Geting Batch Recommendations](recommendations-batch.md)\.
 
 ## Request Syntax<a name="API_CreateBatchInferenceJob_RequestSyntax"></a>
 
@@ -118,4 +118,4 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-2018-05-22/CreateBatchInferenceJob) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/CreateBatchInferenceJob) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/CreateBatchInferenceJob) 
-+  [AWS SDK for Ruby V2](https://docs.aws.amazon.com/goto/SdkForRubyV2/personalize-2018-05-22/CreateBatchInferenceJob) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/CreateBatchInferenceJob) 

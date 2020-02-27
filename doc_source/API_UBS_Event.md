@@ -25,7 +25,7 @@ Each item in the map consists of a key\-value pair\. For example,
 The keys use camel case names that match the fields in the Interactions schema\. The `itemId` and `eventValue` keys correspond to the `ITEM_ID` and `EVENT_VALUE` fields\. In the above example, the `eventType` might be 'MovieRating' with `eventValue` being the rating\. The `numberOfRatings` would match the 'NUMBER\_OF\_RATINGS' field defined in the Interactions schema\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1024\.  
-Required: Yes
+Required: No
 
  **sentAt**   <a name="personalize-Type-UBS_Event-sentAt"></a>
 The timestamp on the client side when the event occurred\.  
@@ -38,4 +38,4 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-events-2018-03-22/Event) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-events-2018-03-22/Event) 
 +  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/personalize-events-2018-03-22/Event) 
-+  [AWS SDK for Ruby V2](https://docs.aws.amazon.com/goto/SdkForRubyV2/personalize-events-2018-03-22/Event) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-events-2018-03-22/Event) 

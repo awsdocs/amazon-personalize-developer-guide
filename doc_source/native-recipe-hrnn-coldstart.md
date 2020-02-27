@@ -46,4 +46,4 @@ The table also provides the following information for each hyperparameter:
 
 ## HRNN\-Coldstart Sample Notebook<a name="hrnn-coldstart-sample-notebooks"></a>
 
- For a sample Jupyter notebook that shows how to use the HRNN\-Coldstart recipe, see [Amazon Personalize Coldstart Demo](https://github.com/aws-samples/amazon-personalize-samples/blob/master/personalize_temporal_holdout/personalize_coldstart_demo.ipynb)\.
+For a sample Jupyter notebook that shows how to use the HRNN\-Coldstart recipe, see [Amazon Personalize Coldstart Demo](https://github.com/aws-samples/amazon-personalize-samples/blob/master/advanced_examples/personalize_coldstart_demo.ipynb)\.

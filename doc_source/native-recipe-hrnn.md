@@ -36,5 +36,5 @@ The table also provides the following information for each hyperparameter:
 ## HRNN Sample Notebooks<a name="hrnn-sample-notebooks"></a>
 
 The following Jupyter notebooks show how to use the HRNN recipe: 
-+  For a sample notebook that shows how to use HRNN with a hold\-out set, see [Amazon Personalize with temporal evaluation on hold\-out set](https://github.com/aws-samples/amazon-personalize-samples/blob/master/personalize_temporal_holdout/personalize_temporal_holdout.ipynb)\.
-+  For a sample notebook that shows how to use HRNN with the `PutEvents` API, see [Using the put events API with Amazon Personalize](https://github.com/aws-samples/amazon-personalize-samples/blob/master/personalize_temporal_holdout/personalize_putEvents_demo.ipynb)\.
++  For a sample notebook that shows how to use HRNN with a hold\-out set, see [Amazon Personalize with temporal evaluation on hold\-out set](https://github.com/aws-samples/amazon-personalize-samples/blob/master/advanced_examples/personalize_temporal_holdout.ipynb)\.
++  For a sample notebook that shows how to use HRNN with the `PutEvents` API, see [Using the put events API with Amazon Personalize](https://github.com/aws-samples/amazon-personalize-samples/blob/master/advanced_examples/personalize_putEvents_demo.ipynb)\.

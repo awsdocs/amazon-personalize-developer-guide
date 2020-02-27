@@ -2,9 +2,12 @@
 
 Amazon Personalize generates a number of metrics when it creates a solution version\. These metrics allow you to evaluate the performance of the solution version before you create a campaign and provide recommendations\. Metrics allow you to view the effects of modifying a solution's hyperparameters\. You can also compare the metrics between solutions that use the same training data but created with different recipes\.
 
+To get performance metrics, Amazon Personalize splits the input interactions data by randomly selecting 90% of users and their related interactions as training data and the other 10% as testing data\. The solution version is then created using the training data\. Afterwards, the solution version is given the oldest 90% of each user's testing data as input, and the recommendations it generates are compared against the real interactions given by the most recent 10% of testing data\.
+
 For user\-personalization, it's recommended to run multiple recipes on your data to determine the optimal solution\. As a baseline, run the [Popularity\-Count](native-recipe-popularity.md) recipe, which recommends the top K most popular items\.
 
-To get performance metrics, Amazon Personalize splits the input interactions data by randomly selecting 90% of users and their related interactions as training data and the other 10% as testing data\. The solution version is then created using the training data\. Afterwards, the solution version is given the oldest 90% of each user's testing data as input, and the recommendations it generates are compared against the real interactions given by the most recent 10% of testing data\.
+**Important**  
+In order for Amazon Personalize to generate solution version metrics, you must have at least 10 datapoints in your input dataset group\.
 
 ## Metrics<a name="working-with-training-metrics-metrics"></a>
 
@@ -85,3 +88,7 @@ Calculation: 2/5
 Result: 0\.4000
 
 Now that you have evaluated your solution version, create a campaign by deploying the optimum solution version\. For more information, see [Creating a Campaign](campaigns.md)\.
+
+## More Info<a name="metrics-see-also"></a>
+
+For a sample Jupyter notebook that shows you how to retrieve metrics based on hold\-out data, see [Personalize with Temporal Evaluation on Hold\-Out Set](https://github.com/aws-samples/amazon-personalize-samples/blob/master/advanced_examples/personalize_temporal_holdout.ipynb)\.
