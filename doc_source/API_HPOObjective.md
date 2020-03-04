@@ -17,7 +17,7 @@ Length Constraints: Maximum length of 256\.
 Required: No
 
  **type**   <a name="personalize-Type-HPOObjective-type"></a>
-The data type of the metric\.  
+The type of the metric\. Valid values are `Maximize` and `Minimize`\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Required: No
