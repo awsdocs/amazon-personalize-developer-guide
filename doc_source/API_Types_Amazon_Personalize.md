@@ -43,3 +43,4 @@ The following data types are supported by Amazon Personalize:
 +  [SolutionSummary](API_SolutionSummary.md) 
 +  [SolutionVersion](API_SolutionVersion.md) 
 +  [SolutionVersionSummary](API_SolutionVersionSummary.md) 
++  [TunedHPOParams](API_TunedHPOParams.md) 

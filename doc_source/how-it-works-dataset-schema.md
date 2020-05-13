@@ -3,7 +3,7 @@
 Amazon Personalize recognizes three types of historical datasets\. Each type has an associated schema with a *name* key whose value matches the dataset type\. The three types are:
 + **Users** – This dataset is intended to provide metadata about your users\. This might include information such as age, gender, or loyalty membership, which can be important signals in personalization systems\.
 + **Items** – This dataset is intended to provide metadata about your items\. This might include information such as price, SKU type, or availability\.
-+ **Interactions** – This dataset is intended to provide historical interaction data between users and items\. It can also provide metadata on youe user's browsing context, such as their location or device \(mobile, tablet, desktop, and so on\)\.
++ **Interactions** – This dataset is intended to provide historical interaction data between users and items\. It can also provide metadata on your user's browsing context, such as their location or device \(mobile, tablet, desktop, and so on\)\.
 
 The Users and Items dataset types are known as metadata types and are only used by certain recipes\. For more information, see [Using Predefined Recipes](working-with-predefined-recipes.md)\. For metadata datasets, all strings, except for `USER_ID` and `ITEM_ID`, must be marked as `categorical` in the schema, as shown in the following examples\.
 

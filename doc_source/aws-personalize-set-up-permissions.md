@@ -26,6 +26,9 @@ Allows Amazon Personalize access to the S3 bucket that contains your training da
 **CloudWatchFullAccess Policy \(Optional\)**  
 The `AmazonPersonalizeFullAccess` policy provides permissions to publish and list Amazon Personalize metrics in CloudWatch\. The `CloudWatchFullAccess` policy adds additional permissions, such as viewing metrics, displaying metric statistics, and setting metric based alarms\. For more information, see [Monitoring Amazon Personalize](personalize-monitoring.md)\.
 
+**Note**  
+Because Amazon Personalize does not communicate with AWS VPCs, Amazon Personalize will be unable to interact with Amazon S3 buckets that only allow VPC access\.
+
 ## Creating an IAM Role<a name="set-up-create-role-with-permissions"></a>
 
 In the following procedure, you create an IAM role that allows Amazon Personalize to access your resources and perform tasks on your behalf\.

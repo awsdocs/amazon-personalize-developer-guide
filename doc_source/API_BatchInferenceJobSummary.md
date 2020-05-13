@@ -33,6 +33,13 @@ The time at which the batch inference job was last updated\.
 Type: Timestamp  
 Required: No
 
+ **solutionVersionArn**   <a name="personalize-Type-BatchInferenceJobSummary-solutionVersionArn"></a>
+The ARN of the solution version used by the batch inference job\.  
+Type: String  
+Length Constraints: Maximum length of 256\.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
+Required: No
+
  **status**   <a name="personalize-Type-BatchInferenceJobSummary-status"></a>
 The status of the batch inference job\. The status is one of the following values:  
 + PENDING

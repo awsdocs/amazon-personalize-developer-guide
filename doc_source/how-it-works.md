@@ -50,7 +50,7 @@ There are two ways to provide the training data\. You can import historical data
 
 A dataset group contains related datasets\. Three types of historical datasets are created by the customer \(users, items, and interactions\), and one type is created by Amazon Personalize for live\-event interactions\. A dataset group can contain only one of each kind of dataset\.
 
-You can create datasets groups to serve different purposes\. For example, you might have an application that provides recommendations for purchasing shoes and another that provides recommendations for places to visit in Europe\. In Amazon Personalize, each application would have its own dataset group\.
+You can create dataset groups to serve different purposes\. For example, you might have an application that provides recommendations for purchasing shoes and another that provides recommendations for places to visit in Europe\. In Amazon Personalize, each application would have its own dataset group\.
 
 Historical data must be provided in a CSV file\. Each dataset type has a unique schema that specifies the contents of the CSV file\.
 

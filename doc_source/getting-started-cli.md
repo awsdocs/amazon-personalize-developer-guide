@@ -15,10 +15,10 @@ The CLI commands in this exercise were tested on Linux\. For information about u
 
 Follow the steps to create a dataset group, add a dataset to the group, and then populate the dataset using the movie ratings data\.
 
-1. Create a dataset group by running the following command\. For more information about the API, see [CreateDatasetGroup](API_CreateDatasetGroup.md)\.
+1. Create a dataset group by running the following command\. You can encrypt the dataset group by passing a [AWS Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) key ARN and the ARN of an IAM role that has access permissions to that key as input parameters\. For more information about the API, see [CreateDatasetGroup](API_CreateDatasetGroup.md)\.
 
    ```
-   aws personalize create-dataset-group --name MovieRatingDatasetGroup
+   aws personalize create-dataset-group --name MovieRatingDatasetGroup --kms-key-arn arn:aws:kms:us-west-2:01234567890:key/1682a1e7-a94d-4d92-bbdf-837d3b62315e --role-arn arn:aws:iam::01234567890:KMS-key-access
    ```
 
    The dataset group ARN is displayed, for example:

@@ -84,7 +84,12 @@ Required: Yes
       "[solutionVersionArn](API_SolutionVersion.md#personalize-Type-SolutionVersion-solutionVersionArn)": "string",
       "[status](API_SolutionVersion.md#personalize-Type-SolutionVersion-status)": "string",
       "[trainingHours](API_SolutionVersion.md#personalize-Type-SolutionVersion-trainingHours)": number,
-      "[trainingMode](API_SolutionVersion.md#personalize-Type-SolutionVersion-trainingMode)": "string"
+      "[trainingMode](API_SolutionVersion.md#personalize-Type-SolutionVersion-trainingMode)": "string",
+      "[tunedHPOParams](API_SolutionVersion.md#personalize-Type-SolutionVersion-tunedHPOParams)": { 
+         "[algorithmHyperParameters](API_TunedHPOParams.md#personalize-Type-TunedHPOParams-algorithmHyperParameters)": { 
+            "string" : "string" 
+         }
+      }
    }
 }
 ```

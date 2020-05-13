@@ -92,6 +92,11 @@ Type: String
 Valid Values:` FULL | UPDATE`   
 Required: No
 
+ **tunedHPOParams**   <a name="personalize-Type-SolutionVersion-tunedHPOParams"></a>
+If hyperparameter optimization was performed, contains the hyperparameter values of the best performing model\.  
+Type: [TunedHPOParams](API_TunedHPOParams.md) object  
+Required: No
+
 ## See Also<a name="API_SolutionVersion_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:

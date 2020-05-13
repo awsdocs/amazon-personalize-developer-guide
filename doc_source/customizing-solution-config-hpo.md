@@ -2,7 +2,7 @@
 
 Hyperparameters are used to optimize the trained model and are set before training begins\. This contrasts with model parameters whose values are determined during the training process\.
 
-Hyperparameters are specified using the `algorithmHyperParameters` key that is part of the [SolutionConfig](API_SolutionConfig.md) object that is passed to the [CreateSolution](API_CreateSolution.md) API\.
+Hyperparameters are specified using the `algorithmHyperParameters` key that is part of the [SolutionConfig](API_SolutionConfig.md) object that is passed to the [CreateSolution](API_CreateSolution.md) operation\.
 
 Different recipes use different hyperparameters\. For the available hyperparameters, see the individual recipes in [Using Predefined Recipes](working-with-predefined-recipes.md)\.
 
@@ -48,6 +48,30 @@ The following is a partial example of a `CreateSolution` request using the [HRNN
             }
         }
     }
+}
+```
+
+Once training is complete, you can view the hyperparameters of the best performing model by calling the [DescribeSolutionVersion](API_DescribeSolutionVersion.md) operation\. The following sample shows a condensed `DescribeSolutionVersion` output with the optimized hyperparameters displayed in the `tunedHPOParams` object\.
+
+```
+{
+   "solutionVersion":{
+      "creationDateTime":1562191944.745,
+      "datasetGroupArn":"arn:aws:personalize:us-west-2:000000000000:dataset-group/hpo",
+      "lastUpdatedDateTime":1562194465.075,
+      "performAutoML":false,
+      "performHPO":true,
+      "recipeArn":"arn:aws:personalize:::recipe/aws-hrnn",
+      "solutionArn":"arn:aws:personalize:us-west-2:000000000000:solution/hpo",
+      "solutionVersionArn":"arn:aws:personalize:us-west-2:000000000000:solution/hpo/5a515609",
+      "status":"ACTIVE",
+      "tunedHPOParams":{
+         "algorithmHyperParameters":{
+            "hidden_dimension":"58",
+            "recency_mask":"false"
+         }
+      }
+   }
 }
 ```
 

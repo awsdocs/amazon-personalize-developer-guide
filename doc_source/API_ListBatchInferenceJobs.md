@@ -46,6 +46,7 @@ Required: No
          "[failureReason](API_BatchInferenceJobSummary.md#personalize-Type-BatchInferenceJobSummary-failureReason)": "string",
          "[jobName](API_BatchInferenceJobSummary.md#personalize-Type-BatchInferenceJobSummary-jobName)": "string",
          "[lastUpdatedDateTime](API_BatchInferenceJobSummary.md#personalize-Type-BatchInferenceJobSummary-lastUpdatedDateTime)": number,
+         "[solutionVersionArn](API_BatchInferenceJobSummary.md#personalize-Type-BatchInferenceJobSummary-solutionVersionArn)": "string",
          "[status](API_BatchInferenceJobSummary.md#personalize-Type-BatchInferenceJobSummary-status)": "string"
       }
    ],

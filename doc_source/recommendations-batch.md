@@ -1,8 +1,12 @@
-# Geting Batch Recommendations<a name="recommendations-batch"></a>
+# Getting Batch Recommendations<a name="recommendations-batch"></a>
 
 Use an asynchronous batch workflow to get recommendations from large datasets that do not require real\-time updates\. For instance, you might create a batch inference job to get product recommendations for all users on an email list, or to get [item\-to\-item similarities \(SIMS\)](native-recipe-sims.md) across an inventory\. To get batch recommendations, you can create a batch inference job by calling [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md)\.
 
 The [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) uses a chosen solution version to make recommendations based on data provided in an input JSON file\. The result is then returned as a JSON file to an Amazon S3 bucket\. The following tab list contains correctly formatted JSON input and output excerpts for each recipe type\.
+
+**How scoring works**
+
+Item scores calculated by batch recommendation jobs are calculated the same ways as described in [Getting Real\-Time Recommendations](getting-real-time-recommendations.md), and can be viewed in the batch job's output JSON file\. Scores are only returned by models trained with the HRNN and Personalize\-Ranking recipes\.
 
 **HRNN**
 
@@ -20,9 +24,9 @@ The [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) uses a chosen solu
 #### [ Output ]
 
 ```
-{"input":{"userId":"4638"}, "output": {"recommendedItems": ["296", "1", "260", "318"]}}
-{"input":{"userId":"663"}, "output": {"recommendedItems": ["1393", "3793", "2701", "3826"]}}
-{"input":{"userId":"3384"}, "output": {"recommendedItems": ["8368", "5989", "40815", "48780"]}}
+{"input":{"userId":"4638"}, "output": {"recommendedItems": ["296", "1", "260", "318"]}, {"scores": [0.0009785, 0.000976, 0.0008851]}}
+{"input":{"userId":"663"}, "output": {"recommendedItems": ["1393", "3793", "2701", "3826"]}, {"scores": [0.00008149, 0.00007025, 0.000652]}}
+{"input":{"userId":"3384"}, "output": {"recommendedItems": ["8368", "5989", "40815", "48780"]}, {"scores": [0.003015, 0.00154, 0.00142]}}
 ...
 ```
 
@@ -68,9 +72,9 @@ The [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) uses a chosen solu
 #### [ Output ]
 
 ```
-{"input": {"userId": "891", "itemList": ["27", "886", "101"]}, "output": {"recommendedItems": ["27", "101", "886"]}}
-{"input": {"userId": "445", "itemList": ["527", "55", "901"]}, "output": {"recommendedItems": ["901", "527", "55"]}}
-{"input": {"userId": "71", "itemList": ["29", "351", "199"]}, "output": {"recommendedItems": ["351", "29", "199"]}}
+{"input": {"userId": "891", "itemList": ["27", "886", "101"]}, "output": {"recommendedItems": ["27", "101", "886"]}, {"scores": [0.48421, 0.28133, 0.23446]}}
+{"input": {"userId": "445", "itemList": ["527", "55", "901"]}, "output": {"recommendedItems": ["901", "527", "55"]}, {"scores": [0.46972, 0.31011, 0.22017]}}
+{"input": {"userId": "71", "itemList": ["29", "351", "199"]}, "output": {"recommendedItems": ["351", "29", "199"]}, {"scores": [0.68937, 0.24829, 0.06232]}}
 ...
 ```
 
@@ -92,7 +96,7 @@ The [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) uses a chosen solu
 #### [ Output ]
 
 ```
-{"input": {"itemId": "105"}, "output": {"recommendedItems": ["106", "107", "49"]}}
+{"input": {"itemId": "105"}, "output": {"recommendedItems": ["106", "107", "49"]}, }
 {"input": {"itemId": "106"}, "output": {"recommendedItems": ["105", "107", "49"]}}
 {"input": {"itemId": "441"}, "output": {"recommendedItems": ["2", "442", "435"]}}
 ...
@@ -139,7 +143,7 @@ The following is an example of a batch inference workflow using the AWS CLI\. A 
 ```
 aws personalize create-batch-inference-job --job-name batchTest \
                 --solution-version-arn arn:aws:personalize:us-west-2:012345678901:solution/batch-test-solution-version/1234abcd \
-                --job-input s3DataSource={path=s3://personalize/batch/input/batch-test-input.json} \
+                --job-input s3DataSource={path=s3://personalize/batch/input/input.json} \
                 --job-output s3DataDestination={path=s3://personalize/batch/output/} \
                 --role-arn arn:aws:iam::012345678901:role/import-export-role
       

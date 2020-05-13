@@ -28,7 +28,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 1024\.
 Required: No
 
  **sentAt**   <a name="personalize-Type-UBS_Event-sentAt"></a>
-The timestamp on the client side when the event occurred\.  
+The timestamp \(in Unix time\) on the client side when the event occurred\.  
 Type: Timestamp  
 Required: Yes
 

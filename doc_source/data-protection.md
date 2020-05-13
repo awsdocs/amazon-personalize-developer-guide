@@ -19,7 +19,7 @@ Amazon Personalize uses the default Amazon S3 key \(SSE\-S3\) for server\-side e
 
 ## Encryption in Transit<a name="data-protection-in-transit"></a>
 
-By default, Amazon Personalize uses TLS 1\.2 with AWS certificates to encrypt data in transit\.
+Amazon Personalize copies data out of your account and processes it in an internal AWS system\. By default, Amazon Personalize uses TLS 1\.2 with AWS certificates to encrypt data in transit\.
 
 ## Key Management<a name="data-protection-keys"></a>
 

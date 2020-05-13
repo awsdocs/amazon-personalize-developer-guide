@@ -14,6 +14,7 @@ A solution is created by calling the [CreateSolution](API_CreateSolution.md) API
             "metricName": "string",
             "recipeList": [ "string" ]
         },
+        "eventValueThreshold": "string",
         "featureTransformationParameters": {
             "string" : "string"
         },
@@ -34,7 +35,6 @@ A solution is created by calling the [CreateSolution](API_CreateSolution.md) API
                 "maxParallelTrainingJobs": "string"
             }
         },
-        "eventValueThreshold": "string"
     },
 }
 ```
