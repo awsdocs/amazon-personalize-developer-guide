@@ -4,8 +4,6 @@ The Amazon Personalize hierarchical recurrent neural network \(HRNN\) recipe mod
 
 HRNN accommodates user intent and interests, which can change over time\. It takes ordered user histories and automatically weights them to make better inferences\. HRNN uses a gating mechanism to model the discount weights as a learnable function of the items and timestamps\.
 
-For more information about session\-based recommendations, see [Personalizing session\-based recommendations with hierarchical recurrent neural networks](https://arxiv.org/pdf/1706.04148.pdf)\.
-
 Amazon Personalize derives the features for each user from your dataset\. If you have done real\-time data integration, these features are updated in real time according to user activity\. To get a recommendation, you provide only the `USER_ID`\. If you also provide an `ITEM_ID`, Amazon Personalize ignores it\.
 
 The HRNN recipe has the following properties:

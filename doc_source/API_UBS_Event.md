@@ -14,7 +14,7 @@ Required: No
 The type of event\. This property corresponds to the `EVENT_TYPE` field of the Interactions schema\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 256\.  
-Required: Yes
+Required: No
 
  **properties**   <a name="personalize-Type-UBS_Event-properties"></a>
 A string map of event\-specific data that you might choose to record\. For example, if a user rates a movie on your site, you might send the movie ID and rating, and the number of movie ratings made by the user\.  
