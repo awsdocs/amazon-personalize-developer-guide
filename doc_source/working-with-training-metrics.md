@@ -91,4 +91,4 @@ Now that you have evaluated your solution version, create a campaign by deployin
 
 ## More Info<a name="metrics-see-also"></a>
 
-For a sample Jupyter notebook that shows you how to retrieve metrics based on hold\-out data, see [Personalize with Temporal Evaluation on Hold\-Out Set](https://github.com/aws-samples/amazon-personalize-samples/blob/master/advanced_examples/personalize_temporal_holdout.ipynb)\.
+For a sample Jupyter notebook that shows you how to retrieve metrics based on hold\-out data, see [Personalize with Temporal Evaluation on Hold\-Out Set](https://github.com/aws-samples/amazon-personalize-samples/blob/master/data_science/offline_performance_evaluation/personalize_temporal_holdout.ipynb)\.
