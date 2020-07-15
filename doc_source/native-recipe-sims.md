@@ -30,4 +30,4 @@ The table also provides the following information for each hyperparameter:
 
 ## SIMS Sample Notebook<a name="native-recipe-sims-more-info"></a>
 
-For a sample Jupyter notebook that shows you how to use the SIMS recipe, see [Finding Similar Items \+ HPO](https://github.com/aws-samples/amazon-personalize-samples/blob/master/advanced_examples/personalize_sims_smell_tests.ipynb)\.
+For a sample Jupyter notebook that shows you how to use the SIMS recipe, see [Finding Similar Items \+ HPO](https://github.com/aws-samples/amazon-personalize-samples/blob/master/next_steps/core_use_cases/related_items/personalize_sims_example.ipynb)\.
