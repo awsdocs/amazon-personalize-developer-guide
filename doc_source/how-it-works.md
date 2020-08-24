@@ -54,7 +54,12 @@ You can create dataset groups to serve different purposes\. For example, you mig
 
 Historical data must be provided in a CSV file\. Each dataset type has a unique schema that specifies the contents of the CSV file\.
 
-There is a [minimum amount of data](limits.md) that is necessary to train a model\. Using existing data allows you to immediately start training a model\. If you rely on recorded data as it is created, and there is no historical data, it can take a while before training can begin\.
+ The minimum data requirements to train a model are as follows: 
++  1000 records of combined interaction data \(after filtering by `eventType` and `eventValueThreshold`, if provided\)\.
++  25 unique users with at least 2 interactions each\. 
+
+**Note**  
+Using existing data allows you to immediately start training a model\. If you rely on recorded data as it is created, and there is no historical data, it can take a while before training can begin\.
 
 For more information, see [Preparing and Importing Data](data-prep.md)\.
 

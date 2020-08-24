@@ -6,7 +6,7 @@ Deletes a dataset\. You can't delete a dataset if an associated `DatasetImportJo
 
 ```
 {
-   "[datasetArn](#personalize-DeleteDataset-request-datasetArn)": "string"
+   "datasetArn": "string"
 }
 ```
 

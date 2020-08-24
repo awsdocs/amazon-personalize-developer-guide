@@ -25,7 +25,7 @@ If you have an AWS account already, skip to the next task\. If you don't have an
 
 1. Create an AWS Identity and Access Management \(IAM\) admin user\. See [Creating Your First IAM User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *AWS Identity and Access Management User Guide* for instructions\.
 
-   An IAM user with administrator permissions has unrestricted access to the AWS services in your account\. For information about restricting access to Amazon Personalize operations, see [Amazon Personalize Identity\-Based Policies](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies.title)
+   An IAM user with administrator permissions has unrestricted access to the AWS services in your account\. For information about restricting access to Amazon Personalize operations, see [Amazon Personalize Identity\-Based Policies](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies)
 
 1. Create an IAM user for use with Amazon Personalize\. The account requires certain permissions\. For more information, see [Setting up Permissions](aws-personalize-set-up-permissions.md)\.
 

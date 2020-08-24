@@ -2,13 +2,22 @@
 
 Use an asynchronous batch workflow to get recommendations from large datasets that do not require real\-time updates\. For instance, you might create a batch inference job to get product recommendations for all users on an email list, or to get [item\-to\-item similarities \(SIMS\)](native-recipe-sims.md) across an inventory\. To get batch recommendations, you can create a batch inference job by calling [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md)\.
 
-The [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) uses a chosen solution version to make recommendations based on data provided in an input JSON file\. The result is then returned as a JSON file to an Amazon S3 bucket\. The following tab list contains correctly formatted JSON input and output excerpts for each recipe type\.
+In order to get batch recommendations, the IAM user role that invokes the [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) operation must have read and write permissions to your input and output Amazon S3 buckets respectively\. For more information on bucket permissions, see [User Policy Examples](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-policies-s3.html) in the *Amazon Simple Storage Service \(S3\) Developer Guide*\.
+
+You can perform batch inference operations with any of the following tools:
++ [Amazon Personalize console](#batch-console)
++ [AWS CLI](#batch-cli)
++ [AWS SDK](#batch-sdk)
 
 **How scoring works**
 
 Item scores calculated by batch recommendation jobs are calculated the same ways as described in [Getting Real\-Time Recommendations](getting-real-time-recommendations.md), and can be viewed in the batch job's output JSON file\. Scores are only returned by models trained with the HRNN and Personalize\-Ranking recipes\.
 
-**HRNN**
+## Input and Output JSON Examples<a name="batch-recommendations-json-examples"></a>
+
+The [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) uses a chosen solution version to make recommendations based on data provided in an input JSON file\. The result is then returned as a JSON file to an Amazon S3 bucket\. The following tab list contains correctly formatted JSON input and output examples for each recipe type\.
+
+**HRNN and USER\_PERSONALIZATION**
 
 ------
 #### [ Input ]
@@ -104,20 +113,13 @@ Item scores calculated by batch recommendation jobs are calculated the same ways
 
 ------
 
-In order to get batch recommendations, the IAM user role that invokes the [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) operation must have read and write permissions to your input and output Amazon S3 buckets respectively\. For more information on bucket permissions, see [User Policy Examples](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-policies-s3.html) in the *Amazon Simple Storage Service \(S3\) Developer Guide*\.
-
-You can perform batch inference operations with any of the following tools:
-+ [Amazon Personalize console](#batch-console)
-+ [AWS CLI](#batch-cli)
-+ [AWS SDK](#batch-sdk)
-
 ## Getting Batch Recommendations \(Amazon Personalize Console\)<a name="batch-console"></a>
 
 The following procedure outlines the batch inference workflow using the Amazon Personalize console\. This procedure assumes that you have already created a solution that is properly formatted to perform the desired batch job on your dataset\.
 
 1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign in to your account\.
 
-1. Choose **Batch inference jobs** in the navagation pane, then choose **Create batch inference job**\.
+1. Choose **Batch inference jobs** in the navigation pane, then choose **Create batch inference job**\.
 
 1. In **Batch inference job details**, in **Batch inference job name**, specify a name for your batch inference job\.
 
@@ -134,18 +136,21 @@ The following procedure outlines the batch inference workflow using the Amazon P
 **Note**  
 Creating a batch inference job takes time\.
 
-1. When the batch inference job's status changes to **Active**, you can retreive the job's output from the designated output Amazon S3 bucket\. The output file's name will be of the format `input-name.out`\.
+1. When the batch inference job's status changes to **Active**, you can retrieve the job's output from the designated output Amazon S3 bucket\. The output file's name will be of the format `input-name.out`\.
 
 ## Getting Batch Recommendations \(AWS CLI\)<a name="batch-cli"></a>
 
-The following is an example of a batch inference workflow using the AWS CLI\. A JSON file called `batch.json` is passed as input, and the output file, `batch.json.out`, is returned to an Amazon S3 bucket\.
+The following is an example of a batch inference workflow using the AWS CLI for a solution trained using the the `USER_PERSONALIZATION` recipe\. A JSON file called `batch.json` is passed as input, and the output file, `batch.json.out`, is returned to an Amazon S3 bucket\. 
+
+For `batch-inference-job-config`, the example includes `USER_PERSONALIZE` recipe specific `itemExplorationConfig` hyperparameters: `explorationWeight` and `explorationItemAgeCutOff`\. Optionally include `explorationWeight` and `explorationItemAgeCutOff` values to configure exploration\. For more information, see [User\-Personalization Recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\.
 
 ```
 aws personalize create-batch-inference-job --job-name batchTest \
                 --solution-version-arn arn:aws:personalize:us-west-2:012345678901:solution/batch-test-solution-version/1234abcd \
                 --job-input s3DataSource={path=s3://personalize/batch/input/input.json} \
                 --job-output s3DataDestination={path=s3://personalize/batch/output/} \
-                --role-arn arn:aws:iam::012345678901:role/import-export-role
+                --role-arn arn:aws:iam::012345678901:role/import-export-role \
+                --batch-inference-job-config itemExplorationConfig={explorationWeight=0.3, explorationItemAgeCutOff=30} 
       
 {
    "batchInferenceJobArn": "arn:aws:personalize:us-west-2:012345678901:batch-inference-job/batchTest"
@@ -180,7 +185,9 @@ aws personalize describe-batch-inference-job --batch-inference-job-arn arn:aws:p
 
 ## Getting Batch Recommendations \(AWS Python SDK\)<a name="batch-sdk"></a>
 
-Use the following code to get batch recommendations using the AWS Python SDK\. The operation reads an input JSON file from an Amazon S3 bucket and places an output JSON file \(`input-file-name.out`\) in an Amazon S3 bucket\.
+Use the following code to get batch recommendations using the AWS Python SDK\. The example includes `itemExplorationConfig` hyperparameters for solution versions trained using the `USER_PERSONALIZATION` recommendation recipe\. Optionally include the `itemExplorationConfig` hyperparameters to configure exploration\. For more information see [User\-Personalization Recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\.
+
+The operation reads an input JSON file from an Amazon S3 bucket and places an output JSON file \(`input-file-name.out`\) in an Amazon S3 bucket\.
 
  The first item in the response file is considered by Amazon Personalize to be of most interest to the user\.
 
@@ -193,10 +200,17 @@ personalize_rec.create_batch_inference_job (
     solutionVersionArn = "Solution version ARN",
     jobName = "Batch job name",
     roleArn = "IAM role ARN",
+    batchInferenceJobConfig = {
+        # optional USER_PERSONALIZATION recipe hyperparameters
+        "itemExplorationConfig": {      
+            "explorationWeight": "0.3",
+            "explorationItemAgeCutOff": "30"
+        }
+    },
     jobInput = 
-       {"s3DataSource": {"path": S3 input path}},
+       {"s3DataSource": {"path": "S3 input path"}},
     jobOutput = 
-       {"s3DataDestination": {"path":S3 output path"}}
+       {"s3DataDestination": {"path": "S3 output path"}}
 )
 ```
 

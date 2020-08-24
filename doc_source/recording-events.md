@@ -16,14 +16,15 @@ To record events, you need the following:
 + An event tracker\.
 + A call to the [PutEvents](API_UBS_PutEvents.md) operation\.
 
- Amazon Personalize predefined recipes are compatible with the `PutEvents` API\. This includes the required `sessionId` parameter which makes these recipes aware of sessions\.
+ Amazon Personalize predefined recipes are compatible with the `PutEvents` API\. This includes the required `sessionId` parameter, which you generate when a user first visits your website or uses your application\. 
 
-For a sample Jupyter notebook that shows you how to use the PutEvents operation to record and implement new customer data, see [Using the PutEvents API with Personalize](https://github.com/aws-samples/amazon-personalize-samples/blob/master/advanced_examples/personalize_putEvents_demo.ipynb) in the [amazon\-personalize\-samples](https://github.com/aws-samples/amazon-personalize-samples) GitHub repository\.
+Amazon Personalize uses the `sessionId` to associate events with the user before they log in \(is anonymous\)\. After the user logs in and you send an event including the `userId`, Amazon Personalize associates the previously anonymous historical event data with their `userId` by matching the `sessionId`\. This creates a continuous event history that includes events that occurred when the user was anonymous\.
+
+For a sample Jupyter notebook that shows how to use Amazon Personalize to react to real\-time behavior of users using an event tracker and the [PutEvents](API_UBS_PutEvents.md) operation, see [2\.View\_Campaign\_And\_Interactions\.ipynb](https://github.com/aws-samples/amazon-personalize-samples/blob/master/getting_started/notebooks/2.View_Campaign_And_Interactions.ipynb) in the **getting\_started** folder of the [amazon\-personalize\-samples](https://github.com/aws-samples/amazon-personalize-samples) GitHub repository\. 
 
 **Topics**
 + [Creating a Dataset Group](#event-dataset-group)
 + [Getting a Tracking ID](#event-get-tracker)
-+ [Event\-Interactions Dataset](#event-dataset)
 + [PutEvents Operation](#event-record-api)
 + [Event Metrics](#event-metrics)
 + [Events and Solutions](#event-solutions)
@@ -66,7 +67,7 @@ aws personalize create-event-tracker \
 
 ------
 
-The event tracker ARN and tracking ID are displayed, for example:
+The event tracker ARN and tracking ID display, for example:
 
 ```
 {
@@ -75,41 +76,13 @@ The event tracker ARN and tracking ID are displayed, for example:
 }
 ```
 
-## Event\-Interactions Dataset<a name="event-dataset"></a>
-
-When Amazon Personalize creates an event tracker, it also creates an event\-interactions dataset in the dataset group associated with the event tracker\. The event\-interactions dataset stores the event data from the [PutEvents](API_UBS_PutEvents.md) call\. The contents of the dataset are not available to the user\.
-
-To view the properties of the dataset, call the [ListDatasets](API_ListDatasets.md) API, supplying the dataset group ARN\. For additional information about the dataset, use the dataset ARN for the EVENT\_INTERACTIONS dataset to call the [DescribeDataset](API_DescribeDataset.md) API\. The following is an example response from `ListDatasets`:
-
-```
-{
-    "datasets": [
-        {
-            "name": "ratings-dsgroup/EVENT_INTERACTIONS",
-            "datasetArn": "arn:aws:personalize:us-west-2:acct-id:dataset/MovieClickGroup/EVENT_INTERACTIONS",
-            "datasetType": "EVENT_INTERACTIONS",
-            "status": "ACTIVE",
-            "creationDateTime": 1554304597.806,
-            "lastUpdatedDateTime": 1554304597.806
-        },
-        {
-            "name": "ratings-dataset",
-            "datasetArn": "arn:aws:personalize:us-west-2:acct-id:dataset/MovieClickGroup/INTERACTIONS",
-            "datasetType": "INTERACTIONS",
-            "status": "ACTIVE",
-            "creationDateTime": 1554299406.53,
-            "lastUpdatedDateTime": 1554299406.53
-        }
-    ],
-    "nextToken": "..."
-}
-```
-
 ## PutEvents Operation<a name="event-record-api"></a>
 
 To record events, you call the [PutEvents](API_UBS_PutEvents.md) operation\. The following example shows a `PutEvents` call that passes one event that contains the minimum required information\. The corresponding Interactions schema is shown, along with an example row from the Interactions dataset\.
 
-The session ID is custom to your application\. The event list is an array of [Event](API_UBS_Event.md) objects\. The `properties` key is a string map \(key\-value pairs\) of event\-specific data\. In this case, just the item ID is specified\.
+Your application generates the `sessionId` when a user first visits your website or uses your application\. Amazon Personalize uses the `sessionId` to associate events with the user before they log in \(is anonymous\)\. After the user logs in and you send an event including the `userId`, Amazon Personalize associates the previously anonymous historical event data with their `userId` by matching the `sessionId`\. This creates a continuous event history that includes events that occurred when the user was anonymous\.
+
+The event list is an array of [Event](API_UBS_Event.md) objects\. The `properties` key is a string map \(key\-value pairs\) of event\-specific data\. In this case, just the item ID is specified\.
 
 The `userId`, `itemId`, and `sentAt` parameters map to the USER\_ID, ITEM\_ID, and TIMESTAMP fields of a corresponding historical `Interactions` dataset\. For more information, see [Datasets and Schemas](how-it-works-dataset-schema.md)\.
 
@@ -160,13 +133,13 @@ aws personalize-events put-events \
 
 After this example, you would proceed to train a model using only the required properties\. The training would not use the `eventValue` property because it wasn't included in the event\.
 
-The next example shows how to submit data that would train on the event value\. It also demonstrates the passing of multiple events of different types \('like' and 'rating'\)\. In this case, you must specify the event type to train on in the [CreateSolution](API_CreateSolution.md) operation \(see **Events and Solutions** below\)\. Also shown is the recording of an extra property, `numRatings`, that is used as metadata by certain recipes\.
+The next example shows how to submit data that would train on the event value\. It also demonstrates the passing of multiple events of different types \('like' and 'rating'\)\. In this case, you must specify the event type to train on in the [CreateSolution](API_CreateSolution.md) operation \(see **Events and Solutions** below\)\. The example also shows the recording of an extra property, `numRatings`, that is used as metadata by certain recipes\.
 
 ```
 Interactions schema: USER_ID, ITEM_ID, TIMESTAMP, EVENT_TYPE, EVENT_VALUE, NUM_RATINGS
 Interactions dataset: user123, movie_xyz, 1543531139, rating, 5, 12
-                      user321, choc-ghana, 1543531760, like, true
-                      user111, choc-fake, 1543557118, like, false
+                      user321, choc-ghana, 1543531760, like, 4
+                      user111, choc-fake, 1543557118, like, 3
 ```
 
 ------
@@ -188,7 +161,8 @@ personalize_events.put_events(
         'eventType': 'like',
         'properties': json.dumps({
             'itemId': 'choc-panama',
-            'eventValue': 'true'
+            'eventValue': 4,
+            'numRatings': 0    
             })
         }, {
         'eventId': 'event2',
@@ -196,8 +170,8 @@ personalize_events.put_events(
         'eventType': 'rating',
         'properties': json.dumps({
             'itemId': 'movie_ten',
-            'eventValue': '4',
-            'numRatings': '13'
+            'eventValue': 3,
+            'numRatings': 13
             })
         }]
 )

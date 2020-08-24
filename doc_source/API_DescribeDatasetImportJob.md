@@ -6,7 +6,7 @@ Describes the dataset import job created by [CreateDatasetImportJob](API_CreateD
 
 ```
 {
-   "[datasetImportJobArn](#personalize-DescribeDatasetImportJob-request-datasetImportJobArn)": "string"
+   "datasetImportJobArn": "string"
 }
 ```
 
@@ -25,18 +25,18 @@ Required: Yes
 
 ```
 {
-   "[datasetImportJob](#personalize-DescribeDatasetImportJob-response-datasetImportJob)": { 
-      "[creationDateTime](API_DatasetImportJob.md#personalize-Type-DatasetImportJob-creationDateTime)": number,
-      "[datasetArn](API_DatasetImportJob.md#personalize-Type-DatasetImportJob-datasetArn)": "string",
-      "[datasetImportJobArn](API_DatasetImportJob.md#personalize-Type-DatasetImportJob-datasetImportJobArn)": "string",
-      "[dataSource](API_DatasetImportJob.md#personalize-Type-DatasetImportJob-dataSource)": { 
-         "[dataLocation](API_DataSource.md#personalize-Type-DataSource-dataLocation)": "string"
+   "datasetImportJob": { 
+      "creationDateTime": number,
+      "datasetArn": "string",
+      "datasetImportJobArn": "string",
+      "dataSource": { 
+         "dataLocation": "string"
       },
-      "[failureReason](API_DatasetImportJob.md#personalize-Type-DatasetImportJob-failureReason)": "string",
-      "[jobName](API_DatasetImportJob.md#personalize-Type-DatasetImportJob-jobName)": "string",
-      "[lastUpdatedDateTime](API_DatasetImportJob.md#personalize-Type-DatasetImportJob-lastUpdatedDateTime)": number,
-      "[roleArn](API_DatasetImportJob.md#personalize-Type-DatasetImportJob-roleArn)": "string",
-      "[status](API_DatasetImportJob.md#personalize-Type-DatasetImportJob-status)": "string"
+      "failureReason": "string",
+      "jobName": "string",
+      "lastUpdatedDateTime": number,
+      "roleArn": "string",
+      "status": "string"
    }
 }
 ```

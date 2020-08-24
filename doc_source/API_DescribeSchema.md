@@ -6,7 +6,7 @@ Describes a schema\. For more information on schemas, see [CreateSchema](API_Cre
 
 ```
 {
-   "[schemaArn](#personalize-DescribeSchema-request-schemaArn)": "string"
+   "schemaArn": "string"
 }
 ```
 
@@ -25,12 +25,12 @@ Required: Yes
 
 ```
 {
-   "[schema](#personalize-DescribeSchema-response-schema)": { 
-      "[creationDateTime](API_DatasetSchema.md#personalize-Type-DatasetSchema-creationDateTime)": number,
-      "[lastUpdatedDateTime](API_DatasetSchema.md#personalize-Type-DatasetSchema-lastUpdatedDateTime)": number,
-      "[name](API_DatasetSchema.md#personalize-Type-DatasetSchema-name)": "string",
-      "[schema](API_DatasetSchema.md#personalize-Type-DatasetSchema-schema)": "string",
-      "[schemaArn](API_DatasetSchema.md#personalize-Type-DatasetSchema-schemaArn)": "string"
+   "schema": { 
+      "creationDateTime": number,
+      "lastUpdatedDateTime": number,
+      "name": "string",
+      "schema": "string",
+      "schemaArn": "string"
    }
 }
 ```

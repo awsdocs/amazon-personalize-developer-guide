@@ -14,17 +14,39 @@ Required: No
 The type of event\. This property corresponds to the `EVENT_TYPE` field of the Interactions schema\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 256\.  
+Required: Yes
+
+ **eventValue**   <a name="personalize-Type-UBS_Event-eventValue"></a>
+The event value that corresponds to the `EVENT_VALUE` field of the Interactions schema\.  
+Type: Float  
+Required: No
+
+ **impression**   <a name="personalize-Type-UBS_Event-impression"></a>
+A list of item IDs that represents the sequence of items you have shown the user\. For example, `["itemId1", "itemId2", "itemId3"]`\.  
+Type: Array of strings  
+Array Members: Minimum number of 1 item\. Maximum number of 25 items\.  
+Length Constraints: Minimum length of 1\. Maximum length of 256\.  
+Required: No
+
+ **itemId**   <a name="personalize-Type-UBS_Event-itemId"></a>
+The item ID key that corresponds to the `ITEM_ID` field of the Interactions schema\.  
+Type: String  
+Length Constraints: Minimum length of 1\. Maximum length of 256\.  
 Required: No
 
  **properties**   <a name="personalize-Type-UBS_Event-properties"></a>
-A string map of event\-specific data that you might choose to record\. For example, if a user rates a movie on your site, you might send the movie ID and rating, and the number of movie ratings made by the user\.  
+A string map of event\-specific data that you might choose to record\. For example, if a user rates a movie on your site, other than movie ID \(`itemId`\) and rating \(`eventValue`\) , you might also send the number of movie ratings made by the user\.  
 Each item in the map consists of a key\-value pair\. For example,  
- `{"itemId": "movie1"}`   
- `{"itemId": "movie2", "eventValue": "4.5"}`   
- `{"itemId": "movie3", "eventValue": "3", "numberOfRatings": "12"}`   
-The keys use camel case names that match the fields in the Interactions schema\. The `itemId` and `eventValue` keys correspond to the `ITEM_ID` and `EVENT_VALUE` fields\. In the above example, the `eventType` might be 'MovieRating' with `eventValue` being the rating\. The `numberOfRatings` would match the 'NUMBER\_OF\_RATINGS' field defined in the Interactions schema\.  
+ `{"numberOfRatings": "12"}`   
+The keys use camel case names that match the fields in the Interactions schema\. In the above example, the `numberOfRatings` would match the 'NUMBER\_OF\_RATINGS' field defined in the Interactions schema\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 1024\.  
+Required: No
+
+ **recommendationId**   <a name="personalize-Type-UBS_Event-recommendationId"></a>
+The ID of the recommendation\.  
+Type: String  
+Length Constraints: Minimum length of 1\. Maximum length of 40\.  
 Required: No
 
  **sentAt**   <a name="personalize-Type-UBS_Event-sentAt"></a>

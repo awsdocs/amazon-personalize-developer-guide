@@ -6,7 +6,7 @@ Removes a campaign by deleting the solution deployment\. The solution that the c
 
 ```
 {
-   "[campaignArn](#personalize-DeleteCampaign-request-campaignArn)": "string"
+   "campaignArn": "string"
 }
 ```
 

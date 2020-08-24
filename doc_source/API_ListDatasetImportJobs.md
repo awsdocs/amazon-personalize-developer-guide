@@ -6,9 +6,9 @@ Returns a list of dataset import jobs that use the given dataset\. When a datase
 
 ```
 {
-   "[datasetArn](#personalize-ListDatasetImportJobs-request-datasetArn)": "string",
-   "[maxResults](#personalize-ListDatasetImportJobs-request-maxResults)": number,
-   "[nextToken](#personalize-ListDatasetImportJobs-request-nextToken)": "string"
+   "datasetArn": "string",
+   "maxResults": number,
+   "nextToken": "string"
 }
 ```
 
@@ -39,17 +39,17 @@ Required: No
 
 ```
 {
-   "[datasetImportJobs](#personalize-ListDatasetImportJobs-response-datasetImportJobs)": [ 
+   "datasetImportJobs": [ 
       { 
-         "[creationDateTime](API_DatasetImportJobSummary.md#personalize-Type-DatasetImportJobSummary-creationDateTime)": number,
-         "[datasetImportJobArn](API_DatasetImportJobSummary.md#personalize-Type-DatasetImportJobSummary-datasetImportJobArn)": "string",
-         "[failureReason](API_DatasetImportJobSummary.md#personalize-Type-DatasetImportJobSummary-failureReason)": "string",
-         "[jobName](API_DatasetImportJobSummary.md#personalize-Type-DatasetImportJobSummary-jobName)": "string",
-         "[lastUpdatedDateTime](API_DatasetImportJobSummary.md#personalize-Type-DatasetImportJobSummary-lastUpdatedDateTime)": number,
-         "[status](API_DatasetImportJobSummary.md#personalize-Type-DatasetImportJobSummary-status)": "string"
+         "creationDateTime": number,
+         "datasetImportJobArn": "string",
+         "failureReason": "string",
+         "jobName": "string",
+         "lastUpdatedDateTime": number,
+         "status": "string"
       }
    ],
-   "[nextToken](#personalize-ListDatasetImportJobs-response-nextToken)": "string"
+   "nextToken": "string"
 }
 ```
 

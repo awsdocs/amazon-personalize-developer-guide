@@ -6,9 +6,9 @@ Gets a list of the batch inference jobs that have been performed off of a soluti
 
 ```
 {
-   "[maxResults](#personalize-ListBatchInferenceJobs-request-maxResults)": number,
-   "[nextToken](#personalize-ListBatchInferenceJobs-request-nextToken)": "string",
-   "[solutionVersionArn](#personalize-ListBatchInferenceJobs-request-solutionVersionArn)": "string"
+   "maxResults": number,
+   "nextToken": "string",
+   "solutionVersionArn": "string"
 }
 ```
 
@@ -39,18 +39,18 @@ Required: No
 
 ```
 {
-   "[batchInferenceJobs](#personalize-ListBatchInferenceJobs-response-batchInferenceJobs)": [ 
+   "batchInferenceJobs": [ 
       { 
-         "[batchInferenceJobArn](API_BatchInferenceJobSummary.md#personalize-Type-BatchInferenceJobSummary-batchInferenceJobArn)": "string",
-         "[creationDateTime](API_BatchInferenceJobSummary.md#personalize-Type-BatchInferenceJobSummary-creationDateTime)": number,
-         "[failureReason](API_BatchInferenceJobSummary.md#personalize-Type-BatchInferenceJobSummary-failureReason)": "string",
-         "[jobName](API_BatchInferenceJobSummary.md#personalize-Type-BatchInferenceJobSummary-jobName)": "string",
-         "[lastUpdatedDateTime](API_BatchInferenceJobSummary.md#personalize-Type-BatchInferenceJobSummary-lastUpdatedDateTime)": number,
-         "[solutionVersionArn](API_BatchInferenceJobSummary.md#personalize-Type-BatchInferenceJobSummary-solutionVersionArn)": "string",
-         "[status](API_BatchInferenceJobSummary.md#personalize-Type-BatchInferenceJobSummary-status)": "string"
+         "batchInferenceJobArn": "string",
+         "creationDateTime": number,
+         "failureReason": "string",
+         "jobName": "string",
+         "lastUpdatedDateTime": number,
+         "solutionVersionArn": "string",
+         "status": "string"
       }
    ],
-   "[nextToken](#personalize-ListBatchInferenceJobs-response-nextToken)": "string"
+   "nextToken": "string"
 }
 ```
 

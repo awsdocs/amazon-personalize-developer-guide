@@ -6,7 +6,7 @@ Describes an event tracker\. The response includes the `trackingId` and `status`
 
 ```
 {
-   "[eventTrackerArn](#personalize-DescribeEventTracker-request-eventTrackerArn)": "string"
+   "eventTrackerArn": "string"
 }
 ```
 
@@ -25,15 +25,15 @@ Required: Yes
 
 ```
 {
-   "[eventTracker](#personalize-DescribeEventTracker-response-eventTracker)": { 
-      "[accountId](API_EventTracker.md#personalize-Type-EventTracker-accountId)": "string",
-      "[creationDateTime](API_EventTracker.md#personalize-Type-EventTracker-creationDateTime)": number,
-      "[datasetGroupArn](API_EventTracker.md#personalize-Type-EventTracker-datasetGroupArn)": "string",
-      "[eventTrackerArn](API_EventTracker.md#personalize-Type-EventTracker-eventTrackerArn)": "string",
-      "[lastUpdatedDateTime](API_EventTracker.md#personalize-Type-EventTracker-lastUpdatedDateTime)": number,
-      "[name](API_EventTracker.md#personalize-Type-EventTracker-name)": "string",
-      "[status](API_EventTracker.md#personalize-Type-EventTracker-status)": "string",
-      "[trackingId](API_EventTracker.md#personalize-Type-EventTracker-trackingId)": "string"
+   "eventTracker": { 
+      "accountId": "string",
+      "creationDateTime": number,
+      "datasetGroupArn": "string",
+      "eventTrackerArn": "string",
+      "lastUpdatedDateTime": number,
+      "name": "string",
+      "status": "string",
+      "trackingId": "string"
    }
 }
 ```

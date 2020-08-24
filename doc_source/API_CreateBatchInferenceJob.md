@@ -6,28 +6,46 @@ Creates a batch inference job\. The operation can handle up to 50 million record
 
 ```
 {
-   "[jobInput](#personalize-CreateBatchInferenceJob-request-jobInput)": { 
-      "[s3DataSource](API_BatchInferenceJobInput.md#personalize-Type-BatchInferenceJobInput-s3DataSource)": { 
-         "[kmsKeyArn](API_S3DataConfig.md#personalize-Type-S3DataConfig-kmsKeyArn)": "string",
-         "[path](API_S3DataConfig.md#personalize-Type-S3DataConfig-path)": "string"
+   "batchInferenceJobConfig": { 
+      "itemExplorationConfig": { 
+         "string" : "string" 
       }
    },
-   "[jobName](#personalize-CreateBatchInferenceJob-request-jobName)": "string",
-   "[jobOutput](#personalize-CreateBatchInferenceJob-request-jobOutput)": { 
-      "[s3DataDestination](API_BatchInferenceJobOutput.md#personalize-Type-BatchInferenceJobOutput-s3DataDestination)": { 
-         "[kmsKeyArn](API_S3DataConfig.md#personalize-Type-S3DataConfig-kmsKeyArn)": "string",
-         "[path](API_S3DataConfig.md#personalize-Type-S3DataConfig-path)": "string"
+   "filterArn": "string",
+   "jobInput": { 
+      "s3DataSource": { 
+         "kmsKeyArn": "string",
+         "path": "string"
       }
    },
-   "[numResults](#personalize-CreateBatchInferenceJob-request-numResults)": number,
-   "[roleArn](#personalize-CreateBatchInferenceJob-request-roleArn)": "string",
-   "[solutionVersionArn](#personalize-CreateBatchInferenceJob-request-solutionVersionArn)": "string"
+   "jobName": "string",
+   "jobOutput": { 
+      "s3DataDestination": { 
+         "kmsKeyArn": "string",
+         "path": "string"
+      }
+   },
+   "numResults": number,
+   "roleArn": "string",
+   "solutionVersionArn": "string"
 }
 ```
 
 ## Request Parameters<a name="API_CreateBatchInferenceJob_RequestParameters"></a>
 
 The request accepts the following data in JSON format\.
+
+ ** [batchInferenceJobConfig](#API_CreateBatchInferenceJob_RequestSyntax) **   <a name="personalize-CreateBatchInferenceJob-request-batchInferenceJobConfig"></a>
+The configuration details of a batch inference job\.  
+Type: [BatchInferenceJobConfig](API_BatchInferenceJobConfig.md) object  
+Required: No
+
+ ** [filterArn](#API_CreateBatchInferenceJob_RequestSyntax) **   <a name="personalize-CreateBatchInferenceJob-request-filterArn"></a>
+The ARN of the filter to apply to the batch inference job\. For more information on using filters, see Using Filters with Amazon Personalize\.  
+Type: String  
+Length Constraints: Maximum length of 256\.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
+Required: No
 
  ** [jobInput](#API_CreateBatchInferenceJob_RequestSyntax) **   <a name="personalize-CreateBatchInferenceJob-request-jobInput"></a>
 The Amazon S3 path that leads to the input file to base your recommendations on\. The input material must be in JSON format\.  
@@ -69,7 +87,7 @@ Required: Yes
 
 ```
 {
-   "[batchInferenceJobArn](#personalize-CreateBatchInferenceJob-response-batchInferenceJobArn)": "string"
+   "batchInferenceJobArn": "string"
 }
 ```
 

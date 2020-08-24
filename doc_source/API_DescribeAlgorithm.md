@@ -6,7 +6,7 @@ Describes the given algorithm\.
 
 ```
 {
-   "[algorithmArn](#personalize-DescribeAlgorithm-request-algorithmArn)": "string"
+   "algorithmArn": "string"
 }
 ```
 
@@ -25,48 +25,48 @@ Required: Yes
 
 ```
 {
-   "[algorithm](#personalize-DescribeAlgorithm-response-algorithm)": { 
-      "[algorithmArn](API_Algorithm.md#personalize-Type-Algorithm-algorithmArn)": "string",
-      "[algorithmImage](API_Algorithm.md#personalize-Type-Algorithm-algorithmImage)": { 
-         "[dockerURI](API_AlgorithmImage.md#personalize-Type-AlgorithmImage-dockerURI)": "string",
-         "[name](API_AlgorithmImage.md#personalize-Type-AlgorithmImage-name)": "string"
+   "algorithm": { 
+      "algorithmArn": "string",
+      "algorithmImage": { 
+         "dockerURI": "string",
+         "name": "string"
       },
-      "[creationDateTime](API_Algorithm.md#personalize-Type-Algorithm-creationDateTime)": number,
-      "[defaultHyperParameterRanges](API_Algorithm.md#personalize-Type-Algorithm-defaultHyperParameterRanges)": { 
-         "[categoricalHyperParameterRanges](API_DefaultHyperParameterRanges.md#personalize-Type-DefaultHyperParameterRanges-categoricalHyperParameterRanges)": [ 
+      "creationDateTime": number,
+      "defaultHyperParameterRanges": { 
+         "categoricalHyperParameterRanges": [ 
             { 
-               "[isTunable](API_DefaultCategoricalHyperParameterRange.md#personalize-Type-DefaultCategoricalHyperParameterRange-isTunable)": boolean,
-               "[name](API_DefaultCategoricalHyperParameterRange.md#personalize-Type-DefaultCategoricalHyperParameterRange-name)": "string",
-               "[values](API_DefaultCategoricalHyperParameterRange.md#personalize-Type-DefaultCategoricalHyperParameterRange-values)": [ "string" ]
+               "isTunable": boolean,
+               "name": "string",
+               "values": [ "string" ]
             }
          ],
-         "[continuousHyperParameterRanges](API_DefaultHyperParameterRanges.md#personalize-Type-DefaultHyperParameterRanges-continuousHyperParameterRanges)": [ 
+         "continuousHyperParameterRanges": [ 
             { 
-               "[isTunable](API_DefaultContinuousHyperParameterRange.md#personalize-Type-DefaultContinuousHyperParameterRange-isTunable)": boolean,
-               "[maxValue](API_DefaultContinuousHyperParameterRange.md#personalize-Type-DefaultContinuousHyperParameterRange-maxValue)": number,
-               "[minValue](API_DefaultContinuousHyperParameterRange.md#personalize-Type-DefaultContinuousHyperParameterRange-minValue)": number,
-               "[name](API_DefaultContinuousHyperParameterRange.md#personalize-Type-DefaultContinuousHyperParameterRange-name)": "string"
+               "isTunable": boolean,
+               "maxValue": number,
+               "minValue": number,
+               "name": "string"
             }
          ],
-         "[integerHyperParameterRanges](API_DefaultHyperParameterRanges.md#personalize-Type-DefaultHyperParameterRanges-integerHyperParameterRanges)": [ 
+         "integerHyperParameterRanges": [ 
             { 
-               "[isTunable](API_DefaultIntegerHyperParameterRange.md#personalize-Type-DefaultIntegerHyperParameterRange-isTunable)": boolean,
-               "[maxValue](API_DefaultIntegerHyperParameterRange.md#personalize-Type-DefaultIntegerHyperParameterRange-maxValue)": number,
-               "[minValue](API_DefaultIntegerHyperParameterRange.md#personalize-Type-DefaultIntegerHyperParameterRange-minValue)": number,
-               "[name](API_DefaultIntegerHyperParameterRange.md#personalize-Type-DefaultIntegerHyperParameterRange-name)": "string"
+               "isTunable": boolean,
+               "maxValue": number,
+               "minValue": number,
+               "name": "string"
             }
          ]
       },
-      "[defaultHyperParameters](API_Algorithm.md#personalize-Type-Algorithm-defaultHyperParameters)": { 
+      "defaultHyperParameters": { 
          "string" : "string" 
       },
-      "[defaultResourceConfig](API_Algorithm.md#personalize-Type-Algorithm-defaultResourceConfig)": { 
+      "defaultResourceConfig": { 
          "string" : "string" 
       },
-      "[lastUpdatedDateTime](API_Algorithm.md#personalize-Type-Algorithm-lastUpdatedDateTime)": number,
-      "[name](API_Algorithm.md#personalize-Type-Algorithm-name)": "string",
-      "[roleArn](API_Algorithm.md#personalize-Type-Algorithm-roleArn)": "string",
-      "[trainingInputMode](API_Algorithm.md#personalize-Type-Algorithm-trainingInputMode)": "string"
+      "lastUpdatedDateTime": number,
+      "name": "string",
+      "roleArn": "string",
+      "trainingInputMode": "string"
    }
 }
 ```

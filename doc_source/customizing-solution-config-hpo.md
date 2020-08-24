@@ -4,7 +4,7 @@ Hyperparameters are used to optimize the trained model and are set before traini
 
 Hyperparameters are specified using the `algorithmHyperParameters` key that is part of the [SolutionConfig](API_SolutionConfig.md) object that is passed to the [CreateSolution](API_CreateSolution.md) operation\.
 
-Different recipes use different hyperparameters\. For the available hyperparameters, see the individual recipes in [Using Predefined Recipes](working-with-predefined-recipes.md)\.
+Different recipes use different hyperparameters\. For the available hyperparameters, see the individual recipes in [Choosing a Recipe](working-with-predefined-recipes.md)\.
 
 Hyperparameter optimization \(HPO\), or tuning, is the task of choosing optimal hyperparameters for a specific learning objective\. The optimal hyperparameters are determined by running many training jobs using different values from the specified ranges of possibilities\. By default, Amazon Personalize does not perform HPO\. To use HPO, set `performHPO` to `true`, and include the `hpoConfig` object\.
 

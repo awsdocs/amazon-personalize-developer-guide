@@ -32,9 +32,9 @@ You can specify an AWS Key Management Service \(KMS\) key to encrypt the dataset
 
 ```
 {
-   "[kmsKeyArn](#personalize-CreateDatasetGroup-request-kmsKeyArn)": "string",
-   "[name](#personalize-CreateDatasetGroup-request-name)": "string",
-   "[roleArn](#personalize-CreateDatasetGroup-request-roleArn)": "string"
+   "kmsKeyArn": "string",
+   "name": "string",
+   "roleArn": "string"
 }
 ```
 
@@ -65,7 +65,7 @@ Required: No
 
 ```
 {
-   "[datasetGroupArn](#personalize-CreateDatasetGroup-response-datasetGroupArn)": "string"
+   "datasetGroupArn": "string"
 }
 ```
 

@@ -14,10 +14,14 @@ POST /recommendations HTTP/1.1
 Content-type: application/json
 
 {
-   "[campaignArn](#personalize-RS_GetRecommendations-request-campaignArn)": "string",
-   "[itemId](#personalize-RS_GetRecommendations-request-itemId)": "string",
-   "[numResults](#personalize-RS_GetRecommendations-request-numResults)": number,
-   "[userId](#personalize-RS_GetRecommendations-request-userId)": "string"
+   "campaignArn": "string",
+   "context": { 
+      "string" : "string" 
+   },
+   "filterArn": "string",
+   "itemId": "string",
+   "numResults": number,
+   "userId": "string"
 }
 ```
 
@@ -35,6 +39,23 @@ Type: String
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: Yes
+
+ ** [context](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-context"></a>
+The contextual metadata to use when getting recommendations\. Contextual metadata includes any interaction information that might be relevant when getting a user's recommendations, such as the user's current location or device type\.  
+Type: String to string map  
+Map Entries: Maximum number of 150 items\.  
+Key Length Constraints: Maximum length of 150\.  
+Key Pattern: `[A-Za-z\d_]+`   
+Value Length Constraints: Maximum length of 1000\.  
+Required: No
+
+ ** [filterArn](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-filterArn"></a>
+The ARN of the filter to apply to the returned recommendations\. For more information, see [Using Filters with Amazon Personalize](https://docs.aws.amazon.com/personalize/latest/dg/filters.html)\.  
+When using this parameter, be sure the filter resource is `ACTIVE`\.  
+Type: String  
+Length Constraints: Maximum length of 256\.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
+Required: No
 
  ** [itemId](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-itemId"></a>
 The item ID to provide recommendations for\.  
@@ -63,11 +84,13 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[itemList](#personalize-RS_GetRecommendations-response-itemList)": [ 
+   "itemList": [ 
       { 
-         "[itemId](API_RS_PredictedItem.md#personalize-Type-RS_PredictedItem-itemId)": "string"
+         "itemId": "string",
+         "score": number
       }
-   ]
+   ],
+   "recommendationId": "string"
 }
 ```
 
@@ -80,6 +103,10 @@ The following data is returned in JSON format by the service\.
  ** [itemList](#API_RS_GetRecommendations_ResponseSyntax) **   <a name="personalize-RS_GetRecommendations-response-itemList"></a>
 A list of recommendations sorted in ascending order by prediction score\. There can be a maximum of 500 items in the list\.  
 Type: Array of [PredictedItem](API_RS_PredictedItem.md) objects
+
+ ** [recommendationId](#API_RS_GetRecommendations_ResponseSyntax) **   <a name="personalize-RS_GetRecommendations-response-recommendationId"></a>
+The ID of the recommendation\.  
+Type: String
 
 ## Errors<a name="API_RS_GetRecommendations_Errors"></a>
 

@@ -6,7 +6,7 @@ Deletes all versions of a solution and the `Solution` object itself\. Before del
 
 ```
 {
-   "[solutionArn](#personalize-DeleteSolution-request-solutionArn)": "string"
+   "solutionArn": "string"
 }
 ```
 

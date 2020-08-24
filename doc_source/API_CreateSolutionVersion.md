@@ -23,8 +23,8 @@ If the status shows as CREATE FAILED, the response includes a `failureReason` ke
 
 ```
 {
-   "[solutionArn](#personalize-CreateSolutionVersion-request-solutionArn)": "string",
-   "[trainingMode](#personalize-CreateSolutionVersion-request-trainingMode)": "string"
+   "solutionArn": "string",
+   "trainingMode": "string"
 }
 ```
 
@@ -41,7 +41,7 @@ Required: Yes
 
  ** [trainingMode](#API_CreateSolutionVersion_RequestSyntax) **   <a name="personalize-CreateSolutionVersion-request-trainingMode"></a>
 The scope of training to be performed when creating the solution version\. The `FULL` option trains the solution version based on the entirety of the input solution's training data, while the `UPDATE` option processes only the data that has changed in comparison to the input solution\. Choose `UPDATE` when you want to incrementally update your solution version instead of creating an entirely new one\.  
-The `UPDATE` option can only be used when you already have an active solution version created from the input solution using the `FULL` option and the input solution was trained with the [HRNN\-Coldstart Recipe](native-recipe-hrnn-coldstart.md) recipe\.
+The `UPDATE` option can only be used when you already have an active solution version created from the input solution using the `FULL` option and the input solution was trained with the [User\-Personalization Recipe](native-recipe-new-item-USER_PERSONALIZATION.md) or the [HRNN\-Coldstart Recipe](native-recipe-hrnn-coldstart.md) recipe\.
 Type: String  
 Valid Values:` FULL | UPDATE`   
 Required: No
@@ -50,7 +50,7 @@ Required: No
 
 ```
 {
-   "[solutionVersionArn](#personalize-CreateSolutionVersion-response-solutionVersionArn)": "string"
+   "solutionVersionArn": "string"
 }
 ```
 
@@ -70,6 +70,10 @@ Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
 
  **InvalidInputException**   
 Provide a valid value for the field or parameter\.  
+HTTP Status Code: 400
+
+ **LimitExceededException**   
+The limit on the number of requests per second has been exceeded\.  
 HTTP Status Code: 400
 
  **ResourceInUseException**   

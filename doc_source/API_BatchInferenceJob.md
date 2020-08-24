@@ -11,6 +11,11 @@ Length Constraints: Maximum length of 256\.
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
+ **batchInferenceJobConfig**   <a name="personalize-Type-BatchInferenceJob-batchInferenceJobConfig"></a>
+A string to string map of the configuration details of a batch inference job\.  
+Type: [BatchInferenceJobConfig](API_BatchInferenceJobConfig.md) object  
+Required: No
+
  **creationDateTime**   <a name="personalize-Type-BatchInferenceJob-creationDateTime"></a>
 The time at which the batch inference job was created\.  
 Type: Timestamp  
@@ -19,6 +24,13 @@ Required: No
  **failureReason**   <a name="personalize-Type-BatchInferenceJob-failureReason"></a>
 If the batch inference job failed, the reason for the failure\.  
 Type: String  
+Required: No
+
+ **filterArn**   <a name="personalize-Type-BatchInferenceJob-filterArn"></a>
+The ARN of the filter used on the batch inference job\.  
+Type: String  
+Length Constraints: Maximum length of 256\.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
  **jobInput**   <a name="personalize-Type-BatchInferenceJob-jobInput"></a>

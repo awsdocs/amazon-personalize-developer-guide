@@ -1,6 +1,6 @@
 # HRNN\-Coldstart Recipe<a name="native-recipe-hrnn-coldstart"></a>
 
-Use the HRNN\-Coldstart recipe to predicts the items that a user will interact with when you frequently add new items and interactions and want to get recommendations for those items immediately\. The HRNN\-Coldstart recipe is similar to the [HRNN\-Metadata](native-recipe-hrnn-metadata.md) recipe, but it allows you to get recommendations for new items\. 
+Use the HRNN\-Coldstart recipe to predict the items that a user will interact with when you frequently add new items and interactions and want to get recommendations for those items immediately\. The HRNN\-Coldstart recipe is similar to the [HRNN\-Metadata](native-recipe-hrnn-metadata.md) recipe, but it allows you to get recommendations for new items\. 
 
 In addition, you can use the HRNN\-Coldstart recipe when you want to exclude from training items that have a long list of interactions either because of a recent popularity trend or because the interactions might be highly unusual and introduce noise in training\. With HRNN\-Coldstart, you can filter out less relevant items to create a subset for training\. The subset of items, called *cold items*, are items that have related interaction events in the Interactions dataset\. An item is considered a cold item when it has the following:
 + Fewer interactions than a specified number of maximum interactions\. You specify this value in the recipe's `cold_start_max_interactions` hyperparameter\.
@@ -21,7 +21,7 @@ The HRNN\-Coldstart recipe has the following properties:
 +  **Feature transformation ARN** – `arn:aws:personalize:::feature-transformation/featurize_coldstart`
 +  **Recipe type** – `USER_PERSONALIZATION`
 
-For more information, see [Using Predefined Recipes](working-with-predefined-recipes.md)\.
+For more information, see [Choosing a Recipe](working-with-predefined-recipes.md)\.
 
 The following table describes the hyperparameters for the HRNN\-Coldstart recipe\. A *hyperparameter* is an algorithm parameter that you can adjust to improve model performance\. Algorithm hyperparameters control how the model performs\. Featurization hyperparameters control how to filter the data to use in training\. The process of choosing the best value for a hyperparameter is called hyperparameter optimization \(HPO\)\. For more information, see [Hyperparameters and HPO](customizing-solution-config-hpo.md)\. 
 
@@ -46,4 +46,4 @@ The table also provides the following information for each hyperparameter:
 
 ## HRNN\-Coldstart Sample Notebook<a name="hrnn-coldstart-sample-notebooks"></a>
 
-For a sample Jupyter notebook that shows how to use the HRNN\-Coldstart recipe, see [Amazon Personalize Coldstart Demo](https://github.com/aws-samples/amazon-personalize-samples/blob/master/advanced_examples/personalize_coldstart_demo.ipynb)\.
+For a sample Jupyter notebook that shows how to use the HRNN\-Coldstart recipe, see [Handling cold or new items with Amazon Personalize](https://github.com/aws-samples/amazon-personalize-samples/blob/master/next_steps/core_use_cases/user_personalization/personalize_hrnn_coldstart_example.ipynb)\.

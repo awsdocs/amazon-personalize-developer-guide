@@ -15,8 +15,8 @@ For more information on schemas, see [Datasets and Schemas](https://docs.aws.ama
 
 ```
 {
-   "[name](#personalize-CreateSchema-request-name)": "string",
-   "[schema](#personalize-CreateSchema-request-schema)": "string"
+   "name": "string",
+   "schema": "string"
 }
 ```
 
@@ -41,7 +41,7 @@ Required: Yes
 
 ```
 {
-   "[schemaArn](#personalize-CreateSchema-response-schemaArn)": "string"
+   "schemaArn": "string"
 }
 ```
 

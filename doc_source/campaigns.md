@@ -11,17 +11,19 @@ To create a campaign with the SDK, call the [CreateCampaign](API_CreateCampaign.
 
 1. Create a solution version to deploy\. For more information, see [Creating a Solution](training-deploying-solutions.md)\.
 
-1. Use the following code to create a campaign\.
+1. Use the following code to create a campaign for a solution version trained using the User\-Personalization recipe with the optional default `explorationWeight` and `explorationItemAgeCutOff` for `itemExplorationConfig`\. For more information, see [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md)
 
    ```
    import boto3
    
    personalize = boto3.client('personalize')
    
-   response = personalize.create_campaign(
+   create_campaign_response = personalize.create_campaign(
        name = 'campaign name',
        solutionVersionArn = 'solution version arn',
-       minProvisionedTPS = 10)
+       minProvisionedTPS = 1,
+       campaignConfig = {"itemExplorationConfig": {"explorationWeight": "0.3", "explorationItemAgeCutOff": "30"}}
+   )
    
    arn = response['campaignArn']
    

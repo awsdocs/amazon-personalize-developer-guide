@@ -6,8 +6,8 @@ Returns a list of dataset groups\. The response provides the properties for each
 
 ```
 {
-   "[maxResults](#personalize-ListDatasetGroups-request-maxResults)": number,
-   "[nextToken](#personalize-ListDatasetGroups-request-nextToken)": "string"
+   "maxResults": number,
+   "nextToken": "string"
 }
 ```
 
@@ -31,17 +31,17 @@ Required: No
 
 ```
 {
-   "[datasetGroups](#personalize-ListDatasetGroups-response-datasetGroups)": [ 
+   "datasetGroups": [ 
       { 
-         "[creationDateTime](API_DatasetGroupSummary.md#personalize-Type-DatasetGroupSummary-creationDateTime)": number,
-         "[datasetGroupArn](API_DatasetGroupSummary.md#personalize-Type-DatasetGroupSummary-datasetGroupArn)": "string",
-         "[failureReason](API_DatasetGroupSummary.md#personalize-Type-DatasetGroupSummary-failureReason)": "string",
-         "[lastUpdatedDateTime](API_DatasetGroupSummary.md#personalize-Type-DatasetGroupSummary-lastUpdatedDateTime)": number,
-         "[name](API_DatasetGroupSummary.md#personalize-Type-DatasetGroupSummary-name)": "string",
-         "[status](API_DatasetGroupSummary.md#personalize-Type-DatasetGroupSummary-status)": "string"
+         "creationDateTime": number,
+         "datasetGroupArn": "string",
+         "failureReason": "string",
+         "lastUpdatedDateTime": number,
+         "name": "string",
+         "status": "string"
       }
    ],
-   "[nextToken](#personalize-ListDatasetGroups-response-nextToken)": "string"
+   "nextToken": "string"
 }
 ```
 

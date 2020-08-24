@@ -12,9 +12,13 @@ POST /personalize-ranking HTTP/1.1
 Content-type: application/json
 
 {
-   "[campaignArn](#personalize-RS_GetPersonalizedRanking-request-campaignArn)": "string",
-   "[inputList](#personalize-RS_GetPersonalizedRanking-request-inputList)": [ "string" ],
-   "[userId](#personalize-RS_GetPersonalizedRanking-request-userId)": "string"
+   "campaignArn": "string",
+   "context": { 
+      "string" : "string" 
+   },
+   "filterArn": "string",
+   "inputList": [ "string" ],
+   "userId": "string"
 }
 ```
 
@@ -33,8 +37,24 @@ Length Constraints: Maximum length of 256\.
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: Yes
 
+ ** [context](#API_RS_GetPersonalizedRanking_RequestSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-request-context"></a>
+The contextual metadata to use when getting recommendations\. Contextual metadata includes any interaction information that might be relevant when getting a user's recommendations, such as the user's current location or device type\.  
+Type: String to string map  
+Map Entries: Maximum number of 150 items\.  
+Key Length Constraints: Maximum length of 150\.  
+Key Pattern: `[A-Za-z\d_]+`   
+Value Length Constraints: Maximum length of 1000\.  
+Required: No
+
+ ** [filterArn](#API_RS_GetPersonalizedRanking_RequestSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-request-filterArn"></a>
+The Amazon Resource Name \(ARN\) of a filter you created to include or exclude items from recommendations for a given user\.  
+Type: String  
+Length Constraints: Maximum length of 256\.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
+Required: No
+
  ** [inputList](#API_RS_GetPersonalizedRanking_RequestSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-request-inputList"></a>
-A list of items \(itemId's\) to rank\. If an item was not included in the training dataset, the item is appended to the end of the reranked list\. The maximum is 500\.  
+A list of items \(by `itemId`\) to rank\. If an item was not included in the training dataset, the item is appended to the end of the reranked list\. The maximum is 500\.  
 Type: Array of strings  
 Length Constraints: Maximum length of 256\.  
 Required: Yes
@@ -52,11 +72,13 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[personalizedRanking](#personalize-RS_GetPersonalizedRanking-response-personalizedRanking)": [ 
+   "personalizedRanking": [ 
       { 
-         "[itemId](API_RS_PredictedItem.md#personalize-Type-RS_PredictedItem-itemId)": "string"
+         "itemId": "string",
+         "score": number
       }
-   ]
+   ],
+   "recommendationId": "string"
 }
 ```
 
@@ -69,6 +91,10 @@ The following data is returned in JSON format by the service\.
  ** [personalizedRanking](#API_RS_GetPersonalizedRanking_ResponseSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-response-personalizedRanking"></a>
 A list of items in order of most likely interest to the user\. The maximum is 500\.  
 Type: Array of [PredictedItem](API_RS_PredictedItem.md) objects
+
+ ** [recommendationId](#API_RS_GetPersonalizedRanking_ResponseSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-response-recommendationId"></a>
+The ID of the recommendation\.  
+Type: String
 
 ## Errors<a name="API_RS_GetPersonalizedRanking_Errors"></a>
 

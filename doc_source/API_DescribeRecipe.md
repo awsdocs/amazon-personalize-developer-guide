@@ -13,7 +13,7 @@ Amazon Personalize provides a set of predefined recipes\. You specify a recipe w
 
 ```
 {
-   "[recipeArn](#personalize-DescribeRecipe-request-recipeArn)": "string"
+   "recipeArn": "string"
 }
 ```
 
@@ -32,16 +32,16 @@ Required: Yes
 
 ```
 {
-   "[recipe](#personalize-DescribeRecipe-response-recipe)": { 
-      "[algorithmArn](API_Recipe.md#personalize-Type-Recipe-algorithmArn)": "string",
-      "[creationDateTime](API_Recipe.md#personalize-Type-Recipe-creationDateTime)": number,
-      "[description](API_Recipe.md#personalize-Type-Recipe-description)": "string",
-      "[featureTransformationArn](API_Recipe.md#personalize-Type-Recipe-featureTransformationArn)": "string",
-      "[lastUpdatedDateTime](API_Recipe.md#personalize-Type-Recipe-lastUpdatedDateTime)": number,
-      "[name](API_Recipe.md#personalize-Type-Recipe-name)": "string",
-      "[recipeArn](API_Recipe.md#personalize-Type-Recipe-recipeArn)": "string",
-      "[recipeType](API_Recipe.md#personalize-Type-Recipe-recipeType)": "string",
-      "[status](API_Recipe.md#personalize-Type-Recipe-status)": "string"
+   "recipe": { 
+      "algorithmArn": "string",
+      "creationDateTime": number,
+      "description": "string",
+      "featureTransformationArn": "string",
+      "lastUpdatedDateTime": number,
+      "name": "string",
+      "recipeArn": "string",
+      "recipeType": "string",
+      "status": "string"
    }
 }
 ```

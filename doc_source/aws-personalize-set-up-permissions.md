@@ -2,7 +2,7 @@
 
 To use Amazon Personalize, you have to set up permissions that allow access to the Amazon Personalize console and API operations\. You also have to allow Amazon Personalize to perform tasks on your behalf and to access resources that you own\.
 
-We recommend creating a user with access restricted to Amazon Personalize operations\. You can add other permissions as needed\. For more information, see [Amazon Personalize Identity\-Based Policies](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies.title)\.
+We recommend creating a user with access restricted to Amazon Personalize operations\. You can add other permissions as needed\. For more information, see [Amazon Personalize Identity\-Based Policies](security_iam_service-with-iam.md#security_iam_service-with-iam-id-based-policies)\.
 
 **Topics**
 + [Required Permissions](#set-up-required-permissions)

@@ -7,6 +7,7 @@ If hyperparameter optimization \(HPO\) was performed, contains the hyperparamete
  **algorithmHyperParameters**   <a name="personalize-Type-TunedHPOParams-algorithmHyperParameters"></a>
 A list of the hyperparameter values of the best performing model\.  
 Type: String to string map  
+Map Entries: Maximum number of 100 items\.  
 Key Length Constraints: Maximum length of 256\.  
 Value Length Constraints: Maximum length of 1000\.  
 Required: No

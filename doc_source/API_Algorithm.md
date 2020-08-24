@@ -29,6 +29,7 @@ Required: No
  **defaultHyperParameters**   <a name="personalize-Type-Algorithm-defaultHyperParameters"></a>
 Specifies the default hyperparameters\.  
 Type: String to string map  
+Map Entries: Maximum number of 100 items\.  
 Key Length Constraints: Maximum length of 256\.  
 Value Length Constraints: Maximum length of 1000\.  
 Required: No
@@ -36,6 +37,7 @@ Required: No
  **defaultResourceConfig**   <a name="personalize-Type-Algorithm-defaultResourceConfig"></a>
 Specifies the default maximum number of training jobs and parallel training jobs\.  
 Type: String to string map  
+Map Entries: Maximum number of 100 items\.  
 Key Length Constraints: Maximum length of 256\.  
 Value Length Constraints: Maximum length of 1000\.  
 Required: No

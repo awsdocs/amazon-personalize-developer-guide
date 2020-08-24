@@ -6,9 +6,9 @@ Returns the list of datasets contained in the given dataset group\. The response
 
 ```
 {
-   "[datasetGroupArn](#personalize-ListDatasets-request-datasetGroupArn)": "string",
-   "[maxResults](#personalize-ListDatasets-request-maxResults)": number,
-   "[nextToken](#personalize-ListDatasets-request-nextToken)": "string"
+   "datasetGroupArn": "string",
+   "maxResults": number,
+   "nextToken": "string"
 }
 ```
 
@@ -39,17 +39,17 @@ Required: No
 
 ```
 {
-   "[datasets](#personalize-ListDatasets-response-datasets)": [ 
+   "datasets": [ 
       { 
-         "[creationDateTime](API_DatasetSummary.md#personalize-Type-DatasetSummary-creationDateTime)": number,
-         "[datasetArn](API_DatasetSummary.md#personalize-Type-DatasetSummary-datasetArn)": "string",
-         "[datasetType](API_DatasetSummary.md#personalize-Type-DatasetSummary-datasetType)": "string",
-         "[lastUpdatedDateTime](API_DatasetSummary.md#personalize-Type-DatasetSummary-lastUpdatedDateTime)": number,
-         "[name](API_DatasetSummary.md#personalize-Type-DatasetSummary-name)": "string",
-         "[status](API_DatasetSummary.md#personalize-Type-DatasetSummary-status)": "string"
+         "creationDateTime": number,
+         "datasetArn": "string",
+         "datasetType": "string",
+         "lastUpdatedDateTime": number,
+         "name": "string",
+         "status": "string"
       }
    ],
-   "[nextToken](#personalize-ListDatasets-response-nextToken)": "string"
+   "nextToken": "string"
 }
 ```
 

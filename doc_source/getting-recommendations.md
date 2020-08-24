@@ -6,6 +6,7 @@ After you have created a campaign, you can use it in your applications to get re
 + [How Recommendation Scoring Works](#how-scores-work)
 + [Getting Real\-Time Recommendations](getting-real-time-recommendations.md)
 + [Getting Batch Recommendations](recommendations-batch.md)
++ [Filtering Recommendations](filter.md)
 
 ## How Recommendation Scoring Works<a name="how-scores-work"></a>
 

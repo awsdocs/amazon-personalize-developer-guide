@@ -6,9 +6,9 @@ Returns a list of campaigns that use the given solution\. When a solution is not
 
 ```
 {
-   "[maxResults](#personalize-ListCampaigns-request-maxResults)": number,
-   "[nextToken](#personalize-ListCampaigns-request-nextToken)": "string",
-   "[solutionArn](#personalize-ListCampaigns-request-solutionArn)": "string"
+   "maxResults": number,
+   "nextToken": "string",
+   "solutionArn": "string"
 }
 ```
 
@@ -39,17 +39,17 @@ Required: No
 
 ```
 {
-   "[campaigns](#personalize-ListCampaigns-response-campaigns)": [ 
+   "campaigns": [ 
       { 
-         "[campaignArn](API_CampaignSummary.md#personalize-Type-CampaignSummary-campaignArn)": "string",
-         "[creationDateTime](API_CampaignSummary.md#personalize-Type-CampaignSummary-creationDateTime)": number,
-         "[failureReason](API_CampaignSummary.md#personalize-Type-CampaignSummary-failureReason)": "string",
-         "[lastUpdatedDateTime](API_CampaignSummary.md#personalize-Type-CampaignSummary-lastUpdatedDateTime)": number,
-         "[name](API_CampaignSummary.md#personalize-Type-CampaignSummary-name)": "string",
-         "[status](API_CampaignSummary.md#personalize-Type-CampaignSummary-status)": "string"
+         "campaignArn": "string",
+         "creationDateTime": number,
+         "failureReason": "string",
+         "lastUpdatedDateTime": number,
+         "name": "string",
+         "status": "string"
       }
    ],
-   "[nextToken](#personalize-ListCampaigns-response-nextToken)": "string"
+   "nextToken": "string"
 }
 ```
 

@@ -13,11 +13,11 @@ To get recommendations, call the [GetRecommendations](API_RS_GetRecommendations.
 To get contextual recommendations, you can also include contextual metadata on your user\. For instance, you might include information on the user's current location or device \(desktop, mobile, tablet\) so that Amazon Personalize can get recommendations based on that user's previous situational behavior\. Any metadata context fields must be included in the schema of the campaign's user\-item interaction dataset\.
 
 **Note**  
-The solution backing the campaign must have been created using a recipe of type USER\_PERSONALIZATION or RELATED\_ITEMS\. For more information, see [Using Predefined Recipes](working-with-predefined-recipes.md)\.
+The solution backing the campaign must have been created using a recipe of type USER\_PERSONALIZATION or RELATED\_ITEMS\. For more information, see [Choosing a Recipe](working-with-predefined-recipes.md)\.
 
 **How Scoring Works**
 
-Models that are based on USER\_PERSONALIZATION recipes score all of the items in your Items dataset relative to each other on a scale from 0 to 1 \(both inclusive\), so that the total of all scores equals 1\. For example, if you're getting movie recommendations for a user and there are three movies in the Items dataset, their scores might be `.6`, `.3`, and `.1`\. Similarly, if you have 1,000 movies in your inventory, the highest\-scoring movies might have very small scores \(the average score would be`.001`\), but, because scoring is relative, the recommendations are still valid\.
+Models that are based on USER\_PERSONALIZATION recipes score all of the items in your Items dataset relative to each other on a scale from 0 to 1 \(both inclusive\), so that the total of all scores equals 1\. For example, if you're getting movie recommendations for a user and there are three movies in the Items dataset, their scores might be `0.6`, `0.3`, and `0.1`\. Similarly, if you have 1,000 movies in your inventory, the highest\-scoring movies might have very small scores \(the average score would be`.001`\), but, because scoring is relative, the recommendations are still valid\.
 
 In mathematical terms, scores for each user\-item pair \(u,i\) are computed according to the following formula, where “exp” is the exponential function, w̅ u and wi/j are user and item embeddings respectively, and the Greek letter sigma \(Σ\) represents summation over all items in the item dataset:
 
@@ -69,7 +69,7 @@ for item in response['itemList']:
 A personalized ranking is a list of recommended items that are re\-ranked for a specific user\. To get personalized rankings, call the [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) API\.
 
 **Note**  
-The solution backing the campaign must have been created using a recipe of type PERSONALIZED\_RANKING\. For more information, see [Using Predefined Recipes](working-with-predefined-recipes.md)\.
+The solution backing the campaign must have been created using a recipe of type PERSONALIZED\_RANKING\. For more information, see [Choosing a Recipe](working-with-predefined-recipes.md)\.
 
 **How Scoring Works**
 

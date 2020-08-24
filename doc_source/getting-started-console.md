@@ -25,7 +25,7 @@ In this procedure, you first create a dataset group\. Next, you create an Amazon
 
 1. On the **Create user\-item interaction data** page, in **Dataset details**, for **Dataset name**, specify a name for your dataset\.
 
-1. In **Schema details**, for **Schema selection**, choose **Create new schema**\. A minimal Interactions schema is displayed in the **Schema definition** field\. The schema matches the headers you previously added to the `ratings.csv` file\.
+1. In **Schema details**, for **Schema selection**, choose **Create new schema**\. A minimal Interactions schema is displayed in the **Schema definition** field\. The schema matches the headers you previously added to the `ratings.csv` file\. For more information see [Create the Training Data](getting-started.md#gs-upload-to-bucket)\. 
 
 1. For **New schema name**, specify a name for the new schema\.
 
@@ -66,32 +66,27 @@ In this procedure, you use the dataset that you imported in the previous step to
 
 **To create a solution**
 
-1. If the **Create solution** page is not already displayed, in the navigation pane, under the dataset group that you created, choose the **Create solutions \- Start** button\.
+1. If the **Create solution** page is not already displayed, in the navigation pane, under the dataset group that you created, choose the Solution creation **Start** button\.
 
-1. In **Solution configuration**, for **Solution name**, specify a name for your solution\.
+1. For **Solution name**, specify a name for your solution\.
 
-1. For **Recipe selection**, choose **Automatic \(AutoML\)**\. Keep the default recipe list\.
-
-1. Your screen should look similar to the following:  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-5-solution-v02.png)
-
-1. \(optional\) In **Perform HPO**, to allow Amazon Personalize to find the optimal hyperparameters for the recipe, choose **true**\. Otherwise, choose **false**\.
-
-1. Choose **Next**\.
+1. For **Recipe**, choose **aws\-user\-personalization**\. Leave the optional **Solution configuration** fields unchanged\.
 
    Your screen should look similar to the following:  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-5-solution-version.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-create-solution.png)
+
+1. Choose **Next** to display the **Create solution version** screen\.
+
+   Your screen should look similar to the following:  
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-create-solution-version-console.png)
 
 1. There's no need to modify the **Solution config**, so choose **Finish**\. Model training starts and the **Dashboard Overview** page is displayed\.
 
 1. Initially, in **Create solutions**, the **Solution creation** status is **Create pending** \(followed by **Create in progress**\), the **Launch campaigns \- Start** button is disabled, and a banner is displayed on the top of the console showing the progress\.
-
-   When training has finished, the **Dashboard Overview** page is refreshed, and your screen should look similar to the following\.
 **Note**  
-The time it takes to train a model depends on the size of the dataset and the chosen recipe\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-5-solution-trained.png)
+The time it takes to train a model depends on the size of the dataset and the chosen recipe\.
 
-1. After training has finished, choose **Create new campaign**\. 
+1. After training has finished, in the navigation pane choose Dashboard and choose **Create new campaign**\. 
 
 ## Step 3: Create a Campaign<a name="getting-started-console-deploy-solution"></a>
 
@@ -103,12 +98,12 @@ In this procedure, you create a campaign by deploying the solution version you c
 
 1. In **Campaign details**, for **Campaign name**, specify a name for your campaign\.
 
-1. For **Solution**, choose the solution version that you created in the previous step\.
+1. For **Solution**, choose the solution you created in the previous step and for **Solution version ID** keep the default\.
 
 1. For **Minimum provisioned transactions per second**, keep the default of `1`\.
 
    Your screen should look similar to the following:  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-6-campaign.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/getting-started-create-new-campaign.png)
 
 1. Choose **Create campaign**\. Campaign creation starts and the **Campaign** page appears with the **Campaign inference** section displayed\.
 
@@ -118,7 +113,7 @@ In this procedure, you create a campaign by deploying the solution version you c
 Creating a campaign takes time\.
 
    After the campaign is created, the page is updated to show the **Test campaign results** section\. Your screen should look similar to the following:  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-6-campaign-results-empty.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-campaign-test-before-results.png)
 
 ## Step 4: Get Recommendations<a name="getting-started-console-get-recommendations"></a>
 
@@ -126,9 +121,9 @@ In this procedure, use the campaign that you created in the previous step to get
 
 **To get recommendations**
 
-1. In **Test campaign results**, for **User ID**, specify a value from the *ratings* dataset, for example, **83**\.
+1. In **Test campaign results**, for **User ID**, specify a value from the *ratings* dataset, for example, **83**\. For **Filter name** keep the default selection of *None*\.
 
 1. Choose **Get recommendations**\. The **Recommended item ID** list displays the recommended item IDs\.
 
    Your screen should look similar to the following:  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-7-test-campaign-result.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-test-campaign-with-results.png)

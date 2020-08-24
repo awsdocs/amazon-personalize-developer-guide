@@ -6,9 +6,9 @@ Returns a list of solution versions for the given solution\. When a solution is 
 
 ```
 {
-   "[maxResults](#personalize-ListSolutionVersions-request-maxResults)": number,
-   "[nextToken](#personalize-ListSolutionVersions-request-nextToken)": "string",
-   "[solutionArn](#personalize-ListSolutionVersions-request-solutionArn)": "string"
+   "maxResults": number,
+   "nextToken": "string",
+   "solutionArn": "string"
 }
 ```
 
@@ -39,14 +39,14 @@ Required: No
 
 ```
 {
-   "[nextToken](#personalize-ListSolutionVersions-response-nextToken)": "string",
-   "[solutionVersions](#personalize-ListSolutionVersions-response-solutionVersions)": [ 
+   "nextToken": "string",
+   "solutionVersions": [ 
       { 
-         "[creationDateTime](API_SolutionVersionSummary.md#personalize-Type-SolutionVersionSummary-creationDateTime)": number,
-         "[failureReason](API_SolutionVersionSummary.md#personalize-Type-SolutionVersionSummary-failureReason)": "string",
-         "[lastUpdatedDateTime](API_SolutionVersionSummary.md#personalize-Type-SolutionVersionSummary-lastUpdatedDateTime)": number,
-         "[solutionVersionArn](API_SolutionVersionSummary.md#personalize-Type-SolutionVersionSummary-solutionVersionArn)": "string",
-         "[status](API_SolutionVersionSummary.md#personalize-Type-SolutionVersionSummary-status)": "string"
+         "creationDateTime": number,
+         "failureReason": "string",
+         "lastUpdatedDateTime": number,
+         "solutionVersionArn": "string",
+         "status": "string"
       }
    ]
 }

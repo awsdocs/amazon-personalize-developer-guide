@@ -6,7 +6,7 @@ Gets the metrics for the specified solution version\.
 
 ```
 {
-   "[solutionVersionArn](#personalize-GetSolutionMetrics-request-solutionVersionArn)": "string"
+   "solutionVersionArn": "string"
 }
 ```
 
@@ -25,10 +25,10 @@ Required: Yes
 
 ```
 {
-   "[metrics](#personalize-GetSolutionMetrics-response-metrics)": { 
+   "metrics": { 
       "string" : number 
    },
-   "[solutionVersionArn](#personalize-GetSolutionMetrics-response-solutionVersionArn)": "string"
+   "solutionVersionArn": "string"
 }
 ```
 
@@ -41,6 +41,7 @@ The following data is returned in JSON format by the service\.
  ** [metrics](#API_GetSolutionMetrics_ResponseSyntax) **   <a name="personalize-GetSolutionMetrics-response-metrics"></a>
 The metrics for the solution version\.  
 Type: String to double map  
+Map Entries: Maximum number of 100 items\.  
 Key Length Constraints: Maximum length of 256\.
 
  ** [solutionVersionArn](#API_GetSolutionMetrics_ResponseSyntax) **   <a name="personalize-GetSolutionMetrics-response-solutionVersionArn"></a>

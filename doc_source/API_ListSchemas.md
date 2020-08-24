@@ -6,8 +6,8 @@ Returns the list of schemas associated with the account\. The response provides 
 
 ```
 {
-   "[maxResults](#personalize-ListSchemas-request-maxResults)": number,
-   "[nextToken](#personalize-ListSchemas-request-nextToken)": "string"
+   "maxResults": number,
+   "nextToken": "string"
 }
 ```
 
@@ -31,13 +31,13 @@ Required: No
 
 ```
 {
-   "[nextToken](#personalize-ListSchemas-response-nextToken)": "string",
-   "[schemas](#personalize-ListSchemas-response-schemas)": [ 
+   "nextToken": "string",
+   "schemas": [ 
       { 
-         "[creationDateTime](API_DatasetSchemaSummary.md#personalize-Type-DatasetSchemaSummary-creationDateTime)": number,
-         "[lastUpdatedDateTime](API_DatasetSchemaSummary.md#personalize-Type-DatasetSchemaSummary-lastUpdatedDateTime)": number,
-         "[name](API_DatasetSchemaSummary.md#personalize-Type-DatasetSchemaSummary-name)": "string",
-         "[schemaArn](API_DatasetSchemaSummary.md#personalize-Type-DatasetSchemaSummary-schemaArn)": "string"
+         "creationDateTime": number,
+         "lastUpdatedDateTime": number,
+         "name": "string",
+         "schemaArn": "string"
       }
    ]
 }

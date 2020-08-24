@@ -8,7 +8,7 @@ This getting started guide shows you how to create a campaign that returns movie
 
 To begin, download and prepare the training data\. Next, create an AWS Identity and Access Management \(IAM\) role that allows Amazon Personalize to access the data on your behalf\. After creating the training data and role, proceed to either [Getting Started \(Console\)](getting-started-console.md) or [Getting Started \(AWS CLI\)](getting-started-cli.md)\.
 
-When you finish the getting started exercise, you might want to delete the resources you created\. For more information, see [Clean Up Resources](#gs-cleanup)\.
+When you finish the getting started exercise, you might want to delete the resources you created\. 
 
 **Topics**
 + [Prerequisites](#gs-prerequisites)

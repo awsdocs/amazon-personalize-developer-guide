@@ -6,7 +6,7 @@ Describes the given feature transformation\.
 
 ```
 {
-   "[featureTransformationArn](#personalize-DescribeFeatureTransformation-request-featureTransformationArn)": "string"
+   "featureTransformationArn": "string"
 }
 ```
 
@@ -25,15 +25,15 @@ Required: Yes
 
 ```
 {
-   "[featureTransformation](#personalize-DescribeFeatureTransformation-response-featureTransformation)": { 
-      "[creationDateTime](API_FeatureTransformation.md#personalize-Type-FeatureTransformation-creationDateTime)": number,
-      "[defaultParameters](API_FeatureTransformation.md#personalize-Type-FeatureTransformation-defaultParameters)": { 
+   "featureTransformation": { 
+      "creationDateTime": number,
+      "defaultParameters": { 
          "string" : "string" 
       },
-      "[featureTransformationArn](API_FeatureTransformation.md#personalize-Type-FeatureTransformation-featureTransformationArn)": "string",
-      "[lastUpdatedDateTime](API_FeatureTransformation.md#personalize-Type-FeatureTransformation-lastUpdatedDateTime)": number,
-      "[name](API_FeatureTransformation.md#personalize-Type-FeatureTransformation-name)": "string",
-      "[status](API_FeatureTransformation.md#personalize-Type-FeatureTransformation-status)": "string"
+      "featureTransformationArn": "string",
+      "lastUpdatedDateTime": number,
+      "name": "string",
+      "status": "string"
    }
 }
 ```

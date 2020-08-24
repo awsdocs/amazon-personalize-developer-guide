@@ -27,8 +27,8 @@ The event tracker must be in the ACTIVE state before using the tracking ID\.
 
 ```
 {
-   "[datasetGroupArn](#personalize-CreateEventTracker-request-datasetGroupArn)": "string",
-   "[name](#personalize-CreateEventTracker-request-name)": "string"
+   "datasetGroupArn": "string",
+   "name": "string"
 }
 ```
 
@@ -54,8 +54,8 @@ Required: Yes
 
 ```
 {
-   "[eventTrackerArn](#personalize-CreateEventTracker-response-eventTrackerArn)": "string",
-   "[trackingId](#personalize-CreateEventTracker-response-trackingId)": "string"
+   "eventTrackerArn": "string",
+   "trackingId": "string"
 }
 ```
 

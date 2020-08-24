@@ -6,7 +6,7 @@ Describes a solution\. For more information on solutions, see [CreateSolution](A
 
 ```
 {
-   "[solutionArn](#personalize-DescribeSolution-request-solutionArn)": "string"
+   "solutionArn": "string"
 }
 ```
 
@@ -25,73 +25,73 @@ Required: Yes
 
 ```
 {
-   "[solution](#personalize-DescribeSolution-response-solution)": { 
-      "[autoMLResult](API_Solution.md#personalize-Type-Solution-autoMLResult)": { 
-         "[bestRecipeArn](API_AutoMLResult.md#personalize-Type-AutoMLResult-bestRecipeArn)": "string"
+   "solution": { 
+      "autoMLResult": { 
+         "bestRecipeArn": "string"
       },
-      "[creationDateTime](API_Solution.md#personalize-Type-Solution-creationDateTime)": number,
-      "[datasetGroupArn](API_Solution.md#personalize-Type-Solution-datasetGroupArn)": "string",
-      "[eventType](API_Solution.md#personalize-Type-Solution-eventType)": "string",
-      "[lastUpdatedDateTime](API_Solution.md#personalize-Type-Solution-lastUpdatedDateTime)": number,
-      "[latestSolutionVersion](API_Solution.md#personalize-Type-Solution-latestSolutionVersion)": { 
-         "[creationDateTime](API_SolutionVersionSummary.md#personalize-Type-SolutionVersionSummary-creationDateTime)": number,
-         "[failureReason](API_SolutionVersionSummary.md#personalize-Type-SolutionVersionSummary-failureReason)": "string",
-         "[lastUpdatedDateTime](API_SolutionVersionSummary.md#personalize-Type-SolutionVersionSummary-lastUpdatedDateTime)": number,
-         "[solutionVersionArn](API_SolutionVersionSummary.md#personalize-Type-SolutionVersionSummary-solutionVersionArn)": "string",
-         "[status](API_SolutionVersionSummary.md#personalize-Type-SolutionVersionSummary-status)": "string"
+      "creationDateTime": number,
+      "datasetGroupArn": "string",
+      "eventType": "string",
+      "lastUpdatedDateTime": number,
+      "latestSolutionVersion": { 
+         "creationDateTime": number,
+         "failureReason": "string",
+         "lastUpdatedDateTime": number,
+         "solutionVersionArn": "string",
+         "status": "string"
       },
-      "[name](API_Solution.md#personalize-Type-Solution-name)": "string",
-      "[performAutoML](API_Solution.md#personalize-Type-Solution-performAutoML)": boolean,
-      "[performHPO](API_Solution.md#personalize-Type-Solution-performHPO)": boolean,
-      "[recipeArn](API_Solution.md#personalize-Type-Solution-recipeArn)": "string",
-      "[solutionArn](API_Solution.md#personalize-Type-Solution-solutionArn)": "string",
-      "[solutionConfig](API_Solution.md#personalize-Type-Solution-solutionConfig)": { 
-         "[algorithmHyperParameters](API_SolutionConfig.md#personalize-Type-SolutionConfig-algorithmHyperParameters)": { 
+      "name": "string",
+      "performAutoML": boolean,
+      "performHPO": boolean,
+      "recipeArn": "string",
+      "solutionArn": "string",
+      "solutionConfig": { 
+         "algorithmHyperParameters": { 
             "string" : "string" 
          },
-         "[autoMLConfig](API_SolutionConfig.md#personalize-Type-SolutionConfig-autoMLConfig)": { 
-            "[metricName](API_AutoMLConfig.md#personalize-Type-AutoMLConfig-metricName)": "string",
-            "[recipeList](API_AutoMLConfig.md#personalize-Type-AutoMLConfig-recipeList)": [ "string" ]
+         "autoMLConfig": { 
+            "metricName": "string",
+            "recipeList": [ "string" ]
          },
-         "[eventValueThreshold](API_SolutionConfig.md#personalize-Type-SolutionConfig-eventValueThreshold)": "string",
-         "[featureTransformationParameters](API_SolutionConfig.md#personalize-Type-SolutionConfig-featureTransformationParameters)": { 
+         "eventValueThreshold": "string",
+         "featureTransformationParameters": { 
             "string" : "string" 
          },
-         "[hpoConfig](API_SolutionConfig.md#personalize-Type-SolutionConfig-hpoConfig)": { 
-            "[algorithmHyperParameterRanges](API_HPOConfig.md#personalize-Type-HPOConfig-algorithmHyperParameterRanges)": { 
-               "[categoricalHyperParameterRanges](API_HyperParameterRanges.md#personalize-Type-HyperParameterRanges-categoricalHyperParameterRanges)": [ 
+         "hpoConfig": { 
+            "algorithmHyperParameterRanges": { 
+               "categoricalHyperParameterRanges": [ 
                   { 
-                     "[name](API_CategoricalHyperParameterRange.md#personalize-Type-CategoricalHyperParameterRange-name)": "string",
-                     "[values](API_CategoricalHyperParameterRange.md#personalize-Type-CategoricalHyperParameterRange-values)": [ "string" ]
+                     "name": "string",
+                     "values": [ "string" ]
                   }
                ],
-               "[continuousHyperParameterRanges](API_HyperParameterRanges.md#personalize-Type-HyperParameterRanges-continuousHyperParameterRanges)": [ 
+               "continuousHyperParameterRanges": [ 
                   { 
-                     "[maxValue](API_ContinuousHyperParameterRange.md#personalize-Type-ContinuousHyperParameterRange-maxValue)": number,
-                     "[minValue](API_ContinuousHyperParameterRange.md#personalize-Type-ContinuousHyperParameterRange-minValue)": number,
-                     "[name](API_ContinuousHyperParameterRange.md#personalize-Type-ContinuousHyperParameterRange-name)": "string"
+                     "maxValue": number,
+                     "minValue": number,
+                     "name": "string"
                   }
                ],
-               "[integerHyperParameterRanges](API_HyperParameterRanges.md#personalize-Type-HyperParameterRanges-integerHyperParameterRanges)": [ 
+               "integerHyperParameterRanges": [ 
                   { 
-                     "[maxValue](API_IntegerHyperParameterRange.md#personalize-Type-IntegerHyperParameterRange-maxValue)": number,
-                     "[minValue](API_IntegerHyperParameterRange.md#personalize-Type-IntegerHyperParameterRange-minValue)": number,
-                     "[name](API_IntegerHyperParameterRange.md#personalize-Type-IntegerHyperParameterRange-name)": "string"
+                     "maxValue": number,
+                     "minValue": number,
+                     "name": "string"
                   }
                ]
             },
-            "[hpoObjective](API_HPOConfig.md#personalize-Type-HPOConfig-hpoObjective)": { 
-               "[metricName](API_HPOObjective.md#personalize-Type-HPOObjective-metricName)": "string",
-               "[metricRegex](API_HPOObjective.md#personalize-Type-HPOObjective-metricRegex)": "string",
-               "[type](API_HPOObjective.md#personalize-Type-HPOObjective-type)": "string"
+            "hpoObjective": { 
+               "metricName": "string",
+               "metricRegex": "string",
+               "type": "string"
             },
-            "[hpoResourceConfig](API_HPOConfig.md#personalize-Type-HPOConfig-hpoResourceConfig)": { 
-               "[maxNumberOfTrainingJobs](API_HPOResourceConfig.md#personalize-Type-HPOResourceConfig-maxNumberOfTrainingJobs)": "string",
-               "[maxParallelTrainingJobs](API_HPOResourceConfig.md#personalize-Type-HPOResourceConfig-maxParallelTrainingJobs)": "string"
+            "hpoResourceConfig": { 
+               "maxNumberOfTrainingJobs": "string",
+               "maxParallelTrainingJobs": "string"
             }
          }
       },
-      "[status](API_Solution.md#personalize-Type-Solution-status)": "string"
+      "status": "string"
    }
 }
 ```

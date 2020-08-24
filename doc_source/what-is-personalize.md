@@ -42,4 +42,4 @@ If you are a first\-time user of Amazon Personalize, we recommend that you read 
 
 ## Are You an Experienced Amazon Personalize User?<a name="experienced-user"></a>
 
-If you are an experienced Amazon Personalize user, you can find in\-depth tutorials and code samples in the [amazon\-personalize\-samples GitHub repository](https://github.com/aws-samples/amazon-personalize-samples/tree/master/advanced_examples)\.
+If you are an experienced Amazon Personalize user, you can find in\-depth tutorials and code samples in the [amazon\-personalize\-samples GitHub repository](https://github.com/aws-samples/amazon-personalize-samples)\.

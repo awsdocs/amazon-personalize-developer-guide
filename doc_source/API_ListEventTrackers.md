@@ -6,9 +6,9 @@ Returns the list of event trackers associated with the account\. The response pr
 
 ```
 {
-   "[datasetGroupArn](#personalize-ListEventTrackers-request-datasetGroupArn)": "string",
-   "[maxResults](#personalize-ListEventTrackers-request-maxResults)": number,
-   "[nextToken](#personalize-ListEventTrackers-request-nextToken)": "string"
+   "datasetGroupArn": "string",
+   "maxResults": number,
+   "nextToken": "string"
 }
 ```
 
@@ -39,16 +39,16 @@ Required: No
 
 ```
 {
-   "[eventTrackers](#personalize-ListEventTrackers-response-eventTrackers)": [ 
+   "eventTrackers": [ 
       { 
-         "[creationDateTime](API_EventTrackerSummary.md#personalize-Type-EventTrackerSummary-creationDateTime)": number,
-         "[eventTrackerArn](API_EventTrackerSummary.md#personalize-Type-EventTrackerSummary-eventTrackerArn)": "string",
-         "[lastUpdatedDateTime](API_EventTrackerSummary.md#personalize-Type-EventTrackerSummary-lastUpdatedDateTime)": number,
-         "[name](API_EventTrackerSummary.md#personalize-Type-EventTrackerSummary-name)": "string",
-         "[status](API_EventTrackerSummary.md#personalize-Type-EventTrackerSummary-status)": "string"
+         "creationDateTime": number,
+         "eventTrackerArn": "string",
+         "lastUpdatedDateTime": number,
+         "name": "string",
+         "status": "string"
       }
    ],
-   "[nextToken](#personalize-ListEventTrackers-response-nextToken)": "string"
+   "nextToken": "string"
 }
 ```
 

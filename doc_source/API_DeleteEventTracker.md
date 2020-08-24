@@ -6,7 +6,7 @@ Deletes the event tracker\. Does not delete the event\-interactions dataset from
 
 ```
 {
-   "[eventTrackerArn](#personalize-DeleteEventTracker-request-eventTrackerArn)": "string"
+   "eventTrackerArn": "string"
 }
 ```
 

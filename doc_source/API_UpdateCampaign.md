@@ -13,9 +13,14 @@ For more information on campaigns, see [CreateCampaign](API_CreateCampaign.md)\.
 
 ```
 {
-   "[campaignArn](#personalize-UpdateCampaign-request-campaignArn)": "string",
-   "[minProvisionedTPS](#personalize-UpdateCampaign-request-minProvisionedTPS)": number,
-   "[solutionVersionArn](#personalize-UpdateCampaign-request-solutionVersionArn)": "string"
+   "campaignArn": "string",
+   "campaignConfig": { 
+      "itemExplorationConfig": { 
+         "string" : "string" 
+      }
+   },
+   "minProvisionedTPS": number,
+   "solutionVersionArn": "string"
 }
 ```
 
@@ -29,6 +34,11 @@ Type: String
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: Yes
+
+ ** [campaignConfig](#API_UpdateCampaign_RequestSyntax) **   <a name="personalize-UpdateCampaign-request-campaignConfig"></a>
+The configuration details of a campaign\.  
+Type: [CampaignConfig](API_CampaignConfig.md) object  
+Required: No
 
  ** [minProvisionedTPS](#API_UpdateCampaign_RequestSyntax) **   <a name="personalize-UpdateCampaign-request-minProvisionedTPS"></a>
 Specifies the requested minimum provisioned transactions \(recommendations\) per second that Amazon Personalize will support\.  
@@ -47,7 +57,7 @@ Required: No
 
 ```
 {
-   "[campaignArn](#personalize-UpdateCampaign-response-campaignArn)": "string"
+   "campaignArn": "string"
 }
 ```
 

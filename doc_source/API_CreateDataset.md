@@ -25,10 +25,10 @@ To get the status of the dataset, call [DescribeDataset](API_DescribeDataset.md)
 
 ```
 {
-   "[datasetGroupArn](#personalize-CreateDataset-request-datasetGroupArn)": "string",
-   "[datasetType](#personalize-CreateDataset-request-datasetType)": "string",
-   "[name](#personalize-CreateDataset-request-name)": "string",
-   "[schemaArn](#personalize-CreateDataset-request-schemaArn)": "string"
+   "datasetGroupArn": "string",
+   "datasetType": "string",
+   "name": "string",
+   "schemaArn": "string"
 }
 ```
 
@@ -71,7 +71,7 @@ Required: Yes
 
 ```
 {
-   "[datasetArn](#personalize-CreateDataset-response-datasetArn)": "string"
+   "datasetArn": "string"
 }
 ```
 

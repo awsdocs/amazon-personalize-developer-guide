@@ -6,7 +6,7 @@ Describes the given dataset group\. For more information on dataset groups, see 
 
 ```
 {
-   "[datasetGroupArn](#personalize-DescribeDatasetGroup-request-datasetGroupArn)": "string"
+   "datasetGroupArn": "string"
 }
 ```
 
@@ -25,15 +25,15 @@ Required: Yes
 
 ```
 {
-   "[datasetGroup](#personalize-DescribeDatasetGroup-response-datasetGroup)": { 
-      "[creationDateTime](API_DatasetGroup.md#personalize-Type-DatasetGroup-creationDateTime)": number,
-      "[datasetGroupArn](API_DatasetGroup.md#personalize-Type-DatasetGroup-datasetGroupArn)": "string",
-      "[failureReason](API_DatasetGroup.md#personalize-Type-DatasetGroup-failureReason)": "string",
-      "[kmsKeyArn](API_DatasetGroup.md#personalize-Type-DatasetGroup-kmsKeyArn)": "string",
-      "[lastUpdatedDateTime](API_DatasetGroup.md#personalize-Type-DatasetGroup-lastUpdatedDateTime)": number,
-      "[name](API_DatasetGroup.md#personalize-Type-DatasetGroup-name)": "string",
-      "[roleArn](API_DatasetGroup.md#personalize-Type-DatasetGroup-roleArn)": "string",
-      "[status](API_DatasetGroup.md#personalize-Type-DatasetGroup-status)": "string"
+   "datasetGroup": { 
+      "creationDateTime": number,
+      "datasetGroupArn": "string",
+      "failureReason": "string",
+      "kmsKeyArn": "string",
+      "lastUpdatedDateTime": number,
+      "name": "string",
+      "roleArn": "string",
+      "status": "string"
    }
 }
 ```

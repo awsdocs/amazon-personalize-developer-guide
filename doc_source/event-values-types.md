@@ -12,13 +12,13 @@ To filter by event value or event type, you create an Interactions schema for th
 
 ## Filtering Records by Event Value and Event Type<a name="event-values-types-example"></a>
 
-In the following procedure, you use the AWS SDK for Python \(Boto 3\) to create an Interaction schema that filters a training dataset\. You can use a Jupyter \(iPython\) notebook to accomplish the same task\. For more information, see [\(Optional\) Explore the Amazon Personalize APIs with a Jupyter \(iPython\) Notebook](getting-started-python.md#gs-jupyter-notebook)\.
+In the following procedure, you use the AWS SDK for Python \(Boto3\) to create an Interaction schema that filters a training dataset\. You can use a Jupyter \(iPython\) notebook to accomplish the same task\. For more information, see [Getting Started Using Amazon Personalize APIs with Jupyter \(iPython\) Notebooks](getting-started-python.md#gs-jupyter-notebook)\.
 
 **Prerequisites: **Complete the prerequisites and verify that your Python environment is set up as described in [Getting Started \(AWS SDK for Python\)](getting-started-python.md)\.
 
 **To filter records used in a training dataset by event value or event type**
 
-1. Create an Interaction schema and include the `EVENT_TYPE` and `EVENT_VALUE` fieldsusing `"name"` and `"type"` key\-value pairs as shown\.
+1. Create an Interaction schema and include the `EVENT_TYPE` and `EVENT_VALUE` fields using `"name"` and `"type"` key\-value pairs as shown\.
 
    ```
    import boto3
@@ -60,7 +60,6 @@ In the following procedure, you use the AWS SDK for Python \(Boto 3\) to create 
        "version": "1.0"
    }
     
-    
    # Create the schema for Amazon Personalize
    create_schema_response = personalize.create_schema(
        name = schema_name,
@@ -74,7 +73,7 @@ In the following procedure, you use the AWS SDK for Python \(Boto 3\) to create 
 
 1. Format your input data to match your schema\. For a code sample, see [Formatting Your Input Data](data-prep-formatting.md)\.
 
-1. Upload your data to an an Amazon Simple Storage Service \(Amazon S3\) bucket\. For a code sample, see [Uploading to an S3 Bucket](data-prep-upload-s3.md)\.
+1. Upload your data to an Amazon Simple Storage Service \(Amazon S3\) bucket\. For a code sample, see [Uploading to an S3 Bucket](data-prep-upload-s3.md)\.
 
 1. Import your data into Amazon Personalize with the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) API\. Be sure to record your dataset group Amazon Resource Name \(ARN\) because you will need it when you create the solution\. For a code sample, see [Import Your Data Using the AWS Python SDK](data-prep-importing.md#python-import-ex)\.
 
@@ -94,7 +93,7 @@ In the following procedure, you use the AWS SDK for Python \(Boto 3\) to create 
     recipe_arn = "arn:aws:personalize:::recipe/aws-recipe-name"
    ```
 
-1. Call the [CreateSolution](API_CreateSolution.md) API\. If you want to specify the event type, for example `“purchase”`, set it in ther the `eventType` parameter\. If you want to specify an event value, for example `10`, set it in the `eventValueThreshold` parameter\. You can also specify both an event type and an event value\.
+1. Call the [CreateSolution](API_CreateSolution.md) API\. If you want to specify the event type, for example `“purchase”`, set it in the `eventType` parameter\. If you want to specify an event value, for example `10`, set it in the `eventValueThreshold` parameter\. You can also specify both an event type and an event value\.
 
    ```
    import boto3

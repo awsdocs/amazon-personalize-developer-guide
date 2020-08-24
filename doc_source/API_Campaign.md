@@ -11,6 +11,11 @@ Length Constraints: Maximum length of 256\.
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
+ **campaignConfig**   <a name="personalize-Type-Campaign-campaignConfig"></a>
+The configuration details of a campaign\.  
+Type: [CampaignConfig](API_CampaignConfig.md) object  
+Required: No
+
  **creationDateTime**   <a name="personalize-Type-Campaign-creationDateTime"></a>
 The date and time \(in Unix format\) that the campaign was created\.  
 Type: Timestamp  

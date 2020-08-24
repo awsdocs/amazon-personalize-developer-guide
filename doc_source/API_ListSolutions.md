@@ -6,9 +6,9 @@ Returns a list of solutions that use the given dataset group\. When a dataset gr
 
 ```
 {
-   "[datasetGroupArn](#personalize-ListSolutions-request-datasetGroupArn)": "string",
-   "[maxResults](#personalize-ListSolutions-request-maxResults)": number,
-   "[nextToken](#personalize-ListSolutions-request-nextToken)": "string"
+   "datasetGroupArn": "string",
+   "maxResults": number,
+   "nextToken": "string"
 }
 ```
 
@@ -39,14 +39,14 @@ Required: No
 
 ```
 {
-   "[nextToken](#personalize-ListSolutions-response-nextToken)": "string",
-   "[solutions](#personalize-ListSolutions-response-solutions)": [ 
+   "nextToken": "string",
+   "solutions": [ 
       { 
-         "[creationDateTime](API_SolutionSummary.md#personalize-Type-SolutionSummary-creationDateTime)": number,
-         "[lastUpdatedDateTime](API_SolutionSummary.md#personalize-Type-SolutionSummary-lastUpdatedDateTime)": number,
-         "[name](API_SolutionSummary.md#personalize-Type-SolutionSummary-name)": "string",
-         "[solutionArn](API_SolutionSummary.md#personalize-Type-SolutionSummary-solutionArn)": "string",
-         "[status](API_SolutionSummary.md#personalize-Type-SolutionSummary-status)": "string"
+         "creationDateTime": number,
+         "lastUpdatedDateTime": number,
+         "name": "string",
+         "solutionArn": "string",
+         "status": "string"
       }
    ]
 }

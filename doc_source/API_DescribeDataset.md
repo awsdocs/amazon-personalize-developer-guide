@@ -6,7 +6,7 @@ Describes the given dataset\. For more information on datasets, see [CreateDatas
 
 ```
 {
-   "[datasetArn](#personalize-DescribeDataset-request-datasetArn)": "string"
+   "datasetArn": "string"
 }
 ```
 
@@ -25,15 +25,15 @@ Required: Yes
 
 ```
 {
-   "[dataset](#personalize-DescribeDataset-response-dataset)": { 
-      "[creationDateTime](API_Dataset.md#personalize-Type-Dataset-creationDateTime)": number,
-      "[datasetArn](API_Dataset.md#personalize-Type-Dataset-datasetArn)": "string",
-      "[datasetGroupArn](API_Dataset.md#personalize-Type-Dataset-datasetGroupArn)": "string",
-      "[datasetType](API_Dataset.md#personalize-Type-Dataset-datasetType)": "string",
-      "[lastUpdatedDateTime](API_Dataset.md#personalize-Type-Dataset-lastUpdatedDateTime)": number,
-      "[name](API_Dataset.md#personalize-Type-Dataset-name)": "string",
-      "[schemaArn](API_Dataset.md#personalize-Type-Dataset-schemaArn)": "string",
-      "[status](API_Dataset.md#personalize-Type-Dataset-status)": "string"
+   "dataset": { 
+      "creationDateTime": number,
+      "datasetArn": "string",
+      "datasetGroupArn": "string",
+      "datasetType": "string",
+      "lastUpdatedDateTime": number,
+      "name": "string",
+      "schemaArn": "string",
+      "status": "string"
    }
 }
 ```

@@ -6,7 +6,7 @@ Gets the properties of a batch inference job including name, Amazon Resource Nam
 
 ```
 {
-   "[batchInferenceJobArn](#personalize-DescribeBatchInferenceJob-request-batchInferenceJobArn)": "string"
+   "batchInferenceJobArn": "string"
 }
 ```
 
@@ -25,28 +25,34 @@ Required: Yes
 
 ```
 {
-   "[batchInferenceJob](#personalize-DescribeBatchInferenceJob-response-batchInferenceJob)": { 
-      "[batchInferenceJobArn](API_BatchInferenceJob.md#personalize-Type-BatchInferenceJob-batchInferenceJobArn)": "string",
-      "[creationDateTime](API_BatchInferenceJob.md#personalize-Type-BatchInferenceJob-creationDateTime)": number,
-      "[failureReason](API_BatchInferenceJob.md#personalize-Type-BatchInferenceJob-failureReason)": "string",
-      "[jobInput](API_BatchInferenceJob.md#personalize-Type-BatchInferenceJob-jobInput)": { 
-         "[s3DataSource](API_BatchInferenceJobInput.md#personalize-Type-BatchInferenceJobInput-s3DataSource)": { 
-            "[kmsKeyArn](API_S3DataConfig.md#personalize-Type-S3DataConfig-kmsKeyArn)": "string",
-            "[path](API_S3DataConfig.md#personalize-Type-S3DataConfig-path)": "string"
+   "batchInferenceJob": { 
+      "batchInferenceJobArn": "string",
+      "batchInferenceJobConfig": { 
+         "itemExplorationConfig": { 
+            "string" : "string" 
          }
       },
-      "[jobName](API_BatchInferenceJob.md#personalize-Type-BatchInferenceJob-jobName)": "string",
-      "[jobOutput](API_BatchInferenceJob.md#personalize-Type-BatchInferenceJob-jobOutput)": { 
-         "[s3DataDestination](API_BatchInferenceJobOutput.md#personalize-Type-BatchInferenceJobOutput-s3DataDestination)": { 
-            "[kmsKeyArn](API_S3DataConfig.md#personalize-Type-S3DataConfig-kmsKeyArn)": "string",
-            "[path](API_S3DataConfig.md#personalize-Type-S3DataConfig-path)": "string"
+      "creationDateTime": number,
+      "failureReason": "string",
+      "filterArn": "string",
+      "jobInput": { 
+         "s3DataSource": { 
+            "kmsKeyArn": "string",
+            "path": "string"
          }
       },
-      "[lastUpdatedDateTime](API_BatchInferenceJob.md#personalize-Type-BatchInferenceJob-lastUpdatedDateTime)": number,
-      "[numResults](API_BatchInferenceJob.md#personalize-Type-BatchInferenceJob-numResults)": number,
-      "[roleArn](API_BatchInferenceJob.md#personalize-Type-BatchInferenceJob-roleArn)": "string",
-      "[solutionVersionArn](API_BatchInferenceJob.md#personalize-Type-BatchInferenceJob-solutionVersionArn)": "string",
-      "[status](API_BatchInferenceJob.md#personalize-Type-BatchInferenceJob-status)": "string"
+      "jobName": "string",
+      "jobOutput": { 
+         "s3DataDestination": { 
+            "kmsKeyArn": "string",
+            "path": "string"
+         }
+      },
+      "lastUpdatedDateTime": number,
+      "numResults": number,
+      "roleArn": "string",
+      "solutionVersionArn": "string",
+      "status": "string"
    }
 }
 ```

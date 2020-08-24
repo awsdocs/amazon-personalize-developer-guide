@@ -9,7 +9,7 @@ Deletes a dataset group\. Before you delete a dataset group, you must delete the
 
 ```
 {
-   "[datasetGroupArn](#personalize-DeleteDatasetGroup-request-datasetGroupArn)": "string"
+   "datasetGroupArn": "string"
 }
 ```
 

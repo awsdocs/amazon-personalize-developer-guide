@@ -12,6 +12,7 @@ Required: No
  **defaultParameters**   <a name="personalize-Type-FeatureTransformation-defaultParameters"></a>
 Provides the default parameters for feature transformation\.  
 Type: String to string map  
+Map Entries: Maximum number of 100 items\.  
 Key Length Constraints: Maximum length of 256\.  
 Value Length Constraints: Maximum length of 1000\.  
 Required: No

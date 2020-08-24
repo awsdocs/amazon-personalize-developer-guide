@@ -4,6 +4,11 @@ Provides a summary of the properties of a campaign update\. For a complete listi
 
 ## Contents<a name="API_CampaignUpdateSummary_Contents"></a>
 
+ **campaignConfig**   <a name="personalize-Type-CampaignUpdateSummary-campaignConfig"></a>
+The configuration details of a campaign\.  
+Type: [CampaignConfig](API_CampaignConfig.md) object  
+Required: No
+
  **creationDateTime**   <a name="personalize-Type-CampaignUpdateSummary-creationDateTime"></a>
 The date and time \(in Unix time\) that the campaign update was created\.  
 Type: Timestamp  

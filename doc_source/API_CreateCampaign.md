@@ -27,15 +27,25 @@ Wait until the `status` of the campaign is `ACTIVE` before asking the campaign f
 
 ```
 {
-   "[minProvisionedTPS](#personalize-CreateCampaign-request-minProvisionedTPS)": number,
-   "[name](#personalize-CreateCampaign-request-name)": "string",
-   "[solutionVersionArn](#personalize-CreateCampaign-request-solutionVersionArn)": "string"
+   "campaignConfig": { 
+      "itemExplorationConfig": { 
+         "string" : "string" 
+      }
+   },
+   "minProvisionedTPS": number,
+   "name": "string",
+   "solutionVersionArn": "string"
 }
 ```
 
 ## Request Parameters<a name="API_CreateCampaign_RequestParameters"></a>
 
 The request accepts the following data in JSON format\.
+
+ ** [campaignConfig](#API_CreateCampaign_RequestSyntax) **   <a name="personalize-CreateCampaign-request-campaignConfig"></a>
+The configuration details of a campaign\.  
+Type: [CampaignConfig](API_CampaignConfig.md) object  
+Required: No
 
  ** [minProvisionedTPS](#API_CreateCampaign_RequestSyntax) **   <a name="personalize-CreateCampaign-request-minProvisionedTPS"></a>
 Specifies the requested minimum provisioned transactions \(recommendations\) per second that Amazon Personalize will support\.  
@@ -61,7 +71,7 @@ Required: Yes
 
 ```
 {
-   "[campaignArn](#personalize-CreateCampaign-response-campaignArn)": "string"
+   "campaignArn": "string"
 }
 ```
 

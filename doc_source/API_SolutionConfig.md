@@ -7,6 +7,7 @@ Describes the configuration properties for the solution\.
  **algorithmHyperParameters**   <a name="personalize-Type-SolutionConfig-algorithmHyperParameters"></a>
 Lists the hyperparameter names and ranges\.  
 Type: String to string map  
+Map Entries: Maximum number of 100 items\.  
 Key Length Constraints: Maximum length of 256\.  
 Value Length Constraints: Maximum length of 1000\.  
 Required: No
@@ -25,6 +26,7 @@ Required: No
  **featureTransformationParameters**   <a name="personalize-Type-SolutionConfig-featureTransformationParameters"></a>
 Lists the feature transformation parameters\.  
 Type: String to string map  
+Map Entries: Maximum number of 100 items\.  
 Key Length Constraints: Maximum length of 256\.  
 Value Length Constraints: Maximum length of 1000\.  
 Required: No

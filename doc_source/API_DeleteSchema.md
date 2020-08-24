@@ -6,7 +6,7 @@ Deletes a schema\. Before deleting a schema, you must delete all datasets refere
 
 ```
 {
-   "[schemaArn](#personalize-DeleteSchema-request-schemaArn)": "string"
+   "schemaArn": "string"
 }
 ```
 

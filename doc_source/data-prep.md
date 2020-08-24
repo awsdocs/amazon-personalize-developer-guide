@@ -7,7 +7,7 @@ If you provide a source file to import your data into Amazon Personalize, you mu
 + Provide a schema so that Amazon Personalize can import the data correctly
 + Upload your file into an Amazon Simple Storage Service \(Amazon S3\) bucket that Amazon Personalize can access
 
-You can upload your data by using the AWS SDK for Python\.
+You can upload your data by using the AWS SDK\.
 
 This section provides information about formatting and importing your historical data into Amazon Personalize\. For information about recording live event data, see [Recording Events](recording-events.md)\.
 

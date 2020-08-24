@@ -6,9 +6,9 @@ Returns a list of available recipes\. The response provides the properties for e
 
 ```
 {
-   "[maxResults](#personalize-ListRecipes-request-maxResults)": number,
-   "[nextToken](#personalize-ListRecipes-request-nextToken)": "string",
-   "[recipeProvider](#personalize-ListRecipes-request-recipeProvider)": "string"
+   "maxResults": number,
+   "nextToken": "string",
+   "recipeProvider": "string"
 }
 ```
 
@@ -38,14 +38,14 @@ Required: No
 
 ```
 {
-   "[nextToken](#personalize-ListRecipes-response-nextToken)": "string",
-   "[recipes](#personalize-ListRecipes-response-recipes)": [ 
+   "nextToken": "string",
+   "recipes": [ 
       { 
-         "[creationDateTime](API_RecipeSummary.md#personalize-Type-RecipeSummary-creationDateTime)": number,
-         "[lastUpdatedDateTime](API_RecipeSummary.md#personalize-Type-RecipeSummary-lastUpdatedDateTime)": number,
-         "[name](API_RecipeSummary.md#personalize-Type-RecipeSummary-name)": "string",
-         "[recipeArn](API_RecipeSummary.md#personalize-Type-RecipeSummary-recipeArn)": "string",
-         "[status](API_RecipeSummary.md#personalize-Type-RecipeSummary-status)": "string"
+         "creationDateTime": number,
+         "lastUpdatedDateTime": number,
+         "name": "string",
+         "recipeArn": "string",
+         "status": "string"
       }
    ]
 }

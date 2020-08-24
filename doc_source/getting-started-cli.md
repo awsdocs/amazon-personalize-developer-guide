@@ -173,7 +173,7 @@ Importing takes time\. Wait until the dataset import is complete before training
 
 Two steps are required to initially train a model\. First, you create the configuration for training the model using the [CreateSolution](API_CreateSolution.md) operation\. Second, you train the model using the [CreateSolutionVersion](API_CreateSolutionVersion.md) operation\.
 
-You train a model using a recipe and your training data\. Amazon Personalize provides a set of predefined recipes\. For more information, see [Using Predefined Recipes](working-with-predefined-recipes.md)\. For this exercise, you use AutoML, which allows Amazon Personalize to pick the best recipe based on the dataset you created in the preceding step\.
+You train a model using a recipe and your training data\. Amazon Personalize provides a set of predefined recipes\. For more information, see [Choosing a Recipe](working-with-predefined-recipes.md)\. For this exercise, you use AutoML, which allows Amazon Personalize to pick the best recipe based on the dataset you created in the preceding step\.
 
 1. Create the configuration for training a model by running the following command\.
 
@@ -366,7 +366,7 @@ Wait until the `status` shows as ACTIVE before getting recommendations from the 
 Get recommendations by running the `get-recommendations` command\. Provide the campaign ARN that was returned in the previous step\. In the request, you specify a user ID from the movie ratings dataset\. For more information about the API, see [GetRecommendations](API_RS_GetRecommendations.md)\.
 
 **Note**  
-Not all recipes support the `GetRecommendations` API\. For more information, see [Using Predefined Recipes](working-with-predefined-recipes.md)\.  
+Not all recipes support the `GetRecommendations` API\. For more information, see [Choosing a Recipe](working-with-predefined-recipes.md)\.  
 The AWS CLI command you call in this step, `personalize-runtime`, is different than in previous steps\.
 
 ```

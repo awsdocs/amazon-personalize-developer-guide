@@ -14,7 +14,7 @@ For more information on campaigns, see [CreateCampaign](API_CreateCampaign.md)\.
 
 ```
 {
-   "[campaignArn](#personalize-DescribeCampaign-request-campaignArn)": "string"
+   "campaignArn": "string"
 }
 ```
 
@@ -33,23 +33,33 @@ Required: Yes
 
 ```
 {
-   "[campaign](#personalize-DescribeCampaign-response-campaign)": { 
-      "[campaignArn](API_Campaign.md#personalize-Type-Campaign-campaignArn)": "string",
-      "[creationDateTime](API_Campaign.md#personalize-Type-Campaign-creationDateTime)": number,
-      "[failureReason](API_Campaign.md#personalize-Type-Campaign-failureReason)": "string",
-      "[lastUpdatedDateTime](API_Campaign.md#personalize-Type-Campaign-lastUpdatedDateTime)": number,
-      "[latestCampaignUpdate](API_Campaign.md#personalize-Type-Campaign-latestCampaignUpdate)": { 
-         "[creationDateTime](API_CampaignUpdateSummary.md#personalize-Type-CampaignUpdateSummary-creationDateTime)": number,
-         "[failureReason](API_CampaignUpdateSummary.md#personalize-Type-CampaignUpdateSummary-failureReason)": "string",
-         "[lastUpdatedDateTime](API_CampaignUpdateSummary.md#personalize-Type-CampaignUpdateSummary-lastUpdatedDateTime)": number,
-         "[minProvisionedTPS](API_CampaignUpdateSummary.md#personalize-Type-CampaignUpdateSummary-minProvisionedTPS)": number,
-         "[solutionVersionArn](API_CampaignUpdateSummary.md#personalize-Type-CampaignUpdateSummary-solutionVersionArn)": "string",
-         "[status](API_CampaignUpdateSummary.md#personalize-Type-CampaignUpdateSummary-status)": "string"
+   "campaign": { 
+      "campaignArn": "string",
+      "campaignConfig": { 
+         "itemExplorationConfig": { 
+            "string" : "string" 
+         }
       },
-      "[minProvisionedTPS](API_Campaign.md#personalize-Type-Campaign-minProvisionedTPS)": number,
-      "[name](API_Campaign.md#personalize-Type-Campaign-name)": "string",
-      "[solutionVersionArn](API_Campaign.md#personalize-Type-Campaign-solutionVersionArn)": "string",
-      "[status](API_Campaign.md#personalize-Type-Campaign-status)": "string"
+      "creationDateTime": number,
+      "failureReason": "string",
+      "lastUpdatedDateTime": number,
+      "latestCampaignUpdate": { 
+         "campaignConfig": { 
+            "itemExplorationConfig": { 
+               "string" : "string" 
+            }
+         },
+         "creationDateTime": number,
+         "failureReason": "string",
+         "lastUpdatedDateTime": number,
+         "minProvisionedTPS": number,
+         "solutionVersionArn": "string",
+         "status": "string"
+      },
+      "minProvisionedTPS": number,
+      "name": "string",
+      "solutionVersionArn": "string",
+      "status": "string"
    }
 }
 ```

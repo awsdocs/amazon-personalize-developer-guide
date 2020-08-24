@@ -1,12 +1,12 @@
 # Getting Started \(AWS SDK for Python\)<a name="getting-started-python"></a>
 
-This topic explains how to get started programming Amazon Personalize with the AWS SDK for Python \(Boto 3\)\.
+This topic explains how to get started programming Amazon Personalize with the AWS SDK for Python \(Boto3\)\.
 
 ## Prerequisites<a name="gs-sdk-prerequisites"></a>
 
 The following are prerequisite steps for using the Python examples in this guide:
 + Complete the Getting Started [Prerequisites](getting-started.md#gs-prerequisites)\. You can use the same source data that is listed in the [Getting Started \(Console\)](getting-started-console.md) or [Getting Started \(AWS CLI\)](getting-started-cli.md) exercises\. If you are using your own source data, make sure your data is formatted like in the prerequisite step [Create the Training Data](getting-started.md#gs-upload-to-bucket)\. For information about preparing your own source data, see [Preparing and Importing Data](data-prep.md)\. 
-+ Set up your AWS SDK for Python \(Boto 3\) environment, as specified in [Setting Up the AWS SDKs](aws-personalize-set-up-sdks.md)\.
++ Set up your AWS SDK for Python \(Boto3\) environment, as specified in [Setting Up the AWS SDKs](aws-personalize-set-up-sdks.md)\.
 
 After you finish this exercise, to avoid incurring unnecessary charges, delete the resources you created\. For more information, see [Clean Up Resources](getting-started.md#gs-cleanup)\.
 
@@ -35,7 +35,7 @@ After you verify that your Python environment is configured correctly, import yo
 
 1. \(Optional\) Add an event tracker\. To add an event to train a model, you must add a tracking ID to associate the event with your dataset group\. For a code sample, see [Getting a Tracking ID](recording-events.md#event-get-tracker)\.
 
-1. \(Optional\) Add an event record\. To add more data in training and create a better model, you can use events\. Events are recorded user activities such as a search, a view, or a purchasel\. For a code sample, see [PutEvents Operation](recording-events.md#event-record-api)\.
+1. \(Optional\) Add an event record\. To add more data in training and create a better model, you can use events\. Events are recorded user activities such as a search, a view, or a purchase\. For a code sample, see [PutEvents Operation](recording-events.md#event-record-api)\.
 
 ## Step 3: Create a Solution<a name="getting-started-python-create-solution"></a>
 
@@ -51,8 +51,9 @@ After you train and evaluate your solution version, you can deploy it using a ca
 
 After you create a campaign, you can use it to get recommendations\. For a code sample, see [GetRecommendations](getting-real-time-recommendations.md#recommendations)\.
 
-## \(Optional\) Explore the Amazon Personalize APIs with a Jupyter \(iPython\) Notebook<a name="gs-jupyter-notebook"></a>
+## Getting Started Using Amazon Personalize APIs with Jupyter \(iPython\) Notebooks<a name="gs-jupyter-notebook"></a>
 
-We provide a Jupyter \(iPython\) notebook to help you explore the Amazon Personalize APIs\. With one exception, the Jupyter notebook has the same prerequisites as the Python examples in this guide\. The notebook uses different source data and you don't need to do the prerequisite step [Create the Training Data](getting-started.md#gs-upload-to-bucket)\. 
+ To get started using Amazon Personalize using Jupyter notebooks, clone or download a series of notebooks found in the [getting\_started](https://github.com/aws-samples/amazon-personalize-samples/tree/master/getting_started) folder of the [Amazon Personalize Samples](https://github.com/aws-samples/amazon-personalize-samples) repository\. The notebooks walk you through importing training data, creating a solution, creating a campaign, and getting recommendations using Amazon Personalize\.
 
-To get the Jupyter notebook, clone or download the [personalize\_sample\_notebook\.ipynb](https://github.com/aws-samples/amazon-personalize-samples/blob/master/personalize_sample_notebook.ipynb) notebook from the [Amazon Personalize Samples](https://github.com/aws-samples/amazon-personalize-samples) repository\.
+**Note**  
+ Before starting with the notebooks, make sure to build your environment following the steps in the [README\.md](https://github.com/aws-samples/amazon-personalize-samples/blob/master/getting_started/README.md) 

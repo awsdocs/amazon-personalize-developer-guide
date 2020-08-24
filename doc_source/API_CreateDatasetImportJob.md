@@ -23,12 +23,12 @@ Importing takes time\. You must wait until the status shows as ACTIVE before tra
 
 ```
 {
-   "[datasetArn](#personalize-CreateDatasetImportJob-request-datasetArn)": "string",
-   "[dataSource](#personalize-CreateDatasetImportJob-request-dataSource)": { 
-      "[dataLocation](API_DataSource.md#personalize-Type-DataSource-dataLocation)": "string"
+   "datasetArn": "string",
+   "dataSource": { 
+      "dataLocation": "string"
    },
-   "[jobName](#personalize-CreateDatasetImportJob-request-jobName)": "string",
-   "[roleArn](#personalize-CreateDatasetImportJob-request-roleArn)": "string"
+   "jobName": "string",
+   "roleArn": "string"
 }
 ```
 
@@ -66,7 +66,7 @@ Required: Yes
 
 ```
 {
-   "[datasetImportJobArn](#personalize-CreateDatasetImportJob-response-datasetImportJobArn)": "string"
+   "datasetImportJobArn": "string"
 }
 ```
 

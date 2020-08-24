@@ -1,6 +1,6 @@
 # PutEvents<a name="API_UBS_PutEvents"></a>
 
-Records user interaction event data\.
+Records user interaction event data\. For more information see [PutEvents Operation](recording-events.md#event-record-api)\.
 
 ## Request Syntax<a name="API_UBS_PutEvents_RequestSyntax"></a>
 
@@ -9,17 +9,21 @@ POST /events HTTP/1.1
 Content-type: application/json
 
 {
-   "[eventList](#personalize-UBS_PutEvents-request-eventList)": [ 
+   "eventList": [ 
       { 
-         "[eventId](API_UBS_Event.md#personalize-Type-UBS_Event-eventId)": "string",
-         "[eventType](API_UBS_Event.md#personalize-Type-UBS_Event-eventType)": "string",
-         "[properties](API_UBS_Event.md#personalize-Type-UBS_Event-properties)": "string",
-         "[sentAt](API_UBS_Event.md#personalize-Type-UBS_Event-sentAt)": number
+         "eventId": "string",
+         "eventType": "string",
+         "eventValue": number,
+         "impression": [ "string" ],
+         "itemId": "string",
+         "properties": "string",
+         "recommendationId": "string",
+         "sentAt": number
       }
    ],
-   "[sessionId](#personalize-UBS_PutEvents-request-sessionId)": "string",
-   "[trackingId](#personalize-UBS_PutEvents-request-trackingId)": "string",
-   "[userId](#personalize-UBS_PutEvents-request-userId)": "string"
+   "sessionId": "string",
+   "trackingId": "string",
+   "userId": "string"
 }
 ```
 
@@ -38,7 +42,7 @@ Array Members: Minimum number of 1 item\. Maximum number of 10 items\.
 Required: Yes
 
  ** [sessionId](#API_UBS_PutEvents_RequestSyntax) **   <a name="personalize-UBS_PutEvents-request-sessionId"></a>
-The session ID associated with the user's visit\.  
+The session ID associated with the user's visit\. Your application generates the sessionId when a user first visits your website or uses your application\. Amazon Personalize uses the sessionId to associate events with the user before they log in\. For more information see [PutEvents Operation](recording-events.md#event-record-api)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 256\.  
 Required: Yes
