@@ -94,6 +94,7 @@ Required: Yes
 
  ** [eventType](#API_CreateSolution_RequestSyntax) **   <a name="personalize-CreateSolution-request-eventType"></a>
 When your have multiple event types \(using an `EVENT_TYPE` schema field\), this parameter specifies which event type \(for example, 'click' or 'like'\) is used for training the model\.  
+If you do not provide an `eventType`, Amazon Personalize will use all interactions for training with equal weight regardless of type\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Required: No

@@ -2,9 +2,9 @@
 
 In this exercise, you use the Amazon Personalize console to create a campaign that returns movie recommendations for a given user\.
 
-Before you start this exercise, review the Getting Started [Prerequisites](getting-started.md#gs-prerequisites)\.
+Before you start this exercise, review the Getting Started [Getting Started Prerequisites](gs-prerequisites.md)\.
 
-After you finish this exercise, see [Clean Up Resources](getting-started.md#gs-cleanup)\.
+After you finish this exercise, see [Clean Up Resources](gs-cleanup.md)\.
 
 ## Step 1: Import Training Data<a name="getting-started-console-import-dataset"></a>
 
@@ -25,7 +25,7 @@ In this procedure, you first create a dataset group\. Next, you create an Amazon
 
 1. On the **Create user\-item interaction data** page, in **Dataset details**, for **Dataset name**, specify a name for your dataset\.
 
-1. In **Schema details**, for **Schema selection**, choose **Create new schema**\. A minimal Interactions schema is displayed in the **Schema definition** field\. The schema matches the headers you previously added to the `ratings.csv` file\. For more information see [Create the Training Data](getting-started.md#gs-upload-to-bucket)\. 
+1. In **Schema details**, for **Schema selection**, choose **Create new schema**\. A minimal Interactions schema is displayed in the **Schema definition** field\. The schema matches the headers you previously added to the `ratings.csv` file\. For more information see [Creating the Training Data](gs-prerequisites.md#gs-upload-to-bucket)\. 
 
 1. For **New schema name**, specify a name for the new schema\.
 
@@ -38,7 +38,7 @@ In this procedure, you first create a dataset group\. Next, you create an Amazon
 
 1. For **IAM service role**, keep the default selection of **Enter a custom IAM role ARN**\.
 
-1. For **Custom IAM role ARN**, specify the role that you created in [Creating an IAM Role](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
+1. For **Custom IAM role ARN**, specify the role that you created in [Creating an IAM Role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
 
 1. In the informational dialog box named **Additional S3 bucket policy required**, follow the [instructions](data-prep-upload-s3.md) to add the required Amazon S3 bucket policy\.
 

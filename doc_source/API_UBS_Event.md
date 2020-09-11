@@ -11,7 +11,7 @@ Length Constraints: Minimum length of 1\. Maximum length of 256\.
 Required: No
 
  **eventType**   <a name="personalize-Type-UBS_Event-eventType"></a>
-The type of event\. This property corresponds to the `EVENT_TYPE` field of the Interactions schema\.  
+The type of event, such as click or download\. This property corresponds to the `EVENT_TYPE` field of your Interactions schema and depends on the types of events you are tracking\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 256\.  
 Required: Yes

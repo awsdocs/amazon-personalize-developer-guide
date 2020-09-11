@@ -28,4 +28,7 @@ Amazon Personalize needs permission to access the S3 bucket\. Attach the followi
 }
 ```
 
+**Note**  
+Because Amazon Personalize does not communicate with AWS VPCs, Amazon Personalize will be unable to interact with Amazon S3 buckets that only allow VPC access\.
+
 After you upload your data to an S3 bucket, import your data into Amazon Personalize\. For more information, see [Importing Your Data](data-prep-importing.md)\.

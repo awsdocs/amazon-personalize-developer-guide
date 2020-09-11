@@ -25,11 +25,6 @@ A solution is created by calling the [CreateSolution](API_CreateSolution.md) API
             "algorithmHyperParameterRanges": {
                 ...
             },
-            "hpoObjective": {
-                "metricName": "string",
-                "metricRegex": "string",
-                "type": "string"
-            },
             "hpoResourceConfig": {
                 "maxNumberOfTrainingJobs": "string",
                 "maxParallelTrainingJobs": "string"

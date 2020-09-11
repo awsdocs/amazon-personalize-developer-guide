@@ -118,3 +118,7 @@ print("Personalized Ranking")
 for item in response['personalizedRanking']:
   print(item['itemId'])
 ```
+
+### Personalized\-Ranking Sample Notebook<a name="real-time-recommendations-personalized-ranking-example"></a>
+
+ For a sample Jupyter notebook that shows how to use the Personalized\-Ranking recipe see [Personalize Ranking Example](https://github.com/aws-samples/amazon-personalize-samples/blob/master/next_steps/core_use_cases/personalized_ranking/personalize_ranking_example.ipynb)\. 

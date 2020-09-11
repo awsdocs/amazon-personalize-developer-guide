@@ -43,9 +43,11 @@ You must wait until the status shows as ACTIVE before you can proceed to the nex
    print ('Dataset Arn: ' + response['datasetArn'])
    ```
 
-1. To add data to your dataset, create and run a dataset import job using the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) API\. Specify the `datasetGroupArn` and set the `dataLocation` to the S3 bucket where you stored the training data\.
+1. To add data to your dataset, create and run a dataset import job using the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) API\. Specify the `datasetGroupArn` and set the `dataLocation` to the `bucket-name/file.csv` where you stored the training data\. 
 
-   For the `roleArn`, see [Creating an IAM Role](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. The `roleArn` parameter specifies the AWS Identity and Access Management \(IAM\) role that gives Amazon Personalize permissions to access your S3 bucket\.
+   You can upload multiple CSV files to a dataset in one dataset import job if your CSV files are in a folder in the Amazon S3 bucket\. For `dataLocation`, specify the `bucket-name/folder-name/` instead of the file name\.
+
+   For the `roleArn`, see [Creating an IAM Role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. The `roleArn` parameter specifies the AWS Identity and Access Management \(IAM\) role that gives Amazon Personalize permissions to access your S3 bucket\.
 
    ```
    import boto3

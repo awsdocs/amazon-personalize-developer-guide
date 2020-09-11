@@ -36,7 +36,7 @@ Your AWS account has the following quotas for Amazon Personalize\.
 | Maximum transaction rate \(GetRecommendations and GetPersonalizedRanking requests\)\. | 2500/sec | 
 | Maximum number of GetRecommendations requests per second per campaign\. | 500/sec | 
 | Maximum number of GetPersonalizedRanking requests per second per campaign\. | 500/sec | 
-| Maximum number of PutEvents requests\. | 1000/sec | 
+| Maximum rate of PutEvents requests\. | 1000 per second sec | 
 | Maximum number of events in a PutEvents call\. | 10 | 
 | Maximum size of an event\. | 10 KB | 
 | Maximum number of input files in a batch inference job\. | 1000 | 
@@ -54,14 +54,16 @@ Your AWS account has the following quotas per region for Amazon Personalize\.
 | Total number of active event trackers\. | 500 | 
 | Total number of active solutions\. | 500 | 
 | Total number of active campaigns\. | 5 | 
+| Total number of pending or in progress batch inference jobs | 5 | 
+| Total number of pending or in progress solution versions | 20 | 
 
 ## Requesting a Quota Increase<a name="requesting-limit-increase"></a>
 
- For adjustable quotas, you can request a quota increase\. Adjustable Amazon Personalize quotas are as follows: 
-+  Active campaigns 
-+  Active filters 
-+  Pending or In Progress batch inference jobs 
-+  Pending or In Progress solution versions 
-+  Rate of PutEvents requests 
+ For adjustable quotas, you can request a quota increase\. The following Amazon Personalize quotas are adjustable: 
++  Total number of active campaigns 
++  Maximum number of filters per account 
++  Total number of pending or in progress batch inference jobs 
++  Total number of pending or in progress solution versions 
++  Maximum rate of `PutEvents` requests 
 
  To request a quota increase, use the [Service Quotas console](https://console.aws.amazon.com/servicequotas/) and follow the steps in the [Requesting a Quota Increase](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) section of the *Service Quotas User Guide*\. 

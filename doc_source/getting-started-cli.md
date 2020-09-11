@@ -3,10 +3,10 @@
 In this exercise, you use the AWS Command Line Interface \(AWS CLI\) to explore Amazon Personalize\. You create a campaign that returns movie recommendations for a given user ID\.
 
 Before you start this exercise, do the following:
-+ Review the Getting Started [Prerequisites](getting-started.md#gs-prerequisites)\.
++ Review the Getting Started [Getting Started Prerequisites](gs-prerequisites.md)\.
 + Set up the AWS CLI, as specified in [Setting Up the AWS CLI](aws-personalize-set-up-aws-cli.md)\.
 
-After you finish this exercise, see [Clean Up Resources](getting-started.md#gs-cleanup)\.
+After you finish this exercise, see [Clean Up Resources](gs-cleanup.md)\.
 
 **Note**  
 The CLI commands in this exercise were tested on Linux\. For information about using the CLI commands on Windows, see [Specifying Parameter Values for the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html) in the *AWS Command Line Interface User Guide*\.
@@ -121,7 +121,7 @@ The `describe-object` and `list-objects` commands are available for most Amazon 
 
 1. Add the training data to the dataset\.
 
-   1. Create a dataset import job by running the following command\. Provide the dataset ARN and Amazon S3 bucket name that were returned in the previous steps\. Supply the AWS Identity and Access Management \(IAM\) role ARN you created in [Creating an IAM Role](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. For more information about the API, see [CreateDatasetImportJob](API_CreateDatasetImportJob.md)\.
+   1. Create a dataset import job by running the following command\. Provide the dataset ARN and Amazon S3 bucket name that were returned in the previous steps\. Supply the AWS Identity and Access Management \(IAM\) role ARN you created in [Creating an IAM Role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. For more information about the API, see [CreateDatasetImportJob](API_CreateDatasetImportJob.md)\.
 
       ```
       aws personalize create-dataset-import-job \
