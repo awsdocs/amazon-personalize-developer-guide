@@ -37,11 +37,6 @@ The following is a partial example of a `CreateSolution` request using the [HRNN
                     }
                 ]
             },
-            "hpoObjective": {
-                "metricName": "precision_at_25",
-                "metricRegex": "string",
-                "type": "Maximize"
-            },
             "hpoResourceConfig": {
                 "maxNumberOfTrainingJobs": "4",
                 "maxParallelTrainingJobs": "2"

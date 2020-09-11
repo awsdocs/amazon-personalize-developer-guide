@@ -22,8 +22,7 @@ To filter recommendations using a campaign you deployed before July 30, 2020, yo
 
 1. For **Expression**, choose either **Build expression** or **Add expression manually** and build or insert your expression:
    + To use the expression builder, choose **Build expression **\. The expression builder provides structure, fields, and guidelines for building correctly formatted filter expressions\. For more information, see [Using the Filter Expression Builder](#using-filter-expression-builder)\.
-   +  To input your own expression, choose **Add expression manually** \. For information, see [Filter Expression Elements](filter-expressions.md#filter-expression-elements)\.   
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/create-filter-manual.png)
+   +  To input your own expression, choose **Add expression manually** \. For information, see [Filter Expression Elements](filter-expressions.md#filter-expression-elements)\. 
 
 1. Choose **Finish**\. The filter's overview page shows the filter’s Amazon Resource Name \(ARN\), status, and full filter expression\. To delete the filter, choose **Delete**\. For information about finding and deleting filters after you have left the overview page, see [Deleting a Filter \(Console\)](#delete-filter-console)\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/filter-details-page.png)
@@ -64,7 +63,7 @@ To create a filter that uses both Item and Interaction datasets, you *must* use 
 
 #### Expression Builder Example<a name="expression-builder-example"></a>
 
-The following example shows how to build a filter that includes items in the `action` or `horror` genres with a `number_of_downloads` of more than `200` but only if the current user's age is greater than `17`\. 
+The following example shows how to build a filter that includes items in the `action` or `horror` genres with a `DOWNLOAD_COUNT` of more than `200`, but only if the current user's age is greater than `17`\. 
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/create-filter-expression-builder.png)
 
@@ -109,7 +108,7 @@ personalize_runtime = boto3.client('personalize-runtime')
 response = personalize.create_filter(
     name = "Filter name",
     datasetGroupArn = "Dataset group ARN",
-    filterExpression = "EXCLUDE itemId WHERE INTERACTIONS.event_type in (\"Purchase\")"
+    filterExpression = "EXCLUDE itemId WHERE INTERACTIONS.EVENT_TYPE in (\"Purchase\")"
 ) 
 filter_arn = response["filterArn"]
 print("Filter ARN: " + filter_arn)

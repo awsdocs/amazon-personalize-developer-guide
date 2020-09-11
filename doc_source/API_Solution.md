@@ -22,7 +22,7 @@ Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
 Required: No
 
  **eventType**   <a name="personalize-Type-Solution-eventType"></a>
-The event type \(for example, 'click' or 'like'\) that is used for training the model\.  
+The event type \(for example, 'click' or 'like'\) that is used for training the model\. If no `eventType` is provided, Amazon Personalize uses all interactions for training with equal weight regardless of type\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Required: No

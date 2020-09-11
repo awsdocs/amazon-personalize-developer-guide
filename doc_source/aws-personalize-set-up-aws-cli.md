@@ -41,7 +41,7 @@ The AWS Command Line Interface \(AWS CLI\) is a unified developer tool for manag
 
    If the AWS CLI is configured correctly, you will see a list of the supported AWS CLI commands for Amazon Personalize, Amazon Personalize runtime, and Amazon Personalize events\.
 
-   If you set up the AWS CLI and it doesn’t recognize the commands for Amazon Personalize, update the AWS CLI\. To update the AWS CLI, run the following command\.
+   If you set up the AWS CLI and it doesn't recognize the commands for Amazon Personalize, update the AWS CLI\. To update the AWS CLI, run the following command\.
 
    ```
    pip3 install awscli --upgrade --user

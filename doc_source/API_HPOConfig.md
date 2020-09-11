@@ -1,6 +1,6 @@
 # HPOConfig<a name="API_HPOConfig"></a>
 
-Describes the properties for hyperparameter optimization \(HPO\)\. For use with the bring\-your\-own\-recipe feature\. Do not use for Amazon Personalize native recipes\.
+Describes the properties for hyperparameter optimization \(HPO\)\.
 
 ## Contents<a name="API_HPOConfig_Contents"></a>
 

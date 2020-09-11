@@ -29,27 +29,6 @@ A solution is created by calling the [CreateSolution](API_CreateSolution.md) and
 }
 ```
 
-How a recipe is chosen is shown in the following table\. Either `performAutoML`or `recipeArn` must be specified but not both\. AutoML is only performed using the HRNN recipes\.
-
-
-| performAutoML | recipeArn | solutionConfig | Result | 
-| --- | --- | --- | --- | 
-| true | omit | omitted | Amazon Personalize chooses the recipe | 
-| true | omit | autoMLConfig: metricName and recipeList specified | Amazon Personalize chooses a recipe from the list that optimizes the metric | 
-| omit | specified | omitted | You specify the recipe | 
-| omit | specified | specified | You specify the recipe and override the default training properties | 
-
-**Note**  
-When `performAutoML` is `true`, all parameters of the `solutionConfig` object are ignored except for `autoMLConfig`\.
-
-**Leave it to Amazon Personalize**
-
-If you have no knowledge of machine learning, or just want to get started as quickly as possible, you can have Amazon Personalize analyze your data and decide on the best predefined recipe and options to use\. In this case, you call the `CreateSolution` operation, specify `true` for the `performAutoML` parameter, and omit the `recipeArn` and `solutionConfig` parameters\. Amazon Personalize does the rest\.
-
-You can also specify the list of recipes that Amazon Personalize examines to determine the optimal recipe, based on a metric you specify\.  In this case, you call the `CreateSolution` operation, specify `true` for the `performAutoML` parameter, omit the `recipeArn` parameter, and include the `solutionConfig` parameter, specifying the `metricName` and `recipeList` as part of the `autoMLConfig` object\.
-
-Instead of having Amazon Personalize choosing the recipe, you can do so manually\. In this case, you call the `CreateSolution` API, specify'false for `performAutoML`, and supply the `recipeArn` parameter\. For the list of predefined recipes, see [Choosing a Recipe](working-with-predefined-recipes.md)\.
-
 **Customize the Training**
 
 To customize the training, supply the `solutionConfig` parameter\. The `SolutionConfig` object allows you to override the default solution and recipe parameters\. For more information see [Overriding Default Recipe Parameters](customizing-solution-config.md)\.

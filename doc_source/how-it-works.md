@@ -8,7 +8,7 @@ Amazon Personalize has an AWS console that you can use to create, manage, and de
 
 Amazon Personalize consists of three related components:
 + Amazon Personalize – Use this to create, manage, and deploy solution versions\.
-+ Amazon Personalize Events – Use this to record user events to add to your training data\. For more information, see [Recording Events](recording-events.md)\.
++ Amazon Personalize Events – Use this to record [events](API_UBS_Event.md) to add to your training data\. For more information, see [Recording Events](recording-events.md)\.
 + Amazon Personalize Runtime – Use this to get recommendations from a campaign \(deployed solution version\)\. For more information, see [Getting Recommendations](getting-recommendations.md)\.
 
 **Topics**
@@ -65,7 +65,7 @@ For more information, see [Preparing and Importing Data](data-prep.md)\.
 
 ## User Events<a name="how-it-works-events"></a>
 
-Amazon Personalize can consume real time user event data to be used for model training either alone or combined with historical data\.
+Amazon Personalize can consume real time [user events](API_UBS_Event.md) to be used for model training either alone or combined with historical data\.
 
 For more information, see [Recording Events](recording-events.md)\.
 
@@ -93,12 +93,20 @@ For more information, see [Creating a Campaign](campaigns.md)\.
 
 ## Recommendations<a name="how-it-works-personalize-recommendations"></a>
 
-After you create a campaign, you are able to get two different types of recommendations, depending on the recipe type that was used to train the model\.
+After you create a campaign, you are able to get recommendations in real\-time or as part of a batch workflow with purely historical data\. For more information, see [Getting Recommendations](getting-recommendations.md)\.
 
-For user\-personalization and related\-items recipes, the [GetRecommendations](API_RS_GetRecommendations.md) API returns a list of recommended items\. For example, movies can be recommended for users who are signed\-in to a website\.
+**Real\-Time Recommendations**
 
-For personalized\-ranking recipes, the [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) API re\-ranks a list of recommended items based on a specified query\.
+ Get real\-time recommendations in situations where you want to update recommendations as customers use your application\. For example, say you provide movie recommendations to users signed into your application, and you want recommendations to update as they choose different movies\. 
 
-You can also use a [batch workflow](recommendations-batch.md) to get recommendations for large datasets that do not require real\-time updates\. 
+ You are able to get two different types of real\-time recommendations: 
++ For user\-personalization and related\-items recipes, use the [GetRecommendations](API_RS_GetRecommendations.md) API to get a list of recommended items\. For example, movies can be recommended for users who are signed\-in to a website\.
++ For personalized\-ranking recipes, use the [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) API to have Amazon Personalize re\-rank a list of recommended items based on a specified query\.
 
-For more information, see [Getting Recommendations](getting-recommendations.md)\.
+For more information see [Getting Real\-Time Recommendations](getting-real-time-recommendations.md)\.
+
+**Batch Recommendations**
+
+ Get batch recommendations in situations where you have large datasets that do not require real\-time updates\. For instance, you might create a batch inference job to get product recommendations for all users on an email list, or to get [item\-to\-item similarities \(SIMS\)](native-recipe-sims.md) across an inventory\. 
+
+For more information see [Getting Batch Recommendations](recommendations-batch.md)\.
