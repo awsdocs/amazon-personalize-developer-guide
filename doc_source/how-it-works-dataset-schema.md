@@ -43,7 +43,7 @@ When you create a schema, you must follow these guidelines:
 
 Reserved keywords are optional, non\-metadata fields\. You must define reserved keywords as their required datatype\. The following are reserved keywords:
 + EVENT\_TYPE: Use an `EVENT_TYPE` field for Interactions datasets with one or more event types, such as Click and Download\. You must define an EVENT\_TYPE field as a `string`\.
-+ EVENT\_VALUE: Use an `EVENT_VALUE` field for Interactions datasets that include value data for events, such as `perecent_watched`\. You must define an `EVENT_VALUE` field only as a `float` or `null`\.
++ EVENT\_VALUE: Use an `EVENT_VALUE` field for Interactions datasets that include value data for events, such as `percent_watched`\. You must define an `EVENT_VALUE` field only as a `float` or `null`\.
 +  CREATION\_TIMESTAMP: Use a `CREATION_TIMESTAMP` field for Items datasets with a timestamp for each item’s creation date\. Amazon Personalize uses `CREATION_TIMESTAMP` data to calculate the age of an item and adjust recommendations accordingly\. See [Creation Timestamp Data](data-prep-formatting.md#creation-timestamp-data)\. 
 +  IMPRESSION: Use an `IMPRESSION` field for Interactions datasets with impressions data\. Impressions are lists of items that were visible to a user when they interacted with \(for example, clicked or watched\) a particular item\. For more information see [Impressions Data](data-prep-formatting.md#data-prep-impressions-data)\. 
 
