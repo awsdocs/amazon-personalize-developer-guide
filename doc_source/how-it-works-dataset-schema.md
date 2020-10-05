@@ -197,4 +197,6 @@ The following example shows an Items schema\. The `ITEM_ID` field is required\. 
 
 Amazon Personalize provides operations for managing schemas\. For example, you can use the [ListSchemas](API_ListSchemas.md) API to get a list of the available schemas\.
 
+
 After you create a schema, use it with datasets that match the schema\. For more information, see [Formatting Your Input Data](data-prep-formatting.md)\. 
+
