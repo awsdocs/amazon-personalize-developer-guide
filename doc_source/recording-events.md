@@ -1,6 +1,6 @@
 # Recording Events<a name="recording-events"></a>
 
- Amazon Personalize can make recommendations based on real\-time event data only, historical imported data \(as demonstrated in the [Getting Started](getting-started.md) guides\) only, or a mixture of both\. To import real\-time event data, record user activity \(events\) in real\-time using the AWS SDK, AWS Amplify or AWS CLI\. 
+ Amazon Personalize can make recommendations based on real\-time event data only, historical imported data \(as demonstrated in the [Getting Started](getting-started.md) guides\) only, or a mixture of both\. To import real\-time event data, record user activity \(events\) in real\-time using the AWS python SDK, AWS Amplify or AWS CLI\. 
 
 **Note**  
 AWS Amplify includes a JavaScript library for recording events from web client applications, and a library for recording events in server code\. For more information, see [Amplify \- Analytics](https://aws-amplify.github.io/docs/js/analytics)
@@ -8,7 +8,7 @@ AWS Amplify includes a JavaScript library for recording events from web client a
 **Requirements for Recording Events**
 
 To record events, you need the following:
-+ A dataset group that includes an `Interactions` dataset, which can be empty\. For a Python example that creates a dataset and a dataset group, see [Importing Your Data](data-prep-importing.md)\.
++ A dataset group that includes an `Interactions` dataset, which can be empty\. For a Python example that creates a dataset and a dataset group, see [ Step 3: Importing Your Data](data-prep-importing.md)\.
 + An event tracker\.
 + A call to the [PutEvents](API_UBS_PutEvents.md) operation\.
 
@@ -24,7 +24,7 @@ Instead, the new recorded event data is added to the user's history\. Amazon Per
 
  For recorded events for new items \(items you did not include in the data you used to train the model\), you must re\-train the model for the new records to influence recommendations\. Amazon Personalize stores recorded events for new items and, once you create a new solution version \(train a new model\), this new data will influence Amazon Personalize recommendations for the user\. 
 
-For recorded events for new users \(users that were not included in the data you used to train the model\), recommendations will initially be for popular items only\. Recommendations will be more relevant as you record more events for the user\. Amazon Personalize stores the new user data, so you can also retrain the model for more relevant recommendations\. 
+For recorded events for new users \(users that were not included in the data you used to train the model\), recommendations will initially be for popular items only\. As record more events for the user, recommendations will be more relevant\. Amazon Personalize stores the new user data, so you can also retrain the model for more relevant recommendations\. 
 
 **Topics**
 + [Creating a Dataset Group](#event-dataset-group)
@@ -36,7 +36,7 @@ For recorded events for new users \(users that were not included in the data you
 
 ## Creating a Dataset Group<a name="event-dataset-group"></a>
 
-If you went through the [Getting Started](getting-started.md) guide, you can use the same dataset group that you created\. For a Python example that creates a dataset and a dataset group, see [Importing Your Data](data-prep-importing.md)\.
+If you went through the [Getting Started](getting-started.md) guide, you can use the same dataset group that you created\. For a Python example that creates a dataset and a dataset group, see [ Step 3: Importing Your Data](data-prep-importing.md)\.
 
 ## Getting a Tracking ID<a name="event-get-tracker"></a>
 

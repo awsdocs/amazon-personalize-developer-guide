@@ -4,7 +4,41 @@ Hyperparameters are used to optimize the trained model and are set before traini
 
 Hyperparameters are specified using the `algorithmHyperParameters` key that is part of the [SolutionConfig](API_SolutionConfig.md) object that is passed to the [CreateSolution](API_CreateSolution.md) operation\.
 
-Different recipes use different hyperparameters\. For the available hyperparameters, see the individual recipes in [Choosing a Recipe](working-with-predefined-recipes.md)\.
+A condensed version of the `CreateSolution` request is below\. The example includes the `solutionConfig` object\. You use `solutionConfig` to override the default parameters of a recipe\. When `performAutoML` is `true`, all parameters of the `solutionConfig` object are ignored except for `autoMLConfig`\. 
+
+```
+{
+    "name": "string",
+    "performAutoML": boolean,
+    "recipeArn": "string",
+    "performHPO": boolean,
+    "eventType": "string",
+    "solutionConfig": {
+        "autoMLConfig": {
+            "metricName": "string",
+            "recipeList": [ "string" ]
+        },
+        "eventValueThreshold": "string",
+        "featureTransformationParameters": {
+            "string" : "string"
+        },
+        "algorithmHyperParameters": {
+            "string" : "string"
+        },
+        "hpoConfig": {
+            "algorithmHyperParameterRanges": {
+                ...
+            },
+            "hpoResourceConfig": {
+                "maxNumberOfTrainingJobs": "string",
+                "maxParallelTrainingJobs": "string"
+            }
+        },
+    },
+}
+```
+
+Different recipes use different hyperparameters\. For the available hyperparameters, see the individual recipes in [Step 1: Choosing a Recipe](working-with-predefined-recipes.md)\.
 
 Hyperparameter optimization \(HPO\), or tuning, is the task of choosing optimal hyperparameters for a specific learning objective\. The optimal hyperparameters are determined by running many training jobs using different values from the specified ranges of possibilities\. By default, Amazon Personalize does not perform HPO\. To use HPO, set `performHPO` to `true`, and include the `hpoConfig` object\.
 
