@@ -1,4 +1,7 @@
-# HRNN\-Coldstart Recipe<a name="native-recipe-hrnn-coldstart"></a>
+# HRNN\-Coldstart Recipe \(Legacy\)<a name="native-recipe-hrnn-coldstart"></a>
+
+**Note**  
+ We recommend using the aws\-user\-personalizaton \(User\-Personalization\) recipe over the legacy HRNN recipes\. User\-Personalization improves upon and unifies the functionality offered by the HRNN recipes\. For more information, see [User\-Personalization Recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
 
 Use the HRNN\-Coldstart recipe to predict the items that a user will interact with when you frequently add new items and interactions and want to get recommendations for those items immediately\. The HRNN\-Coldstart recipe is similar to the [HRNN\-Metadata](native-recipe-hrnn-metadata.md) recipe, but it allows you to get recommendations for new items\. 
 
@@ -21,7 +24,7 @@ The HRNN\-Coldstart recipe has the following properties:
 +  **Feature transformation ARN** – `arn:aws:personalize:::feature-transformation/featurize_coldstart`
 +  **Recipe type** – `USER_PERSONALIZATION`
 
-For more information, see [Choosing a Recipe](working-with-predefined-recipes.md)\.
+For more information, see [Step 1: Choosing a Recipe](working-with-predefined-recipes.md)\.
 
 The following table describes the hyperparameters for the HRNN\-Coldstart recipe\. A *hyperparameter* is an algorithm parameter that you can adjust to improve model performance\. Algorithm hyperparameters control how the model performs\. Featurization hyperparameters control how to filter the data to use in training\. The process of choosing the best value for a hyperparameter is called hyperparameter optimization \(HPO\)\. For more information, see [Hyperparameters and HPO](customizing-solution-config-hpo.md)\. 
 

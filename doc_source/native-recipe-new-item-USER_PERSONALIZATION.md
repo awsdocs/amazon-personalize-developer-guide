@@ -1,6 +1,6 @@
 # User\-Personalization Recipe<a name="native-recipe-new-item-USER_PERSONALIZATION"></a>
 
-The User\-Personalization \(aws\-user\-personalization\) recipe is optimized for all USER\_PERSONALIZATION recommendation scenarios\. When recommending items, it uses automatic item exploration\.
+The User\-Personalization \(aws\-user\-personalization\) recipe is optimized for all personalized recommendation scenarios\. When recommending items, it uses automatic item exploration\.
 
 With automatic exploration, Amazon Personalize automatically tests different item recommendations, learns from how users interact with these recommended items, and boosts recommendations for items that drive better engagement and conversion\. This improves item discovery and engagement when you have a fast\-changing catalog, or when new items, such as news articles or promotions, are more relevant to users when fresh\. 
 
@@ -19,7 +19,7 @@ The User\-Personalization recipe has the following properties:
 +  **Recipe Amazon Resource Name \(ARN\)** – `arn:aws:personalize:::recipe/aws-user-personalization`
 +  **Algorithm ARN** – `arn:aws:personalize:::algorithm/aws-user-personalization`
 
-For more information, see [Choosing a Recipe](working-with-predefined-recipes.md)\.
+For more information, see [Step 1: Choosing a Recipe](working-with-predefined-recipes.md)\.
 
 The following table describes the hyperparameters for the User\-Personalization recipe\. A *hyperparameter* is an algorithm parameter that you can adjust to improve model performance\. Algorithm hyperparameters control how the model performs\. Featurization hyperparameters control how to filter the data to use in training\. The process of choosing the best value for a hyperparameter is called hyperparameter optimization \(HPO\)\. For more information, see [Hyperparameters and HPO](customizing-solution-config-hpo.md)\. 
 

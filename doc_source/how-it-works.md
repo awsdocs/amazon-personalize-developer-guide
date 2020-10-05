@@ -48,7 +48,7 @@ Amazon Personalize requires data, stored in Amazon Personalize datasets, in orde
 
 There are two ways to provide the training data\. You can import historical data from an Amazon S3 bucket, and you can record event data as it is created\.
 
-A dataset group contains related datasets\. Three types of historical datasets are created by the customer \(users, items, and interactions\), and one type is created by Amazon Personalize for live\-event interactions\. A dataset group can contain only one of each kind of dataset\.
+A dataset group contains related datasets\. You can create three types of historical datasets: Users, Items, and Interactions\. A dataset group can contain only one of each kind of dataset and at minimum must contain an Interactions dataset\.
 
 You can create dataset groups to serve different purposes\. For example, you might have an application that provides recommendations for purchasing shoes and another that provides recommendations for places to visit in Europe\. In Amazon Personalize, each application would have its own dataset group\.
 
@@ -83,7 +83,7 @@ For more information, see [Creating a Solution](training-deploying-solutions.md)
 
 After you have created your solution version, you evaluate the metrics that were created during training\. The metrics give an indication of the solution version's performance\. The console shows you the metrics and allows you to create a new solution version, as necessary\. Alternatively, you can call the [GetSolutionMetrics](API_GetSolutionMetrics.md) API\. Typically, you train your model with multiple recipes and use the recipe that results in the metrics that show the best performance\. After you have created a solution version based on your chosen recipe, the solution version is ready for deployment as a campaign\.
 
-For more information, see [Evaluating a Solution Version](working-with-training-metrics.md)\.
+For more information, see [Step 4: Evaluating the Solution Version](working-with-training-metrics.md)\.
 
 ## Campaigns<a name="how-it-works-campaigns"></a>
 

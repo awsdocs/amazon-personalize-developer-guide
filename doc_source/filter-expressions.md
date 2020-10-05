@@ -29,7 +29,7 @@ Use the following elements to create filter expressions:
 +  IN/NOT IN: Use `IN` or `NOT IN` as comparison operators to filter based on matching \(or not matching\) one or more string values\. Amazon Personalize filters only on exact strings\.
 +  Use =, <, <=, >, >= operators to test numerical data for equality\.
 +  Use `*` only only for filters that use the `EVENT_TYPE` property of the `Interaction` dataset\. 
-+  Use the pipe separator \(`|`\) to chain multiple expressions together\. For more information, see [Multiple Expressions Example](#multiple-expression-example)\. 
++  Use the pipe separator \(`|`\) to chain multiple expressions together\. For more information, see [](#multiple-expression-example)\. 
 
 ### Filter Expression Examples<a name="filter-expression-examples"></a>
 

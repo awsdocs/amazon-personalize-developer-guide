@@ -58,7 +58,7 @@ Amazon Personalize requires the `USER_ID`, `ITEM_ID`, and `TIMESTAMP` fields\. `
 
 ## Timestamp Data<a name="timestamp-data"></a>
 
- Timestamp data, such as `TIMESTAMP` \(for Interactions datasets\) or `CREATION_TIMESTAMP` \(for Items datasets\) data, must be in Unix epoch time format in seconds\. For example, the Epoch timestamp in seconds for date July 31, 2020 is 1596238243\. To convert dates to Unix epoch timestamps use a [Epoch Converter \- Unix Timestamp Converter](https://www.epochconverter.com)\. 
+ Timestamp data, such as `TIMESTAMP` \(for Interactions datasets\) or `CREATION_TIMESTAMP` \(for Items datasets\) data, must be in Unix epoch time format in seconds\. For example, the Epoch timestamp in seconds for date July 31, 2020 is 1596238243\. To convert dates to Unix epoch timestamps use an [Epoch Converter \- Unix Timestamp Converter](https://www.epochconverter.com)\. 
 
 ### Creation Timestamp Data<a name="creation-timestamp-data"></a>
 
@@ -121,4 +121,4 @@ ITEM_ID,GENRE
 item_123,horror|comedy
 ```
 
-After you format your data, upload it to an Amazon S3 bucket so you can import it into Amazon Personalize\. For more information, see [Uploading to an S3 Bucket](data-prep-upload-s3.md)\.
+After you format your data, upload it to an Amazon S3 bucket so you can import it into Amazon Personalize\. For more information, see [Uploading to an Amazon S3 Bucket](data-prep-upload-s3.md)\.

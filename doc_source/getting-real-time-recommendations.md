@@ -13,7 +13,7 @@ To get recommendations, call the [GetRecommendations](API_RS_GetRecommendations.
 To get contextual recommendations, you can also include contextual metadata on your user\. For instance, you might include information on the user's current location or device \(desktop, mobile, tablet\) so that Amazon Personalize can get recommendations based on that user's previous situational behavior\. Any metadata context fields must be included in the schema of the campaign's user\-item interaction dataset\.
 
 **Note**  
-The solution backing the campaign must have been created using a recipe of type USER\_PERSONALIZATION or RELATED\_ITEMS\. For more information, see [Choosing a Recipe](working-with-predefined-recipes.md)\.
+The solution backing the campaign must have been created using a recipe of type USER\_PERSONALIZATION or RELATED\_ITEMS\. For more information, see [Step 1: Choosing a Recipe](working-with-predefined-recipes.md)\.
 
 **How Scoring Works**
 
@@ -69,7 +69,7 @@ for item in response['itemList']:
 A personalized ranking is a list of recommended items that are re\-ranked for a specific user\. To get personalized rankings, call the [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) API\.
 
 **Note**  
-The solution backing the campaign must have been created using a recipe of type PERSONALIZED\_RANKING\. For more information, see [Choosing a Recipe](working-with-predefined-recipes.md)\.
+The solution backing the campaign must have been created using a recipe of type PERSONALIZED\_RANKING\. For more information, see [Step 1: Choosing a Recipe](working-with-predefined-recipes.md)\.
 
 **How Scoring Works**
 

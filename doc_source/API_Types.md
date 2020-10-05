@@ -51,6 +51,8 @@ The following data types are supported by Amazon Personalize:
 
 The following data types are supported by Amazon Personalize Events:
 +  [Event](API_UBS_Event.md) 
++  [Item](API_UBS_Item.md) 
++  [User](API_UBS_User.md) 
 
 The following data types are supported by Amazon Personalize Runtime:
 +  [PredictedItem](API_RS_PredictedItem.md) 

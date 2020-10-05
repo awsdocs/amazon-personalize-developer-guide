@@ -50,7 +50,7 @@ Value Length Constraints: Maximum length of 1000\.
 Required: No
 
  ** [filterArn](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-filterArn"></a>
-The ARN of the filter to apply to the returned recommendations\. For more information, see [Using Filters with Amazon Personalize](https://docs.aws.amazon.com/personalize/latest/dg/filters.html)\.  
+The ARN of the filter to apply to the returned recommendations\. For more information, see [Filtering Recommendations](https://docs.aws.amazon.com/personalize/latest/dg/filter.html)\.  
 When using this parameter, be sure the filter resource is `ACTIVE`\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  

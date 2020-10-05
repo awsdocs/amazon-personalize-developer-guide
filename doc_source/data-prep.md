@@ -1,18 +1,15 @@
 # Preparing and Importing Data<a name="data-prep"></a>
 
-Amazon Personalize uses data that you provide to train a model\. You can provide data from a source file, or you can collect data from live events, such as user activities on a website\.
+Amazon Personalize uses data that you provide to train a model\. When you import data, you can choose to import records in bulk or incrementally or both\. With incremental imports, you can add individual historical records or data from live events, or both, depending on your business requirements\. 
 
-If you provide a source file to import your data into Amazon Personalize, you must fulfill these requirements: 
-+ Format your data as a comma\-separated values \(CSV\) file
-+ Provide a schema so that Amazon Personalize can import the data correctly
-+ Upload your file into an Amazon Simple Storage Service \(Amazon S3\) bucket that Amazon Personalize can access
+This section provides information about importing historical data into Amazon Personalize\. For information about recording live interactions data, see [Recording Events](recording-events.md)\.
 
-You can upload your data by using the AWS SDK\.
+To import your historical training data into Amazon Personalize, you do the following:
 
-This section provides information about formatting and importing your historical data into Amazon Personalize\. For information about recording live event data, see [Recording Events](recording-events.md)\.
+1. Create an empty dataset group\.* Dataset groups* are domain\-specific containers for related datasets\. For more information, see [Step 1: Creating a Dataset Group](data-prep-ds-group.md)\.
 
-**Topics**
-+ [Datasets and Schemas](how-it-works-dataset-schema.md)
-+ [Formatting Your Input Data](data-prep-formatting.md)
-+ [Uploading to an S3 Bucket](data-prep-upload-s3.md)
-+ [Importing Your Data](data-prep-importing.md)
+1. For each type of dataset you are using, create an empty dataset with an associated schema\. *Datasets* are Amazon Personalize containers for data and schemas that specify contents of a dataset\. For more information, see [Step 2: Creating a Dataset and a Schema](data-prep-creating-datasets.md)\. 
+
+1. Import your data:
+   +  Import bulk records stored in an Amazon S3 bucket using a dataset import job\. See [Importing Bulk Records](bulk-data-import.md)\. 
+   +  Import records incrementally using the AWS python SDK or AWS Command Line Interface \(AWS CLI\)\. See [Importing Records Incrementally](incremental-data-updates.md)\. 

@@ -1,6 +1,8 @@
 # Personalized\-Ranking Recipe<a name="native-recipe-search"></a>
 
-The Personalized\-Ranking recipe generates personalized rankings\. A *personalized ranking* is a list of recommended items that are re\-ranked for a specific user\. This recipe has the following properties:
+The Personalized\-Ranking recipe generates personalized rankings\. A *personalized ranking* is a list of recommended items that are re\-ranked for a specific user\. To get a personalized ranking, use the [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) API\. 
+
+This recipe has the following properties:
 +  **Name** – `aws-personalized-ranking`
 +  **Recipe Amazon Resource Name \(ARN\)** – `arn:aws:personalize:::recipe/aws-personalized-ranking`
 +  **Algorithm ARN** – `arn:aws:personalize:::algorithm/aws-personalized-ranking`
