@@ -7,7 +7,7 @@ In order to get batch recommendations, the IAM user role that invokes the [Creat
 You can perform batch inference operations with any of the following tools:
 + [Amazon Personalize console](#batch-console)
 + [AWS CLI](#batch-cli)
-+ [AWS SDK](#batch-sdk)
++ [AWS SDKs](#batch-sdk)
 
 **How scoring works**
 

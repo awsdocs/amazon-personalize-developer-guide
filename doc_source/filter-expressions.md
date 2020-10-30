@@ -28,8 +28,8 @@ Use the following elements to create filter expressions:
 +  IF: Use `IF` *only* to check conditions for the `CurrentUser` and only once at the end of an expression\. However, you can extend an `IF` condition using `AND`\. 
 +  IN/NOT IN: Use `IN` or `NOT IN` as comparison operators to filter based on matching \(or not matching\) one or more string values\. Amazon Personalize filters only on exact strings\.
 +  Use =, <, <=, >, >= operators to test numerical data for equality\.
-+  Use `*` only only for filters that use the `EVENT_TYPE` property of the `Interaction` dataset\. 
-+  Use the pipe separator \(`|`\) to chain multiple expressions together\. For more information, see [](#multiple-expression-example)\. 
++  Use `*` only for filters that use the `EVENT_TYPE` property of the `Interaction` dataset\. 
++  Use the pipe separator \(`|`\) to chain multiple expressions together\. For more information, see [Multiple Expressions Example](#multiple-expression-example)\. 
 
 ### Filter Expression Examples<a name="filter-expression-examples"></a>
 

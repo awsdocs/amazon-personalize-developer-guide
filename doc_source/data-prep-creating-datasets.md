@@ -2,11 +2,11 @@
 
 After you have completed [Step 1: Creating a Dataset Group](data-prep-ds-group.md), you are ready to create a dataset\. *Datasets* are Amazon Personalize containers for data\. Datasets are organized within Amazon Personalize dataset groups\. 
 
-You can create three types of historical datasets: Users, Items, and Interactions\. When you create a dataset, you also create a schema for the dataset\. A *schema* defines the contents of a dataset and has a name key whose value must match the dataset type\. 
+You can create three types of historical datasets: Users, Items, and Interactions\. When you create a dataset, you also create a schema for the dataset\. A *schema* tells Amazon Personalize about the structure of your data and allows Amazon Personalize to parse the data\. 
 
 You can create only one of each kind of dataset in a dataset group, and you must at minimum create an Interactions dataset\. You create datasets using the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\), or AWS SDK\.
 
-For more information, including dataset requirements and schema examples, see [Datasets and Schemas](how-it-works-dataset-schema.md)\. 
+For more information, including dataset and schema requirements, see [Datasets and Schemas](how-it-works-dataset-schema.md)\. 
 
 **Topics**
 + [Creating a Dataset and a Schema \(Console\)](#data-prep-creating-ds-console)
@@ -93,10 +93,10 @@ To create a dataset and a schema using the AWS CLI, you first define a schema in
 
    ```
    aws personalize create-dataset \
-     --name DatasetName \
-     --dataset-group-arn DatasetGroupName \
-     --dataset-type DatasetType \
-     --schema-arn SchemaArn
+     --name Dataset Name \
+     --dataset-group-arn Dataset Group ARN \
+     --dataset-type Dataset Type \
+     --schema-arn Schema Arn
    ```
 
    The dataset ARN is displayed, as shown in the following example\.
@@ -142,7 +142,7 @@ To create a dataset and a schema using the AWS Python SDK, you first define a sc
    }
    ```
 
-1. Create the schema using the [CreateSchema](API_CreateSchema.md) API\.
+1. Create the schema using the [CreateSchema](API_CreateSchema.md) API\. Replace `Schema Name` with the name of your schema\.
 
    ```
    import boto3
@@ -151,7 +151,7 @@ To create a dataset and a schema using the AWS Python SDK, you first define a sc
    
    with open('schemaFile.json') as f:
        createSchemaResponse = personalize.create_schema(
-           name = 'YourSchema',
+           name = 'Schema Name',
            schema = f.read()
        )
    
@@ -170,10 +170,10 @@ To create a dataset and a schema using the AWS Python SDK, you first define a sc
    personalize = boto3.client('personalize')
    
    response = personalize.create_dataset(
-       name = 'YourDataset',
+       name = 'datase_name',
        schemaArn = 'schema_arn',
        datasetGroupArn = 'dataset_group_arn',
-       datasetType = 'dataset type'
+       datasetType = 'dataset_type'
    )
    
    print ('Dataset Arn: ' + response['datasetArn'])

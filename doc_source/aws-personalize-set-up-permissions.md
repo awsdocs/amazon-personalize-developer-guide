@@ -21,6 +21,8 @@ We recommend creating an AWS Identity and Access Management \(IAM\) user with ac
 
 1.  Create an IAM role for Amazon Personalize and attach the policy from step 1 to the new role\. See [Creating an IAM Role for Amazon Personalize](#set-up-create-role-with-permissions)\. 
 
+1. If you are using AWS Key Management Service \(AWS KMS\) for encryption, give your IAM user and Amazon Personalize IAM service role permission to use your key using a key policy\. For more information see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\. 
+
 ## Creating a New IAM Policy<a name="set-up-required-permissions"></a>
 
 Create an IAM policy that provides users and Amazon Personalize full access to your Amazon Personalize resources\. Then attach the policy to your IAM user or group\. 
@@ -74,6 +76,8 @@ Create an IAM policy that provides users and Amazon Personalize full access to y
 
    For information on attaching a policy to a user, see [Changing Permissions for an IAM User](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) in the *IAM User Guide*\. For information on attaching a policy to a group, see [Attaching a Policy to an IAM Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_attach-policy.html) in the *IAM User Guide*\. 
 
+1. If you are using AWS KMS for encryption, give your user or group permission to use your key\. For more information see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\. 
+
 ## Creating an IAM Role for Amazon Personalize<a name="set-up-create-role-with-permissions"></a>
 
 In the following procedure, you create an IAM role that allows Amazon Personalize to access your resources and perform tasks on your behalf\.
@@ -104,4 +108,8 @@ In the following procedure, you create an IAM role that allows Amazon Personaliz
 
 1. Copy the **Role ARN** value and save it\. You need it to import a dataset into Amazon Personalize\.
 
-   Next, you need upload training data and grant Amazon Personalize access to your Amazon S3 bucket\. See [Creating the Training Data](gs-prerequisites.md#gs-upload-to-bucket)\.
+1. If you are using AWS KMS for encryption, give your Amazon Personalize service role permission to use your key\. For more information see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\. 
+
+   Next, if you are completing the getting started exercise, you are ready create your training data and grant Amazon Personalize access to your Amazon S3 bucket\. See [Creating the Training Data](gs-prerequisites.md#gs-upload-to-bucket)\. 
+
+   If you are not completing the getting started exercise, you are ready to import your data\. See [Preparing and Importing Data](data-prep.md)\. 

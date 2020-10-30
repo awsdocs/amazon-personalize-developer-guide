@@ -1,6 +1,6 @@
 # User\-Personalization Recipe<a name="native-recipe-new-item-USER_PERSONALIZATION"></a>
 
-The User\-Personalization \(aws\-user\-personalization\) recipe is optimized for all personalized recommendation scenarios\. When recommending items, it uses automatic item exploration\.
+The User\-Personalization \(aws\-user\-personalization\) recipe is optimized for all personalized recommendation scenarios\. It predicts the items that a user will interact with based on Interactions, Items, and Users datasets\. When recommending items, it uses automatic item exploration\.
 
 With automatic exploration, Amazon Personalize automatically tests different item recommendations, learns from how users interact with these recommended items, and boosts recommendations for items that drive better engagement and conversion\. This improves item discovery and engagement when you have a fast\-changing catalog, or when new items, such as news articles or promotions, are more relevant to users when fresh\. 
 
@@ -10,7 +10,7 @@ You can balance how much to explore \(where items with less interactions data or
 
  Unlike other recipes, which solely use positive interactions \(clicking, watching, or purchasing\), the User\-Personalization recipe can also use impressions data\. Impressions are lists of items that were visible to the user when they interacted with \(clicked, watched, purchased, and so on\) a particular item\. 
 
-Using this information, a solution trained with the User\-Personalization recipe can quickly infer the suitability of new items based on how frequently an item has been ignored, and change recommendation accordingly\. For more information see [Impressions Data](data-prep-formatting.md#data-prep-impressions-data)\. 
+Using this information, a solution trained with the User\-Personalization recipe can quickly infer the suitability of new items based on how frequently an item has been ignored, and change recommendation accordingly\. For more information see [Formatting Impressions Data](data-prep-formatting.md#data-prep-impressions-data)\. 
 
 ## Properties and Hyperparameters<a name="bandit-hyperparameters"></a>
 
@@ -50,7 +50,7 @@ To use the User\-Personalization recipe to generate recommendations in the conso
 
 1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/](https://console.aws.amazon.com/personalize/) and sign into your account\. 
 
-1. Create a dataset group with a new schema and upload your dataset with impressions data\. Optionally include [CREATION\_TIMESTAMP](data-prep-formatting.md#creation-timestamp-data) data in your Items dataset so Amazon Personalize can more accurately calculate the age of an item and identify cold items\. 
+1. Create a dataset group with a new schema and upload your dataset with impressions data\. Optionally include [CREATION\_TIMESTAMP](creation-timestamp-data.md) data in your Items dataset so Amazon Personalize can more accurately calculate the age of an item and identify cold items\. 
 
    For more information on creating dataset groups and uploading training data, see [Step 1: Import Training Data](getting-started-console.md#getting-started-console-import-dataset) in the Getting Started tutorial\.
 
@@ -102,7 +102,7 @@ Recommendations might include items without interactions data from outside this 
 
 ## Training with the User\-Personalization Recipe \( SDK\)<a name="training-user-personalization-recipe"></a>
 
-When you have created a dataset group and uploaded your dataset\(s\) with impressions data, you can train a solution with the User\-Personalization recipe\. Optionally include [CREATION\_TIMESTAMP](data-prep-formatting.md#creation-timestamp-data) data in your dataset so Amazon Personalize can more accurately calculate the age of an item and identify cold start items\. For more information on creating dataset groups and uploading training data see [Datasets and Schemas](how-it-works-dataset-schema.md)\.
+When you have created a dataset group and uploaded your dataset\(s\) with impressions data, you can train a solution with the User\-Personalization recipe\. Optionally include [CREATION\_TIMESTAMP](creation-timestamp-data.md) data in your dataset so Amazon Personalize can more accurately calculate the age of an item and identify cold start items\. For more information on creating dataset groups and uploading training data see [Datasets and Schemas](how-it-works-dataset-schema.md)\.
 
 **To train a solution with the User\-Personalization recipe using the AWS SDK**
 

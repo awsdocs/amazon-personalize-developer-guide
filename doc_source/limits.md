@@ -22,25 +22,43 @@ Your AWS account has the following quotas for Amazon Personalize\.
 
 
 | Resource | Quota | 
-| --- | --- | 
+| --- |--- |
+| Interactions | 
+| --- |
+| Minimum number of unique combined historical and event interactions \(after filtering by eventType and eventValueThreshold, if provided\) required to train a model \(create a solution version\)\. | 1000 | 
+| Maximum number of interactions that are considered by a model during training\. | 500 million | 
+| Maximum number of event types combined with total number of metadata columns in Interactions datasets\. | 10 | 
+| Users | 
+| --- |
+| Minimum number of unique users, with at least 2 interactions each, required to train a model \(create a solution version\)\. | 25 | 
+| Maximum number of users that are considered by a model during training\. | 50 million | 
+| Items | 
+| --- |
+| Maximum number of items that are considered by a model during training\. | 750 thousand | 
+| Data Import APIs | 
+| --- |
+| Maximum rate of PutItems requests\. | 10/second | 
+| Maximum rate of PutUsers requests\. | 10/second | 
+| Maximum rate of PutEvents requests\. | 1000/second | 
+| Maximum number of events in a PutEvents call\. | 10 | 
+| Maximum size of an event\. | 10 KB | 
+| Recipes | 
+| --- |
 | Maximum amount of data for an individual dataset \(Users, Items, or Interactions\) for HRNN, SIMS, Popularity\-Count, and Personalized\-Ranking recipes\. | 100 GB | 
 | Maximum amount of data for Interactions dataset for HRNN\-metadata and HRNN\-coldstart recipes\. | 100 GB | 
 | Maximum amount of combined data for Users and Items datasets for HRNN\-metadata and HRNN\-coldstart recipes\. | 5 GB | 
+| Maximum number of cold start items the HRNN\-Coldstart recipe supports to train a model \(create a solution version\)\. | 80,000 | 
+| Minimum number of cold start items the HRNN\-Coldstart recipe requires to train a model \(create a solution version\)\. | 100 | 
+| Filters | 
+| --- |
 | Maximum number of filters per account | 10 filters | 
-| Minimum number of unique combined historical and event interactions \(after filtering by eventType and eventValueThreshold, if provided\) required to train a model \(training a model means you create a solution version\)\. | 1000 | 
-| Minimum number of unique users, with at least 2 interactions each, required to train a model \(training a model means you create a solution version\)\. | 25 | 
-| Maximum number of interactions that are considered by a model during training\. | 500 million | 
-| Maximum number of users that are considered by a model during training\. | 50 million | 
-| Maximum number of items that are considered by a model during training\. | 750 thousand | 
-| Maximum number of event types combined with total number of metadata columns in Interactions datasets\. | 10 | 
-| Maximum number of cold start items the HRNN\-Coldstart recipe supports to train a model \(training a model means you create a solution version\)\. | 80,000 | 
-| Minimum number of cold start items the HRNN\-Coldstart recipe requires to train a model \(training a model means you create a solution version\)\. | 100 | 
+| GetRecommendations / GetPersonalizedRanking Requests | 
+| --- |
 | Maximum transaction rate \(GetRecommendations and GetPersonalizedRanking requests\)\. | 2500/sec | 
 | Maximum number of GetRecommendations requests per second per campaign\. | 500/sec | 
 | Maximum number of GetPersonalizedRanking requests per second per campaign\. | 500/sec | 
-| Maximum rate of PutEvents requests\. | 1000 per second sec | 
-| Maximum number of events in a PutEvents call\. | 10 | 
-| Maximum size of an event\. | 10 KB | 
+| Batch Inference Jobs | 
+| --- |
 | Maximum number of input files in a batch inference job\. | 1000 | 
 | Maximum size of batch inference job input\. | 1 GB | 
 | Maximum number of records per input file in a batch inference job\. | 50 million | 

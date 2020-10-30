@@ -1,4 +1,4 @@
-# Clean Up Resources<a name="gs-cleanup"></a>
+# Cleaning Up Resources<a name="gs-cleanup"></a>
 
 To avoid incurring unnecessary charges, delete the resources you created after you're done with the getting started exercise\. To delete the resources, use either the Amazon Personalize console or the `Delete` APIs from the SDKs or the AWS Command Line Interface \(AWS CLI\)\. For example, use the [DeleteCampaign](API_DeleteCampaign.md) API to delete a campaign\.
 

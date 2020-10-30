@@ -8,7 +8,7 @@ AWS Amplify includes a JavaScript library for recording events from web client a
 **Requirements for Recording Events**
 
 To record events, you need the following:
-+ A dataset group that includes an `Interactions` dataset, which can be empty\. For a Python example that creates a dataset and a dataset group, see [ Step 3: Importing Your Data](data-prep-importing.md)\.
++ A dataset group that includes an `Interactions` dataset, which can be empty\. For information on creating a dataset group and a dataset, see [Preparing and Importing Data](data-prep.md)\.
 + An event tracker\.
 + A call to the [PutEvents](API_UBS_PutEvents.md) operation\.
 
@@ -27,16 +27,17 @@ Instead, the new recorded event data is added to the user's history\. Amazon Per
 For recorded events for new users \(users that were not included in the data you used to train the model\), recommendations will initially be for popular items only\. As record more events for the user, recommendations will be more relevant\. Amazon Personalize stores the new user data, so you can also retrain the model for more relevant recommendations\. 
 
 **Topics**
-+ [Creating a Dataset Group](#event-dataset-group)
++ [Creating a Dataset Group and a Dataset](#event-dataset-group)
 + [Getting a Tracking ID](#event-get-tracker)
 + [PutEvents Operation](#event-record-api)
++ [Recording Impressions Data](#putevents-including-impressions-data)
 + [Event Metrics](#event-metrics)
 + [Events and Solutions](#event-solutions)
 + [Sample Jupyter Notebook](#recording-events-sample-notebook)
 
-## Creating a Dataset Group<a name="event-dataset-group"></a>
+## Creating a Dataset Group and a Dataset<a name="event-dataset-group"></a>
 
-If you went through the [Getting Started](getting-started.md) guide, you can use the same dataset group that you created\. For a Python example that creates a dataset and a dataset group, see [ Step 3: Importing Your Data](data-prep-importing.md)\.
+If you went through the [Getting Started](getting-started.md) guide, you can use the same dataset group and dataset that you created\. For information on creating dataset groups and datasets, see [Preparing and Importing Data](data-prep.md)\.
 
 ## Getting a Tracking ID<a name="event-get-tracker"></a>
 
@@ -208,6 +209,37 @@ aws personalize-events put-events \
 
 **Note**  
 The properties keys use camel case names that match the fields in the Interactions schema\. For example, if the fields 'ITEM\_ID', 'EVENT\_VALUE', and 'NUM\_RATINGS,' are defined in the Interactions schema, the property keys should be `itemId, eventValue, and numRatings`\.
+
+## Recording Impressions Data<a name="putevents-including-impressions-data"></a>
+
+Impressions are lists of items that were visible to a user when they interacted with \(for example, clicked or watched\) a particular item\. For information on the *implicit* and *explicit* impressions Amazon Personalize can model, see [Impressions Data](interactions-impressions-metadata.md)\. 
+
+**Important**  
+If you provide conflicting implicit and explicit impression data in your `PutEvents` requests, Amazon Personalize uses the explicit impressions by default\.
+
+To record the Amazon Personalize recommendations you show your user as impressions data, include the `recommendationId` in your [PutEvents](API_UBS_PutEvents.md) request and Amazon Personalize will derive the implicit impressions based on your recommendation data\.
+
+To manually record impressions data for an event, list the impressions in the [PutEvents](API_UBS_PutEvents.md) command's `impression` input parameter\. The impressions are added to the recommendation that you specify in the `recommendationId` parameter:
+
+```
+import boto3
+
+personalize_events = boto3.client(service_name='personalize-events')
+
+personalize_events.put_events(
+    trackingId = 'tracking_id',
+    userId= 'userId',
+    sessionId = 'sessionId',
+    eventList = [{
+        'eventId': 'event1',
+        'eventType': 'rating',
+        'sentAt': 1553631760,
+        'itemId': 'item id',
+        'recommendationId': 'recommendation id',
+        'impression': ['itemId1', 'itemId2', 'itemId3']
+        }]
+)
+```
 
 ## Event Metrics<a name="event-metrics"></a>
 

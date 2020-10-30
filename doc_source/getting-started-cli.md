@@ -6,7 +6,7 @@ Before you start this exercise, do the following:
 + Review the Getting Started [Getting Started Prerequisites](gs-prerequisites.md)\.
 + Set up the AWS CLI, as specified in [Setting Up the AWS CLI](aws-personalize-set-up-aws-cli.md)\.
 
-After you finish this exercise, see [Clean Up Resources](gs-cleanup.md)\.
+After you finish this exercise, see [Cleaning Up Resources](gs-cleanup.md)\.
 
 **Note**  
 The CLI commands in this exercise were tested on Linux\. For information about using the CLI commands on Windows, see [Specifying Parameter Values for the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html) in the *AWS Command Line Interface User Guide*\.

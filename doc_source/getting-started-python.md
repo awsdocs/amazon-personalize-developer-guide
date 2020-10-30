@@ -8,7 +8,7 @@ The following are prerequisite steps for using the Python examples in this guide
 + Complete the Getting Started [Getting Started Prerequisites](gs-prerequisites.md)\. You can use the same source data that is listed in the [Getting Started \(Console\)](getting-started-console.md) or [Getting Started \(AWS CLI\)](getting-started-cli.md) exercises\. If you are using your own source data, make sure your data is formatted like in the prerequisite step [Creating the Training Data](gs-prerequisites.md#gs-upload-to-bucket)\. For information about preparing your own source data, see [Preparing and Importing Data](data-prep.md)\. 
 + Set up your AWS SDK for Python \(Boto3\) environment, as specified in [Setting Up the AWS SDKs](aws-personalize-set-up-sdks.md)\.
 
-After you finish this exercise, to avoid incurring unnecessary charges, delete the resources you created\. For more information, see [Clean Up Resources](gs-cleanup.md)\.
+After you finish this exercise, to avoid incurring unnecessary charges, delete the resources you created\. For more information, see [Cleaning Up Resources](gs-cleanup.md)\.
 
 ## Step 1: Verify Your Python Environment<a name="gs-python-example"></a>
 
@@ -29,7 +29,7 @@ for recipe in response['recipes']:
 
 After you verify that your Python environment is configured correctly, import your data\. To use a dataset for training, you need to do the following:
 
-1. Add a schema\. The schema allows Amazon Personalize to parse the training dataset\. For a code sample, see [Create a Schema Using the AWS Python SDK](how-it-works-dataset-schema.md#python-schema-ex)\.
+1. Add a schema\. The schema allows Amazon Personalize to parse the training dataset\. For a code sample, see [Creating a Schema Using the AWS Python SDK](how-it-works-dataset-schema.md#python-schema-ex)\.
 
 1. Import the data\. You create a dataset group which contains one or several datasets that Amazon Personalize can use for training\. For a code sample, see [Importing Bulk Records \(AWS Python SDK\)](bulk-data-import-step.md#python-import-ex)\.
 
@@ -49,7 +49,7 @@ After you train and evaluate your solution version, you can deploy it using a ca
 
 ## Step 5: Get Recommendations<a name="getting-started-python-get-recommendations"></a>
 
-After you create a campaign, you can use it to get recommendations\. For a code sample, see [GetRecommendations](getting-real-time-recommendations.md#recommendations)\.
+After you create a campaign, you can use it to get recommendations\. For a code sample, see [Getting Real\-Time Recommendations \(API\)](getting-real-time-recommendations.md#recommendations)\.
 
 ## Getting Started Using Amazon Personalize APIs with Jupyter \(iPython\) Notebooks<a name="gs-jupyter-notebook"></a>
 

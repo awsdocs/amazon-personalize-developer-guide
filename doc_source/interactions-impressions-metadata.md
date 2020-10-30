@@ -1,0 +1,5 @@
+# Impressions Data<a name="interactions-impressions-metadata"></a>
+
+Impressions are lists of items that were visible to a user when they interacted with \(for example, clicked or watched\) a particular item\. Amazon Personalize can model two types of impressions: 
++ *Implicit impressions* are the recommendations, retrieved from Amazon Personalize, that you show the user\. You can integrate them into your recommendation workflow by including the `RecommendationId` \(returned by the [GetRecommendations](API_RS_GetRecommendations.md) and [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) operations\) as input for future [PutEvents](API_UBS_PutEvents.md) requests and Amazon Personalize will derive the implicit impressions based on your recommendation data\.
++ *Explicit impressions* are impressions that you manually record and send to Amazon Personalize\. Use explicit impressions to manipulate results from Amazon Personalize\. For example, use explicit impressions to filter out unavailable items and change the order of recommendations based on user interactions\.

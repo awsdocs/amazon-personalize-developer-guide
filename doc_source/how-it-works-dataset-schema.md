@@ -1,20 +1,23 @@
 # Datasets and Schemas<a name="how-it-works-dataset-schema"></a>
 
-Amazon Personalize *Datasets* are containers for data\. Datasets are organized within Amazon Personalize dataset groups\. Each dataset must have an associated schema\. A *schema* defines the contents of a dataset and has a name key whose value must match the dataset type\. 
-
-The three Amazon Personalize dataset types are as follows:
-+ **Users** – This dataset is intended to provide metadata about your users\. This might include information such as age, gender, or loyalty membership, which can be important signals in personalization systems\.
-+ **Items** – This dataset is intended to provide metadata about your items\. This might include information such as price, SKU type, or availability\.
-+ **Interactions** – This dataset is intended to provide historical interaction data between users and items\. It can also provide metadata on your user's browsing context, such as their location or device \(mobile, tablet, desktop, and so on\)\.
+Amazon Personalize *datasets* are containers for data\. There are three types of datasets:
++ **Users** – This dataset stores metadata about your users\. This might include information such as age, gender, or loyalty membership, which can be important signals in personalization systems\.
++ **Items** – This dataset stores metadata about your items\. This might include information such as price, SKU type, or availability\.
++ **Interactions** – This dataset stores historical and real\-time data from interactions between users and items\. This data can include impressions data and contextual metadata on your user's browsing context, such as their location or device \(mobile, tablet, desktop, and so on\)\. You must at minimum create an Interactions dataset\.
 
 The Users and Items dataset types are known as metadata types and are used only by certain recipes\. For more information, see [Step 1: Choosing a Recipe](working-with-predefined-recipes.md)\.
+
+Datasets are organized within Amazon Personalize dataset groups\. A dataset group can only have one of each type of dataset\. Each dataset must have an associated schema\. A *schema* tells Amazon Personalize about the structure of your data and allows Amazon Personalize to parse the data\. A schema has a name key whose value must match the dataset type\. 
 
  You create a dataset and a schema when you import your training data into Amazon Personalize\. For more information see [Preparing and Importing Data](data-prep.md)\. 
 
 **Topics**
 + [Dataset and Schema Requirements](#dataset-requirements)
++ [Interactions Dataset](interactions-datasets.md)
++ [Users Dataset](users-datasets.md)
++ [Items Dataset](items-datasets.md)
 + [Schema Examples](#schema-examples)
-+ [Create a Schema Using the AWS Python SDK](#python-schema-ex)
++ [Creating a Schema Using the AWS Python SDK](#python-schema-ex)
 
 ## Dataset and Schema Requirements<a name="dataset-requirements"></a>
 
@@ -46,130 +49,18 @@ When you create a schema, you must follow these guidelines:
 Reserved keywords are optional, non\-metadata fields\. You must define reserved keywords as their required data type\. The following are reserved keywords:
 + EVENT\_TYPE: Use an `EVENT_TYPE` field for Interactions datasets with one or more event types, such as Click and Download\. You must define an EVENT\_TYPE field as a `string`\.
 + EVENT\_VALUE: Use an `EVENT_VALUE` field for Interactions datasets that include value data for events, such as `PERCENT_WATCHED`\. You must define an `EVENT_VALUE` field only as a `float` or `null`\.
-+  CREATION\_TIMESTAMP: Use a `CREATION_TIMESTAMP` field for Items datasets with a timestamp for each item’s creation date\. Amazon Personalize uses `CREATION_TIMESTAMP` data to calculate the age of an item and adjust recommendations accordingly\. See [Creation Timestamp Data](data-prep-formatting.md#creation-timestamp-data)\. 
-+  IMPRESSION: Use an `IMPRESSION` field for Interactions datasets with impressions data\. Impressions are lists of items that were visible to a user when they interacted with \(for example, clicked or watched\) a particular item\. For more information see [Impressions Data](data-prep-formatting.md#data-prep-impressions-data)\. 
-+  RECOMMENDATION\_ID: Use a `RECOMMENDATION_ID` field for Interactions datasets that use previous recommendations as implicit impressions data\. For more information see [Impressions Data](data-prep-formatting.md#data-prep-impressions-data)\. 
++  CREATION\_TIMESTAMP: Use a `CREATION_TIMESTAMP` field for Items datasets with a timestamp for each item’s creation date\. Amazon Personalize uses `CREATION_TIMESTAMP` data to calculate the age of an item and adjust recommendations accordingly\. See [Creation Timestamp Data](creation-timestamp-data.md)\. 
++  IMPRESSION: Use an `IMPRESSION` field for Interactions datasets with impressions data\. Impressions are lists of items that were visible to a user when they interacted with \(for example, clicked or watched\) a particular item\. For more information see [Impressions Data](interactions-impressions-metadata.md)\. 
++  RECOMMENDATION\_ID: Use a `RECOMMENDATION_ID` field for Interactions datasets that use previous recommendations as implicit impressions data\. For more information see [Impressions Data](interactions-impressions-metadata.md)\. 
 
 ## Schema Examples<a name="schema-examples"></a>
 
-The following example schemas are organized by dataset type\.
+For examples of schemas for each dataset type, see the following sections:
++  [Interactions Schema Example](schema-examples-interactions.md) 
++  [Users Schema Example](schema-examples-users.md) 
++  [Items Schema Example](schema-examples-items.md) 
 
-### Interactions Schema Example<a name="schema-examples-interactions"></a>
-
-The following example shows an Interactions schema\. The `EVENT_TYPE`, `EVENT_VALUE`, and `IMPRESSION` fields are optional reserved keywords recognized by Amazon Personalize\. `LOCATION` and `DEVICE` are optional contextual metadata fields\.
-
-```
-{
-
-  "type": "record",
-  "name": "Interactions",
-  "namespace": "com.amazonaws.personalize.schema",
-  "fields": [
-      {
-          "name": "USER_ID",
-          "type": "string"
-      },
-      {
-          "name": "ITEM_ID",
-          "type": "string"
-      },
-      {
-          "name": "EVENT_TYPE",
-          "type": "string"
-      },
-      {
-          "name": "EVENT_VALUE",
-          "type": [
-             "float",
-             "null"
-          ]
-      },
-      {
-          "name": "LOCATION",
-          "type": "string",
-          "categorical": true
-      },
-      {
-          "name": "DEVICE",
-          "type": [
-              "string",
-              "null"
-          ],
-          "categorical": true
-      },
-      {
-          "name": "TIMESTAMP",
-          "type": "long"
-      },
-      {
-          "name": "IMPRESSION",
-          "type": "string"
-      }
-  ],
-  "version": "1.0"
-}
-```
-
-### Users Schema Example<a name="schema-examples-users"></a>
-
-The following example shows a Users schema in Avro format\. The `USER_ID` field is required and the `AGE` and `GENDER` fields are metadata\. At least one metadata field is required\.
-
-```
-{
-  "type": "record",
-  "name": "Users",
-  "namespace": "com.amazonaws.personalize.schema",
-  "fields": [
-      {
-          "name": "USER_ID",
-          "type": "string"
-      },
-      {
-          "name": "AGE",
-          "type": "int"
-      },
-      {
-          "name": "GENDER",
-          "type": "string",
-          "categorical": true
-      }
-  ],
-  "version": "1.0"
-}
-```
-
-### Items Schema Example<a name="schema-examples-items"></a>
-
-The following example shows an Items schema\. The `ITEM_ID` field is required\. The `GENRE` field is metadata\. At least one metadata field is required\. The `CREATION_TIMESTAMP` is a reserved keyword\.
-
-```
-{
-  "type": "record",
-  "name": "Items",
-  "namespace": "com.amazonaws.personalize.schema",
-  "fields": [
-    {
-      "name": "ITEM_ID",
-      "type": "string"
-    },
-    {
-      "name": "GENRES",
-      "type": [
-        "null",
-        "string"
-      ],
-      "categorical": true
-    },
-    {
-      "name": "CREATION_TIMESTAMP",
-      "type": "long"
-    }
-  ],
-  "version": "1.0"
-}
-```
-
-## Create a Schema Using the AWS Python SDK<a name="python-schema-ex"></a>
+## Creating a Schema Using the AWS Python SDK<a name="python-schema-ex"></a>
 
 1. Define the Avro format schema that you want to use\.
 
@@ -197,6 +88,4 @@ The following example shows an Items schema\. The `ITEM_ID` field is required\. 
 
 Amazon Personalize provides operations for managing schemas\. For example, you can use the [ListSchemas](API_ListSchemas.md) API to get a list of the available schemas\.
 
-
 After you create a schema, use it with datasets that match the schema\. For more information, see [Formatting Your Input Data](data-prep-formatting.md)\. 
-

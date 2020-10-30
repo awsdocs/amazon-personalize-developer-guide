@@ -15,4 +15,4 @@ When you finish the getting started exercise, you might want to delete the resou
 + [Getting Started \(Console\)](getting-started-console.md)
 + [Getting Started \(AWS CLI\)](getting-started-cli.md)
 + [Getting Started \(AWS SDK for Python\)](getting-started-python.md)
-+ [Clean Up Resources](gs-cleanup.md)
++ [Cleaning Up Resources](gs-cleanup.md)
