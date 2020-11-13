@@ -80,6 +80,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Filtering Batch Recommendations](filter-batch.md)
 + [Security in Amazon Personalize](security.md)
    + [Data Protection in Amazon Personalize](data-protection.md)
+      + [Data Encryption](data-encryption.md)
    + [Identity and Access Management for Amazon Personalize](security-iam.md)
       + [How Amazon Personalize Works with IAM](security_iam_service-with-iam.md)
       + [Amazon Personalize Identity-Based Policy Examples](security_iam_id-based-policy-examples.md)

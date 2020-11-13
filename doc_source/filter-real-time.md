@@ -1,15 +1,19 @@
 # Filtering Real\-time Recommendations<a name="filter-real-time"></a>
 
-You can filter real\-time recommendations with the Amazon Personalize console or the AWS SDK\.
+You can filter real\-time recommendations with the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\), or the AWS SDKs\.
 
-## Filtering Real\-Time Recommendations \(Console\)<a name="filter-rt-console"></a>
+## Filtering Real\-time Recommendations \(Console\)<a name="filter-rt-console"></a>
 
-To filter real\-time recommendations using the console, create a filter and then apply it to a recommendation request\.
+To filter real\-time recommendations using the console, create a filter and then apply it to a recommendation request\. 
 
 **Note**  
-To filter recommendations using a campaign you deployed before July 30, 2020, you must re\-deploy the campaign by using the [UpdateCampaign](API_UpdateCampaign.md) call or by creating a new campaign\.
+To filter recommendations using a filter with parameters and a campaign that you deployed before November 10, 2020, you must redeploy the campaign by using the [UpdateCampaign](API_UpdateCampaign.md) operation or create a new campaign\.
 
-**To filter real\-time recommendations \(console\)**
+### Creating a Filter \(Console\)<a name="creating-filter-console"></a>
+
+ To create a filter in the console, choose the dataset group that contains the campaign you want to filter results for and then provide a filter name and a filter expression\. 
+
+**To create a filter \(console\)**
 
 1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/](https://console.aws.amazon.com/personalize/) and sign into your account\. 
 
@@ -21,20 +25,31 @@ To filter recommendations using a campaign you deployed before July 30, 2020, yo
 1. For **Filter name**, enter a name for your filter\. You will choose the filter by this name when you apply it to a recommendation request\.
 
 1. For **Expression**, choose either **Build expression** or **Add expression manually** and build or insert your expression:
-   + To use the expression builder, choose **Build expression **\. The expression builder provides structure, fields, and guidelines for building correctly formatted filter expressions\. For more information, see [Using the Filter Expression Builder](#using-filter-expression-builder)\.
-   +  To input your own expression, choose **Add expression manually** \. For information, see [Filter Expression Elements](filter-expressions.md#filter-expression-elements)\. 
+   + To use the expression builder, choose **Build expression**\. The expression builder provides structure, fields, and guidelines for building correctly formatted filter expressions\. For more information, see [Using the Filter Expression Builder](#using-filter-expression-builder)\.
+   +  To input your own expression, choose **Add expression manually**\. For more information, see [Filter Expression Elements](filter-expressions.md#filter-expression-elements)\. 
 
 1. Choose **Finish**\. The filter's overview page shows the filter’s Amazon Resource Name \(ARN\), status, and full filter expression\. To delete the filter, choose **Delete**\. For information about finding and deleting filters after you have left the overview page, see [Deleting a Filter \(Console\)](#delete-filter-console)\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/filter-details-page.png)
 
+### Applying a Filter \(Console\)<a name="apply-filter-console"></a>
+
+ To apply a filter, on the **Test campaign results** panel for the campaign, choose the filter and enter any filter parameter values\. Then get recommendations for a user\. 
+
+**Important**  
+For filter expressions that use an `INCLUDE` element to include items, you must provide values for all parameters that are defined in the expression\. For filters with expressions that use an `EXCLUDE` element to exclude items, you can omit the `filter-values`\. In this case, Amazon Personalize doesn't use that portion of the expression to filter recommendations\.
+
+**To apply a filter \(console\)**
+
 1. In the navigation pane, choose **Campaigns**\.
 
-1.  On the **Campaigns** page, choose the target campaign\.
+1. On the **Campaigns** page, choose the target campaign\.
 
 1. For comparison, start by getting recommendations for a user without applying a filter\. Under **Test campaign results**, enter the ID of a user that you want to get recommendations for, and choose **Get recommendations**\. A table containing the user’s top recommendations appears\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/Recommendations_no-filter.PNG)
 
-1. From the **Filter name** menu, choose the filter that you created\. 
+1. From the **Filter name** menu, choose the filter that you created\. If your filter has any placeholder parameters, the associated fields for each parameter appear\.
+
+1. If you're using a filter with placeholder parameters, for each parameter, enter the value to set the filter criteria\. To use multiple values for one parameter, separate each value with a comma\.
 
 1. Using the same `User ID` as in the earlier step, choose **Get recommendations**\. The recommendations table appears\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/Recommendations_filter.png)
@@ -43,12 +58,16 @@ To filter recommendations using a campaign you deployed before July 30, 2020, yo
 
 ### Using the Filter Expression Builder<a name="using-filter-expression-builder"></a>
 
-The **Expression builder** on the **Create filter** page provides structure, fields, and guidelines for building correctly formatted filter expressions\.
+The **Expression builder** on the **Create filter** page provides structure, fields, and guidelines for building correctly formatted filter 
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/expression-builder-empty.png)
 
 To build a filter expression:
-+  Use the **Action**, **Property**, **Operator**, and **Value** fields to choose elements and create an expression\. For the **Value** field, separate multiple values with a comma\.
++ Use the **Action**, **Property**, **Operator**, and **Value** fields to create an expression\. 
+
+  For the **Value**, enter a fixed value or, to set filter criteria when you get recommendations, enter *$* \+ a parameter name\. For example, `$GENRES`\. When you get recommendations, you'll supply the value or values to filter by\. In this example, you would provide a genre or list of genres when you get recommendations\.
+
+  Separate multiple non\-parameter values with a comma\. You cannot add comma\-separated parameters to a filter\.
 **Note**  
 After you choose a **Property** \(in `dataset.property` format\), the **Property** value for any succeeding rows chained by `AND` or `OR` conditions must use the same `dataset`\.
 +  Use the **\+** and **X** buttons to add or delete a row from your expression\. You can't delete the first row\. 
@@ -56,14 +75,14 @@ After you choose a **Property** \(in `dataset.property` format\), the **Property
 
   For `IF` conditions:
   + Each expression can contain only one `IF` item\. If you remove an IF condition, the Expression builder removes any `AND` conditions following it\.
-  + You can use `IF` conditions only for the `CurrentUser`\.
-+  Choose the **Add expression** button to add an additional filter expression for more precise filtering, including filtering using Item and Interactions datasets\. The results of the first expression are passed to the added expression\. 
+  + You can use `IF` conditions only for expressions that filter by the `CurrentUser`\.
++  Choose the **Add expression** button to add an additional filter expression for more precise filtering, including filtering using Items and Interactions datasets\. Each expression is first evaluated independently and the result is a union of the two results\. 
 **Note**  
 To create a filter that uses both Item and Interaction datasets, you *must* use multiple expressions\.
 
 #### Expression Builder Example<a name="expression-builder-example"></a>
 
-The following example shows how to build a filter that includes items in the `action` or `horror` genres with a `DOWNLOAD_COUNT` of more than `200`, but only if the current user's age is greater than `17`\. 
+The following example shows how to build a filter that excludes items with a genre that you specify when you get recommendations \(note the $GENRES placeholder parameter\), and with a `DOWNLOAD_COUNT` of more than `200`, but only if the current user's age is greater than `17`\.
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/create-filter-expression-builder.png)
 
@@ -82,47 +101,128 @@ You can't delete a filter while a batch inference job is in progress\.
 
 1. In the navigation pane, choose **Filters**\.
 
-1. From the list of filters, choose the filter that you want to delete and choose **View Details**\. The filter details page appears\.  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/filter-details-page.png)
+1. From the list of filters, choose the filter that you want to delete and choose **View Details**\. The filter details page appears\.
 
 1. Choose **Delete** and confirm the deletion in the confirmation dialog box\. 
 
-## Filtering Real\-Time Recommendations \(AWS SDK\)<a name="filter-rt-sdk"></a>
+## Filtering Real\-time Recommendations \(AWS CLI\)<a name="filter-rt-cli"></a>
 
-For real\-time filtering, you create a filter and then specify it in a [GetRecommendations](API_RS_GetRecommendations.md), [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md), or [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) request\.
+To filter recommendations using the AWS CLI, you create a filter and then apply it by specifying the filter ARN in a [GetRecommendations](API_RS_GetRecommendations.md) or [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) request\.
 
-**Note**  
-To filter recommendations using a campaign you deployed before July 30, 2020, you must re\-deploy the campaign by using the [UpdateCampaign](API_UpdateCampaign.md) call or by creating a new campaign\.
+**Important**  
+To filter recommendations using a filter with parameters and a campaign you deployed before November 10, 2020, you must re\-deploy the campaign by using the [UpdateCampaign](API_UpdateCampaign.md) call or create a new campaign\.
 
-**To filter real\-time recommendations \(AWS SDK**\)
+### Creating a Filter \(AWS CLI\)<a name="creating-filter-cli"></a>
 
-Use the [CreateFilter](API_CreateFilter.md) operation to create a filter and specify its filtering properties\. The following example creates a filter that filters previously purchased items out of recommendation responses\. Then, it uses the filter to get filtered recommendations\.
+Use the following `create-filter` operation to create a filter and specify the filter expression\. 
+
+Replace the `Filter name` with the name of the filter, and the `Dataset group ARN` with the Amazon Resource Name \(ARN\) of the dataset group\. Replace the sample `filterExpression` with your own filter expression\. 
+
+```
+aws personalize create-filter \
+  --name Filter name \
+  --dataset-group-arn dataset group arn \
+  --filter-expression "EXCLUDE ItemID WHERE Items.CATEGORY IN ($CATEGORY)"
+```
+
+ If successful, the filter ARN is displayed\. Record it for later use\. To verify that the filter is active, use the [DescribeFilter](API_DescribeFilter.md) operation before you use the filter\. 
+
+ For more information about the API, see [CreateFilter](API_CreateFilter.md)\. For more information about filter expressions, including examples, see [Creating Filter Expressions](filter-expressions.md#creating-filter-expressions)\. 
+
+### Applying a Filter \(AWS CLI\)<a name="applying-filter-cli"></a>
+
+When you use the `get-recommendations` or `get-personalized-ranking` operations, apply a filter by passing the `filter-arn` and any filter values as parameters\. 
+
+The following is an example of the `get-recommendations` operation\. Replace `Campaign ARN` with the Amazon Resource Name \(ARN\) of your campaign, `User ID` with the ID of the user that you are getting recommendations for, and `Filter ARN` with the ARN of your filter\. 
+
+If your expression has any parameters, include the `filter-values` object\. For each parameter in your filter expression, provide the parameter name \(case sensitive\) and the values\. For example, if your filter expression has a `$GENRE` parameter, provide *"GENRE"* as the key, and a genre or genres, such as `"Comedy"`, as the value\. Separate multiple values with a comma\. For example, `"\"comedy\",\"drama\",\"horror"\"`\. 
+
+**Important**  
+For filter expressions that use an `INCLUDE` element to include items, you must provide values for all parameters that are defined in the expression\. For filters with expressions that use an `EXCLUDE` element to exclude items, you can omit the `filter-values`\. In this case, Amazon Personalize doesn't use that portion of the expression to filter recommendations\.
+
+```
+aws personalize-runtime get-recommendations \
+  --campaign-arn Campaign ARN \
+  --user-id User ID \
+  --filter-arn Filter ARN \
+  --filter-values '[{
+      "PROPERTY1": "\"value\"",
+      "PROPERTY2": "\"value1\",\"value2\",\"value3\""
+    }]'
+```
+
+### Deleting a Filter \(AWS CLI\)<a name="delete-filter-cli"></a>
+
+ Use the following `delete-filter` operation to delete a filter\. Replace `filter ARN` with the ARN of the filter\. 
+
+```
+aws personalize delete-filter --filter-arn Filter ARN
+```
+
+## Filtering Real\-time Recommendations \(AWS Python SDK\)<a name="filter-rt-sdk"></a>
+
+To filter recommendations using the AWS Python SDK, you create a filter and then apply it by specifying the filter ARN in a [GetRecommendations](API_RS_GetRecommendations.md) or [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) request\.
+
+**Important**  
+To filter recommendations using a filter with parameters and a campaign you deployed before November 10, 2020, you must re\-deploy the campaign by using the [UpdateCampaign](API_UpdateCampaign.md) call or create a new campaign\.
+
+### Creating a Filter \(AWS Python SDK\)<a name="creating-filter-sdk"></a>
+
+Use the following `create_filter` method to create a filter\. Replace `Filter Name` with the name of the filter, and `Dataset Group ARN` with the Amazon Resource Name \(ARN\) of the dataset group\. Replace the example `filterExpression` with your own filter expression\.
 
 ```
 import boto3
  
 personalize = boto3.client('personalize')
-personalize_runtime = boto3.client('personalize-runtime')
  
-# Create a filter.
 response = personalize.create_filter(
-    name = "Filter name",
-    datasetGroupArn = "Dataset group ARN",
-    filterExpression = "EXCLUDE itemId WHERE INTERACTIONS.EVENT_TYPE in (\"Purchase\")"
+    name = 'Filter Name',
+    datasetGroupArn = 'Dataset Group ARN',
+    filterExpression = 'EXCLUDE ItemID WHERE Items.CATEGORY IN ($CATEGORY)'
 ) 
 filter_arn = response["filterArn"]
 print("Filter ARN: " + filter_arn)
- 
-# Specify the filter in a recommendation request.
-print("Getting recommendations")
+```
+
+Record the filter ARN for later use\. To verify that the filter is active, use the [DescribeFilter](API_DescribeFilter.md) operation before using the filter\. For more information about the API, see [CreateFilter](API_CreateFilter.md)\. For more information about filter expressions, including examples, see [Creating Filter Expressions](filter-expressions.md#creating-filter-expressions)\.
+
+### Applying a Filter \(AWS Python SDK\)<a name="applying-filter-sdk"></a>
+
+When you use the `get_recommendations` or `get_personalized_ranking` methods, apply a filter by passing `filterArn` and any filter values as parameters\. 
+
+The following is an example of the `get_recommendations` method\. Replace `Campaign ARN` with the Amazon Resource Name \(ARN\) of your campaign, `User ID` with the ID of the user that you are getting recommendations for, and `Filter ARN` with the ARN of your filter\. 
+
+For `filterValues`, for each optional parameter in your filter expression, provide the parameter name \(case sensitive\) and the value or values\. For example, if your filter expression has a `$GENRES` parameter, provide *"GENRES"* as the key, and a genre or genres, such as `"\"Comedy"\"`, as the value\. For multiple values, separate each value with a comma\. For example, `"\"comedy\",\"drama\",\"horror\""`\. 
+
+**Important**  
+For filter expressions that use an `INCLUDE` element to include items, you must provide values for all parameters that are defined in the expression\. For filters with expressions that use an `EXCLUDE` element to exclude items, you can omit the `filter-values`\. In this case, Amazon Personalize doesn't use that portion of the expression to filter recommendations\. 
+
+```
+import boto3
+
+personalize_runtime = boto3.client("personalize-runtime")
+
 response = personalize_runtime.get_recommendations(
     campaignArn = "Campaign ARN",
     userId = "User ID",
-    filterArn = filter_arn
-)        
-print("Recommended items")
-for item in response['itemList']:
-    print (item['itemId'])
+    filterArn = "Filter ARN",
+    filterValues = {
+      "Parameter name": "\"value1\"",
+      "Parameter name": "\"value1\",\"value2\",\"value3\""
+      ....
+    }
+)
 ```
 
-To verify that the filter is active, use the [DescribeFilter](API_DescribeFilter.md) operation before using the `GetRecommendations` operation\.
+### Deleting a Filter \(AWS Python SDK\)<a name="delete-filter-sdk"></a>
+
+ Use the following `delete_filter` method to delete a filter\. Replace `filter ARN` with the ARN of the filter\. 
+
+```
+import boto3
+personalize = boto3.client("personalize")
+
+response = personalize.delete_filter(
+  filterArn = "filter ARN"
+)
+```

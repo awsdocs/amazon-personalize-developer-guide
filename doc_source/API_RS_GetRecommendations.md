@@ -19,6 +19,9 @@ Content-type: application/json
       "string" : "string" 
    },
    "filterArn": "string",
+   "filterValues": { 
+      "string" : "string" 
+   },
    "itemId": "string",
    "numResults": number,
    "userId": "string"
@@ -55,6 +58,17 @@ When using this parameter, be sure the filter resource is `ACTIVE`\.
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
+Required: No
+
+ ** [filterValues](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-filterValues"></a>
+The values to use when filtering recommendations\. For each placeholder parameter in your filter expression, provide the parameter name \(in matching case\) as a key and the filter value\(s\) as the corresponding value\. Separate multiple values for one parameter with a comma\.   
+For filter expressions that use an `INCLUDE` element to include items, you must provide values for all parameters that are defined in the expression\. For filters with expressions that use an `EXCLUDE` element to exclude items, you can omit the `filter-values`\.In this case, Amazon Personalize doesn't use that portion of the expression to filter recommendations\.  
+For more information, see [Filtering Recommendations](https://docs.aws.amazon.com/personalize/latest/dg/filter.html)\.  
+Type: String to string map  
+Map Entries: Maximum number of 25 items\.  
+Key Length Constraints: Maximum length of 50\.  
+Key Pattern: `[A-Za-z0-9]+`   
+Value Length Constraints: Maximum length of 1000\.  
 Required: No
 
  ** [itemId](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-itemId"></a>

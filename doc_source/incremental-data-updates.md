@@ -4,7 +4,7 @@
 
 **Filter Updates for Incremental Record Imports**
 
-Amazon Personalize updates any filters you created in the dataset group with your new item and user data within 15 minutes from the last incremental import\. This update allows your campaigns to use your most recent data when filtering recommendations for your users\. 
+Amazon Personalize updates any filters you created in the dataset group with your new item and user data within 20 minutes from the last incremental import\. This update allows your campaigns to use your most recent data when filtering recommendations for your users\. 
 
 **How New Records Influence Recommendations**
 

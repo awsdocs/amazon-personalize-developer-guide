@@ -29,9 +29,7 @@ Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
 Required: No
 
  **filterExpression**   <a name="personalize-Type-Filter-filterExpression"></a>
-Specifies the type of item interactions to filter out of recommendation results\. The filter expression must follow the following format:  
- `EXCLUDE itemId WHERE INTERACTIONS.event_type in ("EVENT_TYPE")`   
-Where "EVENT\_TYPE" is the type of event to filter out\. For more information, see [Using Filters with Amazon Personalize](https://docs.aws.amazon.com/personalize/latest/dg/filters.html)\.  
+Specifies the type of item interactions to filter out of recommendation results\. The filter expression must follow specific format rules\. For information about filter expression structure and syntax, see [Filter Expressions](filter-expressions.md)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2500\.  
 Required: No

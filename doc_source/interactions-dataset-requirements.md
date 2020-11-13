@@ -5,4 +5,6 @@
 + Item ID
 + Timestamp \(in Unix epoch time format\)
 
+The maximum total number of optional metadata fields you can add to an Interactions dataset, combined with total number of *distinct* event types in your data, is 10\. The metadata fields include EVENT\_TYPE, EVENT\_VALUE, IMPRESSION, and RECOMMENDATION\_ID metadata fields along with any custom metadata fields you add to your schema\. 
+
 For more information on minimum requirements and maximum data limits for an Interactions dataset, see [Service Quotas](limits.md#limits-table)\.

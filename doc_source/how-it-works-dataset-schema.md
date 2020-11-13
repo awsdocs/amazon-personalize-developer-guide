@@ -41,7 +41,7 @@ When you create a schema, you must follow these guidelines:
 
  Metadata includes string or non\-string fields that aren't required or don't use a reserved keyword\. Metadata schemas have the following restrictions: 
 + Users and Items schemas require at least one metadata field,
-+ Users and Interactions datasets can contain up to five metadata fields\. An Items dataset can contain up to 50 metadata fields\. 
++ Each dataset has a limit on the number of metadata fields you can include\. For a list of limits, see [Service Quotas](limits.md#limits-table)\.
 + If you add your own metadata field of type `string`, it must include the `categorical` attribute\. Otherwise, Amazon Personalize won't use the field when training a model\. 
 
 ### Reserved Keywords<a name="reserved-keywords"></a>

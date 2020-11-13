@@ -15,9 +15,9 @@ Item scores calculated by batch recommendation jobs are calculated the same ways
 
 ## Input and Output JSON Examples<a name="batch-recommendations-json-examples"></a>
 
-The [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) uses a chosen solution version to make recommendations based on data provided in an input JSON file\. The result is then returned as a JSON file to an Amazon S3 bucket\. The following tab list contains correctly formatted JSON input and output examples for each recipe type\.
+The [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) uses a solution version to make recommendations based on data provided in an input JSON file\. The result is then returned as a JSON file to an Amazon S3 bucket\. The following tab list contains correctly formatted JSON input and output examples for each recipe type\.
 
-**HRNN and USER\_PERSONALIZATION**
+**USER\_PERSONALIZATION**
 
 ------
 #### [ Input ]

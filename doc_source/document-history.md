@@ -5,6 +5,7 @@ The following table describes important changes in each release of the *Amazon P
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New feature](#document-history) | Amazon Personalize can now filter recommendations based on criteria you specify when you get recommendations\. For more information, see [Filtering Recommendations](https://docs.aws.amazon.com/personalize/latest/dg/filter.html)\. | November 10, 2020 | 
 | [New feature](#document-history) | Amazon Personalize now supports the ability to incrementally import users and items\. For more information, see [Importing Records Incrementally](https://docs.aws.amazon.com/personalize/latest/dg/incremental-data-updates.html)\. | October 2, 2020 | 
 | [New feature](#document-history) | Amazon Personalize now supports a new USER\_PERSONALIZATION recommendation recipe\. USER\_PERSONALIZATION features include modeling impression data, automatic item exploration, and automatic cold item selection\. For more information, see [USER\_PERSONALIZATION recipe](https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html)\. | August 5, 2020 | 
 | [New feature](#document-history) | Amazon Personalize can now filter recommendations based on item and user metadata using custom filter expressions\. For more information, see [Filtering Recommendations](https://docs.aws.amazon.com/personalize/latest/dg/filter.html)\. | July 31, 2020 | 

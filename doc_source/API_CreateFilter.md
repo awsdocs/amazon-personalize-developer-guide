@@ -1,6 +1,6 @@
 # CreateFilter<a name="API_CreateFilter"></a>
 
-Creates a recommendation filter\. For more information, see [Using Filters with Amazon Personalize](https://docs.aws.amazon.com/personalize/latest/dg/filters.html)\.
+Creates a recommendation filter\. For more information, see [Filtering Recommendations](filter.md)\.
 
 ## Request Syntax<a name="API_CreateFilter_RequestSyntax"></a>
 
@@ -24,9 +24,7 @@ Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
 Required: Yes
 
  ** [filterExpression](#API_CreateFilter_RequestSyntax) **   <a name="personalize-CreateFilter-request-filterExpression"></a>
-The filter expression that designates the interaction types that the filter will filter out\. A filter expression must follow the following format:  
- `EXCLUDE itemId WHERE INTERACTIONS.event_type in ("EVENT_TYPE")`   
-Where "EVENT\_TYPE" is the type of event to filter out\. To filter out all items with any interactions history, set `"*"` as the EVENT\_TYPE\. For more information, see [Using Filters with Amazon Personalize](https://docs.aws.amazon.com/personalize/latest/dg/filters.html)\.  
+The filter expression defines which items are included or excluded from recommendations\. Filter expression must follow specific format rules\. For information about filter expression structure and syntax, see [Filter Expressions](filter-expressions.md)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2500\.  
 Required: Yes

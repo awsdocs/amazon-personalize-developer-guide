@@ -8,7 +8,7 @@ The following are prerequisite steps for using the Python examples in this guide
 + Complete the Getting Started [Getting Started Prerequisites](gs-prerequisites.md)\. You can use the same source data that is listed in the [Getting Started \(Console\)](getting-started-console.md) or [Getting Started \(AWS CLI\)](getting-started-cli.md) exercises\. If you are using your own source data, make sure your data is formatted like in the prerequisite step [Creating the Training Data](gs-prerequisites.md#gs-upload-to-bucket)\. For information about preparing your own source data, see [Preparing and Importing Data](data-prep.md)\. 
 + Set up your AWS SDK for Python \(Boto3\) environment, as specified in [Setting Up the AWS SDKs](aws-personalize-set-up-sdks.md)\.
 
-After you finish this exercise, to avoid incurring unnecessary charges, delete the resources you created\. For more information, see [Cleaning Up Resources](gs-cleanup.md)\.
+When you finish the getting started exercise, to avoid incurring unnecessary charges, follow the steps in [Cleaning Up Resources](gs-cleanup.md) to delete the resources you created\. 
 
 ## Step 1: Verify Your Python Environment<a name="gs-python-example"></a>
 

@@ -4,7 +4,7 @@ In this exercise, you use the Amazon Personalize console to create a campaign th
 
 Before you start this exercise, review the Getting Started [Getting Started Prerequisites](gs-prerequisites.md)\.
 
-After you finish this exercise, see [Cleaning Up Resources](gs-cleanup.md)\.
+When you finish the getting started exercise, to avoid incurring unnecessary charges, follow the steps in [Cleaning Up Resources](gs-cleanup.md) to delete the resources you created\. 
 
 ## Step 1: Import Training Data<a name="getting-started-console-import-dataset"></a>
 

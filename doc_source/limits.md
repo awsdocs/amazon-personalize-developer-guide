@@ -4,7 +4,7 @@ The following sections contain information about Amazon Personalize guidelines a
 
 **Topics**
 + [Supported AWS Regions](#regions)
-+ [Compliance](#ompliance)
++ [Compliance](#compliance)
 + [Service Quotas](#limits-table)
 + [Requesting a Quota Increase](#requesting-limit-increase)
 
@@ -12,7 +12,7 @@ The following sections contain information about Amazon Personalize guidelines a
 
 For a list of AWS Regions that support Amazon Personalize, see [AWS Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/personalize.html) in the *Amazon Web Services General Reference*\.
 
-## Compliance<a name="ompliance"></a>
+## Compliance<a name="compliance"></a>
 
 For more information about Amazon Personalize compliance programs, see [AWS Compliance](https://aws.amazon.com/compliance/), [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/), and [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope)\.
 
@@ -27,14 +27,16 @@ Your AWS account has the following quotas for Amazon Personalize\.
 | --- |
 | Minimum number of unique combined historical and event interactions \(after filtering by eventType and eventValueThreshold, if provided\) required to train a model \(create a solution version\)\. | 1000 | 
 | Maximum number of interactions that are considered by a model during training\. | 500 million | 
-| Maximum number of event types combined with total number of metadata columns in Interactions datasets\. | 10 | 
+| Maximum number of distinct event types combined with total number of metadata columns in Interactions datasets\. | 10 | 
 | Users | 
 | --- |
 | Minimum number of unique users, with at least 2 interactions each, required to train a model \(create a solution version\)\. | 25 | 
 | Maximum number of users that are considered by a model during training\. | 50 million | 
+| Maximum number of metadata fields for a Users dataset\. | 5 | 
 | Items | 
 | --- |
 | Maximum number of items that are considered by a model during training\. | 750 thousand | 
+| Maximum number of metadata fields for an Items dataset\. | 50 | 
 | Data Import APIs | 
 | --- |
 | Maximum rate of PutItems requests\. | 10/second | 
@@ -52,6 +54,8 @@ Your AWS account has the following quotas for Amazon Personalize\.
 | Filters | 
 | --- |
 | Maximum number of filters per account | 10 filters | 
+| Maximum number of parameters for a filter expression\. | 5 parameters | 
+| Maximum number of parameters across all filters in a dataset group\. | 10 parameters | 
 | GetRecommendations / GetPersonalizedRanking Requests | 
 | --- |
 | Maximum transaction rate \(GetRecommendations and GetPersonalizedRanking requests\)\. | 2500/sec | 
