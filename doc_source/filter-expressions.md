@@ -10,7 +10,11 @@ Amazon Personalize ignores case only when matching event types\.
 ## Creating Filter Expressions<a name="creating-filter-expressions"></a>
 
 You can either manually create filter expressions or get help with expression syntax and structure by using the [Expression builder](filter-real-time.md#using-filter-expression-builder) in the console\. You can use filter expressions to filter items based on data from the following datasets:
-+  **Interactions**: Use filter expressions to include or exclude items that a user has interacted with \(for example, user events such as click or stream\)\. Amazon Personalize filters recommendations based on the most recent 200 historical and 100 new interaction events recorded in a user's Interactions dataset\.
++  **Interactions**: Use filter expressions to include or exclude items that a user has interacted with \(for example, user events such as click or stream\)\. When filtering, the number of interactions Amazon Personalize considers for a user depends on the `max_user_history_length_percentile` and `min_user_history_length_percentile` hyperparameters you defined before training\.  
+
+  For example, if you used *\.99* for the `max_user_history_length_percentile`, and 99% of your users have at most *4* interactions, Amazon Personalize will only filter based on the user's most recent *4* interactions\. If a user has less than the number interactions at the `min_user_history_length_percentile`, Amazon Personalize doesn't consider the user's interactions when filtering\. 
+
+  To filter based on up to 200 historical and streamed interactions for a user, set the `max_user_history_length_percentile` to *1\.0* and retrain the model\. For more information on hyperparameters, see [Step 1: Choosing a Recipe](working-with-predefined-recipes.md) and navigate to the *Properties and Hyperparameters* section for your recipe\. 
 +  **Items**: Use filter expressions to include or exclude items based on specific item conditions\. 
 +  **Users**: Use filter expressions to include or exclude items based on specific `CurrentUser` conditions\. If you have created a Users dataset, you can add `CurrentUser` to any expression regardless of the dataset that is being used in the expression\.
 
@@ -20,8 +24,8 @@ You can't chain Interaction and Item datasets into one expression\. To create a 
 ### Filter Expression Elements<a name="filter-expression-elements"></a>
 
 Use the following elements to create filter expressions:
-+ INCLUDE: Use `INCLUDE` to make sure certain items are in recommendations\.
-+ EXCLUDE: Use `EXCLUDE` to remove certain items from recommendations\.
++ INCLUDE: Use `INCLUDE` to limit recommendations to only items that meet the filter criteria\.
++ EXCLUDE: Use `EXCLUDE` to remove items that meet the filter criteria from recommendations\.
 + ItemID: Use `ItemID` after the `INCLUDE` or `EXCLUDE` element\.
 + WHERE: Use `WHERE` to check conditions for items\. You must use the `WHERE` element after the `ItemID`\. 
 + AND/OR: Use `AND` or `OR` to chain multiple conditions together within the same filter expression\. Conditions chained together using `AND` or `OR` can only affect properties of the dataset used in the first condition\.
@@ -73,10 +77,10 @@ EXCLUDE ItemID WHERE Items.CATEGORY IN ($CATEGORY)
 EXCLUDE ItemID WHERE Items.CATEGORY IN ("shoe") AND Items.DESCRIPTION NOT IN ("boot")
 ```
 
- The following expression includes items with a download count equal to a value you specify when you get recommendations using the `$NUMBER_OF_DOWNLOADS` parameter\.
+The following expression includes only items with a genre that you specify when you get recommendations using the `$GENRE` parameter\.
 
 ```
-INCLUDE ItemID WHERE Items.NUMBER_OF_DOWNLOADS = $NUMBER_OF_DOWNLOADS
+INCLUDE ItemID WHERE Items.GENRE IN ($GENRE)
 ```
 
  **Users** 
@@ -87,7 +91,7 @@ The following expression excludes items with a genre that you specify when you g
 EXCLUDE ItemID WHERE Items.GENRE IN ($GENRE) IF CurrentUser.AGE = $AGE
 ```
 
-The following expression includes items in the `watch` category, with a description of `luxury`, if the current user's age is over `18`\. 
+The following expression includes only items in the `watch` category, with a description of `luxury`, if the current user's age is over `18`\. 
 
 ```
 INCLUDE ItemID WHERE Items.CATEGORY IN ("watch") AND Items.DESCRIPTION IN ("luxury") IF CurrentUser.AGE > 18
@@ -97,7 +101,7 @@ INCLUDE ItemID WHERE Items.CATEGORY IN ("watch") AND Items.DESCRIPTION IN ("luxu
 
 To filter by multiple datasets, chain multiple expressions together using a pipe separator \(`|`\)\. Each expression is first evaluated independently and the result is a union of the two results\.
 
-The following example includes two expressions\. The first includes items in a genre that you specify when you get recommendations using the `$GENRE` parameter\. The second excludes items that the user has clicked or streamed\. Recommendations will include items with a genre that you specify when you get recommendations, but only items that have not have been clicked or streamed\.
+The following example includes two expressions\. The first includes only items with a genre that you specify when you get recommendations using the `$GENRE` parameter\. The second excludes items that the user has clicked or streamed\. Recommendations will include only items with a genre that you specify when you get recommendations, but only items that have not have been clicked or streamed\.
 
 ```
 INCLUDE ItemID WHERE Items.GENRE IN ($GENRE) | EXCLUDE ItemID WHERE Interactions.EVENT_TYPE IN ("click", "stream")

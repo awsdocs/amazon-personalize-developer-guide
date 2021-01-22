@@ -12,7 +12,7 @@ Add one or more items to your Items dataset using the [PutItems](API_UBS_PutItem
 
 Replace the `dataset arn` with the Amazon Resource Name \(ARN\) of your dataset and replace `item Id` with the ID of the item\. If an item with the same `itemId` is already in your Items dataset, Amazon Personalize replaces the existing item with the new one\.
 
- For `properties`, for each field in your Items dataset, replace the `propertyName` with the field name from your schema in camel case\. For example, CREATION\_TIMESTAMP would be creationTimestamp\. Replace `item data` with the data for the item\. 
+ For `properties`, for each field in your Items dataset, replace the `propertyName` with the field name from your schema in camel case\. For example, CREATION\_TIMESTAMP would be creationTimestamp\. Replace `item data` with the data for the item\. `CREATION_TIMESTAMP` data must be in [Unix epoch time format](data-prep-formatting.md#timestamp-data) in seconds\. For categorical string data, to include multiple categories for a single property, separate each category with a pipe separator \(`|`\)\. For example `\"Horror|Action\"`\.
 
 ```
 aws personalize-events put-items \
@@ -29,7 +29,7 @@ aws personalize-events put-items \
 
  Replace the `dataset arn` with the ARN of your dataset and replace `item Id` with the ID of the item\. If an item with the same `itemId` is already in your Items dataset, Amazon Personalize replaces the existing item with the new one\.
 
- For `properties`, for each metadata field in your Items dataset, replace the `propertyName` with the field name from your schema in camel case\. For example, CREATION\_TIMESTAMP would be creationTimestamp\. Replace `item data` with the data for the item\.
+ For `properties`, for each metadata field in your Items dataset, replace the `propertyName` with the field name from your schema in camel case\. For example, CREATION\_TIMESTAMP would be creationTimestamp\. Replace `item data` with the data for the item\. `CREATION_TIMESTAMP` data must be in [Unix epoch time format](data-prep-formatting.md#timestamp-data) in seconds\. For categorical string data, to include multiple categories for a single property, separate each category with a pipe separator \(`|`\)\. For example `\"Horror|Action\"`\.
 
 ```
 import boto3

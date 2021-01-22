@@ -83,7 +83,7 @@ For more information, see [Creating a Solution](training-deploying-solutions.md)
 
 After you have created your solution version, you evaluate the metrics that were created during training\. The metrics give an indication of the solution version's performance\. The console shows you the metrics and allows you to create a new solution version, as necessary\. Alternatively, you can call the [GetSolutionMetrics](API_GetSolutionMetrics.md) API\. Typically, you train your model with multiple recipes and use the recipe that results in the metrics that show the best performance\. After you have created a solution version based on your chosen recipe, the solution version is ready for deployment as a campaign\.
 
-For more information, see [Step 4: Evaluating the Solution Version](working-with-training-metrics.md)\.
+For more information, see [Step 4: Evaluating a Solution Version](working-with-training-metrics.md)\.
 
 ## Campaigns<a name="how-it-works-campaigns"></a>
 

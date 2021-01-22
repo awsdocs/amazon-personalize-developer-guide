@@ -6,11 +6,25 @@ With automatic exploration, Amazon Personalize automatically tests different ite
 
 You can balance how much to explore \(where items with less interactions data or relevance are recommended more frequently\) against how much to exploit \(where recommendations are based on what we know or relevance\)\. Amazon Personalize automatically adjusts future recommendations based on implicit user feedback\.
 
-**Working with Impressions Data**
+## Automatic Updates<a name="automatic-updates"></a>
 
- Unlike other recipes, which solely use positive interactions \(clicking, watching, or purchasing\), the User\-Personalization recipe can also use impressions data\. Impressions are lists of items that were visible to the user when they interacted with \(clicked, watched, purchased, and so on\) a particular item\. 
+ With User\-Personalization, Amazon Personalize automatically updates the latest model \(solution version\) every two hours to include new data\. With each update, Amazon Personalize updates the solution version with the latest item information and adjusts the exploration according to implicit feedback from users\. This allows Amazon Personalize to gauge item quality based on new interactions for already explored items and continually update item exploration\.
 
-Using this information, a solution trained with the User\-Personalization recipe can quickly infer the suitability of new items based on how frequently an item has been ignored, and change recommendation accordingly\. For more information see [Formatting Impressions Data](data-prep-formatting.md#data-prep-impressions-data)\. 
+**Note**  
+There is no cost for automatic updates\.
+
+**Update Requirements**
+
+ Amazon Personalize automatically updates only the latest solution version trained with `trainingMode` set to `FULL` and only if you provide new item or interactions data since the last automatic update\. If you have trained a new solution version, Amazon Personalize will not automatically update older solution versions that you have deployed in a campaign\. Updates also do not occur if you have deleted your dataset\. 
+
+**Note**  
+ Amazon Personalize automatically updates only solution versions you created on or after November 17, 2020\. 
+
+## Working with Impressions Data<a name="working-with-impressions"></a>
+
+ Unlike other recipes, which solely use positive interactions \(clicking, watching, or purchasing\), the User\-Personalization recipe can also use impressions data\. Impressions are lists of items that were visible to a user when they interacted with \(clicked, watched, purchased, and so on\) a particular item\. 
+
+Using this information, a solution trained with the User\-Personalization recipe can quickly infer the suitability of new items based on how frequently an item has been ignored, and change recommendations accordingly\. For more information see [Impressions Data](data-prep-formatting.md#data-prep-impressions-data)\. 
 
 ## Properties and Hyperparameters<a name="bandit-hyperparameters"></a>
 
@@ -44,13 +58,13 @@ The table also provides the following information for each hyperparameter:
 
 ## Training with the User\-Personalization recipe \(Console\)<a name="training-user-personalization-recipe-console"></a>
 
-To use the User\-Personalization recipe to generate recommendations in the console, first train a new solution version using the recipe\. Then deploy a campaign using the solution version and use the campaign to get recommendations\.
+To use the User\-Personalization recipe to generate recommendations in the console, first train a new solution version using the recipe\. Then deploy a campaign using the solution version and use the campaign to get recommendations\. 
 
 **Training a new solution version with the User\-Personalization recipe \(console\)**
 
 1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/](https://console.aws.amazon.com/personalize/) and sign into your account\. 
 
-1. Create a dataset group with a new schema and upload your dataset with impressions data\. Optionally include [CREATION\_TIMESTAMP](creation-timestamp-data.md) data in your Items dataset so Amazon Personalize can more accurately calculate the age of an item and identify cold items\. 
+1. Create a dataset group with a new schema and upload your dataset with impressions data\. Optionally include [CREATION\_TIMESTAMP](items-datasets.md#creation-timestamp-data) data in your Items dataset so Amazon Personalize can more accurately calculate the age of an item and identify cold items\. 
 
    For more information on creating dataset groups and uploading training data, see [Step 1: Import Training Data](getting-started-console.md#getting-started-console-import-dataset) in the Getting Started tutorial\.
 
@@ -67,6 +81,8 @@ To use the User\-Personalization recipe to generate recommendations in the conso
    +  **Event value threshold:** Enter a value to define which events to use for training\. Only events with a value greater than or equal to this value will be used for training\. 
 
    For example, suppose that your application rates user interest in videos based on the percentage of a video watched by the user, with values greater than 70 indicating high interest\. If you want to use only high\-interest events for training, for the **Event type** enter *watched* and for **Event value threshold** enter *70*\. Only videos with a *watched* value greater than *70* will be used for training\.
+
+   
 
 1. Optionally configure hyperparameters for your solution\. For a list of User\-Personalization recipe properties and hyperparameters, see [Properties and Hyperparameters](#bandit-hyperparameters)\. 
 
@@ -98,11 +114,17 @@ Recommendations might include items without interactions data from outside this 
 
 1. Choose **Create campaign**\.
 
-1. On the campaign details page, when the campaign status is **Active**, you can use the campaign to get recommendations and record impressions\. For more information, see [Step 4: Get Recommendations](getting-started-console.md#getting-started-console-get-recommendations) in "Getting Started\."
+1. On the campaign details page, when the campaign status is **Active**, you can use the campaign to get recommendations and record impressions\. For more information, see [Step 4: Get Recommendations](getting-started-console.md#getting-started-console-get-recommendations) in "Getting Started\." 
 
-## Training with the User\-Personalization Recipe \( SDK\)<a name="training-user-personalization-recipe"></a>
+    Amazon Personalize automatically updates your latest solution version every two hours to include new data\. Your campaign automatically uses the updated solution version\. For more information see [Automatic Updates](#automatic-updates)\. 
 
-When you have created a dataset group and uploaded your dataset\(s\) with impressions data, you can train a solution with the User\-Personalization recipe\. Optionally include [CREATION\_TIMESTAMP](creation-timestamp-data.md) data in your dataset so Amazon Personalize can more accurately calculate the age of an item and identify cold start items\. For more information on creating dataset groups and uploading training data see [Datasets and Schemas](how-it-works-dataset-schema.md)\.
+   To manually update the campaign, you first create and train a new solution version using the console or the [CreateSolutionVersion](API_CreateSolutionVersion.md) operation, with `trainingMode` set to `update`\. You then manually update the campaign on the **Campaign** page of the console or by using the [UpdateCampaign](API_UpdateCampaign.md) operation\. 
+**Note**  
+ Amazon Personalize doesn't automatically update solution versions you created before November 17, 2020\. 
+
+## Training with the User\-Personalization Recipe \(Python SDK\)<a name="training-user-personalization-recipe"></a>
+
+When you have created a dataset group and uploaded your dataset\(s\) with impressions data, you can train a solution with the User\-Personalization recipe\. Optionally include [CREATION\_TIMESTAMP](items-datasets.md#creation-timestamp-data) data in your dataset so Amazon Personalize can more accurately calculate the age of an item and identify cold start items\. For more information on creating dataset groups and uploading training data see [Datasets and Schemas](how-it-works-dataset-schema.md)\.
 
 **To train a solution with the User\-Personalization recipe using the AWS SDK**
 
@@ -145,7 +167,7 @@ When you have created a dataset group and uploaded your dataset\(s\) with impres
    + Modify the `explorationWeight` item exploration configuration hyperparameter to configure how much to explore\. Items with less interactions data or relevance are recommended more frequently the closer the value is to 1\.0\. The default value is 0\.3\.
    + Modify the `explorationItemAgeCutOff` item exploration configuration hyperparameter parameter to provide the maximum duration, in days relative to the latest interaction, for which items should be explored\. The larger the value, the more items are considered during exploration\.
 
-   Use the following Python snippet to create a new campaign with an emphasis on exploration with exploration cut\-off at 30 days\.
+   Use the following Python snippet to create a new campaign with an emphasis on exploration with exploration cut\-off at 30 days\. Creating a campaign usually takes a few minutes but can take over an hour\.
 
    ```
    import boto3
@@ -162,12 +184,18 @@ When you have created a dataset group and uploaded your dataset\(s\) with impres
    campaign_arn = create_campaign_response['campaignArn']
    print('campaign_arn:', campaign_arn)
    ```
-**Note**  
-Creating a campaign usually takes a few minutes but can take over an hour\.
 
-## Getting Recommendations and Recording Impressions \(SDK\)<a name="user-personalization-get-recommendations-recording-impressions"></a>
+    With User\-Personalization, Amazon Personalize automatically updates your solution version every two hours to include new data\. Your campaign automatically uses the updated solution version\. For more information see [Automatic Updates](#automatic-updates)\. 
+
+   To manually update the campaign, you first create and train a new solution version using the console or the [CreateSolutionVersion](API_CreateSolutionVersion.md) operation, with `trainingMode` set to `update`\. You then manually update the campaign on the **Campaign** page of the console or by using the [UpdateCampaign](API_UpdateCampaign.md) operation\.
+**Note**  
+ Amazon Personalize doesn't automatically update solution versions you created before November 17, 2020\. 
+
+## Getting Recommendations and Recording Impressions \(Python SDK\)<a name="user-personalization-get-recommendations-recording-impressions"></a>
 
 When your campaign is created, you can use it to get recommendations for a user and record impressions\. For information on getting batch recommendations using the AWS SDK see [Getting Batch Recommendations \(AWS Python SDK\)](recommendations-batch.md#batch-sdk)\.
+
+
 
 **To get recommendations and record impressions**
 

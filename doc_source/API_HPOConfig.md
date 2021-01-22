@@ -11,6 +11,7 @@ Required: No
 
  **hpoObjective**   <a name="personalize-Type-HPOConfig-hpoObjective"></a>
 The metric to optimize during HPO\.  
+Amazon Personalize doesn't support configuring the `hpoObjective` at this time\.
 Type: [HPOObjective](API_HPOObjective.md) object  
 Required: No
 
@@ -24,5 +25,5 @@ Required: No
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/HPOConfig) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/HPOConfig) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/personalize-2018-05-22/HPOConfig) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/HPOConfig) 
 +  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/HPOConfig) 

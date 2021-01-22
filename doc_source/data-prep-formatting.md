@@ -60,7 +60,7 @@ Amazon Personalize requires the `USER_ID`, `ITEM_ID`, and `TIMESTAMP` fields\. `
 
  Timestamp data, such as `TIMESTAMP` \(for Interactions datasets\) or `CREATION_TIMESTAMP` \(for Items datasets\) data, must be in Unix epoch time format in seconds\. For example, the Epoch timestamp in seconds for date July 31, 2020 is 1596238243\. To convert dates to Unix epoch timestamps use an [Epoch Converter \- Unix Timestamp Converter](https://www.epochconverter.com)\. 
 
-## Formatting Impressions Data<a name="data-prep-impressions-data"></a>
+## Impressions Data<a name="data-prep-impressions-data"></a>
 
 Impressions are lists of items that were visible to a user when they interacted with \(for example, clicked or watched\) a particular item\. 
 

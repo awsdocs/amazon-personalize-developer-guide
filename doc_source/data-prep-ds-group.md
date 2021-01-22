@@ -1,6 +1,6 @@
 # Step 1: Creating a Dataset Group<a name="data-prep-ds-group"></a>
 
-*Dataset groups* are domain\-specific containers for datasets\. For example, you might have an application that provides recommendations for streaming video and another that provides recommendations for audio books\. In Amazon Personalize, each application would have its own dataset group\. You can create a dataset group using the Amazon Personalize console, AWS SDK, or AWS Command Line Interface \(AWS CLI\)\.
+A *dataset group* is container for Amazon Personalize components, including datasets, event trackers, solutions, filters, campaigns, and batch inference jobs\. A dataset group organizes your resources into independent collections, so resources from one dataset group cannot influence resources in any other dataset group\. For example, you might have an application that provides recommendations for streaming video and another that provides recommendations for audio books\. In Amazon Personalize, each application would have its own dataset group\. You can create a dataset group using the Amazon Personalize console, AWS SDK, or AWS Command Line Interface \(AWS CLI\)\.
 
 **Topics**
 + [Creating a Dataset Group \(Console\)](#data-prep-creating-ds-group-console)

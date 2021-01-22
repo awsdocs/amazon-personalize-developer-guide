@@ -86,8 +86,8 @@ Valid Range: Minimum value of 0\.
 Required: No
 
  **trainingMode**   <a name="personalize-Type-SolutionVersion-trainingMode"></a>
-The scope of training used to create the solution version\. The `FULL` option trains the solution version based on the entirety of the input solution's training data, while the `UPDATE` option processes only the training data that has changed since the creation of the last solution version\. Choose `UPDATE` when you want to start recommending items added to the dataset without retraining the model\.  
-The `UPDATE` option can only be used after you've created a solution version with the `FULL` option and the training solution uses the [HRNN\-Coldstart Recipe \(Legacy\)](native-recipe-hrnn-coldstart.md)\.
+The scope of training to be performed when creating the solution version\. The `FULL` option trains the solution version based on the entirety of the input solution's training data, while the `UPDATE` option processes only the data that has changed in comparison to the input solution\. Choose `UPDATE` when you want to incrementally update your solution version instead of creating an entirely new one\.  
+The `UPDATE` option can only be used when you already have an active solution version created from the input solution using the `FULL` option and the input solution was trained with the [User\-Personalization](https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html) recipe or the [HRNN\-Coldstart](https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html) recipe\.
 Type: String  
 Valid Values:` FULL | UPDATE`   
 Required: No
@@ -102,5 +102,5 @@ Required: No
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/SolutionVersion) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/SolutionVersion) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/personalize-2018-05-22/SolutionVersion) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/SolutionVersion) 
 +  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/SolutionVersion) 

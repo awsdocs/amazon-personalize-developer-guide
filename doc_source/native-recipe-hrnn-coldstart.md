@@ -11,6 +11,8 @@ In addition, you can use the HRNN\-Coldstart recipe when you want to exclude fro
 
 To reduce the number of cold items, set a lower value for `cold_start_max_interactions` or `cold_start_max_duration`\. To increase the number of cold items, set a greater value for `cold_start_max_interactions` or `cold_start_max_duration`\.
 
+
+
 HRNN\-Coldstart has the following cold item limits:
 + `Maximum cold start items`: 80,000
 + `Minimum cold start items`: 100

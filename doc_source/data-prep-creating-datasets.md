@@ -17,7 +17,7 @@ For more information, including dataset and schema requirements, see [Datasets a
 
  If this is your first dataset in your dataset group, your first dataset type will be an Interactions dataset\. To create your Interactions dataset in the console, specify the dataset name and then specify a JSON schema in [Avro format](https://docs.oracle.com/database/nosql-12.1.3.0/GettingStartedGuide/avroschemas.html)\. If it is not your first dataset in this dataset group, choose the dataset type and then specify a name and a schema\. 
 
-For information on Amazon Personalize datasets and schema requirements, see [Datasets and Dataset Groups](how-it-works.md#how-it-works-dataset)\. 
+For information on Amazon Personalize datasets and schema requirements, see [Datasets and Schemas](how-it-works-dataset-schema.md)\. 
 
 **Note**  
  If you just completed [Step 1: Creating a Dataset Group](data-prep-ds-group.md) and you are already on the **user\-item interaction** page, skip to step 4 in this procedure\. 
@@ -42,13 +42,13 @@ For information on Amazon Personalize datasets and schema requirements, see [Dat
 
 ## Creating a Dataset and a Schema \(AWS CLI\)<a name="data-prep-creating-ds-cli"></a>
 
-To create a dataset and a schema using the AWS CLI, you first define a schema in [Avro format](https://docs.oracle.com/database/nosql-12.1.3.0/GettingStartedGuide/avroschemas.html) and add it to Amazon Personalize using the [CreateSchema](API_CreateSchema.md) operation\. Then create a dataset using the [CreateDataset](API_CreateDataset.md) operation\. For information on Amazon Personalize datasets and schema requirements, see [Datasets and Dataset Groups](how-it-works.md#how-it-works-dataset)\.
+To create a dataset and a schema using the AWS CLI, you first define a schema in [Avro format](https://docs.oracle.com/database/nosql-12.1.3.0/GettingStartedGuide/avroschemas.html) and add it to Amazon Personalize using the [CreateSchema](API_CreateSchema.md) operation\. Then create a dataset using the [CreateDataset](API_CreateDataset.md) operation\. For information on Amazon Personalize datasets and schema requirements, see [Datasets and Schemas](how-it-works-dataset-schema.md)\.
 
 **To create a schema and dataset**
 
 1. Create a schema file in Avro format and save it as a JSON file\. This file should be based on the type of dataset, such as Interactions, you are creating\.
 
-   The schema must match the columns in your data and the schema `name` must match one of the three types of datasets recognized by Amazon Personalize\. The following is an example of a minimal Interactions dataset schema\. For more examples, see [Datasets and Dataset Groups](how-it-works.md#how-it-works-dataset)\.
+   The schema must match the columns in your data and the schema `name` must match one of the three types of datasets recognized by Amazon Personalize\. The following is an example of a minimal Interactions dataset schema\. For more examples, see [Datasets and Schemas](how-it-works-dataset-schema.md)\.
 
    ```
    {
@@ -111,13 +111,13 @@ To create a dataset and a schema using the AWS CLI, you first define a schema in
 
 ## Creating a Dataset and a Schema \(AWS Python SDK\)<a name="data-prep-creating-ds-sdk"></a>
 
-To create a dataset and a schema using the AWS Python SDK, you first define a schema in [Avro format](https://docs.oracle.com/database/nosql-12.1.3.0/GettingStartedGuide/avroschemas.html) and add it to Amazon Personalize using the [CreateSchema](API_CreateSchema.md) operation\. Then create a dataset using the [CreateDataset](API_CreateDataset.md) operation\. For information on Amazon Personalize datasets and schema requirements, see [Datasets and Dataset Groups](how-it-works.md#how-it-works-dataset)\.
+To create a dataset and a schema using the AWS Python SDK, you first define a schema in [Avro format](https://docs.oracle.com/database/nosql-12.1.3.0/GettingStartedGuide/avroschemas.html) and add it to Amazon Personalize using the [CreateSchema](API_CreateSchema.md) operation\. Then create a dataset using the [CreateDataset](API_CreateDataset.md) operation\. For information on Amazon Personalize datasets and schema requirements, see [Datasets and Schemas](how-it-works-dataset-schema.md)\.
 
 **To create a schema and a dataset**
 
 1. Create a schema file in Avro format and save it as a JSON file in your working directory\.
 
-   The schema must match the columns in your data and the schema `name` must match one of the three types of datasets recognized by Amazon Personalize\. The following is an example of a minimal Interactions dataset schema\. For more examples, see [Datasets and Dataset Groups](how-it-works.md#how-it-works-dataset)\.
+   The schema must match the columns in your data and the schema `name` must match one of the three types of datasets recognized by Amazon Personalize\. The following is an example of a minimal Interactions dataset schema\. For more examples, see [Datasets and Schemas](how-it-works-dataset-schema.md)\.
 
    ```
    {

@@ -3,7 +3,7 @@
 Creates a job that imports training data from your data source \(an Amazon S3 bucket\) to an Amazon Personalize dataset\. To allow Amazon Personalize to import the training data, you must specify an AWS Identity and Access Management \(IAM\) role that has permission to read from the data source, as Amazon Personalize makes a copy of your data and processes it in an internal AWS system\.
 
 **Important**  
-The dataset import job replaces any previous data in the dataset\.
+The dataset import job replaces any existing data in the dataset that you imported in bulk\.
 
  **Status** 
 
@@ -111,7 +111,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-2018-05-22/CreateDatasetImportJob) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/CreateDatasetImportJob) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/CreateDatasetImportJob) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/personalize-2018-05-22/CreateDatasetImportJob) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/CreateDatasetImportJob) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-2018-05-22/CreateDatasetImportJob) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/CreateDatasetImportJob) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/CreateDatasetImportJob) 

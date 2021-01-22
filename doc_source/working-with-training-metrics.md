@@ -1,4 +1,4 @@
-# Step 4: Evaluating the Solution Version<a name="working-with-training-metrics"></a>
+# Step 4: Evaluating a Solution Version<a name="working-with-training-metrics"></a>
 
  When you create a solution version, Amazon Personalize generates metrics that you can use to evaluate the performance of the model before you create a campaign and provide recommendations\. Metrics allow you to view the effects of modifying a solution's hyperparameters\. You can also use metrics to compare the results between solutions that use the same training data but were created with different recipes\.
 

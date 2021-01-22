@@ -1,13 +1,13 @@
 # Document History for Amazon Personalize<a name="document-history"></a>
 
 The following table describes important changes in each release of the *Amazon Personalize Developer Guide*\. For notification about updates to this documentation, you can subscribe to an RSS feed\.
-+ **Latest documentation update:** July 10, 2020
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New feature](#document-history) | Amazon Personalize now automatically updates the latest model \(solution version\) you trained with User\-Personalization every two hours to include new data\. For more information, see [User\-Personalization Recipe](https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html)\.  | November 17, 2020 | 
 | [New feature](#document-history) | Amazon Personalize can now filter recommendations based on criteria you specify when you get recommendations\. For more information, see [Filtering Recommendations](https://docs.aws.amazon.com/personalize/latest/dg/filter.html)\. | November 10, 2020 | 
 | [New feature](#document-history) | Amazon Personalize now supports the ability to incrementally import users and items\. For more information, see [Importing Records Incrementally](https://docs.aws.amazon.com/personalize/latest/dg/incremental-data-updates.html)\. | October 2, 2020 | 
-| [New feature](#document-history) | Amazon Personalize now supports a new USER\_PERSONALIZATION recommendation recipe\. USER\_PERSONALIZATION features include modeling impression data, automatic item exploration, and automatic cold item selection\. For more information, see [USER\_PERSONALIZATION recipe](https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html)\. | August 5, 2020 | 
+| [New feature](#document-history) | Amazon Personalize now supports a new USER\_PERSONALIZATION recommendation recipe\. USER\_PERSONALIZATION features include modeling impression data, automatic item exploration, and automatic cold item selection\. For more information, see [User\-Personalization Recipe](https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html)\. | August 5, 2020 | 
 | [New feature](#document-history) | Amazon Personalize can now filter recommendations based on item and user metadata using custom filter expressions\. For more information, see [Filtering Recommendations](https://docs.aws.amazon.com/personalize/latest/dg/filter.html)\. | July 31, 2020 | 
 | [New feature](#document-history) | Amazon Personalize now allows you to filter results based on which items a user has interacted with\. For more information, see [Filtering Recommendations](https://docs.aws.amazon.com/personalize/latest/dg/filter.html)\. | June 3, 2020 | 
 | [New feature](#document-history) | Amazon Personalize now exposes scores for recommended items\. Scores represent the Amazon Personalize model's certainty that a user will next choose a certain item\. For more information, see [Getting Recommendations](https://docs.aws.amazon.com/personalize/latest/dg/getting-recommendations.html)\.  | April 3, 2020 | 

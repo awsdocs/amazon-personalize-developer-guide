@@ -4,6 +4,9 @@ Use an asynchronous batch workflow to get recommendations from large datasets th
 
 In order to get batch recommendations, the IAM user role that invokes the [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) operation must have read and write permissions to your input and output Amazon S3 buckets respectively\. For more information on bucket permissions, see [User Policy Examples](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-policies-s3.html) in the *Amazon Simple Storage Service \(S3\) Developer Guide*\.
 
+**Note**  
+ Amazon S3 buckets and objects must be either encryption free or, if you are using AWS Key Management Service \(AWS KMS\) for encryption, you must give your IAM user and Amazon Personalize IAM service role permission to use your key\. For more information see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\. 
+
 You can perform batch inference operations with any of the following tools:
 + [Amazon Personalize console](#batch-console)
 + [AWS CLI](#batch-cli)
@@ -17,7 +20,7 @@ Item scores calculated by batch recommendation jobs are calculated the same ways
 
 The [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) uses a solution version to make recommendations based on data provided in an input JSON file\. The result is then returned as a JSON file to an Amazon S3 bucket\. The following tab list contains correctly formatted JSON input and output examples for each recipe type\.
 
-**USER\_PERSONALIZATION**
+**User\-Personalization and legacy HRNN recipes**
 
 ------
 #### [ Input ]
@@ -47,9 +50,9 @@ The [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) uses a solution ve
 #### [ Input ]
 
 ```
-{}
-{"itemId": "105"}
-{"itemId": "41"}
+{"userId": "12"}
+{"userId": "105"}
+{"userId": "41"}
 ...
 ```
 
@@ -57,9 +60,9 @@ The [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) uses a solution ve
 #### [ Output ]
 
 ```
-{"input": {}, "output": {"recommendedItems": ["105", "106", "441"]}}
-{"input": {"itemId": "105"}, "output": {"recommendedItems": ["105", "106", "441"]}}
-{"input": {"itemId": "41"}, "output": {"recommendedItems": ["105", "106", "441"]}}
+{"input": {"userId": "12"}, "output": {"recommendedItems": ["105", "106", "441"]}}
+{"input": {"userId": "105"}, "output": {"recommendedItems": ["105", "106", "441"]}}
+{"input": {"userId": "41"}, "output": {"recommendedItems": ["105", "106", "441"]}}
 ...
 ```
 
@@ -115,7 +118,7 @@ The [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) uses a solution ve
 
 ## Getting Batch Recommendations \(Amazon Personalize Console\)<a name="batch-console"></a>
 
-The following procedure outlines the batch inference workflow using the Amazon Personalize console\. This procedure assumes that you have already created a solution that is properly formatted to perform the desired batch job on your dataset\.
+The following procedure outlines the batch inference workflow using the Amazon Personalize console\. This procedure assumes that you have already created a solution that is properly formatted to perform the batch job on your dataset\.
 
 1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign in to your account\.
 
@@ -125,7 +128,7 @@ The following procedure outlines the batch inference workflow using the Amazon P
 
 1. For **IAM service role**, choose the Amazon Personalize IAM service role that has read and write access to your input and output Amazon S3 buckets respectively\.
 
-1. For **Solution**, choose the solution that you want to use to generate the recommendations The solution recipe must match the input data's format\.
+1. For **Solution**, choose the solution that you want to use to generate the recommendations\. Your input data format must be in the correct format for the recipe you choose\. For input data examples see [Input and Output JSON Examples](#batch-recommendations-json-examples)\. 
 
 1. In **Input data configuration**, specify the Amazon S3 path to your input file\. In **Output data configuration**, specify the path to your output Amazon S3 bucket\.
 

@@ -39,11 +39,13 @@ Your AWS account has the following quotas for Amazon Personalize\.
 | Maximum number of metadata fields for an Items dataset\. | 50 | 
 | Data Import APIs | 
 | --- |
-| Maximum rate of PutItems requests\. | 10/second | 
-| Maximum rate of PutUsers requests\. | 10/second | 
 | Maximum rate of PutEvents requests\. | 1000/second | 
 | Maximum number of events in a PutEvents call\. | 10 | 
 | Maximum size of an event\. | 10 KB | 
+| Maximum rate of PutItems requests\. | 10/second | 
+| Maximum number of items in a PutItems call\. | 10 | 
+| Maximum rate of PutUsers requests\. | 10/second | 
+| Maximum number of users in a PutUsers call\. | 10 | 
 | Recipes | 
 | --- |
 | Maximum amount of data for an individual dataset \(Users, Items, or Interactions\) for HRNN, SIMS, Popularity\-Count, and Personalized\-Ranking recipes\. | 100 GB | 

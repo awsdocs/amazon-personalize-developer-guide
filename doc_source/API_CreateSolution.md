@@ -6,6 +6,9 @@ After creating a solution version, you check its accuracy by calling [GetSolutio
 
 To train a model, Amazon Personalize requires training data and a recipe\. The training data comes from the dataset group that you provide in the request\. A recipe specifies the training algorithm and a feature transformation\. You can specify one of the predefined recipes provided by Amazon Personalize\. Alternatively, you can specify `performAutoML` and Amazon Personalize will analyze your data and select the optimum USER\_PERSONALIZATION recipe for you\.
 
+**Note**  
+Amazon Personalize doesn't support configuring the `hpoObjective` for solution hyperparameter optimization at this time\.
+
  **Status** 
 
 A solution can be in one of the following states:
@@ -127,6 +130,7 @@ Required: No
 
  ** [solutionConfig](#API_CreateSolution_RequestSyntax) **   <a name="personalize-CreateSolution-request-solutionConfig"></a>
 The configuration to use with the solution\. When `performAutoML` is set to true, Amazon Personalize only evaluates the `autoMLConfig` section of the solution configuration\.  
+Amazon Personalize doesn't support configuring the `hpoObjective` at this time\.
 Type: [SolutionConfig](API_SolutionConfig.md) object  
 Required: No
 
@@ -179,7 +183,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-2018-05-22/CreateSolution) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/CreateSolution) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/CreateSolution) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/personalize-2018-05-22/CreateSolution) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/CreateSolution) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-2018-05-22/CreateSolution) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/CreateSolution) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/CreateSolution) 

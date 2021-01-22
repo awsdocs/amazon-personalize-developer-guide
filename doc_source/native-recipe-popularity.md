@@ -1,6 +1,6 @@
 # Popularity\-Count Recipe<a name="native-recipe-popularity"></a>
 
-Popularity\-count returns the top popular items from a dataset\. A popular item is defined by the number of times it occurs in the dataset\. The recipe returns the same popular items for all users\. Popularity\-count is a good starting point to compare against other recipes\.
+Popularity\-count recommends the most popular item items based on all of your user behavioral data\. The most popular items have the most interactions with unique users\. The recipe returns the same popular items for all users\. Popularity\-count is a good baseline for comparing with other recipes using the evaluation metrics Amazon Personalize generates when you create a solution version\. For more information see [Step 4: Evaluating a Solution Version](working-with-training-metrics.md)\. 
 
 This predefined recipe has the following properties:
 +  **Name** – `aws-popularity-count`

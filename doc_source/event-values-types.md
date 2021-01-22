@@ -1,16 +1,14 @@
 # Filtering Interactions Data Before Training<a name="event-values-types"></a>
 
-If your Interactions dataset includes data that you don't want to use for training, you can filter out those records by setting a threshold for a value, such as price, or by specifying a type of event, such as purchase or click\. By filtering, you can train using only a relevant subset of your data or remove noise to train a more optimized model\.
+If your Interactions dataset includes data that you want to exclude for training, you can filter out the records before training\. Filtering interactions data before training a recommendation model allows you to use only a relevant subset of your data for training or remove noise to train a more optimized model\. For more information about Interactions datasets, see [Datasets and Schemas](how-it-works-dataset-schema.md) and [Interactions Dataset](interactions-datasets.md)\.
 
-You can filter records from an Interactions dataset two ways:
-+ **Set a threshold to exclude records based on a specific value by specifying an event value in your recipe** \- If the records include an amount that is associated with a specific event—for example, the price a user paid is associated with the purchase of an item—you can set a specific value in a recipe as a threshold to exclude records from training\. The amount is called an *event value*\. 
-+ **Exclude records of a certain type by specifying an event type in your recipe** – A dataset often includes specific types of activities, for example, `“purchase”`, `“click”`, or `"wishlisted"`\. These are called *event types*\. To include only records for specific event types in training, filter your dataset by event type in your recipe\.
+You filter records from an Interactions dataset before training as follows:
++ **Specify the type of event to use in training** – When you configure a Solution, if your Interactions dataset includes event types in an EVENT\_TYPE column, you can specify an event type to use in training\. For example, if your Interactions dataset includes *purchase*, *click*, and *watch* event types, and you want to filter out purchases and clicks before training, when you configure your Solution, you would provide *watch* as the event type Amazon Personalize uses in training\. 
 
-Likewise, an Interactions dataset often includes specific types of activities, for example, `“purchase”`, `“click”`, or `"wishlisted"`\. These are called *event types*\. To include only records for specific event types in training, filter your dataset by event type in your recipe\.
+   If your Interactions dataset has multiple event types in an EVENT\_TYPE column, and you do not provide an event type when you configure your Solution, Amazon Personalize uses all interactions data for training with equal weight regardless of type\. 
++ **Set a threshold to exclude records based on event value ** – When you configure a Solution, if your Interactions dataset includes EVENT\_TYPE and EVENT\_VALUE fields, you can set a specific value as a threshold to exclude records from training\. For example, if your EVENT\_VALUE data for events with an EVENT\_TYPE of *watch* is the percentage of a video that a user watched, if you set the event value threshold to 0\.5, and the event type to *watch*, Amazon Personalize trains the model using only *watch* interaction events with an EVENT\_VALUE greater than or equal to 0\.5\. 
 
-To filter by event value or event type, you create an Interactions schema for the recipe that you use to create your solution\. To use a more specific subset in training, you can also filter a dataset by an event value and event type\.
-
-## Filtering Records by Event Value and Event Type<a name="event-values-types-example"></a>
+## Filtering Records by Event Value and Event Type \(AWS SDK\)<a name="event-values-types-example"></a>
 
 In the following procedure, you use the AWS SDK for Python \(Boto3\) to create an Interaction schema that filters a training dataset\. You can use a Jupyter \(iPython\) notebook to accomplish the same task\. For more information, see [Getting Started Using Amazon Personalize APIs with Jupyter \(iPython\) Notebooks](getting-started-python.md#gs-jupyter-notebook)\.
 
@@ -141,4 +139,4 @@ In the following procedure, you use the AWS SDK for Python \(Boto3\) to create a
 
 Training is complete when the status is `ACTIVE`\. For more information, see [Creating a Solution](training-deploying-solutions.md)\.
 
-After you train a model, you should evaluate its performance\. To optimize your model, you might want to adjust the `eventValueThreshold` or other hyperparameters\. For more information, see [Step 4: Evaluating the Solution Version](working-with-training-metrics.md)\. 
+After you train a model, you should evaluate its performance\. To optimize your model, you might want to adjust the `eventValueThreshold` or other hyperparameters\. For more information, see [Step 4: Evaluating a Solution Version](working-with-training-metrics.md)\. 

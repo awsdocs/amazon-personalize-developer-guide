@@ -69,7 +69,7 @@ The properties of the solution version and the training `status` are displayed\.
 
 Training is complete when the `status` is `ACTIVE`\.
 
-Now that you have created a solution version, evaluate it using metrics supplied by Amazon Personalize\. For more information, see [Step 4: Evaluating the Solution Version](working-with-training-metrics.md)\.
+Now that you have created a solution version, evaluate it using metrics supplied by Amazon Personalize\. For more information, see [Step 4: Evaluating a Solution Version](working-with-training-metrics.md)\.
 
 ## Creating a Solution Version \(AWS Python SDK\)<a name="create-solution-version-sdk"></a>
 
@@ -100,4 +100,4 @@ print('Solution version status: ' + solution_version_description['status'])
 
 To check the current solution version status, call the [DescribeSolutionVersion](API_DescribeSolutionVersion.md) operation and pass the ARN of the solution version returned from the `CreateSolutionVersion` operation\. Training is complete when the `status` is `ACTIVE`\.
 
-Now that you have a created solution version, evaluate it using metrics supplied by Amazon Personalize\. For more information, see [Step 4: Evaluating the Solution Version](working-with-training-metrics.md)\.
+Now that you have a created solution version, evaluate it using metrics supplied by Amazon Personalize\. For more information, see [Step 4: Evaluating a Solution Version](working-with-training-metrics.md)\.

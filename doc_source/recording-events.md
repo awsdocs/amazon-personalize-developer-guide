@@ -21,14 +21,16 @@ You can start out with an empty Interactions dataset and, when you have recorded
  Once you create a campaign, Amazon Personalize automatically uses new recorded event data for existing items \(items you included in the data you used to train the latest model\) when generating recommendations for the user\. This does not require retraining the model \(unless you are using the SIMS or popularity\-count recipes\)\. 
 
 Instead, the new recorded event data is added to the user's history\. Amazon Personalize then uses the modified data when generating recommendations for the user \(and this user only\)\.
++  For recorded events for *new items* \(items you did not include in the data you used to train the model\), if you trained your model \(solution version\) with the User\-Personalization recipe, Amazon Personalize automatically updates the model every two hours, and after each update the new items influence recommendations\. See [User\-Personalization Recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
 
- For recorded events for new items \(items you did not include in the data you used to train the model\), you must re\-train the model for the new records to influence recommendations\. Amazon Personalize stores recorded events for new items and, once you create a new solution version \(train a new model\), this new data will influence Amazon Personalize recommendations for the user\. 
+   For any other recipe, you must re\-train the model for the new records to influence recommendations\. Amazon Personalize stores recorded events for new items and, once you create a new solution version \(train a new model\), this new data will influence Amazon Personalize recommendations for the user\. 
++  For recorded events for *new users* \(users that were not included in the data you used to train the model\), recommendations will initially be for popular items only\. Recommendations will be more relevant as you record more events for the user\. Amazon Personalize stores the new user data, so you can also retrain the model for more relevant recommendations\. 
 
-For recorded events for new users \(users that were not included in the data you used to train the model\), recommendations will initially be for popular items only\. As record more events for the user, recommendations will be more relevant\. Amazon Personalize stores the new user data, so you can also retrain the model for more relevant recommendations\. 
+   For new, anonymous users \(users without a userId\), Amazon Personalize uses the `sessionId` you pass in the [PutEvents](API_UBS_PutEvents.md) operation to associate events with the user before they log in\. This creates a continuous event history that includes events that occurred when the user was anonymous\. 
 
 **Topics**
 + [Creating a Dataset Group and a Dataset](#event-dataset-group)
-+ [Getting a Tracking ID](#event-get-tracker)
++ [Creating an Event Tracker](#event-get-tracker)
 + [PutEvents Operation](#event-record-api)
 + [Recording Impressions Data](#putevents-including-impressions-data)
 + [Event Metrics](#event-metrics)
@@ -39,9 +41,9 @@ For recorded events for new users \(users that were not included in the data you
 
 If you went through the [Getting Started](getting-started.md) guide, you can use the same dataset group and dataset that you created\. For information on creating dataset groups and datasets, see [Preparing and Importing Data](data-prep.md)\.
 
-## Getting a Tracking ID<a name="event-get-tracker"></a>
+## Creating an Event Tracker<a name="event-get-tracker"></a>
 
-A tracking ID associates an event with a dataset group and authorizes you to send data to Amazon Personalize\. You generate a tracking ID by calling the [CreateEventTracker](API_CreateEventTracker.md) API and supplying the dataset group ARN\.
+An event tracker specifies a destination dataset group for new event data\. To create an event tracker you call the [CreateEventTracker](API_CreateEventTracker.md) API operation and pass as a parameter the Amazon Resource Name \(ARN\) of the dataset group that contains the target Interactions dataset\. When you create an event tracker, the response includes a *tracking ID*, which you pass as a parameter when you use the [PutEvents](https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html) operation\. Amazon Personalize then appends the new event data to the Interactions dataset of the dataset group you specify in your event tracker\. 
 
 **Note**  
 Only one event tracker can be associated with a dataset group\. You will get an error if you call `CreateEventTracker` using the same dataset group as an existing event tracker\.
@@ -88,7 +90,7 @@ To record events, you call the [PutEvents](API_UBS_PutEvents.md) operation\. The
 
 Your application generates the `sessionId` when a user first visits your website or uses your application\. Amazon Personalize uses the `sessionId` to associate events with the user before they log in \(is anonymous\)\. After the user logs in and you send an event including the `userId`, Amazon Personalize associates the previously anonymous historical event data with their `userId` by matching the `sessionId`\. This creates a continuous event history that includes events that occurred when the user was anonymous\.
 
-The event list is an array of [Event](API_UBS_Event.md) objects\. An `eventType` is required for each event, but in this example, `eventType` data is not used in training because it is not included in the schema\. The `properties` key is a string map \(key\-value pairs\) of event\-specific data\. In this case, just the item ID is specified\.
+The event list is an array of [Event](API_UBS_Event.md) objects\. An `eventType` is required for each event, but in this example, `eventType` data is not used in training because it is not included in the schema\. You can provide a placeholder value to satisfy the requirement\. The `properties` key is a string map \(key\-value pairs\) of event\-specific data\. In this case, just the item ID is specified\.
 
 The `userId`, `itemId`, and `sentAt` parameters map to the USER\_ID, ITEM\_ID, and TIMESTAMP fields of a corresponding historical `Interactions` dataset\. For more information, see [Datasets and Schemas](how-it-works-dataset-schema.md)\.
 
@@ -138,7 +140,7 @@ aws personalize-events put-events \
 
 ------
 
-After this example, you would proceed to train a model using only the required properties\. The training would not use the `eventValue` property because it wasn't included in the event\.
+After this example, you would proceed to train a model using only the required properties\.
 
 The next example shows how to submit data that would train on the event value\. It also demonstrates the passing of multiple events of different types \('like' and 'rating'\)\. In this case, you must specify the event type to train on in the [CreateSolution](API_CreateSolution.md) operation \(see **Events and Solutions** below\)\. The example also shows the recording of an extra property, `numRatings`, that is used as metadata by certain recipes\.
 
@@ -212,7 +214,7 @@ The properties keys use camel case names that match the fields in the Interactio
 
 ## Recording Impressions Data<a name="putevents-including-impressions-data"></a>
 
-Impressions are lists of items that were visible to a user when they interacted with \(for example, clicked or watched\) a particular item\. For information on the *implicit* and *explicit* impressions Amazon Personalize can model, see [Impressions Data](interactions-impressions-metadata.md)\. 
+Impressions are lists of items that were visible to a user when they interacted with \(for example, clicked or watched\) a particular item\. For information on the *implicit* and *explicit* impressions Amazon Personalize can model, see [Impressions Data](interactions-datasets.md#interactions-impressions-metadata)\. 
 
 **Important**  
 If you provide conflicting implicit and explicit impression data in your `PutEvents` requests, Amazon Personalize uses the explicit impressions by default\.

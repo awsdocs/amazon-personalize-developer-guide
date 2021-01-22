@@ -1,6 +1,6 @@
 # PutEvents<a name="API_UBS_PutEvents"></a>
 
-Records user interaction event data\. For more information see [PutEvents Operation](recording-events.md#event-record-api)\.
+Records user interaction event data\. For more information see [Recording Events](https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html)\.
 
 ## Request Syntax<a name="API_UBS_PutEvents_RequestSyntax"></a>
 
@@ -42,7 +42,7 @@ Array Members: Minimum number of 1 item\. Maximum number of 10 items\.
 Required: Yes
 
  ** [sessionId](#API_UBS_PutEvents_RequestSyntax) **   <a name="personalize-UBS_PutEvents-request-sessionId"></a>
-The session ID associated with the user's visit\. Your application generates the sessionId when a user first visits your website or uses your application\. Amazon Personalize uses the sessionId to associate events with the user before they log in\. For more information see [PutEvents Operation](recording-events.md#event-record-api)\.  
+The session ID associated with the user's visit\. Your application generates the sessionId when a user first visits your website or uses your application\. Amazon Personalize uses the sessionId to associate events with the user before they log in\. For more information, see [Recording Events](https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 256\.  
 Required: Yes
@@ -82,7 +82,7 @@ For more information about using this API in one of the language\-specific AWS S
 +  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-events-2018-03-22/PutEvents) 
 +  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-events-2018-03-22/PutEvents) 
 +  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-events-2018-03-22/PutEvents) 
-+  [AWS SDK for Java](https://docs.aws.amazon.com/goto/SdkForJava/personalize-events-2018-03-22/PutEvents) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-events-2018-03-22/PutEvents) 
 +  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-events-2018-03-22/PutEvents) 
 +  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-events-2018-03-22/PutEvents) 
 +  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-events-2018-03-22/PutEvents) 

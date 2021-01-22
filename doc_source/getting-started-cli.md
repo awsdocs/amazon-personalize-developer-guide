@@ -60,7 +60,7 @@ Wait until the dataset group's `status` shows as ACTIVE before creating a datase
 **Note**  
 The `describe-object` and `list-objects` commands are available for most Amazon Personalize objects\. These commands are not shown in the remainder of this exercise but they are available\.
 
-1. Create a schema file in JSON format by saving the following code to a file named `MovieRatingSchema.json`\. The schema matches the headers you previously added to `ratings.csv`\. The schema name is `Interactions`, which matches one of the three types of datasets recognized by Amazon Personalize\. For more information, see [Datasets and Dataset Groups](how-it-works.md#how-it-works-dataset)\.
+1. Create a schema file in JSON format by saving the following code to a file named `MovieRatingSchema.json`\. The schema matches the headers you previously added to `ratings.csv`\. The schema name is `Interactions`, which matches one of the three types of datasets recognized by Amazon Personalize\. For more information, see [Datasets and Schemas](how-it-works-dataset-schema.md)\.
 
    ```
    {

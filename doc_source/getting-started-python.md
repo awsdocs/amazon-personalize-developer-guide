@@ -33,7 +33,7 @@ After you verify that your Python environment is configured correctly, import yo
 
 1. Import the data\. You create a dataset group which contains one or several datasets that Amazon Personalize can use for training\. For a code sample, see [Importing Bulk Records \(AWS Python SDK\)](bulk-data-import-step.md#python-import-ex)\.
 
-1. \(Optional\) Add an event tracker\. To record interactions events, you must add a tracking ID to associate the event with your dataset group\. For a code sample, see [Getting a Tracking ID](recording-events.md#event-get-tracker)\.
+1. \(Optional\) Add an event tracker\. To record interactions events, you must add a tracking ID to associate the event with your dataset group\. For a code sample, see [Creating an Event Tracker](recording-events.md#event-get-tracker)\.
 
 1. \(Optional\) Add an event record\. To add more data in training and create a better model, you can use events\. Events are recorded user activities such as a search, a view, or a purchase\. For a code sample, see [PutEvents Operation](recording-events.md#event-record-api)\.
 
@@ -41,7 +41,7 @@ After you verify that your Python environment is configured correctly, import yo
 
 After you import your data, create a solution and solution version\. The *solution* contains the configurations to train a model\. A *solution version* is a trained model\. For more information, see [Creating a Solution](training-deploying-solutions.md)\.
 
-When you create a solution version, evaluate its performance before proceeding\. For a code sample, see [Step 4: Evaluating the Solution Version](working-with-training-metrics.md)\.
+When you create a solution version, evaluate its performance before proceeding\. For a code sample, see [Step 4: Evaluating a Solution Version](working-with-training-metrics.md)\.
 
 ## Step 4: Create a Campaign<a name="getting-started-python-deploy-solution"></a>
 
@@ -49,7 +49,7 @@ After you train and evaluate your solution version, you can deploy it using a ca
 
 ## Step 5: Get Recommendations<a name="getting-started-python-get-recommendations"></a>
 
-After you create a campaign, you can use it to get recommendations\. For a code sample, see [Getting Real\-Time Recommendations \(API\)](getting-real-time-recommendations.md#recommendations)\.
+After you create a campaign, you can use it to get recommendations\. For a code sample, see [Getting Recommendations](getting-real-time-recommendations.md#recommendations)\.
 
 ## Getting Started Using Amazon Personalize APIs with Jupyter \(iPython\) Notebooks<a name="gs-jupyter-notebook"></a>
 

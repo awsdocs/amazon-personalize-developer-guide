@@ -31,7 +31,11 @@
 
 1. For **Recipe**, choose a recipe \(see [Step 1: Choosing a Recipe](working-with-predefined-recipes.md)\)\. 
 
-1.  Expand the **Solution configuration** section and optionally configure any hyperparameter options based on your recipe and business needs\. Different recipes use different hyperparameters\. For the available hyperparameters, see the individual recipes in [Step 1: Choosing a Recipe](working-with-predefined-recipes.md)\. 
+1.  Expand the **Solution configuration** section and, if you have added the respective columns to your Interactions dataset, optionally provide **Event type** and **Event value threshold** values to filter interactions data before training \(for more information see [Filtering Interactions Data Before Training](event-values-types.md)\)\. 
+
+    If your Interactions dataset has multiple event types in an EVENT\_TYPE column, and you do not provide an event type when you configure your Solution, Amazon Personalize uses all interactions data for training with equal weight regardless of type\. 
+
+1. Configure any hyperparameter options based on your recipe and business needs\. Different recipes use different hyperparameters\. For the available hyperparameters, see the individual recipes in [Step 1: Choosing a Recipe](working-with-predefined-recipes.md)\. 
 
     An example of the Solution configuration options for the `aws-user-personalization` recipe is below\.   
 ![\[Solution configuration options for the aws-user-personalization recipe.\]](http://docs.aws.amazon.com/personalize/latest/dg/images/user-personalization-solution-configuration.png)
@@ -49,7 +53,7 @@ aws personalize create-solution \
   --recipe-arn recipe arn
 ```
 
-The solution Amazon Resource Number \(ARN\) is displayed, for example:
+The solution Amazon Resource Name \(ARN\) is displayed, for example:
 
 ```
 {

@@ -1,7 +1,7 @@
 # Amazon Personalize Developer Guide
 
 -----
-*****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2021 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -28,17 +28,8 @@ Amazon's trademarks and trade dress may not be used in
    + [Cleaning Up Resources](gs-cleanup.md)
 + [Datasets and Schemas](how-it-works-dataset-schema.md)
    + [Interactions Dataset](interactions-datasets.md)
-      + [Required Interaction Data](interactions-dataset-requirements.md)
-      + [Impressions Data](interactions-impressions-metadata.md)
-      + [Contextual Metadata](interactions-contextual-metadata.md)
-      + [Interactions Schema Example](schema-examples-interactions.md)
    + [Users Dataset](users-datasets.md)
-      + [Required User Data](user-dataset-requirements.md)
-      + [Users Schema Example](schema-examples-users.md)
    + [Items Dataset](items-datasets.md)
-      + [Required Item Data](item-dataset-requirements.md)
-      + [Creation Timestamp Data](creation-timestamp-data.md)
-      + [Items Schema Example](schema-examples-items.md)
 + [Preparing and Importing Data](data-prep.md)
    + [Step 1: Creating a Dataset Group](data-prep-ds-group.md)
    + [Step 2: Creating a Dataset and a Schema](data-prep-creating-datasets.md)
@@ -46,6 +37,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Importing Bulk Records](bulk-data-import.md)
          + [Formatting Your Input Data](data-prep-formatting.md)
          + [Uploading to an Amazon S3 Bucket](data-prep-upload-s3.md)
+            + [Giving Amazon Personalize Access to Amazon S3 Resources](granting-personalize-s3-access.md)
          + [Importing Bulk Records with a Dataset Import Job](bulk-data-import-step.md)
       + [Importing Records Incrementally](incremental-data-updates.md)
          + [Importing Interactions Incrementally](importing-interactions.md)
@@ -69,7 +61,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Hyperparameters and HPO](customizing-solution-config-hpo.md)
       + [Filtering Interactions Data Before Training](event-values-types.md)
    + [Step 3: Creating a Solution Version](creating-a-solution-version.md)
-   + [Step 4: Evaluating the Solution Version](working-with-training-metrics.md)
+   + [Step 4: Evaluating a Solution Version](working-with-training-metrics.md)
 + [Creating a Campaign](campaigns.md)
 + [Getting Recommendations](getting-recommendations.md)
    + [Getting Real-Time Recommendations](getting-real-time-recommendations.md)

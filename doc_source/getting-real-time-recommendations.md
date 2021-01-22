@@ -1,22 +1,27 @@
 # Getting Real\-Time Recommendations<a name="getting-real-time-recommendations"></a>
 
-You can get real\-time recommendations from Amazon Personalize with a campaign\. For example, suppose you have a campaign that is designed to give movie recommendations\. You can use the [Getting Real\-Time Recommendations \(API\)](#recommendations) or [Get Personalized Ranking \(API\)](#rankings) to give real\-time movie recommendations to users signed into your application or website\. For an example using the AWS CLI, see [Step 4: Get Recommendations](getting-started-cli.md#gs-test)\. 
+You can get real\-time recommendations from Amazon Personalize with a campaign\. For example, suppose you have a campaign that is designed to give movie recommendations\. You can use the [GetRecommendations](API_RS_GetRecommendations.md) or [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) API operations to get real\-time movie recommendations for users signed into your application or website\. You can also get recommendations using Amazon Personalize console, where the top recommendations for the user appear in a table on the details page for the campaign\. 
 
- **Increasing Recommendation Relevance with Contextual Metadata** 
+**Topics**
++ [Increasing Recommendation Relevance with Contextual Metadata](#contextual-metadata)
++ [Getting Recommendations](#recommendations)
++ [Getting a Personalized Ranking](#rankings)
 
-To increase recommendation relevance, include contextual metadata for a user, such as their device type or the time of day, when using the [Getting Real\-Time Recommendations \(API\)](#recommendations) or [Get Personalized Ranking \(API\)](#rankings)\. 
+## Increasing Recommendation Relevance with Contextual Metadata<a name="contextual-metadata"></a>
+
+To increase recommendation relevance, include contextual metadata for a user, such as their device type or the time of day, when you get recommendations or get a personalized ranking\. 
 
 To use contextual metadata, you must meet the following requirements: 
-+ Any context metadata fields must be included in the schema of the campaign's Iteractions dataset \(see [Datasets and Schemas](how-it-works-dataset-schema.md)\)\. 
-+ The solution backing the campaign must have been created using a recipe of type USER\_PERSONALIZATION or RELATED\_ITEMS \(see [Step 1: Choosing a Recipe](working-with-predefined-recipes.md)\)\. 
++ The schema of the Interactions dataset must have contextual metadata fields \(see [Datasets and Schemas](how-it-works-dataset-schema.md)\)\. 
++ The solution version backing the campaign must use a recipe of type USER\_PERSONALIZATION or RELATED\_ITEMS \(see [Step 1: Choosing a Recipe](working-with-predefined-recipes.md)\)\. 
 
- For more information about the benefits of including contextual metadata, see [Contextual Metadata](interactions-contextual-metadata.md)\. 
+ For more information about the benefits of including contextual metadata, see [Contextual Metadata](interactions-datasets.md#interactions-contextual-metadata)\. 
 
- For examples that show how to include contextual metadata using the [Getting Real\-Time Recommendations \(API\)](#recommendations) or [Get Personalized Ranking \(API\)](#rankings), see [Getting Recommendations using Contextual Metadata \(AWS Python SDK\)](#get-recommendations-metadata-sdk-example) and [Getting Personalized Rankings using Contextual Metadata \(AWS Python SDK\)](#personalized-ranking-contextual-metadata-example)\. 
+ For examples that show how to include contextual metadata using the AWS SDK for Python see [Getting Recommendations using Contextual Metadata \(AWS Python SDK\)](#get-recommendations-metadata-sdk-example) and [Getting a Personalized Ranking using Contextual Metadata \(AWS Python SDK\)](#personalized-ranking-contextual-metadata-example)\. 
 
-## Getting Real\-Time Recommendations \(API\)<a name="recommendations"></a>
+## Getting Recommendations<a name="recommendations"></a>
 
-To get recommendations, call the [GetRecommendations](API_RS_GetRecommendations.md) API\. Supply either the user ID or item ID, dependent on the recipe type used to create the solution the campaign is based on\.
+To get recommendations, call the [GetRecommendations](API_RS_GetRecommendations.md) API operation, or get recommendations for a user on the campaign details page in the console\. For an example using the AWS CLI, see [Step 4: Get Recommendations](getting-started-cli.md#gs-test)\.
 
 **How Scoring Works**
 
@@ -29,7 +34,31 @@ In mathematical terms, scores for each user\-item pair \(u,i\) are computed acco
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/get_recommendations_score.png)
 
 **Note**  
-Scores aren't shown for SIMS or Popularity\-Count\-based models\.
+Amazon Personalize doesn't show scores for SIMS or Popularity\-Count\-based models\.
+
+### Getting Recommendations \(Console\)<a name="get-recommendations-console"></a>
+
+To get recommendations for a user in the Amazon Personalize console, choose the campaign that you are using and then provide their User ID, optionally choose a filter, and optionally provide any context data\.
+
+**To get recommendations for a user**
+
+1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/](https://console.aws.amazon.com/personalize/) and sign into your account\. 
+
+1. Choose the dataset group that contains the campaign you are using\.
+
+1. In the navigation pane, choose **Campaigns**\.
+
+1. On the **Campaigns** page, choose the target campaign\.
+
+1.  Under **Test campaign results**, enter the **User ID** of the user that you want to get recommendations for\. 
+
+1. Optionally choose a filter\. For more information, see [Filtering Recommendations](filter.md)\. 
+
+1. If your campaign uses contextual metadata \(for requirements see [Contextual Metadata](#contextual-metadata)\) optionally provide context data\. 
+
+   For each context, for the **Key**, enter the metadata field, and for the **Value**, enter the context data\. 
+
+1. Choose **Get recommendations**\. A table containing the user’s top recommendations appears\. 
 
 ### Getting Recommendations \(AWS Python SDK\)<a name="get-recommendations-sdk-example"></a>
 
@@ -71,9 +100,9 @@ for item in response['itemList']:
     print (item['itemId'])
 ```
 
-## Get Personalized Ranking \(API\)<a name="rankings"></a>
+## Getting a Personalized Ranking<a name="rankings"></a>
 
-A personalized ranking is a list of recommended items that are re\-ranked for a specific user\. To get personalized rankings, call the [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) API\.
+A personalized ranking is a list of recommended items that are re\-ranked for a specific user\. To get personalized rankings, call the [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) API operation or get recommendations from a campaign in the console\.
 
 **Note**  
 The solution backing the campaign must have been created using a recipe of type PERSONALIZED\_RANKING\. For more information, see [Step 1: Choosing a Recipe](working-with-predefined-recipes.md)\.
@@ -86,7 +115,33 @@ Mathematically, the scoring function for GetPersonalizedRanking is identical to 
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/get_personalized_ranking.png)
 
-### Getting Personalized Rankings \(AWS Python SDK\)<a name="get-personalized-rankings-sdk"></a>
+### Getting a Personalized Ranking \(Console\)<a name="get-recommendations-console"></a>
+
+To get a personalized ranking for a user from the Amazon Personalize console, choose the campaign that you are using and then provide their user ID, specify the list of items you want ranked for the user, optionally choose a filter, and optionally provide any context data\. 
+
+**To get a personalized ranking for a user**
+
+1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/](https://console.aws.amazon.com/personalize/) and sign into your account\. 
+
+1. Choose the dataset group that contains the campaign you are using\.
+
+1. In the navigation pane, choose **Campaigns**\.
+
+1. On the **Campaigns** page, choose the target campaign\.
+
+1.  Under **Test campaign results**, enter the **User ID** of the user that you want to get recommendations for\. 
+
+1. For **Item IDs**, enter the list of items to be ranked for the user\.
+
+1. Optionally choose a filter\. For more information, see [Filtering Recommendations](filter.md)\. 
+
+1. If your campaign uses contextual metadata \(for requirements see [Contextual Metadata](#contextual-metadata)\) optionally provide context data\. 
+
+   For each context, for the **Key**, enter the metadata field, and for the **Value**, enter the context data\. 
+
+1. Choose **Get personalized item rankings**\. A table containing the items ranked in order of predicted interest for the user appears\. 
+
+### Getting a Personalized Ranking \(AWS Python SDK\)<a name="get-personalized-rankings-sdk"></a>
 
 Use the following code to get a personalized ranking\. Change the value of `userId` and `inputList` to a user ID and list of item IDs that are in the data that you used to train the solution\. A list of ranked recommendations is displayed\. Amazon Personalize considers the first item in the list of most interest to the user\.
 
@@ -105,7 +160,7 @@ for item in response['personalizedRanking']:
     print (item['itemId'])
 ```
 
-### Getting Personalized Rankings using Contextual Metadata \(AWS Python SDK\)<a name="personalized-ranking-contextual-metadata-example"></a>
+### Getting a Personalized Ranking using Contextual Metadata \(AWS Python SDK\)<a name="personalized-ranking-contextual-metadata-example"></a>
 
 Use the following code to get a personalized ranking based on contextual metadata\. For `context`, for each key\-value pair, provide the metadata field as the key and the context data as the value\. In the following sample code, the key is `DEVICE` and the value is `mobile phone`\. Replace these values and the `Campaign ARN` and `User ID` with your own\. Also change `inputList` to a list of item IDs that are in the data that you used to train the solution\. Amazon Personalize considers the first item in the list of most interest to the user\.
 
