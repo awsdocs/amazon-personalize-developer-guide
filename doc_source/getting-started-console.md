@@ -1,18 +1,18 @@
-# Getting Started \(Console\)<a name="getting-started-console"></a>
+# Getting started \(console\)<a name="getting-started-console"></a>
 
 In this exercise, you use the Amazon Personalize console to create a campaign that returns movie recommendations for a given user\.
 
-Before you start this exercise, review the Getting Started [Getting Started Prerequisites](gs-prerequisites.md)\.
+Before you start this exercise, review the Getting Started [Getting started prerequisites](gs-prerequisites.md)\.
 
-When you finish the getting started exercise, to avoid incurring unnecessary charges, follow the steps in [Cleaning Up Resources](gs-cleanup.md) to delete the resources you created\. 
+When you finish the getting started exercise, to avoid incurring unnecessary charges, follow the steps in [Cleaning up resources](gs-cleanup.md) to delete the resources you created\. 
 
-## Step 1: Import Training Data<a name="getting-started-console-import-dataset"></a>
+## Step 1: Import training data<a name="getting-started-console-import-dataset"></a>
 
 In this procedure, you first create a dataset group\. Next, you create an Amazon Personalize *user\-item interaction* dataset in the dataset group and a schema to match your training data\. Next, you import your training data into the dataset\.
 
 **To import training data**
 
-1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/](https://console.aws.amazon.com/personalize/) and sign in to your account\.
+1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign in to your account\.
 
 1. Choose **Create dataset group**\.
 
@@ -25,7 +25,7 @@ In this procedure, you first create a dataset group\. Next, you create an Amazon
 
 1. On the **Create user\-item interaction data** page, in **Dataset details**, for **Dataset name**, specify a name for your dataset\.
 
-1. In **Schema details**, for **Schema selection**, choose **Create new schema**\. A minimal Interactions schema is displayed in the **Schema definition** field\. The schema matches the headers you previously added to the `ratings.csv` file\. For more information see [Creating the Training Data](gs-prerequisites.md#gs-upload-to-bucket)\. 
+1. In **Schema details**, for **Schema selection**, choose **Create new schema**\. A minimal Interactions schema is displayed in the **Schema definition** field\. The schema matches the headers you previously added to the `ratings.csv` file\. For more information see [Creating the training data](gs-prerequisites.md#gs-upload-to-bucket)\. 
 
 1. For **New schema name**, specify a name for the new schema\.
 
@@ -38,7 +38,7 @@ In this procedure, you first create a dataset group\. Next, you create an Amazon
 
 1. For **IAM service role**, keep the default selection of **Enter a custom IAM role ARN**\.
 
-1. For **Custom IAM role ARN**, specify the role that you created in [Creating an IAM Role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
+1. For **Custom IAM role ARN**, specify the role that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
 
 1. In the informational dialog box named **Additional S3 bucket policy required**, follow the [instructions](data-prep-upload-s3.md) to add the required Amazon S3 bucket policy\.
 
@@ -60,7 +60,7 @@ The time it takes for the data to be imported depends on the size of the dataset
 
 1. After the import job has finished, choose the **Create solutions \- Start** button\. The **Create solution** page is displayed\.
 
-## Step 2: Create a Solution<a name="getting-started-console-create-solution"></a>
+## Step 2: Create a solution<a name="getting-started-console-create-solution"></a>
 
 In this procedure, you use the dataset that you imported in the previous step to train a model\. A trained model is referred to as a *solution version*\.
 
@@ -88,7 +88,7 @@ The time it takes to train a model depends on the size of the dataset and the ch
 
 1. After training has finished, in the navigation pane choose Dashboard and choose **Create new campaign**\. 
 
-## Step 3: Create a Campaign<a name="getting-started-console-deploy-solution"></a>
+## Step 3: Create a campaign<a name="getting-started-console-deploy-solution"></a>
 
 In this procedure, you create a campaign by deploying the solution version you created in the previous step\.
 
@@ -115,7 +115,7 @@ Creating a campaign takes time\.
    After the campaign is created, the page is updated to show the **Test campaign results** section\. Your screen should look similar to the following:  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-campaign-test-before-results.png)
 
-## Step 4: Get Recommendations<a name="getting-started-console-get-recommendations"></a>
+## Step 4: Get recommendations<a name="getting-started-console-get-recommendations"></a>
 
 In this procedure, use the campaign that you created in the previous step to get recommendations\.
 

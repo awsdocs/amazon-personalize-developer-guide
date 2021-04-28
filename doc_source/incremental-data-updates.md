@@ -1,20 +1,21 @@
-# Importing Records Incrementally<a name="incremental-data-updates"></a>
+# Importing records incrementally<a name="incremental-data-updates"></a>
 
- Once you have completed [Step 1: Creating a Dataset Group](data-prep-ds-group.md) and [Step 2: Creating a Dataset and a Schema](data-prep-creating-datasets.md), you can incrementally add one or more new items or users to an existing dataset\. 
+ After you have completed [Step 1: Creating a dataset group](data-prep-ds-group.md) and [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md), you can incrementally import one or more new records, including interaction *[events](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#event)*, users, or items, to an existing dataset\. Incrementally importing records allows you to import one or more records into your Amazon Personalize datasets as your catalog grows\. If you have a large amount of historical records, we recommend that you first import data in bulk and then import data incrementally as necessary\. See [Importing bulk records](bulk-data-import.md)\. 
 
-**Filter Updates for Incremental Record Imports**
+**Filter updates for incremental record imports**
 
-Amazon Personalize updates any filters you created in the dataset group with your new item and user data within 20 minutes from the last incremental import\. This update allows your campaigns to use your most recent data when filtering recommendations for your users\. 
+Amazon Personalize updates any filters you created in the dataset group with your new interaction, item, and user data within 20 minutes from the last incremental import\. This update allows your campaigns to use your most recent data when filtering recommendations for your users\. 
 
-**How New Records Influence Recommendations**
+**How new records influence recommendations**
 
-If you have already created a solution version \(trained a model\), new items and users influence recommendations as follows:
-+  For *new items*, if you trained the model using the User\-Personalization recipe, Amazon Personalize automatically updates the model every two hours, and after each update the new items influence recommendations\. See [User\-Personalization Recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
+If you have already created a solution version \(trained a model\), new records influence recommendations as follows:
++  For *new events*, Amazon Personalize automatically uses new historical and real\-time interaction events between a user and existing items \(items you included in the data you used to train the latest model\) when generating recommendations for the same user\. Historical events that you import using the Amazon Personalize console and events that you record in real\-time influence recommendations in the same way\. For more information, see [How real\-time events influence recommendations](recording-events.md#recorded-events-influence-recommendations)\. 
++ For *new items*, if you trained the model using the User\-Personalization recipe, Amazon Personalize automatically updates the model every two hours\. After each update, the new items influence recommendations\. See [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
 
-   For any other recipe, you must re\-train the model for the new items to influence recommendations\. 
-+  For *new users*, recommendations will initially be for popular items only\. As you record events for the user, recommendations will be more relevant\. For more information, see [Recording Events](recording-events.md)\. 
+   For any other recipe, you must retrain the model for the new items to influence recommendations\. 
++  For *new users*, recommendations will initially be for popular items only\. As you record events for the user, recommendations will become more relevant\. For more information, see [Recording events](recording-events.md)\. 
 
 **Topics**
-+ [Importing Interactions Incrementally](importing-interactions.md)
-+ [Importing Users Incrementally](importing-users.md)
-+ [Importing Items Incrementally](importing-items.md)
++ [Importing interactions incrementally](importing-interactions.md)
++ [Importing users incrementally](importing-users.md)
++ [Importing items incrementally](importing-items.md)

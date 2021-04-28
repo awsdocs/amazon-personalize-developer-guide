@@ -1,6 +1,6 @@
 # CreateBatchInferenceJob<a name="API_CreateBatchInferenceJob"></a>
 
-Creates a batch inference job\. The operation can handle up to 50 million records and the input file must be in JSON format\. For more information, see [Getting Batch Recommendations](recommendations-batch.md)\.
+Creates a batch inference job\. The operation can handle up to 50 million records and the input file must be in JSON format\. For more information, see [Getting batch recommendations](recommendations-batch.md)\.
 
 ## Request Syntax<a name="API_CreateBatchInferenceJob_RequestSyntax"></a>
 
@@ -41,7 +41,7 @@ Type: [BatchInferenceJobConfig](API_BatchInferenceJobConfig.md) object
 Required: No
 
  ** [filterArn](#API_CreateBatchInferenceJob_RequestSyntax) **   <a name="personalize-CreateBatchInferenceJob-request-filterArn"></a>
-The ARN of the filter to apply to the batch inference job\. For more information on using filters, see Using Filters with Amazon Personalize\.  
+The ARN of the filter to apply to the batch inference job\. For more information on using filters, see [Filtering Batch Recommendations](https://docs.aws.amazon.com/personalize/latest/dg/filter-batch.html)\.\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
@@ -70,7 +70,7 @@ Type: Integer
 Required: No
 
  ** [roleArn](#API_CreateBatchInferenceJob_RequestSyntax) **   <a name="personalize-CreateBatchInferenceJob-request-roleArn"></a>
-The ARN of the Amazon Identity and Access Management role that has permissions to read and write to your input and out Amazon S3 buckets respectively\.  
+The ARN of the Amazon Identity and Access Management role that has permissions to read and write to your input and output Amazon S3 buckets respectively\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+`   

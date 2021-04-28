@@ -1,4 +1,4 @@
-# Step 1: Choosing a Recipe<a name="working-with-predefined-recipes"></a>
+# Step 1: Choosing a recipe<a name="working-with-predefined-recipes"></a>
 
 Amazon Personalize provides recipes, based on common use cases, for training models\. A *recipe* is an Amazon Personalize term specifying an appropriate algorithm to train for a given use case\. With recipes, you can create a personalization system without prior machine learning experience\.
 
@@ -12,18 +12,18 @@ To optimize your model, you can override many of these parameters when you creat
 
 Choose a specific recipe based on what you want to accomplish and how familiar you are with the recipes\. Each recipe is designed for a specific use case\. When creating a solution, choose the recipe that best fits your needs\.  
 
-## Amazon Personalize Recipes<a name="recipe-categories"></a>
+## Amazon Personalize recipes<a name="recipe-categories"></a>
 
 Amazon Personalize provides three types of recipes\. Besides behavioral differences, each type has different requirements for getting recommendations, as shown in the following table\.
 
 
-| Recipe type | API | Requirements | Recipes | 
+| Recipe type | Recipes | API | Requirements | 
 | --- | --- | --- | --- | 
-| USER\_PERSONALIZATION | [GetRecommendations](API_RS_GetRecommendations.md) |  `userId`: Required `itemId`: Optional `inputList`: NA  |  [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) [Popularity\-Count](native-recipe-popularity.md)  [HRNN Recipe \(Legacy\)](native-recipe-hrnn.md) [HRNN\-Metadata Recipe \(Legacy\)](native-recipe-hrnn-metadata.md) [HRNN\-Coldstart Recipe \(Legacy\)](native-recipe-hrnn-coldstart.md)  | 
-| PERSONALIZED\_RANKING | [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) |  `userId`: Required `itemId`: NA `inputList`: list of itemId's  |  [Personalized\-Ranking](native-recipe-search.md)  | 
-| RELATED\_ITEMS | [GetRecommendations](API_RS_GetRecommendations.md) |  `userId`: Not used `itemId`: Required `inputList`: NA  |  [SIMS](native-recipe-sims.md)  | 
+| USER\_PERSONALIZATION |  [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) [Popularity\-Count](native-recipe-popularity.md)  [HRNN recipe \(legacy\)](native-recipe-hrnn.md) [HRNN\-Metadata recipe \(legacy\)](native-recipe-hrnn-metadata.md) [HRNN\-Coldstart recipe \(legacy\)](native-recipe-hrnn-coldstart.md)  | [GetRecommendations](API_RS_GetRecommendations.md) |  `userId`: Required `itemId`: Optional `inputList`: NA  | 
+| PERSONALIZED\_RANKING |  [Personalized\-Ranking](native-recipe-search.md)  | [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) |  `userId`: Required `itemId`: NA `inputList`: list of itemId's  | 
+| RELATED\_ITEMS |  [SIMS](native-recipe-sims.md)  | [GetRecommendations](API_RS_GetRecommendations.md) |  `userId`: Not used `itemId`: Required `inputList`: NA  | 
 
-## Viewing Available Amazon Personalize Recipes<a name="listing-recipes"></a>
+## Viewing available Amazon Personalize recipes<a name="listing-recipes"></a>
 
 To see a list of available recipes:
 + In the Amazon Personalize console, choose a dataset group\. From the navigation pane, choose **Solutions and recipes**, and choose the **Recipes** tab\. 

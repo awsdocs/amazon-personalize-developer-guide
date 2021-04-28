@@ -1,6 +1,6 @@
-# CloudWatch Metrics for Amazon Personalize<a name="cloudwatch-metrics"></a>
+# CloudWatch metrics for Amazon Personalize<a name="cloudwatch-metrics"></a>
 
-This section contains information about the Amazon CloudWatch metrics available for Amazon Personalize\. You can also see an aggregate view of Amazon Personalize metrics from the Amazon Personalize console\. For more information, see [Monitoring Amazon Personalize](personalize-monitoring.md)\.
+This section contains information about the Amazon CloudWatch metrics available for Amazon Personalize\. For more information, see [Monitoring Amazon Personalize](personalize-monitoring.md)\.
 
 The following table lists the Amazon Personalize metrics\. All metrics support these statistics: `Average, Minimum, Maximum, Sum`\.
 
@@ -25,4 +25,4 @@ The following table lists the Amazon Personalize metrics\. All metrics support t
 | PutEventsRequests |  The number of successful [PutEvents](API_UBS_PutEvents.md) API calls\. Dimension:` EventTrackerArn`  | 
 | PutEvents4xxErrors |  The number of `PutEvents` API calls that returned a 4xx HTTP response code\. Dimension: `EventTrackerArn`  | 
 | PutEvents5xxErrors |  The number of `PutEvents` API calls that returned a 5xx HTTP response code\. Dimension: `EventTrackerArn`  | 
-| PutEventsLatency |  The time taken for the completion of the `PutEvents` API call \(excludes 4xx and 5xx errors\)\. Dimension: `EventTrackerArn` Unit: Milliseconds  | 
+| PutEventLatency |  The time taken for the completion of the `PutEvents` API call \(excludes 4xx and 5xx errors\)\. Dimension: `EventTrackerArn` Unit: Milliseconds  | 

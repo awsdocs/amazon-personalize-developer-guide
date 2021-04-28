@@ -1,4 +1,4 @@
-# User\-Personalization Recipe<a name="native-recipe-new-item-USER_PERSONALIZATION"></a>
+# User\-Personalization recipe<a name="native-recipe-new-item-USER_PERSONALIZATION"></a>
 
 The User\-Personalization \(aws\-user\-personalization\) recipe is optimized for all personalized recommendation scenarios\. It predicts the items that a user will interact with based on Interactions, Items, and Users datasets\. When recommending items, it uses automatic item exploration\.
 
@@ -6,34 +6,43 @@ With automatic exploration, Amazon Personalize automatically tests different ite
 
 You can balance how much to explore \(where items with less interactions data or relevance are recommended more frequently\) against how much to exploit \(where recommendations are based on what we know or relevance\)\. Amazon Personalize automatically adjusts future recommendations based on implicit user feedback\.
 
-## Automatic Updates<a name="automatic-updates"></a>
+**Topics**
++ [Automatic updates](#automatic-updates)
++ [Working with impressions data](#working-with-impressions)
++ [Properties and hyperparameters](#bandit-hyperparameters)
++ [Training with the User\-Personalization recipe \(console\)](#training-user-personalization-recipe-console)
++ [Training with the User\-Personalization recipe \(Python SDK\)](#training-user-personalization-recipe)
++ [Getting recommendations and recording impressions \(Python SDK\)](#user-personalization-get-recommendations-recording-impressions)
++ [Sample Jupyter notebook](#bandits-sample-notebooks)
 
- With User\-Personalization, Amazon Personalize automatically updates the latest model \(solution version\) every two hours to include new data\. With each update, Amazon Personalize updates the solution version with the latest item information and adjusts the exploration according to implicit feedback from users\. This allows Amazon Personalize to gauge item quality based on new interactions for already explored items and continually update item exploration\.
+## Automatic updates<a name="automatic-updates"></a>
+
+ With User\-Personalization, Amazon Personalize automatically updates the latest model \(solution version\) every two hours behind the scenes to include new data without creating a new solution version\. With each update, Amazon Personalize updates the solution version with the latest item information and adjusts the exploration according to implicit feedback from users\. This allows Amazon Personalize to gauge item quality based on new interactions for already explored items and continually update item exploration\. 
 
 **Note**  
 There is no cost for automatic updates\.
 
-**Update Requirements**
+**Update requirements**
 
  Amazon Personalize automatically updates only the latest solution version trained with `trainingMode` set to `FULL` and only if you provide new item or interactions data since the last automatic update\. If you have trained a new solution version, Amazon Personalize will not automatically update older solution versions that you have deployed in a campaign\. Updates also do not occur if you have deleted your dataset\. 
 
 **Note**  
  Amazon Personalize automatically updates only solution versions you created on or after November 17, 2020\. 
 
-## Working with Impressions Data<a name="working-with-impressions"></a>
+## Working with impressions data<a name="working-with-impressions"></a>
 
  Unlike other recipes, which solely use positive interactions \(clicking, watching, or purchasing\), the User\-Personalization recipe can also use impressions data\. Impressions are lists of items that were visible to a user when they interacted with \(clicked, watched, purchased, and so on\) a particular item\. 
 
-Using this information, a solution trained with the User\-Personalization recipe can quickly infer the suitability of new items based on how frequently an item has been ignored, and change recommendations accordingly\. For more information see [Impressions Data](data-prep-formatting.md#data-prep-impressions-data)\. 
+Using this information, a solution created with the User\-Personalization recipe can calculate the suitability of new items based on how frequently an item has been ignored, and change recommendations accordingly\. For more information see [Impressions data](interactions-datasets.md#interactions-impressions-data)\. 
 
-## Properties and Hyperparameters<a name="bandit-hyperparameters"></a>
+## Properties and hyperparameters<a name="bandit-hyperparameters"></a>
 
 The User\-Personalization recipe has the following properties:
 +  **Name** – `aws-user-personalization`
 +  **Recipe Amazon Resource Name \(ARN\)** – `arn:aws:personalize:::recipe/aws-user-personalization`
 +  **Algorithm ARN** – `arn:aws:personalize:::algorithm/aws-user-personalization`
 
-For more information, see [Step 1: Choosing a Recipe](working-with-predefined-recipes.md)\.
+For more information, see [Step 1: Choosing a recipe](working-with-predefined-recipes.md)\.
 
 The following table describes the hyperparameters for the User\-Personalization recipe\. A *hyperparameter* is an algorithm parameter that you can adjust to improve model performance\. Algorithm hyperparameters control how the model performs\. Featurization hyperparameters control how to filter the data to use in training\. The process of choosing the best value for a hyperparameter is called hyperparameter optimization \(HPO\)\. For more information, see [Hyperparameters and HPO](customizing-solution-config-hpo.md)\. 
 
@@ -45,28 +54,28 @@ The table also provides the following information for each hyperparameter:
 
 | Name | Description | 
 | --- | --- | 
-| Algorithm Hyperparameters | 
+| Algorithm hyperparameters | 
 | hidden\_dimension |  The number of hidden variables used in the model\. *Hidden variables* recreate users' purchase history and item statistics to generate ranking scores\. Specify a greater number of hidden dimensions when your Interactions dataset includes more complicated patterns\. Using more hidden dimensions requires a larger dataset and more time to process\. To decide on the optimal value, use HPO\. To use HPO, set `performHPO` to `true` when you call [CreateSolution](API_CreateSolution.md) and [CreateSolutionVersion](API_CreateSolutionVersion.md) operations\. Default value: 149 Range: \[32, 256\] Value type: Integer HPO tunable: Yes  | 
 | bptt |  Determines whether to use the back\-propagation through time technique\. *Back\-propagation through time* is a technique that updates weights in recurrent neural network\-based algorithms\. Use `bptt` for long\-term credits to connect delayed rewards to early events\. For example, a delayed reward can be a purchase made after several clicks\. An early event can be an initial click\. Even within the same event types, such as a click, it’s a good idea to consider long\-term effects and maximize the total rewards\. To consider long\-term effects, use larger `bptt` values\. Using a larger `bptt` value requires larger datasets and more time to process\. Default value: 32 Range: \[2, 32\] Value type: Integer HPO tunable: Yes  | 
 | recency\_mask |  Determines whether the model should consider the latest popularity trends in the Interactions dataset\. Latest popularity trends might include sudden changes in the underlying patterns of interaction events\. To train a model that places more weight on recent events, set `recency_mask` to `true`\. To train a model that equally weighs all past interactions, set `recency_mask` to `false`\. To get good recommendations using an equal weight, you might need a larger training dataset\. Default value: `True` Range: `True` or `False` Value type: Boolean HPO tunable: Yes  | 
-| Featurization Hyperparameters | 
+| Featurization hyperparameters | 
 | min\_user\_history\_length\_percentile |  The minimum percentile of user history lengths to include in model training\. *History length* is the total amount of data about a user\. Use `min_user_history_length_percentile` to exclude a percentage of users with short history lengths\. Users with a short history often show patterns based on item popularity instead of the user's personal needs or wants\. Removing them can train models with more focus on underlying patterns in your data\. Choose an appropriate value after you review user history lengths, using a histogram or similar tool\. We recommend setting a value that retains the majority of users, but removes the edge cases\.  For example, setting `min_user_history_length_percentile to 0.05` and `max_user_history_length_percentile to 0.95` includes all users except those with history lengths at the bottom or top 5%\. Default value: 0\.0 Range: \[0\.0, 1\.0\] Value type: Float HPO tunable: No  | 
 | max\_user\_history\_length\_percentile |  The maximum percentile of user history lengths to include in model training\. *History length* is the total amount of data about a user\. Use `max_user_history_length_percentile` to exclude a percentage of users with long history lengths because data for these users tend to contain noise\. For example, a robot might have a long list of automated interactions\. Removing these users limits noise in training\. Choose an appropriate value after you review user history lengths using a histogram or similar tool\. We recommend setting a value that retains the majority of users but removes the edge cases\. For example, setting `min_user_history_length_percentile to 0.05` and `max_user_history_length_percentile to 0.95` includes all users except those with history lengths at the bottom or top 5%\. Default value: 0\.99 Range: \[0\.0, 1\.0\] Value type: Float HPO tunable: No  | 
-| Item Exploration Campaign Configuration Hyperparameters | 
+| Item exploration campaign configuration hyperparameters | 
 | exploration\_weight |  Determines how frequently recommendations include items with less interactions data or relevance\. The closer the value is to 1\.0, the more exploration\. At zero, no exploration occurs and recommendations are based on current data \(relevance\)\. For more information see [CampaignConfig](API_CampaignConfig.md)\. Default value: 0\.3 Range: \[0\.0, 1\.0\] Value type: Float HPO tunable: No  | 
 | exploration\_item\_age\_cut\_off |  Determines items to be explored based on time frame since latest interaction\. Provide the maximum item age, in days since the latest interaction, to define the scope of item exploration\. The larger the value, the more items are considered during exploration\. For more information see [CampaignConfig](API_CampaignConfig.md)\. Default value: 30\.0 Range: Positive floats Value type: Float HPO tunable: No  | 
 
-## Training with the User\-Personalization recipe \(Console\)<a name="training-user-personalization-recipe-console"></a>
+## Training with the User\-Personalization recipe \(console\)<a name="training-user-personalization-recipe-console"></a>
 
 To use the User\-Personalization recipe to generate recommendations in the console, first train a new solution version using the recipe\. Then deploy a campaign using the solution version and use the campaign to get recommendations\. 
 
 **Training a new solution version with the User\-Personalization recipe \(console\)**
 
-1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/](https://console.aws.amazon.com/personalize/) and sign into your account\. 
+1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign into your account\.
 
-1. Create a dataset group with a new schema and upload your dataset with impressions data\. Optionally include [CREATION\_TIMESTAMP](items-datasets.md#creation-timestamp-data) data in your Items dataset so Amazon Personalize can more accurately calculate the age of an item and identify cold items\. 
+1. Create a dataset group with a new schema and upload your dataset with impressions data\. Optionally include [CREATION\_TIMESTAMP]() data in your Items dataset so Amazon Personalize can more accurately calculate the age of an item and identify cold items\. 
 
-   For more information on creating dataset groups and uploading training data, see [Step 1: Import Training Data](getting-started-console.md#getting-started-console-import-dataset) in the Getting Started tutorial\.
+   For more information on importing data, see [Preparing and importing data](data-prep.md)\.
 
 1. On the **Dataset groups** page, choose the new dataset group that contains the dataset or datasets with impressions data\. 
 
@@ -76,15 +85,13 @@ To use the User\-Personalization recipe to generate recommendations in the conso
 
 1. For **Recipe**, choose **aws\-user\-personalization**\. The **Solution configuration** section appears providing several configuration options\. 
 
-1.  Specify the following: 
-   +  **Event type:** If your data has multiple event types, enter the event type, such as click or download, to use for training\. 
-   +  **Event value threshold:** Enter a value to define which events to use for training\. Only events with a value greater than or equal to this value will be used for training\. 
+1.  In **Solution configuration** optionally specify the following: 
+   +  **Event type:** If your data has multiple event types in an EVENT\_TYPE column, optionally enter an event type, such as click or download, to choose the events to train with based on type\. Amazon Personalize will use only events with this type when training a model\. If you don't provide an event type, Amazon Personalize trains the model with all interactions data regardless of type\. 
+   +  **Event value threshold:** If your Interactions dataset has an EVENT\_VALUE\_THRESHOLD column, enter a value to choose the events to train with based on value\. Amazon Personalize will use only events with a value greater than or equal to this value to train the model\. If you don't provide a value, Amazon Personalize trains the model with all interactions data regardless of value\. 
 
-   For example, suppose that your application rates user interest in videos based on the percentage of a video watched by the user, with values greater than 70 indicating high interest\. If you want to use only high\-interest events for training, for the **Event type** enter *watched* and for **Event value threshold** enter *70*\. Only videos with a *watched* value greater than *70* will be used for training\.
+    For more information see [Choosing the interactions data used for training](event-values-types.md)\. 
 
-   
-
-1. Optionally configure hyperparameters for your solution\. For a list of User\-Personalization recipe properties and hyperparameters, see [Properties and Hyperparameters](#bandit-hyperparameters)\. 
+1. Optionally configure hyperparameters for your solution\. For a list of User\-Personalization recipe properties and hyperparameters, see [Properties and hyperparameters](#bandit-hyperparameters)\. 
 
 1. Choose **Next**\. You can review your settings on the **Create solution version** page\.
 
@@ -114,17 +121,17 @@ Recommendations might include items without interactions data from outside this 
 
 1. Choose **Create campaign**\.
 
-1. On the campaign details page, when the campaign status is **Active**, you can use the campaign to get recommendations and record impressions\. For more information, see [Step 4: Get Recommendations](getting-started-console.md#getting-started-console-get-recommendations) in "Getting Started\." 
+1. On the campaign details page, when the campaign status is **Active**, you can use the campaign to get recommendations and record impressions\. For more information, see [Step 4: Get recommendations](getting-started-console.md#getting-started-console-get-recommendations) in "Getting Started\." 
 
-    Amazon Personalize automatically updates your latest solution version every two hours to include new data\. Your campaign automatically uses the updated solution version\. For more information see [Automatic Updates](#automatic-updates)\. 
+    Amazon Personalize automatically updates your latest solution version every two hours to include new data\. Your campaign automatically uses the updated solution version\. For more information see [Automatic updates](#automatic-updates)\. 
 
    To manually update the campaign, you first create and train a new solution version using the console or the [CreateSolutionVersion](API_CreateSolutionVersion.md) operation, with `trainingMode` set to `update`\. You then manually update the campaign on the **Campaign** page of the console or by using the [UpdateCampaign](API_UpdateCampaign.md) operation\. 
 **Note**  
  Amazon Personalize doesn't automatically update solution versions you created before November 17, 2020\. 
 
-## Training with the User\-Personalization Recipe \(Python SDK\)<a name="training-user-personalization-recipe"></a>
+## Training with the User\-Personalization recipe \(Python SDK\)<a name="training-user-personalization-recipe"></a>
 
-When you have created a dataset group and uploaded your dataset\(s\) with impressions data, you can train a solution with the User\-Personalization recipe\. Optionally include [CREATION\_TIMESTAMP](items-datasets.md#creation-timestamp-data) data in your dataset so Amazon Personalize can more accurately calculate the age of an item and identify cold start items\. For more information on creating dataset groups and uploading training data see [Datasets and Schemas](how-it-works-dataset-schema.md)\.
+When you have created a dataset group and uploaded your dataset\(s\) with impressions data, you can train a solution with the User\-Personalization recipe\. Optionally include [CREATION\_TIMESTAMP](items-datasets.md#creation-timestamp-data) data in your dataset so Amazon Personalize can more accurately calculate the age of an item and identify cold start items\. For more information on creating dataset groups and uploading training data see [Datasets and schemas](how-it-works-dataset-schema.md)\.
 
 **To train a solution with the User\-Personalization recipe using the AWS SDK**
 
@@ -146,7 +153,7 @@ When you have created a dataset group and uploaded your dataset\(s\) with impres
    print('solution_arn: ', solution_arn)
    ```
 
-   For a list of aws\-user\-personalization recipe properties and hyperparameters, see [Properties and Hyperparameters](#bandit-hyperparameters)\.
+   For a list of aws\-user\-personalization recipe properties and hyperparameters, see [Properties and hyperparameters](#bandit-hyperparameters)\.
 
 1. Create a new *solution version* with the updated training data and set `trainingMode` to `FULL` using the following code snippet\. Replace the `solution arn` with the ARN of your solution\.
 
@@ -185,15 +192,15 @@ When you have created a dataset group and uploaded your dataset\(s\) with impres
    print('campaign_arn:', campaign_arn)
    ```
 
-    With User\-Personalization, Amazon Personalize automatically updates your solution version every two hours to include new data\. Your campaign automatically uses the updated solution version\. For more information see [Automatic Updates](#automatic-updates)\. 
+    With User\-Personalization, Amazon Personalize automatically updates your solution version every two hours to include new data\. Your campaign automatically uses the updated solution version\. For more information see [Automatic updates](#automatic-updates)\. 
 
    To manually update the campaign, you first create and train a new solution version using the console or the [CreateSolutionVersion](API_CreateSolutionVersion.md) operation, with `trainingMode` set to `update`\. You then manually update the campaign on the **Campaign** page of the console or by using the [UpdateCampaign](API_UpdateCampaign.md) operation\.
 **Note**  
  Amazon Personalize doesn't automatically update solution versions you created before November 17, 2020\. 
 
-## Getting Recommendations and Recording Impressions \(Python SDK\)<a name="user-personalization-get-recommendations-recording-impressions"></a>
+## Getting recommendations and recording impressions \(Python SDK\)<a name="user-personalization-get-recommendations-recording-impressions"></a>
 
-When your campaign is created, you can use it to get recommendations for a user and record impressions\. For information on getting batch recommendations using the AWS SDK see [Getting Batch Recommendations \(AWS Python SDK\)](recommendations-batch.md#batch-sdk)\.
+When your campaign is created, you can use it to get recommendations for a user and record impressions\. For information on getting batch recommendations using the AWS SDK see [Creating a batch inference job \(AWS CLI and AWS SDKs\)](recommendations-batch.md#batch-sdk-cli)\.
 
 
 
@@ -243,6 +250,6 @@ When your campaign is created, you can use it to get recommendations for a user 
    )
    ```
 
-## Sample Jupyter Notebook<a name="bandits-sample-notebooks"></a>
+## Sample Jupyter notebook<a name="bandits-sample-notebooks"></a>
 
 For a sample Jupyter notebook that shows how to use the User\-Personalization recipe, see [User Personalization with Exploration](https://github.com/aws-samples/amazon-personalize-samples/blob/master/next_steps/core_use_cases/user_personalization/user-personalization-with-exploration.ipynb)\.

@@ -1,4 +1,4 @@
-# What Is Amazon Personalize?<a name="what-is-personalize"></a>
+# What is Amazon Personalize?<a name="what-is-personalize"></a>
 
 Amazon Personalize is a machine learning service that makes it easy for developers to add individualized recommendations to customers who use their applications\. It reflects the vast experience that Amazon has in building personalization systems\.
 
@@ -22,24 +22,24 @@ With Amazon Personalize you can train a solution for different use cases\. For e
 
 Recipes in Amazon Personalize allow you to create custom personalization models without needing machine learning expertise\. You can choose which recipe to use to train a solution version, or let Amazon Personalize decide on the best recipe to use for your data\. To help you decide which recipe to use, Amazon Personalize provides extensive metrics on the performance of a trained solution version\.
 
-## Are You a First\-Time Amazon Personalize User?<a name="first-time-user"></a>
+## Are you a first\-time Amazon Personalize user?<a name="first-time-user"></a>
 
 If you are a first\-time user of Amazon Personalize, we recommend that you read the following sections in order:
 
-1. **[How It Works](how-it-works.md)** – This section introduces various Amazon Personalize components that you work with to create an end\-to\-end experience\.
+1. **[How it works](how-it-works.md)** – This section introduces various Amazon Personalize components that you work with to create an end\-to\-end experience\.
 
-1. **[Getting Started](getting-started.md)** – In this section you set up your account, and test the Amazon Personalize Console and API\.
+1. **[Getting started](getting-started.md)** – In this section you set up your account, and test the Amazon Personalize Console and API\.
 
-1. **[Preparing and Importing Data](data-prep.md)** – This section describes how to prepare and import your training data into Amazon Personalize\.
+1. **[Preparing and importing data](data-prep.md)** – This section describes how to prepare and import your training data into Amazon Personalize\.
 
-1. **[Recording Events](recording-events.md)** – This section provides information about improving user recommendations by recording user events\.
+1. **[Recording events](recording-events.md)** – This section provides information about improving user recommendations by recording user events\.
 
-1. **[Creating a Solution](training-deploying-solutions.md)** – This section provides information about creating a solution version by training a model\.
+1. **[Creating a solution](training-deploying-solutions.md)** – This section provides information about creating a solution version by training a model\.
 
-1. **[Creating a Campaign](campaigns.md)** – This section provides information about deploying a solution version as a campaign\.
+1. **[Creating a campaign](campaigns.md)** – This section provides information about deploying a solution version as a campaign\.
 
-1. **[Getting Recommendations](getting-recommendations.md)** – This section shows how to get recommendations from a campaign\.
+1. **[Getting recommendations](getting-recommendations.md)** – This section shows how to get recommendations from a campaign\.
 
-## Are You an Experienced Amazon Personalize User?<a name="experienced-user"></a>
+## Are you an experienced Amazon Personalize user?<a name="experienced-user"></a>
 
 If you are an experienced Amazon Personalize user, you can find in\-depth tutorials and code samples in the [amazon\-personalize\-samples GitHub repository](https://github.com/aws-samples/amazon-personalize-samples)\.

@@ -66,7 +66,7 @@ Type: Array of [BatchInferenceJobSummary](API_BatchInferenceJobSummary.md) objec
 Array Members: Maximum number of 100 items\.
 
  ** [nextToken](#API_ListBatchInferenceJobs_ResponseSyntax) **   <a name="personalize-ListBatchInferenceJobs-response-nextToken"></a>
-The token to use to retreive the next page of results\. The value is `null` when there are no more results to return\.  
+The token to use to retrieve the next page of results\. The value is `null` when there are no more results to return\.  
 Type: String  
 Length Constraints: Maximum length of 1300\.
 

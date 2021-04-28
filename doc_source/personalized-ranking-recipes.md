@@ -1,4 +1,4 @@
-# PERSONALIZED\_RANKING Recipes<a name="personalized-ranking-recipes"></a>
+# PERSONALIZED\_RANKING recipes<a name="personalized-ranking-recipes"></a>
 
 The PERSONALIZED\_RANKING recipe, Personalized\-Ranking, provides recommendations in ranked order based on predicted interest level\.
 

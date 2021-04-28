@@ -1,8 +1,8 @@
-# Formatting Your Input Data<a name="data-prep-formatting"></a>
+# Formatting your input data<a name="data-prep-formatting"></a>
 
 The files that you use to import data into Amazon Personalize must map to the schema that you are using\.
 
-Amazon Personalize imports data only from files that are in the comma\-separated values \(CSV\) format\. Amazon Personalize requires the first row of your CSV file to contain column headers\. The column headers in your CSV file need to map to the schema to create the dataset\. Don't enclose headers in quotation marks \("\)\. `TIMESTAMP` and `CREATION_TIMESTAMP` data must be in *UNIX epoch* time format\. For more information see [Timestamp Data](#timestamp-data)\. 
+Amazon Personalize imports data only from files that are in the comma\-separated values \(CSV\) format\. Amazon Personalize requires the first row of your CSV file to contain column headers\. The column headers in your CSV file need to map to the schema to create the dataset\. Don't enclose headers in quotation marks \("\)\. `TIMESTAMP` and `CREATION_TIMESTAMP` data must be in *UNIX epoch* time format\. For more information see [Timestamp data](#timestamp-data)\. 
 
 **Important**  
 If your data includes any non\-ASCII encoded characters, your CSV file must be encoded in UTF\-8 format\.
@@ -56,21 +56,13 @@ The associated Interactions schema is repeated below\.
 
 Amazon Personalize requires the `USER_ID`, `ITEM_ID`, and `TIMESTAMP` fields\. `USER_ID` is the identifier for a user of your application\. `ITEM_ID` is the identifier for a movie\. `EVENT_TYPE` and `EVENT_VALUE` are the identifiers for user activities\. In the sample data, a `click` might represent a movie purchase event and `15` might be the purchase price of the movie\. `TIMESTAMP` represents the Unix epoch time that the movie purchase took place\.
 
-## Timestamp Data<a name="timestamp-data"></a>
+## Timestamp data<a name="timestamp-data"></a>
 
- Timestamp data, such as `TIMESTAMP` \(for Interactions datasets\) or `CREATION_TIMESTAMP` \(for Items datasets\) data, must be in Unix epoch time format in seconds\. For example, the Epoch timestamp in seconds for date July 31, 2020 is 1596238243\. To convert dates to Unix epoch timestamps use an [Epoch Converter \- Unix Timestamp Converter](https://www.epochconverter.com)\. 
+ Timestamp data, such as `TIMESTAMP` \(for Interactions datasets\) or `CREATION_TIMESTAMP` \(for Items datasets\) data, must be in Unix epoch time format in seconds\. For example, the Epoch timestamp in seconds for date July 31, 2020 is 1596238243\. To convert dates to Unix epoch timestamps use an [Epoch converter \- Unix timestamp converter](https://www.epochconverter.com)\. 
 
-## Impressions Data<a name="data-prep-impressions-data"></a>
+## Formatting explicit impressions<a name="data-prep-including-explicit-impressions"></a>
 
-Impressions are lists of items that were visible to a user when they interacted with \(for example, clicked or watched\) a particular item\. 
-
- Amazon Personalize can model two types of impressions: 
-+ *Implicit impressions* are the recommendations, retrieved from Amazon Personalize, that you show the user\. You can integrate them into your recommendation workflow by including the `RecommendationId` \(returned by the [GetRecommendations](API_RS_GetRecommendations.md) and [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) operations\) as input for future [PutEvents](API_UBS_PutEvents.md) requests and Amazon Personalize will derive the implicit impressions based on your recommendation data\.
-+ *Explicit impressions* are impressions that you manually record and send to Amazon Personalize\. Use explicit impressions to manipulate results from Amazon Personalize\. For example, use explicit impressions to filter out unavailable items and change the order of recommendations based on user interactions\.
-
-### Formatting Explicit Impressions<a name="data-prep-including-explicit-impressions"></a>
-
-Bulk impressions data is recorded in Interactions datasets, with each impression separated by a `|` character\.\. 
+If you use the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) recipe, you can record and upload impressions data\. Impressions are lists of items that were visible to a user when they interacted with \(for example, clicked or watched\) a particular item\. To upload impressions data in a bulk data import, you manually record each item ID, separating the values with a vertical bar, '\|', character as part of your historical interactions data\. For more information on impressions data, see [Impressions data](interactions-datasets.md#interactions-impressions-data)\. 
 
 The following is a short excerpt from an Interactions dataset that includes explicit impressions in the `IMPRESSION` column\.
 
@@ -83,7 +75,7 @@ The following is a short excerpt from an Interactions dataset that includes expl
 
 The application showed user `USER_1` items `73`, `70`, `17`, `95`, and `96` and the user ultimately chose item `73`\. When you create a new solution version based on this data, items `70`, `17`, `95`, and `96` will be less frequently recommended to user `USER_1`\.
 
-## Categorical Data<a name="data-prep-formatting-categorical"></a>
+## Categorical data<a name="data-prep-formatting-categorical"></a>
 
 To include multiple categories for a single item when you use categorical string data, separate the values using the vertical bar, '\|', character\. For example, to match the Items schema from the previous section using two categories, a data row would resemble the following:
 
@@ -92,4 +84,4 @@ ITEM_ID,GENRE
 item_123,horror|comedy
 ```
 
-After you format your data, upload it to an Amazon S3 bucket so you can import it into Amazon Personalize\. For more information, see [Uploading to an Amazon S3 Bucket](data-prep-upload-s3.md)\.
+After you format your data, upload it to an Amazon S3 bucket so you can import it into Amazon Personalize\. For more information, see [Uploading to an Amazon S3 bucket](data-prep-upload-s3.md)\.

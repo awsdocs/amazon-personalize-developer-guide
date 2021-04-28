@@ -1,16 +1,16 @@
-# How Amazon Personalize Works with IAM<a name="security_iam_service-with-iam"></a>
+# How Amazon Personalize works with IAM<a name="security_iam_service-with-iam"></a>
 
-Before you use IAM to manage access to Amazon Personalize, you should understand what IAM features are available to use with Amazon Personalize\. To get a high\-level view of how Amazon Personalize and other AWS services work with IAM, see [AWS Services That Work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*\.
+Before you use IAM to manage access to Amazon Personalize, you should understand what IAM features are available to use with Amazon Personalize\. To get a high\-level view of how Amazon Personalize and other AWS services work with IAM, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) in the *IAM User Guide*\.
 
 **Topics**
-+ [Amazon Personalize Identity\-Based Policies](#security_iam_service-with-iam-id-based-policies)
-+ [Amazon Personalize Resource\-Based Policies](#security_iam_service-with-iam-resource-based-policies)
-+ [Authorization Based on Amazon Personalize Tags](#security_iam_service-with-iam-tags)
-+ [Amazon Personalize IAM Roles](#security_iam_service-with-iam-roles)
++ [Amazon Personalize identity\-based policies](#security_iam_service-with-iam-id-based-policies)
++ [Amazon Personalize resource\-based policies](#security_iam_service-with-iam-resource-based-policies)
++ [Authorization based on Amazon Personalize tags](#security_iam_service-with-iam-tags)
++ [Amazon Personalize IAM roles](#security_iam_service-with-iam-roles)
 
-## Amazon Personalize Identity\-Based Policies<a name="security_iam_service-with-iam-id-based-policies"></a>
+## Amazon Personalize identity\-based policies<a name="security_iam_service-with-iam-id-based-policies"></a>
 
-With IAM identity\-based policies, you can specify allowed or denied actions and resources as well as the conditions under which actions are allowed or denied\. Amazon Personalize supports specific actions, resources, and condition keys\. To learn about all of the elements that you use in a JSON policy, see [IAM JSON Policy Elements Reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *IAM User Guide*\.
+With IAM identity\-based policies, you can specify allowed or denied actions and resources as well as the conditions under which actions are allowed or denied\. Amazon Personalize supports specific actions, resources, and condition keys\. To learn about all of the elements that you use in a JSON policy, see [IAM JSON policy elements reference](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html) in the *IAM User Guide*\.
 
 ### Actions<a name="security_iam_service-with-iam-id-based-policies-actions"></a>
 
@@ -60,7 +60,7 @@ An Amazon Personalize dataset resource has the following ARN\.
 arn:${Partition}:personalize:${Region}:${Account}:dataset/${dataset-name}
 ```
 
-For more information about the format of ARNs, see [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)\.
+For more information about the format of ARNs, see [Amazon Resource Names \(ARNs\) and AWS service namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html)\.
 
 For example, to specify the `MyDataset` dataset in your statement, use the following ARN\.
 
@@ -82,7 +82,7 @@ Some Amazon Personalize actions, such as those for creating resources, cannot be
 
 To see a list of Amazon Personalize resource types and their ARNs, see [Resources Defined by Amazon Personalize](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awskeymanagementservice.html#awskeymanagementservice-resources-for-iam-policies) in the *IAM User Guide*\. To learn about the actions you can use to specify the ARN of each resource, see [Actions Defined by Amazon Personalize](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awskeymanagementservice.html#awskeymanagementservice-actions-as-permissions)\.
 
-### Condition Keys<a name="security_iam_service-with-iam-id-based-policies-conditionkeys"></a>
+### Condition keys<a name="security_iam_service-with-iam-id-based-policies-conditionkeys"></a>
 
 Administrators can use AWS JSON policies to specify who has access to what\. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**\.
 
@@ -98,33 +98,33 @@ AWS supports global condition keys and service\-specific condition keys\. To see
 
 
 
-To view examples of Amazon Personalize identity\-based policies, see [Amazon Personalize Identity\-Based Policy Examples](security_iam_id-based-policy-examples.md)\.
+To view examples of Amazon Personalize identity\-based policies, see [Amazon Personalize identity\-based policy examples](security_iam_id-based-policy-examples.md)\.
 
-## Amazon Personalize Resource\-Based Policies<a name="security_iam_service-with-iam-resource-based-policies"></a>
+## Amazon Personalize resource\-based policies<a name="security_iam_service-with-iam-resource-based-policies"></a>
 
 Amazon Personalize does not support resource\-based policies\.
 
-## Authorization Based on Amazon Personalize Tags<a name="security_iam_service-with-iam-tags"></a>
+## Authorization based on Amazon Personalize tags<a name="security_iam_service-with-iam-tags"></a>
 
 Amazon Personalize does not support tagging resources or controlling access based on tags\.
 
-## Amazon Personalize IAM Roles<a name="security_iam_service-with-iam-roles"></a>
+## Amazon Personalize IAM roles<a name="security_iam_service-with-iam-roles"></a>
 
 An [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) is an entity within your AWS account that has specific permissions\.
 
-### Using Temporary Credentials with Amazon Personalize<a name="security_iam_service-with-iam-roles-tempcreds"></a>
+### Using temporary credentials with Amazon Personalize<a name="security_iam_service-with-iam-roles-tempcreds"></a>
 
 You can use temporary credentials to sign in with federation, assume an IAM role, or to assume a cross\-account role\. You obtain temporary security credentials by calling AWS Security Token Service \(AWS STS\) API operations such as [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) or [GetFederationToken](https://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html)\. 
 
 Amazon Personalize supports using temporary credentials\. 
 
-### Service\-Linked Roles<a name="security_iam_service-with-iam-roles-service-linked"></a>
+### Service\-linked roles<a name="security_iam_service-with-iam-roles-service-linked"></a>
 
 [Service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role) allow AWS services to access resources in other services to complete an action on your behalf\. Service\-linked roles appear in your IAM account and are owned by the service\. An IAM administrator can view but not edit the permissions for service\-linked roles\.
 
 Amazon Personalize does not support service\-linked roles\.
 
-### Service Roles<a name="security_iam_service-with-iam-roles-service"></a>
+### Service roles<a name="security_iam_service-with-iam-roles-service"></a>
 
 This feature allows a service to assume a [service role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-role) on your behalf\. This role allows the service to access resources in other services to complete an action on your behalf\. Service roles appear in your IAM account and are owned by the account\. This means that an IAM administrator can change the permissions for this role\. However, doing so might break the functionality of the service\.
 

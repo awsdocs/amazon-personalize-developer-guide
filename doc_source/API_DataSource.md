@@ -6,7 +6,7 @@ Describes the data source that contains the data to upload to a dataset\.
 
  **dataLocation**   <a name="personalize-Type-DataSource-dataLocation"></a>
 The path to the Amazon S3 bucket where the data that you want to upload to your dataset is stored\. For example:   
- `s3://bucket-name/training-data.csv`   
+ `s3://bucket-name/folder-name/`   
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Required: No

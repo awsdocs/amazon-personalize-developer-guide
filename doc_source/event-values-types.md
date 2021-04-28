@@ -1,18 +1,18 @@
-# Filtering Interactions Data Before Training<a name="event-values-types"></a>
+# Choosing the interactions data used for training<a name="event-values-types"></a>
 
-If your Interactions dataset includes data that you want to exclude for training, you can filter out the records before training\. Filtering interactions data before training a recommendation model allows you to use only a relevant subset of your data for training or remove noise to train a more optimized model\. For more information about Interactions datasets, see [Datasets and Schemas](how-it-works-dataset-schema.md) and [Interactions Dataset](interactions-datasets.md)\.
+You can choose the events in an Interactions dataset that Amazon Personalize uses when creating a solution version \(training a model\)\. Choosing interactions data before training allows you to use only a relevant subset of your data for training or remove noise to train a more optimized model\. For more information about Interactions datasets, see [Datasets and schemas](how-it-works-dataset-schema.md) and [Interactions dataset](interactions-datasets.md)\.
 
-You filter records from an Interactions dataset before training as follows:
-+ **Specify the type of event to use in training** – When you configure a Solution, if your Interactions dataset includes event types in an EVENT\_TYPE column, you can specify an event type to use in training\. For example, if your Interactions dataset includes *purchase*, *click*, and *watch* event types, and you want to filter out purchases and clicks before training, when you configure your Solution, you would provide *watch* as the event type Amazon Personalize uses in training\. 
+You can choose interactions data as follows:
++ **Choose records based on type** – When you configure a solution, if your Interactions dataset includes event types in an EVENT\_TYPE column, you can optionally specify an event type to use in training\. For example, if your Interactions dataset includes *purchase*, *click*, and *watch* event types, and you want Amazon Personalize to train the model with only *watch* events, when you configure your solution, you would provide *watch* as the `event type` that Amazon Personalize uses in training\. 
 
-   If your Interactions dataset has multiple event types in an EVENT\_TYPE column, and you do not provide an event type when you configure your Solution, Amazon Personalize uses all interactions data for training with equal weight regardless of type\. 
-+ **Set a threshold to exclude records based on event value ** – When you configure a Solution, if your Interactions dataset includes EVENT\_TYPE and EVENT\_VALUE fields, you can set a specific value as a threshold to exclude records from training\. For example, if your EVENT\_VALUE data for events with an EVENT\_TYPE of *watch* is the percentage of a video that a user watched, if you set the event value threshold to 0\.5, and the event type to *watch*, Amazon Personalize trains the model using only *watch* interaction events with an EVENT\_VALUE greater than or equal to 0\.5\. 
+   If your Interactions dataset has multiple event types in an EVENT\_TYPE column, and you do not provide an event type when you configure your solution, Amazon Personalize uses all interactions data for training with equal weight regardless of type\. 
++ **Choose records based on type and value ** – When you configure a solution, if your Interactions dataset includes EVENT\_TYPE and EVENT\_VALUE fields, you can set a specific value as a threshold to exclude records from training\. For example, if your EVENT\_VALUE data for events with an EVENT\_TYPE of *watch* is the percentage of a video that a user watched, if you set the event value threshold to 0\.5, and the event type to *watch*, Amazon Personalize trains the model using only *watch* interaction events with an EVENT\_VALUE greater than or equal to 0\.5\. 
 
-## Filtering Records by Event Value and Event Type \(AWS SDK\)<a name="event-values-types-example"></a>
+## Filtering records by event value and event type \(AWS SDK\)<a name="event-values-types-example"></a>
 
-In the following procedure, you use the AWS SDK for Python \(Boto3\) to create an Interaction schema that filters a training dataset\. You can use a Jupyter \(iPython\) notebook to accomplish the same task\. For more information, see [Getting Started Using Amazon Personalize APIs with Jupyter \(iPython\) Notebooks](getting-started-python.md#gs-jupyter-notebook)\.
+In the following procedure, you use the AWS SDK for Python \(Boto3\) to create an Interaction schema that filters a training dataset\. You can use a Jupyter \(iPython\) notebook to accomplish the same task\. For more information, see [Getting started using Amazon Personalize APIs with Jupyter \(iPython\) notebooks](getting-started-python.md#gs-jupyter-notebook)\.
 
-**Prerequisites: **Complete the prerequisites and verify that your Python environment is set up as described in [Getting Started \(AWS SDK for Python\)](getting-started-python.md)\.
+**Prerequisites: **Complete the prerequisites and verify that your Python environment is set up as described in [Getting started \(AWS SDK for Python\)](getting-started-python.md)\.
 
 **To filter records used in a training dataset by event value or event type**
 
@@ -69,11 +69,11 @@ In the following procedure, you use the AWS SDK for Python \(Boto3\) to create a
    print('Schema ARN:' + schema_arn )
    ```
 
-1. Format your input data to match your schema\. For a code sample, see [Formatting Your Input Data](data-prep-formatting.md)\.
+1. Format your input data to match your schema\. For a code sample, see [Formatting your input data](data-prep-formatting.md)\.
 
-1. Upload your data to an Amazon Simple Storage Service \(Amazon S3\) bucket\. For a code sample, see [Uploading to an Amazon S3 Bucket](data-prep-upload-s3.md)\.
+1. Upload your data to an Amazon Simple Storage Service \(Amazon S3\) bucket\. For a code sample, see [Uploading to an Amazon S3 bucket](data-prep-upload-s3.md)\.
 
-1. Import your data into Amazon Personalize with the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) API\. Be sure to record your dataset group Amazon Resource Name \(ARN\) because you will need it when you create the solution\. For a code sample, see [Importing Bulk Records \(AWS Python SDK\)](bulk-data-import-step.md#python-import-ex)\.
+1. Import your data into Amazon Personalize with the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) API\. Be sure to record your dataset group Amazon Resource Name \(ARN\) because you will need it when you create the solution\. For a code sample, see [Importing bulk records \(AWS Python SDK\)](bulk-data-import-step.md#python-import-ex)\.
 
 1. Get the ARN of the recipe that you want to use when you create your solution\. You'll need it when you create the solution\.
 
@@ -137,6 +137,6 @@ In the following procedure, you use the AWS SDK for Python \(Boto3\) to create a
    print('Solution version status: ' + solution_version_description['status'])
    ```
 
-Training is complete when the status is `ACTIVE`\. For more information, see [Creating a Solution](training-deploying-solutions.md)\.
+Training is complete when the status is `ACTIVE`\. For more information, see [Creating a solution](training-deploying-solutions.md)\.
 
-After you train a model, you should evaluate its performance\. To optimize your model, you might want to adjust the `eventValueThreshold` or other hyperparameters\. For more information, see [Step 4: Evaluating a Solution Version](working-with-training-metrics.md)\. 
+After you train a model, you should evaluate its performance\. To optimize your model, you might want to adjust the `eventValueThreshold` or other hyperparameters\. For more information, see [Step 4: Evaluating a solution version](working-with-training-metrics.md)\. 

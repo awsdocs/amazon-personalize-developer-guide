@@ -29,7 +29,7 @@ Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`
 Required: No
 
  **lastUpdatedDateTime**   <a name="personalize-Type-DatasetImportJobSummary-lastUpdatedDateTime"></a>
-The date and time \(in Unix time\) that the dataset was last updated\.  
+The date and time \(in Unix time\) that the dataset import job status was last updated\.  
 Type: Timestamp  
 Required: No
 

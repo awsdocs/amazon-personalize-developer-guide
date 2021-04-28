@@ -38,13 +38,13 @@ A condensed version of the `CreateSolution` request is below\. The example inclu
 }
 ```
 
-Different recipes use different hyperparameters\. For the available hyperparameters, see the individual recipes in [Step 1: Choosing a Recipe](working-with-predefined-recipes.md)\.
+Different recipes use different hyperparameters\. For the available hyperparameters, see the individual recipes in [Step 1: Choosing a recipe](working-with-predefined-recipes.md)\.
 
-## Enabling Hyperparameter Optimization<a name="hpo-tuning"></a>
+## Enabling hyperparameter optimization<a name="hpo-tuning"></a>
 
 Hyperparameter optimization \(HPO\), or tuning, is the task of choosing optimal hyperparameters for a specific learning objective\. The optimal hyperparameters are determined by running many training jobs using different values from the specified ranges of possibilities\. By default, Amazon Personalize does not perform HPO\. To use HPO, set `performHPO` to `true`, and include the `hpoConfig` object\.
 
-Hyperparameters can be categorical, continuous, or integer\-valued\. The `hpoConfig` object has keys that correspond to each of these types, where you specify the hyperparameters and their ranges\. Note that not all hyperparameters can be tuned \(see the recipe tables\)\. For more information about HPO, see [Automatic Model Tuning](https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning.html)\. 
+Hyperparameters can be categorical, continuous, or integer\-valued\. The `hpoConfig` object has keys that correspond to each of these types, where you specify the hyperparameters and their ranges\. Note that not all hyperparameters can be tuned \(see the recipe tables\)\. For more information about HPO, see [Automatic model tuning](https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning.html)\. 
 
 The following is a partial example of a `CreateSolution` request using the [HRNN](native-recipe-hrnn.md) recipe with HPO set to `true`\.
 
@@ -82,7 +82,7 @@ The following is a partial example of a `CreateSolution` request using the [HRNN
 }
 ```
 
-## Viewing Hyperparameters<a name="viewing-hyperparameters"></a>
+## Viewing hyperparameters<a name="viewing-hyperparameters"></a>
 
 Once training is complete, you can view the hyperparameters of the performing model by calling the [DescribeSolutionVersion](API_DescribeSolutionVersion.md) operation\. The following sample shows a condensed `DescribeSolutionVersion` output with the optimized hyperparameters displayed in the `tunedHPOParams` object\.
 

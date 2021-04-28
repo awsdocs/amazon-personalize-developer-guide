@@ -8,7 +8,7 @@ Represents user metadata added to a Users dataset using the `PutUsers` API\. For
 A string map of user\-specific metadata\. Each element in the map consists of a key\-value pair\. For example, `{"numberOfVideosWatched": "45"}`\.  
 The keys use camel case names that match the fields in the schema for the Users dataset\. In the previous example, the `numberOfVideosWatched` matches the 'NUMBER\_OF\_VIDEOS\_WATCHED' field defined in the Users schema\. For categorical string data, to include multiple categories for a single user, separate each category with a pipe separator \(`|`\)\. For example, `\"Member|Frequent shopper\"`\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 1024\.  
+Length Constraints: Minimum length of 1\. Maximum length of 4096\.  
 Required: No
 
  **userId**   <a name="personalize-Type-UBS_User-userId"></a>

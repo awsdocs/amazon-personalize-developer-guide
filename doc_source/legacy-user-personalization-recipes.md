@@ -1,14 +1,14 @@
-# Legacy User Personalization Recipes<a name="legacy-user-personalization-recipes"></a>
+# Legacy user personalization recipes<a name="legacy-user-personalization-recipes"></a>
 
 **Note**  
- We recommend using the aws\-user\-personalizaton \(User\-Personalization\) recipe over the legacy HRNN recipes\. User\-Personalization improves upon and unifies the functionality offered by the HRNN recipes\. For more information, see [User\-Personalization Recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
+ We recommend using the aws\-user\-personalizaton \(User\-Personalization\) recipe over the legacy HRNN recipes\. User\-Personalization improves upon and unifies the functionality offered by the HRNN recipes\. For more information, see [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
 
 The following are legacy USER\_PERSONALIZATION recipes\.
-+ [HRNN Recipe \(Legacy\)](native-recipe-hrnn.md)
-+ [HRNN\-Coldstart Recipe \(Legacy\)](native-recipe-hrnn-coldstart.md)
-+ [HRNN\-Metadata Recipe \(Legacy\)](native-recipe-hrnn-metadata.md)
++ [HRNN recipe \(legacy\)](native-recipe-hrnn.md)
++ [HRNN\-Coldstart recipe \(legacy\)](native-recipe-hrnn-coldstart.md)
++ [HRNN\-Metadata recipe \(legacy\)](native-recipe-hrnn-metadata.md)
 
-## Using AutoML to Choose an HRNN Recipe \(API Only\)<a name="training-solution-auto-ml"></a>
+## Using AutoML to choose an HRNN recipe \(API only\)<a name="training-solution-auto-ml"></a>
 
 Amazon Personalize can automatically choose the most appropriate hierarchical recurrent neural network \(HRNN\) recipe based on its analysis of the input data\. This option is called AutoML\. To perform AutoML, set the `performAutoML` parameter to `true` when you call the [CreateSolution](API_CreateSolution.md) API\. 
 

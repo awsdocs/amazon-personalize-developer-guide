@@ -1,8 +1,12 @@
-# Step 4: Evaluating a Solution Version<a name="working-with-training-metrics"></a>
+# Step 4: Evaluating a solution version<a name="working-with-training-metrics"></a>
 
- When you create a solution version, Amazon Personalize generates metrics that you can use to evaluate the performance of the model before you create a campaign and provide recommendations\. Metrics allow you to view the effects of modifying a solution's hyperparameters\. You can also use metrics to compare the results between solutions that use the same training data but were created with different recipes\.
+ You can evaluate the performance of your solution version through offline and online metrics\. *Online metrics* are the empirical results you observe in your users' interactions with real\-time recommendations\. For example, you might record your users' click\-through rate as they browse your catalog\. You are responsible for generating and recording any online metrics\. 
 
-To get performance metrics, Amazon Personalize splits the input interactions data by randomly selecting 90% of users and their related interactions as training data and the other 10% as testing data\. The solution version is then created using the training data\. Afterwards, the solution version is given the oldest 90% of each user's testing data as input, and the recommendations it generates are compared against the real interactions given by the most recent 10% of testing data\.
+ *Offline metrics* are the metrics Amazon Personalize generates when you train a solution version\. You can use offline metrics to evaluate the performance of the model before you create a campaign and provide recommendations\. Offline metrics allow you to view the effects of modifying a solution's hyperparameters or compare results from solutions that use the same training data but use different recipes\. For the rest of this section, the term metrics refers to *offline metrics*\.
+
+ To get performance metrics, Amazon Personalize splits the input interactions data into two sets: a training set and a testing set\. The training set consists of 90% of your users and their interactions data\. The testing set consists of the remaining 10% of users and their interactions data\. Amazon Personalize then creates the solution version using the training set\. 
+
+ When training completes, Amazon Personalize gives the solution version the oldest 90% of each user’s data from the testing set as input\. Amazon Personalize then calculates metrics by comparing the recommendations the solution version generates to the actual interactions in the newest 10% of each user’s data from the testing set\. 
 
 To generate a baseline for comparison purposes, we recommend using the [Popularity\-Count](native-recipe-popularity.md) recipe, which recommends the top K most popular items\.
 
@@ -15,7 +19,7 @@ You retrieve the metrics for a specific solution version by calling the [GetSolu
 
 **Retrieve metrics using the AWS Python SDK**
 
-1. Create a solution version\. For more information, see [Creating a Solution](training-deploying-solutions.md)\.
+1. Create a solution version\. For more information, see [Creating a solution](training-deploying-solutions.md)\.
 
 1. Use the following code to retrieve metrics\.
 
@@ -87,8 +91,4 @@ Result: 0\.6241
 Calculation: 2/5  
 Result: 0\.4000
 
-Now that you have evaluated your solution version, create a campaign by deploying the optimum solution version\. For more information, see [Creating a Campaign](campaigns.md)\.
-
-## More Info<a name="metrics-see-also"></a>
-
-For a sample Jupyter notebook that shows you how to retrieve metrics based on hold\-out data, see [Personalize with temporal evaluation on hold\-out set](https://github.com/aws-samples/amazon-personalize-samples/blob/master/next_steps/core_use_cases/user_personalization/personalize_hrnn_metadata_example.ipynb)\.
+Now that you have evaluated your solution version, create a campaign by deploying the optimum solution version\. For more information, see [Creating a campaign](campaigns.md)\.

@@ -1,23 +1,26 @@
-# Importing Bulk Records with a Dataset Import Job<a name="bulk-data-import-step"></a>
+# Importing bulk records with a dataset import job<a name="bulk-data-import-step"></a>
 
-After you have formatted your input data \(see [Formatting Your Input Data](data-prep-formatting.md)\) and uploaded it to an Amazon Simple Storage Service \(Amazon S3\) bucket \(see [Uploading to an Amazon S3 Bucket](data-prep-upload-s3.md)\), import the bulk records by creating a dataset import job\. 
+**Important**  
+Bulk imports in Amazon Personalize are a full refresh of bulk data\. Existing bulk data in the dataset is replaced\. This does not include records imported incrementally\.
+
+After you have formatted your input data \(see [Formatting your input data](data-prep-formatting.md)\) and uploaded it to an Amazon Simple Storage Service \(Amazon S3\) bucket \(see [Uploading to an Amazon S3 bucket](data-prep-upload-s3.md)\), import the bulk records by creating a dataset import job\. 
 
 A *dataset import job* is a bulk import tool that populates your dataset with data from your S3 bucket\. You create a dataset import job and import bulk records using the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\), or AWS SDK\.
 
 **Topics**
-+ [Importing Bulk Records \(Console\)](#bulk-data-import-console)
-+ [Importing Bulk Records \(AWS CLI\)](#bulk-data-import-cli)
-+ [Importing Bulk Records \(AWS Python SDK\)](#python-import-ex)
++ [Importing bulk records \(console\)](#bulk-data-import-console)
++ [Importing bulk records \(AWS CLI\)](#bulk-data-import-cli)
++ [Importing bulk records \(AWS Python SDK\)](#python-import-ex)
 
-## Importing Bulk Records \(Console\)<a name="bulk-data-import-console"></a>
+## Importing bulk records \(console\)<a name="bulk-data-import-console"></a>
 
  To import bulk records into a dataset in Amazon Personalize using the console, create a dataset import job with a name, the IAM service role, and the location of your data\. 
 
 **To import bulk records \(console\)**
 **Note**  
-If you just created your dataset in [Step 2: Creating a Dataset and a Schema](data-prep-creating-datasets.md), skip to step 5\.
+If you just created your dataset in [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md), skip to step 5\.
 
-1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/](https://console.aws.amazon.com/personalize/) and sign in to your account\.
+1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign in to your account\.
 
 1.  On the **Dataset groups** page, choose your dataset group\. The dataset group **Dashboard** is displayed\. 
 
@@ -31,7 +34,7 @@ If you just created your dataset in [Step 2: Creating a Dataset and a Schema](da
 
 1. For **IAM service role**, keep the default selection of **Enter a custom IAM role ARN**\.
 
-1. For **Custom IAM role ARN**, specify the role that you created in [Creating an IAM Role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
+1. For **Custom IAM role ARN**, specify the role that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
 
 1. For **Data location**, specify where your data file is stored in Amazon S3\. Use the following syntax:
 
@@ -43,15 +46,15 @@ If your CSV files are in a folder in your S3 bucket and you want to upload multi
 
    The dataset import is complete when the status shows as ACTIVE\. You can now train the model using the specified dataset\.
 
-   After you import your data into the relevant datasets in the dataset group, create a solution version by training a model\. For more information, see [Creating a Solution](training-deploying-solutions.md)\. 
+   After you import your data into the relevant datasets in the dataset group, create a solution version by training a model\. For more information, see [Creating a solution](training-deploying-solutions.md)\. 
 
-## Importing Bulk Records \(AWS CLI\)<a name="bulk-data-import-cli"></a>
+## Importing bulk records \(AWS CLI\)<a name="bulk-data-import-cli"></a>
 
  To import bulk records using the AWS CLI, create a dataset import job using the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) command\. 
 
-**To import bulk records \(AWS CLI**
+**Import bulk records \(AWS CLI\)**
 
-1. Create a dataset import job by running the following command\. Provide the dataset Amazon Resource Name \(ARN\) from [Step 2: Creating a Dataset and a Schema](data-prep-creating-datasets.md) and your S3 bucket name\. Supply the AWS Identity and Access Management \(IAM\) role Amazon Resource Name \(ARN\) that you created in [Creating an IAM Role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. For more information about the operation, see [CreateDatasetImportJob](API_CreateDatasetImportJob.md)\.
+1. Create a dataset import job by running the following command\. Provide the dataset Amazon Resource Name \(ARN\) from [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md) and your S3 bucket name\. Supply the AWS Identity and Access Management \(IAM\) role Amazon Resource Name \(ARN\) that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. For more information about the operation, see [CreateDatasetImportJob](API_CreateDatasetImportJob.md)\.
 
    ```
    aws personalize create-dataset-import-job \
@@ -97,15 +100,15 @@ If your CSV files are in a folder in your S3 bucket and you want to upload multi
 
    The dataset import is complete when the status shows as ACTIVE\. You can now train the model using the specified dataset\.
 
-   After you import your data into the relevant datasets in the dataset group, create a solution version by training a model\. For more information, see [Creating a Solution](training-deploying-solutions.md)\.
+   After you import your data into the relevant datasets in the dataset group, create a solution version by training a model\. For more information, see [Creating a solution](training-deploying-solutions.md)\.
 
-## Importing Bulk Records \(AWS Python SDK\)<a name="python-import-ex"></a>
+## Importing bulk records \(AWS Python SDK\)<a name="python-import-ex"></a>
 
 To add data to your dataset, create and run a dataset import job using the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) operation\. Specify the `datasetGroupArn` and set the `dataLocation` to the `bucket-name/file.csv` where you stored the training data\. 
 
 If your CSV files are in a folder in a S3 bucket, you can upload multiple CSV files to a dataset in one dataset import job\. For `dataLocation`, specify the `bucket-name/folder-name/` instead of the file name\.
 
-For the `roleArn`, see [Creating an IAM Role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. The `roleArn` parameter specifies the AWS Identity and Access Management \(IAM\) role that gives Amazon Personalize permissions to access your S3 bucket\. 
+For the `roleArn`, see [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. The `roleArn` parameter specifies the AWS Identity and Access Management \(IAM\) role that gives Amazon Personalize permissions to access your S3 bucket\. 
 
 ```
 import boto3
@@ -137,4 +140,4 @@ You must wait until the status changes to ACTIVE before you can use the data to 
 
 Amazon Personalize provides operations for managing datasets, dataset groups, and dataset import jobs\. For example, you can use [ListDatasets](API_ListDatasets.md) to list the datasets in a dataset group and [DeleteDataset](API_DeleteDataset.md) to delete a dataset\.
 
-After you import your data into the relevant datasets in the dataset group, create a solution version by training a model\. For more information, see [Creating a Solution](training-deploying-solutions.md)\.
+After you import your data into the relevant datasets in the dataset group, create a solution version by training a model\. For more information, see [Creating a solution](training-deploying-solutions.md)\.

@@ -14,7 +14,7 @@ Required: Yes
 A string map of item\-specific metadata\. Each element in the map consists of a key\-value pair\. For example, `{"numberOfRatings": "12"}`\.  
 The keys use camel case names that match the fields in the schema for the Items dataset\. In the previous example, the `numberOfRatings` matches the 'NUMBER\_OF\_RATINGS' field defined in the Items schema\. For categorical string data, to include multiple categories for a single item, separate each category with a pipe separator \(`|`\)\. For example, `\"Horror|Action\"`\.  
 Type: String  
-Length Constraints: Minimum length of 1\. Maximum length of 1024\.  
+Length Constraints: Minimum length of 1\. Maximum length of 4096\.  
 Required: No
 
 ## See Also<a name="API_UBS_Item_SeeAlso"></a>

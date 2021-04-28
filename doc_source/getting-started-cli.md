@@ -1,17 +1,17 @@
-# Getting Started \(AWS CLI\)<a name="getting-started-cli"></a>
+# Getting started \(AWS CLI\)<a name="getting-started-cli"></a>
 
 In this exercise, you use the AWS Command Line Interface \(AWS CLI\) to explore Amazon Personalize\. You create a campaign that returns movie recommendations for a given user ID\.
 
 Before you start this exercise, do the following:
-+ Review the Getting Started [Getting Started Prerequisites](gs-prerequisites.md)\.
-+ Set up the AWS CLI, as specified in [Setting Up the AWS CLI](aws-personalize-set-up-aws-cli.md)\.
++ Review the Getting Started [Getting started prerequisites](gs-prerequisites.md)\.
++ Set up the AWS CLI, as specified in [Setting up the AWS CLI](aws-personalize-set-up-aws-cli.md)\.
 
-When you finish the getting started exercise, to avoid incurring unnecessary charges, follow the steps in [Cleaning Up Resources](gs-cleanup.md) to delete the resources you created\.
+When you finish the getting started exercise, to avoid incurring unnecessary charges, follow the steps in [Cleaning up resources](gs-cleanup.md) to delete the resources you created\.
 
 **Note**  
-The CLI commands in this exercise were tested on Linux\. For information about using the CLI commands on Windows, see [Specifying Parameter Values for the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html) in the *AWS Command Line Interface User Guide*\.
+The CLI commands in this exercise were tested on Linux\. For information about using the CLI commands on Windows, see [Specifying parameter values for the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html) in the *AWS Command Line Interface User Guide*\.
 
-## Step 1: Import Training Data<a name="gs-create-ds"></a>
+## Step 1: Import training data<a name="gs-create-ds"></a>
 
 Follow the steps to create a dataset group, add a dataset to the group, and then populate the dataset using the movie ratings data\.
 
@@ -60,7 +60,7 @@ Wait until the dataset group's `status` shows as ACTIVE before creating a datase
 **Note**  
 The `describe-object` and `list-objects` commands are available for most Amazon Personalize objects\. These commands are not shown in the remainder of this exercise but they are available\.
 
-1. Create a schema file in JSON format by saving the following code to a file named `MovieRatingSchema.json`\. The schema matches the headers you previously added to `ratings.csv`\. The schema name is `Interactions`, which matches one of the three types of datasets recognized by Amazon Personalize\. For more information, see [Datasets and Schemas](how-it-works-dataset-schema.md)\.
+1. Create a schema file in JSON format by saving the following code to a file named `MovieRatingSchema.json`\. The schema matches the headers you previously added to `ratings.csv`\. The schema name is `Interactions`, which matches one of the three types of datasets recognized by Amazon Personalize\. For more information, see [Datasets and schemas](how-it-works-dataset-schema.md)\.
 
    ```
    {
@@ -121,7 +121,7 @@ The `describe-object` and `list-objects` commands are available for most Amazon 
 
 1. Add the training data to the dataset\.
 
-   1. Create a dataset import job by running the following command\. Provide the dataset ARN and Amazon S3 bucket name that were returned in the previous steps\. Supply the AWS Identity and Access Management \(IAM\) role ARN you created in [Creating an IAM Role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. For more information about the API, see [CreateDatasetImportJob](API_CreateDatasetImportJob.md)\.
+   1. Create a dataset import job by running the following command\. Provide the dataset ARN and Amazon S3 bucket name that were returned in the previous steps\. Supply the AWS Identity and Access Management \(IAM\) role ARN you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. For more information about the API, see [CreateDatasetImportJob](API_CreateDatasetImportJob.md)\.
 
       ```
       aws personalize create-dataset-import-job \
@@ -169,11 +169,11 @@ The `describe-object` and `list-objects` commands are available for most Amazon 
 **Note**  
 Importing takes time\. Wait until the dataset import is complete before training the model using the dataset\.
 
-## Step 2: Create a Solution \(Train the Model\)<a name="gs-create-solution"></a>
+## Step 2: Create a solution \(train the model\)<a name="gs-create-solution"></a>
 
 Two steps are required to initially train a model\. First, you create the configuration for training the model using the [CreateSolution](API_CreateSolution.md) operation\. Second, you train the model using the [CreateSolutionVersion](API_CreateSolutionVersion.md) operation\.
 
-You train a model using a recipe and your training data\. Amazon Personalize provides a set of predefined recipes\. For more information, see [Step 1: Choosing a Recipe](working-with-predefined-recipes.md)\. For this exercise, you use AutoML, which allows Amazon Personalize to pick the best recipe based on the dataset you created in the preceding step\.
+You train a model using a recipe and your training data\. Amazon Personalize provides a set of predefined recipes\. For more information, see [Step 1: Choosing a recipe](working-with-predefined-recipes.md)\. For this exercise, you use AutoML, which allows Amazon Personalize to pick the best recipe based on the dataset you created in the preceding step\.
 
 1. Create the configuration for training a model by running the following command\.
 
@@ -315,7 +315,7 @@ Training takes time\. Wait until training is complete \(the *training* status of
    }
    ```
 
-## Step 3: Create a Campaign \(Deploy the Solution\)<a name="gs-create-campaign"></a>
+## Step 3: Create a campaign \(deploy the solution\)<a name="gs-create-campaign"></a>
 
 Before you can get recommendations, you must deploy a version of the solution\. Deploying a solution is also known as creating a campaign\. Once you've created your campaign, your client application can get recommendations using the [GetRecommendations](API_RS_GetRecommendations.md) API\.
 
@@ -361,12 +361,12 @@ Before you can get recommendations, you must deploy a version of the solution\. 
 **Note**  
 Wait until the `status` shows as ACTIVE before getting recommendations from the campaign\.
 
-## Step 4: Get Recommendations<a name="gs-test"></a>
+## Step 4: Get recommendations<a name="gs-test"></a>
 
 Get recommendations by running the `get-recommendations` command\. Provide the campaign ARN that was returned in the previous step\. In the request, you specify a user ID from the movie ratings dataset\. For more information about the API, see [GetRecommendations](API_RS_GetRecommendations.md)\.
 
 **Note**  
-Not all recipes support the `GetRecommendations` API\. For more information, see [Step 1: Choosing a Recipe](working-with-predefined-recipes.md)\.  
+Not all recipes support the `GetRecommendations` API\. For more information, see [Step 1: Choosing a recipe](working-with-predefined-recipes.md)\.  
 The AWS CLI command you call in this step, `personalize-runtime`, is different than in previous steps\.
 
 ```

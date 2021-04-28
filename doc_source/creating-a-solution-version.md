@@ -1,25 +1,25 @@
-# Step 3: Creating a Solution Version<a name="creating-a-solution-version"></a>
+# Step 3: Creating a solution version<a name="creating-a-solution-version"></a>
 
-Once you have completed [Step 1: Choosing a Recipe](working-with-predefined-recipes.md) and [Step 2: Configuring a Solution](customizing-solution-config.md), you are ready to create a Solution Version\. 
+Once you have completed [Step 1: Choosing a recipe](working-with-predefined-recipes.md) and [Step 2: Configuring a solution](customizing-solution-config.md), you are ready to create a Solution Version\. 
 
  A *Solution Version* refers to a trained machine learning model you can deploy to get recommendations for customers\. You can create a solution version using the console, AWS Command Line Interface \(AWS CLI\), or AWS SDK\. 
 
 **Topics**
-+ [Creating a Solution Version \(Console\)](#create-solution-version-console)
-+ [Creating a Solution Version \(AWS CLI\)](#create-solution-version-cli)
-+ [Creating a Solution Version \(AWS Python SDK\)](#create-solution-version-sdk)
++ [Creating a solution version \(console\)](#create-solution-version-console)
++ [Creating a solution version \(AWS CLI\)](#create-solution-version-cli)
++ [Creating a solution version \(AWS Python SDK\)](#create-solution-version-sdk)
 
-## Creating a Solution Version \(Console\)<a name="create-solution-version-console"></a>
+## Creating a solution version \(console\)<a name="create-solution-version-console"></a>
 
-If you just completed [Step 2: Configuring a Solution](customizing-solution-config.md) and the **Create solution version** is displayed, choose **FINISH** to create a solution version\.
+If you just completed [Step 2: Configuring a solution](customizing-solution-config.md) and the **Create solution version** is displayed, choose **FINISH** to create a solution version\.
 
-On the solution details page, you can track training progress in the **Solution versions** section\. When training is complete, the status is **Active** and you are ready to deploy a campaign and get recommendations\. See step 3 in the [Getting Started \(Console\)](getting-started-console.md) tutorial\.
+On the solution details page, you can track training progress in the **Solution versions** section\. When training is complete, the status is **Active** and you are ready to deploy a campaign and get recommendations\. See step 3 in the [Getting started \(console\)](getting-started-console.md) tutorial\.
 
 If you navigated away from the **Create solution version** page or want to create an additional solution version for an existing solution, create a new solution version from the solution overview page as follows\.
 
 **Create a new solution version**
 
-1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/](https://console.aws.amazon.com/personalize/) and sign into your account\. 
+1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign into your account\. 
 
 1. Navigate to the dataset groups page and choose the dataset group with your new solution\.
 
@@ -29,11 +29,11 @@ If you navigated away from the **Create solution version** page or want to creat
 
 1. Choose **Create solution version** to start training a new model\.
 
-   On the solution details page, you can track training progress in the **Solution versions** section\. When training is complete, the status is **Active** and you are ready to deploy a campaign and get recommendations\. See step 3 in the [Getting Started \(Console\)](getting-started-console.md) tutorial\.
+   On the solution details page, you can track training progress in the **Solution versions** section\. When training is complete, the status is **Active** and you are ready to deploy a campaign and get recommendations \(see [Creating a campaign](campaigns.md)\. If training does not complete because of an error, you are not charged for the training\.
 
-## Creating a Solution Version \(AWS CLI\)<a name="create-solution-version-cli"></a>
+## Creating a solution version \(AWS CLI\)<a name="create-solution-version-cli"></a>
 
-When your solution is ACTIVE, train the model by running the following command\. Replace `solution arn` with the solution Amazon Resource Name \(ARN\) from [Step 2: Configuring a Solution](customizing-solution-config.md)\.
+When your solution is ACTIVE, train the model by running the following command\. Replace `solution arn` with the solution Amazon Resource Name \(ARN\) from [Step 2: Configuring a solution](customizing-solution-config.md)\.
 
 ```
 aws personalize create-solution-version \
@@ -67,13 +67,13 @@ The properties of the solution version and the training `status` are displayed\.
 }
 ```
 
-Training is complete when the `status` is `ACTIVE`\.
+Training is complete when the `status` is `ACTIVE`\. If training does not complete because of an error, you are not charged for the training\.
 
-Now that you have created a solution version, evaluate it using metrics supplied by Amazon Personalize\. For more information, see [Step 4: Evaluating a Solution Version](working-with-training-metrics.md)\.
+Now that you have created a solution version, evaluate it using metrics supplied by Amazon Personalize\. For more information, see [Step 4: Evaluating a solution version](working-with-training-metrics.md)\.
 
-## Creating a Solution Version \(AWS Python SDK\)<a name="create-solution-version-sdk"></a>
+## Creating a solution version \(AWS Python SDK\)<a name="create-solution-version-sdk"></a>
 
- When your solution is ACTIVE, Create a solution version using the `create_solution` method\. Replace the `solution arn` with the Amazon Resource Name \(ARN\) of the solution from [Step 2: Configuring a Solution](customizing-solution-config.md)\. 
+ When your solution is ACTIVE, Create a solution version using the `create_solution` method\. Replace the `solution arn` with the Amazon Resource Name \(ARN\) of the solution from [Step 2: Configuring a solution](customizing-solution-config.md)\. 
 
 ```
 import boto3
@@ -98,6 +98,6 @@ solution_version_description = personalize.describe_solution_version(
 print('Solution version status: ' + solution_version_description['status'])
 ```
 
-To check the current solution version status, call the [DescribeSolutionVersion](API_DescribeSolutionVersion.md) operation and pass the ARN of the solution version returned from the `CreateSolutionVersion` operation\. Training is complete when the `status` is `ACTIVE`\.
+To check the current solution version status, call the [DescribeSolutionVersion](API_DescribeSolutionVersion.md) operation and pass the ARN of the solution version returned from the `CreateSolutionVersion` operation\. Training is complete when the `status` is `ACTIVE`\. If training does not complete because of an error, you are not charged for the training\.
 
-Now that you have a created solution version, evaluate it using metrics supplied by Amazon Personalize\. For more information, see [Step 4: Evaluating a Solution Version](working-with-training-metrics.md)\.
+Now that you have a created solution version, evaluate it using metrics supplied by Amazon Personalize\. For more information, see [Step 4: Evaluating a solution version](working-with-training-metrics.md)\.

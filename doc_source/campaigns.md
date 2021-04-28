@@ -1,6 +1,6 @@
-# Creating a Campaign<a name="campaigns"></a>
+# Creating a campaign<a name="campaigns"></a>
 
-A campaign is used to make recommendations for your users\. You create a campaign by deploying a solution version\. For an example using the AWS CLI, see [Step 3: Create a Campaign \(Deploy the Solution\)](getting-started-cli.md#gs-create-campaign)\.
+A campaign is used to make recommendations for your users\. You create a campaign by deploying a solution version\. For an example using the AWS CLI, see [Step 3: Create a campaign \(deploy the solution\)](getting-started-cli.md#gs-create-campaign)\.
 
 To create a campaign with the SDK, call the [CreateCampaign](API_CreateCampaign.md) API and pass the following:
 + A name for the campaign\.
@@ -9,7 +9,7 @@ To create a campaign with the SDK, call the [CreateCampaign](API_CreateCampaign.
 
 **Create a campaign using the AWS Python SDK**
 
-1. Create a solution version to deploy\. For more information, see [Creating a Solution](training-deploying-solutions.md)\.
+1. Create a solution version to deploy\. For more information, see [Creating a solution](training-deploying-solutions.md)\.
 
 1. Use the following code to create a campaign for a solution version trained using the User\-Personalization recipe with the optional default `explorationWeight` and `explorationItemAgeCutOff` for `itemExplorationConfig`\. For more information, see [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md)
 
@@ -37,4 +37,4 @@ The campaign isn't ready for use until its status is active\. To get the current
 
 Amazon Personalize provides operations for managing campaigns such as [ListCampaigns](API_ListCampaigns.md) to list the campaigns you have created\. You can delete a campaign by calling [DeleteCampaign](API_DeleteCampaign.md)\. If you delete a campaign, the solution versions that are part of the campaign are not deleted\.
 
-After you have created your campaign, use it to make recommendations\. For more information, see [Getting Recommendations](getting-recommendations.md)\.
+After you have created your campaign, use it to make recommendations\. For more information, see [Getting recommendations](getting-recommendations.md)\.

@@ -1,21 +1,21 @@
-# Filtering Real\-time Recommendations<a name="filter-real-time"></a>
+# Filtering real\-time recommendations<a name="filter-real-time"></a>
 
 You can filter real\-time recommendations with the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\), or the AWS SDKs\.
 
-## Filtering Real\-time Recommendations \(Console\)<a name="filter-rt-console"></a>
+## Filtering real\-time recommendations \(console\)<a name="filter-rt-console"></a>
 
 To filter real\-time recommendations using the console, create a filter and then apply it to a recommendation request\. 
 
 **Note**  
 To filter recommendations using a filter with parameters and a campaign that you deployed before November 10, 2020, you must redeploy the campaign by using the [UpdateCampaign](API_UpdateCampaign.md) operation or create a new campaign\.
 
-### Creating a Filter \(Console\)<a name="creating-filter-console"></a>
+### Creating a filter \(console\)<a name="creating-filter-console"></a>
 
  To create a filter in the console, choose the dataset group that contains the campaign you want to filter results for and then provide a filter name and a filter expression\. 
 
 **To create a filter \(console\)**
 
-1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/](https://console.aws.amazon.com/personalize/) and sign into your account\. 
+1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign into your account\. 
 
 1. Choose the dataset group that contains the campaign that you want to filter results for\.
 
@@ -25,13 +25,13 @@ To filter recommendations using a filter with parameters and a campaign that you
 1. For **Filter name**, enter a name for your filter\. You will choose the filter by this name when you apply it to a recommendation request\.
 
 1. For **Expression**, choose either **Build expression** or **Add expression manually** and build or insert your expression:
-   + To use the expression builder, choose **Build expression**\. The expression builder provides structure, fields, and guidelines for building correctly formatted filter expressions\. For more information, see [Using the Filter Expression Builder](#using-filter-expression-builder)\.
-   +  To input your own expression, choose **Add expression manually**\. For more information, see [Filter Expression Elements](filter-expressions.md#filter-expression-elements)\. 
+   + To use the expression builder, choose **Build expression**\. The expression builder provides structure, fields, and guidelines for building correctly formatted filter expressions\. For more information, see [Using the filter expression builder](#using-filter-expression-builder)\.
+   +  To input your own expression, choose **Add expression manually**\. For more information, see [Filter expression elements](filter-expressions.md#filter-expression-elements)\. 
 
-1. Choose **Finish**\. The filter's overview page shows the filter’s Amazon Resource Name \(ARN\), status, and full filter expression\. To delete the filter, choose **Delete**\. For information about finding and deleting filters after you have left the overview page, see [Deleting a Filter \(Console\)](#delete-filter-console)\.  
+1. Choose **Finish**\. The filter's overview page shows the filter’s Amazon Resource Name \(ARN\), status, and full filter expression\. To delete the filter, choose **Delete**\. For information about finding and deleting filters after you have left the overview page, see [Deleting a filter \(console\)](#delete-filter-console)\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/filter-details-page.png)
 
-### Applying a Filter \(Console\)<a name="apply-filter-console"></a>
+### Applying a filter \(console\)<a name="apply-filter-console"></a>
 
  To apply a filter, on the **Test campaign results** panel for the campaign, choose the filter and enter any filter parameter values\. Then get recommendations for a user\. 
 
@@ -56,7 +56,7 @@ For filter expressions that use an `INCLUDE` element to include items, you must 
 
    If the user already bought a recommended item, the filter removes it from the recommendation list\. In this example, items 2657, 2985 were replaced by the most suitable items that the user had not purchased \(items 2641 and 1573\)\.
 
-### Using the Filter Expression Builder<a name="using-filter-expression-builder"></a>
+### Using the filter expression builder<a name="using-filter-expression-builder"></a>
 
 The **Expression builder** on the **Create filter** page provides structure, fields, and guidelines for building correctly formatted filter 
 
@@ -80,13 +80,13 @@ After you choose a **Property** \(in `dataset.property` format\), the **Property
 **Note**  
 To create a filter that uses both Item and Interaction datasets, you *must* use multiple expressions\.
 
-#### Expression Builder Example<a name="expression-builder-example"></a>
+#### Expression builder example<a name="expression-builder-example"></a>
 
 The following example shows how to build a filter that excludes items with a genre that you specify when you get recommendations \(note the $GENRES placeholder parameter\), and with a `DOWNLOAD_COUNT` of more than `200`, but only if the current user's age is greater than `17`\.
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/create-filter-expression-builder.png)
 
-### Deleting a Filter \(Console\)<a name="delete-filter-console"></a>
+### Deleting a filter \(console\)<a name="delete-filter-console"></a>
 
 Deleting a filter removes the filter from the list of filters for a dataset group\.
 
@@ -95,7 +95,7 @@ You can't delete a filter while a batch inference job is in progress\.
 
 **To delete a filter \(console\)**
 
-1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/](https://console.aws.amazon.com/personalize/) and sign into your account\. 
+1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign into your account\. 
 
 1. From the **Dataset groups** list, choose the dataset group that contains the filter that you want to delete\. 
 
@@ -105,14 +105,14 @@ You can't delete a filter while a batch inference job is in progress\.
 
 1. Choose **Delete** and confirm the deletion in the confirmation dialog box\. 
 
-## Filtering Real\-time Recommendations \(AWS CLI\)<a name="filter-rt-cli"></a>
+## Filtering real\-time recommendations \(AWS CLI\)<a name="filter-rt-cli"></a>
 
 To filter recommendations using the AWS CLI, you create a filter and then apply it by specifying the filter ARN in a [GetRecommendations](API_RS_GetRecommendations.md) or [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) request\.
 
 **Important**  
 To filter recommendations using a filter with parameters and a campaign you deployed before November 10, 2020, you must re\-deploy the campaign by using the [UpdateCampaign](API_UpdateCampaign.md) call or create a new campaign\.
 
-### Creating a Filter \(AWS CLI\)<a name="creating-filter-cli"></a>
+### Creating a filter \(AWS CLI\)<a name="creating-filter-cli"></a>
 
 Use the following `create-filter` operation to create a filter and specify the filter expression\. 
 
@@ -127,9 +127,9 @@ aws personalize create-filter \
 
  If successful, the filter ARN is displayed\. Record it for later use\. To verify that the filter is active, use the [DescribeFilter](API_DescribeFilter.md) operation before you use the filter\. 
 
- For more information about the API, see [CreateFilter](API_CreateFilter.md)\. For more information about filter expressions, including examples, see [Creating Filter Expressions](filter-expressions.md#creating-filter-expressions)\. 
+ For more information about the API, see [CreateFilter](API_CreateFilter.md)\. For more information about filter expressions, including examples, see [Creating filter expressions](filter-expressions.md#creating-filter-expressions)\. 
 
-### Applying a Filter \(AWS CLI\)<a name="applying-filter-cli"></a>
+### Applying a filter \(AWS CLI\)<a name="applying-filter-cli"></a>
 
 When you use the `get-recommendations` or `get-personalized-ranking` operations, apply a filter by passing the `filter-arn` and any filter values as parameters\. 
 
@@ -151,7 +151,7 @@ aws personalize-runtime get-recommendations \
     }]'
 ```
 
-### Deleting a Filter \(AWS CLI\)<a name="delete-filter-cli"></a>
+### Deleting a filter \(AWS CLI\)<a name="delete-filter-cli"></a>
 
  Use the following `delete-filter` operation to delete a filter\. Replace `filter ARN` with the ARN of the filter\. 
 
@@ -159,14 +159,14 @@ aws personalize-runtime get-recommendations \
 aws personalize delete-filter --filter-arn Filter ARN
 ```
 
-## Filtering Real\-time Recommendations \(AWS Python SDK\)<a name="filter-rt-sdk"></a>
+## Filtering real\-time recommendations \(AWS Python SDK\)<a name="filter-rt-sdk"></a>
 
 To filter recommendations using the AWS Python SDK, you create a filter and then apply it by specifying the filter ARN in a [GetRecommendations](API_RS_GetRecommendations.md) or [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) request\.
 
 **Important**  
 To filter recommendations using a filter with parameters and a campaign you deployed before November 10, 2020, you must re\-deploy the campaign by using the [UpdateCampaign](API_UpdateCampaign.md) call or create a new campaign\.
 
-### Creating a Filter \(AWS Python SDK\)<a name="creating-filter-sdk"></a>
+### Creating a filter \(AWS Python SDK\)<a name="creating-filter-sdk"></a>
 
 Use the following `create_filter` method to create a filter\. Replace `Filter Name` with the name of the filter, and `Dataset Group ARN` with the Amazon Resource Name \(ARN\) of the dataset group\. Replace the example `filterExpression` with your own filter expression\.
 
@@ -184,9 +184,9 @@ filter_arn = response["filterArn"]
 print("Filter ARN: " + filter_arn)
 ```
 
-Record the filter ARN for later use\. To verify that the filter is active, use the [DescribeFilter](API_DescribeFilter.md) operation before using the filter\. For more information about the API, see [CreateFilter](API_CreateFilter.md)\. For more information about filter expressions, including examples, see [Creating Filter Expressions](filter-expressions.md#creating-filter-expressions)\.
+Record the filter ARN for later use\. To verify that the filter is active, use the [DescribeFilter](API_DescribeFilter.md) operation before using the filter\. For more information about the API, see [CreateFilter](API_CreateFilter.md)\. For more information about filter expressions, including examples, see [Creating filter expressions](filter-expressions.md#creating-filter-expressions)\.
 
-### Applying a Filter \(AWS Python SDK\)<a name="applying-filter-sdk"></a>
+### Applying a filter \(AWS Python SDK\)<a name="applying-filter-sdk"></a>
 
 When you use the `get_recommendations` or `get_personalized_ranking` methods, apply a filter by passing `filterArn` and any filter values as parameters\. 
 
@@ -214,7 +214,7 @@ response = personalize_runtime.get_recommendations(
 )
 ```
 
-### Deleting a Filter \(AWS Python SDK\)<a name="delete-filter-sdk"></a>
+### Deleting a filter \(AWS Python SDK\)<a name="delete-filter-sdk"></a>
 
  Use the following `delete_filter` method to delete a filter\. Replace `filter ARN` with the ARN of the filter\. 
 

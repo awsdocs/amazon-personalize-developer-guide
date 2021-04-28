@@ -1,4 +1,4 @@
-# Cleaning Up Resources<a name="gs-cleanup"></a>
+# Cleaning up resources<a name="gs-cleanup"></a>
 
 To avoid incurring unnecessary charges, delete the resources you created after you're done with the getting started exercise\. To delete the resources, use either the Amazon Personalize console or the `Delete` APIs from the SDKs or the AWS Command Line Interface \(AWS CLI\)\. For example, use the [DeleteCampaign](API_DeleteCampaign.md) API to delete a campaign\.
 
@@ -6,10 +6,10 @@ You can't delete a resource whose status is CREATE PENDING or IN PROGRESS\. The 
 
 Some resources must be deleted before others, as shown in the following table\. This process can take some time\.
 
-To delete the training data you uploaded, `ratings.csv`, see [How Do I Delete Objects from an S3 Bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/delete-objects.html)\.
+To delete the training data you uploaded, `ratings.csv`, see [How do I delete objects from an S3 bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/delete-objects.html)\.
 
 
-| Resource to be Deleted | Delete This First | Notes | 
+| Resource to be deleted | Delete this first | Notes | 
 | --- | --- | --- | 
 | [Campaign](API_Campaign.md) |  |  | 
 | [DatasetImportJob](API_DatasetImportJob.md) |  | Can not be deleted\. | 

@@ -4,28 +4,32 @@ With Amazon CloudWatch, you can get metrics associated with Amazon Personalize\.
 
 
 
-You can also see aggregated metrics, for a chosen period of time, by using the Amazon Personalize console\.
+**Topics**
++ [Using CloudWatch metrics for Amazon Personalize](#using-metrics)
++ [Accessing Amazon Personalize metrics](#how-to-access)
++ [Creating an alarm](#alarms)
++ [Amazon Personalize serverless monitoring app example](#creating-monitor-app)
 
-## Using CloudWatch Metrics for Amazon Personalize<a name="using-metrics"></a>
+## Using CloudWatch metrics for Amazon Personalize<a name="using-metrics"></a>
 
 To use metrics, you must specify the following information:
 + The metric name\.
 + The metric dimension\. A *dimension* is a name\-value pair that helps you to uniquely identify a metric\.
 
-You can get monitoring data for Amazon Personalize using the AWS Management Console, the AWS CLI, or the CloudWatch API\. You can also use the CloudWatch API through one of the Amazon AWS Software Development Kits \(SDKs\) or the CloudWatch API tools\. The console displays a series of graphs based on the raw data from the CloudWatch API\. Depending on your needs, you might prefer to use either the graphs displayed in the console or retrieved from the API\.
+You can get monitoring data for Amazon Personalize using the AWS Management Console, the AWS CLI, or the CloudWatch API\. You can also use the CloudWatch API through one of the AWS SDKs or the CloudWatch API tools\. The console displays a series of graphs based on the raw data from the CloudWatch API\. Depending on your needs, you might prefer to use either the graphs displayed in the console or retrieved from the API\.
 
 The following list shows some common uses for the metrics\. These are suggestions to get you started, not a comprehensive list\.
 
 
-| How Do I? | Relevant Metric | 
+| How do I? | Relevant metric | 
 | --- | --- | 
 |  How do I track the number of events that have been recorded?  |  Monitor the `PutEventsRequests` metric\.  | 
 |  How can I monitor the DatasetImportJob errors?  |  Use the `DatasetImportJobError` metric\.  | 
 |  How can I monitor the latency of `GetRecommendations` calls?  |  Use the `GetRecommendationsLatency` metric\.  | 
 
-You must have the appropriate CloudWatch permissions to monitor Amazon Personalize with CloudWatch\. For more information, see [Authentication and Access Control for Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html)\.
+You must have the appropriate CloudWatch permissions to monitor Amazon Personalize with CloudWatch\. For more information, see [Authentication and access control for Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html)\.
 
-## Access Amazon Personalize Metrics<a name="how-to-access"></a>
+## Accessing Amazon Personalize metrics<a name="how-to-access"></a>
 
 The following examples show how to access Amazon Personalize metrics using the CloudWatch console, the AWS CLI, and the CloudWatch API\.
 
@@ -58,7 +62,7 @@ The following examples show how to access Amazon Personalize metrics using the C
 **To access metrics \(CloudWatch API\)**
 +  Call `[GetMetricStatistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html)`\. For more information, see the [Amazon CloudWatch API Reference](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/)\.
 
-## Create an Alarm<a name="alarms"></a>
+## Creating an alarm<a name="alarms"></a>
 
 You can create a CloudWatch alarm that sends an Amazon Simple Notification Service \(Amazon SNS\) message when the alarm changes state\. An alarm watches a single metric over a time period you specify\. The alarm performs one or more actions based on the value of the metric relative to a given threshold over a number of time periods\. The action is a notification sent to an Amazon SNS topic or an AWS Auto Scaling policy\.
 
@@ -113,3 +117,7 @@ If you use **New list** to create a new Amazon SNS topic, the email addresses mu
 
 **To set an alarm \(CloudWatch API\)**
 + Call `[PutMetricAlarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_PutMetricAlarm.html)`\. For more information, see *[Amazon CloudWatch API Reference](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/)*\.
+
+## Amazon Personalize serverless monitoring app example<a name="creating-monitor-app"></a>
+
+For an example app that adds monitoring, alerting, and optimization capabilities for Amazon Personalize see [Amazon Personalize monitor](https://github.com/aws-samples/amazon-personalize-monitor) in the [Amazon Personalize samples](https://github.com/aws-samples/amazon-personalize-samples) repository\.

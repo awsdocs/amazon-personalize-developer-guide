@@ -13,7 +13,7 @@ Length Constraints: Maximum length of 256\.
 Required: No
 
  **score**   <a name="personalize-Type-RS_PredictedItem-score"></a>
-A numeric representation of the model's certainty that the item will be the next user selection\. For more information on scoring logic, see [How Recommendation Scoring Works](getting-recommendations.md#how-scores-work)\.  
+A numeric representation of the model's certainty that the item will be the next user selection\. For more information on scoring logic, see [How recommendation scoring works](getting-recommendations.md#how-scores-work)\.  
 Type: Double  
 Required: No
 

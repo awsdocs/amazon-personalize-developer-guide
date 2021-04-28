@@ -1,19 +1,19 @@
-# Step 1: Creating a Dataset Group<a name="data-prep-ds-group"></a>
+# Step 1: Creating a dataset group<a name="data-prep-ds-group"></a>
 
 A *dataset group* is container for Amazon Personalize components, including datasets, event trackers, solutions, filters, campaigns, and batch inference jobs\. A dataset group organizes your resources into independent collections, so resources from one dataset group cannot influence resources in any other dataset group\. For example, you might have an application that provides recommendations for streaming video and another that provides recommendations for audio books\. In Amazon Personalize, each application would have its own dataset group\. You can create a dataset group using the Amazon Personalize console, AWS SDK, or AWS Command Line Interface \(AWS CLI\)\.
 
 **Topics**
-+ [Creating a Dataset Group \(Console\)](#data-prep-creating-ds-group-console)
-+ [Creating a Dataset Group \(AWS CLI\)](#data-prep-creating-ds-group-cli)
-+ [Creating a Dataset Group \(AWS Python SDK\)](#data-prep-creating-ds-group-sdk)
++ [Creating a dataset group \(console\)](#data-prep-creating-ds-group-console)
++ [Creating a dataset group \(AWS CLI\)](#data-prep-creating-ds-group-cli)
++ [Creating a dataset group \(AWS Python SDK\)](#data-prep-creating-ds-group-sdk)
 
-## Creating a Dataset Group \(Console\)<a name="data-prep-creating-ds-group-console"></a>
+## Creating a dataset group \(console\)<a name="data-prep-creating-ds-group-console"></a>
 
 Create a dataset group by specifying the dataset group name in the Amazon Personalize console\.
 
 **To create a dataset group**
 
-1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/](https://console.aws.amazon.com/personalize/) and sign in to your account\.
+1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign in to your account\.
 
 1. Choose **Create dataset group**\.
 
@@ -21,9 +21,9 @@ Create a dataset group by specifying the dataset group name in the Amazon Person
 
 1. In **Dataset group details**, for **Dataset group name**, specify a name for your dataset group\. 
 
-1. Choose **Next**\. The **Create user\-item interaction data** page displays\. You are now ready to add a dataset with an associated schema to your dataset group\. See [Creating a Dataset and a Schema \(Console\)](data-prep-creating-datasets.md#data-prep-creating-ds-console)\. 
+1. Choose **Next**\. The **Create user\-item interaction data** page displays\. You are now ready to add a dataset with an associated schema to your dataset group\. See [Creating a dataset and a schema \(console\)](data-prep-creating-datasets.md#data-prep-creating-ds-console)\. 
 
-## Creating a Dataset Group \(AWS CLI\)<a name="data-prep-creating-ds-group-cli"></a>
+## Creating a dataset group \(AWS CLI\)<a name="data-prep-creating-ds-group-cli"></a>
 
 Create a dataset group by running the following command\. For more information about the API, see [CreateDatasetGroup](API_CreateDatasetGroup.md)\.
 
@@ -60,9 +60,9 @@ The dataset group and its properties are displayed, as shown in the following ex
 }
 ```
 
-When the dataset group's `status` is ACTIVE, proceed to [Creating a Dataset and a Schema \(AWS CLI\)](data-prep-creating-datasets.md#data-prep-creating-ds-cli)\.
+When the dataset group's `status` is ACTIVE, proceed to [Creating a dataset and a schema \(AWS CLI\)](data-prep-creating-datasets.md#data-prep-creating-ds-cli)\.
 
-## Creating a Dataset Group \(AWS Python SDK\)<a name="data-prep-creating-ds-group-sdk"></a>
+## Creating a dataset group \(AWS Python SDK\)<a name="data-prep-creating-ds-group-sdk"></a>
 
 Create a dataset group using the [CreateDatasetGroup](API_CreateDatasetGroup.md) operation\.
 
@@ -83,4 +83,4 @@ print('Status: ' + description['status'])
 
 The [DescribeDatasetGroup](API_DescribeDatasetGroup.md) operation returns the `datasetGroupArn` and the status of the operation\.
 
-When the `status` is ACTIVE, proceed to [Creating a Dataset and a Schema \(AWS Python SDK\)](data-prep-creating-datasets.md#data-prep-creating-ds-sdk)\.
+When the `status` is ACTIVE, proceed to [Creating a dataset and a schema \(AWS Python SDK\)](data-prep-creating-datasets.md#data-prep-creating-ds-sdk)\.

@@ -1,4 +1,4 @@
-# Setting Up the AWS CLI<a name="aws-personalize-set-up-aws-cli"></a>
+# Setting up the AWS CLI<a name="aws-personalize-set-up-aws-cli"></a>
 
 The AWS Command Line Interface \(AWS CLI\) is a unified developer tool for managing AWS services, including Amazon Personalize\. We recommend that you install it\.
 
@@ -47,4 +47,4 @@ The AWS Command Line Interface \(AWS CLI\) is a unified developer tool for manag
    pip3 install awscli --upgrade --user
    ```
 
-   For more information, see [Installing the AWS CLI Using pip](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html#install-tool-pip)\.
+   For more information, see [Installing the AWS CLI using pip](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html#install-tool-pip)\.
