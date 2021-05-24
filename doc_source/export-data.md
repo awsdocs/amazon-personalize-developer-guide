@@ -153,14 +153,19 @@ aws personalize describe-dataset-export-job \
 
  After you import your data into the dataset and create an output Amazon S3 bucket, you can export the dataset to the bucket for analysis\. To export a dataset using the AWS SDKs, create a dataset export job using the [CreateDatasetExportJob](API_CreateDatasetExportJob.md) operation\. For information about creating an Amazon S3 bucket, see [Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html) in the *Amazon Simple Storage Service Console User Guide*\. 
 
-The following code shows how to create a dataset export job using the SDK for Python \(Boto3\) SDK\. Give the job a name, replace `dataset arn` with the Amazon Resource Name \(ARN\) of the dataset that you want to export, and replace `role ARN` with the ARN of the Amazon Personalize service\-linked role that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. In `s3DataDestination`, for the `kmsKeyArn`, optionally provide the ARN for your AWS KMS key, and for the `path` provide the path to your output Amazon S3 bucket\. 
+The following code shows how to create a dataset export job using the SDK for Python \(Boto3\) or the SDK for Java 2\.x SDK\.
+
+Before you export a dataset, make sure that the Amazon Personalize service\-linked role can access and write to your output Amazon S3 bucket\. See [Dataset export job permissions requirements](#export-permissions)\. 
+
+------
+#### [ SDK for Python \(Boto3\) ]
+
+Use the following `create_dataset_export_job` to export the data in a dataset to an Amazon S3 bucket\. Give the job a name, replace `dataset arn` with the Amazon Resource Name \(ARN\) of the dataset that you want to export, and replace `role ARN` with the ARN of the Amazon Personalize service\-linked role that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. In `s3DataDestination`, for the `kmsKeyArn`, optionally provide the ARN for your AWS KMS key, and for the `path` provide the path to your output Amazon S3 bucket\. 
 
  For `ingestionMode`, specify the data to export from the following options: 
 + Specify `BULK` to export only data that you imported in bulk using a dataset import job\. 
 + Specify `PUT` to export only data that you imported incrementally using the console or the `PutEvents`, PutUsers, or `PutItems` operations\. 
 + Specify `ALL` to export all of the data in the dataset\.
-
-Before you export a dataset, make sure that the Amazon Personalize service\-linked role can access and write to your output Amazon S3 bucket\. See [Dataset export job permissions requirements](#export-permissions)\. 
 
 ```
 import boto3
@@ -191,3 +196,76 @@ print('Name: ' + description['jobName'])
 print('ARN: ' + description['datasetExportJobArn'])
 print('Status: ' + description['status'])
 ```
+
+------
+#### [ SDK for Java 2\.x ]
+
+Use the following `createDatasetExportJob` method to create a dataset export job\. Pass the following as parameters: a PersonalizeClient, the name for your export job, the ARN of the dataset you want to export, the ingestion mode, the path for the output Amazon S3 bucket, and the ARN for your AWS KMS key\.
+
+ The `ingestionMode` can be one of the following options: 
++ Use `IngestionMode.BULK` to export only data that you imported in bulk using a dataset import job\. 
++ Use `IngestionMode.PUT` to export only data that you imported incrementally using the console or the `PutEvents`, PutUsers, or `PutItems` operations\. 
++ Use `IngestionMode.ALL` to export all of the data in the dataset\.
+
+```
+public static void createDatasetExportJob(PersonalizeClient personalizeClient, 
+                                        String jobName,
+                                        String datasetArn, 
+                                        IngestionMode ingestionMode, 
+                                        String roleArn,
+                                        String s3BucketPath,
+                                        String kmsKeyArn) {
+
+    long waitInMilliseconds = 30 * 1000; // 30 seconds
+    String status = null;
+
+    try {
+        S3DataConfig exportS3DataConfig = S3DataConfig.builder()
+            .path(s3BucketPath)
+            .kmsKeyArn(kmsKeyArn)
+            .build();
+            
+        DatasetExportJobOutput jobOutput = DatasetExportJobOutput.builder()
+            .s3DataDestination(exportS3DataConfig)
+            .build();
+
+        CreateDatasetExportJobRequest createRequest = CreateDatasetExportJobRequest.builder()
+            .jobName(jobName)
+            .datasetArn(datasetArn)
+            .ingestionMode(ingestionMode)
+            .jobOutput(jobOutput)
+            .roleArn(roleArn)
+            .build();
+
+        String datasetExportJobArn = personalizeClient.createDatasetExportJob(createRequest).datasetExportJobArn();
+
+        DescribeDatasetExportJobRequest describeDatasetExportJobRequest = DescribeDatasetExportJobRequest.builder()
+            .datasetExportJobArn(datasetExportJobArn)
+            .build();
+
+        long maxTime = Instant.now().getEpochSecond() + 3 * 60 * 60;
+
+        while (Instant.now().getEpochSecond() < maxTime) {
+
+            DatasetExportJob datasetExportJob = personalizeClient.describeDatasetExportJob(describeDatasetExportJobRequest)
+                .datasetExportJob();
+
+            status = datasetExportJob.status();
+            System.out.println("Export job status: " + status);
+
+            if (status.equals("ACTIVE") || status.equals("CREATE FAILED")) {
+                break;
+            }
+            try {
+                Thread.sleep(waitInMilliseconds);
+            } catch (InterruptedException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    } catch (PersonalizeException e) {
+        System.out.println(e.awsErrorDetails().errorMessage());
+    }
+}
+```
+
+------

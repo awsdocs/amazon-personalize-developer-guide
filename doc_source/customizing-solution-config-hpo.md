@@ -14,6 +14,10 @@ A condensed version of the `CreateSolution` request is below\. The example inclu
   "performHPO": boolean,
   "eventType": "string",
   "solutionConfig": {
+      "optimizationObjective": {
+          "itemAttribute": "string,
+          "objectiveSensitivity": "string"
+      }
       "autoMLConfig": {
           "metricName": "string",
           "recipeList": [ "string" ]

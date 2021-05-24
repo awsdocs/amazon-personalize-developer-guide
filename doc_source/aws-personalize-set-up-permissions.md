@@ -82,7 +82,7 @@ Create an IAM policy that provides users and Amazon Personalize full access to y
 
 In the following procedure, you create an IAM role that allows Amazon Personalize to access your resources and perform tasks on your behalf\.
 
-1. Sign in to the IAM console \([https://console\.aws\.amazon\.com/iam](https://console.aws.amazon.com/iam)\)\.
+1. Sign in to the IAM console \([https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\)\.
 
 1. In the navigation pane, choose **Roles**\.
 

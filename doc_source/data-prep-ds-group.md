@@ -5,7 +5,7 @@ A *dataset group* is container for Amazon Personalize components, including data
 **Topics**
 + [Creating a dataset group \(console\)](#data-prep-creating-ds-group-console)
 + [Creating a dataset group \(AWS CLI\)](#data-prep-creating-ds-group-cli)
-+ [Creating a dataset group \(AWS Python SDK\)](#data-prep-creating-ds-group-sdk)
++ [Creating a dataset group \(AWS SDKs\)](#data-prep-creating-ds-group-sdk)
 
 ## Creating a dataset group \(console\)<a name="data-prep-creating-ds-group-console"></a>
 
@@ -62,16 +62,19 @@ The dataset group and its properties are displayed, as shown in the following ex
 
 When the dataset group's `status` is ACTIVE, proceed to [Creating a dataset and a schema \(AWS CLI\)](data-prep-creating-datasets.md#data-prep-creating-ds-cli)\.
 
-## Creating a dataset group \(AWS Python SDK\)<a name="data-prep-creating-ds-group-sdk"></a>
+## Creating a dataset group \(AWS SDKs\)<a name="data-prep-creating-ds-group-sdk"></a>
 
 Create a dataset group using the [CreateDatasetGroup](API_CreateDatasetGroup.md) operation\.
+
+------
+#### [ SDK for Python \(Boto3\) ]
 
 ```
 import boto3
 
 personalize = boto3.client('personalize')
 
-response = personalize.create_dataset_group(name = 'YourDatasetGroup')
+response = personalize.create_dataset_group(name = 'dataset group name')
 dsg_arn = response['datasetGroupArn']
 
 description = personalize.describe_dataset_group(datasetGroupArn = dsg_arn)['datasetGroup']
@@ -83,4 +86,52 @@ print('Status: ' + description['status'])
 
 The [DescribeDatasetGroup](API_DescribeDatasetGroup.md) operation returns the `datasetGroupArn` and the status of the operation\.
 
-When the `status` is ACTIVE, proceed to [Creating a dataset and a schema \(AWS Python SDK\)](data-prep-creating-datasets.md#data-prep-creating-ds-sdk)\.
+------
+#### [ SDK for Java 2\.x ]
+
+```
+public static void createDatasetGroup(PersonalizeClient personalizeClient, String datasetGroupName) {
+        
+    long waitInMilliseconds = 60 * 1000;
+
+    try {
+        CreateDatasetGroupRequest createDatasetGroupRequest = CreateDatasetGroupRequest.builder()
+            .name(datasetGroupName)
+            .build();
+            
+        String datasetGroupArn = personalizeClient.createDatasetGroup(createDatasetGroupRequest)
+            .datasetGroupArn();
+
+        long maxTime = Instant.now().getEpochSecond() + (15 * 60); // 15 minutes
+
+        DescribeDatasetGroupRequest describeRequest = DescribeDatasetGroupRequest.builder()
+            .datasetGroupArn(datasetGroupArn)
+            .build();
+
+        String status = null;
+        
+        while (Instant.now().getEpochSecond() < maxTime) {
+            
+            status = personalizeClient.describeDatasetGroup(describeRequest)
+                .datasetGroup()
+                .status();
+            
+            System.out.println("DatasetGroup status:" + status);
+
+            if (status.equals("ACTIVE") || status.equals("CREATE FAILED")) {
+                break;
+            }
+            
+            try {
+                Thread.sleep(waitInMilliseconds);
+            } catch (InterruptedException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+    } catch(PersonalizeException e) {
+        System.out.println(e.awsErrorDetails().errorMessage());
+    }
+}
+```
+
+------

@@ -46,4 +46,5 @@ The following actions are supported by Amazon Personalize:
 +  [ListSchemas](API_ListSchemas.md) 
 +  [ListSolutions](API_ListSolutions.md) 
 +  [ListSolutionVersions](API_ListSolutionVersions.md) 
++  [StopSolutionVersionCreation](API_StopSolutionVersionCreation.md) 
 +  [UpdateCampaign](API_UpdateCampaign.md) 

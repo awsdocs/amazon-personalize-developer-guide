@@ -60,7 +60,12 @@ To get recommendations for a user in the Amazon Personalize console, choose the 
 
 1. Choose **Get recommendations**\. A table containing the user’s top 25 recommended items displays\. 
 
-### Getting recommendations \(AWS Python SDK\)<a name="get-recommendations-sdk-example"></a>
+### Getting recommendations \(AWS SDKs\)<a name="get-recommendations-sdk-example"></a>
+
+The following code shows how to get Amazon Personalize recommendations using the SDK for Python \(Boto3\) or SDK for Java 2\.x\.
+
+------
+#### [ SDK for Python \(Boto3\) ]
 
 Use the following code to get recommendations\. Change the value of `userId` to a user ID that is in the data that you used to train the solution\. A list of the top 10 recommended items for the user displays\. To change the number of recommended items, change the value for `numResults`\. The default is 25 items\. The maximum is 500 items\. 
 
@@ -79,6 +84,37 @@ print("Recommended items")
 for item in response['itemList']:
     print (item['itemId'])
 ```
+
+------
+#### [ SDK for Java 2\.x ]
+
+To get recommendations, use the following `getRecommendations` method and pass the following as parameters: A `PersonalizeRuntimeClient`, the Amazon Resource Name \(ARN\) of your campaign, and the `userId` of the user you want to get recommendations for\. 
+
+```
+    public static void getRecs(PersonalizeRuntimeClient personalizeRuntimeClient, String campaignArn, String userId){
+
+        try {
+            GetRecommendationsRequest recommendationsRequest = GetRecommendationsRequest.builder()
+                .campaignArn(campaignArn)
+                .numResults(20)
+                .userId(userId)
+                .build();
+
+            GetRecommendationsResponse recommendationsResponse = personalizeRuntimeClient.getRecommendations(recommendationsRequest);
+            List<PredictedItem> items = recommendationsResponse.itemList();
+
+            for (PredictedItem item: items) {
+                System.out.println("Item Id is : "+item.itemId());
+                System.out.println("Item score is : "+item.score());
+            }
+        } catch (AwsServiceException e) {
+            System.err.println(e.awsErrorDetails().errorMessage());
+            System.exit(1);
+        }
+    }
+```
+
+------
 
 ### Getting recommendations using contextual metadata \(AWS Python SDK\)<a name="get-recommendations-metadata-sdk-example"></a>
 
@@ -123,7 +159,7 @@ To get a personalized ranking for a user from the Amazon Personalize console, ch
 
 **To get a personalized ranking for a user**
 
-1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/](https://console.aws.amazon.com/personalize/) and sign into your account\. 
+1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign into your account\. 
 
 1. Choose the dataset group that contains the campaign you are using\.
 

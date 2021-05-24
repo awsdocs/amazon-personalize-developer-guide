@@ -65,6 +65,15 @@ print(response['eventTrackerArn'])
 print(response['trackingId'])
 ```
 
+The event tracker ARN and tracking ID display, for example:
+
+```
+{
+    "eventTrackerArn": "arn:aws:personalize:us-west-2:acct-id:event-tracker/MovieClickTracker",
+    "trackingId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+}
+```
+
 ------
 #### [ AWS CLI ]
 
@@ -73,8 +82,6 @@ aws personalize create-event-tracker \
     --name MovieClickTracker \
     --dataset-group-arn arn:aws:personalize:us-west-2:acct-id:dataset-group/MovieClickGroup
 ```
-
-------
 
 The event tracker ARN and tracking ID display, for example:
 
@@ -85,13 +92,74 @@ The event tracker ARN and tracking ID display, for example:
 }
 ```
 
+------
+#### [ SDK for Java 2\.x ]
+
+```
+public static String createEventTracker(PersonalizeClient personalizeClient, 
+                                      String eventTrackerName, 
+                                      String datasetGroupArn) {
+        
+    String eventTrackerId = null;
+    String eventTrackerArn = null;
+    long maxTime = 3 * 60 * 60; 
+    long waitInMilliseconds = 30 * 1000;
+    String status;
+    
+    try {
+        CreateEventTrackerRequest createEventTrackerRequest = CreateEventTrackerRequest.builder()
+            .name(eventTrackerName)
+            .datasetGroupArn(datasetGroupArn)
+            .build();
+       
+        CreateEventTrackerResponse createEventTrackerResponse = 
+            personalizeClient.createEventTracker(createEventTrackerRequest);
+        
+        eventTrackerArn = createEventTrackerResponse.eventTrackerArn();
+        eventTrackerId = createEventTrackerResponse.trackingId();
+        
+        System.out.println("Event tracker ARN: " + eventTrackerArn);
+        System.out.println("Event tracker ID: " + eventTrackerId);
+
+        maxTime = Instant.now().getEpochSecond() + maxTime;
+
+        DescribeEventTrackerRequest describeRequest = DescribeEventTrackerRequest.builder()
+            .eventTrackerArn(eventTrackerArn)
+            .build();
+        
+        while (Instant.now().getEpochSecond() < maxTime) {
+
+            status = personalizeClient.describeEventTracker(describeRequest).eventTracker().status();
+            System.out.println("EventTracker status: " + status);
+
+            if (status.equals("ACTIVE") || status.equals("CREATE FAILED")) {
+                break;
+            }
+            try {
+                Thread.sleep(waitInMilliseconds);
+            } catch (InterruptedException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return eventTrackerId;
+    }
+    catch (PersonalizeException e){
+        System.out.println(e.awsErrorDetails().errorMessage());
+        System.exit(1);
+    }
+    return eventTrackerId;
+}
+```
+
+------
+
 ## PutEvents operation<a name="event-record-api"></a>
 
 To record events, you call the [PutEvents](API_UBS_PutEvents.md) operation\. The following example shows a `PutEvents` operation that passes one event that contains the minimum required information\. The corresponding Interactions schema is shown, along with an example row from the Interactions dataset\.
 
-Your application generates the `sessionId` when a user first visits your website or uses your application\. Amazon Personalize uses the `sessionId` to associate events with the user before they log in \(is anonymous\)\. After the user logs in and you send an event including the `userId`, Amazon Personalize associates the previously anonymous historical event data with their `userId` by matching the `sessionId`\. This creates a continuous event history that includes events that occurred when the user was anonymous\.
+Your application generates the `sessionId` when a user first visits your website or uses your application\. For example, you could generate a universally unique identifier \(UUID\) and use this value for the `sessionId`\. Amazon Personalize uses the `sessionId` to associate events with the user before they log in \(is anonymous\)\. After the user logs in and you send an event including the `userId`, Amazon Personalize associates the previously anonymous historical event data with their `userId` by matching the `sessionId`\. This creates a continuous event history that includes events that occurred when the user was anonymous\. We recommend having at most one user mapped to one `sessionID`\. 
 
-The event list is an array of [Event](API_UBS_Event.md) objects\. An `eventType` is required for each event, but in this example, `eventType` data is not used in training because it is not included in the schema\. You can provide a placeholder value to satisfy the requirement\. The `properties` key is a string map \(key\-value pairs\) of event\-specific data\. In this case, just the item ID is specified\.
+The event list is an array of [Event](API_UBS_Event.md) objects\. An `eventType` is required for each event, but in this example, `eventType` data is not used in training because it is not included in the schema\. You can provide a placeholder value to satisfy the requirement\. 
 
 The `userId`, `itemId`, and `sentAt` parameters map to the USER\_ID, ITEM\_ID, and TIMESTAMP fields of a corresponding historical `Interactions` dataset\. For more information, see [Datasets and schemas](how-it-works-dataset-schema.md)\.
 
@@ -118,8 +186,8 @@ personalize_events.put_events(
     sessionId = 'session_id',
     eventList = [{
         'sentAt': TIMESTAMP,
-        'eventType': 'EVENT_TYPE',
-        'properties': "{\"itemId\": \"ITEM_ID\"}"
+        'eventType': 'eventTypePlaceholder',
+        'itemId': 'ITEM_ID'
         }]
 )
 ```
@@ -134,9 +202,44 @@ aws personalize-events put-events \
     --session-id session_id \
     --event-list '[{
         "sentAt": "TIMESTAMP",
-        "eventType": "EVENT_TYPE",
-        "properties": "{\"itemId\": \"ITEM_ID\"}"
+        "eventType": "eventTypePlaceholder",
+        "itemId": "ITEM_ID"
       }]'
+```
+
+------
+#### [ SDK for Java 2\.x ]
+
+```
+public static void putEvents(PersonalizeEventsClient personalizeEventsClient, 
+                            String trackingId, 
+                            String sessionId, 
+                            String userId, 
+                            String itemId) {
+    
+    try { 
+        Event event = Event.builder()
+            .sentAt(Instant.ofEpochMilli(System.currentTimeMillis() + 10 * 60 * 1000))
+            .itemId(itemId)
+            .eventType("typePlaceholder")
+            .build();
+
+        PutEventsRequest putEventsRequest = PutEventsRequest.builder()
+            .trackingId(trackingId)
+            .userId(userId)
+            .sessionId(sessionId)
+            .eventList(event)
+            .build();
+
+        int responseCode = personalizeEventsClient.putEvents(putEventsRequest)
+            .sdkHttpResponse()
+            .statusCode();
+        System.out.println("Response code: " + responseCode);
+
+        } catch (PersonalizeEventsException e) {
+            System.out.println(e.awsErrorDetails().errorMessage());
+        }
+}
 ```
 
 ------
@@ -209,9 +312,68 @@ aws personalize-events put-events \
 ```
 
 ------
+#### [ SDK for Java 2\.x ]
+
+```
+public static void putMultipleEvents(PersonalizeEventsClient personalizeEventsClient, 
+                            String trackingId, 
+                            String sessionId, 
+                            String userId, 
+                            String event1Type, 
+                            Float event1Value, 
+                            String event1ItemId,
+                            int event1NumRatings,
+                            String event2Type, 
+                            Float event2Value, 
+                            String event2ItemId,
+                            int event2NumRatings) {  
+                                                    
+    ArrayList<Event> eventList = new ArrayList<Event>();
+                        
+    try {
+        Event event1 = Event.builder()
+            .eventType(event1Type)
+            .sentAt(Instant.ofEpochMilli(System.currentTimeMillis() + 10 * 60 * 1000))
+            .itemId(event1ItemId)
+            .eventValue(event1Value)
+            .properties("{\"numRatings\": "+ event1NumRatings +"}")
+            .build(); 
+
+        eventList.add(event1); 
+
+        Event event2 = Event.builder()
+            .eventType(event2Type)
+            .sentAt(Instant.ofEpochMilli(System.currentTimeMillis() + 10 * 60 * 1000))
+            .itemId(event2ItemId)
+            .eventValue(event2Value)
+            .properties("{\"numRatings\": "+ event2NumRatings +"}")
+            .build();
+
+        eventList.add(event2);
+
+        PutEventsRequest putEventsRequest = PutEventsRequest.builder()
+            .trackingId(trackingId)
+            .userId(userId)
+            .sessionId(sessionId)
+            .eventList(eventList)
+            .build();
+
+        int responseCode = personalizeEventsClient.putEvents(putEventsRequest)
+            .sdkHttpResponse()
+            .statusCode();
+            
+        System.out.println("Response code: " + responseCode);
+
+    } catch (PersonalizeEventsException e) {
+        System.out.println(e.awsErrorDetails().errorMessage());
+    }
+}
+```
+
+------
 
 **Note**  
-The properties keys use camel case names that match the fields in the Interactions schema\. For example, if the fields 'ITEM\_ID', 'EVENT\_VALUE', and 'NUM\_RATINGS,' are defined in the Interactions schema, the property keys should be `itemId, eventValue, and numRatings`\.
+The properties keys use camel case names that match the fields in the Interactions schema\. For example, if the field 'NUM\_RATINGS' is defined in the Interactions schema, the property key should be `numRatings`\.
 
 ## Recording impressions data<a name="putevents-including-impressions-data"></a>
 
@@ -222,7 +384,10 @@ If you provide conflicting implicit and explicit impression data in your `PutEve
 
 To record the Amazon Personalize recommendations you show your user as impressions data, include the `recommendationId` in your [PutEvents](API_UBS_PutEvents.md) request and Amazon Personalize derives the implicit impressions based on your recommendation data\.
 
-To manually record impressions data for an event, list the impressions in the [PutEvents](API_UBS_PutEvents.md) command's `impression` input parameter\. The following code sample shows how to include a `recommendationId` and an `impression` in a PutEvents operation\. If you include both, Amazon Personalize uses the explicit impressions by default\.
+To manually record impressions data for an event, list the impressions in the [PutEvents](API_UBS_PutEvents.md) command's `impression` input parameter\. The following code sample shows how to include a `recommendationId` and an `impression` in a PutEvents operation with either the SDK for Python \(Boto3\) or the SDK for Java 2\.x\. If you include both, Amazon Personalize uses the explicit impressions by default\.
+
+------
+#### [ SDK for Python \(Boto3\) ]
 
 ```
 import boto3
@@ -243,6 +408,52 @@ personalize_events.put_events(
         }]
 )
 ```
+
+------
+#### [ SDK for Java 2\.x ]
+
+Use the following `putEvents` method to record an event with impressions data and a recommendationId\. For the impressions parameter, pass the list of itemIds as an ArrayList\.
+
+```
+public static void putEvents(PersonalizeEventsClient personalizeEventsClient, 
+                                String trackingId, 
+                                String sessionId, 
+                                String userId, 
+                                String eventType, 
+                                Float eventValue, 
+                                String itemId,
+                                ArrayList<String> impressions,
+                                String recommendationId) {
+
+    try { 
+        Event event = Event.builder()
+            .eventType(eventType)
+            .sentAt(Instant.ofEpochMilli(System.currentTimeMillis() + 10 * 60 * 1000))
+            .itemId(itemId)
+            .eventValue(eventValue)
+            .impression(impressions)
+            .recommendationId(recommendationId)
+            .build();
+
+        PutEventsRequest putEventsRequest = PutEventsRequest.builder()
+            .trackingId(trackingId)
+            .userId(userId)
+            .sessionId(sessionId)
+            .eventList(event)
+            .build();
+
+        int responseCode = personalizeEventsClient.putEvents(putEventsRequest)
+            .sdkHttpResponse()
+            .statusCode();
+        System.out.println("Response code: " + responseCode);
+
+    } catch (PersonalizeEventsException e) {
+        System.out.println(e.awsErrorDetails().errorMessage());
+    }
+}
+```
+
+------
 
 ## Event metrics<a name="event-metrics"></a>
 

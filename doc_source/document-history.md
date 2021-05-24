@@ -4,6 +4,7 @@ The following table describes important changes in each release of the *Amazon P
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New feature \(preview release\)](#document-history) | Amazon Personalize can now optimize a solution for an objective in addition to maximizing relevance, such as maximizing revenue\. This feature is in preview release\. For more information, see [Optimizing a solution for an additional objective](https://docs.aws.amazon.com/personalize/latest/dg/optimizing-solution-for-objective.html)\.  | May 18, 2021 | 
 | [New feature](#document-history) | Amazon Personalize can now export the records in an Amazon Personalize dataset to an Amazon S3 bucket for analysis and tracking\. For more information, see [Exporting a dataset](https://docs.aws.amazon.com/personalize/latest/dg/export-data.html)\.  | April 26, 2021 | 
 | [New feature](#document-history) | Amazon Personalize now automatically updates the latest model \(solution version\) you trained with User\-Personalization every two hours to include new data\. For more information, see [User\-personalization recipe](https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html)\.  | November 17, 2020 | 
 | [New feature](#document-history) | Amazon Personalize can now filter recommendations based on criteria you specify when you get recommendations\. For more information, see [Filtering recommendations](https://docs.aws.amazon.com/personalize/latest/dg/filter.html)\. | November 10, 2020 | 

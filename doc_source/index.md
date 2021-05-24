@@ -1,7 +1,7 @@
 # Amazon Personalize Developer Guide
 
 -----
-*****Copyright &copy;  Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -59,10 +59,12 @@ Amazon's trademarks and trade dress may not be used in
       + [RELATED_ITEMS recipes](related-items-recipes.md)
          + [SIMS recipe](native-recipe-sims.md)
    + [Step 2: Configuring a solution](customizing-solution-config.md)
+      + [Optimizing a solution for an additional objective](optimizing-solution-for-objective.md)
       + [Hyperparameters and HPO](customizing-solution-config-hpo.md)
       + [Choosing the interactions data used for training](event-values-types.md)
    + [Step 3: Creating a solution version](creating-a-solution-version.md)
-   + [Step 4: Evaluating a solution version](working-with-training-metrics.md)
+      + [Stopping the creation of a solution version](stop-solution-version.md)
+   + [Step 4: Evaluating a solution version with metrics](working-with-training-metrics.md)
 + [Creating a campaign](campaigns.md)
 + [Getting recommendations](getting-recommendations.md)
    + [Getting real-time recommendations](getting-real-time-recommendations.md)
@@ -134,6 +136,7 @@ Amazon's trademarks and trade dress may not be used in
          + [ListSchemas](API_ListSchemas.md)
          + [ListSolutions](API_ListSolutions.md)
          + [ListSolutionVersions](API_ListSolutionVersions.md)
+         + [StopSolutionVersionCreation](API_StopSolutionVersionCreation.md)
          + [UpdateCampaign](API_UpdateCampaign.md)
       + [Amazon Personalize Events](API_Operations_Amazon_Personalize_Events.md)
          + [PutEvents](API_UBS_PutEvents.md)

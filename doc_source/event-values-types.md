@@ -73,7 +73,7 @@ In the following procedure, you use the AWS SDK for Python \(Boto3\) to create a
 
 1. Upload your data to an Amazon Simple Storage Service \(Amazon S3\) bucket\. For a code sample, see [Uploading to an Amazon S3 bucket](data-prep-upload-s3.md)\.
 
-1. Import your data into Amazon Personalize with the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) API\. Be sure to record your dataset group Amazon Resource Name \(ARN\) because you will need it when you create the solution\. For a code sample, see [Importing bulk records \(AWS Python SDK\)](bulk-data-import-step.md#python-import-ex)\.
+1. Import your data into Amazon Personalize with the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) API\. Be sure to record your dataset group Amazon Resource Name \(ARN\) because you will need it when you create the solution\. For a code sample, see [Importing bulk records \(AWS SDKs\)](bulk-data-import-step.md#python-import-ex)\.
 
 1. Get the ARN of the recipe that you want to use when you create your solution\. You'll need it when you create the solution\.
 
@@ -139,4 +139,4 @@ In the following procedure, you use the AWS SDK for Python \(Boto3\) to create a
 
 Training is complete when the status is `ACTIVE`\. For more information, see [Creating a solution](training-deploying-solutions.md)\.
 
-After you train a model, you should evaluate its performance\. To optimize your model, you might want to adjust the `eventValueThreshold` or other hyperparameters\. For more information, see [Step 4: Evaluating a solution version](working-with-training-metrics.md)\. 
+After you train a model, you should evaluate its performance\. To optimize your model, you might want to adjust the `eventValueThreshold` or other hyperparameters\. For more information, see [Step 4: Evaluating a solution version with metrics](working-with-training-metrics.md)\. 

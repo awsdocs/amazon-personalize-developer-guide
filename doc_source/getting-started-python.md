@@ -31,7 +31,7 @@ After you verify that your Python environment is configured correctly, import yo
 
 1. Add a schema\. The schema allows Amazon Personalize to parse the training dataset\. For a code sample, see [Creating a schema using the AWS Python SDK](how-it-works-dataset-schema.md#python-schema-ex)\.
 
-1. Import the data\. You create a dataset group which contains one or several datasets that Amazon Personalize can use for training\. For a code sample, see [Importing bulk records \(AWS Python SDK\)](bulk-data-import-step.md#python-import-ex)\.
+1. Import the data\. You create a dataset group which contains one or several datasets that Amazon Personalize can use for training\. For a code sample, see [Importing bulk records \(AWS SDKs\)](bulk-data-import-step.md#python-import-ex)\.
 
 1. \(Optional\) Add an event tracker\. To record interactions events, you must add a tracking ID to associate the event with your dataset group\. For a code sample, see [Creating an event tracker](recording-events.md#event-get-tracker)\.
 
@@ -41,7 +41,7 @@ After you verify that your Python environment is configured correctly, import yo
 
 After you import your data, create a solution and solution version\. The *solution* contains the configurations to train a model\. A *solution version* is a trained model\. For more information, see [Creating a solution](training-deploying-solutions.md)\.
 
-When you create a solution version, evaluate its performance before proceeding\. For a code sample, see [Step 4: Evaluating a solution version](working-with-training-metrics.md)\.
+When you create a solution version, evaluate its performance before proceeding\. For a code sample, see [Step 4: Evaluating a solution version with metrics](working-with-training-metrics.md)\.
 
 ## Step 4: Create a campaign<a name="getting-started-python-deploy-solution"></a>
 

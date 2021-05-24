@@ -9,7 +9,7 @@ Before you start this exercise, do the following:
 When you finish the getting started exercise, to avoid incurring unnecessary charges, follow the steps in [Cleaning up resources](gs-cleanup.md) to delete the resources you created\.
 
 **Note**  
-The CLI commands in this exercise were tested on Linux\. For information about using the CLI commands on Windows, see [Specifying parameter values for the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html) in the *AWS Command Line Interface User Guide*\.
+The AWS CLI commands in this exercise were tested on Linux\. For information about using the AWS CLI commands on Windows, see [Specifying parameter values for the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html) in the *AWS Command Line Interface User Guide*\.
 
 ## Step 1: Import training data<a name="gs-create-ds"></a>
 
@@ -173,7 +173,7 @@ Importing takes time\. Wait until the dataset import is complete before training
 
 Two steps are required to initially train a model\. First, you create the configuration for training the model using the [CreateSolution](API_CreateSolution.md) operation\. Second, you train the model using the [CreateSolutionVersion](API_CreateSolutionVersion.md) operation\.
 
-You train a model using a recipe and your training data\. Amazon Personalize provides a set of predefined recipes\. For more information, see [Step 1: Choosing a recipe](working-with-predefined-recipes.md)\. For this exercise, you use AutoML, which allows Amazon Personalize to pick the best recipe based on the dataset you created in the preceding step\.
+You train a model using a recipe and your training data\. Amazon Personalize provides a set of predefined recipes\. For more information, see [Step 1: Choosing a recipe](working-with-predefined-recipes.md)\. For this exercise, you use the User\-Personalization recipe\.
 
 1. Create the configuration for training a model by running the following command\.
 
@@ -181,7 +181,7 @@ You train a model using a recipe and your training data\. Amazon Personalize pro
    aws personalize create-solution \
      --name MovieSolution \
      --dataset-group-arn arn:aws:personalize:us-west-2:acct-id:dataset-group/MovieRatingDatasetGroup \
-     --perform-auto-ml
+     --recipe-arn arn:aws:personalize:::recipe/aws-user-personalization
    ```
 
    The solution ARN is displayed, for example:
@@ -202,33 +202,23 @@ You train a model using a recipe and your training data\. Amazon Personalize pro
    The properties of the solution and the create `status` are displayed\. Initially, the status shows as CREATE PENDING, for example:
 
    ```
-   {
+   {      
      "solution": {
          "name": "MovieSolution",
          "solutionArn": "arn:aws:personalize:us-west-2:acct-id:solution/MovieSolution",
-         "datasetGroupArn": "arn:aws:personalize:us-west-2:acct-id:dataset-group/MovieRatingDatasetGroup",
-         "performAutoML": true,
          "performHPO": false,
-         "solutionConfig": {
-             "autoMLConfig": {
-                 "metricName": "precision_at_25",
-                 "recipeList": [
-                     "arn:aws:personalize:::recipe/aws-hrnn"
-                 ]
-             }
-         },
-         "creationDateTime": 1543864685.016,
-         "lastUpdatedDateTime": 1543864685.016,
-         "status": "CREATE PENDING"
+         "performAutoML": false,
+         "recipeArn": "arn:aws:personalize:::recipe/aws-user-personalization",
+         "datasetGroupArn": "arn:aws:personalize:us-west-2:acct-id:dataset-group/MovieRatingDatasetGroup",
+         "solutionConfig": {},
+         "status": "ACTIVE",
+         "creationDateTime": "2021-05-12T16:27:59.819000-07:00",
+         "lastUpdatedDateTime": "2021-05-12T16:27:59.819000-07:00"
      }
    }
    ```
 
-   Note the `metricName` and `recipeList`\. Because you specified `performAutoML`, Amazon Personalize chooses the recipe from the list that optimizes that metric\. Because we didn't supply any metadata, the only recipe in the list is the [HRNN](native-recipe-hrnn.md) recipe\.
-
-   When the create `status` shows as ACTIVE, the solution configuration is complete and the model is ready for training\.
-
-1. Now that the configuration is ACTIVE, train the model by running the following command\.
+1. When the solution is ACTIVE, train the model by running the following command\.
 
    ```
    aws personalize create-solution-version \
@@ -262,31 +252,11 @@ You train a model using a recipe and your training data\. Amazon Personalize pro
    }
    ```
 
-1. When the latest solution version training `status` shows as ACTIVE, the training is complete\. The `describe-solution-version` response now includes `recipeArn`, which shows the recipe used to train the model as determined by Amazon Personalize, for example:
+1. When the solution version `status` is ACTIVE, the training is complete\.
 
-   ```
-   {
-     "solutionVersion": {
-         "solutionVersionArn": "arn:aws:personalize:us-west-2:acct-id:solution/MovieSolution/<version-id>",
-         "performAutoML": true,
-         "recipeArn": "arn:aws:personalize:::recipe/aws-hrnn",
-         "solutionConfig": {
-             "autoMLConfig": {
-                 "metricName": "precision_at_25",
-                 "recipeList": [
-                     "arn:aws:personalize:::recipe/aws-hrnn"
-                 ]
-             }
-         },
-         ...
-         "status": "ACTIVE"
-     }
-   }
-   ```
-
-   Now you can check the solution version metrics and create a campaign using the solution version\.
+   Now you can review training metrics and create a campaign using the solution version\.
 **Note**  
-Training takes time\. Wait until training is complete \(the *training* status of the solution version shows as ACTIVE\) before using this version of the solution in a campaign\. For quicker training, instead of using `perform-auto-ml`, select a specific recipe using the `recipe-arn` parameter\.
+Training takes time\. Wait until training is complete \(the *training* status of the solution version shows as ACTIVE\) before using this version of the solution in a campaign\.
 
 1. You can validate the performance of the solution version by reviewing its metrics\. Get the metrics for the solution version by running the following command\. Provide the solution version ARN that was returned previously\. For more information about the API, see [GetSolutionMetrics](API_GetSolutionMetrics.md)\.
 
@@ -301,23 +271,21 @@ Training takes time\. Wait until training is complete \(the *training* status of
    {
      "solutionVersionArn": "arn:aws:personalize:us-west-2:acct-id:solution/www-solution/<version-id>",
      "metrics": {
-         "arn:aws:personalize:us-west-2:acct-id:model/awspersonalizehrnnmodel-7923fda9": {
-         "coverage": 0.27,
-         "mean_reciprocal_rank_at_25": 0.0379,
-         "normalized_discounted_cumulative_gain_at_5": 0.0405,
-         "normalized_discounted_cumulative_gain_at_10": 0.0513,
-         "normalized_discounted_cumulative_gain_at_25": 0.0828,
-         "precision_at_5": 0.0136,
-         "precision_at_10": 0.0102,
-         "precision_at_25": 0.0091
+           "coverage": 0.0485,
+           "mean_reciprocal_rank_at_25": 0.0381,
+           "normalized_discounted_cumulative_gain_at_10": 0.0363,
+           "normalized_discounted_cumulative_gain_at_25": 0.0984,
+           "normalized_discounted_cumulative_gain_at_5": 0.0175,
+           "precision_at_10": 0.0107,
+           "precision_at_25": 0.0207,
+           "precision_at_5": 0.0107
        }
-     }
    }
    ```
 
 ## Step 3: Create a campaign \(deploy the solution\)<a name="gs-create-campaign"></a>
 
-Before you can get recommendations, you must deploy a version of the solution\. Deploying a solution is also known as creating a campaign\. Once you've created your campaign, your client application can get recommendations using the [GetRecommendations](API_RS_GetRecommendations.md) API\.
+Before you can get recommendations, you must deploy a solution version\. Deploying a solution is also known as creating a campaign\. Once you've created your campaign, your client application can get recommendations using the [GetRecommendations](API_RS_GetRecommendations.md) API\.
 
 1. Create a campaign by running the following command\. Provide the solution version ARN that was returned in the previous step\. For more information about the API, see [CreateCampaign](API_CreateCampaign.md)\.
 
@@ -325,7 +293,7 @@ Before you can get recommendations, you must deploy a version of the solution\. 
    aws personalize create-campaign \
      --name MovieRecommendationCampaign \
      --solution-version-arn arn:aws:personalize:us-west-2:acct-id:solution/MovieSolution/version-id \
-     --min-provisioned-tps 10
+     --min-provisioned-tps 1
    ```
 
    A sample response is shown:
@@ -351,7 +319,7 @@ Before you can get recommendations, you must deploy a version of the solution\. 
          "name": "MovieRecommendationCampaign",
          "campaignArn": "arn:aws:personalize:us-west-2:acct-id:campaign/MovieRecommendationCampaign",
          "solutionVersionArn": "arn:aws:personalize:us-west-2:acct-id:solution/MovieSolution/<version-id>",
-         "minProvisionedTPS": "10",
+         "minProvisionedTPS": "1",
          "creationDateTime": 1543864775.923,
          "lastUpdatedDateTime": 1543864791.923,
          "status": "CREATE IN_PROGRESS"

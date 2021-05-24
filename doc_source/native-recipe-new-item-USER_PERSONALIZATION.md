@@ -85,9 +85,9 @@ To use the User\-Personalization recipe to generate recommendations in the conso
 
 1. For **Recipe**, choose **aws\-user\-personalization**\. The **Solution configuration** section appears providing several configuration options\. 
 
-1.  In **Solution configuration** optionally specify the following: 
-   +  **Event type:** If your data has multiple event types in an EVENT\_TYPE column, optionally enter an event type, such as click or download, to choose the events to train with based on type\. Amazon Personalize will use only events with this type when training a model\. If you don't provide an event type, Amazon Personalize trains the model with all interactions data regardless of type\. 
-   +  **Event value threshold:** If your Interactions dataset has an EVENT\_VALUE\_THRESHOLD column, enter a value to choose the events to train with based on value\. Amazon Personalize will use only events with a value greater than or equal to this value to train the model\. If you don't provide a value, Amazon Personalize trains the model with all interactions data regardless of value\. 
+1. In **Solution configuration**, if your data has EVENT\_TYPE or EVENT\_VALUE\_THRESHOLD columns, use the following fields to choose the interactions data that Amazon Personalize uses when training the model\. 
+   +  **Event type:** If your data has multiple event types in an EVENT\_TYPE column and you want to train with just a single type of event, optionally enter an event type, such as *click*\. Amazon Personalize will use only events with this type when training a model\. You can enter only one type\. If you don't provide an event type, Amazon Personalize trains the model with all interactions data regardless of type\. 
+   +  **Event value threshold:** If your Interactions dataset has an EVENT\_VALUE\_THRESHOLD column and you want to train events based on value, optionally enter a value\. Amazon Personalize will use only events with a value greater than or equal to this value to train the model\. If you don't provide a value, Amazon Personalize trains the model with all interactions data regardless of value\. 
 
     For more information see [Choosing the interactions data used for training](event-values-types.md)\. 
 

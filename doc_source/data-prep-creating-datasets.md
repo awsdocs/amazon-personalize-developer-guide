@@ -11,7 +11,7 @@ For more information, including dataset and schema requirements, see [Datasets a
 **Topics**
 + [Creating a dataset and a schema \(console\)](#data-prep-creating-ds-console)
 + [Creating a dataset and a schema \(AWS CLI\)](#data-prep-creating-ds-cli)
-+ [Creating a dataset and a schema \(AWS Python SDK\)](#data-prep-creating-ds-sdk)
++ [Creating a dataset and a schema \(AWS SDKs\)](#data-prep-creating-ds-sdk)
 
 ## Creating a dataset and a schema \(console\)<a name="data-prep-creating-ds-console"></a>
 
@@ -109,9 +109,9 @@ To create a dataset and a schema using the AWS CLI, you first define a schema in
 
 1. Record the dataset ARN for later use\. After you have created a dataset, you are ready to import your training data\. See [ Step 3: Importing your data](data-prep-importing.md)\. 
 
-## Creating a dataset and a schema \(AWS Python SDK\)<a name="data-prep-creating-ds-sdk"></a>
+## Creating a dataset and a schema \(AWS SDKs\)<a name="data-prep-creating-ds-sdk"></a>
 
-To create a dataset and a schema using the AWS Python SDK, you first define a schema in [Avro format](https://docs.oracle.com/database/nosql-12.1.3.0/GettingStartedGuide/avroschemas.html) and add it to Amazon Personalize using the [CreateSchema](API_CreateSchema.md) operation\. Then create a dataset using the [CreateDataset](API_CreateDataset.md) operation\. For information on Amazon Personalize datasets and schema requirements, see [Datasets and schemas](how-it-works-dataset-schema.md)\.
+To create a dataset and a schema using the AWS SDKs, you first define a schema in [Avro format](https://docs.oracle.com/database/nosql-12.1.3.0/GettingStartedGuide/avroschemas.html) and add it to Amazon Personalize using the [CreateSchema](API_CreateSchema.md) operation\. Then create a dataset using the [CreateDataset](API_CreateDataset.md) operation\. For information on Amazon Personalize datasets and schema requirements, see [Datasets and schemas](how-it-works-dataset-schema.md)\.
 
 **To create a schema and a dataset**
 
@@ -142,7 +142,12 @@ To create a dataset and a schema using the AWS Python SDK, you first define a sc
    }
    ```
 
-1. Create the schema using the [CreateSchema](API_CreateSchema.md) API\. Replace `Schema Name` with the name of your schema\.
+1. Create the schema using the [CreateSchema](API_CreateSchema.md) API\.
+
+------
+#### [ SDK for Python \(Boto3\) ]
+
+   Use the following `create_schema` method to create a schema\. Replace `schema name` with the name of your schema\.
 
    ```
    import boto3
@@ -151,7 +156,7 @@ To create a dataset and a schema using the AWS Python SDK, you first define a sc
    
    with open('schemaFile.json') as f:
        createSchemaResponse = personalize.create_schema(
-           name = 'Schema Name',
+           name = 'schema name',
            schema = f.read()
        )
    
@@ -160,9 +165,51 @@ To create a dataset and a schema using the AWS Python SDK, you first define a sc
    print('Schema ARN:' + schema_arn )
    ```
 
+------
+#### [ SDK for Java 2\.x ]
+
+   Use the following `createSchema` method to create a schema\. Pass the following as parameters: a PersonalizeClient, the name for your schema, and the file path for your schema JSON file\.
+
+   ```
+   public static String createSchema(PersonalizeClient personalizeClient, String schemaName, String filePath) {
+       
+       String schema = null;
+       
+       try {
+           schema = new String(Files.readAllBytes(Paths.get(filePath)));
+       } catch (IOException e) {
+           System.out.println(e.getMessage());
+       }
+       
+       try {
+           CreateSchemaRequest createSchemaRequest = CreateSchemaRequest.builder()
+                   .name(schemaName)
+                   .schema(schema)
+                   .build();
+   
+           String schemaArn = personalizeClient.createSchema(createSchemaRequest).schemaArn();    
+           System.out.println("Schema arn: " + schemaArn);
+   
+           return schemaArn;
+   
+       } catch(PersonalizeException e) {
+           System.err.println(e.awsErrorDetails().errorMessage());
+           System.exit(1);
+       }
+       return "";
+   }
+   ```
+
+------
+
    Amazon Personalize returns the ARN of the new schema\. Record it because you'll need it in the next step\.
 
-1. Create a dataset using the [CreateDataset](API_CreateDataset.md) operation\. Specify the `datasetGroupArn` returned in [Creating a dataset group \(AWS Python SDK\)](data-prep-ds-group.md#data-prep-creating-ds-group-sdk)\. Use the `schemaArn` created in the previous step\. Replace `dataset type` with the type of dataset you are uploading\. For types of datasets, see [Datasets and schemas](how-it-works-dataset-schema.md)\.
+1. Create a dataset using the [CreateDataset](API_CreateDataset.md) operation\. For types of datasets, see [Datasets and schemas](how-it-works-dataset-schema.md)\. 
+
+------
+#### [ SDK for Python \(Boto3\) ]
+
+   Use the following `create_dataset` method to create an Amazon Personalize dataset\. Specify the `datasetGroupArn` returned in [Creating a dataset group \(AWS SDKs\)](data-prep-ds-group.md#data-prep-creating-ds-group-sdk)\. Use the `schemaArn` created in the previous step\. Replace `dataset type` with the type of dataset you are uploading \(Interactions, Users, or Items\)\.
 
    ```
    import boto3
@@ -178,5 +225,38 @@ To create a dataset and a schema using the AWS Python SDK, you first define a sc
    
    print ('Dataset Arn: ' + response['datasetArn'])
    ```
+
+------
+#### [ SDK for Java 2\.x ]
+
+   Use the following `createDataset` method to create an Amazon Personalize dataset\. Pass the following as parameters: a PersonalizeClient, the name for your dataset, the `schemaArn` created in the previous step, your dataset group ARN, and the dataset type \(Interactions, Users, or Items\)\.
+
+   ```
+   public static String createDataset(PersonalizeClient personalizeClient, 
+                                       String datasetName, 
+                                       String datasetGroupArn, 
+                                       String datasetType, 
+                                       String schemaArn) {
+       try {
+           CreateDatasetRequest request = CreateDatasetRequest.builder()
+                   .name(datasetName)
+                   .datasetGroupArn(datasetGroupArn)
+                   .datasetType(datasetType)
+                   .schemaArn(schemaArn).build();
+       
+           String datasetArn = personalizeClient.createDataset(request).datasetArn();
+           System.out.println("Dataset " + datasetName + " created. Dataset ARN: " + datasetArn);
+           
+           return datasetArn;
+           
+       } catch(PersonalizeException e) {
+           System.err.println(e.awsErrorDetails().errorMessage());
+           System.exit(1);
+       }
+       return "";
+   }
+   ```
+
+------
 
    After you have created a dataset, you are ready to import your training data\. See [ Step 3: Importing your data](data-prep-importing.md)\.

@@ -20,7 +20,7 @@ For filters with placeholder parameters, such as `$GENRE`, provide the values in
 
 ## Filtering batch recommendations \(AWS SDK\)<a name="filter-batch-recommendations-sdk"></a>
 
-1.  Use the console or the SDK to [create a filter](filter-real-time.md)\. 
+1. Use the console or the SDKs to [create a filter](filter-real-time.md)\. 
 
 1.  Include the `FilterArn` parameter in the [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) request\. 
 

@@ -10,4 +10,4 @@ To create a solution in Amazon Personalize, you do the following:
 
 1.  **Create a solution version \(train a model\)** – Train the machine learning model Amazon Personalize will use to generate recommendations for your customers\. See [Step 3: Creating a solution version](creating-a-solution-version.md)\. 
 
-1.  **Evaluate the solution version** – Use the metrics Amazon Personalize generates from the new solution version to evaluate the performance of the model\. See [Step 4: Evaluating a solution version](working-with-training-metrics.md)\. 
+1.  **Evaluate the solution version** – Use the metrics Amazon Personalize generates from the new solution version to evaluate the performance of the model\. See [Step 4: Evaluating a solution version with metrics](working-with-training-metrics.md)\. 

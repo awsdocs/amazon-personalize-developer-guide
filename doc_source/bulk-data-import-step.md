@@ -5,12 +5,12 @@ Bulk imports in Amazon Personalize are a full refresh of bulk data\. Existing bu
 
 After you have formatted your input data \(see [Formatting your input data](data-prep-formatting.md)\) and uploaded it to an Amazon Simple Storage Service \(Amazon S3\) bucket \(see [Uploading to an Amazon S3 bucket](data-prep-upload-s3.md)\), import the bulk records by creating a dataset import job\. 
 
-A *dataset import job* is a bulk import tool that populates your dataset with data from your S3 bucket\. You create a dataset import job and import bulk records using the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\), or AWS SDK\.
+A *dataset import job* is a bulk import tool that populates your dataset with data from your S3 bucket\. You create a dataset import job and import bulk records using the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\), or AWS SDKs\.
 
 **Topics**
 + [Importing bulk records \(console\)](#bulk-data-import-console)
 + [Importing bulk records \(AWS CLI\)](#bulk-data-import-cli)
-+ [Importing bulk records \(AWS Python SDK\)](#python-import-ex)
++ [Importing bulk records \(AWS SDKs\)](#python-import-ex)
 
 ## Importing bulk records \(console\)<a name="bulk-data-import-console"></a>
 
@@ -102,13 +102,16 @@ If your CSV files are in a folder in your S3 bucket and you want to upload multi
 
    After you import your data into the relevant datasets in the dataset group, create a solution version by training a model\. For more information, see [Creating a solution](training-deploying-solutions.md)\.
 
-## Importing bulk records \(AWS Python SDK\)<a name="python-import-ex"></a>
+## Importing bulk records \(AWS SDKs\)<a name="python-import-ex"></a>
 
-To add data to your dataset, create and run a dataset import job using the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) operation\. Specify the `datasetGroupArn` and set the `dataLocation` to the `bucket-name/file.csv` where you stored the training data\. 
+To add data to your dataset, create and run a dataset import job using the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) operation\. The following code shows how to create a dataset import job using the SDK for Python \(Boto3\) or SDK for Java 2\.x\.
 
-If your CSV files are in a folder in a S3 bucket, you can upload multiple CSV files to a dataset in one dataset import job\. For `dataLocation`, specify the `bucket-name/folder-name/` instead of the file name\.
+------
+#### [ SDK for Python \(Boto3\) ]
 
-For the `roleArn`, see [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. The `roleArn` parameter specifies the AWS Identity and Access Management \(IAM\) role that gives Amazon Personalize permissions to access your S3 bucket\. 
+Specify the `datasetGroupArn` and set the `dataLocation` to the path to your Amazon S3 bucket where you stored the training data\. 
+
+For the `roleArn`, specify the AWS Identity and Access Management \(IAM\) role that gives Amazon Personalize permissions to access your S3 bucket\. See [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
 
 ```
 import boto3
@@ -134,7 +137,75 @@ print('ARN: ' + description['datasetImportJobArn'])
 print('Status: ' + description['status'])
 ```
 
-The response returns the `datasetImportJobArn`\. The response from the [DescribeDatasetImportJob](API_DescribeDatasetImportJob.md) operation includes the status of the operation\.
+------
+#### [ SDK for Java 2\.x ]
+
+Use the following `createPersonalizeDatasetImportJob` method to create a dataset import job\. Pass the following as parameters: the dataset group's ARN \(Amazon Resource Name\), a name for the job, the dataset ARN, the `bucket-name/file.csv` where you stored the training data, and your service\-linked role's ARN \(see [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\)\. 
+
+If your CSV files are in a folder in an Amazon S3 bucket, you can upload multiple CSV files to a dataset in one dataset import job\. For the bucket path, specify the `bucket-name/folder-name/` instead of the file name\.
+
+```
+public static String createPersonalizeDatasetImportJob(PersonalizeClient personalizeClient,
+                                                      String jobName,
+                                                      String datasetArn,
+                                                      String s3BucketPath,
+                                                      String roleArn) {
+
+  long waitInMilliseconds = 60 * 1000;
+  String status;
+  String datasetImportJobArn;
+  
+  try {
+      DataSource importDataSource = DataSource.builder()
+              .dataLocation(s3BucketPath)
+              .build();
+      
+      CreateDatasetImportJobRequest createDatasetImportJobRequest = CreateDatasetImportJobRequest.builder()
+              .datasetArn(datasetArn)
+              .dataSource(importDataSource)
+              .jobName(jobName)
+              .roleArn(roleArn)
+              .build();
+  
+      datasetImportJobArn = personalizeClient.createDatasetImportJob(createDatasetImportJobRequest)
+              .datasetImportJobArn();
+      
+      DescribeDatasetImportJobRequest describeDatasetImportJobRequest = DescribeDatasetImportJobRequest.builder()
+              .datasetImportJobArn(datasetImportJobArn)
+              .build();
+  
+      long maxTime = Instant.now().getEpochSecond() + 3 * 60 * 60;
+  
+      while (Instant.now().getEpochSecond() < maxTime) {
+  
+          DatasetImportJob datasetImportJob = personalizeClient
+                  .describeDatasetImportJob(describeDatasetImportJobRequest)
+                  .datasetImportJob();
+  
+          status = datasetImportJob.status();
+          System.out.println("Dataset import job status: " + status);
+  
+          if (status.equals("ACTIVE") || status.equals("CREATE FAILED")) {
+              break;
+          }
+          try {
+              Thread.sleep(waitInMilliseconds);
+          } catch (InterruptedException e) {
+              System.out.println(e.getMessage());
+          }
+      }
+      return datasetImportJobArn;
+  
+  } catch (PersonalizeException e) {
+      System.out.println(e.awsErrorDetails().errorMessage());
+  }
+  return "";
+}
+```
+
+------
+
+The response from the [DescribeDatasetImportJob](API_DescribeDatasetImportJob.md) operation includes the status of the operation\.
 
 You must wait until the status changes to ACTIVE before you can use the data to train a model\.
 

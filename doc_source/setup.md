@@ -2,7 +2,7 @@
 
 Before using Amazon Personalize, you must have an Amazon Web Services \(AWS\) account\. After you have an AWS account, you can access Amazon Personalize through the Amazon Personalize console, the AWS Command Line Interface \(AWS CLI\), or the AWS SDKs\.
 
-This guide includes examples for AWS CLI, Python, and JavaScript with AWS Amplify\.
+This guide includes examples for AWS CLI, SDK for Python \(Boto3\), and SDK for Java 2\.x\.
 
 **Topics**
 + [Sign up for AWS](#aws-personalize-set-up-aws-account)
@@ -15,13 +15,15 @@ This guide includes examples for AWS CLI, Python, and JavaScript with AWS Amplif
 
 When you sign up for Amazon Web Services \(AWS\), your account is automatically signed up for all services in AWS, including Amazon Personalize\. You are charged only for the services that you use\.
 
-If you have an AWS account already, skip to the next task\. If you don't have an AWS account, use the following procedure to create one\.<a name="proc-set-up-aws-account"></a>
+If you have an AWS account already, skip to the next task\. If you don't have an AWS account, use the following procedure to create one\.
 
-**To sign up for Amazon Web Services**
+**To sign up for AWS**
 
-1. Open [https://aws\.amazon\.com](https://aws.amazon.com), and then choose **Create an AWS Account**\.
+1. Open [https://portal\.aws\.amazon\.com/billing/signup](https://portal.aws.amazon.com/billing/signup)\.
 
-1. Follow the on\-screen instructions to complete the account creation\. Note your 12\-digit AWS account number\. Part of the sign\-up procedure involves receiving a phone call and entering a PIN using the phone keypad\.
+1. Follow the online instructions\.
+
+   Part of the sign\-up procedure involves receiving a phone call and entering a verification code on the phone keypad\.
 
 1. Create an AWS Identity and Access Management \(IAM\) admin user\. See [Creating your first IAM user and group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html) in the *AWS Identity and Access Management User Guide* for instructions\.
 

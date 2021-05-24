@@ -2,7 +2,7 @@
 
 The AWS Command Line Interface \(AWS CLI\) is a unified developer tool for managing AWS services, including Amazon Personalize\. We recommend that you install it\.
 
-1. To install the AWS CLI, follow the instructions in [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) in the *AWS Command Line Interface User Guide*\. 
+1. To install the AWS CLI, follow the instructions in [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) in the *AWS Command Line Interface Interface User Guide*\. 
 
 1. To configure the AWS CLI and set up a profile to call the AWS CLI, follow the instructions in [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) in the *AWS Command Line Interface User Guide*\.
 

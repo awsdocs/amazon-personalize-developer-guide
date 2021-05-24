@@ -75,6 +75,8 @@ A solution version can be in one of the following states:
 + CREATE IN\_PROGRESS
 + ACTIVE
 + CREATE FAILED
++ CREATE STOPPING
++ CREATE STOPPED
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Required: No

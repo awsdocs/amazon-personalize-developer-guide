@@ -5,7 +5,12 @@ Trains or retrains an active solution\. A solution is created using the [CreateS
  **Status** 
 
 A solution version can be in one of the following states:
-+ CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
++ CREATE PENDING
++ CREATE IN\_PROGRESS
++ ACTIVE
++ CREATE FAILED
++ CREATE STOPPING
++ CREATE STOPPED
 
 To get the status of the version, call [DescribeSolutionVersion](API_DescribeSolutionVersion.md)\. Wait until the status shows as ACTIVE before calling `CreateCampaign`\.
 
