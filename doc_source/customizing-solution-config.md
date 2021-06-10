@@ -75,7 +75,7 @@ The following code shows how to create an Amazon Personalize solution using the 
 
 You can modify the following code to optimize recipe properties and hyperparameters \(see [Hyperparameters and HPO](customizing-solution-config-hpo.md)\) or filter the Interactions data used for training \(see [Choosing the interactions data used for training](event-values-types.md)\)\. If you use either the [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md) or [Personalized\-Ranking recipe](native-recipe-search.md) recipe, you can optimize your solution for an objective in addition to relevance\. For more information see [Optimizing a solution for an additional objective](optimizing-solution-for-objective.md)\.
 
-Record the solution ARN for future use and proceed to [Creating a solution version \(AWS Python SDK\)](creating-a-solution-version.md#create-solution-version-sdk)\.
+Record the solution ARN for future use and proceed to [Creating a solution version \(AWS SDKs\)](creating-a-solution-version.md#create-solution-version-sdk)\.
 
 ------
 #### [ SDK for Python \(Boto3\) ]

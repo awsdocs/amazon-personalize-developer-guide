@@ -12,7 +12,7 @@ You can balance how much to explore \(where items with less interactions data or
 + [Properties and hyperparameters](#bandit-hyperparameters)
 + [Training with the User\-Personalization recipe \(console\)](#training-user-personalization-recipe-console)
 + [Training with the User\-Personalization recipe \(Python SDK\)](#training-user-personalization-recipe)
-+ [Getting recommendations and recording impressions \(Python SDK\)](#user-personalization-get-recommendations-recording-impressions)
++ [Getting recommendations and recording impressions \(SDK for Python \(Boto3\)\)](#user-personalization-get-recommendations-recording-impressions)
 + [Sample Jupyter notebook](#bandits-sample-notebooks)
 
 ## Automatic updates<a name="automatic-updates"></a>
@@ -55,7 +55,7 @@ The table also provides the following information for each hyperparameter:
 | Name | Description | 
 | --- | --- | 
 | Algorithm hyperparameters | 
-| hidden\_dimension |  The number of hidden variables used in the model\. *Hidden variables* recreate users' purchase history and item statistics to generate ranking scores\. Specify a greater number of hidden dimensions when your Interactions dataset includes more complicated patterns\. Using more hidden dimensions requires a larger dataset and more time to process\. To decide on the optimal value, use HPO\. To use HPO, set `performHPO` to `true` when you call [CreateSolution](API_CreateSolution.md) and [CreateSolutionVersion](API_CreateSolutionVersion.md) operations\. Default value: 149 Range: \[32, 256\] Value type: Integer HPO tunable: Yes  | 
+| hidden\_dimension |  The number of hidden variables used in the model\. *Hidden variables* recreate users' purchase history and item statistics to generate ranking scores\. Specify a greater number of hidden dimensions when your Interactions dataset includes more complicated patterns\. Using more hidden dimensions requires a larger dataset and more time to process\. To decide on the best value, use HPO\. To use HPO, set `performHPO` to `true` when you call [CreateSolution](API_CreateSolution.md) and [CreateSolutionVersion](API_CreateSolutionVersion.md) operations\. Default value: 149 Range: \[32, 256\] Value type: Integer HPO tunable: Yes  | 
 | bptt |  Determines whether to use the back\-propagation through time technique\. *Back\-propagation through time* is a technique that updates weights in recurrent neural network\-based algorithms\. Use `bptt` for long\-term credits to connect delayed rewards to early events\. For example, a delayed reward can be a purchase made after several clicks\. An early event can be an initial click\. Even within the same event types, such as a click, it’s a good idea to consider long\-term effects and maximize the total rewards\. To consider long\-term effects, use larger `bptt` values\. Using a larger `bptt` value requires larger datasets and more time to process\. Default value: 32 Range: \[2, 32\] Value type: Integer HPO tunable: Yes  | 
 | recency\_mask |  Determines whether the model should consider the latest popularity trends in the Interactions dataset\. Latest popularity trends might include sudden changes in the underlying patterns of interaction events\. To train a model that places more weight on recent events, set `recency_mask` to `true`\. To train a model that equally weighs all past interactions, set `recency_mask` to `false`\. To get good recommendations using an equal weight, you might need a larger training dataset\. Default value: `True` Range: `True` or `False` Value type: Boolean HPO tunable: Yes  | 
 | Featurization hyperparameters | 
@@ -73,11 +73,11 @@ To use the User\-Personalization recipe to generate recommendations in the conso
 
 1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign into your account\.
 
-1. Create a dataset group with a new schema and upload your dataset with impressions data\. Optionally include [CREATION\_TIMESTAMP]() data in your Items dataset so Amazon Personalize can more accurately calculate the age of an item and identify cold items\. 
+1. Create a dataset group with a new schema and upload your dataset with impressions data\. Optionally include [CREATION\_TIMESTAMP]() and [Unstructured text metadata](items-datasets.md#text-data) data in your Items dataset so Amazon Personalize can more accurately calculate the age of an item and identify cold items\.
 
    For more information on importing data, see [Preparing and importing data](data-prep.md)\.
 
-1. On the **Dataset groups** page, choose the new dataset group that contains the dataset or datasets with impressions data\. 
+1. On the **Dataset groups** page, choose the new dataset group that contains the dataset or datasets with impressions data\.
 
 1. In the navigation pane, choose **Solutions and recipes** and choose **Create solution**\.
 
@@ -131,7 +131,7 @@ Recommendations might include items without interactions data from outside this 
 
 ## Training with the User\-Personalization recipe \(Python SDK\)<a name="training-user-personalization-recipe"></a>
 
-When you have created a dataset group and uploaded your dataset\(s\) with impressions data, you can train a solution with the User\-Personalization recipe\. Optionally include [CREATION\_TIMESTAMP](items-datasets.md#creation-timestamp-data) data in your dataset so Amazon Personalize can more accurately calculate the age of an item and identify cold start items\. For more information on creating dataset groups and uploading training data see [Datasets and schemas](how-it-works-dataset-schema.md)\.
+When you have created a dataset group and uploaded your dataset\(s\) with impressions data, you can train a solution with the User\-Personalization recipe\. Optionally include [CREATION\_TIMESTAMP]() and [Unstructured text metadata](items-datasets.md#text-data) data in your Items dataset so Amazon Personalize can more accurately calculate the age of an item and identify cold items\. For more information on creating dataset groups and uploading training data see [Datasets and schemas](how-it-works-dataset-schema.md)\.
 
 **To train a solution with the User\-Personalization recipe using the AWS SDK**
 
@@ -198,9 +198,9 @@ When you have created a dataset group and uploaded your dataset\(s\) with impres
 **Note**  
  Amazon Personalize doesn't automatically update solution versions you created before November 17, 2020\. 
 
-## Getting recommendations and recording impressions \(Python SDK\)<a name="user-personalization-get-recommendations-recording-impressions"></a>
+## Getting recommendations and recording impressions \(SDK for Python \(Boto3\)\)<a name="user-personalization-get-recommendations-recording-impressions"></a>
 
-When your campaign is created, you can use it to get recommendations for a user and record impressions\. For information on getting batch recommendations using the AWS SDK see [Creating a batch inference job \(AWS CLI and AWS SDKs\)](recommendations-batch.md#batch-sdk-cli)\.
+When your campaign is created, you can use it to get recommendations for a user and record impressions\. For information on getting batch recommendations using the AWS SDKs see [Creating a batch inference job \(AWS SDKs\)](recommendations-batch.md#batch-sdk)\.
 
 
 

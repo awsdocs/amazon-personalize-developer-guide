@@ -21,7 +21,7 @@ Because Amazon Personalize doesn’t communicate with AWS VPCs, Amazon Personali
 
 To attach an Amazon S3 policy to your Amazon Personalize role do the following:
 
-1. Sign in to the IAM console \([https://console\.aws\.amazon\.com/iam](https://console.aws.amazon.com/iam)\)\.
+1. Sign in to the IAM console \([https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\)\.
 
 1. In the navigation pane, choose **Policies**, and choose **Create policy**\.
 

@@ -37,7 +37,7 @@ The following examples show how to access Amazon Personalize metrics using the C
 
 1. Sign in to the AWS Management Console and open the CloudWatch console at [https://console\.aws\.amazon\.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/)\.
 
-1. Choose **Metrics**, choose the **All metrics** tab, and then choose **AWS/Personalize**\.
+1. Choose **Metrics**, choose the **All metrics** tab, and then choose `AWS/Personalize`\.
 
 1. Choose the metric dimension\.
 
@@ -76,7 +76,7 @@ Alarms invoke actions for sustained state changes only\. CloudWatch alarms do no
 
 1. Choose **Select metric**\.
 
-1. In the **All metrics** tab, choose **AWS/Personalize**\.
+1. In the **All metrics** tab, choose `AWS/Personalize`\.
 
 1. Choose **EventTrackerArn**, and then choose **PutEventsRequests** metrics\.
 

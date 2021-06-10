@@ -43,7 +43,7 @@ You can specify an AWS Key Management Service \(KMS\) key to encrypt the dataset
 The request accepts the following data in JSON format\.
 
  ** [kmsKeyArn](#API_CreateDatasetGroup_RequestSyntax) **   <a name="personalize-CreateDatasetGroup-request-kmsKeyArn"></a>
-The Amazon Resource Name \(ARN\) of a KMS key used to encrypt the datasets\.  
+The Amazon Resource Name \(ARN\) of a AWS Key Management Service \(KMS\) key used to encrypt the datasets\.  
 Type: String  
 Required: No
 
@@ -55,7 +55,7 @@ Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`
 Required: Yes
 
  ** [roleArn](#API_CreateDatasetGroup_RequestSyntax) **   <a name="personalize-CreateDatasetGroup-request-roleArn"></a>
-The ARN of the IAM role that has permissions to access the KMS key\. Supplying an IAM role is only valid when also specifying a KMS key\.  
+The ARN of the AWS Identity and Access Management \(IAM\) role that has permissions to access the AWS Key Management Service \(KMS\) key\. Supplying an IAM role is only valid when also specifying a KMS key\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+`   

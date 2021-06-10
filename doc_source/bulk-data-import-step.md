@@ -140,7 +140,7 @@ print('Status: ' + description['status'])
 ------
 #### [ SDK for Java 2\.x ]
 
-Use the following `createPersonalizeDatasetImportJob` method to create a dataset import job\. Pass the following as parameters: the dataset group's ARN \(Amazon Resource Name\), a name for the job, the dataset ARN, the `bucket-name/file.csv` where you stored the training data, and your service\-linked role's ARN \(see [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\)\. 
+Use the following `createPersonalizeDatasetImportJob` method to create a dataset import job\. Pass the following as parameters: an Amazon Personalize service client, the dataset group's ARN \(Amazon Resource Name\), a name for the job, the dataset ARN, the `bucket-name/file.csv` where you stored the training data, and your service\-linked role's ARN \(see [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\)\. 
 
 If your CSV files are in a folder in an Amazon S3 bucket, you can upload multiple CSV files to a dataset in one dataset import job\. For the bucket path, specify the `bucket-name/folder-name/` instead of the file name\.
 

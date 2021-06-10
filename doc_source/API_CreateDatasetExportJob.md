@@ -1,6 +1,6 @@
 # CreateDatasetExportJob<a name="API_CreateDatasetExportJob"></a>
 
- Creates a job that exports data from your dataset to an Amazon S3 bucket\. To allow Amazon Personalize to export the training data, you must specify an service\-linked AWS Identity and Access Management \(IAM\) role that gives Amazon Personalize `PutObject` permissions for your Amazon S3 bucket\. For information, see [Exporting a dataset](https://docs.aws.amazon.com/personalize/latest/dg/export-data.html) in the Amazon Personalize developer guide\. 
+ Creates a job that exports data from your dataset to an Amazon S3 bucket\. To allow Amazon Personalize to export the training data, you must specify an service\-linked IAM role that gives Amazon Personalize `PutObject` permissions for your Amazon S3 bucket\. For information, see [Exporting a dataset](https://docs.aws.amazon.com/personalize/latest/dg/export-data.html) in the Amazon Personalize developer guide\. 
 
  **Status** 
 
@@ -56,7 +56,7 @@ Type: [DatasetExportJobOutput](API_DatasetExportJobOutput.md) object
 Required: Yes
 
  ** [roleArn](#API_CreateDatasetExportJob_RequestSyntax) **   <a name="personalize-CreateDatasetExportJob-request-roleArn"></a>
-The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management service role that has permissions to add data to your output Amazon S3 bucket\.  
+The Amazon Resource Name \(ARN\) of the IAM service role that has permissions to add data to your output Amazon S3 bucket\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+`   

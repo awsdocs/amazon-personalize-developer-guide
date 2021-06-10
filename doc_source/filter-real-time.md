@@ -2,6 +2,11 @@
 
 You can filter real\-time recommendations with the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\), or the AWS SDKs\.
 
+**Topics**
++ [Filtering real\-time recommendations \(console\)](#filter-rt-console)
++ [Filtering real\-time recommendations \(AWS CLI\)](#filter-rt-cli)
++ [Filtering real\-time recommendations \(AWS SDKs\)](#filter-rt-sdk)
+
 ## Filtering real\-time recommendations \(console\)<a name="filter-rt-console"></a>
 
 To filter real\-time recommendations using the console, create a filter and then apply it to a recommendation request\. 
@@ -116,13 +121,13 @@ To filter recommendations using a filter with parameters and a campaign you depl
 
 Use the following `create-filter` operation to create a filter and specify the filter expression\. 
 
-Replace the `Filter name` with the name of the filter, and the `Dataset group ARN` with the Amazon Resource Name \(ARN\) of the dataset group\. Replace the sample `filterExpression` with your own filter expression\. 
+Replace the `Filter name` with the name of the filter, and the `Dataset group ARN` with the Amazon Resource Name \(ARN\) of the dataset group\. Replace the sample `filter-expression` with your own filter expression\. 
 
 ```
 aws personalize create-filter \
   --name Filter name \
   --dataset-group-arn dataset group arn \
-  --filter-expression "EXCLUDE ItemID WHERE Items.CATEGORY IN ($CATEGORY)"
+  --filter-expression "EXCLUDE ItemID WHERE Items.CATEGORY IN (\"$CATEGORY\")"
 ```
 
  If successful, the filter ARN is displayed\. Record it for later use\. To verify that the filter is active, use the [DescribeFilter](API_DescribeFilter.md) operation before you use the filter\. 
@@ -145,10 +150,10 @@ aws personalize-runtime get-recommendations \
   --campaign-arn Campaign ARN \
   --user-id User ID \
   --filter-arn Filter ARN \
-  --filter-values '[{
-      "PROPERTY1": "\"value\"",
-      "PROPERTY2": "\"value1\",\"value2\",\"value3\""
-    }]'
+  --filter-values '{
+      "Parameter name": "\"value\"",
+      "Parameter name": "\"value1\",\"value2\",\"value3\""
+    }'
 ```
 
 ### Deleting a filter \(AWS CLI\)<a name="delete-filter-cli"></a>
@@ -159,16 +164,21 @@ aws personalize-runtime get-recommendations \
 aws personalize delete-filter --filter-arn Filter ARN
 ```
 
-## Filtering real\-time recommendations \(AWS Python SDK\)<a name="filter-rt-sdk"></a>
+## Filtering real\-time recommendations \(AWS SDKs\)<a name="filter-rt-sdk"></a>
 
-To filter recommendations using the AWS Python SDK, you create a filter and then apply it by specifying the filter ARN in a [GetRecommendations](API_RS_GetRecommendations.md) or [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) request\.
+To filter recommendations using the AWS SDKs, you create a filter and then apply it by specifying the filter ARN in a [GetRecommendations](API_RS_GetRecommendations.md) or [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) request\.
 
 **Important**  
 To filter recommendations using a filter with parameters and a campaign you deployed before November 10, 2020, you must re\-deploy the campaign by using the [UpdateCampaign](API_UpdateCampaign.md) call or create a new campaign\.
 
-### Creating a filter \(AWS Python SDK\)<a name="creating-filter-sdk"></a>
+### Creating a filter \(AWS SDKs\)<a name="creating-filter-sdk"></a>
 
-Use the following `create_filter` method to create a filter\. Replace `Filter Name` with the name of the filter, and `Dataset Group ARN` with the Amazon Resource Name \(ARN\) of the dataset group\. Replace the example `filterExpression` with your own filter expression\.
+ Create a new filter with the [CreateFilter](API_CreateFilter.md) operation\. 
+
+------
+#### [ SDK for Python \(Boto3\) ]
+
+Use the following `create_filter` method to create a filter with the AWS SDK for Python \(Boto3\)\. Replace `Filter Name` with the name of the filter, and `Dataset Group ARN` with the Amazon Resource Name \(ARN\) of the dataset group\. Replace the example `filterExpression` with your own filter expression\.
 
 ```
 import boto3
@@ -186,16 +196,50 @@ print("Filter ARN: " + filter_arn)
 
 Record the filter ARN for later use\. To verify that the filter is active, use the [DescribeFilter](API_DescribeFilter.md) operation before using the filter\. For more information about the API, see [CreateFilter](API_CreateFilter.md)\. For more information about filter expressions, including examples, see [Creating filter expressions](filter-expressions.md#creating-filter-expressions)\.
 
-### Applying a filter \(AWS Python SDK\)<a name="applying-filter-sdk"></a>
+------
+#### [ SDK for Java 2\.x ]
 
-When you use the `get_recommendations` or `get_personalized_ranking` methods, apply a filter by passing `filterArn` and any filter values as parameters\. 
+The following `createFilter` method shows how to create a filter with the AWS SDK for Java 2\.x\. The method returns the ARN \(Amazon Resource Number\) of the new filter\. Pass the following as parameters: an Amazon Personalize service client, a name for the filter, the dataset group where you want to create the filter, and the filter expression\. For more information about filter expressions, including examples, see [Creating filter expressions](filter-expressions.md#creating-filter-expressions)\. 
 
-The following is an example of the `get_recommendations` method\. Replace `Campaign ARN` with the Amazon Resource Name \(ARN\) of your campaign, `User ID` with the ID of the user that you are getting recommendations for, and `Filter ARN` with the ARN of your filter\. 
+```
+public static String createFilter(PersonalizeClient personalizeClient,
+                                 String filterName,
+                                 String datasetGroupArn,
+                                 String filterExpression) {
+    try {
+        CreateFilterRequest request = CreateFilterRequest.builder()
+                .name(filterName)
+                .datasetGroupArn(datasetGroupArn)
+                .filterExpression(filterExpression)
+                .build();
 
-For `filterValues`, for each optional parameter in your filter expression, provide the parameter name \(case sensitive\) and the value or values\. For example, if your filter expression has a `$GENRES` parameter, provide *"GENRES"* as the key, and a genre or genres, such as `"\"Comedy"\"`, as the value\. For multiple values, separate each value with a comma\. For example, `"\"comedy\",\"drama\",\"horror\""`\. 
+        return personalizeClient.createFilter(request).filterArn();
+    }
+    catch(PersonalizeException e) {
+        System.err.println(e.awsErrorDetails().errorMessage());
+        System.exit(1);
+    }
+    return "";
+}
+```
+
+------
+
+### Applying a filter \(AWS SDKs\)<a name="applying-filter-sdk"></a>
+
+When you use the `get_recommendations` or `get_personalized_ranking` methods, apply a filter by passing a `filterArn` and any filter values as parameters\.
+
+ The following code shows how to filter recommendations with the AWS SDK for Python \(Boto3\) or the AWS SDK for Java 2\.x\. 
 
 **Important**  
 For filter expressions that use an `INCLUDE` element to include items, you must provide values for all parameters that are defined in the expression\. For filters with expressions that use an `EXCLUDE` element to exclude items, you can omit the `filter-values`\. In this case, Amazon Personalize doesn't use that portion of the expression to filter recommendations\. 
+
+------
+#### [ SDK for Python \(Boto3\) ]
+
+Use the following `get_recommendations` method to filter recommendations with the SDK for Python \(Boto3\)\. Replace `Campaign ARN` with the Amazon Resource Name \(ARN\) of your campaign, `User ID` with the ID of the user that you are getting recommendations for, and `Filter ARN` with the ARN of your filter\. 
+
+For `filterValues`, for each optional parameter in your filter expression, provide the parameter name \(case sensitive\) and the value or values\. For example, if your filter expression has a `$GENRES` parameter, provide *"GENRES"* as the key, and a genre or genres, such as `"\"Comedy"\"`, as the value\. For multiple values, separate each value with a comma\. For example, `"\"comedy\",\"drama\",\"horror\""`\. 
 
 ```
 import boto3
@@ -213,6 +257,57 @@ response = personalize_runtime.get_recommendations(
     }
 )
 ```
+
+------
+#### [ SDK for Java 2\.x ]
+
+Use the following `getFilteredRecs` method to apply a filter to an Amazon Personalize recommendation request\. Pass the following as parameters: an Amazon Personalize runtime service client, the campaign's ARN \(Amazon Resource Name\), the user's userID, the filter's ARN, and any filter parameter names \(case sensitive\) and their values\. For example, if your filter expression has a `$GENRES` parameter, provide *"GENRES"* as the parameter name\. 
+
+The following example uses two parameters, one with two values and one with one value\. Depending on your filter expression, modify the code to add or remove parameterName and parameterValue fields\.
+
+```
+public static void getFilteredRecs(PersonalizeRuntimeClient personalizeRuntimeClient,
+                                   String campaignArn,
+                                   String userId,
+                                   String filterArn,
+                                   String parameter1Name,
+                                   String parameter1Value1,
+                                   String parameter1Value2,
+                                   String parameter2Name,
+                                   String parameter2Value){
+
+    try {
+
+        Map<String, String> filterValues = new HashMap<>();
+
+        filterValues.put(parameter1Name, String.format("\"%1$s\",\"%2$s\"",
+                parameter1Value1, parameter1Value2));
+        filterValues.put(parameter2Name, String.format("\"%1$s\"",
+                parameter2Value));
+
+        GetRecommendationsRequest recommendationsRequest = GetRecommendationsRequest.builder()
+                .campaignArn(campaignArn)
+                .numResults(20)
+                .userId(userId)
+                .filterArn(filterArn)
+                .filterValues(filterValues)
+                .build();
+
+        GetRecommendationsResponse recommendationsResponse = personalizeRuntimeClient.getRecommendations(recommendationsRequest);
+        List<PredictedItem> items = recommendationsResponse.itemList();
+
+        for (PredictedItem item: items) {
+            System.out.println("Item Id is : "+item.itemId());
+            System.out.println("Item score is : "+item.score());
+        }
+    } catch (PersonalizeRuntimeException e) {
+        System.err.println(e.awsErrorDetails().errorMessage());
+        System.exit(1);
+    }
+}
+```
+
+------
 
 ### Deleting a filter \(AWS Python SDK\)<a name="delete-filter-sdk"></a>
 

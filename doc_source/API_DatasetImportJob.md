@@ -49,7 +49,7 @@ Type: Timestamp
 Required: No
 
  **roleArn**   <a name="personalize-Type-DatasetImportJob-roleArn"></a>
-The ARN of the AWS Identity and Access Management \(IAM\) role that has permissions to read from the Amazon S3 data source\.  
+The ARN of the IAM role that has permissions to read from the Amazon S3 data source\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   

@@ -10,7 +10,7 @@ The batch workflow is as follows:
 
 1.  Create a separate location for your output data, either a folder or a different Amazon S3 bucket\. 
 
-1.  Create a batch inference job\. See [Creating a batch inference job \(console\)](#batch-console) or [Creating a batch inference job \(AWS CLI and AWS SDKs\)](#batch-sdk-cli)\. 
+1.  Create a batch inference job\. See [Creating a batch inference job \(console\)](#batch-console), [Creating a batch inference job \(AWS CLI\)](#batch-cli), or [Creating a batch inference job \(AWS SDKs\)](#batch-sdk)\. 
 
 1.  When the batch inference job is complete, retrieve the recommendations from your output location in Amazon S3\. 
 
@@ -19,7 +19,8 @@ The batch workflow is as follows:
 + [Batch workflow scoring](#batch-scoring)
 + [Preparing and importing batch input data](#batch-data-upload)
 + [Creating a batch inference job \(console\)](#batch-console)
-+ [Creating a batch inference job \(AWS CLI and AWS SDKs\)](#batch-sdk-cli)
++ [Creating a batch inference job \(AWS CLI\)](#batch-cli)
++ [Creating a batch inference job \(AWS SDKs\)](#batch-sdk)
 
 ## Batch workflow permissions requirements<a name="batch-permissions-req"></a>
 
@@ -177,16 +178,38 @@ Separate each `itemId` with a new line as follows\.
 
 1.  When the batch inference job's status changes to **Active**, you can retrieve the job's output from the designated output Amazon S3 bucket\. The output file's name will be of the format `input-name.out`\. 
 
-## Creating a batch inference job \(AWS CLI and AWS SDKs\)<a name="batch-sdk-cli"></a>
+## Creating a batch inference job \(AWS CLI\)<a name="batch-cli"></a>
 
-After you have completed [Preparing and importing batch input data](#batch-data-upload), you are ready to create a batch inference job using the following code\. Specify a `Batch job name`, replace `Solution version ARN` with the Amazon Resource Name \(ARN\) of your solution version, and replace the `IAM service role ARN` with the ARN of the IAM service role you created for Amazon Personalize during set up\. This role must have read and write access to your input and output Amazon S3 buckets respectively\. 
+After you have completed [Preparing and importing batch input data](#batch-data-upload), you are ready to create a batch inference job using the following `create-batch-inference-job` code\. Specify a job name, replace `Solution version ARN` with the Amazon Resource Name \(ARN\) of your solution version, and replace the `IAM service role ARN` with the ARN of the IAM service role you created for Amazon Personalize during set up\. This role must have read and write access to your input and output Amazon S3 buckets respectively\. 
 
 Replace `S3 input path` and `S3 output path` with the Amazon S3 path to your input file and output locations\. We recommend using a different location for your output data \(either a folder or a different Amazon S3 bucket\)\. You can apply a filter to the recommendations added to the output JSON file\. For more information see [Filtering batch recommendations](filter-batch.md)\. 
 
-For `batch-inference-job-config`, the example includes optional `USER_PERSONALIZE` recipe specific `itemExplorationConfig` hyperparameters: `explorationWeight` and `explorationItemAgeCutOff`\. Optionally include `explorationWeight` and `explorationItemAgeCutOff` values to configure exploration\. For more information, see [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
+The example includes optional User\-Personalization recipe specific `itemExplorationConfig` hyperparameters: `explorationWeight` and `explorationItemAgeCutOff`\. Optionally include `explorationWeight` and `explorationItemAgeCutOff` values to configure exploration\. For more information, see [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
+
+```
+aws personalize create-batch-inference-job --job-name Batch job name \
+                --solution-version-arn Solution version ARN \
+                --job-input s3DataSource={path=s3://S3 input path} \
+                --job-output s3DataDestination={path=s3://S3 output path} \
+                --role-arn IAM service role ARN \
+                --batch-inference-job-config "{\"itemExplorationConfig\":{\"explorationWeight\":\"0.3\",\"explorationItemAgeCutOff\":\"30\"}}"
+{
+   "batchInferenceJobArn": "arn:aws:personalize:us-west-2:012345678901:batch-inference-job/batchTest"
+}
+```
+
+## Creating a batch inference job \(AWS SDKs\)<a name="batch-sdk"></a>
+
+After you have completed [Preparing and importing batch input data](#batch-data-upload), you are ready to create a batch inference job with the [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) operation\. The following code shows how to create a batch inference job using the AWS SDK for Python \(Boto3\) or AWS SDK for Java 2\.x\. 
 
 ------
-#### [ Python ]
+#### [ SDK for Python \(Boto3\) ]
+
+ Use the following `create_batch_inference_job` code to create a batch inference job\. Specify a `Batch job name`, replace `Solution version ARN` with the Amazon Resource Name \(ARN\) of your solution version, and replace the `IAM service role ARN` with the ARN of the IAM service role you created for Amazon Personalize during set up\. T his role must have read and write access to your input and output Amazon S3 buckets respectively\. 
+
+Replace `S3 input path` and `S3 output path` with the Amazon S3 path to your input file and output locations\. We recommend using a different location for your output data \(either a folder or a different Amazon S3 bucket\)\. You can apply a filter to the recommendations added to the output JSON file\. For more information see [Filtering batch recommendations](filter-batch.md)\. 
+
+The example includes optional User\-Personalization recipe specific `itemExplorationConfig` hyperparameters: `explorationWeight` and `explorationItemAgeCutOff`\. Optionally include `explorationWeight` and `explorationItemAgeCutOff` values to configure exploration\. For more information, see [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
 
 ```
 import boto3
@@ -212,18 +235,98 @@ personalize_rec.create_batch_inference_job (
 ```
 
 ------
-#### [ CLI ]
+#### [ SDK for Java 2\.x ]
+
+ Use the following `createPersonalizeBatchInferenceJob` method to create a batch inference job\. Pass the following as parameters: an Amazon Personalize service client, the solution version's ARN \(Amazon Resource Name\), a name for the job, the `bucket-name/file.csv` where you stored your input data \(s3InputDataSourcePath\), the `bucket-name/folder-name` of your output data location \(s3DataDestinationPath\), and your service\-linked role's ARN \(see [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\)\. We recommend using a different location for your output data \(either a folder or a different Amazon S3 bucket\)\. 
+
+The example includes optional User\-Personalization recipe specific `itemExplorationConfig` fields: `explorationWeight` and `explorationItemAgeCutOff`\. Optionally include `explorationWeight` and `explorationItemAgeCutOff` values to configure exploration\. For more information, see [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
 
 ```
-aws personalize create-batch-inference-job --job-name Batch job name \
-                --solution-version-arn Solution version ARN \
-                --job-input s3DataSource={path=s3://S3 input path} \
-                --job-output s3DataDestination={path=s3://S3 output path} \
-                --role-arn IAM service role ARN \
-                --batch-inference-job-config "{\"itemExplorationConfig\":{\"explorationWeight\":\"0.3\",\"explorationItemAgeCutOff\":\"30\"}}"
-{
-   "batchInferenceJobArn": "arn:aws:personalize:us-west-2:012345678901:batch-inference-job/batchTest"
+public static String createPersonalizeBatchInferenceJob(PersonalizeClient personalizeClient,
+                                                        String solutionVersionArn,
+                                                        String jobName,
+                                                        String s3InputDataSourcePath,
+                                                        String s3DataDestinationPath,
+                                                        String roleArn,
+                                                        String explorationWeight,
+                                                        String explorationItemAgeCutOff) {
+
+    long waitInMilliseconds = 60 * 1000;
+    String status;
+    String batchInferenceJobArn;
+
+    try {
+        // Set up data input and output parameters.
+        S3DataConfig inputSource = S3DataConfig.builder()
+                .path(s3InputDataSourcePath)
+                .build();
+        S3DataConfig outputDestination = S3DataConfig.builder()
+                .path(s3DataDestinationPath)
+                .build();
+
+        BatchInferenceJobInput jobInput = BatchInferenceJobInput.builder()
+                .s3DataSource(inputSource)
+                .build();
+        BatchInferenceJobOutput jobOutputLocation = BatchInferenceJobOutput.builder()
+                .s3DataDestination(outputDestination)
+                .build();
+
+        // Optional code to build the User-Personalization specific item exploration config.
+        HashMap<String, String> explorationConfig = new HashMap<>();
+
+        explorationConfig.put("explorationWeight", explorationWeight);
+        explorationConfig.put("explorationItemAgeCutOff", explorationItemAgeCutOff);
+
+        BatchInferenceJobConfig jobConfig = BatchInferenceJobConfig.builder()
+                .itemExplorationConfig(explorationConfig)
+                .build();
+        // End optional User-Personalization recipe specific code.
+
+        CreateBatchInferenceJobRequest createBatchInferenceJobRequest = CreateBatchInferenceJobRequest.builder()
+                .solutionVersionArn(solutionVersionArn)
+                .jobInput(jobInput)
+                .jobOutput(jobOutputLocation)
+                .jobName(jobName)
+                .roleArn(roleArn)
+                .batchInferenceJobConfig(jobConfig)   // Optional
+                .build();
+
+        batchInferenceJobArn = personalizeClient.createBatchInferenceJob(createBatchInferenceJobRequest)
+                .batchInferenceJobArn();
+        DescribeBatchInferenceJobRequest describeBatchInferenceJobRequest = DescribeBatchInferenceJobRequest.builder()
+                .batchInferenceJobArn(batchInferenceJobArn)
+                .build();
+
+        long maxTime = Instant.now().getEpochSecond() + 3 * 60 * 60;
+
+        // wait until the batch inference job is complete.
+        while (Instant.now().getEpochSecond() < maxTime) {
+
+            BatchInferenceJob batchInferenceJob = personalizeClient
+                    .describeBatchInferenceJob(describeBatchInferenceJobRequest)
+                    .batchInferenceJob();
+
+            status = batchInferenceJob.status();
+            System.out.println("Batch inference job status: " + status);
+
+            if (status.equals("ACTIVE") || status.equals("CREATE FAILED")) {
+                break;
+            }
+            try {
+                Thread.sleep(waitInMilliseconds);
+            } catch (InterruptedException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return batchInferenceJobArn;
+
+    } catch (PersonalizeException e) {
+        System.out.println(e.awsErrorDetails().errorMessage());
+    }
+    return "";
 }
 ```
 
 ------
+
+Processing the batch job might take a while to complete\. You can check a job's status by calling [DescribeBatchInferenceJob](API_DescribeBatchInferenceJob.md) and passing a `batchRecommendationsJobArn` as the input parameter\. You can also list all Amazon Personalize batch inference jobs in your AWS environment by calling [ListBatchInferenceJobs](API_ListBatchInferenceJobs.md)\.

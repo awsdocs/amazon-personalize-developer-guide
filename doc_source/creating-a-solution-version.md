@@ -7,7 +7,7 @@ After you have completed [Step 1: Choosing a recipe](working-with-predefined-rec
 **Topics**
 + [Creating a solution version \(console\)](#create-solution-version-console)
 + [Creating a solution version \(AWS CLI\)](#create-solution-version-cli)
-+ [Creating a solution version \(AWS Python SDK\)](#create-solution-version-sdk)
++ [Creating a solution version \(AWS SDKs\)](#create-solution-version-sdk)
 + [Stopping the creation of a solution version](stop-solution-version.md)
 
 ## Creating a solution version \(console\)<a name="create-solution-version-console"></a>
@@ -74,7 +74,7 @@ Training is complete when the `status` is `ACTIVE` and you can evaluate it using
 
 If your solution version has a status of CREATE\_PENDING or CREATE\_IN\_PROGRESS, you can use the [StopSolutionVersionCreation](API_StopSolutionVersionCreation.md) operation to stop the solution version creation process\. See [Stopping the creation of a solution version](stop-solution-version.md)\.
 
-## Creating a solution version \(AWS Python SDK\)<a name="create-solution-version-sdk"></a>
+## Creating a solution version \(AWS SDKs\)<a name="create-solution-version-sdk"></a>
 
 When your solution is ACTIVE, use the following code to create a solution version with the AWS SDK for Python \(Boto3\) or the AWS SDK for Java 2\.x\.
 

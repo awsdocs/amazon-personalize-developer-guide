@@ -13,7 +13,7 @@ This guide includes examples for AWS CLI, SDK for Python \(Boto3\), and SDK for 
 
 ## Sign up for AWS<a name="aws-personalize-set-up-aws-account"></a>
 
-When you sign up for Amazon Web Services \(AWS\), your account is automatically signed up for all services in AWS, including Amazon Personalize\. You are charged only for the services that you use\.
+When you sign up for AWS, your account is automatically signed up for all services in AWS, including Amazon Personalize\. You are charged only for the services that you use\.
 
 If you have an AWS account already, skip to the next task\. If you don't have an AWS account, use the following procedure to create one\.
 

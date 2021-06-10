@@ -1,6 +1,6 @@
 # API reference<a name="API_Reference"></a>
 
-This section provides documentation for the Amazon Personalize API operations\. For a list of Amazon Personalize endpoints by region, see [AWS regions and endpoints](https://docs.aws.amazon.com/general/latest/gr/personalize.html) in the *Amazon Web Services General Reference*\.
+This section provides documentation for the Amazon Personalize API operations\. For a list of Amazon Personalize endpoints by region, see [AWS regions and endpoints](https://docs.aws.amazon.com/general/latest/gr/personalize.html) in the *AWS General Reference*\.
 
 **Topics**
 + [Actions](API_Operations.md)

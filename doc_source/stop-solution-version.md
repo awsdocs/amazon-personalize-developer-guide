@@ -68,9 +68,7 @@ import boto3
 personalize = boto3.client('personalize')
 
 response = personalize.stop_solution_version_creation(
-    
     solutionVersionArn = solution_version_arn
-
 )
 
 # Use the solution version ARN to get the solution version status.

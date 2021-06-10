@@ -5,7 +5,7 @@ Provides information about an event tracker\.
 ## Contents<a name="API_EventTracker_Contents"></a>
 
  **accountId**   <a name="personalize-Type-EventTracker-accountId"></a>
-The Amazon AWS account that owns the event tracker\.  
+The AWS account that owns the event tracker\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Required: No

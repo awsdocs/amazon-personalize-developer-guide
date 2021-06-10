@@ -49,15 +49,7 @@ The `AmazonPersonalizeFullAccess` policy allows IAM users to perform the followi
 
 ## Using the Amazon Personalize console<a name="security_iam_id-based-policy-examples-console"></a>
 
-To access the Amazon Personalize console, you must have a minimum set of permissions\. These permissions must allow you to list and view details about the Amazon Personalize resources in your AWS account\. If you create an identity\-based policy that is more restrictive than the minimum required permissions, the console won't function as intended for entities \(IAM users or roles\) with that policy\.
-
-To ensure that those entities can still use the Amazon Personalize console, also attach the following AWS managed policy to the entities\. For more information, see [Adding permissions to a user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*\.
-
-```
-AWSPersonalizeConsoleAccess
-```
-
-You don't need to allow minimum console permissions for users that are making calls only to the AWS CLI or the AWS API\. Instead, allow access to only the actions that match the API operation that you're trying to perform\.
+To access the Amazon Personalize console, you must have a minimum set of permissions\. These permissions must allow you to list and view details about the Amazon Personalize resources in your AWS account\. If you create an identity\-based policy that is more restrictive than the minimum required permissions, the console won't function as intended for entities \(IAM users or roles\) with that policy\. 
 
 ## Allow users to view their own permissions<a name="security_iam_id-based-policy-examples-view-own-permissions"></a>
 

@@ -24,7 +24,7 @@ Type: String
 Required: No
 
  **kmsKeyArn**   <a name="personalize-Type-DatasetGroup-kmsKeyArn"></a>
-The Amazon Resource Name \(ARN\) of the KMS key used to encrypt the datasets\.  
+The Amazon Resource Name \(ARN\) of the AWS Key Management Service \(KMS\) key used to encrypt the datasets\.  
 Type: String  
 Required: No
 

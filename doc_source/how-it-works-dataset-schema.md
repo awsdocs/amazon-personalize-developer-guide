@@ -27,7 +27,7 @@ Each dataset has a set of required fields, reserved keywords, and their required
 | Dataset type | Required fields | Reserved keywords | 
 | --- | --- | --- | 
 | Users |  USER\_ID \(`string`\) 1 metadata field \(categorical `string` or numerical\)  |  | 
-| Items |  ITEM\_ID \(`string`\) 1 metadata field \(categorical `string` or numerical\)  |  CREATION\_TIMESTAMP \(`long`\)  | 
+| Items |  ITEM\_ID \(`string`\) 1 metadata field \(categorical or textual `string` field or numerical field\)  |  CREATION\_TIMESTAMP \(`long`\)  | 
 | Interactions |  USER\_ID \(`string`\) ITEM\_ID \(`string`\) TIMESTAMP \(`long`\)  |  EVENT\_TYPE \(`string`\) EVENT\_VALUE \(`float`, `null`\) IMPRESSION \(`string`\) RECOMMENDATION\_ID \(`string`, `null`\)  | 
 
 Before you add a dataset to Amazon Personalize, you must define a schema for that dataset\. Once you define the schema and create the dataset, you can't make changes to the schema\. 
@@ -66,17 +66,17 @@ We support only the following Avro types for fields \([Reserved keywords](#reser
 
 ### Metadata fields<a name="metadata-fields"></a>
 
- Metadata includes string or non\-string fields that aren't required or don't use a reserved keyword\. Metadata schemas have the following restrictions: 
+Metadata includes string or non\-string fields that aren't required or don't use a reserved keyword\. Metadata schemas have the following restrictions: 
 + Users and Items schemas require at least one metadata field\.
 + You can add at most 5 metadata fields for a Users schema and 50 metadata fields for an Items schema\.
-+ If you add your own metadata field of type `string`, it must include the `categorical` attribute\. Otherwise, Amazon Personalize won't use the field when training a model\. 
++ If you add your own metadata field of type `string`, it must include the `categorical` attribute or the `textual` attribute \(only Items schemas support fields with the textual attribute\)\. Otherwise, Amazon Personalize won't use the field when training a model\.
 
 ### Reserved keywords<a name="reserved-keywords"></a>
 
 Reserved keywords are optional, non\-metadata fields\. These fields are considered reserved because you must define the fields as their required data type when you use them\. The following are reserved keywords:
 + EVENT\_TYPE: For Interactions datasets with one or more event types, such as both *click* and *download*, use an `EVENT_TYPE` field\. You must define an EVENT\_TYPE field as a `string`\.
 + EVENT\_VALUE: For Interactions datasets that include value data for events, such as the percentage of a video a user watched, use an `EVENT_VALUE` field with type `float` and optionally `null`\.
-+  CREATION\_TIMESTAMP: For Items datasets with a timestamp for each item’s creation date, use a `CREATION_TIMESTAMP` field\. Amazon Personalize uses `CREATION_TIMESTAMP` data to calculate the age of an item and adjust recommendations accordingly\. See [Creation timestamp data](items-datasets.md#creation-timestamp-data)\. 
++  CREATION\_TIMESTAMP: For Items datasets with a timestamp for each item’s creation date, use a `CREATION_TIMESTAMP` field with a type `long`\. Amazon Personalize uses `CREATION_TIMESTAMP` data to calculate the age of an item and adjust recommendations accordingly\. See [Creation timestamp data](items-datasets.md#creation-timestamp-data)\. 
 +  IMPRESSION: For Interactions datasets with explicit impressions data, use an `IMPRESSION` field with type `String`\. Impressions are lists of items that were visible to a user when they interacted with \(for example, clicked or watched\) a particular item\. For more information see [Impressions data](interactions-datasets.md#interactions-impressions-data)\. 
 +  RECOMMENDATION\_ID: For Interactions datasets that use previous recommendations as implicit impressions data, optionally use a `RECOMMENDATION_ID` field with type `String` and optionally type `null`\. 
 

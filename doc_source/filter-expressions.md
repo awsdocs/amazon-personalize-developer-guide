@@ -25,10 +25,11 @@ You can either manually create filter expressions or get help with expression sy
   For example, if you used *\.99* for the `max_user_history_length_percentile`, and 99% of your users have at most *4* interactions, Amazon Personalize will only filter based on the user's most recent *4* interactions\. If a user has less than the number interactions at the `min_user_history_length_percentile`, Amazon Personalize doesn't consider the user's interactions when filtering\. 
 
   To filter based on up to 200 historical and streamed interactions for a user, set the `max_user_history_length_percentile` to *1\.0* and retrain the model\. For more information on hyperparameters, see [Step 1: Choosing a recipe](working-with-predefined-recipes.md) and navigate to the *Properties and Hyperparameters* section for your recipe\. 
-+  **Items**: Use filter expressions to include or exclude items based on specific item conditions\. 
++  **Items**: Use filter expressions to include or exclude items based on specific item conditions\. You can't use filters to include or exclude items based on unstructured textual item metadata such as product descriptions\.
 +  **Users**: Use filter expressions to include or exclude items based on specific properties of the user you are getting recommendations for \(the `CurrentUser`\)\. If you have created a Users dataset, you can add an `IF` condition to your expression to check conditions for the `CurrentUser` regardless of the dataset that is being used in the expression\. 
 
  When creating a filter expression, note the following limitations: 
++ You can't use filters to include or exclude items based on unstructured textual item metadata such as product descriptions\.
 + You can't chain Interaction and Item datasets into one expression\. To create a filter that filters by Interaction and then Item datasets \(or the opposite\), you must chain two or more expressions together\. For more information, see [Combining multiple expressions](#multiple-expression-example)\. 
 +  You can't create filter expressions that filter using values with a boolean type in your schema\. To filter based on boolean values, use a schema with a field of type *String* and use the values `"True"` and `"False"` in your data\. Or you can use type *int* or *long* and values `0` and `1`\. 
 
@@ -49,7 +50,7 @@ Use `WHERE` to check conditions for items\. You must use the `WHERE` element aft
 To chain multiple conditions together within the same filter expression, use `AND` or `OR`\. Conditions chained together using `AND` or `OR` can only affect properties of the dataset used in the first condition\.
 
 **Dataset\.property**  
-Provide the dataset and the metadata property that you want to filter recommendations by in `dataset`\.`property` format\. For example, to filter based on the genres property in your Items dataset, you would use Items\.genres in your filter expression\. 
+Provide the dataset and the metadata property that you want to filter recommendations by in `dataset`\.`property` format\. For example, to filter based on the genres property in your Items dataset, you would use Items\.genres in your filter expression\. You can't use filters to include or exclude items based on textual item metadata\. 
 
 **IF condition**  
 Use an `IF` condition *only* to check conditions for the `CurrentUser` and only *once* at the end of an expression\. However, you can extend an `IF` condition using `AND`\. 

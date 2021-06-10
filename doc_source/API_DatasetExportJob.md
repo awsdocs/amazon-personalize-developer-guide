@@ -56,7 +56,7 @@ Type: Timestamp
 Required: No
 
  **roleArn**   <a name="personalize-Type-DatasetExportJob-roleArn"></a>
-The Amazon Resource Name \(ARN\) of the AWS Identity and Access Management service role that has permissions to add data to your output Amazon S3 bucket\.  
+The Amazon Resource Name \(ARN\) of the IAM service role that has permissions to add data to your output Amazon S3 bucket\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   

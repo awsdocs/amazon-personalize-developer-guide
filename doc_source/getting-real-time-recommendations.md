@@ -179,9 +179,14 @@ To get a personalized ranking for a user from the Amazon Personalize console, ch
 
 1. Choose **Get personalized item rankings**\. A table containing the items ranked in order of predicted interest for the user appears\. 
 
-### Getting a personalized ranking \(AWS Python SDK\)<a name="get-personalized-rankings-sdk"></a>
+### Getting a personalized ranking \(AWS SDKs\)<a name="get-personalized-rankings-sdk"></a>
 
-Use the following code to get a personalized ranking\. Change the value of `userId` and `inputList` to a user ID and list of item IDs that are in the data that you used to train the solution\. A list of ranked recommendations is displayed\. Amazon Personalize considers the first item in the list of most interest to the user\.
+The following code shows how to get a personalized ranking with the AWS SDK for Python \(Boto3\) or AWS SDK for Java 2\.x\.
+
+------
+#### [ SDK for Python \(Boto3\) ]
+
+Use the following `get_personalized_ranking` method to get a personalized ranking with the SDK for Python \(Boto3\)\. Change the value of `userId` and `inputList` to a user ID and list of item IDs to be ranked for the user\. The item IDs must be in the data that you used to train the solution\. A list of ranked recommendations is displayed\. Amazon Personalize considers the first item in the list of most interest to the user\.
 
 ```
 import boto3
@@ -198,6 +203,46 @@ print("Personalized Ranking")
 for item in response['personalizedRanking']:
     print (item['itemId'])
 ```
+
+------
+#### [ SDK for Java 2\.x ]
+
+Use the following `getRankedRecs` method to get a personalized ranking with the SDK for Java 2\.x\. Pass the following as parameters: an Amazon Personalize runtime client, your campaign's Amazon Resource Name \(ARN\), the user ID for the user, and a list of item IDs to be ranked for the user\. The item IDs must be in the data you used to train the solution\. The method returns the list of recommended items ranked from most relevant to least relevant\.
+
+```
+public static List<PredictedItem> getRankedRecs(PersonalizeRuntimeClient personalizeRuntimeClient,
+                                                String campaignArn,
+                                                String userId,
+                                                ArrayList<String> items) {
+
+    try {
+        GetPersonalizedRankingRequest rankingRecommendationsRequest = GetPersonalizedRankingRequest.builder()
+                .campaignArn(campaignArn)
+                .userId(userId)
+                .inputList(items)
+                .build();
+  
+        GetPersonalizedRankingResponse recommendationsResponse =
+                personalizeRuntimeClient.getPersonalizedRanking(rankingRecommendationsRequest);
+        List<PredictedItem> rankedItems = recommendationsResponse.personalizedRanking();
+        int rank = 1;
+        for (PredictedItem item : rankedItems) {
+            System.out.println("Item ranked at position " + rank + " details");
+            System.out.println("Item Id is : " + item.itemId());
+            System.out.println("Item score is : " + item.score());
+            System.out.println("---------------------------------------------");
+            rank++;
+        }
+        return rankedItems;
+    } catch (PersonalizeRuntimeException e) {
+        System.err.println(e.awsErrorDetails().errorMessage());
+        System.exit(1);
+    }
+    return null;
+}
+```
+
+------
 
 ### Getting a personalized ranking using contextual metadata \(AWS Python SDK\)<a name="personalized-ranking-contextual-metadata-example"></a>
 

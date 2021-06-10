@@ -8,7 +8,8 @@ For information about how Amazon Personalize updates filters for new records and
 
 **Topics**
 + [Importing users incrementally \(console\)](#importing-users-console)
-+ [Importing users incrementally \(AWS CLI or AWS SDKs\)](#importing-users-cli-sdk)
++ [Importing users incrementally \(AWS CLI\)](#importing-users-cli)
++ [Importing users incrementally \(AWS SDKs\)](#importing-users-cli-sdk)
 
 ## Importing users incrementally \(console\)<a name="importing-users-console"></a>
 
@@ -30,18 +31,39 @@ You can import up to 10 users at a time\. This procedure assumes you have alread
 
 1. Choose **Create record\(s\)**\. In **Response**, the result of the import is listed and a success or failure message is displayed\.
 
-## Importing users incrementally \(AWS CLI or AWS SDKs\)<a name="importing-users-cli-sdk"></a>
+## Importing users incrementally \(AWS CLI\)<a name="importing-users-cli"></a>
 
-Add one or more users to your Users dataset with the [PutUsers](API_UBS_PutUsers.md) operation\. You can import up to 10 users with a single `PutUsers` call\. 
+Add one or more users to your Users dataset with the [PutUsers](API_UBS_PutUsers.md) operation\. You can import up to 10 users with a single `PutUsers` call\. This section assumes that you have already created an Users dataset\. For information about creating datasets, see [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md)\.
 
-This section assumes that you have already created a Users dataset\. For information about creating datasets, see [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md)\.
+Use the following `put-users` command to add one or more users with the AWS CLI\. Replace `dataset arn` with the Amazon Resource Name \(ARN\) of your dataset and `user Id` with the ID of the user\. If an user with the same `userId` is already in your Users dataset, Amazon Personalize replaces it with the new one\.
 
-Replace `dataset arn` with the Amazon Resource Name \(ARN\) of your dataset and `user Id` with the ID of the user\. If a user with the same `userId` is already in your users dataset, Amazon Personalize replaces it with the new one\. 
+For `properties`, for each field in your Users dataset, replace the `propertyName` with the field name from your schema in camel case\. For example, GENDER would be `gender` and MEMBERSHIP\_TYPE would be `membershipType`\. Replace `user data` with the data for the user\. For categorical string data, to include multiple categories for a single property, separate each category with a pipe \(`|`\)\. For example `\"Premium Class|Legacy Member\"`\.
 
-For `properties`, for each field in your Users dataset, replace the `propertyName` with the field name from your schema in camel case\. For example, CREATION\_TIMESTAMP would be creationTimestamp\. Replace `user data` with the data for the user\. `CREATION_TIMESTAMP` data must be in [Unix epoch time format](data-prep-formatting.md#timestamp-data) and in seconds\. For categorical string data, to include multiple categories for a single property, separate each category with a pipe \(`|`\)\. For example `\"Horror|Action\"`\. 
+```
+aws personalize-events put-users \
+  --dataset-arn dataset arn \
+  --users '[{
+      "userId": "user Id", 
+      "properties": "{\"propertyName\": "\user data\"}" 
+    }, 
+    {
+      "userId": "user Id", 
+      "properties": "{\"propertyName\": "\user data\"}" 
+    }]'
+```
+
+## Importing users incrementally \(AWS SDKs\)<a name="importing-users-cli-sdk"></a>
+
+Add one or more users to your Users dataset with the [PutUsers](API_UBS_PutUsers.md) operation\. You can import up to 10 users with a single `PutUsers` call\. This section assumes that you have already created a Users dataset\. For information about creating datasets, see [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md)\.
+
+ The following code shows how to add one or more users to your Users dataset with the AWS SDK for Python \(Boto3\) or the AWS SDK for Java 2\.x\. 
 
 ------
-#### [ Python ]
+#### [ SDK for Python \(Boto3\) ]
+
+Replace `dataset arn` with the Amazon Resource Name \(ARN\) of your dataset and `user Id` with the ID of the user\. If a user with the same `userId` is already in your Users dataset, Amazon Personalize replaces it with the new one\. 
+
+For `properties`, for each field in your Users dataset, replace the `propertyName` with the field name from your schema in camel case\. For example, GENDER would be `gender` and MEMBERSHIP\_TYPE would be `membershipType`\. Replace `user data` with the data for the user\. For categorical string data, to include multiple categories for a single property separate each category with a pipe \(`|`\)\. For example `\"Premium Class|Legacy Member\"`\.
 
 ```
 import boto3
@@ -62,19 +84,53 @@ personalize_events.put_users(
 ```
 
 ------
-#### [ CLI ]
+#### [ SDK for Java 2\.x ]
+
+ The following `putUsers` method shows how to add two users to a Users dataset with the SDK for Java 2\.x\. If a user with the same `userId` is already in your Users dataset, Amazon Personalize replaces it with the new one\. In this example, each user has a single property\. If your Users dataset schema has additional fields, modify the code to use additional property and value parameters\. 
+
+For each property name parameter, pass the field name from your schema in camel case\. For example, GENDER would be `gender` and MEMBERSHIP\_TYPE would be `membershipType`\. For each property value parameter, pass the data for the user\. For categorical string data, to include multiple categories for a single property separate each category with a pipe \(`|`\)\. For example `"Premium class|Legacy Member"`\.
 
 ```
-aws personalize-events put-users \
-  --dataset-arn dataset arn \
-  --users '[{
-      "userId": "user Id", 
-      "properties": "{\"propertyName\": "\user data\"}" 
-    }, 
-    {
-      "userId": "user Id", 
-      "properties": "{\"propertyName\": "\user data\"}" 
-    }]'
+public static int putUsers(PersonalizeEventsClient personalizeEventsClient,
+                         String datasetArn,
+                         String user1Id,
+                         String user1PropertyName,
+                         String user1PropertyValue,
+                         String user2Id,
+                         String user2PropertyName,
+                         String user2PropertyValue) {
+
+    int responseCode = 0;
+    ArrayList<User> users = new ArrayList<>();
+
+    try {
+        User user1 = User.builder()
+          .userId(user1Id)
+          .properties(String.format("{\"%1$s\": \"%2$s\"}", user1PropertyName, user1PropertyValue))
+          .build();
+
+        users.add(user1);
+
+        User user2 = User.builder()
+          .userId(user2Id)
+          .properties(String.format("{\"%1$s\": \"%2$s\"}", user2PropertyName, user2PropertyValue))
+          .build();
+
+        users.add(user2);
+
+        PutUsersRequest putUsersRequest = PutUsersRequest.builder()
+          .datasetArn(datasetArn)
+          .build();
+
+        responseCode = personalizeEventsClient.putUsers(putUsersRequest).sdkHttpResponse().statusCode();
+        System.out.println("Response code: " + responseCode);
+        return responseCode;
+
+    } catch (PersonalizeEventsException e) {
+        System.out.println(e.awsErrorDetails().errorMessage());
+    }
+    return responseCode;
+}
 ```
 
 ------
