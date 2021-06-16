@@ -1,6 +1,6 @@
 # Creating a solution<a name="training-deploying-solutions"></a>
 
-Once you have finished [Preparing and importing data](data-prep.md), you are ready to create a Solution\. A *Solution* refers to the combination of an Amazon Personalize recipe, customized parameters, and one or more solution versions \(trained models\)\. Once you create a solution with a solution version, you can [create a campaign](campaigns.md) to deploy the solution version and get recommendations\.
+After you have finished [Preparing and importing data](data-prep.md), you are ready to create a Solution\. A *Solution* refers to the combination of an Amazon Personalize recipe, customized parameters, and one or more solution versions \(trained models\)\. After you create a solution with a solution version, you can [create a campaign](campaigns.md) to deploy the solution version and get recommendations\.
 
 To create a solution in Amazon Personalize, you do the following:
 

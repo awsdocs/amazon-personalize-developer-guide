@@ -89,6 +89,10 @@ Required: Yes
                "maxNumberOfTrainingJobs": "string",
                "maxParallelTrainingJobs": "string"
             }
+         },
+         "optimizationObjective": { 
+            "itemAttribute": "string",
+            "objectiveSensitivity": "string"
          }
       },
       "status": "string"

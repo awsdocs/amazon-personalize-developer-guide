@@ -26,6 +26,7 @@ Required: No
  **kmsKeyArn**   <a name="personalize-Type-DatasetGroup-kmsKeyArn"></a>
 The Amazon Resource Name \(ARN\) of the AWS Key Management Service \(KMS\) key used to encrypt the datasets\.  
 Type: String  
+Pattern: `arn:aws.*:kms:.*:[0-9]{12}:key/.*`   
 Required: No
 
  **lastUpdatedDateTime**   <a name="personalize-Type-DatasetGroup-lastUpdatedDateTime"></a>

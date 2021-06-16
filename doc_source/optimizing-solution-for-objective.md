@@ -9,7 +9,7 @@
 
 After you create an Interactions dataset and an Items dataset with a column of numerical metadata, you can create a solution that is optimized for an additional objective based on your item metadata\. To optimize a solution for an additional objective, create a new solution with the User\-Personalization recipe or Personalized\-Ranking recipe and choose the numerical metadata column in your Items dataset that is related to your objective\. For example, you might choose a VIDEO\_LENGTH column to maximize streaming minutes or a PRICE column to maximize revenue\. 
 
-When generating recommendations, Amazon Personalize gives more importance to items with higher values for this column of data\. You can choose only one column for your objective and the metadata be must numerical\. 
+When generating recommendations, Amazon Personalize gives more importance to items with higher values for this column of data\. You can choose only one column for your objective and the metadata must be numerical\.
 
 To optimize a solution for an objective, you can use the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\), or AWS SDKs\.
 

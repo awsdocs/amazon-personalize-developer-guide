@@ -9,11 +9,11 @@ Amazon Personalize updates any filters you created in the dataset group with you
 **How new records influence recommendations**
 
 If you have already created a solution version \(trained a model\), new records influence recommendations as follows:
-+  For *new events*, Amazon Personalize automatically uses new historical and real\-time interaction events between a user and existing items \(items you included in the data you used to train the latest model\) when generating recommendations for the same user\. Historical events that you import using the Amazon Personalize console and events that you record in real\-time influence recommendations in the same way\. For more information, see [How real\-time events influence recommendations](recording-events.md#recorded-events-influence-recommendations)\. 
-+ For *new items*, if you trained the model using the User\-Personalization recipe, Amazon Personalize automatically updates the model every two hours\. After each update, the new items influence recommendations\. See [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
++  For *new events*, Amazon Personalize immediately uses historical and real\-time interaction events between a user and existing items \(items you included in the data you used to train the latest model\) when generating recommendations for the same user\. Historical events that you import using the Amazon Personalize console and events that you record in real\-time influence recommendations in the same way\. For more information, see [How real\-time events influence recommendations](recording-events.md#recorded-events-influence-recommendations)\. 
++ For *new items*, if you trained the solution version with the User\-Personalization recipe, Amazon Personalize automatically updates the model every two hours\. After each update, the new items can be included in recommendations with exploration\. For information about exploration see [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
 
-   For any other recipe, you must retrain the model for the new items to influence recommendations\. 
-+  For *new users*, recommendations will initially be for popular items only\. As you record events for the user, recommendations will become more relevant\. For more information, see [Recording events](recording-events.md)\. 
+   For any other recipe, you must retrain the model for the new items to be included in recommendations\. 
++  For *new users*, recommendations will initially be only for popular items\. Starting with the first event, user recommendations will be more relevant as you record events\. For more information, see [Recording events](recording-events.md)\. 
 
 **Topics**
 + [Importing interactions incrementally](importing-interactions.md)

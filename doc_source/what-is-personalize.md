@@ -28,7 +28,9 @@ If you are a first\-time user of Amazon Personalize, we recommend that you read 
 
 1. **[How it works](how-it-works.md)** – This section introduces various Amazon Personalize components that you work with to create an end\-to\-end experience\.
 
-1. **[Getting started](getting-started.md)** – In this section you set up your account, and test the Amazon Personalize Console and API\.
+1. **[Setting up Amazon Personalize](setup.md)** – In this section you set up your AWS account, set up the required permissions to use Amazon Personalize, and set up the AWS CLI and the AWS SDKs to use and manage Amazon Personalize\.
+
+1. **[Getting started](getting-started.md)** – In this section you get started using Amazon Personalize with a simple movie dataset\. You learn how to create an Amazon Personalize campaign that returns movie recommendations for a user with the Amazon Personalize console, the AWS CLI, and AWS SDKs\. 
 
 1. **[Preparing and importing data](data-prep.md)** – This section describes how to prepare and import your training data into Amazon Personalize\.
 
@@ -39,6 +41,8 @@ If you are a first\-time user of Amazon Personalize, we recommend that you read 
 1. **[Creating a campaign](campaigns.md)** – This section provides information about deploying a solution version as a campaign\.
 
 1. **[Getting recommendations](getting-recommendations.md)** – This section shows how to get recommendations from a campaign\.
+
+1. **[Maintaining recommendation relevance](maintaining-relevance.md)** – This section shows how to maintain the relevance of Amazon Personalize recommendations as your catalog grows and your customers use your application\.
 
 ## Are you an experienced Amazon Personalize user?<a name="experienced-user"></a>
 

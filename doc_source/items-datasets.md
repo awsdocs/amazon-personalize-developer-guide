@@ -35,7 +35,7 @@ If creation timestamp data is missing for one or more items, Amazon Personalize 
 
 To use categorical data, add a field of type `string` to your schema and set the field's categorical attribute to `true`\. Then include the categorical data in your bulk CSV file and incremental item imports\. For items with multiple categories, separate each value with the vertical bar, '\|'\. For an example of a schema with a categorical field see [Items schema example](#schema-examples-items)\. 
 
-Categorical values can have a maximum of 1,000 characters\. Any item with a categorical value with more than 1,000 characters characters is dropped during a dataset import job and is not used in training\. 
+Categorical values can have a maximum of 1,000 characters\. Any item with a categorical value with more than 1,000 characters is dropped during a dataset import job and is not used in training\. 
 
 ## Unstructured text metadata<a name="text-data"></a>
 
@@ -43,7 +43,7 @@ With the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md)
 
 To use unstructured data, add a field with type `string` to your Items schema and set the field's `textual` attribute to `true`\. Then include the text data in your bulk CSV file and incremental item imports\. For bulk CSV files, wrap the text in double quotes\. For an example of an Items schema with a field for unstructured text data, see [Items schema example](#schema-examples-items)\. For information about importing data into Amazon Personalize, see [Preparing and importing data](data-prep.md)\.
 
-Unstructured text values can have at most 200,000 characters and text must be in English\. Amazon Personalize truncates values that exceed the character limit to 200,000 characters characters\. We recommend using unstructured text metadata with less than 5,000 words\.
+Unstructured text values can have at most 200,000 characters and text must be in English\. Amazon Personalize truncates values that exceed the character limit to 200,000 characters\. We recommend using unstructured text metadata with less than 5,000 words\.
 
 ## Items schema example<a name="schema-examples-items"></a>
 
