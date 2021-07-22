@@ -49,7 +49,7 @@ After you train and evaluate your solution version, you can deploy it using a ca
 
 ## Step 5: Get recommendations<a name="getting-started-python-get-recommendations"></a>
 
-After you create a campaign, you can use it to get recommendations\. For a code sample, see [Getting recommendations](getting-real-time-recommendations.md#recommendations)\.
+After you create a campaign, you can use it to get recommendations\. For a code sample, see [Getting recommendations](recommendations.md)\.
 
 ## Getting started using Amazon Personalize APIs with Jupyter \(iPython\) notebooks<a name="gs-jupyter-notebook"></a>
 

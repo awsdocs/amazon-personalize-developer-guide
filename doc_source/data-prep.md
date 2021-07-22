@@ -2,6 +2,10 @@
 
 Amazon Personalize uses data that you provide to train a model\. When you import data, you can choose to import records in bulk or incrementally or both\. With incremental imports, you can add individual historical records or data from live events, or both, depending on your business requirements\. 
 
+ The minimum data requirements to train a model are as follows: 
++  1000 records of combined interaction data \(after filtering by `eventType` and `eventValueThreshold`, if provided\)\.
++  25 unique users with at least 2 interactions each\. 
+
 This section provides information about importing historical data into Amazon Personalize\. For information about recording live interactions data, see [Recording events](recording-events.md)\.
 
 To import your historical training data into Amazon Personalize, you do the following:

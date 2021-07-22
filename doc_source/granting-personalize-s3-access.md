@@ -96,7 +96,7 @@ To complete a batch worklfow, Amazon Personalize needs permission to access and 
 
 ### Service\-linked role policy for exporting a dataset<a name="role-policy-for-export"></a>
 
-To export a dataset, Amazon Personalize needs permission to add files to your Amazon S3 bucket\. The following is an example a policy that grants your Amazon Personalize service\-linked role `PutObject` permissions\. Replace `bucket-name` with the name of your bucket\. For information about attaching policies to a service\-linked IAM role see [Attaching an Amazon S3 policy to the Amazon Personalize service role](#attaching-s3-policy-to-role)\. 
+To export a dataset, your Amazon Personalize service\-linked role needs permission to use the `PutObject` and `ListBucket` Actions on your Amazon S3 bucket\. The following example policy grants Amazon Personalize `PutObject` and `ListBucket` permissions\. Replace `bucket-name` with the name of your bucket and attach the policy to your service\-linked role\. For information about attaching policies to a service\-linked IAM role see [Attaching an Amazon S3 policy to the Amazon Personalize service role](#attaching-s3-policy-to-role)\. 
 
 ```
 {
@@ -107,7 +107,8 @@ To export a dataset, Amazon Personalize needs permission to add files to your Am
             "Sid": "PersonalizeS3BucketAccessPolicy",
             "Effect": "Allow",
             "Action": [
-                "s3:PutObject"
+                "s3:PutObject",
+                "s3:ListBucket"
             ],
             "Resource": [
                 "arn:aws:s3:::bucket-name",
@@ -181,7 +182,7 @@ For more information on adding an Amazon S3 bucket policy to a bucket, see [How 
 
 ### Amazon S3 bucket policy for exporting a dataset<a name="bucket-policy-for-export"></a>
 
-To export a dataset, Amazon Personalize needs permission to add files to your Amazon S3 bucket\. The following is an example a policy that grants Amazon Personalize permission to use the `PutObject` Action on an Amazon S3 bucket\. Replace `bucket-name` with the name of your bucket\. For information on adding an Amazon S3 bucket policy to a bucket, see [How Do I Add an S3 Bucket Policy?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/add-bucket-policy.html) in the Amazon Simple Storage Service Console User Guide\. 
+To export a dataset, Amazon Personalize needs permission to use the `PutObject` and `ListBucket` Actions on your Amazon S3 bucket\. The following example policy grants the Amazon Personalize principle `PutObject` and `ListBucket` permissions\. Replace `bucket-name` with the name of your bucket and attach the policy to your bucket\. For information on adding an Amazon S3 bucket policy to a bucket, see [How Do I Add an S3 Bucket Policy?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/add-bucket-policy.html) in the Amazon Simple Storage Service Console User Guide\. 
 
 ```
 {
@@ -195,7 +196,8 @@ To export a dataset, Amazon Personalize needs permission to add files to your Am
                 "Service": "personalize.amazonaws.com"
             },
             "Action": [
-                "s3:PutObject"
+                "s3:PutObject",
+                "s3:ListBucket"
             ],
             "Resource": [
                 "arn:aws:s3:::bucket-name",

@@ -1,8 +1,8 @@
 # Getting batch recommendations<a name="recommendations-batch"></a>
 
- To get recommendations for large datasets that do not require real\-time updates, you can use an asynchronous batch workflow\. For example, you might get product recommendations for all users on an email list, or get [item\-to\-item similarities \(SIMS\)](native-recipe-sims.md) across an inventory\. 
+ To get recommendations for large datasets that do not require real\-time updates, you can use an asynchronous batch workflow with historical data only\. For example, you might get product recommendations for all users on an email list, or get [item\-to\-item similarities \(SIMS\)](native-recipe-sims.md) across an inventory\. 
 
- To get batch recommendations with Amazon Personalize, you use a batch inference job\. A *batch inference job* is a tool that imports your batch input data from an Amazon S3 bucket, uses your solution version to generate recommendations, and exports the recommendations to an Amazon S3 bucket\. 
+ To get batch recommendations with Amazon Personalize, you use a batch inference job\. A *batch inference job* is a tool that imports your batch input data from an Amazon S3 bucket, uses your solution version to generate recommendations, and exports the recommendations to an Amazon S3 bucket\. We recommend that you use a different location for your output data \(either a folder or a different Amazon S3 bucket\)\. To use data you record in real time with the PutEvents API operation, you must retrain your solution version before creating the batch inference job\. 
 
 The batch workflow is as follows:
 

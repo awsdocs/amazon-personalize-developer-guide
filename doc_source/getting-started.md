@@ -1,6 +1,6 @@
 # Getting started<a name="getting-started"></a>
 
-This getting started guide shows you how to create a campaign that returns movie recommendations for a user, based on historical data that consists of 100,000 movie ratings on 9,700 movies from 600 users\.
+This getting started guide shows you how to provide personalized movie recommendations for your user\. The tutorial uses historical data that consists of 100,000 movie ratings on 9,700 movies from 600 users\.
 
 **To simplify this guide:**
 + We rely on the fact that a user saw a movie and not on what they rated the movie\. This simplifies the preparation of the training data\.

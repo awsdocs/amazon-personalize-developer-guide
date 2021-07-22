@@ -37,7 +37,9 @@ If you use the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATI
 
 ## Impressions data<a name="interactions-impressions-data"></a>
 
-If you use the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) recipe, Amazon Personalize can model impressions data that you upload to an Interactions dataset\. Impressions are lists of items that were visible to a user when they interacted with \(for example, clicked or watched\) a particular item\. Amazon Personalize uses impressions data to guide exploration, where recommendations include new items with less interactions data or relevance\. For information about the benefits of exploration see [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md)\. Amazon Personalize can model two types of impressions: [Implicit impressions](#implicit-impressions-info) and [Explicit impressions](#explicit-impressions-info)\. 
+ If you use the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) recipe, Amazon Personalize can model impressions data that you upload to an Interactions dataset\. Impressions are lists of items that were visible to a user when they interacted with \(for example, clicked or watched\) a particular item\. Amazon Personalize uses impressions data to determine what items to include in exploration\. *Exploration* is where recommendations include new items with less interactions data or relevance\. The more frequently an item occurs in impressions data, the less likely it is that Amazon Personalize includes the item in exploration\. 
+
+For information about the benefits of exploration see [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md)\. Amazon Personalize can model two types of impressions: [Implicit impressions](#implicit-impressions-info) and [Explicit impressions](#explicit-impressions-info)\. 
 
 ### Implicit impressions<a name="implicit-impressions-info"></a>
 

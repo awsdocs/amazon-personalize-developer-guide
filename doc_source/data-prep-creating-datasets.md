@@ -1,12 +1,8 @@
 # Step 2: Creating a dataset and a schema<a name="data-prep-creating-datasets"></a>
 
-After you have completed [Step 1: Creating a dataset group](data-prep-ds-group.md), you are ready to create a dataset\. *Datasets* are Amazon Personalize containers for data\. Datasets are organized within Amazon Personalize dataset groups\. 
+After you have completed [Step 1: Creating a dataset group](data-prep-ds-group.md), you are ready to create a dataset\. *Datasets* are Amazon Personalize containers for data\. When you create a dataset, you also create a schema for the dataset\. A *schema* tells Amazon Personalize about the structure of your data and allows Amazon Personalize to parse the data\.
 
-You can create three types of historical datasets: Users, Items, and Interactions\. When you create a dataset, you also create a schema for the dataset\. A *schema* tells Amazon Personalize about the structure of your data and allows Amazon Personalize to parse the data\. 
-
-You can create only one of each kind of dataset in a dataset group, and you must at minimum create an Interactions dataset\. You create datasets using the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\), or AWS SDK\.
-
-For more information, including dataset and schema requirements, see [Datasets and schemas](how-it-works-dataset-schema.md)\. 
+You create datasets with the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\), or AWS SDKs\. For information about the different types of datasets, and dataset and schema requirements, see [Datasets and schemas](how-it-works-dataset-schema.md)\.
 
 **Topics**
 + [Creating a dataset and a schema \(console\)](#data-prep-creating-ds-console)
@@ -142,7 +138,7 @@ To create a dataset and a schema using the AWS SDKs, you first define a schema i
    }
    ```
 
-1. Create the schema using the [CreateSchema](API_CreateSchema.md) API\.
+1. Create the schema using the [CreateSchema](API_CreateSchema.md) API operation\.
 
 ------
 #### [ SDK for Python \(Boto3\) ]
@@ -204,7 +200,7 @@ To create a dataset and a schema using the AWS SDKs, you first define a schema i
 
    Amazon Personalize returns the ARN of the new schema\. Record it because you'll need it in the next step\.
 
-1. Create a dataset using the [CreateDataset](API_CreateDataset.md) operation\. For types of datasets, see [Datasets and schemas](how-it-works-dataset-schema.md)\. 
+1. Create a dataset using the [CreateDataset](API_CreateDataset.md) operation\. For information about the different types of datasets, see [Datasets and schemas](how-it-works-dataset-schema.md)\. 
 
 ------
 #### [ SDK for Python \(Boto3\) ]

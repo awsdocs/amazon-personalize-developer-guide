@@ -79,10 +79,6 @@ To get the status of the solution, call [DescribeSolution](API_DescribeSolution.
             "maxNumberOfTrainingJobs": "string",
             "maxParallelTrainingJobs": "string"
          }
-      },
-      "optimizationObjective": { 
-         "itemAttribute": "string",
-         "objectiveSensitivity": "string"
       }
    }
 }

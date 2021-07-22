@@ -31,7 +31,9 @@ If creation timestamp data is missing for one or more items, Amazon Personalize 
 
 ## Categorical metadata<a name="item-categorical-data"></a>
 
- Amazon Personalize uses categorical data, such as an item's genre or color, when identifying underlying patterns that reveal the most relevant items for your users\. You can use categorical metadata to filter recommendations based on an item's attributes\. For information about filtering recommendations, see [Filtering recommendations](filter.md)\. 
+With the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) or [Personalized\-Ranking](native-recipe-search.md) recipes, Amazon Personalize uses categorical data, such as an item's genre or color, when identifying underlying patterns that reveal the most relevant items for your users\. 
+
+ With all recipes, you can import categorical data and use it to filter recommendations based on an item's attributes\. For information about filtering recommendations, see [Filtering recommendations](filter.md)\. 
 
 To use categorical data, add a field of type `string` to your schema and set the field's categorical attribute to `true`\. Then include the categorical data in your bulk CSV file and incremental item imports\. For items with multiple categories, separate each value with the vertical bar, '\|'\. For an example of a schema with a categorical field see [Items schema example](#schema-examples-items)\. 
 
@@ -43,7 +45,7 @@ With the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md)
 
 To use unstructured data, add a field with type `string` to your Items schema and set the field's `textual` attribute to `true`\. Then include the text data in your bulk CSV file and incremental item imports\. For bulk CSV files, wrap the text in double quotes\. For an example of an Items schema with a field for unstructured text data, see [Items schema example](#schema-examples-items)\. For information about importing data into Amazon Personalize, see [Preparing and importing data](data-prep.md)\.
 
-Unstructured text values can have at most 200,000 characters and text must be in English\. Amazon Personalize truncates values that exceed the character limit to 200,000 characters\. We recommend using unstructured text metadata with less than 5,000 words\.
+Unstructured text values can have at most 20,000 characters and text must be in English\. Amazon Personalize truncates values that exceed the character limit to 20,000 characters\.
 
 ## Items schema example<a name="schema-examples-items"></a>
 

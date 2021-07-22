@@ -41,7 +41,7 @@ Your AWS account has the following quotas for Amazon Personalize\.
 | Maximum number of items that are considered by a model during training\. | 750,000 | 
 | Maximum number of metadata fields for an Items dataset\. | 50 | 
 | Maximum number of characters for categorical data values\. | 1,000 characters | 
-| Maximum number of characters for textual data values\. | 200,000 characters | 
+| Maximum number of characters for textual data values\. | 20,000 characters | 
 | Data import APIs | 
 | --- |
 | Maximum rate of PutEvents requests\. | 1000/second | 

@@ -9,7 +9,6 @@ The path to the Amazon S3 bucket where the data that you want to upload to your 
  `s3://bucket-name/folder-name/`   
 Type: String  
 Length Constraints: Maximum length of 256\.  
-Pattern: `(s3|http|https)://.+`   
 Required: No
 
 ## See Also<a name="API_DataSource_SeeAlso"></a>

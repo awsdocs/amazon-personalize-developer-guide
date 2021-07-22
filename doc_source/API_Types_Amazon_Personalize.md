@@ -42,7 +42,6 @@ The following data types are supported by Amazon Personalize:
 +  [HPOResourceConfig](API_HPOResourceConfig.md) 
 +  [HyperParameterRanges](API_HyperParameterRanges.md) 
 +  [IntegerHyperParameterRange](API_IntegerHyperParameterRange.md) 
-+  [OptimizationObjective](API_OptimizationObjective.md) 
 +  [Recipe](API_Recipe.md) 
 +  [RecipeSummary](API_RecipeSummary.md) 
 +  [S3DataConfig](API_S3DataConfig.md) 

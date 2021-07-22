@@ -45,7 +45,6 @@ The request accepts the following data in JSON format\.
  ** [kmsKeyArn](#API_CreateDatasetGroup_RequestSyntax) **   <a name="personalize-CreateDatasetGroup-request-kmsKeyArn"></a>
 The Amazon Resource Name \(ARN\) of a AWS Key Management Service \(KMS\) key used to encrypt the datasets\.  
 Type: String  
-Pattern: `arn:aws.*:kms:.*:[0-9]{12}:key/.*`   
 Required: No
 
  ** [name](#API_CreateDatasetGroup_RequestSyntax) **   <a name="personalize-CreateDatasetGroup-request-name"></a>

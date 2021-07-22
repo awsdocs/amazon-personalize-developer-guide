@@ -2,7 +2,7 @@
 
 This section contains information about the Amazon CloudWatch metrics available for Amazon Personalize\. For more information, see [Monitoring Amazon Personalize](personalize-monitoring.md)\.
 
-The following table lists the Amazon Personalize metrics\. All metrics support these statistics: `Average, Minimum, Maximum, Sum`\.
+The following table lists the Amazon Personalize metrics\. All metrics except GetRecommendations support these statistics: `Average, Minimum, Maximum, Sum`\. GetRecommendations supports `Sum` only\.
 
 
 | Metric | Description | 
@@ -18,7 +18,7 @@ The following table lists the Amazon Personalize metrics\. All metrics support t
 | GetPersonalizedRanking4xxErrors |  The number of `GetPersonalizedRanking` API calls that returned a 4xx HTTP response code\. Dimension: `CampaignArn`  | 
 | GetPersonalizedRanking5xxErrors |  The number of `GetPersonalizedRanking` API calls that returned a 5xx HTTP response code\. Dimension: `CampaignArn`  | 
 | GetPersonalizedRankingLatency |  The time between receiving the `GetPersonalizedRanking` API call and the sending of recommendations \(excludes 4xx and 5xx errors\)\. Dimension: `CampaignArn` Unit: Milliseconds  | 
-| GetRecommendationsRequests |  The number of successful [GetRecommendations](API_RS_GetRecommendations.md) API calls\. Dimension: `CampaignArn`  | 
+| GetRecommendations |  The number of successful [GetRecommendations](API_RS_GetRecommendations.md) API calls\. Dimension: `CampaignArn`  | 
 | GetRecommendations4xxErrors |  The number of `GetRecommendations` API calls that returned a 4xx HTTP response code\. Dimension: `CampaignArn`  | 
 | GetRecommendations5xxErrors |  The number of `GetRecommendations` API calls that returned a 5xx HTTP response code\. Dimension: CampaignArn  | 
 | GetRecommendationsLatency |  The time between receiving the `GetRecommendations` API call and the sending of recommendations \(excludes 4xx and 5xx errors\)\. Dimension: `CampaignArn` Unit: Milliseconds  | 

@@ -1,6 +1,6 @@
 # Step 1: Choosing a recipe<a name="working-with-predefined-recipes"></a>
 
-Amazon Personalize provides recipes, based on common use cases, for training models\. A *recipe* is an Amazon Personalize term specifying an appropriate algorithm to train for a given use case\. With recipes, you can create a personalization system without prior machine learning experience\.
+Amazon Personalize provides recipes, based on common use cases, for training models\. *Recipes* are Amazon Personalize algorithms that are prepared for specific use cases\. With recipes, you can create a personalization system without prior machine learning experience\.
 
 Amazon Personalize recipes use the following during training:
 + Predefined attributes of your data

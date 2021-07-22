@@ -1,14 +1,14 @@
 # Getting recommendations<a name="getting-recommendations"></a>
 
- After you have created a campaign, you can use it in your applications to get recommendations\. The following topics explain how and when to use each recommendation type\. 
+ After you create a campaign, you use it in your applications to get recommendations\. The following topics explain how and when to use each recommendation type\. 
 
 **Topics**
-+ [How recommendation scoring works](#how-scores-work)
++ [Recommendation scores](#how-scores-work)
 + [Getting real\-time recommendations](getting-real-time-recommendations.md)
 + [Getting batch recommendations](recommendations-batch.md)
 + [Filtering recommendations](filter.md)
 
-## How recommendation scoring works<a name="how-scores-work"></a>
+## Recommendation scores<a name="how-scores-work"></a>
 
  To make recommendations, Amazon Personalize generates scores for the items in your Items dataset based on a user's interaction data and metadata\. These scores represent the relative certainty that Amazon Personalize has in which item the user will select next\. Higher scores represent greater certainty\. 
 

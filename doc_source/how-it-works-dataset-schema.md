@@ -37,6 +37,7 @@ When you create a schema, you must follow these guidelines:
 + The schema fields can appear in any order, but they must match the order of the corresponding column headers in the data file\.
 + Each dataset type requires specific non\-metadata fields in its schema \(see the preceding table\)\. You must define required fields as their required data types\.
 +  Schemas must be flat JSON files without nested structures\. For example, a field cannot be the parent of multiple sub\-fields\. 
++  Schema fields must have unique alphanumeric names\. For example, you can't add both a `GENRES_FIELD_1` field and a `GENRESFIELD1` field\. 
 
 ### Schema data types<a name="personalize-datatypes"></a>
 
@@ -48,7 +49,7 @@ We support only the following Avro types for fields \([Reserved keywords](#reser
 + int
 + long
 + string
-+ boolean
++ boolean \(values `true` and `false` must be lower case in your data\)
 + null
 
  You can use *null* for `EVENT_VALUE` and `RECOMMENDATION_ID` reserved keywords, and interaction, user, and item metadata fields\. Adding a `null` type to a field allows you to use imperfect data \(for example, metadata with blank values\), to generate personalized recommendations\. The following example shows how to add a null type for a GENRES field\.

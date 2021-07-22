@@ -16,13 +16,13 @@ You create a dataset export job using the Amazon Personalize console, AWS Comman
 
 ## Dataset export job permissions requirements<a name="export-permissions"></a>
 
-To export a dataset, Amazon Personalize needs permission to add files to your Amazon S3 bucket\. To grant permissions, attach a new AWS Identity and Access Management \(IAM\) policy to your Amazon Personalize service\-linked role that grants `PutObject` permissions, and attach a bucket policy to your output Amazon S3 bucket that grants `PutObject` permissions\.
+To export a dataset, Amazon Personalize needs permission to add files to your Amazon S3 bucket\. To grant permissions, attach a new AWS Identity and Access Management \(IAM\) policy to your Amazon Personalize service\-linked role that grants the role permission to use the `PutObject` and `ListBucket` Actions on your bucket, and attach a bucket policy to your output Amazon S3 bucket that grants the Amazon Personalize principle permission to use the `PutObject` and `ListBucket` Actions\.
 
  Amazon S3 buckets and objects must be either encryption free or, if you are using AWS Key Management Service \(AWS KMS\) for encryption, you must give your IAM user and Amazon Personalize service\-linked role permission to use your key\. You must also add Amazon Personalize as a Principle in your AWS KMS key policy\. For more information, see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\.
 
 ### Service\-linked role policy for exporting a dataset<a name="role-policy-for-dataset-export-job"></a>
 
-The following is an example policy that grants your Amazon Personalize service\-linked role `PutObject` permissions\. Replace `bucket-name` with the name of your output bucket\. For information about attaching policies to a service\-linked IAM role, see [Attaching an Amazon S3 policy to the Amazon Personalize service role](granting-personalize-s3-access.md#attaching-s3-policy-to-role)\. 
+The following example policy grants your Amazon Personalize service\-linked role permission to use the `PutObject` and `ListBucket` Actions\. Replace `bucket-name` with the name of your output bucket\. For information about attaching policies to a service\-linked IAM role, see [Attaching an Amazon S3 policy to the Amazon Personalize service role](granting-personalize-s3-access.md#attaching-s3-policy-to-role)\. 
 
 ```
 {
@@ -33,7 +33,8 @@ The following is an example policy that grants your Amazon Personalize service\-
             "Sid": "PersonalizeS3BucketAccessPolicy",
             "Effect": "Allow",
             "Action": [
-                "s3:PutObject"
+                "s3:PutObject",
+                "s3:ListBucket"
             ],
             "Resource": [
                 "arn:aws:s3:::bucket-name",
@@ -46,7 +47,7 @@ The following is an example policy that grants your Amazon Personalize service\-
 
 ### Amazon S3 bucket policy for exporting a dataset<a name="bucket-policy-for-dataset-export-job"></a>
 
-The following is an example policy that grants Amazon Personalize permission to use the `PutObject` action on an Amazon S3 bucket\. Replace `bucket-name` with the name of your bucket\. For information on adding an Amazon S3 bucket policy to a bucket, see [How Do I Add an S3 Bucket Policy?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/add-bucket-policy.html) in the *Amazon Simple Storage Service Console User Guide\.* 
+The following example policy grants Amazon Personalize permission to use the `PutObject` and `ListBucket` Actions on an Amazon S3 bucket\. Replace `bucket-name` with the name of your bucket\. For information on adding an Amazon S3 bucket policy to a bucket, see [How Do I Add an S3 Bucket Policy?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/add-bucket-policy.html) in the *Amazon Simple Storage Service Console User Guide\.* 
 
 ```
 {
@@ -60,7 +61,8 @@ The following is an example policy that grants Amazon Personalize permission to 
                 "Service": "personalize.amazonaws.com"
             },
             "Action": [
-                "s3:PutObject"
+                "s3:PutObject",
+                "s3:ListBucket"
             ],
             "Resource": [
                 "arn:aws:s3:::bucket-name",

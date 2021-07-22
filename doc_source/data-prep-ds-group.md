@@ -1,6 +1,8 @@
 # Step 1: Creating a dataset group<a name="data-prep-ds-group"></a>
 
-A *dataset group* is container for Amazon Personalize components, including datasets, event trackers, solutions, filters, campaigns, and batch inference jobs\. A dataset group organizes your resources into independent collections, so resources from one dataset group cannot influence resources in any other dataset group\. For example, you might have an application that provides recommendations for streaming video and another that provides recommendations for audio books\. In Amazon Personalize, each application would have its own dataset group\. You can create a dataset group using the Amazon Personalize console, AWS SDK, or AWS Command Line Interface \(AWS CLI\)\.
+A *dataset group* is container for Amazon Personalize components, including datasets, event trackers, solutions, filters, campaigns, and batch inference jobs\. A dataset group organizes your resources into independent collections, so resources from one dataset group cannot influence resources in any other dataset group\. 
+
+For example, you might have an application that provides recommendations for streaming video and another that provides recommendations for audio books\. In Amazon Personalize, each application would have its own dataset group\. You can create a dataset group with the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\) or AWS SDKs\.
 
 **Topics**
 + [Creating a dataset group \(console\)](#data-prep-creating-ds-group-console)
@@ -25,7 +27,7 @@ Create a dataset group by specifying the dataset group name in the Amazon Person
 
 ## Creating a dataset group \(AWS CLI\)<a name="data-prep-creating-ds-group-cli"></a>
 
-Create a dataset group by running the following command\. For more information about the API, see [CreateDatasetGroup](API_CreateDatasetGroup.md)\.
+Create a dataset group with the following command\. For more information about the CreateDatasetGroup API operation, see [CreateDatasetGroup](API_CreateDatasetGroup.md) in the API reference section\.
 
 ```
 aws personalize create-dataset-group --name dataset group name
@@ -64,7 +66,7 @@ When the dataset group's `status` is ACTIVE, proceed to [Creating a dataset and 
 
 ## Creating a dataset group \(AWS SDKs\)<a name="data-prep-creating-ds-group-sdk"></a>
 
-Create a dataset group using the [CreateDatasetGroup](API_CreateDatasetGroup.md) operation\.
+The following code shows how to create a dataset group with the AWS SDK for Python \(Boto3\) or the SDK for Java 2\.x\. For more information about the API operation, see [CreateDatasetGroup](API_CreateDatasetGroup.md) in the API reference section\.
 
 ------
 #### [ SDK for Python \(Boto3\) ]
@@ -83,8 +85,6 @@ print('Name: ' + description['name'])
 print('ARN: ' + description['datasetGroupArn'])
 print('Status: ' + description['status'])
 ```
-
-The [DescribeDatasetGroup](API_DescribeDatasetGroup.md) operation returns the `datasetGroupArn` and the status of the operation\.
 
 ------
 #### [ SDK for Java 2\.x ]
@@ -135,3 +135,5 @@ public static void createDatasetGroup(PersonalizeClient personalizeClient, Strin
 ```
 
 ------
+
+The [DescribeDatasetGroup](API_DescribeDatasetGroup.md) operation returns the `datasetGroupArn` and the status of the operation\. When the dataset group's `status` is ACTIVE, proceed to [Creating a dataset and a schema \(AWS SDKs\)](data-prep-creating-datasets.md#data-prep-creating-ds-sdk)\.

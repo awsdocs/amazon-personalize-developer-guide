@@ -24,7 +24,9 @@ For more information on minimum requirements and maximum data limits for a Users
 
 ## Categorical metadata<a name="user-categorical-data"></a>
 
- Amazon Personalize uses categorical data, such as a user's gender or membership status, when identifying underlying patterns that reveal the most relevant items for your users\. You can use categorical metadata to filter recommendations based on a user's attributes\. For information about filtering recommendations see [Filtering recommendations](filter.md)\. 
+With the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) or [Personalized\-Ranking](native-recipe-search.md) recipes, Amazon Personalize uses categorical metadata, such as a user's gender or membership status, when identifying underlying patterns that reveal the most relevant items for your users\. 
+
+With all recipes, you can import categorical metadata and use it to filter recommendations based on a user's attributes\. For information about filtering recommendations see [Filtering recommendations](filter.md)\. 
 
  To use categorical data, add a field of type `string` and set the field's categorical attribute to `true` in your schema\. Then include the categorical data in your bulk CSV file and incremental item imports\. For users with multiple categories, separate each value using the vertical bar, '\|'\. For an example of a schema with a categorical field see [Users schema example](#schema-examples-users)\. 
 
