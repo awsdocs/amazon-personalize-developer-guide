@@ -12,7 +12,7 @@ You can choose interactions data as follows:
 
 In the following procedure, you use the AWS SDK for Python \(Boto3\) to create an Interaction schema that filters a training dataset\. You can use a Jupyter \(iPython\) notebook to accomplish the same task\. For more information, see [Getting started using Amazon Personalize APIs with Jupyter \(iPython\) notebooks](getting-started-python.md#gs-jupyter-notebook)\.
 
-**Prerequisites: **Complete the prerequisites and verify that your Python environment is set up as described in [Getting started \(AWS SDK for Python\)](getting-started-python.md)\.
+**Prerequisites: **Complete the prerequisites and verify that your Python environment is set up as described in [Getting started \(SDK for Python \(Boto3\)\)](getting-started-python.md)\.
 
 **To filter records used in a training dataset by event value or event type**
 

@@ -115,7 +115,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 The following data is returned in JSON format by the service\.
 
  ** [itemList](#API_RS_GetRecommendations_ResponseSyntax) **   <a name="personalize-RS_GetRecommendations-response-itemList"></a>
-A list of recommendations sorted in ascending order by prediction score\. There can be a maximum of 500 items in the list\.  
+A list of recommendations sorted in descending order by prediction score\. There can be a maximum of 500 items in the list\.  
 Type: Array of [PredictedItem](API_RS_PredictedItem.md) objects
 
  ** [recommendationId](#API_RS_GetRecommendations_ResponseSyntax) **   <a name="personalize-RS_GetRecommendations-response-recommendationId"></a>
@@ -135,12 +135,12 @@ HTTP Status Code: 404
 ## See Also<a name="API_RS_GetRecommendations_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/personalize-runtime-2018-05-22/GetRecommendations) 
-+  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-runtime-2018-05-22/GetRecommendations) 
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-runtime-2018-05-22/GetRecommendations) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-runtime-2018-05-22/GetRecommendations) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-runtime-2018-05-22/GetRecommendations) 
-+  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-runtime-2018-05-22/GetRecommendations) 
-+  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-runtime-2018-05-22/GetRecommendations) 
-+  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-runtime-2018-05-22/GetRecommendations) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-runtime-2018-05-22/GetRecommendations) 
++  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/personalize-runtime-2018-05-22/GetRecommendations) 
++  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-runtime-2018-05-22/GetRecommendations) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-runtime-2018-05-22/GetRecommendations) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-runtime-2018-05-22/GetRecommendations) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-runtime-2018-05-22/GetRecommendations) 
++  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-runtime-2018-05-22/GetRecommendations) 
++  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-runtime-2018-05-22/GetRecommendations) 
++  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-runtime-2018-05-22/GetRecommendations) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-runtime-2018-05-22/GetRecommendations) 

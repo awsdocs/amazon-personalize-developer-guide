@@ -26,6 +26,7 @@ Required: No
  **kmsKeyArn**   <a name="personalize-Type-DatasetGroup-kmsKeyArn"></a>
 The Amazon Resource Name \(ARN\) of the AWS Key Management Service \(KMS\) key used to encrypt the datasets\.  
 Type: String  
+Pattern: `arn:aws.*:kms:.*:[0-9]{12}:key/.*`   
 Required: No
 
  **lastUpdatedDateTime**   <a name="personalize-Type-DatasetGroup-lastUpdatedDateTime"></a>
@@ -59,7 +60,7 @@ Required: No
 ## See Also<a name="API_DatasetGroup_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DatasetGroup) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/DatasetGroup) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DatasetGroup) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DatasetGroup) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DatasetGroup) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/DatasetGroup) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DatasetGroup) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DatasetGroup) 

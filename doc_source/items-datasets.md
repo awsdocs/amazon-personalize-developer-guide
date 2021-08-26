@@ -17,7 +17,7 @@
 
 ## Required item data<a name="item-dataset-requirements"></a>
 
- The data you provide for each item must match your Items dataset schema\. At minimum, you must provide an Item ID for each item\. Depending on your schema, item metadata can include empty/null values\. 
+ The data you provide for each item must match your Items dataset schema\. At minimum, you must provide an Item ID for each item \(max length 256 characters\)\. Depending on your schema, item metadata can include empty/null values\. 
 
 During model training, Amazon Personalize considers a maximum of 750,000 items\. If you import more than 750,000 items, Amazon Personalize decides which items to include in training, with an emphasis on including new items \(items you recently added with no interactions\) and existing items with recent interactions data\.
 

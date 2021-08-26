@@ -142,7 +142,7 @@ To filter by Items and Interactions datasets with one filter, combine multiple e
 + `Exclude A | Exclude B` is equal to `Exclude result from A or result from B`
 + `Include A | Include B` is equal to `Include result from A or result from B`
 
-The following example shows how to combine two expressions that use `INCLUDE`\. The first expression includes only items with a category or categories that you specify when you get recommendations using the `$CATEGORY` parameter\. The second expression includes items the user has marked as a `favorite`\. Recommendations will include only items with the category you specify and items that the user has marked as a favorite\.
+The following example shows how to combine two expressions that use `INCLUDE`\. The first expression includes only items with a category or categories that you specify when you get recommendations using the `$CATEGORY` parameter\. The second expression includes items the user has marked as a `favorite`\. Recommendations will include only items with the category you specify along with items that the user has marked as a favorite\.
 
 ```
 INCLUDE ItemID WHERE Items.CATEGORY IN ($CATEGORY) | INCLUDE ItemID WHERE Interactions.EVENT_TYPE IN ("favorite")

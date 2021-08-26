@@ -18,7 +18,7 @@ RELATED\_ITEMS recipes, such as item\-to\-item similarities \(SIMS\), do not use
 
 ## Required user data<a name="user-dataset-requirements"></a>
 
- The training data you provide for each user must match your schema\. At minimum, you must provide a User ID for each user\. Depending on your schema, user metadata can include empty/null values\. 
+ The training data you provide for each user must match your schema\. At minimum, you must provide a User ID for each user \(max length 256 characters\)\. Depending on your schema, user metadata can include empty/null values\. 
 
 For more information on minimum requirements and maximum data limits for a Users dataset, see [Service quotas](limits.md#limits-table)\.
 

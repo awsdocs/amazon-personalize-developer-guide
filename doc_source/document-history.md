@@ -4,6 +4,7 @@ The following table describes important changes in each release of the *Amazon P
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New documentation feature](#document-history) |  The Amazon Personalize developer guide now includes a getting started tutorial for using Amazon Personalize with the SDK for Java 2\.x\. For more information, see [Getting started \(SDK for Java 2\.x\)](https://docs.aws.amazon.com/personalize/latest/dg/getting-started-java)\.  | August 25, 2021 | 
 | [New feature](#document-history) |  Amazon Personalize can now extract meaningful information from unstructured text metadata in an Items dataset\. For more information, see [Items dataset](https://docs.aws.amazon.com/personalize/latest/dg/items-datasets)\.  | June 9, 2021 | 
 | [New feature](#document-history) | Amazon Personalize now supports the ability to stop creating a solution version \(stop training a model\)\. For more information, see [Stopping the creation of a solution version](https://docs.aws.amazon.com/personalize/latest/dg/stop-solution-version)\.  | May 20, 2021 | 
 | [New feature \(preview release\)](#document-history) | Amazon Personalize can now optimize a solution for an objective in addition to maximizing relevance, such as maximizing revenue\. This feature is in preview release\. For more information, see [Optimizing a solution for an additional objective](https://docs.aws.amazon.com/personalize/latest/dg/optimizing-solution-for-objective.html)\.  | May 18, 2021 | 

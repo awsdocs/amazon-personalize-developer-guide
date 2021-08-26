@@ -1,11 +1,11 @@
-# Getting started \(AWS SDK for Python\)<a name="getting-started-python"></a>
+# Getting started \(SDK for Python \(Boto3\)\)<a name="getting-started-python"></a>
 
 This topic explains how to get started programming Amazon Personalize with the AWS SDK for Python \(Boto3\)\.
 
 ## Prerequisites<a name="gs-sdk-prerequisites"></a>
 
 The following are prerequisite steps for using the Python examples in this guide:
-+ Complete the Getting Started [Getting started prerequisites](gs-prerequisites.md)\. You can use the same source data that is listed in the [Getting started \(console\)](getting-started-console.md) or [Getting started \(AWS CLI\)](getting-started-cli.md) exercises\. If you are using your own source data, make sure your data is formatted like in the prerequisite step [Creating the training data](gs-prerequisites.md#gs-upload-to-bucket)\. For information about preparing your own source data, see [Preparing and importing data](data-prep.md)\. 
++ Complete the [Getting started prerequisites](gs-prerequisites.md)\. You create the training data used in this tutorial when you complete the prerequisite steps\. If you are using your own source data, make sure your data is formatted like in the prerequisite step [Creating the training data](gs-prerequisites.md#gs-upload-to-bucket)\.
 + Set up your AWS SDK for Python \(Boto3\) environment, as specified in [Setting up the AWS SDKs](aws-personalize-set-up-sdks.md)\.
 
 When you finish the getting started exercise, to avoid incurring unnecessary charges, follow the steps in [Cleaning up resources](gs-cleanup.md) to delete the resources you created\. 

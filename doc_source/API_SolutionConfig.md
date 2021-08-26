@@ -36,10 +36,15 @@ Describes the properties for hyperparameter optimization \(HPO\)\.
 Type: [HPOConfig](API_HPOConfig.md) object  
 Required: No
 
+ **optimizationObjective**   <a name="personalize-Type-SolutionConfig-optimizationObjective"></a>
+Describes the additional objective for the solution, such as maximizing streaming minutes or increasing revenue\. For more information see [Optimizing a solution](https://docs.aws.amazon.com/personalize/latest/dg/optimizing-solution-for-objective.html)\.  
+Type: [OptimizationObjective](API_OptimizationObjective.md) object  
+Required: No
+
 ## See Also<a name="API_SolutionConfig_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/SolutionConfig) 
-+  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/SolutionConfig) 
-+  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/SolutionConfig) 
-+  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/SolutionConfig) 
++  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/SolutionConfig) 
++  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/SolutionConfig) 
++  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/SolutionConfig) 
++  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/SolutionConfig) 

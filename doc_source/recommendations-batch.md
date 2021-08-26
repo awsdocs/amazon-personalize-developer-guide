@@ -168,9 +168,15 @@ Separate each `itemId` with a new line as follows\.
 
 1. For **Solution**, choose the solution and then choose the **Solution version ID** that you want to use to generate the recommendations\. 
 
-1.  For **Input data configuration**, specify the Amazon S3 path to your input file\. Your input data must be in the correct format for the recipe your solution uses\. For input data examples see [Input and output JSON examples](#batch-recommendations-json-examples)\. 
+1.  For **Input data configuration**, specify the Amazon S3 path to your input file\. 
+
+   Use the following syntax: **s3://<name of your S3 bucket>/<folder name>/<input JSON file name>**
+
+    Your input data must be in the correct format for the recipe your solution uses\. For input data examples see [Input and output JSON examples](#batch-recommendations-json-examples)\. 
 
 1. For **Output data configuration**, specify the path to your output location\. We recommend using a different location for your output data \(either a folder or a different Amazon S3 bucket\)\.
+
+    Use the following syntax: **s3://<name of your S3 bucket>/<output folder name>/** 
 
 1.  For **Filter configuration** optionally choose a filter to apply a filter to the recommendations added to the output JSON file\. For more information see [Filtering batch recommendations](filter-batch.md)\. 
 
@@ -184,6 +190,8 @@ After you have completed [Preparing and importing batch input data](#batch-data-
 
 Replace `S3 input path` and `S3 output path` with the Amazon S3 path to your input file and output locations\. We recommend using a different location for your output data \(either a folder or a different Amazon S3 bucket\)\. You can apply a filter to the recommendations added to the output JSON file\. For more information see [Filtering batch recommendations](filter-batch.md)\. 
 
+Use the following syntax for input and output locations: **s3://<name of your S3 bucket>/<folder name>/<input JSON file name>** and **s3://<name of your S3 bucket>/<output folder name>/**\. 
+
 The example includes optional User\-Personalization recipe specific `itemExplorationConfig` hyperparameters: `explorationWeight` and `explorationItemAgeCutOff`\. Optionally include `explorationWeight` and `explorationItemAgeCutOff` values to configure exploration\. For more information, see [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
 
 ```
@@ -194,7 +202,7 @@ aws personalize create-batch-inference-job --job-name Batch job name \
                 --role-arn IAM service role ARN \
                 --batch-inference-job-config "{\"itemExplorationConfig\":{\"explorationWeight\":\"0.3\",\"explorationItemAgeCutOff\":\"30\"}}"
 {
-   "batchInferenceJobArn": "arn:aws:personalize:us-west-2:012345678901:batch-inference-job/batchTest"
+   "batchInferenceJobArn": "arn:aws:personalize:us-west-2:acct-id:batch-inference-job/batchInferenceJobName"
 }
 ```
 
@@ -202,12 +210,14 @@ aws personalize create-batch-inference-job --job-name Batch job name \
 
 After you have completed [Preparing and importing batch input data](#batch-data-upload), you are ready to create a batch inference job with the [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) operation\. The following code shows how to create a batch inference job using the AWS SDK for Python \(Boto3\) or AWS SDK for Java 2\.x\. 
 
+Use the following syntax for input and output locations: **s3://<name of your S3 bucket>/<folder name>/<input JSON file name>** and **s3://<name of your S3 bucket>/<output folder name>/**\. 
+
 ------
 #### [ SDK for Python \(Boto3\) ]
 
  Use the following `create_batch_inference_job` code to create a batch inference job\. Specify a `Batch job name`, replace `Solution version ARN` with the Amazon Resource Name \(ARN\) of your solution version, and replace the `IAM service role ARN` with the ARN of the IAM service role you created for Amazon Personalize during set up\. T his role must have read and write access to your input and output Amazon S3 buckets respectively\. 
 
-Replace `S3 input path` and `S3 output path` with the Amazon S3 path to your input file and output locations\. We recommend using a different location for your output data \(either a folder or a different Amazon S3 bucket\)\. You can apply a filter to the recommendations added to the output JSON file\. For more information see [Filtering batch recommendations](filter-batch.md)\. 
+Replace Amazon S3 data source and data destinations with the Amazon S3 path to your input file and output locations\. We recommend using a different location for your output data \(either a folder or a different Amazon S3 bucket\)\. You can apply a filter to the recommendations added to the output JSON file\. For more information see [Filtering batch recommendations](filter-batch.md)\. 
 
 The example includes optional User\-Personalization recipe specific `itemExplorationConfig` hyperparameters: `explorationWeight` and `explorationItemAgeCutOff`\. Optionally include `explorationWeight` and `explorationItemAgeCutOff` values to configure exploration\. For more information, see [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
 
@@ -228,16 +238,16 @@ personalize_rec.create_batch_inference_job (
         }
     },
     jobInput = 
-       {"s3DataSource": {"path": "S3 input path"}},
+       {"s3DataSource": {"path": "s3://<name of your S3 bucket>/<folder name>/<input JSON file name>"}},
     jobOutput = 
-       {"s3DataDestination": {"path": "S3 output path"}}
+       {"s3DataDestination": {"path": "s3://<name of your S3 bucket>/<output folder name>/"}}
 )
 ```
 
 ------
 #### [ SDK for Java 2\.x ]
 
- Use the following `createPersonalizeBatchInferenceJob` method to create a batch inference job\. Pass the following as parameters: an Amazon Personalize service client, the solution version's ARN \(Amazon Resource Name\), a name for the job, the `bucket-name/file.csv` where you stored your input data \(s3InputDataSourcePath\), the `bucket-name/folder-name` of your output data location \(s3DataDestinationPath\), and your service\-linked role's ARN \(see [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\)\. We recommend using a different location for your output data \(either a folder or a different Amazon S3 bucket\)\. 
+ Use the following `createPersonalizeBatchInferenceJob` method to create a batch inference job\. Pass the following as parameters: an Amazon Personalize service client, the solution version's ARN \(Amazon Resource Name\), a name for the job, the Amazon S3 location where you stored your input data \(s3InputDataSourcePath\), the `bucket-name/folder name` of your output data location \(s3DataDestinationPath\), and your service\-linked role's ARN \(see [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\)\. We recommend using a different location for your output data \(either a folder or a different Amazon S3 bucket\)\. 
 
 The example includes optional User\-Personalization recipe specific `itemExplorationConfig` fields: `explorationWeight` and `explorationItemAgeCutOff`\. Optionally include `explorationWeight` and `explorationItemAgeCutOff` values to configure exploration\. For more information, see [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
 

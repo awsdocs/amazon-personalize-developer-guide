@@ -1,11 +1,6 @@
 # Optimizing a solution for an additional objective<a name="optimizing-solution-for-objective"></a>
 
-
-|  | 
-| --- |
-| The ability to optimize a solution is in preview release and is subject to change at any time\. Changes will affect only solutions that use this feature and will not result in data loss\. | 
-
- The primary objective of Amazon Personalize is to predict the most relevant items for your users based on historical and real\-time interactions data\. These are the items your users will most likely interact with \(for example, the items they will most likely click\)\. If you have an additional objective, such as maximizing streaming minutes or increasing revenue, you can create a solution that generates recommendations based on both relevance and your objective\. 
+The primary objective of Amazon Personalize is to predict the most relevant items for your users based on historical and real\-time interactions data\. These are the items your users will most likely interact with \(for example, the items they will most likely click\)\. If you have an additional objective, such as maximizing streaming minutes or increasing revenue, you can create a solution that generates recommendations based on both relevance and your objective\. 
 
 After you create an Interactions dataset and an Items dataset with a column of numerical metadata, you can create a solution that is optimized for an additional objective based on your item metadata\. To optimize a solution for an additional objective, create a new solution with the User\-Personalization recipe or Personalized\-Ranking recipe and choose the numerical metadata column in your Items dataset that is related to your objective\. For example, you might choose a VIDEO\_LENGTH column to maximize streaming minutes or a PRICE column to maximize revenue\. 
 

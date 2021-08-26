@@ -14,5 +14,6 @@ When you finish the getting started exercise, to avoid incurring unnecessary cha
 + [Getting started prerequisites](gs-prerequisites.md)
 + [Getting started \(console\)](getting-started-console.md)
 + [Getting started \(AWS CLI\)](getting-started-cli.md)
-+ [Getting started \(AWS SDK for Python\)](getting-started-python.md)
++ [Getting started \(SDK for Python \(Boto3\)\)](getting-started-python.md)
++ [Getting started \(SDK for Java 2\.x\)](getting-started-java.md)
 + [Cleaning up resources](gs-cleanup.md)
