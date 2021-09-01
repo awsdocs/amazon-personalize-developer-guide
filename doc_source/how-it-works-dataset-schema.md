@@ -81,7 +81,7 @@ Reserved keywords are optional, non\-metadata fields\. These fields are consider
 +  IMPRESSION: For Interactions datasets with explicit impressions data, use an `IMPRESSION` field with type `String`\. Impressions are lists of items that were visible to a user when they interacted with \(for example, clicked or watched\) a particular item\. For more information see [Impressions data](interactions-datasets.md#interactions-impressions-data)\. 
 +  RECOMMENDATION\_ID: For Interactions datasets that use previous recommendations as implicit impressions data, optionally use a `RECOMMENDATION_ID` field with type `String` and optionally type `null`\. 
 
-  You don't need to add a `RECOMMENDATION_ID` field for Amazon Personalize to use implicit impressions when generating recommendations\. You can pass a `recommendationId` in a [PutEvents](API_UBS_PutEvents.md) operation without it\. For more information see [Impressions data](interactions-datasets.md#interactions-impressions-data)\. 
+  You don't need to add a `RECOMMENDATION_ID` field for Amazon Personalize to use implicit impressions when generating recommendations\. You can pass a `recommendationId` in a [ PutEvents ](API_UBS_PutEvents.md) operation without it\. For more information see [Impressions data](interactions-datasets.md#interactions-impressions-data)\. 
 
 ## Schema examples<a name="schema-examples"></a>
 
@@ -116,6 +116,6 @@ For examples of schemas for each dataset type, see the following sections:
 
 1. Amazon Personalize returns the ARN of the new schema\. Store it for later use\.
 
-Amazon Personalize provides operations for managing schemas\. For example, you can use the [ListSchemas](API_ListSchemas.md) API to get a list of the available schemas\.
+Amazon Personalize provides operations for managing schemas\. For example, you can use the [ ListSchemas ](API_ListSchemas.md) API to get a list of the available schemas\.
 
 After you create a schema, use it with datasets that match the schema\. For more information, see [Formatting your input data](data-prep-formatting.md)\. 

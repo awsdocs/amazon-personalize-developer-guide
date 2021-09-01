@@ -4,18 +4,18 @@ Provides the name and default range of a categorical hyperparameter and whether 
 
 ## Contents<a name="API_DefaultCategoricalHyperParameterRange_Contents"></a>
 
- **isTunable**   <a name="personalize-Type-DefaultCategoricalHyperParameterRange-isTunable"></a>
+ ** isTunable **   <a name="personalize-Type-DefaultCategoricalHyperParameterRange-isTunable"></a>
 Whether the hyperparameter is tunable\.  
 Type: Boolean  
 Required: No
 
- **name**   <a name="personalize-Type-DefaultCategoricalHyperParameterRange-name"></a>
+ ** name **   <a name="personalize-Type-DefaultCategoricalHyperParameterRange-name"></a>
 The name of the hyperparameter\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Required: No
 
- **values**   <a name="personalize-Type-DefaultCategoricalHyperParameterRange-values"></a>
+ ** values **   <a name="personalize-Type-DefaultCategoricalHyperParameterRange-values"></a>
 A list of the categories for the hyperparameter\.  
 Type: Array of strings  
 Array Members: Maximum number of 100 items\.  

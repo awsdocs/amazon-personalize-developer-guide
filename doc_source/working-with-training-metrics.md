@@ -4,7 +4,7 @@
 
  *Offline metrics* are the metrics Amazon Personalize generates when you train a solution version\. You can use offline metrics to evaluate the performance of the model before you create a campaign and provide recommendations\. Offline metrics allow you to view the effects of modifying a solution's hyperparameters or compare results from solutions that use the same training data but use different recipes\. For the rest of this section, the term metrics refers to *offline metrics*\.
 
- To get performance metrics, Amazon Personalize splits the input interactions data into two sets: a training set and a testing set\. The training set consists of 90% of your users and their interactions data\. The testing set consists of the remaining 10% of users and their interactions data\. Amazon Personalize then creates the solution version using the training set\. 
+ To get performance metrics, Amazon Personalize splits the input interactions data into two sets: a training set and a testing set\. The training set consists of 90% of each user's interactions data\. The testing set consists of the remaining 10% of each user's interactions data\. Amazon Personalize then creates the solution version using the training set\. 
 
  When training completes, Amazon Personalize gives the solution version the oldest 90% of each user’s data from the testing set as input\. Amazon Personalize then calculates metrics by comparing the recommendations the solution version generates to the actual interactions in the newest 10% of each user’s data from the testing set\. 
 
@@ -15,7 +15,7 @@ In order for Amazon Personalize to generate solution version metrics, you must h
 
 ## Retrieving Metrics<a name="working-with-training-metrics-metrics"></a>
 
-You retrieve the metrics for a specific solution version by calling the [GetSolutionMetrics](API_GetSolutionMetrics.md) operation\.
+You retrieve the metrics for a specific solution version by calling the [ GetSolutionMetrics ](API_GetSolutionMetrics.md) operation\.
 
 **Retrieve metrics using the AWS Python SDK**
 
@@ -57,7 +57,7 @@ The following is an example the output from a solution version created using the
 The above metrics are described below using the following terms:
 + *Relevant recommendation* refers to a recommendation that matches a value in the testing data for the particular user\.
 + *Rank* refers to the position of a recommended item in the list of recommendations\. Position 1 \(the top of the list\) is presumed to be the most relevant to the user\.
-+ *Query* refers to the internal equivalent of a [GetRecommendations](API_RS_GetRecommendations.md) call\.
++ *Query* refers to the internal equivalent of a [ GetRecommendations ](API_RS_GetRecommendations.md) call\.
 
 For each metric, higher numbers are better\.
 

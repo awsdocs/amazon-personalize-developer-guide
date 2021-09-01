@@ -4,29 +4,29 @@ Describes a custom algorithm\.
 
 ## Contents<a name="API_Algorithm_Contents"></a>
 
- **algorithmArn**   <a name="personalize-Type-Algorithm-algorithmArn"></a>
+ ** algorithmArn **   <a name="personalize-Type-Algorithm-algorithmArn"></a>
 The Amazon Resource Name \(ARN\) of the algorithm\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
- **algorithmImage**   <a name="personalize-Type-Algorithm-algorithmImage"></a>
+ ** algorithmImage **   <a name="personalize-Type-Algorithm-algorithmImage"></a>
 The URI of the Docker container for the algorithm image\.  
-Type: [AlgorithmImage](API_AlgorithmImage.md) object  
+Type: [ AlgorithmImage ](API_AlgorithmImage.md) object  
 Required: No
 
- **creationDateTime**   <a name="personalize-Type-Algorithm-creationDateTime"></a>
+ ** creationDateTime **   <a name="personalize-Type-Algorithm-creationDateTime"></a>
 The date and time \(in Unix time\) that the algorithm was created\.  
 Type: Timestamp  
 Required: No
 
- **defaultHyperParameterRanges**   <a name="personalize-Type-Algorithm-defaultHyperParameterRanges"></a>
+ ** defaultHyperParameterRanges **   <a name="personalize-Type-Algorithm-defaultHyperParameterRanges"></a>
 Specifies the default hyperparameters, their ranges, and whether they are tunable\. A tunable hyperparameter can have its value determined during hyperparameter optimization \(HPO\)\.  
-Type: [DefaultHyperParameterRanges](API_DefaultHyperParameterRanges.md) object  
+Type: [ DefaultHyperParameterRanges ](API_DefaultHyperParameterRanges.md) object  
 Required: No
 
- **defaultHyperParameters**   <a name="personalize-Type-Algorithm-defaultHyperParameters"></a>
+ ** defaultHyperParameters **   <a name="personalize-Type-Algorithm-defaultHyperParameters"></a>
 Specifies the default hyperparameters\.  
 Type: String to string map  
 Map Entries: Maximum number of 100 items\.  
@@ -34,7 +34,7 @@ Key Length Constraints: Maximum length of 256\.
 Value Length Constraints: Maximum length of 1000\.  
 Required: No
 
- **defaultResourceConfig**   <a name="personalize-Type-Algorithm-defaultResourceConfig"></a>
+ ** defaultResourceConfig **   <a name="personalize-Type-Algorithm-defaultResourceConfig"></a>
 Specifies the default maximum number of training jobs and parallel training jobs\.  
 Type: String to string map  
 Map Entries: Maximum number of 100 items\.  
@@ -42,26 +42,26 @@ Key Length Constraints: Maximum length of 256\.
 Value Length Constraints: Maximum length of 1000\.  
 Required: No
 
- **lastUpdatedDateTime**   <a name="personalize-Type-Algorithm-lastUpdatedDateTime"></a>
+ ** lastUpdatedDateTime **   <a name="personalize-Type-Algorithm-lastUpdatedDateTime"></a>
 The date and time \(in Unix time\) that the algorithm was last updated\.  
 Type: Timestamp  
 Required: No
 
- **name**   <a name="personalize-Type-Algorithm-name"></a>
+ ** name **   <a name="personalize-Type-Algorithm-name"></a>
 The name of the algorithm\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: No
 
- **roleArn**   <a name="personalize-Type-Algorithm-roleArn"></a>
+ ** roleArn **   <a name="personalize-Type-Algorithm-roleArn"></a>
 The Amazon Resource Name \(ARN\) of the role\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
- **trainingInputMode**   <a name="personalize-Type-Algorithm-trainingInputMode"></a>
+ ** trainingInputMode **   <a name="personalize-Type-Algorithm-trainingInputMode"></a>
 The training input mode\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  

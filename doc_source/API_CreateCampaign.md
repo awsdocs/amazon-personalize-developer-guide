@@ -16,16 +16,16 @@ A campaign can be in one of the following states:
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
 + DELETE PENDING > DELETE IN\_PROGRESS
 
-To get the campaign status, call [DescribeCampaign](API_DescribeCampaign.md)\.
+To get the campaign status, call [ DescribeCampaign ](API_DescribeCampaign.md)\.
 
 **Note**  
 Wait until the `status` of the campaign is `ACTIVE` before asking the campaign for recommendations\.
 
 **Related APIs**
-+  [ListCampaigns](API_ListCampaigns.md) 
-+  [DescribeCampaign](API_DescribeCampaign.md) 
-+  [UpdateCampaign](API_UpdateCampaign.md) 
-+  [DeleteCampaign](API_DeleteCampaign.md) 
++  [ ListCampaigns ](API_ListCampaigns.md) 
++  [ DescribeCampaign ](API_DescribeCampaign.md) 
++  [ UpdateCampaign ](API_UpdateCampaign.md) 
++  [ DeleteCampaign ](API_DeleteCampaign.md) 
 
 ## Request Syntax<a name="API_CreateCampaign_RequestSyntax"></a>
 
@@ -46,25 +46,25 @@ Wait until the `status` of the campaign is `ACTIVE` before asking the campaign f
 
 The request accepts the following data in JSON format\.
 
- ** [campaignConfig](#API_CreateCampaign_RequestSyntax) **   <a name="personalize-CreateCampaign-request-campaignConfig"></a>
+ ** [ campaignConfig ](#API_CreateCampaign_RequestSyntax) **   <a name="personalize-CreateCampaign-request-campaignConfig"></a>
 The configuration details of a campaign\.  
-Type: [CampaignConfig](API_CampaignConfig.md) object  
+Type: [ CampaignConfig ](API_CampaignConfig.md) object  
 Required: No
 
- ** [minProvisionedTPS](#API_CreateCampaign_RequestSyntax) **   <a name="personalize-CreateCampaign-request-minProvisionedTPS"></a>
+ ** [ minProvisionedTPS ](#API_CreateCampaign_RequestSyntax) **   <a name="personalize-CreateCampaign-request-minProvisionedTPS"></a>
 Specifies the requested minimum provisioned transactions \(recommendations\) per second that Amazon Personalize will support\.  
 Type: Integer  
 Valid Range: Minimum value of 1\.  
 Required: No
 
- ** [name](#API_CreateCampaign_RequestSyntax) **   <a name="personalize-CreateCampaign-request-name"></a>
+ ** [ name ](#API_CreateCampaign_RequestSyntax) **   <a name="personalize-CreateCampaign-request-name"></a>
 A name for the new campaign\. The campaign name must be unique within your account\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: Yes
 
- ** [solutionVersionArn](#API_CreateCampaign_RequestSyntax) **   <a name="personalize-CreateCampaign-request-solutionVersionArn"></a>
+ ** [ solutionVersionArn ](#API_CreateCampaign_RequestSyntax) **   <a name="personalize-CreateCampaign-request-solutionVersionArn"></a>
 The Amazon Resource Name \(ARN\) of the solution version to deploy\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -85,7 +85,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [campaignArn](#API_CreateCampaign_ResponseSyntax) **   <a name="personalize-CreateCampaign-response-campaignArn"></a>
+ ** [ campaignArn ](#API_CreateCampaign_ResponseSyntax) **   <a name="personalize-CreateCampaign-response-campaignArn"></a>
 The Amazon Resource Name \(ARN\) of the campaign\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -93,23 +93,23 @@ Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
 
 ## Errors<a name="API_CreateCampaign_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 The limit on the number of requests per second has been exceeded\.  
 HTTP Status Code: 400
 
- **ResourceAlreadyExistsException**   
+ ** ResourceAlreadyExistsException **   
 The specified resource already exists\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

@@ -1,6 +1,6 @@
 # Filtering batch recommendations<a name="filter-batch"></a>
 
-Filtering batch recommendations works nearly the same as filtering real\-time recommendations\. To filter batch recommendations, you [create a filter](filter-real-time.md) and then apply it to a [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) operation or new batch inference job in the Amazon Personalize console\. Amazon Personalize then filters the recommendations from the batch job’s output JSON file\. For more information about batch inference jobs, see [Creating a batch inference job \(console\)](recommendations-batch.md#batch-console)\.
+Filtering batch recommendations works nearly the same as filtering real\-time recommendations\. To filter batch recommendations, you [create a filter](filter-real-time.md) and then apply it to a [ CreateBatchInferenceJob ](API_CreateBatchInferenceJob.md) operation or new batch inference job in the Amazon Personalize console\. Amazon Personalize then filters the recommendations from the batch job’s output JSON file\. For more information about batch inference jobs, see [Creating a batch inference job \(console\)](recommendations-batch.md#batch-console)\.
 
 For filters with placeholder parameters, such as `$GENRE`, provide the values in a `filterValues` object in your input JSON\. For a `filterValues` object, each key is a parameter name and each value is the criteria that you are passing as a parameter\. For multiple values, separate each value with a comma\. The following is an example of a JSON input file with filter values\. The `GENRES` key corresponds to a `$GENRES` placeholder in the filter expression\.
 
@@ -22,7 +22,7 @@ For filters with placeholder parameters, such as `$GENRE`, provide the values in
 
 1. Use the console or the SDKs to [create a filter](filter-real-time.md)\. 
 
-1.  Include the `FilterArn` parameter in the [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) request\. 
+1.  Include the `FilterArn` parameter in the [ CreateBatchInferenceJob ](API_CreateBatchInferenceJob.md) request\. 
 
 ```
 import boto3

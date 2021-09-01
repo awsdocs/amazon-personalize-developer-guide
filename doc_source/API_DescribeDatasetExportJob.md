@@ -1,6 +1,6 @@
 # DescribeDatasetExportJob<a name="API_DescribeDatasetExportJob"></a>
 
-Describes the dataset export job created by [CreateDatasetExportJob](API_CreateDatasetExportJob.md), including the export job status\.
+Describes the dataset export job created by [ CreateDatasetExportJob ](API_CreateDatasetExportJob.md), including the export job status\.
 
 ## Request Syntax<a name="API_DescribeDatasetExportJob_RequestSyntax"></a>
 
@@ -14,7 +14,7 @@ Describes the dataset export job created by [CreateDatasetExportJob](API_CreateD
 
 The request accepts the following data in JSON format\.
 
- ** [datasetExportJobArn](#API_DescribeDatasetExportJob_RequestSyntax) **   <a name="personalize-DescribeDatasetExportJob-request-datasetExportJobArn"></a>
+ ** [ datasetExportJobArn ](#API_DescribeDatasetExportJob_RequestSyntax) **   <a name="personalize-DescribeDatasetExportJob-request-datasetExportJobArn"></a>
 The Amazon Resource Name \(ARN\) of the dataset export job to describe\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -51,22 +51,22 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [datasetExportJob](#API_DescribeDatasetExportJob_ResponseSyntax) **   <a name="personalize-DescribeDatasetExportJob-response-datasetExportJob"></a>
+ ** [ datasetExportJob ](#API_DescribeDatasetExportJob_ResponseSyntax) **   <a name="personalize-DescribeDatasetExportJob-response-datasetExportJob"></a>
 Information about the dataset export job, including the status\.  
 The status is one of the following values:  
 + CREATE PENDING
 + CREATE IN\_PROGRESS
 + ACTIVE
 + CREATE FAILED
-Type: [DatasetExportJob](API_DatasetExportJob.md) object
+Type: [ DatasetExportJob ](API_DatasetExportJob.md) object
 
 ## Errors<a name="API_DescribeDatasetExportJob_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

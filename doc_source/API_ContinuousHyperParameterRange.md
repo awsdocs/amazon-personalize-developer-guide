@@ -4,19 +4,19 @@ Provides the name and range of a continuous hyperparameter\.
 
 ## Contents<a name="API_ContinuousHyperParameterRange_Contents"></a>
 
- **maxValue**   <a name="personalize-Type-ContinuousHyperParameterRange-maxValue"></a>
+ ** maxValue **   <a name="personalize-Type-ContinuousHyperParameterRange-maxValue"></a>
 The maximum allowable value for the hyperparameter\.  
 Type: Double  
 Valid Range: Minimum value of \-1000000\.  
 Required: No
 
- **minValue**   <a name="personalize-Type-ContinuousHyperParameterRange-minValue"></a>
+ ** minValue **   <a name="personalize-Type-ContinuousHyperParameterRange-minValue"></a>
 The minimum allowable value for the hyperparameter\.  
 Type: Double  
 Valid Range: Minimum value of \-1000000\.  
 Required: No
 
- **name**   <a name="personalize-Type-ContinuousHyperParameterRange-name"></a>
+ ** name **   <a name="personalize-Type-ContinuousHyperParameterRange-name"></a>
 The name of the hyperparameter\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  

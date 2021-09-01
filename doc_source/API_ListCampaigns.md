@@ -1,6 +1,6 @@
 # ListCampaigns<a name="API_ListCampaigns"></a>
 
-Returns a list of campaigns that use the given solution\. When a solution is not specified, all the campaigns associated with the account are listed\. The response provides the properties for each campaign, including the Amazon Resource Name \(ARN\)\. For more information on campaigns, see [CreateCampaign](API_CreateCampaign.md)\.
+Returns a list of campaigns that use the given solution\. When a solution is not specified, all the campaigns associated with the account are listed\. The response provides the properties for each campaign, including the Amazon Resource Name \(ARN\)\. For more information on campaigns, see [ CreateCampaign ](API_CreateCampaign.md)\.
 
 ## Request Syntax<a name="API_ListCampaigns_RequestSyntax"></a>
 
@@ -16,19 +16,19 @@ Returns a list of campaigns that use the given solution\. When a solution is not
 
 The request accepts the following data in JSON format\.
 
- ** [maxResults](#API_ListCampaigns_RequestSyntax) **   <a name="personalize-ListCampaigns-request-maxResults"></a>
+ ** [ maxResults ](#API_ListCampaigns_RequestSyntax) **   <a name="personalize-ListCampaigns-request-maxResults"></a>
 The maximum number of campaigns to return\.  
 Type: Integer  
 Valid Range: Minimum value of 1\. Maximum value of 100\.  
 Required: No
 
- ** [nextToken](#API_ListCampaigns_RequestSyntax) **   <a name="personalize-ListCampaigns-request-nextToken"></a>
+ ** [ nextToken ](#API_ListCampaigns_RequestSyntax) **   <a name="personalize-ListCampaigns-request-nextToken"></a>
 A token returned from the previous call to `ListCampaigns` for getting the next set of campaigns \(if they exist\)\.  
 Type: String  
 Length Constraints: Maximum length of 1300\.  
 Required: No
 
- ** [solutionArn](#API_ListCampaigns_RequestSyntax) **   <a name="personalize-ListCampaigns-request-solutionArn"></a>
+ ** [ solutionArn ](#API_ListCampaigns_RequestSyntax) **   <a name="personalize-ListCampaigns-request-solutionArn"></a>
 The Amazon Resource Name \(ARN\) of the solution to list the campaigns for\. When a solution is not specified, all the campaigns associated with the account are listed\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -59,23 +59,23 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [campaigns](#API_ListCampaigns_ResponseSyntax) **   <a name="personalize-ListCampaigns-response-campaigns"></a>
+ ** [ campaigns ](#API_ListCampaigns_ResponseSyntax) **   <a name="personalize-ListCampaigns-response-campaigns"></a>
 A list of the campaigns\.  
-Type: Array of [CampaignSummary](API_CampaignSummary.md) objects  
+Type: Array of [ CampaignSummary ](API_CampaignSummary.md) objects  
 Array Members: Maximum number of 100 items\.
 
- ** [nextToken](#API_ListCampaigns_ResponseSyntax) **   <a name="personalize-ListCampaigns-response-nextToken"></a>
+ ** [ nextToken ](#API_ListCampaigns_ResponseSyntax) **   <a name="personalize-ListCampaigns-response-nextToken"></a>
 A token for getting the next set of campaigns \(if they exist\)\.  
 Type: String  
 Length Constraints: Maximum length of 1300\.
 
 ## Errors<a name="API_ListCampaigns_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **InvalidNextTokenException**   
+ ** InvalidNextTokenException **   
 The token is not valid\.  
 HTTP Status Code: 400
 

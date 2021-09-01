@@ -11,15 +11,15 @@ The event tracker can be in one of the following states:
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
 + DELETE PENDING > DELETE IN\_PROGRESS
 
-To get the status of the event tracker, call [DescribeEventTracker](API_DescribeEventTracker.md)\.
+To get the status of the event tracker, call [ DescribeEventTracker ](API_DescribeEventTracker.md)\.
 
 **Note**  
 The event tracker must be in the ACTIVE state before using the tracking ID\.
 
 **Related APIs**
-+  [ListEventTrackers](API_ListEventTrackers.md) 
-+  [DescribeEventTracker](API_DescribeEventTracker.md) 
-+  [DeleteEventTracker](API_DeleteEventTracker.md) 
++  [ ListEventTrackers ](API_ListEventTrackers.md) 
++  [ DescribeEventTracker ](API_DescribeEventTracker.md) 
++  [ DeleteEventTracker ](API_DeleteEventTracker.md) 
 
 ## Request Syntax<a name="API_CreateEventTracker_RequestSyntax"></a>
 
@@ -34,14 +34,14 @@ The event tracker must be in the ACTIVE state before using the tracking ID\.
 
 The request accepts the following data in JSON format\.
 
- ** [datasetGroupArn](#API_CreateEventTracker_RequestSyntax) **   <a name="personalize-CreateEventTracker-request-datasetGroupArn"></a>
+ ** [ datasetGroupArn ](#API_CreateEventTracker_RequestSyntax) **   <a name="personalize-CreateEventTracker-request-datasetGroupArn"></a>
 The Amazon Resource Name \(ARN\) of the dataset group that receives the event data\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: Yes
 
- ** [name](#API_CreateEventTracker_RequestSyntax) **   <a name="personalize-CreateEventTracker-request-name"></a>
+ ** [ name ](#API_CreateEventTracker_RequestSyntax) **   <a name="personalize-CreateEventTracker-request-name"></a>
 The name for the event tracker\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
@@ -63,36 +63,36 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [eventTrackerArn](#API_CreateEventTracker_ResponseSyntax) **   <a name="personalize-CreateEventTracker-response-eventTrackerArn"></a>
+ ** [ eventTrackerArn ](#API_CreateEventTracker_ResponseSyntax) **   <a name="personalize-CreateEventTracker-response-eventTrackerArn"></a>
 The ARN of the event tracker\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+` 
 
- ** [trackingId](#API_CreateEventTracker_ResponseSyntax) **   <a name="personalize-CreateEventTracker-response-trackingId"></a>
+ ** [ trackingId ](#API_CreateEventTracker_ResponseSyntax) **   <a name="personalize-CreateEventTracker-response-trackingId"></a>
 The ID of the event tracker\. Include this ID in requests to the [PutEvents](https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html) API\.  
 Type: String  
 Length Constraints: Maximum length of 256\.
 
 ## Errors<a name="API_CreateEventTracker_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 The limit on the number of requests per second has been exceeded\.  
 HTTP Status Code: 400
 
- **ResourceAlreadyExistsException**   
+ ** ResourceAlreadyExistsException **   
 The specified resource already exists\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

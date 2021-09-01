@@ -1,6 +1,6 @@
 # DescribeSolution<a name="API_DescribeSolution"></a>
 
-Describes a solution\. For more information on solutions, see [CreateSolution](API_CreateSolution.md)\.
+Describes a solution\. For more information on solutions, see [ CreateSolution ](API_CreateSolution.md)\.
 
 ## Request Syntax<a name="API_DescribeSolution_RequestSyntax"></a>
 
@@ -14,7 +14,7 @@ Describes a solution\. For more information on solutions, see [CreateSolution](A
 
 The request accepts the following data in JSON format\.
 
- ** [solutionArn](#API_DescribeSolution_RequestSyntax) **   <a name="personalize-DescribeSolution-request-solutionArn"></a>
+ ** [ solutionArn ](#API_DescribeSolution_RequestSyntax) **   <a name="personalize-DescribeSolution-request-solutionArn"></a>
 The Amazon Resource Name \(ARN\) of the solution to describe\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -106,17 +106,17 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [solution](#API_DescribeSolution_ResponseSyntax) **   <a name="personalize-DescribeSolution-response-solution"></a>
+ ** [ solution ](#API_DescribeSolution_ResponseSyntax) **   <a name="personalize-DescribeSolution-response-solution"></a>
 An object that describes the solution\.  
-Type: [Solution](API_Solution.md) object
+Type: [ Solution ](API_Solution.md) object
 
 ## Errors<a name="API_DescribeSolution_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

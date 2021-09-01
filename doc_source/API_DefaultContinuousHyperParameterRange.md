@@ -4,24 +4,24 @@ Provides the name and default range of a continuous hyperparameter and whether t
 
 ## Contents<a name="API_DefaultContinuousHyperParameterRange_Contents"></a>
 
- **isTunable**   <a name="personalize-Type-DefaultContinuousHyperParameterRange-isTunable"></a>
+ ** isTunable **   <a name="personalize-Type-DefaultContinuousHyperParameterRange-isTunable"></a>
 Whether the hyperparameter is tunable\.  
 Type: Boolean  
 Required: No
 
- **maxValue**   <a name="personalize-Type-DefaultContinuousHyperParameterRange-maxValue"></a>
+ ** maxValue **   <a name="personalize-Type-DefaultContinuousHyperParameterRange-maxValue"></a>
 The maximum allowable value for the hyperparameter\.  
 Type: Double  
 Valid Range: Minimum value of \-1000000\.  
 Required: No
 
- **minValue**   <a name="personalize-Type-DefaultContinuousHyperParameterRange-minValue"></a>
+ ** minValue **   <a name="personalize-Type-DefaultContinuousHyperParameterRange-minValue"></a>
 The minimum allowable value for the hyperparameter\.  
 Type: Double  
 Valid Range: Minimum value of \-1000000\.  
 Required: No
 
- **name**   <a name="personalize-Type-DefaultContinuousHyperParameterRange-name"></a>
+ ** name **   <a name="personalize-Type-DefaultContinuousHyperParameterRange-name"></a>
 The name of the hyperparameter\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  

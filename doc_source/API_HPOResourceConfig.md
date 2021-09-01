@@ -4,13 +4,13 @@ Describes the resource configuration for hyperparameter optimization \(HPO\)\.
 
 ## Contents<a name="API_HPOResourceConfig_Contents"></a>
 
- **maxNumberOfTrainingJobs**   <a name="personalize-Type-HPOResourceConfig-maxNumberOfTrainingJobs"></a>
+ ** maxNumberOfTrainingJobs **   <a name="personalize-Type-HPOResourceConfig-maxNumberOfTrainingJobs"></a>
 The maximum number of training jobs when you create a solution version\. The maximum value for `maxNumberOfTrainingJobs` is `40`\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Required: No
 
- **maxParallelTrainingJobs**   <a name="personalize-Type-HPOResourceConfig-maxParallelTrainingJobs"></a>
+ ** maxParallelTrainingJobs **   <a name="personalize-Type-HPOResourceConfig-maxParallelTrainingJobs"></a>
 The maximum number of parallel training jobs when you create a solution version\. The maximum value for `maxParallelTrainingJobs` is `10`\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  

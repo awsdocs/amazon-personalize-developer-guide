@@ -1,8 +1,8 @@
 # Getting real\-time recommendations<a name="getting-real-time-recommendations"></a>
 
-You can get real\-time recommendations from Amazon Personalize with a campaign\. For example, suppose you have a campaign that is designed to give movie recommendations\. Depending on the recipe you used to create the solution version backing the campaign, you get recommendations for your users with the [GetRecommendations](API_RS_GetRecommendations.md) or [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) API operations or with the Amazon Personalize console\. 
+You can get real\-time recommendations from Amazon Personalize with a campaign\. For example, suppose you have a campaign that is designed to give movie recommendations\. Depending on the recipe you used to create the solution version backing the campaign, you get recommendations for your users with the [ GetRecommendations ](API_RS_GetRecommendations.md) or [ GetPersonalizedRanking ](API_RS_GetPersonalizedRanking.md) API operations or with the Amazon Personalize console\. 
 
- If your campaign recommends similar items, you get recommendations with the [GetRecommendations](API_RS_GetRecommendations.md) operation or with the Amazon Personalize console\. Amazon Personalize returns a list of related items based on the item ID you include in the request\. 
+ If your campaign recommends similar items, you get recommendations with the [ GetRecommendations ](API_RS_GetRecommendations.md) operation or with the Amazon Personalize console\. Amazon Personalize returns a list of related items based on the item ID you include in the request\. 
 
 **Topics**
 + [Increasing recommendation relevance with contextual metadata](#contextual-metadata)

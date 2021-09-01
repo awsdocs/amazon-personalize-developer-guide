@@ -1,6 +1,6 @@
 # Getting a personalized ranking<a name="rankings"></a>
 
-A personalized ranking is a list of recommended items that are re\-ranked for a specific user\. To get personalized rankings, call the [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) API operation or get recommendations from a campaign in the console\.
+A personalized ranking is a list of recommended items that are re\-ranked for a specific user\. To get personalized rankings, call the [ GetPersonalizedRanking ](API_RS_GetPersonalizedRanking.md) API operation or get recommendations from a campaign in the console\.
 
 **Note**  
 The solution backing the campaign must have been created using a recipe of type PERSONALIZED\_RANKING\. For more information, see [Step 1: Choosing a recipe](working-with-predefined-recipes.md)\.

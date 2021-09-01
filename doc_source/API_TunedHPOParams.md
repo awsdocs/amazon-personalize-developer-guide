@@ -4,7 +4,7 @@ If hyperparameter optimization \(HPO\) was performed, contains the hyperparamete
 
 ## Contents<a name="API_TunedHPOParams_Contents"></a>
 
- **algorithmHyperParameters**   <a name="personalize-Type-TunedHPOParams-algorithmHyperParameters"></a>
+ ** algorithmHyperParameters **   <a name="personalize-Type-TunedHPOParams-algorithmHyperParameters"></a>
 A list of the hyperparameter values of the best performing model\.  
 Type: String to string map  
 Map Entries: Maximum number of 100 items\.  

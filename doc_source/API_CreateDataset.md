@@ -1,6 +1,6 @@
 # CreateDataset<a name="API_CreateDataset"></a>
 
-Creates an empty dataset and adds it to the specified dataset group\. Use [CreateDatasetImportJob](API_CreateDatasetImportJob.md) to import your training data to a dataset\.
+Creates an empty dataset and adds it to the specified dataset group\. Use [ CreateDatasetImportJob ](API_CreateDatasetImportJob.md) to import your training data to a dataset\.
 
 There are three types of datasets:
 + Interactions
@@ -13,13 +13,13 @@ A dataset can be in one of the following states:
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
 + DELETE PENDING > DELETE IN\_PROGRESS
 
-To get the status of the dataset, call [DescribeDataset](API_DescribeDataset.md)\.
+To get the status of the dataset, call [ DescribeDataset ](API_DescribeDataset.md)\.
 
 **Related APIs**
-+  [CreateDatasetGroup](API_CreateDatasetGroup.md) 
-+  [ListDatasets](API_ListDatasets.md) 
-+  [DescribeDataset](API_DescribeDataset.md) 
-+  [DeleteDataset](API_DeleteDataset.md) 
++  [ CreateDatasetGroup ](API_CreateDatasetGroup.md) 
++  [ ListDatasets ](API_ListDatasets.md) 
++  [ DescribeDataset ](API_DescribeDataset.md) 
++  [ DeleteDataset ](API_DeleteDataset.md) 
 
 ## Request Syntax<a name="API_CreateDataset_RequestSyntax"></a>
 
@@ -36,14 +36,14 @@ To get the status of the dataset, call [DescribeDataset](API_DescribeDataset.md)
 
 The request accepts the following data in JSON format\.
 
- ** [datasetGroupArn](#API_CreateDataset_RequestSyntax) **   <a name="personalize-CreateDataset-request-datasetGroupArn"></a>
+ ** [ datasetGroupArn ](#API_CreateDataset_RequestSyntax) **   <a name="personalize-CreateDataset-request-datasetGroupArn"></a>
 The Amazon Resource Name \(ARN\) of the dataset group to add the dataset to\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: Yes
 
- ** [datasetType](#API_CreateDataset_RequestSyntax) **   <a name="personalize-CreateDataset-request-datasetType"></a>
+ ** [ datasetType ](#API_CreateDataset_RequestSyntax) **   <a name="personalize-CreateDataset-request-datasetType"></a>
 The type of dataset\.  
 One of the following \(case insensitive\) values:  
 + Interactions
@@ -53,14 +53,14 @@ Type: String
 Length Constraints: Maximum length of 256\.  
 Required: Yes
 
- ** [name](#API_CreateDataset_RequestSyntax) **   <a name="personalize-CreateDataset-request-name"></a>
+ ** [ name ](#API_CreateDataset_RequestSyntax) **   <a name="personalize-CreateDataset-request-name"></a>
 The name for the dataset\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: Yes
 
- ** [schemaArn](#API_CreateDataset_RequestSyntax) **   <a name="personalize-CreateDataset-request-schemaArn"></a>
+ ** [ schemaArn ](#API_CreateDataset_RequestSyntax) **   <a name="personalize-CreateDataset-request-schemaArn"></a>
 The ARN of the schema to associate with the dataset\. The schema defines the dataset fields\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -81,7 +81,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [datasetArn](#API_CreateDataset_ResponseSyntax) **   <a name="personalize-CreateDataset-response-datasetArn"></a>
+ ** [ datasetArn ](#API_CreateDataset_ResponseSyntax) **   <a name="personalize-CreateDataset-response-datasetArn"></a>
 The ARN of the dataset\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -89,23 +89,23 @@ Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
 
 ## Errors<a name="API_CreateDataset_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 The limit on the number of requests per second has been exceeded\.  
 HTTP Status Code: 400
 
- **ResourceAlreadyExistsException**   
+ ** ResourceAlreadyExistsException **   
 The specified resource already exists\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

@@ -14,7 +14,7 @@ Gets the properties of a batch inference job including name, Amazon Resource Nam
 
 The request accepts the following data in JSON format\.
 
- ** [batchInferenceJobArn](#API_DescribeBatchInferenceJob_RequestSyntax) **   <a name="personalize-DescribeBatchInferenceJob-request-batchInferenceJobArn"></a>
+ ** [ batchInferenceJobArn ](#API_DescribeBatchInferenceJob_RequestSyntax) **   <a name="personalize-DescribeBatchInferenceJob-request-batchInferenceJobArn"></a>
 The ARN of the batch inference job to describe\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -63,17 +63,17 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [batchInferenceJob](#API_DescribeBatchInferenceJob_ResponseSyntax) **   <a name="personalize-DescribeBatchInferenceJob-response-batchInferenceJob"></a>
+ ** [ batchInferenceJob ](#API_DescribeBatchInferenceJob_ResponseSyntax) **   <a name="personalize-DescribeBatchInferenceJob-response-batchInferenceJob"></a>
 Information on the specified batch inference job\.  
-Type: [BatchInferenceJob](API_BatchInferenceJob.md) object
+Type: [ BatchInferenceJob ](API_BatchInferenceJob.md) object
 
 ## Errors<a name="API_DescribeBatchInferenceJob_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

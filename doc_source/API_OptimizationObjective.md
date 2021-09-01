@@ -4,13 +4,13 @@ Describes the additional objective for the solution, such as maximizing streamin
 
 ## Contents<a name="API_OptimizationObjective_Contents"></a>
 
- **itemAttribute**   <a name="personalize-Type-OptimizationObjective-itemAttribute"></a>
+ ** itemAttribute **   <a name="personalize-Type-OptimizationObjective-itemAttribute"></a>
 The numerical metadata column in an Items dataset related to the optimization objective\. For example, VIDEO\_LENGTH \(to maximize streaming minutes\), or PRICE \(to maximize revenue\)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 150\.  
 Required: No
 
- **objectiveSensitivity**   <a name="personalize-Type-OptimizationObjective-objectiveSensitivity"></a>
+ ** objectiveSensitivity **   <a name="personalize-Type-OptimizationObjective-objectiveSensitivity"></a>
 Specifies how Amazon Personalize balances the importance of your optimization objective versus relevance\.  
 Type: String  
 Valid Values:` LOW | MEDIUM | HIGH | OFF`   

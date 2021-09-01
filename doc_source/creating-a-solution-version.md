@@ -2,7 +2,7 @@
 
 After you have completed [Step 1: Choosing a recipe](working-with-predefined-recipes.md) and [Step 2: Configuring a solution](customizing-solution-config.md), you are ready to create a solution version\. 
 
- A *solution version* refers to a trained machine learning model you can deploy to get recommendations for customers\. You create a solution version using the console, AWS Command Line Interface \(AWS CLI\), or AWS SDK\. If your solution version has a status of CREATE\_PENDING or CREATE\_IN\_PROGRESS, you can use the [StopSolutionVersionCreation](API_StopSolutionVersionCreation.md) operation to stop the solution version creation process\. See [Stopping the creation of a solution version](stop-solution-version.md)\. 
+ A *solution version* refers to a trained machine learning model you can deploy to get recommendations for customers\. You create a solution version using the console, AWS Command Line Interface \(AWS CLI\), or AWS SDK\. If your solution version has a status of CREATE\_PENDING or CREATE\_IN\_PROGRESS, you can use the [ StopSolutionVersionCreation ](API_StopSolutionVersionCreation.md) operation to stop the solution version creation process\. See [Stopping the creation of a solution version](stop-solution-version.md)\. 
 
 **Topics**
 + [Creating a solution version \(console\)](#create-solution-version-console)
@@ -51,7 +51,7 @@ The solution version ARN is displayed, for example:
 }
 ```
 
-Check the training status of the solution version by using the `describe-solution-version` command\. Provide the solution version ARN that was returned in the previous step\. For more information about the API, see [DescribeSolutionVersion](API_DescribeSolutionVersion.md)\.
+Check the training status of the solution version by using the `describe-solution-version` command\. Provide the solution version ARN that was returned in the previous step\. For more information about the API, see [ DescribeSolutionVersion ](API_DescribeSolutionVersion.md)\.
 
 ```
 aws personalize describe-solution-version \
@@ -72,7 +72,7 @@ The properties of the solution version and the training `status` are displayed\.
 
 Training is complete when the `status` is `ACTIVE` and you can evaluate it using metrics supplied by Amazon Personalize\. For more information, see [Step 4: Evaluating a solution version with metrics](working-with-training-metrics.md)\. If training does not complete because of an error, you are not charged for the training\. 
 
-If your solution version has a status of CREATE\_PENDING or CREATE\_IN\_PROGRESS, you can use the [StopSolutionVersionCreation](API_StopSolutionVersionCreation.md) operation to stop the solution version creation process\. See [Stopping the creation of a solution version](stop-solution-version.md)\.
+If your solution version has a status of CREATE\_PENDING or CREATE\_IN\_PROGRESS, you can use the [ StopSolutionVersionCreation ](API_StopSolutionVersionCreation.md) operation to stop the solution version creation process\. See [Stopping the creation of a solution version](stop-solution-version.md)\.
 
 ## Creating a solution version \(AWS SDKs\)<a name="create-solution-version-sdk"></a>
 
@@ -81,7 +81,7 @@ When your solution is ACTIVE, use the following code to create a solution versio
 ------
 #### [ SDK for Python \(Boto3\) ]
 
-To create a solution version, using the following `create_solution_version` method\. Replace the `solution arn` with the Amazon Resource Name \(ARN\) of the solution from [Step 2: Configuring a solution](customizing-solution-config.md)\. The following code uses the [DescribeSolutionVersion](API_DescribeSolutionVersion.md) operation to retrieve the solution version's status\.
+To create a solution version, using the following `create_solution_version` method\. Replace the `solution arn` with the Amazon Resource Name \(ARN\) of the solution from [Step 2: Configuring a solution](customizing-solution-config.md)\. The following code uses the [ DescribeSolutionVersion ](API_DescribeSolutionVersion.md) operation to retrieve the solution version's status\.
 
 ```
 import boto3
@@ -109,7 +109,7 @@ print('Solution version status: ' + solution_version_description['status'])
 ------
 #### [ SDK for Java 2\.x ]
 
-To create a solution version, use the following `createPersonalizeSolutionVersion` method and pass as a parameter the Amazon Resource Name \(ARN\) of the solution from [Step 2: Configuring a solution](customizing-solution-config.md)\. The following code uses the [DescribeSolutionVersion](API_DescribeSolutionVersion.md) operation to retrieve the solution version's status\. 
+To create a solution version, use the following `createPersonalizeSolutionVersion` method and pass as a parameter the Amazon Resource Name \(ARN\) of the solution from [Step 2: Configuring a solution](customizing-solution-config.md)\. The following code uses the [ DescribeSolutionVersion ](API_DescribeSolutionVersion.md) operation to retrieve the solution version's status\. 
 
 ```
 public static String createPersonalizeSolutionVersion(PersonalizeClient personalizeClient, String solutionArn) {
@@ -190,6 +190,6 @@ public static String createPersonalizeSolutionVersion(PersonalizeClient personal
 
 
 
-To check the current solution version status, call the [DescribeSolutionVersion](API_DescribeSolutionVersion.md) operation and pass the ARN of the solution version returned from the `CreateSolutionVersion` operation\. Training is complete when the `status` is `ACTIVE` and you can evaluate it using metrics supplied by Amazon Personalize\. For more information, see [Step 4: Evaluating a solution version with metrics](working-with-training-metrics.md)\. If training does not complete because of an error, you are not charged for the training\. 
+To check the current solution version status, call the [ DescribeSolutionVersion ](API_DescribeSolutionVersion.md) operation and pass the ARN of the solution version returned from the `CreateSolutionVersion` operation\. Training is complete when the `status` is `ACTIVE` and you can evaluate it using metrics supplied by Amazon Personalize\. For more information, see [Step 4: Evaluating a solution version with metrics](working-with-training-metrics.md)\. If training does not complete because of an error, you are not charged for the training\. 
 
-If your solution version has a status of CREATE\_PENDING or CREATE\_IN\_PROGRESS, you can use the [StopSolutionVersionCreation](API_StopSolutionVersionCreation.md) operation to stop the solution version creation process\. See [Stopping the creation of a solution version](stop-solution-version.md)\.
+If your solution version has a status of CREATE\_PENDING or CREATE\_IN\_PROGRESS, you can use the [ StopSolutionVersionCreation ](API_StopSolutionVersionCreation.md) operation to stop the solution version creation process\. See [Stopping the creation of a solution version](stop-solution-version.md)\.

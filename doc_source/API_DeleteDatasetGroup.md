@@ -17,7 +17,7 @@ Deletes a dataset group\. Before you delete a dataset group, you must delete the
 
 The request accepts the following data in JSON format\.
 
- ** [datasetGroupArn](#API_DeleteDatasetGroup_RequestSyntax) **   <a name="personalize-DeleteDatasetGroup-request-datasetGroupArn"></a>
+ ** [ datasetGroupArn ](#API_DeleteDatasetGroup_RequestSyntax) **   <a name="personalize-DeleteDatasetGroup-request-datasetGroupArn"></a>
 The ARN of the dataset group to delete\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -30,15 +30,15 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 ## Errors<a name="API_DeleteDatasetGroup_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

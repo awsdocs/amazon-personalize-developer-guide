@@ -1,6 +1,6 @@
 # DescribeEventTracker<a name="API_DescribeEventTracker"></a>
 
-Describes an event tracker\. The response includes the `trackingId` and `status` of the event tracker\. For more information on event trackers, see [CreateEventTracker](API_CreateEventTracker.md)\.
+Describes an event tracker\. The response includes the `trackingId` and `status` of the event tracker\. For more information on event trackers, see [ CreateEventTracker ](API_CreateEventTracker.md)\.
 
 ## Request Syntax<a name="API_DescribeEventTracker_RequestSyntax"></a>
 
@@ -14,7 +14,7 @@ Describes an event tracker\. The response includes the `trackingId` and `status`
 
 The request accepts the following data in JSON format\.
 
- ** [eventTrackerArn](#API_DescribeEventTracker_RequestSyntax) **   <a name="personalize-DescribeEventTracker-request-eventTrackerArn"></a>
+ ** [ eventTrackerArn ](#API_DescribeEventTracker_RequestSyntax) **   <a name="personalize-DescribeEventTracker-request-eventTrackerArn"></a>
 The Amazon Resource Name \(ARN\) of the event tracker to describe\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -44,17 +44,17 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [eventTracker](#API_DescribeEventTracker_ResponseSyntax) **   <a name="personalize-DescribeEventTracker-response-eventTracker"></a>
+ ** [ eventTracker ](#API_DescribeEventTracker_ResponseSyntax) **   <a name="personalize-DescribeEventTracker-response-eventTracker"></a>
 An object that describes the event tracker\.  
-Type: [EventTracker](API_EventTracker.md) object
+Type: [ EventTracker ](API_EventTracker.md) object
 
 ## Errors<a name="API_DescribeEventTracker_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

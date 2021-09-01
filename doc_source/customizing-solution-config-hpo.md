@@ -2,7 +2,7 @@
 
 Hyperparameters are used to optimize the trained model and are set before training begins\. This contrasts with model parameters whose values are determined during the training process\.
 
-Hyperparameters are specified using the `algorithmHyperParameters` key that is part of the [SolutionConfig](API_SolutionConfig.md) object that is passed to the [CreateSolution](API_CreateSolution.md) operation\.
+Hyperparameters are specified using the `algorithmHyperParameters` key that is part of the [ SolutionConfig ](API_SolutionConfig.md) object that is passed to the [ CreateSolution ](API_CreateSolution.md) operation\.
 
 A condensed version of the `CreateSolution` request is below\. The example includes the `solutionConfig` object\. You use `solutionConfig` to override the default parameters of a recipe\. When `performAutoML` is `true`, all parameters of the `solutionConfig` object are ignored except for `autoMLConfig`\. 
 
@@ -88,7 +88,7 @@ The following is a partial example of a `CreateSolution` request using the [HRNN
 
 ## Viewing hyperparameters<a name="viewing-hyperparameters"></a>
 
-Once training is complete, you can view the hyperparameters of the performing model by calling the [DescribeSolutionVersion](API_DescribeSolutionVersion.md) operation\. The following sample shows a condensed `DescribeSolutionVersion` output with the optimized hyperparameters displayed in the `tunedHPOParams` object\.
+Once training is complete, you can view the hyperparameters of the performing model by calling the [ DescribeSolutionVersion ](API_DescribeSolutionVersion.md) operation\. The following sample shows a condensed `DescribeSolutionVersion` output with the optimized hyperparameters displayed in the `tunedHPOParams` object\.
 
 ```
 {

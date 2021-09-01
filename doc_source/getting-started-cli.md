@@ -15,7 +15,7 @@ The AWS CLI commands in this exercise were tested on Linux\. For information abo
 
 Follow the steps to create a dataset group, add a dataset to the group, and then populate the dataset using the movie ratings data\.
 
-1. Create a dataset group by running the following command\. You can encrypt the dataset group by passing a [AWS Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) key ARN and the ARN of an IAM role that has access permissions to that key as input parameters\. For more information about the API, see [CreateDatasetGroup](API_CreateDatasetGroup.md)\.
+1. Create a dataset group by running the following command\. You can encrypt the dataset group by passing a [AWS Key Management Service](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) key ARN and the ARN of an IAM role that has access permissions to that key as input parameters\. For more information about the API, see [ CreateDatasetGroup ](API_CreateDatasetGroup.md)\.
 
    ```
    aws personalize create-dataset-group --name MovieRatingDatasetGroup --kms-key-arn arn:aws:kms:us-west-2:01234567890:key/1682a1e7-a94d-4d92-bbdf-837d3b62315e --role-arn arn:aws:iam::01234567890:KMS-key-access
@@ -85,7 +85,7 @@ The `describe-object` and `list-objects` commands are available for most Amazon 
    }
    ```
 
-1. Create a schema by running the following command\. Specify the file you saved in the previous step\. The example shows the file as belonging to the current folder\. For more information about the API, see [CreateSchema](API_CreateSchema.md)\.
+1. Create a schema by running the following command\. Specify the file you saved in the previous step\. The example shows the file as belonging to the current folder\. For more information about the API, see [ CreateSchema ](API_CreateSchema.md)\.
 
    ```
    aws personalize create-schema \
@@ -101,7 +101,7 @@ The `describe-object` and `list-objects` commands are available for most Amazon 
    }
    ```
 
-1. Create an empty dataset by running the following command\. Provide the dataset group ARN and schema ARN that were returned in the previous steps\. The `dataset-type` must match the schema `name` from the previous step\. For more information about the API, see [CreateDataset](API_CreateDataset.md)\.
+1. Create an empty dataset by running the following command\. Provide the dataset group ARN and schema ARN that were returned in the previous steps\. The `dataset-type` must match the schema `name` from the previous step\. For more information about the API, see [ CreateDataset ](API_CreateDataset.md)\.
 
    ```
    aws personalize create-dataset \
@@ -121,7 +121,7 @@ The `describe-object` and `list-objects` commands are available for most Amazon 
 
 1. Add the training data to the dataset\.
 
-   1. Create a dataset import job by running the following command\. Provide the dataset ARN and Amazon S3 bucket name that were returned in the previous steps\. Supply the AWS Identity and Access Management \(IAM\) role ARN you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. For more information about the API, see [CreateDatasetImportJob](API_CreateDatasetImportJob.md)\.
+   1. Create a dataset import job by running the following command\. Provide the dataset ARN and Amazon S3 bucket name that were returned in the previous steps\. Supply the AWS Identity and Access Management \(IAM\) role ARN you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. For more information about the API, see [ CreateDatasetImportJob ](API_CreateDatasetImportJob.md)\.
 
       ```
       aws personalize create-dataset-import-job \
@@ -139,7 +139,7 @@ The `describe-object` and `list-objects` commands are available for most Amazon 
       }
       ```
 
-   1. Check the status by using the `describe-dataset-import-job` command\. Provide the dataset import job ARN that was returned in the previous step\. For more information about the API, see [DescribeDatasetImportJob](API_DescribeDatasetImportJob.md)\.
+   1. Check the status by using the `describe-dataset-import-job` command\. Provide the dataset import job ARN that was returned in the previous step\. For more information about the API, see [ DescribeDatasetImportJob ](API_DescribeDatasetImportJob.md)\.
 
       ```
       aws personalize describe-dataset-import-job \
@@ -171,7 +171,7 @@ Importing takes time\. Wait until the dataset import is complete before training
 
 ## Step 2: Create a solution \(train the model\)<a name="gs-create-solution"></a>
 
-Two steps are required to initially train a model\. First, you create the configuration for training the model using the [CreateSolution](API_CreateSolution.md) operation\. Second, you train the model using the [CreateSolutionVersion](API_CreateSolutionVersion.md) operation\.
+Two steps are required to initially train a model\. First, you create the configuration for training the model using the [ CreateSolution ](API_CreateSolution.md) operation\. Second, you train the model using the [ CreateSolutionVersion ](API_CreateSolutionVersion.md) operation\.
 
 You train a model using a recipe and your training data\. Amazon Personalize provides a set of predefined recipes\. For more information, see [Step 1: Choosing a recipe](working-with-predefined-recipes.md)\. For this exercise, you use the User\-Personalization recipe\.
 
@@ -192,7 +192,7 @@ You train a model using a recipe and your training data\. Amazon Personalize pro
    }
    ```
 
-1. Check the *create* status using the `describe-solution` command\. Provide the solution ARN that was returned in the previous step\. For more information about the API, see [DescribeSolution](API_DescribeSolution.md)\.
+1. Check the *create* status using the `describe-solution` command\. Provide the solution ARN that was returned in the previous step\. For more information about the API, see [ DescribeSolution ](API_DescribeSolution.md)\.
 
    ```
    aws personalize describe-solution \
@@ -233,7 +233,7 @@ You train a model using a recipe and your training data\. Amazon Personalize pro
    }
    ```
 
-   Check the *training* status of the solution version by using the `describe-solution-version` command\. Provide the solution version ARN that was returned in the previous step\. For more information about the API, see [DescribeSolutionVersion](API_DescribeSolutionVersion.md)\.
+   Check the *training* status of the solution version by using the `describe-solution-version` command\. Provide the solution version ARN that was returned in the previous step\. For more information about the API, see [ DescribeSolutionVersion ](API_DescribeSolutionVersion.md)\.
 
    ```
    aws personalize describe-solution-version \
@@ -258,7 +258,7 @@ You train a model using a recipe and your training data\. Amazon Personalize pro
 **Note**  
 Training takes time\. Wait until training is complete \(the *training* status of the solution version shows as ACTIVE\) before using this version of the solution in a campaign\.
 
-1. You can validate the performance of the solution version by reviewing its metrics\. Get the metrics for the solution version by running the following command\. Provide the solution version ARN that was returned previously\. For more information about the API, see [GetSolutionMetrics](API_GetSolutionMetrics.md)\.
+1. You can validate the performance of the solution version by reviewing its metrics\. Get the metrics for the solution version by running the following command\. Provide the solution version ARN that was returned previously\. For more information about the API, see [ GetSolutionMetrics ](API_GetSolutionMetrics.md)\.
 
    ```
    aws personalize get-solution-metrics \
@@ -285,9 +285,9 @@ Training takes time\. Wait until training is complete \(the *training* status of
 
 ## Step 3: Create a campaign \(deploy the solution\)<a name="gs-create-campaign"></a>
 
-Before you can get recommendations, you must deploy a solution version\. Deploying a solution is also known as creating a campaign\. Once you've created your campaign, your client application can get recommendations using the [GetRecommendations](API_RS_GetRecommendations.md) API\.
+Before you can get recommendations, you must deploy a solution version\. Deploying a solution is also known as creating a campaign\. Once you've created your campaign, your client application can get recommendations using the [ GetRecommendations ](API_RS_GetRecommendations.md) API\.
 
-1. Create a campaign by running the following command\. Provide the solution version ARN that was returned in the previous step\. For more information about the API, see [CreateCampaign](API_CreateCampaign.md)\.
+1. Create a campaign by running the following command\. Provide the solution version ARN that was returned in the previous step\. For more information about the API, see [ CreateCampaign ](API_CreateCampaign.md)\.
 
    ```
    aws personalize create-campaign \
@@ -304,7 +304,7 @@ Before you can get recommendations, you must deploy a solution version\. Deployi
    }
    ```
 
-1. Check the deployment status by running the following command\. Provide the campaign ARN that was returned in the previous step\. For more information about the API, see [DescribeCampaign](API_DescribeCampaign.md)\.
+1. Check the deployment status by running the following command\. Provide the campaign ARN that was returned in the previous step\. For more information about the API, see [ DescribeCampaign ](API_DescribeCampaign.md)\.
 
    ```
    aws personalize describe-campaign \
@@ -331,7 +331,7 @@ Wait until the `status` shows as ACTIVE before getting recommendations from the 
 
 ## Step 4: Get recommendations<a name="gs-test"></a>
 
-Get recommendations by running the `get-recommendations` command\. Provide the campaign ARN that was returned in the previous step\. In the request, you specify a user ID from the movie ratings dataset\. For more information about the API, see [GetRecommendations](API_RS_GetRecommendations.md)\.
+Get recommendations by running the `get-recommendations` command\. Provide the campaign ARN that was returned in the previous step\. In the request, you specify a user ID from the movie ratings dataset\. For more information about the API, see [ GetRecommendations ](API_RS_GetRecommendations.md)\.
 
 **Note**  
 Not all recipes support the `GetRecommendations` API\. For more information, see [Step 1: Choosing a recipe](working-with-predefined-recipes.md)\.  

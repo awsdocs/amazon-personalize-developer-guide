@@ -33,14 +33,14 @@ The request does not use any URI parameters\.
 
 The request accepts the following data in JSON format\.
 
- ** [campaignArn](#API_RS_GetPersonalizedRanking_RequestSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-request-campaignArn"></a>
+ ** [ campaignArn ](#API_RS_GetPersonalizedRanking_RequestSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-request-campaignArn"></a>
 The Amazon Resource Name \(ARN\) of the campaign to use for generating the personalized ranking\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: Yes
 
- ** [context](#API_RS_GetPersonalizedRanking_RequestSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-request-context"></a>
+ ** [ context ](#API_RS_GetPersonalizedRanking_RequestSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-request-context"></a>
 The contextual metadata to use when getting recommendations\. Contextual metadata includes any interaction information that might be relevant when getting a user's recommendations, such as the user's current location or device type\.  
 Type: String to string map  
 Map Entries: Maximum number of 150 items\.  
@@ -49,14 +49,14 @@ Key Pattern: `[A-Za-z\d_]+`
 Value Length Constraints: Maximum length of 1000\.  
 Required: No
 
- ** [filterArn](#API_RS_GetPersonalizedRanking_RequestSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-request-filterArn"></a>
+ ** [ filterArn ](#API_RS_GetPersonalizedRanking_RequestSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-request-filterArn"></a>
 The Amazon Resource Name \(ARN\) of a filter you created to include items or exclude items from recommendations for a given user\. For more information, see [Filtering Recommendations](https://docs.aws.amazon.com/personalize/latest/dg/filter.html)\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
- ** [filterValues](#API_RS_GetPersonalizedRanking_RequestSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-request-filterValues"></a>
+ ** [ filterValues ](#API_RS_GetPersonalizedRanking_RequestSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-request-filterValues"></a>
 The values to use when filtering recommendations\. For each placeholder parameter in your filter expression, provide the parameter name \(in matching case\) as a key and the filter value\(s\) as the corresponding value\. Separate multiple values for one parameter with a comma\.   
 For filter expressions that use an `INCLUDE` element to include items, you must provide values for all parameters that are defined in the expression\. For filters with expressions that use an `EXCLUDE` element to exclude items, you can omit the `filter-values`\.In this case, Amazon Personalize doesn't use that portion of the expression to filter recommendations\.  
 For more information, see [Filtering Recommendations](https://docs.aws.amazon.com/personalize/latest/dg/filter.html)\.  
@@ -67,13 +67,13 @@ Key Pattern: `[A-Za-z0-9_]+`
 Value Length Constraints: Maximum length of 1000\.  
 Required: No
 
- ** [inputList](#API_RS_GetPersonalizedRanking_RequestSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-request-inputList"></a>
+ ** [ inputList ](#API_RS_GetPersonalizedRanking_RequestSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-request-inputList"></a>
 A list of items \(by `itemId`\) to rank\. If an item was not included in the training dataset, the item is appended to the end of the reranked list\. The maximum is 500\.  
 Type: Array of strings  
 Length Constraints: Maximum length of 256\.  
 Required: Yes
 
- ** [userId](#API_RS_GetPersonalizedRanking_RequestSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-request-userId"></a>
+ ** [ userId ](#API_RS_GetPersonalizedRanking_RequestSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-request-userId"></a>
 The user for which you want the campaign to provide a personalized ranking\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -102,21 +102,21 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [personalizedRanking](#API_RS_GetPersonalizedRanking_ResponseSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-response-personalizedRanking"></a>
+ ** [ personalizedRanking ](#API_RS_GetPersonalizedRanking_ResponseSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-response-personalizedRanking"></a>
 A list of items in order of most likely interest to the user\. The maximum is 500\.  
-Type: Array of [PredictedItem](API_RS_PredictedItem.md) objects
+Type: Array of [ PredictedItem ](API_RS_PredictedItem.md) objects
 
- ** [recommendationId](#API_RS_GetPersonalizedRanking_ResponseSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-response-recommendationId"></a>
+ ** [ recommendationId ](#API_RS_GetPersonalizedRanking_ResponseSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-response-recommendationId"></a>
 The ID of the recommendation\.  
 Type: String
 
 ## Errors<a name="API_RS_GetPersonalizedRanking_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 The specified resource does not exist\.  
 HTTP Status Code: 404
 

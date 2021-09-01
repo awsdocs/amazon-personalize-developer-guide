@@ -1,27 +1,27 @@
 # DatasetSchemaSummary<a name="API_DatasetSchemaSummary"></a>
 
-Provides a summary of the properties of a dataset schema\. For a complete listing, call the [DescribeSchema](API_DescribeSchema.md) API\.
+Provides a summary of the properties of a dataset schema\. For a complete listing, call the [ DescribeSchema ](API_DescribeSchema.md) API\.
 
 ## Contents<a name="API_DatasetSchemaSummary_Contents"></a>
 
- **creationDateTime**   <a name="personalize-Type-DatasetSchemaSummary-creationDateTime"></a>
+ ** creationDateTime **   <a name="personalize-Type-DatasetSchemaSummary-creationDateTime"></a>
 The date and time \(in Unix time\) that the schema was created\.  
 Type: Timestamp  
 Required: No
 
- **lastUpdatedDateTime**   <a name="personalize-Type-DatasetSchemaSummary-lastUpdatedDateTime"></a>
+ ** lastUpdatedDateTime **   <a name="personalize-Type-DatasetSchemaSummary-lastUpdatedDateTime"></a>
 The date and time \(in Unix time\) that the schema was last updated\.  
 Type: Timestamp  
 Required: No
 
- **name**   <a name="personalize-Type-DatasetSchemaSummary-name"></a>
+ ** name **   <a name="personalize-Type-DatasetSchemaSummary-name"></a>
 The name of the schema\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: No
 
- **schemaArn**   <a name="personalize-Type-DatasetSchemaSummary-schemaArn"></a>
+ ** schemaArn **   <a name="personalize-Type-DatasetSchemaSummary-schemaArn"></a>
 The Amazon Resource Name \(ARN\) of the schema\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  

@@ -2,14 +2,14 @@
 
 Creates an Amazon Personalize schema from the specified schema string\. The schema you create must be in Avro JSON format\.
 
-Amazon Personalize recognizes three schema variants\. Each schema is associated with a dataset type and has a set of required field and keywords\. You specify a schema when you call [CreateDataset](API_CreateDataset.md)\.
+Amazon Personalize recognizes three schema variants\. Each schema is associated with a dataset type and has a set of required field and keywords\. You specify a schema when you call [ CreateDataset ](API_CreateDataset.md)\.
 
 For more information on schemas, see [Datasets and Schemas](https://docs.aws.amazon.com/personalize/latest/dg/how-it-works-dataset-schema.html)\.
 
 **Related APIs**
-+  [ListSchemas](API_ListSchemas.md) 
-+  [DescribeSchema](API_DescribeSchema.md) 
-+  [DeleteSchema](API_DeleteSchema.md) 
++  [ ListSchemas ](API_ListSchemas.md) 
++  [ DescribeSchema ](API_DescribeSchema.md) 
++  [ DeleteSchema ](API_DeleteSchema.md) 
 
 ## Request Syntax<a name="API_CreateSchema_RequestSyntax"></a>
 
@@ -24,14 +24,14 @@ For more information on schemas, see [Datasets and Schemas](https://docs.aws.ama
 
 The request accepts the following data in JSON format\.
 
- ** [name](#API_CreateSchema_RequestSyntax) **   <a name="personalize-CreateSchema-request-name"></a>
+ ** [ name ](#API_CreateSchema_RequestSyntax) **   <a name="personalize-CreateSchema-request-name"></a>
 The name for the schema\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: Yes
 
- ** [schema](#API_CreateSchema_RequestSyntax) **   <a name="personalize-CreateSchema-request-schema"></a>
+ ** [ schema ](#API_CreateSchema_RequestSyntax) **   <a name="personalize-CreateSchema-request-schema"></a>
 A schema in Avro JSON format\.  
 Type: String  
 Length Constraints: Maximum length of 10000\.  
@@ -51,7 +51,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [schemaArn](#API_CreateSchema_ResponseSyntax) **   <a name="personalize-CreateSchema-response-schemaArn"></a>
+ ** [ schemaArn ](#API_CreateSchema_ResponseSyntax) **   <a name="personalize-CreateSchema-response-schemaArn"></a>
 The Amazon Resource Name \(ARN\) of the created schema\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -59,15 +59,15 @@ Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
 
 ## Errors<a name="API_CreateSchema_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 The limit on the number of requests per second has been exceeded\.  
 HTTP Status Code: 400
 
- **ResourceAlreadyExistsException**   
+ ** ResourceAlreadyExistsException **   
 The specified resource already exists\.  
 HTTP Status Code: 400
 

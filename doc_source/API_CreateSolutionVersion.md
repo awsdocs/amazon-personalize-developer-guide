@@ -1,6 +1,6 @@
 # CreateSolutionVersion<a name="API_CreateSolutionVersion"></a>
 
-Trains or retrains an active solution\. A solution is created using the [CreateSolution](API_CreateSolution.md) operation and must be in the ACTIVE state before calling `CreateSolutionVersion`\. A new version of the solution is created every time you call this operation\.
+Trains or retrains an active solution\. A solution is created using the [ CreateSolution ](API_CreateSolution.md) operation and must be in the ACTIVE state before calling `CreateSolutionVersion`\. A new version of the solution is created every time you call this operation\.
 
  **Status** 
 
@@ -12,17 +12,17 @@ A solution version can be in one of the following states:
 + CREATE STOPPING
 + CREATE STOPPED
 
-To get the status of the version, call [DescribeSolutionVersion](API_DescribeSolutionVersion.md)\. Wait until the status shows as ACTIVE before calling `CreateCampaign`\.
+To get the status of the version, call [ DescribeSolutionVersion ](API_DescribeSolutionVersion.md)\. Wait until the status shows as ACTIVE before calling `CreateCampaign`\.
 
 If the status shows as CREATE FAILED, the response includes a `failureReason` key, which describes why the job failed\.
 
 **Related APIs**
-+  [ListSolutionVersions](API_ListSolutionVersions.md) 
-+  [DescribeSolutionVersion](API_DescribeSolutionVersion.md) 
-+  [ListSolutions](API_ListSolutions.md) 
-+  [CreateSolution](API_CreateSolution.md) 
-+  [DescribeSolution](API_DescribeSolution.md) 
-+  [DeleteSolution](API_DeleteSolution.md) 
++  [ ListSolutionVersions ](API_ListSolutionVersions.md) 
++  [ DescribeSolutionVersion ](API_DescribeSolutionVersion.md) 
++  [ ListSolutions ](API_ListSolutions.md) 
++  [ CreateSolution ](API_CreateSolution.md) 
++  [ DescribeSolution ](API_DescribeSolution.md) 
++  [ DeleteSolution ](API_DeleteSolution.md) 
 
 ## Request Syntax<a name="API_CreateSolutionVersion_RequestSyntax"></a>
 
@@ -37,14 +37,14 @@ If the status shows as CREATE FAILED, the response includes a `failureReason` ke
 
 The request accepts the following data in JSON format\.
 
- ** [solutionArn](#API_CreateSolutionVersion_RequestSyntax) **   <a name="personalize-CreateSolutionVersion-request-solutionArn"></a>
+ ** [ solutionArn ](#API_CreateSolutionVersion_RequestSyntax) **   <a name="personalize-CreateSolutionVersion-request-solutionArn"></a>
 The Amazon Resource Name \(ARN\) of the solution containing the training configuration information\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: Yes
 
- ** [trainingMode](#API_CreateSolutionVersion_RequestSyntax) **   <a name="personalize-CreateSolutionVersion-request-trainingMode"></a>
+ ** [ trainingMode ](#API_CreateSolutionVersion_RequestSyntax) **   <a name="personalize-CreateSolutionVersion-request-trainingMode"></a>
 The scope of training to be performed when creating the solution version\. The `FULL` option trains the solution version based on the entirety of the input solution's training data, while the `UPDATE` option processes only the data that has changed in comparison to the input solution\. Choose `UPDATE` when you want to incrementally update your solution version instead of creating an entirely new one\.  
 The `UPDATE` option can only be used when you already have an active solution version created from the input solution using the `FULL` option and the input solution was trained with the [User\-Personalization](https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html) recipe or the [HRNN\-Coldstart](https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html) recipe\.
 Type: String  
@@ -65,7 +65,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [solutionVersionArn](#API_CreateSolutionVersion_ResponseSyntax) **   <a name="personalize-CreateSolutionVersion-response-solutionVersionArn"></a>
+ ** [ solutionVersionArn ](#API_CreateSolutionVersion_ResponseSyntax) **   <a name="personalize-CreateSolutionVersion-response-solutionVersionArn"></a>
 The ARN of the new solution version\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -73,19 +73,19 @@ Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
 
 ## Errors<a name="API_CreateSolutionVersion_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 The limit on the number of requests per second has been exceeded\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

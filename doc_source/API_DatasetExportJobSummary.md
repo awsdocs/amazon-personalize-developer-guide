@@ -1,39 +1,39 @@
 # DatasetExportJobSummary<a name="API_DatasetExportJobSummary"></a>
 
-Provides a summary of the properties of a dataset export job\. For a complete listing, call the [DescribeDatasetExportJob](API_DescribeDatasetExportJob.md) API\.
+Provides a summary of the properties of a dataset export job\. For a complete listing, call the [ DescribeDatasetExportJob ](API_DescribeDatasetExportJob.md) API\.
 
 ## Contents<a name="API_DatasetExportJobSummary_Contents"></a>
 
- **creationDateTime**   <a name="personalize-Type-DatasetExportJobSummary-creationDateTime"></a>
+ ** creationDateTime **   <a name="personalize-Type-DatasetExportJobSummary-creationDateTime"></a>
 The date and time \(in Unix time\) that the dataset export job was created\.  
 Type: Timestamp  
 Required: No
 
- **datasetExportJobArn**   <a name="personalize-Type-DatasetExportJobSummary-datasetExportJobArn"></a>
+ ** datasetExportJobArn **   <a name="personalize-Type-DatasetExportJobSummary-datasetExportJobArn"></a>
 The Amazon Resource Name \(ARN\) of the dataset export job\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
- **failureReason**   <a name="personalize-Type-DatasetExportJobSummary-failureReason"></a>
+ ** failureReason **   <a name="personalize-Type-DatasetExportJobSummary-failureReason"></a>
 If a dataset export job fails, the reason behind the failure\.  
 Type: String  
 Required: No
 
- **jobName**   <a name="personalize-Type-DatasetExportJobSummary-jobName"></a>
+ ** jobName **   <a name="personalize-Type-DatasetExportJobSummary-jobName"></a>
 The name of the dataset export job\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: No
 
- **lastUpdatedDateTime**   <a name="personalize-Type-DatasetExportJobSummary-lastUpdatedDateTime"></a>
+ ** lastUpdatedDateTime **   <a name="personalize-Type-DatasetExportJobSummary-lastUpdatedDateTime"></a>
 The date and time \(in Unix time\) that the dataset export job status was last updated\.  
 Type: Timestamp  
 Required: No
 
- **status**   <a name="personalize-Type-DatasetExportJobSummary-status"></a>
+ ** status **   <a name="personalize-Type-DatasetExportJobSummary-status"></a>
 The status of the dataset export job\.  
 A dataset export job can be in one of the following states:  
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED

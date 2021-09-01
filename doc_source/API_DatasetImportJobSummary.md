@@ -1,39 +1,39 @@
 # DatasetImportJobSummary<a name="API_DatasetImportJobSummary"></a>
 
-Provides a summary of the properties of a dataset import job\. For a complete listing, call the [DescribeDatasetImportJob](API_DescribeDatasetImportJob.md) API\.
+Provides a summary of the properties of a dataset import job\. For a complete listing, call the [ DescribeDatasetImportJob ](API_DescribeDatasetImportJob.md) API\.
 
 ## Contents<a name="API_DatasetImportJobSummary_Contents"></a>
 
- **creationDateTime**   <a name="personalize-Type-DatasetImportJobSummary-creationDateTime"></a>
+ ** creationDateTime **   <a name="personalize-Type-DatasetImportJobSummary-creationDateTime"></a>
 The date and time \(in Unix time\) that the dataset import job was created\.  
 Type: Timestamp  
 Required: No
 
- **datasetImportJobArn**   <a name="personalize-Type-DatasetImportJobSummary-datasetImportJobArn"></a>
+ ** datasetImportJobArn **   <a name="personalize-Type-DatasetImportJobSummary-datasetImportJobArn"></a>
 The Amazon Resource Name \(ARN\) of the dataset import job\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
- **failureReason**   <a name="personalize-Type-DatasetImportJobSummary-failureReason"></a>
+ ** failureReason **   <a name="personalize-Type-DatasetImportJobSummary-failureReason"></a>
 If a dataset import job fails, the reason behind the failure\.  
 Type: String  
 Required: No
 
- **jobName**   <a name="personalize-Type-DatasetImportJobSummary-jobName"></a>
+ ** jobName **   <a name="personalize-Type-DatasetImportJobSummary-jobName"></a>
 The name of the dataset import job\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: No
 
- **lastUpdatedDateTime**   <a name="personalize-Type-DatasetImportJobSummary-lastUpdatedDateTime"></a>
+ ** lastUpdatedDateTime **   <a name="personalize-Type-DatasetImportJobSummary-lastUpdatedDateTime"></a>
 The date and time \(in Unix time\) that the dataset import job status was last updated\.  
 Type: Timestamp  
 Required: No
 
- **status**   <a name="personalize-Type-DatasetImportJobSummary-status"></a>
+ ** status **   <a name="personalize-Type-DatasetImportJobSummary-status"></a>
 The status of the dataset import job\.  
 A dataset import job can be in one of the following states:  
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED

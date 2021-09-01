@@ -12,7 +12,7 @@ You can filter real\-time recommendations with the Amazon Personalize console, A
 To filter real\-time recommendations using the console, create a filter and then apply it to a recommendation request\. 
 
 **Note**  
-To filter recommendations using a filter with parameters and a campaign that you deployed before November 10, 2020, you must redeploy the campaign by using the [UpdateCampaign](API_UpdateCampaign.md) operation or create a new campaign\.
+To filter recommendations using a filter with parameters and a campaign that you deployed before November 10, 2020, you must redeploy the campaign by using the [ UpdateCampaign ](API_UpdateCampaign.md) operation or create a new campaign\.
 
 ### Creating a filter \(console\)<a name="creating-filter-console"></a>
 
@@ -112,10 +112,10 @@ You can't delete a filter while a batch inference job is in progress\.
 
 ## Filtering real\-time recommendations \(AWS CLI\)<a name="filter-rt-cli"></a>
 
-To filter recommendations using the AWS CLI, you create a filter and then apply it by specifying the filter ARN in a [GetRecommendations](API_RS_GetRecommendations.md) or [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) request\.
+To filter recommendations using the AWS CLI, you create a filter and then apply it by specifying the filter ARN in a [ GetRecommendations ](API_RS_GetRecommendations.md) or [ GetPersonalizedRanking ](API_RS_GetPersonalizedRanking.md) request\.
 
 **Important**  
-To filter recommendations using a filter with parameters and a campaign you deployed before November 10, 2020, you must re\-deploy the campaign by using the [UpdateCampaign](API_UpdateCampaign.md) call or create a new campaign\.
+To filter recommendations using a filter with parameters and a campaign you deployed before November 10, 2020, you must re\-deploy the campaign by using the [ UpdateCampaign ](API_UpdateCampaign.md) call or create a new campaign\.
 
 ### Creating a filter \(AWS CLI\)<a name="creating-filter-cli"></a>
 
@@ -130,9 +130,9 @@ aws personalize create-filter \
   --filter-expression "EXCLUDE ItemID WHERE Items.CATEGORY IN (\"$CATEGORY\")"
 ```
 
- If successful, the filter ARN is displayed\. Record it for later use\. To verify that the filter is active, use the [DescribeFilter](API_DescribeFilter.md) operation before you use the filter\. 
+ If successful, the filter ARN is displayed\. Record it for later use\. To verify that the filter is active, use the [ DescribeFilter ](API_DescribeFilter.md) operation before you use the filter\. 
 
- For more information about the API, see [CreateFilter](API_CreateFilter.md)\. For more information about filter expressions, including examples, see [Creating filter expressions](filter-expressions.md#creating-filter-expressions)\. 
+ For more information about the API, see [ CreateFilter ](API_CreateFilter.md)\. For more information about filter expressions, including examples, see [Creating filter expressions](filter-expressions.md#creating-filter-expressions)\. 
 
 ### Applying a filter \(AWS CLI\)<a name="applying-filter-cli"></a>
 
@@ -166,14 +166,14 @@ aws personalize delete-filter --filter-arn Filter ARN
 
 ## Filtering real\-time recommendations \(AWS SDKs\)<a name="filter-rt-sdk"></a>
 
-To filter recommendations using the AWS SDKs, you create a filter and then apply it by specifying the filter ARN in a [GetRecommendations](API_RS_GetRecommendations.md) or [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) request\.
+To filter recommendations using the AWS SDKs, you create a filter and then apply it by specifying the filter ARN in a [ GetRecommendations ](API_RS_GetRecommendations.md) or [ GetPersonalizedRanking ](API_RS_GetPersonalizedRanking.md) request\.
 
 **Important**  
-To filter recommendations using a filter with parameters and a campaign you deployed before November 10, 2020, you must re\-deploy the campaign by using the [UpdateCampaign](API_UpdateCampaign.md) call or create a new campaign\.
+To filter recommendations using a filter with parameters and a campaign you deployed before November 10, 2020, you must re\-deploy the campaign by using the [ UpdateCampaign ](API_UpdateCampaign.md) call or create a new campaign\.
 
 ### Creating a filter \(AWS SDKs\)<a name="creating-filter-sdk"></a>
 
- Create a new filter with the [CreateFilter](API_CreateFilter.md) operation\. 
+ Create a new filter with the [ CreateFilter ](API_CreateFilter.md) operation\. 
 
 ------
 #### [ SDK for Python \(Boto3\) ]
@@ -194,7 +194,7 @@ filter_arn = response["filterArn"]
 print("Filter ARN: " + filter_arn)
 ```
 
-Record the filter ARN for later use\. To verify that the filter is active, use the [DescribeFilter](API_DescribeFilter.md) operation before using the filter\. For more information about the API, see [CreateFilter](API_CreateFilter.md)\. For more information about filter expressions, including examples, see [Creating filter expressions](filter-expressions.md#creating-filter-expressions)\.
+Record the filter ARN for later use\. To verify that the filter is active, use the [ DescribeFilter ](API_DescribeFilter.md) operation before using the filter\. For more information about the API, see [ CreateFilter ](API_CreateFilter.md)\. For more information about filter expressions, including examples, see [Creating filter expressions](filter-expressions.md#creating-filter-expressions)\.
 
 ------
 #### [ SDK for Java 2\.x ]

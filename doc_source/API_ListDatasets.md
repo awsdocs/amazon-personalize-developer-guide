@@ -1,6 +1,6 @@
 # ListDatasets<a name="API_ListDatasets"></a>
 
-Returns the list of datasets contained in the given dataset group\. The response provides the properties for each dataset, including the Amazon Resource Name \(ARN\)\. For more information on datasets, see [CreateDataset](API_CreateDataset.md)\.
+Returns the list of datasets contained in the given dataset group\. The response provides the properties for each dataset, including the Amazon Resource Name \(ARN\)\. For more information on datasets, see [ CreateDataset ](API_CreateDataset.md)\.
 
 ## Request Syntax<a name="API_ListDatasets_RequestSyntax"></a>
 
@@ -16,20 +16,20 @@ Returns the list of datasets contained in the given dataset group\. The response
 
 The request accepts the following data in JSON format\.
 
- ** [datasetGroupArn](#API_ListDatasets_RequestSyntax) **   <a name="personalize-ListDatasets-request-datasetGroupArn"></a>
+ ** [ datasetGroupArn ](#API_ListDatasets_RequestSyntax) **   <a name="personalize-ListDatasets-request-datasetGroupArn"></a>
 The Amazon Resource Name \(ARN\) of the dataset group that contains the datasets to list\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
- ** [maxResults](#API_ListDatasets_RequestSyntax) **   <a name="personalize-ListDatasets-request-maxResults"></a>
+ ** [ maxResults ](#API_ListDatasets_RequestSyntax) **   <a name="personalize-ListDatasets-request-maxResults"></a>
 The maximum number of datasets to return\.  
 Type: Integer  
 Valid Range: Minimum value of 1\. Maximum value of 100\.  
 Required: No
 
- ** [nextToken](#API_ListDatasets_RequestSyntax) **   <a name="personalize-ListDatasets-request-nextToken"></a>
+ ** [ nextToken ](#API_ListDatasets_RequestSyntax) **   <a name="personalize-ListDatasets-request-nextToken"></a>
 A token returned from the previous call to `ListDatasetImportJobs` for getting the next set of dataset import jobs \(if they exist\)\.  
 Type: String  
 Length Constraints: Maximum length of 1300\.  
@@ -59,23 +59,23 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [datasets](#API_ListDatasets_ResponseSyntax) **   <a name="personalize-ListDatasets-response-datasets"></a>
+ ** [ datasets ](#API_ListDatasets_ResponseSyntax) **   <a name="personalize-ListDatasets-response-datasets"></a>
 An array of `Dataset` objects\. Each object provides metadata information\.  
-Type: Array of [DatasetSummary](API_DatasetSummary.md) objects  
+Type: Array of [ DatasetSummary ](API_DatasetSummary.md) objects  
 Array Members: Maximum number of 100 items\.
 
- ** [nextToken](#API_ListDatasets_ResponseSyntax) **   <a name="personalize-ListDatasets-response-nextToken"></a>
+ ** [ nextToken ](#API_ListDatasets_ResponseSyntax) **   <a name="personalize-ListDatasets-response-nextToken"></a>
 A token for getting the next set of datasets \(if they exist\)\.  
 Type: String  
 Length Constraints: Maximum length of 1300\.
 
 ## Errors<a name="API_ListDatasets_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **InvalidNextTokenException**   
+ ** InvalidNextTokenException **   
 The token is not valid\.  
 HTTP Status Code: 400
 

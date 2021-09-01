@@ -1,6 +1,6 @@
 # DescribeSolutionVersion<a name="API_DescribeSolutionVersion"></a>
 
-Describes a specific version of a solution\. For more information on solutions, see [CreateSolution](API_CreateSolution.md)\.
+Describes a specific version of a solution\. For more information on solutions, see [ CreateSolution ](API_CreateSolution.md)\.
 
 ## Request Syntax<a name="API_DescribeSolutionVersion_RequestSyntax"></a>
 
@@ -14,7 +14,7 @@ Describes a specific version of a solution\. For more information on solutions, 
 
 The request accepts the following data in JSON format\.
 
- ** [solutionVersionArn](#API_DescribeSolutionVersion_RequestSyntax) **   <a name="personalize-DescribeSolutionVersion-request-solutionVersionArn"></a>
+ ** [ solutionVersionArn ](#API_DescribeSolutionVersion_RequestSyntax) **   <a name="personalize-DescribeSolutionVersion-request-solutionVersionArn"></a>
 The Amazon Resource Name \(ARN\) of the solution version\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -104,17 +104,17 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [solutionVersion](#API_DescribeSolutionVersion_ResponseSyntax) **   <a name="personalize-DescribeSolutionVersion-response-solutionVersion"></a>
+ ** [ solutionVersion ](#API_DescribeSolutionVersion_ResponseSyntax) **   <a name="personalize-DescribeSolutionVersion-response-solutionVersion"></a>
 The solution version\.  
-Type: [SolutionVersion](API_SolutionVersion.md) object
+Type: [ SolutionVersion ](API_SolutionVersion.md) object
 
 ## Errors<a name="API_DescribeSolutionVersion_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

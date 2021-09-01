@@ -4,21 +4,21 @@ Specifies the hyperparameters and their ranges\. Hyperparameters can be categori
 
 ## Contents<a name="API_HyperParameterRanges_Contents"></a>
 
- **categoricalHyperParameterRanges**   <a name="personalize-Type-HyperParameterRanges-categoricalHyperParameterRanges"></a>
+ ** categoricalHyperParameterRanges **   <a name="personalize-Type-HyperParameterRanges-categoricalHyperParameterRanges"></a>
 The categorical hyperparameters and their ranges\.  
-Type: Array of [CategoricalHyperParameterRange](API_CategoricalHyperParameterRange.md) objects  
+Type: Array of [ CategoricalHyperParameterRange ](API_CategoricalHyperParameterRange.md) objects  
 Array Members: Maximum number of 100 items\.  
 Required: No
 
- **continuousHyperParameterRanges**   <a name="personalize-Type-HyperParameterRanges-continuousHyperParameterRanges"></a>
+ ** continuousHyperParameterRanges **   <a name="personalize-Type-HyperParameterRanges-continuousHyperParameterRanges"></a>
 The continuous hyperparameters and their ranges\.  
-Type: Array of [ContinuousHyperParameterRange](API_ContinuousHyperParameterRange.md) objects  
+Type: Array of [ ContinuousHyperParameterRange ](API_ContinuousHyperParameterRange.md) objects  
 Array Members: Maximum number of 100 items\.  
 Required: No
 
- **integerHyperParameterRanges**   <a name="personalize-Type-HyperParameterRanges-integerHyperParameterRanges"></a>
+ ** integerHyperParameterRanges **   <a name="personalize-Type-HyperParameterRanges-integerHyperParameterRanges"></a>
 The integer\-valued hyperparameters and their ranges\.  
-Type: Array of [IntegerHyperParameterRange](API_IntegerHyperParameterRange.md) objects  
+Type: Array of [ IntegerHyperParameterRange ](API_IntegerHyperParameterRange.md) objects  
 Array Members: Maximum number of 100 items\.  
 Required: No
 

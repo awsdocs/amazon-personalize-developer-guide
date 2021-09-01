@@ -1,6 +1,6 @@
 # ListEventTrackers<a name="API_ListEventTrackers"></a>
 
-Returns the list of event trackers associated with the account\. The response provides the properties for each event tracker, including the Amazon Resource Name \(ARN\) and tracking ID\. For more information on event trackers, see [CreateEventTracker](API_CreateEventTracker.md)\.
+Returns the list of event trackers associated with the account\. The response provides the properties for each event tracker, including the Amazon Resource Name \(ARN\) and tracking ID\. For more information on event trackers, see [ CreateEventTracker ](API_CreateEventTracker.md)\.
 
 ## Request Syntax<a name="API_ListEventTrackers_RequestSyntax"></a>
 
@@ -16,20 +16,20 @@ Returns the list of event trackers associated with the account\. The response pr
 
 The request accepts the following data in JSON format\.
 
- ** [datasetGroupArn](#API_ListEventTrackers_RequestSyntax) **   <a name="personalize-ListEventTrackers-request-datasetGroupArn"></a>
+ ** [ datasetGroupArn ](#API_ListEventTrackers_RequestSyntax) **   <a name="personalize-ListEventTrackers-request-datasetGroupArn"></a>
 The ARN of a dataset group used to filter the response\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
- ** [maxResults](#API_ListEventTrackers_RequestSyntax) **   <a name="personalize-ListEventTrackers-request-maxResults"></a>
+ ** [ maxResults ](#API_ListEventTrackers_RequestSyntax) **   <a name="personalize-ListEventTrackers-request-maxResults"></a>
 The maximum number of event trackers to return\.  
 Type: Integer  
 Valid Range: Minimum value of 1\. Maximum value of 100\.  
 Required: No
 
- ** [nextToken](#API_ListEventTrackers_RequestSyntax) **   <a name="personalize-ListEventTrackers-request-nextToken"></a>
+ ** [ nextToken ](#API_ListEventTrackers_RequestSyntax) **   <a name="personalize-ListEventTrackers-request-nextToken"></a>
 A token returned from the previous call to `ListEventTrackers` for getting the next set of event trackers \(if they exist\)\.  
 Type: String  
 Length Constraints: Maximum length of 1300\.  
@@ -58,23 +58,23 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [eventTrackers](#API_ListEventTrackers_ResponseSyntax) **   <a name="personalize-ListEventTrackers-response-eventTrackers"></a>
+ ** [ eventTrackers ](#API_ListEventTrackers_ResponseSyntax) **   <a name="personalize-ListEventTrackers-response-eventTrackers"></a>
 A list of event trackers\.  
-Type: Array of [EventTrackerSummary](API_EventTrackerSummary.md) objects  
+Type: Array of [ EventTrackerSummary ](API_EventTrackerSummary.md) objects  
 Array Members: Maximum number of 100 items\.
 
- ** [nextToken](#API_ListEventTrackers_ResponseSyntax) **   <a name="personalize-ListEventTrackers-response-nextToken"></a>
+ ** [ nextToken ](#API_ListEventTrackers_ResponseSyntax) **   <a name="personalize-ListEventTrackers-response-nextToken"></a>
 A token for getting the next set of event trackers \(if they exist\)\.  
 Type: String  
 Length Constraints: Maximum length of 1300\.
 
 ## Errors<a name="API_ListEventTrackers_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **InvalidNextTokenException**   
+ ** InvalidNextTokenException **   
 The token is not valid\.  
 HTTP Status Code: 400
 

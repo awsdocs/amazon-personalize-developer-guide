@@ -14,7 +14,7 @@ Gets the metrics for the specified solution version\.
 
 The request accepts the following data in JSON format\.
 
- ** [solutionVersionArn](#API_GetSolutionMetrics_RequestSyntax) **   <a name="personalize-GetSolutionMetrics-request-solutionVersionArn"></a>
+ ** [ solutionVersionArn ](#API_GetSolutionMetrics_RequestSyntax) **   <a name="personalize-GetSolutionMetrics-request-solutionVersionArn"></a>
 The Amazon Resource Name \(ARN\) of the solution version for which to get metrics\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -38,13 +38,13 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [metrics](#API_GetSolutionMetrics_ResponseSyntax) **   <a name="personalize-GetSolutionMetrics-response-metrics"></a>
+ ** [ metrics ](#API_GetSolutionMetrics_ResponseSyntax) **   <a name="personalize-GetSolutionMetrics-response-metrics"></a>
 The metrics for the solution version\.  
 Type: String to double map  
 Map Entries: Maximum number of 100 items\.  
 Key Length Constraints: Maximum length of 256\.
 
- ** [solutionVersionArn](#API_GetSolutionMetrics_ResponseSyntax) **   <a name="personalize-GetSolutionMetrics-response-solutionVersionArn"></a>
+ ** [ solutionVersionArn ](#API_GetSolutionMetrics_ResponseSyntax) **   <a name="personalize-GetSolutionMetrics-response-solutionVersionArn"></a>
 The same solution version ARN as specified in the request\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -52,15 +52,15 @@ Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
 
 ## Errors<a name="API_GetSolutionMetrics_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

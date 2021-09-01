@@ -4,13 +4,13 @@ Provides the name and range of a categorical hyperparameter\.
 
 ## Contents<a name="API_CategoricalHyperParameterRange_Contents"></a>
 
- **name**   <a name="personalize-Type-CategoricalHyperParameterRange-name"></a>
+ ** name **   <a name="personalize-Type-CategoricalHyperParameterRange-name"></a>
 The name of the hyperparameter\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Required: No
 
- **values**   <a name="personalize-Type-CategoricalHyperParameterRange-values"></a>
+ ** values **   <a name="personalize-Type-CategoricalHyperParameterRange-values"></a>
 A list of the categories for the hyperparameter\.  
 Type: Array of strings  
 Array Members: Maximum number of 100 items\.  

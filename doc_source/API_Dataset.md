@@ -4,26 +4,26 @@ Provides metadata for a dataset\.
 
 ## Contents<a name="API_Dataset_Contents"></a>
 
- **creationDateTime**   <a name="personalize-Type-Dataset-creationDateTime"></a>
+ ** creationDateTime **   <a name="personalize-Type-Dataset-creationDateTime"></a>
 The creation date and time \(in Unix time\) of the dataset\.  
 Type: Timestamp  
 Required: No
 
- **datasetArn**   <a name="personalize-Type-Dataset-datasetArn"></a>
+ ** datasetArn **   <a name="personalize-Type-Dataset-datasetArn"></a>
 The Amazon Resource Name \(ARN\) of the dataset that you want metadata for\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
- **datasetGroupArn**   <a name="personalize-Type-Dataset-datasetGroupArn"></a>
+ ** datasetGroupArn **   <a name="personalize-Type-Dataset-datasetGroupArn"></a>
 The Amazon Resource Name \(ARN\) of the dataset group\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
- **datasetType**   <a name="personalize-Type-Dataset-datasetType"></a>
+ ** datasetType **   <a name="personalize-Type-Dataset-datasetType"></a>
 One of the following values:  
 + Interactions
 + Items
@@ -32,26 +32,26 @@ Type: String
 Length Constraints: Maximum length of 256\.  
 Required: No
 
- **lastUpdatedDateTime**   <a name="personalize-Type-Dataset-lastUpdatedDateTime"></a>
+ ** lastUpdatedDateTime **   <a name="personalize-Type-Dataset-lastUpdatedDateTime"></a>
 A time stamp that shows when the dataset was updated\.  
 Type: Timestamp  
 Required: No
 
- **name**   <a name="personalize-Type-Dataset-name"></a>
+ ** name **   <a name="personalize-Type-Dataset-name"></a>
 The name of the dataset\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: No
 
- **schemaArn**   <a name="personalize-Type-Dataset-schemaArn"></a>
+ ** schemaArn **   <a name="personalize-Type-Dataset-schemaArn"></a>
 The ARN of the associated schema\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
- **status**   <a name="personalize-Type-Dataset-status"></a>
+ ** status **   <a name="personalize-Type-Dataset-status"></a>
 The status of the dataset\.  
 A dataset can be in one of the following states:  
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED

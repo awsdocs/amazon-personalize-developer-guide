@@ -2,17 +2,17 @@
 
 An object that identifies an item\.
 
-The [GetRecommendations](API_RS_GetRecommendations.md) and [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) APIs return a list of `PredictedItem`s\.
+The [ GetRecommendations ](API_RS_GetRecommendations.md) and [ GetPersonalizedRanking ](API_RS_GetPersonalizedRanking.md) APIs return a list of `PredictedItem`s\.
 
 ## Contents<a name="API_RS_PredictedItem_Contents"></a>
 
- **itemId**   <a name="personalize-Type-RS_PredictedItem-itemId"></a>
+ ** itemId **   <a name="personalize-Type-RS_PredictedItem-itemId"></a>
 The recommended item ID\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Required: No
 
- **score**   <a name="personalize-Type-RS_PredictedItem-score"></a>
+ ** score **   <a name="personalize-Type-RS_PredictedItem-score"></a>
 A numeric representation of the model's certainty that the item will be the next user selection\. For more information on scoring logic, see [Recommendation scores](getting-recommendations.md#how-scores-work)\.  
 Type: Double  
 Required: No

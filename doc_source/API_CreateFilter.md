@@ -16,20 +16,20 @@ Creates a recommendation filter\. For more information, see [Filtering recommend
 
 The request accepts the following data in JSON format\.
 
- ** [datasetGroupArn](#API_CreateFilter_RequestSyntax) **   <a name="personalize-CreateFilter-request-datasetGroupArn"></a>
+ ** [ datasetGroupArn ](#API_CreateFilter_RequestSyntax) **   <a name="personalize-CreateFilter-request-datasetGroupArn"></a>
 The ARN of the dataset group that the filter will belong to\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: Yes
 
- ** [filterExpression](#API_CreateFilter_RequestSyntax) **   <a name="personalize-CreateFilter-request-filterExpression"></a>
+ ** [ filterExpression ](#API_CreateFilter_RequestSyntax) **   <a name="personalize-CreateFilter-request-filterExpression"></a>
 The filter expression defines which items are included or excluded from recommendations\. Filter expression must follow specific format rules\. For information about filter expression structure and syntax, see [Filter expressions](filter-expressions.md)\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 2500\.  
 Required: Yes
 
- ** [name](#API_CreateFilter_RequestSyntax) **   <a name="personalize-CreateFilter-request-name"></a>
+ ** [ name ](#API_CreateFilter_RequestSyntax) **   <a name="personalize-CreateFilter-request-name"></a>
 The name of the filter to create\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
@@ -50,7 +50,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [filterArn](#API_CreateFilter_ResponseSyntax) **   <a name="personalize-CreateFilter-response-filterArn"></a>
+ ** [ filterArn ](#API_CreateFilter_ResponseSyntax) **   <a name="personalize-CreateFilter-response-filterArn"></a>
 The ARN of the new filter\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -58,19 +58,19 @@ Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
 
 ## Errors<a name="API_CreateFilter_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 The limit on the number of requests per second has been exceeded\.  
 HTTP Status Code: 400
 
- **ResourceAlreadyExistsException**   
+ ** ResourceAlreadyExistsException **   
 The specified resource already exists\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

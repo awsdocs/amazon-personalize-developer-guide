@@ -4,24 +4,24 @@ Provides the name and default range of a integer\-valued hyperparameter and whet
 
 ## Contents<a name="API_DefaultIntegerHyperParameterRange_Contents"></a>
 
- **isTunable**   <a name="personalize-Type-DefaultIntegerHyperParameterRange-isTunable"></a>
+ ** isTunable **   <a name="personalize-Type-DefaultIntegerHyperParameterRange-isTunable"></a>
 Indicates whether the hyperparameter is tunable\.  
 Type: Boolean  
 Required: No
 
- **maxValue**   <a name="personalize-Type-DefaultIntegerHyperParameterRange-maxValue"></a>
+ ** maxValue **   <a name="personalize-Type-DefaultIntegerHyperParameterRange-maxValue"></a>
 The maximum allowable value for the hyperparameter\.  
 Type: Integer  
 Valid Range: Maximum value of 1000000\.  
 Required: No
 
- **minValue**   <a name="personalize-Type-DefaultIntegerHyperParameterRange-minValue"></a>
+ ** minValue **   <a name="personalize-Type-DefaultIntegerHyperParameterRange-minValue"></a>
 The minimum allowable value for the hyperparameter\.  
 Type: Integer  
 Valid Range: Minimum value of \-1000000\.  
 Required: No
 
- **name**   <a name="personalize-Type-DefaultIntegerHyperParameterRange-name"></a>
+ ** name **   <a name="personalize-Type-DefaultIntegerHyperParameterRange-name"></a>
 The name of the hyperparameter\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  

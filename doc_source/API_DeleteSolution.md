@@ -1,6 +1,6 @@
 # DeleteSolution<a name="API_DeleteSolution"></a>
 
-Deletes all versions of a solution and the `Solution` object itself\. Before deleting a solution, you must delete all campaigns based on the solution\. To determine what campaigns are using the solution, call [ListCampaigns](API_ListCampaigns.md) and supply the Amazon Resource Name \(ARN\) of the solution\. You can't delete a solution if an associated `SolutionVersion` is in the CREATE PENDING or IN PROGRESS state\. For more information on solutions, see [CreateSolution](API_CreateSolution.md)\.
+Deletes all versions of a solution and the `Solution` object itself\. Before deleting a solution, you must delete all campaigns based on the solution\. To determine what campaigns are using the solution, call [ ListCampaigns ](API_ListCampaigns.md) and supply the Amazon Resource Name \(ARN\) of the solution\. You can't delete a solution if an associated `SolutionVersion` is in the CREATE PENDING or IN PROGRESS state\. For more information on solutions, see [ CreateSolution ](API_CreateSolution.md)\.
 
 ## Request Syntax<a name="API_DeleteSolution_RequestSyntax"></a>
 
@@ -14,7 +14,7 @@ Deletes all versions of a solution and the `Solution` object itself\. Before del
 
 The request accepts the following data in JSON format\.
 
- ** [solutionArn](#API_DeleteSolution_RequestSyntax) **   <a name="personalize-DeleteSolution-request-solutionArn"></a>
+ ** [ solutionArn ](#API_DeleteSolution_RequestSyntax) **   <a name="personalize-DeleteSolution-request-solutionArn"></a>
 The ARN of the solution to delete\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -27,15 +27,15 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 ## Errors<a name="API_DeleteSolution_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

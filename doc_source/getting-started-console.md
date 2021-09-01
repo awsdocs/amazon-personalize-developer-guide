@@ -70,7 +70,7 @@ In this procedure, you use the dataset that you imported in the previous step to
 
 1. For **Solution name**, specify a name for your solution\.
 
-1. For **Recipe**, choose **aws\-user\-personalization**\. Leave the optional **Solution configuration** fields unchanged\.
+1. For **Recipe**, choose **aws\-user\-personalization**\. Leave the optional **Solution configuration** and **Advanced configuration** fields unchanged\.
 
    Your screen should look similar to the following:  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-create-solution.png)
@@ -80,7 +80,7 @@ In this procedure, you use the dataset that you imported in the previous step to
    Your screen should look similar to the following:  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-create-solution-version-console.png)
 
-1. There's no need to modify the **Solution config**, so choose **Finish**\. Model training starts and the **Dashboard Overview** page is displayed\.
+1. Choose **Finish**\. Model training starts and the **Dashboard Overview** page is displayed\.
 
 1. Initially, in **Create solutions**, the **Solution creation** status is **Create pending** \(followed by **Create in progress**\), the **Launch campaigns \- Start** button is disabled, and a banner is displayed on the top of the console showing the progress\.
 **Note**  
@@ -90,7 +90,7 @@ The time it takes to train a model depends on the size of the dataset and the ch
 
 ## Step 3: Create a campaign<a name="getting-started-console-deploy-solution"></a>
 
-In this procedure, you create a campaign by deploying the solution version you created in the previous step\.
+In this procedure, you create a campaign, which deploys the solution version you created in the previous step\.
 
 **To create a campaign**
 
@@ -100,7 +100,7 @@ In this procedure, you create a campaign by deploying the solution version you c
 
 1. For **Solution**, choose the solution you created in the previous step and for **Solution version ID** keep the default\.
 
-1. For **Minimum provisioned transactions per second**, keep the default of `1`\.
+1. For **Minimum provisioned transactions per second**, keep the default of `1`\. Leave the **Campaign configuration** fields unchanged\.
 
    Your screen should look similar to the following:  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/getting-started-create-new-campaign.png)
@@ -112,7 +112,7 @@ In this procedure, you create a campaign by deploying the solution version you c
 **Note**  
 Creating a campaign takes time\.
 
-   After the campaign is created, the page is updated to show the **Test campaign results** section\. Your screen should look similar to the following:  
+   After Amazon Personalize finishes creating your campaign, the page is updated to show the **Test campaign results** section\. Your screen should look similar to the following:  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-campaign-test-before-results.png)
 
 ## Step 4: Get recommendations<a name="getting-started-console-get-recommendations"></a>
@@ -121,9 +121,9 @@ In this procedure, use the campaign that you created in the previous step to get
 
 **To get recommendations**
 
-1. In **Test campaign results**, for **User ID**, specify a value from the *ratings* dataset, for example, **83**\. For **Filter name** keep the default selection of *None*\.
+1. In **Test campaign results**, for **User ID**, specify a value from the *ratings* dataset, for example, **83**\. For **Filter name** keep the default selection of *None* and leave the **Context** fields empty\.
 
-1. Choose **Get recommendations**\. The **Recommended item ID** list displays the recommended item IDs\.
+1. Choose **Get recommendations**\. The **Recommendations** panel lists the item IDs and scores for the recommended items\.
 
    Your screen should look similar to the following:  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-test-campaign-with-results.png)

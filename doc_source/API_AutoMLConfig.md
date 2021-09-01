@@ -1,16 +1,16 @@
 # AutoMLConfig<a name="API_AutoMLConfig"></a>
 
-When the solution performs AutoML \(`performAutoML` is true in [CreateSolution](API_CreateSolution.md)\), Amazon Personalize determines which recipe, from the specified list, optimizes the given metric\. Amazon Personalize then uses that recipe for the solution\.
+When the solution performs AutoML \(`performAutoML` is true in [ CreateSolution ](API_CreateSolution.md)\), Amazon Personalize determines which recipe, from the specified list, optimizes the given metric\. Amazon Personalize then uses that recipe for the solution\.
 
 ## Contents<a name="API_AutoMLConfig_Contents"></a>
 
- **metricName**   <a name="personalize-Type-AutoMLConfig-metricName"></a>
+ ** metricName **   <a name="personalize-Type-AutoMLConfig-metricName"></a>
 The metric to optimize\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Required: No
 
- **recipeList**   <a name="personalize-Type-AutoMLConfig-recipeList"></a>
+ ** recipeList **   <a name="personalize-Type-AutoMLConfig-recipeList"></a>
 The list of candidate recipes\.  
 Type: Array of strings  
 Array Members: Maximum number of 100 items\.  

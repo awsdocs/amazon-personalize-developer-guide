@@ -10,14 +10,14 @@ The dataset import job replaces any existing data in the dataset that you import
 A dataset import job can be in one of the following states:
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
 
-To get the status of the import job, call [DescribeDatasetImportJob](API_DescribeDatasetImportJob.md), providing the Amazon Resource Name \(ARN\) of the dataset import job\. The dataset import is complete when the status shows as ACTIVE\. If the status shows as CREATE FAILED, the response includes a `failureReason` key, which describes why the job failed\.
+To get the status of the import job, call [ DescribeDatasetImportJob ](API_DescribeDatasetImportJob.md), providing the Amazon Resource Name \(ARN\) of the dataset import job\. The dataset import is complete when the status shows as ACTIVE\. If the status shows as CREATE FAILED, the response includes a `failureReason` key, which describes why the job failed\.
 
 **Note**  
 Importing takes time\. You must wait until the status shows as ACTIVE before training a model using the dataset\.
 
 **Related APIs**
-+  [ListDatasetImportJobs](API_ListDatasetImportJobs.md) 
-+  [DescribeDatasetImportJob](API_DescribeDatasetImportJob.md) 
++  [ ListDatasetImportJobs ](API_ListDatasetImportJobs.md) 
++  [ DescribeDatasetImportJob ](API_DescribeDatasetImportJob.md) 
 
 ## Request Syntax<a name="API_CreateDatasetImportJob_RequestSyntax"></a>
 
@@ -36,26 +36,26 @@ Importing takes time\. You must wait until the status shows as ACTIVE before tra
 
 The request accepts the following data in JSON format\.
 
- ** [datasetArn](#API_CreateDatasetImportJob_RequestSyntax) **   <a name="personalize-CreateDatasetImportJob-request-datasetArn"></a>
+ ** [ datasetArn ](#API_CreateDatasetImportJob_RequestSyntax) **   <a name="personalize-CreateDatasetImportJob-request-datasetArn"></a>
 The ARN of the dataset that receives the imported data\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: Yes
 
- ** [dataSource](#API_CreateDatasetImportJob_RequestSyntax) **   <a name="personalize-CreateDatasetImportJob-request-dataSource"></a>
+ ** [ dataSource ](#API_CreateDatasetImportJob_RequestSyntax) **   <a name="personalize-CreateDatasetImportJob-request-dataSource"></a>
 The Amazon S3 bucket that contains the training data to import\.  
-Type: [DataSource](API_DataSource.md) object  
+Type: [ DataSource ](API_DataSource.md) object  
 Required: Yes
 
- ** [jobName](#API_CreateDatasetImportJob_RequestSyntax) **   <a name="personalize-CreateDatasetImportJob-request-jobName"></a>
+ ** [ jobName ](#API_CreateDatasetImportJob_RequestSyntax) **   <a name="personalize-CreateDatasetImportJob-request-jobName"></a>
 The name for the dataset import job\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: Yes
 
- ** [roleArn](#API_CreateDatasetImportJob_RequestSyntax) **   <a name="personalize-CreateDatasetImportJob-request-roleArn"></a>
+ ** [ roleArn ](#API_CreateDatasetImportJob_RequestSyntax) **   <a name="personalize-CreateDatasetImportJob-request-roleArn"></a>
 The ARN of the IAM role that has permissions to read from the Amazon S3 data source\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -76,7 +76,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [datasetImportJobArn](#API_CreateDatasetImportJob_ResponseSyntax) **   <a name="personalize-CreateDatasetImportJob-response-datasetImportJobArn"></a>
+ ** [ datasetImportJobArn ](#API_CreateDatasetImportJob_ResponseSyntax) **   <a name="personalize-CreateDatasetImportJob-response-datasetImportJobArn"></a>
 The ARN of the dataset import job\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -84,23 +84,23 @@ Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
 
 ## Errors<a name="API_CreateDatasetImportJob_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 The limit on the number of requests per second has been exceeded\.  
 HTTP Status Code: 400
 
- **ResourceAlreadyExistsException**   
+ ** ResourceAlreadyExistsException **   
 The specified resource already exists\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

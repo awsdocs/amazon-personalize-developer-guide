@@ -300,7 +300,7 @@ After you import your data, you create a solution and solution version as follow
     }
    ```
 
-1. Create a solution version with the following `createPersonalizeSolutionVersion` method\. Pass as a parameter the ARN of the solution the previous step\. The following code first checks to see if your solution is ready and then creates a solution version\. During training, the code uses the [DescribeSolutionVersion](API_DescribeSolutionVersion.md) operation to retrieve the solution version's status\. When training is complete, the method returns the ARN of your new solution version\. Store it for later use\. 
+1. Create a solution version with the following `createPersonalizeSolutionVersion` method\. Pass as a parameter the ARN of the solution the previous step\. The following code first checks to see if your solution is ready and then creates a solution version\. During training, the code uses the [ DescribeSolutionVersion ](API_DescribeSolutionVersion.md) operation to retrieve the solution version's status\. When training is complete, the method returns the ARN of your new solution version\. Store it for later use\. 
 
    ```
        public static String createPersonalizeSolutionVersion(PersonalizeClient personalizeClient, String solutionArn) {
@@ -431,6 +431,6 @@ After you create a campaign, you use it to get recommendations\. Use the followi
 
 ## Complete Amazon Personalize project<a name="gs-java-example"></a>
 
-For a all\-in\-one project that shows you how to complete the Amazon Personalize workflow with the SDK for Java 2\.x, see [create\_amazon\_personalize\_app](https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/usecases/create_amazon_personalize_app) in the [AWS SDK examples](https://github.com/aws-samples/amazon-personalize-samples) repository\. This project includes training multiple solution versions with different recipes, and recording events with the PutEvents operation\.
+For an all\-in\-one project that shows you how to complete the Amazon Personalize workflow with the SDK for Java 2\.x, see [create\_amazon\_personalize\_app](https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/usecases/create_amazon_personalize_app) in the [AWS SDK examples](https://github.com/aws-samples/amazon-personalize-samples) repository\. This project includes training multiple solution versions with different recipes, and recording events with the PutEvents operation\.
 
  For additional examples, see code the found in the [personalize](https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/example_code/personalize/src/main/java/com/example/personalize) folder of the AWS SDK examples repository\. 

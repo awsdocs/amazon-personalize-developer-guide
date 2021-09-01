@@ -14,7 +14,7 @@ Describes the given algorithm\.
 
 The request accepts the following data in JSON format\.
 
- ** [algorithmArn](#API_DescribeAlgorithm_RequestSyntax) **   <a name="personalize-DescribeAlgorithm-request-algorithmArn"></a>
+ ** [ algorithmArn ](#API_DescribeAlgorithm_RequestSyntax) **   <a name="personalize-DescribeAlgorithm-request-algorithmArn"></a>
 The Amazon Resource Name \(ARN\) of the algorithm to describe\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -77,17 +77,17 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [algorithm](#API_DescribeAlgorithm_ResponseSyntax) **   <a name="personalize-DescribeAlgorithm-response-algorithm"></a>
+ ** [ algorithm ](#API_DescribeAlgorithm_ResponseSyntax) **   <a name="personalize-DescribeAlgorithm-response-algorithm"></a>
 A listing of the properties of the algorithm\.  
-Type: [Algorithm](API_Algorithm.md) object
+Type: [ Algorithm ](API_Algorithm.md) object
 
 ## Errors<a name="API_DescribeAlgorithm_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

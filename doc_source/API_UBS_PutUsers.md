@@ -27,16 +27,16 @@ The request does not use any URI parameters\.
 
 The request accepts the following data in JSON format\.
 
- ** [datasetArn](#API_UBS_PutUsers_RequestSyntax) **   <a name="personalize-UBS_PutUsers-request-datasetArn"></a>
+ ** [ datasetArn ](#API_UBS_PutUsers_RequestSyntax) **   <a name="personalize-UBS_PutUsers-request-datasetArn"></a>
 The Amazon Resource Name \(ARN\) of the Users dataset you are adding the user or users to\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: Yes
 
- ** [users](#API_UBS_PutUsers_RequestSyntax) **   <a name="personalize-UBS_PutUsers-request-users"></a>
+ ** [ users ](#API_UBS_PutUsers_RequestSyntax) **   <a name="personalize-UBS_PutUsers-request-users"></a>
 A list of user data\.  
-Type: Array of [User](API_UBS_User.md) objects  
+Type: Array of [ User ](API_UBS_User.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 10 items\.  
 Required: Yes
 
@@ -52,15 +52,15 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 ## Errors<a name="API_UBS_PutUsers_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 409
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 404
 

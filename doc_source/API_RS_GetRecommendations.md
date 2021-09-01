@@ -5,7 +5,7 @@ Returns a list of recommended items\. The required input depends on the recipe t
 + USER\_PERSONALIZATION \- `itemId` optional, `userId` required
 
 **Note**  
-Campaigns that are backed by a solution created using a recipe of type PERSONALIZED\_RANKING use the [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) API\.
+Campaigns that are backed by a solution created using a recipe of type PERSONALIZED\_RANKING use the [ GetPersonalizedRanking ](API_RS_GetPersonalizedRanking.md) API\.
 
 ## Request Syntax<a name="API_RS_GetRecommendations_RequestSyntax"></a>
 
@@ -36,14 +36,14 @@ The request does not use any URI parameters\.
 
 The request accepts the following data in JSON format\.
 
- ** [campaignArn](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-campaignArn"></a>
+ ** [ campaignArn ](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-campaignArn"></a>
 The Amazon Resource Name \(ARN\) of the campaign to use for getting recommendations\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: Yes
 
- ** [context](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-context"></a>
+ ** [ context ](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-context"></a>
 The contextual metadata to use when getting recommendations\. Contextual metadata includes any interaction information that might be relevant when getting a user's recommendations, such as the user's current location or device type\.  
 Type: String to string map  
 Map Entries: Maximum number of 150 items\.  
@@ -52,7 +52,7 @@ Key Pattern: `[A-Za-z\d_]+`
 Value Length Constraints: Maximum length of 1000\.  
 Required: No
 
- ** [filterArn](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-filterArn"></a>
+ ** [ filterArn ](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-filterArn"></a>
 The ARN of the filter to apply to the returned recommendations\. For more information, see [Filtering Recommendations](https://docs.aws.amazon.com/personalize/latest/dg/filter.html)\.  
 When using this parameter, be sure the filter resource is `ACTIVE`\.  
 Type: String  
@@ -60,7 +60,7 @@ Length Constraints: Maximum length of 256\.
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
- ** [filterValues](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-filterValues"></a>
+ ** [ filterValues ](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-filterValues"></a>
 The values to use when filtering recommendations\. For each placeholder parameter in your filter expression, provide the parameter name \(in matching case\) as a key and the filter value\(s\) as the corresponding value\. Separate multiple values for one parameter with a comma\.   
 For filter expressions that use an `INCLUDE` element to include items, you must provide values for all parameters that are defined in the expression\. For filters with expressions that use an `EXCLUDE` element to exclude items, you can omit the `filter-values`\.In this case, Amazon Personalize doesn't use that portion of the expression to filter recommendations\.  
 For more information, see [Filtering Recommendations](https://docs.aws.amazon.com/personalize/latest/dg/filter.html)\.  
@@ -71,20 +71,20 @@ Key Pattern: `[A-Za-z0-9_]+`
 Value Length Constraints: Maximum length of 1000\.  
 Required: No
 
- ** [itemId](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-itemId"></a>
+ ** [ itemId ](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-itemId"></a>
 The item ID to provide recommendations for\.  
 Required for `RELATED_ITEMS` recipe type\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Required: No
 
- ** [numResults](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-numResults"></a>
+ ** [ numResults ](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-numResults"></a>
 The number of results to return\. The default is 25\. The maximum is 500\.  
 Type: Integer  
 Valid Range: Minimum value of 0\.  
 Required: No
 
- ** [userId](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-userId"></a>
+ ** [ userId ](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-userId"></a>
 The user ID to provide recommendations for\.  
 Required for `USER_PERSONALIZATION` recipe type\.  
 Type: String  
@@ -114,21 +114,21 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [itemList](#API_RS_GetRecommendations_ResponseSyntax) **   <a name="personalize-RS_GetRecommendations-response-itemList"></a>
+ ** [ itemList ](#API_RS_GetRecommendations_ResponseSyntax) **   <a name="personalize-RS_GetRecommendations-response-itemList"></a>
 A list of recommendations sorted in descending order by prediction score\. There can be a maximum of 500 items in the list\.  
-Type: Array of [PredictedItem](API_RS_PredictedItem.md) objects
+Type: Array of [ PredictedItem ](API_RS_PredictedItem.md) objects
 
- ** [recommendationId](#API_RS_GetRecommendations_ResponseSyntax) **   <a name="personalize-RS_GetRecommendations-response-recommendationId"></a>
+ ** [ recommendationId ](#API_RS_GetRecommendations_ResponseSyntax) **   <a name="personalize-RS_GetRecommendations-response-recommendationId"></a>
 The ID of the recommendation\.  
 Type: String
 
 ## Errors<a name="API_RS_GetRecommendations_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 The specified resource does not exist\.  
 HTTP Status Code: 404
 

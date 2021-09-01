@@ -1,6 +1,6 @@
 # DescribeDatasetGroup<a name="API_DescribeDatasetGroup"></a>
 
-Describes the given dataset group\. For more information on dataset groups, see [CreateDatasetGroup](API_CreateDatasetGroup.md)\.
+Describes the given dataset group\. For more information on dataset groups, see [ CreateDatasetGroup ](API_CreateDatasetGroup.md)\.
 
 ## Request Syntax<a name="API_DescribeDatasetGroup_RequestSyntax"></a>
 
@@ -14,7 +14,7 @@ Describes the given dataset group\. For more information on dataset groups, see 
 
 The request accepts the following data in JSON format\.
 
- ** [datasetGroupArn](#API_DescribeDatasetGroup_RequestSyntax) **   <a name="personalize-DescribeDatasetGroup-request-datasetGroupArn"></a>
+ ** [ datasetGroupArn ](#API_DescribeDatasetGroup_RequestSyntax) **   <a name="personalize-DescribeDatasetGroup-request-datasetGroupArn"></a>
 The Amazon Resource Name \(ARN\) of the dataset group to describe\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -44,17 +44,17 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [datasetGroup](#API_DescribeDatasetGroup_ResponseSyntax) **   <a name="personalize-DescribeDatasetGroup-response-datasetGroup"></a>
+ ** [ datasetGroup ](#API_DescribeDatasetGroup_ResponseSyntax) **   <a name="personalize-DescribeDatasetGroup-response-datasetGroup"></a>
 A listing of the dataset group's properties\.  
-Type: [DatasetGroup](API_DatasetGroup.md) object
+Type: [ DatasetGroup ](API_DatasetGroup.md) object
 
 ## Errors<a name="API_DescribeDatasetGroup_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

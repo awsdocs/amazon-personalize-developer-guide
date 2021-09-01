@@ -1,6 +1,6 @@
 # DescribeDataset<a name="API_DescribeDataset"></a>
 
-Describes the given dataset\. For more information on datasets, see [CreateDataset](API_CreateDataset.md)\.
+Describes the given dataset\. For more information on datasets, see [ CreateDataset ](API_CreateDataset.md)\.
 
 ## Request Syntax<a name="API_DescribeDataset_RequestSyntax"></a>
 
@@ -14,7 +14,7 @@ Describes the given dataset\. For more information on datasets, see [CreateDatas
 
 The request accepts the following data in JSON format\.
 
- ** [datasetArn](#API_DescribeDataset_RequestSyntax) **   <a name="personalize-DescribeDataset-request-datasetArn"></a>
+ ** [ datasetArn ](#API_DescribeDataset_RequestSyntax) **   <a name="personalize-DescribeDataset-request-datasetArn"></a>
 The Amazon Resource Name \(ARN\) of the dataset to describe\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -44,17 +44,17 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [dataset](#API_DescribeDataset_ResponseSyntax) **   <a name="personalize-DescribeDataset-response-dataset"></a>
+ ** [ dataset ](#API_DescribeDataset_ResponseSyntax) **   <a name="personalize-DescribeDataset-response-dataset"></a>
 A listing of the dataset's properties\.  
-Type: [Dataset](API_Dataset.md) object
+Type: [ Dataset ](API_Dataset.md) object
 
 ## Errors<a name="API_DescribeDataset_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

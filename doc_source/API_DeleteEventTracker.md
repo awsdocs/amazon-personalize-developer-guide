@@ -1,6 +1,6 @@
 # DeleteEventTracker<a name="API_DeleteEventTracker"></a>
 
-Deletes the event tracker\. Does not delete the event\-interactions dataset from the associated dataset group\. For more information on event trackers, see [CreateEventTracker](API_CreateEventTracker.md)\.
+Deletes the event tracker\. Does not delete the event\-interactions dataset from the associated dataset group\. For more information on event trackers, see [ CreateEventTracker ](API_CreateEventTracker.md)\.
 
 ## Request Syntax<a name="API_DeleteEventTracker_RequestSyntax"></a>
 
@@ -14,7 +14,7 @@ Deletes the event tracker\. Does not delete the event\-interactions dataset from
 
 The request accepts the following data in JSON format\.
 
- ** [eventTrackerArn](#API_DeleteEventTracker_RequestSyntax) **   <a name="personalize-DeleteEventTracker-request-eventTrackerArn"></a>
+ ** [ eventTrackerArn ](#API_DeleteEventTracker_RequestSyntax) **   <a name="personalize-DeleteEventTracker-request-eventTrackerArn"></a>
 The Amazon Resource Name \(ARN\) of the event tracker to delete\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -27,15 +27,15 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 ## Errors<a name="API_DeleteEventTracker_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

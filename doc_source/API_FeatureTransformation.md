@@ -4,12 +4,12 @@ Provides feature transformation information\. Feature transformation is the proc
 
 ## Contents<a name="API_FeatureTransformation_Contents"></a>
 
- **creationDateTime**   <a name="personalize-Type-FeatureTransformation-creationDateTime"></a>
+ ** creationDateTime **   <a name="personalize-Type-FeatureTransformation-creationDateTime"></a>
 The creation date and time \(in Unix time\) of the feature transformation\.  
 Type: Timestamp  
 Required: No
 
- **defaultParameters**   <a name="personalize-Type-FeatureTransformation-defaultParameters"></a>
+ ** defaultParameters **   <a name="personalize-Type-FeatureTransformation-defaultParameters"></a>
 Provides the default parameters for feature transformation\.  
 Type: String to string map  
 Map Entries: Maximum number of 100 items\.  
@@ -17,26 +17,26 @@ Key Length Constraints: Maximum length of 256\.
 Value Length Constraints: Maximum length of 1000\.  
 Required: No
 
- **featureTransformationArn**   <a name="personalize-Type-FeatureTransformation-featureTransformationArn"></a>
+ ** featureTransformationArn **   <a name="personalize-Type-FeatureTransformation-featureTransformationArn"></a>
 The Amazon Resource Name \(ARN\) of the FeatureTransformation object\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
- **lastUpdatedDateTime**   <a name="personalize-Type-FeatureTransformation-lastUpdatedDateTime"></a>
+ ** lastUpdatedDateTime **   <a name="personalize-Type-FeatureTransformation-lastUpdatedDateTime"></a>
 The last update date and time \(in Unix time\) of the feature transformation\.  
 Type: Timestamp  
 Required: No
 
- **name**   <a name="personalize-Type-FeatureTransformation-name"></a>
+ ** name **   <a name="personalize-Type-FeatureTransformation-name"></a>
 The name of the feature transformation\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: No
 
- **status**   <a name="personalize-Type-FeatureTransformation-status"></a>
+ ** status **   <a name="personalize-Type-FeatureTransformation-status"></a>
 The status of the feature transformation\.  
 A feature transformation can be in one of the following states:  
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED

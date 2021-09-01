@@ -22,7 +22,7 @@ You are billed for all of the training completed up until you stop the solution 
 
 The request accepts the following data in JSON format\.
 
- ** [solutionVersionArn](#API_StopSolutionVersionCreation_RequestSyntax) **   <a name="personalize-StopSolutionVersionCreation-request-solutionVersionArn"></a>
+ ** [ solutionVersionArn ](#API_StopSolutionVersionCreation_RequestSyntax) **   <a name="personalize-StopSolutionVersionCreation-request-solutionVersionArn"></a>
 The Amazon Resource Name \(ARN\) of the solution version you want to stop creating\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -35,15 +35,15 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 ## Errors<a name="API_StopSolutionVersionCreation_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

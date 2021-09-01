@@ -4,7 +4,7 @@ Describes the data source that contains the data to upload to a dataset\.
 
 ## Contents<a name="API_DataSource_Contents"></a>
 
- **dataLocation**   <a name="personalize-Type-DataSource-dataLocation"></a>
+ ** dataLocation **   <a name="personalize-Type-DataSource-dataLocation"></a>
 The path to the Amazon S3 bucket where the data that you want to upload to your dataset is stored\. For example:   
  `s3://bucket-name/folder-name/`   
 Type: String  

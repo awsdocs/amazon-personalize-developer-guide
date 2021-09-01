@@ -14,7 +14,7 @@ Describes a filter's properties\.
 
 The request accepts the following data in JSON format\.
 
- ** [filterArn](#API_DescribeFilter_RequestSyntax) **   <a name="personalize-DescribeFilter-request-filterArn"></a>
+ ** [ filterArn ](#API_DescribeFilter_RequestSyntax) **   <a name="personalize-DescribeFilter-request-filterArn"></a>
 The ARN of the filter to describe\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -44,17 +44,17 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [filter](#API_DescribeFilter_ResponseSyntax) **   <a name="personalize-DescribeFilter-response-filter"></a>
+ ** [ filter ](#API_DescribeFilter_ResponseSyntax) **   <a name="personalize-DescribeFilter-response-filter"></a>
 The filter's details\.  
-Type: [Filter](API_Filter.md) object
+Type: [ Filter ](API_Filter.md) object
 
 ## Errors<a name="API_DescribeFilter_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

@@ -4,13 +4,13 @@ Describes an algorithm image\.
 
 ## Contents<a name="API_AlgorithmImage_Contents"></a>
 
- **dockerURI**   <a name="personalize-Type-AlgorithmImage-dockerURI"></a>
+ ** dockerURI **   <a name="personalize-Type-AlgorithmImage-dockerURI"></a>
 The URI of the Docker container for the algorithm image\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Required: Yes
 
- **name**   <a name="personalize-Type-AlgorithmImage-name"></a>
+ ** name **   <a name="personalize-Type-AlgorithmImage-name"></a>
 The name of the algorithm image\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  

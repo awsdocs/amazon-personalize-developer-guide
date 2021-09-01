@@ -4,19 +4,19 @@ Provides the name and range of an integer\-valued hyperparameter\.
 
 ## Contents<a name="API_IntegerHyperParameterRange_Contents"></a>
 
- **maxValue**   <a name="personalize-Type-IntegerHyperParameterRange-maxValue"></a>
+ ** maxValue **   <a name="personalize-Type-IntegerHyperParameterRange-maxValue"></a>
 The maximum allowable value for the hyperparameter\.  
 Type: Integer  
 Valid Range: Maximum value of 1000000\.  
 Required: No
 
- **minValue**   <a name="personalize-Type-IntegerHyperParameterRange-minValue"></a>
+ ** minValue **   <a name="personalize-Type-IntegerHyperParameterRange-minValue"></a>
 The minimum allowable value for the hyperparameter\.  
 Type: Integer  
 Valid Range: Minimum value of \-1000000\.  
 Required: No
 
- **name**   <a name="personalize-Type-IntegerHyperParameterRange-name"></a>
+ ** name **   <a name="personalize-Type-IntegerHyperParameterRange-name"></a>
 The name of the hyperparameter\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  

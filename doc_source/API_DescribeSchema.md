@@ -1,6 +1,6 @@
 # DescribeSchema<a name="API_DescribeSchema"></a>
 
-Describes a schema\. For more information on schemas, see [CreateSchema](API_CreateSchema.md)\.
+Describes a schema\. For more information on schemas, see [ CreateSchema ](API_CreateSchema.md)\.
 
 ## Request Syntax<a name="API_DescribeSchema_RequestSyntax"></a>
 
@@ -14,7 +14,7 @@ Describes a schema\. For more information on schemas, see [CreateSchema](API_Cre
 
 The request accepts the following data in JSON format\.
 
- ** [schemaArn](#API_DescribeSchema_RequestSyntax) **   <a name="personalize-DescribeSchema-request-schemaArn"></a>
+ ** [ schemaArn ](#API_DescribeSchema_RequestSyntax) **   <a name="personalize-DescribeSchema-request-schemaArn"></a>
 The Amazon Resource Name \(ARN\) of the schema to retrieve\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -41,17 +41,17 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [schema](#API_DescribeSchema_ResponseSyntax) **   <a name="personalize-DescribeSchema-response-schema"></a>
+ ** [ schema ](#API_DescribeSchema_ResponseSyntax) **   <a name="personalize-DescribeSchema-response-schema"></a>
 The requested schema\.  
-Type: [DatasetSchema](API_DatasetSchema.md) object
+Type: [ DatasetSchema ](API_DatasetSchema.md) object
 
 ## Errors<a name="API_DescribeSchema_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

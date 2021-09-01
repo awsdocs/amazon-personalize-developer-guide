@@ -19,22 +19,22 @@ Amazon Personalize provides three types of recipes\. Besides behavioral differen
 
 | Recipe type | Recipes | API | Requirements | 
 | --- | --- | --- | --- | 
-| USER\_PERSONALIZATION |  [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) [Popularity\-Count](native-recipe-popularity.md)  [HRNN recipe \(legacy\)](native-recipe-hrnn.md) [HRNN\-Metadata recipe \(legacy\)](native-recipe-hrnn-metadata.md) [HRNN\-Coldstart recipe \(legacy\)](native-recipe-hrnn-coldstart.md)  | [GetRecommendations](API_RS_GetRecommendations.md) |  `userId`: Required `itemId`: Optional `inputList`: NA  | 
-| PERSONALIZED\_RANKING |  [Personalized\-Ranking](native-recipe-search.md)  | [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) |  `userId`: Required `itemId`: NA `inputList`: list of itemId's  | 
-| RELATED\_ITEMS |  [SIMS](native-recipe-sims.md)  | [GetRecommendations](API_RS_GetRecommendations.md) |  `userId`: Not used `itemId`: Required `inputList`: NA  | 
+| USER\_PERSONALIZATION |  [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) [Popularity\-Count](native-recipe-popularity.md)  [HRNN recipe \(legacy\)](native-recipe-hrnn.md) [HRNN\-Metadata recipe \(legacy\)](native-recipe-hrnn-metadata.md) [HRNN\-Coldstart recipe \(legacy\)](native-recipe-hrnn-coldstart.md)  | [ GetRecommendations ](API_RS_GetRecommendations.md) |  `userId`: Required `itemId`: Optional `inputList`: NA  | 
+| PERSONALIZED\_RANKING |  [Personalized\-Ranking](native-recipe-search.md)  | [ GetPersonalizedRanking ](API_RS_GetPersonalizedRanking.md) |  `userId`: Required `itemId`: NA `inputList`: list of itemId's  | 
+| RELATED\_ITEMS |  [SIMS](native-recipe-sims.md)  | [ GetRecommendations ](API_RS_GetRecommendations.md) |  `userId`: Not used `itemId`: Required `inputList`: NA  | 
 
 ## Viewing available Amazon Personalize recipes<a name="listing-recipes"></a>
 
 To see a list of available recipes:
 + In the Amazon Personalize console, choose a dataset group\. From the navigation pane, choose **Solutions and recipes**, and choose the **Recipes** tab\. 
-+ With the AWS SDK for Python \(Boto3\), call the [ListRecipes](API_ListRecipes.md) API\. 
++ With the AWS SDK for Python \(Boto3\), call the [ ListRecipes ](API_ListRecipes.md) API\. 
 + With the AWS CLI, use the following command\.
 
   ```
   aws personalize list-recipes
   ```
 
-To get information about a recipe using the SDK for Python \(Boto3\), call the [DescribeRecipe](API_DescribeRecipe.md) API\. To get information about a recipe using the AWS CLI, use the following command\.
+To get information about a recipe using the SDK for Python \(Boto3\), call the [ DescribeRecipe ](API_DescribeRecipe.md) API\. To get information about a recipe using the AWS CLI, use the following command\.
 
 ```
 aws personalize describe-recipe --recipe-arn recipe_arn

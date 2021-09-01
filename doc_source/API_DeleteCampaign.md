@@ -1,6 +1,6 @@
 # DeleteCampaign<a name="API_DeleteCampaign"></a>
 
-Removes a campaign by deleting the solution deployment\. The solution that the campaign is based on is not deleted and can be redeployed when needed\. A deleted campaign can no longer be specified in a [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html) request\. For more information on campaigns, see [CreateCampaign](API_CreateCampaign.md)\.
+Removes a campaign by deleting the solution deployment\. The solution that the campaign is based on is not deleted and can be redeployed when needed\. A deleted campaign can no longer be specified in a [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html) request\. For more information on campaigns, see [ CreateCampaign ](API_CreateCampaign.md)\.
 
 ## Request Syntax<a name="API_DeleteCampaign_RequestSyntax"></a>
 
@@ -14,7 +14,7 @@ Removes a campaign by deleting the solution deployment\. The solution that the c
 
 The request accepts the following data in JSON format\.
 
- ** [campaignArn](#API_DeleteCampaign_RequestSyntax) **   <a name="personalize-DeleteCampaign-request-campaignArn"></a>
+ ** [ campaignArn ](#API_DeleteCampaign_RequestSyntax) **   <a name="personalize-DeleteCampaign-request-campaignArn"></a>
 The Amazon Resource Name \(ARN\) of the campaign to delete\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -27,15 +27,15 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 ## Errors<a name="API_DeleteCampaign_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

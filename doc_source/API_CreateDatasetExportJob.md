@@ -7,7 +7,7 @@
 A dataset export job can be in one of the following states:
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
 
- To get the status of the export job, call [DescribeDatasetExportJob](API_DescribeDatasetExportJob.md), and specify the Amazon Resource Name \(ARN\) of the dataset export job\. The dataset export is complete when the status shows as ACTIVE\. If the status shows as CREATE FAILED, the response includes a `failureReason` key, which describes why the job failed\. 
+ To get the status of the export job, call [ DescribeDatasetExportJob ](API_DescribeDatasetExportJob.md), and specify the Amazon Resource Name \(ARN\) of the dataset export job\. The dataset export is complete when the status shows as ACTIVE\. If the status shows as CREATE FAILED, the response includes a `failureReason` key, which describes why the job failed\. 
 
 ## Request Syntax<a name="API_CreateDatasetExportJob_RequestSyntax"></a>
 
@@ -30,32 +30,32 @@ A dataset export job can be in one of the following states:
 
 The request accepts the following data in JSON format\.
 
- ** [datasetArn](#API_CreateDatasetExportJob_RequestSyntax) **   <a name="personalize-CreateDatasetExportJob-request-datasetArn"></a>
+ ** [ datasetArn ](#API_CreateDatasetExportJob_RequestSyntax) **   <a name="personalize-CreateDatasetExportJob-request-datasetArn"></a>
 The Amazon Resource Name \(ARN\) of the dataset that contains the data to export\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: Yes
 
- ** [ingestionMode](#API_CreateDatasetExportJob_RequestSyntax) **   <a name="personalize-CreateDatasetExportJob-request-ingestionMode"></a>
+ ** [ ingestionMode ](#API_CreateDatasetExportJob_RequestSyntax) **   <a name="personalize-CreateDatasetExportJob-request-ingestionMode"></a>
 The data to export, based on how you imported the data\. You can choose to export only `BULK` data that you imported using a dataset import job, only `PUT` data that you imported incrementally \(using the console, PutEvents, PutUsers and PutItems operations\), or `ALL` for both types\. The default value is `PUT`\.   
 Type: String  
 Valid Values:` BULK | PUT | ALL`   
 Required: No
 
- ** [jobName](#API_CreateDatasetExportJob_RequestSyntax) **   <a name="personalize-CreateDatasetExportJob-request-jobName"></a>
+ ** [ jobName ](#API_CreateDatasetExportJob_RequestSyntax) **   <a name="personalize-CreateDatasetExportJob-request-jobName"></a>
 The name for the dataset export job\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: Yes
 
- ** [jobOutput](#API_CreateDatasetExportJob_RequestSyntax) **   <a name="personalize-CreateDatasetExportJob-request-jobOutput"></a>
+ ** [ jobOutput ](#API_CreateDatasetExportJob_RequestSyntax) **   <a name="personalize-CreateDatasetExportJob-request-jobOutput"></a>
 The path to the Amazon S3 bucket where the job's output is stored\.  
-Type: [DatasetExportJobOutput](API_DatasetExportJobOutput.md) object  
+Type: [ DatasetExportJobOutput ](API_DatasetExportJobOutput.md) object  
 Required: Yes
 
- ** [roleArn](#API_CreateDatasetExportJob_RequestSyntax) **   <a name="personalize-CreateDatasetExportJob-request-roleArn"></a>
+ ** [ roleArn ](#API_CreateDatasetExportJob_RequestSyntax) **   <a name="personalize-CreateDatasetExportJob-request-roleArn"></a>
 The Amazon Resource Name \(ARN\) of the IAM service role that has permissions to add data to your output Amazon S3 bucket\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -76,7 +76,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [datasetExportJobArn](#API_CreateDatasetExportJob_ResponseSyntax) **   <a name="personalize-CreateDatasetExportJob-response-datasetExportJobArn"></a>
+ ** [ datasetExportJobArn ](#API_CreateDatasetExportJob_ResponseSyntax) **   <a name="personalize-CreateDatasetExportJob-response-datasetExportJobArn"></a>
 The Amazon Resource Name \(ARN\) of the dataset export job\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -84,23 +84,23 @@ Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
 
 ## Errors<a name="API_CreateDatasetExportJob_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **LimitExceededException**   
+ ** LimitExceededException **   
 The limit on the number of requests per second has been exceeded\.  
 HTTP Status Code: 400
 
- **ResourceAlreadyExistsException**   
+ ** ResourceAlreadyExistsException **   
 The specified resource already exists\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

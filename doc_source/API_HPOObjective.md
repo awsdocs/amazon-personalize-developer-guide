@@ -7,19 +7,19 @@ Amazon Personalize doesn't support configuring the `hpoObjective` at this time\.
 
 ## Contents<a name="API_HPOObjective_Contents"></a>
 
- **metricName**   <a name="personalize-Type-HPOObjective-metricName"></a>
+ ** metricName **   <a name="personalize-Type-HPOObjective-metricName"></a>
 The name of the metric\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Required: No
 
- **metricRegex**   <a name="personalize-Type-HPOObjective-metricRegex"></a>
+ ** metricRegex **   <a name="personalize-Type-HPOObjective-metricRegex"></a>
 A regular expression for finding the metric in the training job logs\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Required: No
 
- **type**   <a name="personalize-Type-HPOObjective-type"></a>
+ ** type **   <a name="personalize-Type-HPOObjective-type"></a>
 The type of the metric\. Valid values are `Maximize` and `Minimize`\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  

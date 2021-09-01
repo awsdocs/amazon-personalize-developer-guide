@@ -1,6 +1,6 @@
 # DeleteDataset<a name="API_DeleteDataset"></a>
 
-Deletes a dataset\. You can't delete a dataset if an associated `DatasetImportJob` or `SolutionVersion` is in the CREATE PENDING or IN PROGRESS state\. For more information on datasets, see [CreateDataset](API_CreateDataset.md)\.
+Deletes a dataset\. You can't delete a dataset if an associated `DatasetImportJob` or `SolutionVersion` is in the CREATE PENDING or IN PROGRESS state\. For more information on datasets, see [ CreateDataset ](API_CreateDataset.md)\.
 
 ## Request Syntax<a name="API_DeleteDataset_RequestSyntax"></a>
 
@@ -14,7 +14,7 @@ Deletes a dataset\. You can't delete a dataset if an associated `DatasetImportJo
 
 The request accepts the following data in JSON format\.
 
- ** [datasetArn](#API_DeleteDataset_RequestSyntax) **   <a name="personalize-DeleteDataset-request-datasetArn"></a>
+ ** [ datasetArn ](#API_DeleteDataset_RequestSyntax) **   <a name="personalize-DeleteDataset-request-datasetArn"></a>
 The Amazon Resource Name \(ARN\) of the dataset to delete\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -27,15 +27,15 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 ## Errors<a name="API_DeleteDataset_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

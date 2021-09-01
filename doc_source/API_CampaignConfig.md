@@ -4,7 +4,7 @@ The configuration details of a campaign\.
 
 ## Contents<a name="API_CampaignConfig_Contents"></a>
 
- **itemExplorationConfig**   <a name="personalize-Type-CampaignConfig-itemExplorationConfig"></a>
+ ** itemExplorationConfig **   <a name="personalize-Type-CampaignConfig-itemExplorationConfig"></a>
 A string to string map specifying the exploration configuration hyperparameters, including `explorationWeight` and `explorationItemAgeCutOff`, you want to use to configure the amount of item exploration Amazon Personalize uses when recommending items\. Provide `itemExplorationConfig` data only if your solution uses the [User\-Personalization](https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html) recipe\.  
 Type: String to string map  
 Map Entries: Maximum number of 100 items\.  

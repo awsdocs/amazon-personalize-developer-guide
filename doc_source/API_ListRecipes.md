@@ -16,19 +16,19 @@ Returns a list of available recipes\. The response provides the properties for e
 
 The request accepts the following data in JSON format\.
 
- ** [maxResults](#API_ListRecipes_RequestSyntax) **   <a name="personalize-ListRecipes-request-maxResults"></a>
+ ** [ maxResults ](#API_ListRecipes_RequestSyntax) **   <a name="personalize-ListRecipes-request-maxResults"></a>
 The maximum number of recipes to return\.  
 Type: Integer  
 Valid Range: Minimum value of 1\. Maximum value of 100\.  
 Required: No
 
- ** [nextToken](#API_ListRecipes_RequestSyntax) **   <a name="personalize-ListRecipes-request-nextToken"></a>
+ ** [ nextToken ](#API_ListRecipes_RequestSyntax) **   <a name="personalize-ListRecipes-request-nextToken"></a>
 A token returned from the previous call to `ListRecipes` for getting the next set of recipes \(if they exist\)\.  
 Type: String  
 Length Constraints: Maximum length of 1300\.  
 Required: No
 
- ** [recipeProvider](#API_ListRecipes_RequestSyntax) **   <a name="personalize-ListRecipes-request-recipeProvider"></a>
+ ** [ recipeProvider ](#API_ListRecipes_RequestSyntax) **   <a name="personalize-ListRecipes-request-recipeProvider"></a>
 The default is `SERVICE`\.  
 Type: String  
 Valid Values:` SERVICE`   
@@ -57,19 +57,19 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [nextToken](#API_ListRecipes_ResponseSyntax) **   <a name="personalize-ListRecipes-response-nextToken"></a>
+ ** [ nextToken ](#API_ListRecipes_ResponseSyntax) **   <a name="personalize-ListRecipes-response-nextToken"></a>
 A token for getting the next set of recipes\.  
 Type: String  
 Length Constraints: Maximum length of 1300\.
 
- ** [recipes](#API_ListRecipes_ResponseSyntax) **   <a name="personalize-ListRecipes-response-recipes"></a>
+ ** [ recipes ](#API_ListRecipes_ResponseSyntax) **   <a name="personalize-ListRecipes-response-recipes"></a>
 The list of available recipes\.  
-Type: Array of [RecipeSummary](API_RecipeSummary.md) objects  
+Type: Array of [ RecipeSummary ](API_RecipeSummary.md) objects  
 Array Members: Maximum number of 100 items\.
 
 ## Errors<a name="API_ListRecipes_Errors"></a>
 
- **InvalidNextTokenException**   
+ ** InvalidNextTokenException **   
 The token is not valid\.  
 HTTP Status Code: 400
 

@@ -4,9 +4,9 @@ The input configuration of a batch inference job\.
 
 ## Contents<a name="API_BatchInferenceJobInput_Contents"></a>
 
- **s3DataSource**   <a name="personalize-Type-BatchInferenceJobInput-s3DataSource"></a>
+ ** s3DataSource **   <a name="personalize-Type-BatchInferenceJobInput-s3DataSource"></a>
 The URI of the Amazon S3 location that contains your input data\. The Amazon S3 bucket must be in the same region as the API endpoint you are calling\.  
-Type: [S3DataConfig](API_S3DataConfig.md) object  
+Type: [ S3DataConfig ](API_S3DataConfig.md) object  
 Required: Yes
 
 ## See Also<a name="API_BatchInferenceJobInput_SeeAlso"></a>

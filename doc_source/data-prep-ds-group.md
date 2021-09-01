@@ -27,7 +27,7 @@ Create a dataset group by specifying the dataset group name in the Amazon Person
 
 ## Creating a dataset group \(AWS CLI\)<a name="data-prep-creating-ds-group-cli"></a>
 
-Create a dataset group with the following command\. For more information about the CreateDatasetGroup API operation, see [CreateDatasetGroup](API_CreateDatasetGroup.md) in the API reference section\.
+Create a dataset group with the following command\. For more information about the CreateDatasetGroup API operation, see [ CreateDatasetGroup ](API_CreateDatasetGroup.md) in the API reference section\.
 
 ```
 aws personalize create-dataset-group --name dataset group name
@@ -66,7 +66,7 @@ When the dataset group's `status` is ACTIVE, proceed to [Creating a dataset and 
 
 ## Creating a dataset group \(AWS SDKs\)<a name="data-prep-creating-ds-group-sdk"></a>
 
-The following code shows how to create a dataset group with the AWS SDK for Python \(Boto3\) or the SDK for Java 2\.x\. For more information about the API operation, see [CreateDatasetGroup](API_CreateDatasetGroup.md) in the API reference section\.
+The following code shows how to create a dataset group with the AWS SDK for Python \(Boto3\) or the SDK for Java 2\.x\. For more information about the API operation, see [ CreateDatasetGroup ](API_CreateDatasetGroup.md) in the API reference section\.
 
 ------
 #### [ SDK for Python \(Boto3\) ]
@@ -136,4 +136,4 @@ public static void createDatasetGroup(PersonalizeClient personalizeClient, Strin
 
 ------
 
-The [DescribeDatasetGroup](API_DescribeDatasetGroup.md) operation returns the `datasetGroupArn` and the status of the operation\. When the dataset group's `status` is ACTIVE, proceed to [Creating a dataset and a schema \(AWS SDKs\)](data-prep-creating-datasets.md#data-prep-creating-ds-sdk)\.
+The [ DescribeDatasetGroup ](API_DescribeDatasetGroup.md) operation returns the `datasetGroupArn` and the status of the operation\. When the dataset group's `status` is ACTIVE, proceed to [Creating a dataset and a schema \(AWS SDKs\)](data-prep-creating-datasets.md#data-prep-creating-ds-sdk)\.

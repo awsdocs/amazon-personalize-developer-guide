@@ -1,6 +1,6 @@
 # ListDatasetGroups<a name="API_ListDatasetGroups"></a>
 
-Returns a list of dataset groups\. The response provides the properties for each dataset group, including the Amazon Resource Name \(ARN\)\. For more information on dataset groups, see [CreateDatasetGroup](API_CreateDatasetGroup.md)\.
+Returns a list of dataset groups\. The response provides the properties for each dataset group, including the Amazon Resource Name \(ARN\)\. For more information on dataset groups, see [ CreateDatasetGroup ](API_CreateDatasetGroup.md)\.
 
 ## Request Syntax<a name="API_ListDatasetGroups_RequestSyntax"></a>
 
@@ -15,13 +15,13 @@ Returns a list of dataset groups\. The response provides the properties for each
 
 The request accepts the following data in JSON format\.
 
- ** [maxResults](#API_ListDatasetGroups_RequestSyntax) **   <a name="personalize-ListDatasetGroups-request-maxResults"></a>
+ ** [ maxResults ](#API_ListDatasetGroups_RequestSyntax) **   <a name="personalize-ListDatasetGroups-request-maxResults"></a>
 The maximum number of dataset groups to return\.  
 Type: Integer  
 Valid Range: Minimum value of 1\. Maximum value of 100\.  
 Required: No
 
- ** [nextToken](#API_ListDatasetGroups_RequestSyntax) **   <a name="personalize-ListDatasetGroups-request-nextToken"></a>
+ ** [ nextToken ](#API_ListDatasetGroups_RequestSyntax) **   <a name="personalize-ListDatasetGroups-request-nextToken"></a>
 A token returned from the previous call to `ListDatasetGroups` for getting the next set of dataset groups \(if they exist\)\.  
 Type: String  
 Length Constraints: Maximum length of 1300\.  
@@ -51,19 +51,19 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [datasetGroups](#API_ListDatasetGroups_ResponseSyntax) **   <a name="personalize-ListDatasetGroups-response-datasetGroups"></a>
+ ** [ datasetGroups ](#API_ListDatasetGroups_ResponseSyntax) **   <a name="personalize-ListDatasetGroups-response-datasetGroups"></a>
 The list of your dataset groups\.  
-Type: Array of [DatasetGroupSummary](API_DatasetGroupSummary.md) objects  
+Type: Array of [ DatasetGroupSummary ](API_DatasetGroupSummary.md) objects  
 Array Members: Maximum number of 100 items\.
 
- ** [nextToken](#API_ListDatasetGroups_ResponseSyntax) **   <a name="personalize-ListDatasetGroups-response-nextToken"></a>
+ ** [ nextToken ](#API_ListDatasetGroups_ResponseSyntax) **   <a name="personalize-ListDatasetGroups-response-nextToken"></a>
 A token for getting the next set of dataset groups \(if they exist\)\.  
 Type: String  
 Length Constraints: Maximum length of 1300\.
 
 ## Errors<a name="API_ListDatasetGroups_Errors"></a>
 
- **InvalidNextTokenException**   
+ ** InvalidNextTokenException **   
 The token is not valid\.  
 HTTP Status Code: 400
 

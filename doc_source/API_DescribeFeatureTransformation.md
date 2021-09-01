@@ -14,7 +14,7 @@ Describes the given feature transformation\.
 
 The request accepts the following data in JSON format\.
 
- ** [featureTransformationArn](#API_DescribeFeatureTransformation_RequestSyntax) **   <a name="personalize-DescribeFeatureTransformation-request-featureTransformationArn"></a>
+ ** [ featureTransformationArn ](#API_DescribeFeatureTransformation_RequestSyntax) **   <a name="personalize-DescribeFeatureTransformation-request-featureTransformationArn"></a>
 The Amazon Resource Name \(ARN\) of the feature transformation to describe\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -44,17 +44,17 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [featureTransformation](#API_DescribeFeatureTransformation_ResponseSyntax) **   <a name="personalize-DescribeFeatureTransformation-response-featureTransformation"></a>
+ ** [ featureTransformation ](#API_DescribeFeatureTransformation_ResponseSyntax) **   <a name="personalize-DescribeFeatureTransformation-response-featureTransformation"></a>
 A listing of the FeatureTransformation properties\.  
-Type: [FeatureTransformation](API_FeatureTransformation.md) object
+Type: [ FeatureTransformation ](API_FeatureTransformation.md) object
 
 ## Errors<a name="API_DescribeFeatureTransformation_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 

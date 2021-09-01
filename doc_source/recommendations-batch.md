@@ -160,6 +160,8 @@ Separate each `itemId` with a new line as follows\.
 
 1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign in to your account\.
 
+1. On the **Datasets groups** page, choose your dataset group\.
+
 1. Choose **Batch inference jobs** in the navigation pane, then choose **Create batch inference job**\.
 
 1. In **Batch inference job details**, in **Batch inference job name**, specify a name for your batch inference job\.
@@ -208,7 +210,7 @@ aws personalize create-batch-inference-job --job-name Batch job name \
 
 ## Creating a batch inference job \(AWS SDKs\)<a name="batch-sdk"></a>
 
-After you have completed [Preparing and importing batch input data](#batch-data-upload), you are ready to create a batch inference job with the [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) operation\. The following code shows how to create a batch inference job using the AWS SDK for Python \(Boto3\) or AWS SDK for Java 2\.x\. 
+After you have completed [Preparing and importing batch input data](#batch-data-upload), you are ready to create a batch inference job with the [ CreateBatchInferenceJob ](API_CreateBatchInferenceJob.md) operation\. The following code shows how to create a batch inference job using the AWS SDK for Python \(Boto3\) or AWS SDK for Java 2\.x\. 
 
 Use the following syntax for input and output locations: **s3://<name of your S3 bucket>/<folder name>/<input JSON file name>** and **s3://<name of your S3 bucket>/<output folder name>/**\. 
 
@@ -339,4 +341,4 @@ public static String createPersonalizeBatchInferenceJob(PersonalizeClient person
 
 ------
 
-Processing the batch job might take a while to complete\. You can check a job's status by calling [DescribeBatchInferenceJob](API_DescribeBatchInferenceJob.md) and passing a `batchRecommendationsJobArn` as the input parameter\. You can also list all Amazon Personalize batch inference jobs in your AWS environment by calling [ListBatchInferenceJobs](API_ListBatchInferenceJobs.md)\.
+Processing the batch job might take a while to complete\. You can check a job's status by calling [ DescribeBatchInferenceJob ](API_DescribeBatchInferenceJob.md) and passing a `batchRecommendationsJobArn` as the input parameter\. You can also list all Amazon Personalize batch inference jobs in your AWS environment by calling [ ListBatchInferenceJobs ](API_ListBatchInferenceJobs.md)\.

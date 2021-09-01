@@ -1,61 +1,61 @@
 # DatasetImportJob<a name="API_DatasetImportJob"></a>
 
-Describes a job that imports training data from a data source \(Amazon S3 bucket\) to an Amazon Personalize dataset\. For more information, see [CreateDatasetImportJob](API_CreateDatasetImportJob.md)\.
+Describes a job that imports training data from a data source \(Amazon S3 bucket\) to an Amazon Personalize dataset\. For more information, see [ CreateDatasetImportJob ](API_CreateDatasetImportJob.md)\.
 
 A dataset import job can be in one of the following states:
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
 
 ## Contents<a name="API_DatasetImportJob_Contents"></a>
 
- **creationDateTime**   <a name="personalize-Type-DatasetImportJob-creationDateTime"></a>
+ ** creationDateTime **   <a name="personalize-Type-DatasetImportJob-creationDateTime"></a>
 The creation date and time \(in Unix time\) of the dataset import job\.  
 Type: Timestamp  
 Required: No
 
- **datasetArn**   <a name="personalize-Type-DatasetImportJob-datasetArn"></a>
+ ** datasetArn **   <a name="personalize-Type-DatasetImportJob-datasetArn"></a>
 The Amazon Resource Name \(ARN\) of the dataset that receives the imported data\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
- **datasetImportJobArn**   <a name="personalize-Type-DatasetImportJob-datasetImportJobArn"></a>
+ ** datasetImportJobArn **   <a name="personalize-Type-DatasetImportJob-datasetImportJobArn"></a>
 The ARN of the dataset import job\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
- **dataSource**   <a name="personalize-Type-DatasetImportJob-dataSource"></a>
+ ** dataSource **   <a name="personalize-Type-DatasetImportJob-dataSource"></a>
 The Amazon S3 bucket that contains the training data to import\.  
-Type: [DataSource](API_DataSource.md) object  
+Type: [ DataSource ](API_DataSource.md) object  
 Required: No
 
- **failureReason**   <a name="personalize-Type-DatasetImportJob-failureReason"></a>
+ ** failureReason **   <a name="personalize-Type-DatasetImportJob-failureReason"></a>
 If a dataset import job fails, provides the reason why\.  
 Type: String  
 Required: No
 
- **jobName**   <a name="personalize-Type-DatasetImportJob-jobName"></a>
+ ** jobName **   <a name="personalize-Type-DatasetImportJob-jobName"></a>
 The name of the import job\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: No
 
- **lastUpdatedDateTime**   <a name="personalize-Type-DatasetImportJob-lastUpdatedDateTime"></a>
+ ** lastUpdatedDateTime **   <a name="personalize-Type-DatasetImportJob-lastUpdatedDateTime"></a>
 The date and time \(in Unix time\) the dataset was last updated\.  
 Type: Timestamp  
 Required: No
 
- **roleArn**   <a name="personalize-Type-DatasetImportJob-roleArn"></a>
+ ** roleArn **   <a name="personalize-Type-DatasetImportJob-roleArn"></a>
 The ARN of the IAM role that has permissions to read from the Amazon S3 data source\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
- **status**   <a name="personalize-Type-DatasetImportJob-status"></a>
+ ** status **   <a name="personalize-Type-DatasetImportJob-status"></a>
 The status of the dataset import job\.  
 A dataset import job can be in one of the following states:  
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED

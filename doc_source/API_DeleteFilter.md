@@ -14,7 +14,7 @@ Deletes a filter\.
 
 The request accepts the following data in JSON format\.
 
- ** [filterArn](#API_DeleteFilter_RequestSyntax) **   <a name="personalize-DeleteFilter-request-filterArn"></a>
+ ** [ filterArn ](#API_DeleteFilter_RequestSyntax) **   <a name="personalize-DeleteFilter-request-filterArn"></a>
 The ARN of the filter to delete\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -27,15 +27,15 @@ If the action is successful, the service sends back an HTTP 200 response with an
 
 ## Errors<a name="API_DeleteFilter_Errors"></a>
 
- **InvalidInputException**   
+ ** InvalidInputException **   
 Provide a valid value for the field or parameter\.  
 HTTP Status Code: 400
 
- **ResourceInUseException**   
+ ** ResourceInUseException **   
 The specified resource is in use\.  
 HTTP Status Code: 400
 
- **ResourceNotFoundException**   
+ ** ResourceNotFoundException **   
 Could not find the specified resource\.  
 HTTP Status Code: 400
 
