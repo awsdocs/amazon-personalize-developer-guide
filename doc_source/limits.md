@@ -70,6 +70,9 @@ Your AWS account has the following quotas for Amazon Personalize\.
 | Maximum transaction rate \(GetRecommendations and GetPersonalizedRanking requests\)\. | 2500/sec | 
 | Maximum number of GetRecommendations requests per second per campaign\. | 500/sec | 
 | Maximum number of GetPersonalizedRanking requests per second per campaign\. | 500/sec | 
+| Recommenders | 
+| --- |
+| Maximum number of recommenders per account | 5 | 
 | Batch inference jobs | 
 | --- |
 | Maximum number of input files in a batch inference job\. | 1000 | 
@@ -82,7 +85,6 @@ Your AWS account has the following quotas per region for Amazon Personalize\.
 | Resource | Quota | 
 | --- | --- | 
 | Total number of active schemas\. | 500 | 
-| Total number of active datasets\. | 500 | 
 | Total number of active dataset groups\. | 500 | 
 | Total number of active event trackers\. | 500 | 
 | Total number of active solutions\. | 500 | 

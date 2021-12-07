@@ -2,7 +2,7 @@
 
 To deploy a retrained solution version with an existing campaign or to change your campaign's [Minimum provisioned TPS](campaigns.md#min-tps-auto-scaling) or campaign configuration, you must manually update the campaign\. 
 
- With the User\-Personalization recipe, Amazon Personalize automatically updates your latest solution version \(trained with `trainingMode` set to `FULL`\) every two hours to include new items in recommendations, and your campaign automatically uses the updated solution version\. Manually update a campaign only when you manually retrain the solution version with `trainingMode` set to `FULL`, or when you want to make changes to your campaign's `minProvisionedTPS` or campaign configuration\. For more information on automatic updates with the User\-Personalization recipe see [Automatic updates](native-recipe-new-item-USER_PERSONALIZATION.md#automatic-updates)\. 
+ With User\-Personalization, Amazon Personalize automatically updates your latest solution version \(trained with `trainingMode` set to `FULL`\) every two hours to include new items in recommendations, and your campaign automatically uses the updated solution version\. Manually update a campaign only when you manually retrain the solution version with `trainingMode` set to `FULL`, or when you want to make changes to your campaign's `minProvisionedTPS` or campaign configuration\. For more information on automatic updates with the User\-Personalization recipe see [Automatic updates](native-recipe-new-item-USER_PERSONALIZATION.md#automatic-updates)\. 
 
 You manually update a campaign with the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\), or AWS SDKs\.
 

@@ -19,7 +19,7 @@ We recommend creating an AWS Identity and Access Management \(IAM\) user with ac
 
 1.  Optionally attach the `CloudWatchFullAccess` AWS managed policy to your IAM user or group to grant permissions to monitor Amazon Personalize with CloudWatch\. See [AWS managed policies](security_iam_id-based-policy-examples.md#using-managed-policies)\. 
 
-1.  Create an IAM role for Amazon Personalize and attach the policy from step 1 to the new role\. See [Creating an IAM role for Amazon Personalize](#set-up-create-role-with-permissions)\. 
+1.  Create an IAM role for Amazon Personalize and attach the policy from step 1 to the new role\. See [Creating an IAM service role for Amazon Personalize](#set-up-create-role-with-permissions)\. 
 
 1. If you are using AWS Key Management Service \(AWS KMS\) for encryption, you must give your IAM user and Amazon Personalize IAM service\-linked role permission to use your key\. You must also add Amazon Personalize as a Principle in your AWS KMS key policy\. For more information see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\.
 
@@ -66,7 +66,7 @@ Create an IAM policy that provides users and Amazon Personalize full access to y
    }
    ```
 
-1. When you have finished, choose **Review policy**\. 
+1. Choose **Next: Tags**\. Optionally add any tags and choose **Review**\.
 
 1. On the **Review policy** page, for **Name**, enter a name for the policy\. Optionally, enter a description for **Description**\. 
 
@@ -78,38 +78,13 @@ Create an IAM policy that provides users and Amazon Personalize full access to y
 
 1. If you are using AWS KMS for encryption, give your user or group permission to use your key\. For more information see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\. 
 
-## Creating an IAM role for Amazon Personalize<a name="set-up-create-role-with-permissions"></a>
+## Creating an IAM service role for Amazon Personalize<a name="set-up-create-role-with-permissions"></a>
 
-In the following procedure, you create an IAM role that allows Amazon Personalize to access your resources and perform tasks on your behalf\.
+ To use Amazon Personalize, you must create an AWS Identity and Access Management service role for Amazon Personalize\. For information on how to create an IAM service role, see [Creating a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) in the *IAM User Guide*\. As you create your role, configure the following for Amazon Personalize: 
++ For **Choose the service that will use this role**, choose `Personalize`\.
++ For **Attach permissions policies**, either choose the policy you created in [Creating a new IAM policy](#set-up-required-permissions) or choose `AmazonPersonalizeFullAccess` \(see [AWS managed policies](security_iam_id-based-policy-examples.md#using-managed-policies)\)\.
++ If you are using AWS KMS for encryption, give your Amazon Personalize service\-linked role permission to use your key\. For more information see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\. 
 
-1. Sign in to the IAM console \([https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\)\.
+Next, if you are completing the getting started exercise, you are ready create your training data and grant Amazon Personalize access to your Amazon S3 bucket\. See [Creating the training data \(custom resources\)](gs-prerequisites.md#gs-upload-to-bucket)\. 
 
-1. In the navigation pane, choose **Roles**\.
-
-1. Choose **Create role**\.
-
-1. For **Select type of trusted entity**, choose **AWS service**\.
-
-1. For **Choose the service that will use this role**, choose **Amazon Personalize**\. 
-
-1. Choose **Next: Permissions**\.
-
-1. For **Attach permissions policies**, either choose the policy you created in [Creating a new IAM policy](#set-up-required-permissions) or choose `AmazonPersonalizeFullAccess` \(see [AWS managed policies](security_iam_id-based-policy-examples.md#using-managed-policies)\)\.
-
-   1. To display the policy in the list, type part of the policy name in the **Filter policies** query filter\.
-
-   1. Choose the check box next to the policy name\.
-
-1. Choose **Next: Tags**\. You don't need to add any tags, so choose **Next: Review**\.
-
-1. In the **Review** section, for **Role name**, enter a name for the role \(for example, `PersonalizeRole`\)\. Update the description for the role in **Role description**, then choose **Create role**\.
-
-1. Choose the new role to open the role's summary page\.
-
-1. Copy the **Role ARN** value and save it\. You need it to import a dataset into Amazon Personalize\.
-
-1. If you are using AWS KMS for encryption, give your Amazon Personalize service\-linked role permission to use your key\. For more information see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\. 
-
-   Next, if you are completing the getting started exercise, you are ready create your training data and grant Amazon Personalize access to your Amazon S3 bucket\. See [Creating the training data](gs-prerequisites.md#gs-upload-to-bucket)\. 
-
-   If you are not completing the getting started exercise, you are ready to import your data\. See [Preparing and importing data](data-prep.md)\. 
+If you are not completing the getting started exercise, you are ready to import your data\. See [Preparing and importing data](data-prep.md)\. 

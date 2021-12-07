@@ -5,7 +5,7 @@ This topic explains how to get started programming Amazon Personalize with the A
 ## Prerequisites<a name="gs-sdk-prerequisites"></a>
 
 The following are prerequisite steps for using the Python examples in this guide:
-+ Complete the [Getting started prerequisites](gs-prerequisites.md)\. You create the training data used in this tutorial when you complete the prerequisite steps\. If you are using your own source data, make sure your data is formatted like in the prerequisite step [Creating the training data](gs-prerequisites.md#gs-upload-to-bucket)\.
++ Complete the [Getting started prerequisites](gs-prerequisites.md)\. You create the training data used in this tutorial when you complete the prerequisite steps\. If you are using your own source data, make sure your data is formatted like in the prerequisite step [Creating the training data \(custom resources\)](gs-prerequisites.md#gs-upload-to-bucket)\.
 + Set up your AWS SDK for Python \(Boto3\) environment, as specified in [Setting up the AWS SDKs](aws-personalize-set-up-sdks.md)\.
 
 When you finish the getting started exercise, to avoid incurring unnecessary charges, follow the steps in [Cleaning up resources](gs-cleanup.md) to delete the resources you created\. 
@@ -29,7 +29,7 @@ for recipe in response['recipes']:
 
 After you verify that your Python environment is configured correctly, import your data\. To use a dataset for training, you need to do the following:
 
-1. Add a schema\. The schema allows Amazon Personalize to parse the training dataset\. For a code sample, see [Creating a schema using the AWS Python SDK](how-it-works-dataset-schema.md#python-schema-ex)\.
+1. Add a schema\. The schema allows Amazon Personalize to parse the training dataset\. For a code sample, see [Creating a schema with SDK for Python \(Boto3\)](python-schema-ex.md)\.
 
 1. Import the data\. You create a dataset group which contains one or several datasets that Amazon Personalize can use for training\. For a code sample, see [Importing bulk records \(AWS SDKs\)](bulk-data-import-step.md#python-import-ex)\.
 

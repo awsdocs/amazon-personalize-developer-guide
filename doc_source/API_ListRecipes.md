@@ -6,6 +6,7 @@ Returns a list of available recipes\. The response provides the properties for e
 
 ```
 {
+   "domain": "string",
    "maxResults": number,
    "nextToken": "string",
    "recipeProvider": "string"
@@ -16,6 +17,12 @@ Returns a list of available recipes\. The response provides the properties for e
 
 The request accepts the following data in JSON format\.
 
+ ** [ domain ](#API_ListRecipes_RequestSyntax) **   <a name="personalize-ListRecipes-request-domain"></a>
+ Filters returned recipes by domain for a Domain dataset group\. Only recipes \(Domain dataset group use cases\) for this domain are included in the response\. If you don't specify a domain, only non\-domain recipes are returned\.   
+Type: String  
+Valid Values:` ECOMMERCE | VIDEO_ON_DEMAND`   
+Required: No
+
  ** [ maxResults ](#API_ListRecipes_RequestSyntax) **   <a name="personalize-ListRecipes-request-maxResults"></a>
 The maximum number of recipes to return\.  
 Type: Integer  
@@ -25,7 +32,7 @@ Required: No
  ** [ nextToken ](#API_ListRecipes_RequestSyntax) **   <a name="personalize-ListRecipes-request-nextToken"></a>
 A token returned from the previous call to `ListRecipes` for getting the next set of recipes \(if they exist\)\.  
 Type: String  
-Length Constraints: Maximum length of 1300\.  
+Length Constraints: Maximum length of 1500\.  
 Required: No
 
  ** [ recipeProvider ](#API_ListRecipes_RequestSyntax) **   <a name="personalize-ListRecipes-request-recipeProvider"></a>
@@ -42,6 +49,7 @@ Required: No
    "recipes": [ 
       { 
          "creationDateTime": number,
+         "domain": "string",
          "lastUpdatedDateTime": number,
          "name": "string",
          "recipeArn": "string",
@@ -60,7 +68,7 @@ The following data is returned in JSON format by the service\.
  ** [ nextToken ](#API_ListRecipes_ResponseSyntax) **   <a name="personalize-ListRecipes-response-nextToken"></a>
 A token for getting the next set of recipes\.  
 Type: String  
-Length Constraints: Maximum length of 1300\.
+Length Constraints: Maximum length of 1500\.
 
  ** [ recipes ](#API_ListRecipes_ResponseSyntax) **   <a name="personalize-ListRecipes-response-recipes"></a>
 The list of available recipes\.  
@@ -68,6 +76,10 @@ Type: Array of [ RecipeSummary ](API_RecipeSummary.md) objects
 Array Members: Maximum number of 100 items\.
 
 ## Errors<a name="API_ListRecipes_Errors"></a>
+
+ ** InvalidInputException **   
+Provide a valid value for the field or parameter\.  
+HTTP Status Code: 400
 
  ** InvalidNextTokenException **   
 The token is not valid\.  

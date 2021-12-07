@@ -25,7 +25,7 @@ Required: No
  ** [ nextToken ](#API_ListBatchInferenceJobs_RequestSyntax) **   <a name="personalize-ListBatchInferenceJobs-request-nextToken"></a>
 The token to request the next page of results\.  
 Type: String  
-Length Constraints: Maximum length of 1300\.  
+Length Constraints: Maximum length of 1500\.  
 Required: No
 
  ** [ solutionVersionArn ](#API_ListBatchInferenceJobs_RequestSyntax) **   <a name="personalize-ListBatchInferenceJobs-request-solutionVersionArn"></a>
@@ -68,7 +68,7 @@ Array Members: Maximum number of 100 items\.
  ** [ nextToken ](#API_ListBatchInferenceJobs_ResponseSyntax) **   <a name="personalize-ListBatchInferenceJobs-response-nextToken"></a>
 The token to use to retrieve the next page of results\. The value is `null` when there are no more results to return\.  
 Type: String  
-Length Constraints: Maximum length of 1300\.
+Length Constraints: Maximum length of 1500\.
 
 ## Errors<a name="API_ListBatchInferenceJobs_Errors"></a>
 

@@ -1,6 +1,6 @@
 # Choosing the interactions data used for training<a name="event-values-types"></a>
 
-You can choose the events in an Interactions dataset that Amazon Personalize uses when creating a solution version \(training a model\)\. Choosing interactions data before training allows you to use only a relevant subset of your data for training or remove noise to train a more optimized model\. For more information about Interactions datasets, see [Datasets and schemas](how-it-works-dataset-schema.md) and [Interactions dataset](interactions-datasets.md)\.
+You can choose the events in an Interactions dataset that Amazon Personalize uses when creating a solution version \(training a model\)\. Choosing interactions data before training allows you to use only a relevant subset of your data for training or remove noise to train a more optimized model\. For more information about Interactions datasets, see [Datasets and schemas](how-it-works-dataset-schema.md) and [Interactions data](interactions-datasets.md)\.
 
 You can choose interactions data as follows:
 + **Choose records based on type** – When you configure a solution, if your Interactions dataset includes event types in an EVENT\_TYPE column, you can optionally specify an event type to use in training\. For example, if your Interactions dataset includes *purchase*, *click*, and *watch* event types, and you want Amazon Personalize to train the model with only *watch* events, when you configure your solution, you would provide *watch* as the `event type` that Amazon Personalize uses in training\. 

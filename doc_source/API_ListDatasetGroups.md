@@ -24,7 +24,7 @@ Required: No
  ** [ nextToken ](#API_ListDatasetGroups_RequestSyntax) **   <a name="personalize-ListDatasetGroups-request-nextToken"></a>
 A token returned from the previous call to `ListDatasetGroups` for getting the next set of dataset groups \(if they exist\)\.  
 Type: String  
-Length Constraints: Maximum length of 1300\.  
+Length Constraints: Maximum length of 1500\.  
 Required: No
 
 ## Response Syntax<a name="API_ListDatasetGroups_ResponseSyntax"></a>
@@ -35,6 +35,7 @@ Required: No
       { 
          "creationDateTime": number,
          "datasetGroupArn": "string",
+         "domain": "string",
          "failureReason": "string",
          "lastUpdatedDateTime": number,
          "name": "string",
@@ -59,7 +60,7 @@ Array Members: Maximum number of 100 items\.
  ** [ nextToken ](#API_ListDatasetGroups_ResponseSyntax) **   <a name="personalize-ListDatasetGroups-response-nextToken"></a>
 A token for getting the next set of dataset groups \(if they exist\)\.  
 Type: String  
-Length Constraints: Maximum length of 1300\.
+Length Constraints: Maximum length of 1500\.
 
 ## Errors<a name="API_ListDatasetGroups_Errors"></a>
 

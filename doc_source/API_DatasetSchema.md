@@ -9,6 +9,12 @@ The date and time \(in Unix time\) that the schema was created\.
 Type: Timestamp  
 Required: No
 
+ ** domain **   <a name="personalize-Type-DatasetSchema-domain"></a>
+The domain of a schema that you created for a dataset in a Domain dataset group\.  
+Type: String  
+Valid Values:` ECOMMERCE | VIDEO_ON_DEMAND`   
+Required: No
+
  ** lastUpdatedDateTime **   <a name="personalize-Type-DatasetSchema-lastUpdatedDateTime"></a>
 The date and time \(in Unix time\) that the schema was last updated\.  
 Type: Timestamp  

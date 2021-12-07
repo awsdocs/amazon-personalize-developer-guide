@@ -17,11 +17,12 @@ Choose a specific recipe based on what you want to accomplish and how familiar y
 Amazon Personalize provides three types of recipes\. Besides behavioral differences, each type has different requirements for getting recommendations, as shown in the following table\.
 
 
-| Recipe type | Recipes | API | Requirements | 
+| Recipe type | Recipes | API | API requirements | 
 | --- | --- | --- | --- | 
-| USER\_PERSONALIZATION |  [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) [Popularity\-Count](native-recipe-popularity.md)  [HRNN recipe \(legacy\)](native-recipe-hrnn.md) [HRNN\-Metadata recipe \(legacy\)](native-recipe-hrnn-metadata.md) [HRNN\-Coldstart recipe \(legacy\)](native-recipe-hrnn-coldstart.md)  | [ GetRecommendations ](API_RS_GetRecommendations.md) |  `userId`: Required `itemId`: Optional `inputList`: NA  | 
+| USER\_PERSONALIZATION |  [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) [Popularity\-Count](native-recipe-popularity.md)  [HRNN recipe \(legacy\)](native-recipe-hrnn.md) [HRNN\-Metadata recipe \(legacy\)](native-recipe-hrnn-metadata.md) [HRNN\-Coldstart recipe \(legacy\)](native-recipe-hrnn-coldstart.md)  | [ GetRecommendations ](API_RS_GetRecommendations.md) |  `userId`: Required `itemId`: Not used `inputList`: NA  | 
 | PERSONALIZED\_RANKING |  [Personalized\-Ranking](native-recipe-search.md)  | [ GetPersonalizedRanking ](API_RS_GetPersonalizedRanking.md) |  `userId`: Required `itemId`: NA `inputList`: list of itemId's  | 
-| RELATED\_ITEMS |  [SIMS](native-recipe-sims.md)  | [ GetRecommendations ](API_RS_GetRecommendations.md) |  `userId`: Not used `itemId`: Required `inputList`: NA  | 
+| RELATED\_ITEMS |  [Similar\-Items](native-recipe-similar-items.md) [SIMS](native-recipe-sims.md)  | [ GetRecommendations ](API_RS_GetRecommendations.md) |  `userId`: Not used `itemId`: Required `inputList`: NA  | 
+| USER\_SEGMENTATION |  [Item\-Affinity](item-affinity-recipe.md) [SIMS](native-recipe-sims.md)  | [ CreateBatchSegmentJob ](API_CreateBatchSegmentJob.md) |  For batch workflow requirements, see [Creating a batch segment job](creating-batch-seg-job.md)\.  | 
 
 ## Viewing available Amazon Personalize recipes<a name="listing-recipes"></a>
 

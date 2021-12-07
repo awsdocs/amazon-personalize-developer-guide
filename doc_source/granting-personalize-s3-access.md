@@ -4,7 +4,7 @@ To give Amazon Personalize access to your Amazon S3 bucket, do the following:
 
 1. If you haven't already, follow the steps in [Setting up permissions](aws-personalize-set-up-permissions.md) to set up permissions so your IAM users can access Amazon Personalize and Amazon Personalize can access your resources\.
 
-1.  Attach a policy to the Amazon Personalize service role \(see [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\) that allows access to your Amazon S3 bucket\. For more information, see [Attaching an Amazon S3 policy to the Amazon Personalize service role](#attaching-s3-policy-to-role)\. 
+1.  Attach a policy to the Amazon Personalize service role \(see [Creating an IAM service role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\) that allows access to your Amazon S3 bucket\. For more information, see [Attaching an Amazon S3 policy to your Amazon Personalize service role](#attaching-s3-policy-to-role)\. 
 
 1.  Attach a bucket policy to the Amazon S3 bucket containing your data files so Amazon Personalize can access them\. For more information, see [Attaching an Amazon Personalize access policy to your Amazon S3 bucket](#attach-bucket-policy)\. 
 
@@ -14,10 +14,10 @@ To give Amazon Personalize access to your Amazon S3 bucket, do the following:
 Because Amazon Personalize doesn’t communicate with AWS VPCs, Amazon Personalize can't interact with Amazon S3 buckets that allow only VPC access\.
 
 **Topics**
-+ [Attaching an Amazon S3 policy to the Amazon Personalize service role](#attaching-s3-policy-to-role)
++ [Attaching an Amazon S3 policy to your Amazon Personalize service role](#attaching-s3-policy-to-role)
 + [Attaching an Amazon Personalize access policy to your Amazon S3 bucket](#attach-bucket-policy)
 
-## Attaching an Amazon S3 policy to the Amazon Personalize service role<a name="attaching-s3-policy-to-role"></a>
+## Attaching an Amazon S3 policy to your Amazon Personalize service role<a name="attaching-s3-policy-to-role"></a>
 
 To attach an Amazon S3 policy to your Amazon Personalize role do the following:
 
@@ -48,15 +48,15 @@ To attach an Amazon S3 policy to your Amazon Personalize role do the following:
    }
    ```
 
-1. Choose **Review policy**\.
+1. Choose **Next: Tags**\. Optionally add any tags and choose **Review**\.
 
-1. For **Name**, enter `PersonalizeS3BucketAccessPolicy`\.
+1. Give the policy a name\.
 
-1. \(Optional\) For **Description**, enter a short sentence describing this policy, for example, **Allow Amazon Personalize to access its S3 bucket\.**
+1. \(Optional\) For **Description**, enter a short sentence describing this policy, for example, **Allow Amazon Personalize to access its Amazon S3 bucket\.**
 
 1. Choose **Create policy**\.
 
-1. In the navigation pane, choose **Roles**, and choose the role you created for Amazon Personalize\. See [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
+1. In the navigation pane, choose **Roles**, and choose the role you created for Amazon Personalize\. See [Creating an IAM service role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
 
 1. For **Permissions**, choose **Attach policies**\.
 
@@ -70,7 +70,7 @@ To attach an Amazon S3 policy to your Amazon Personalize role do the following:
 
 ### Service\-linked role policy for batch workflows<a name="role-policy-for-batch-workflows"></a>
 
-To complete a batch worklfow, Amazon Personalize needs permission to access and add files to your Amazon S3 bucket\. Follow the steps above to attach the following policy to your Amazon Personalize role\. Replace `bucket-name` with the name of your bucket\. For more information on batch workflows, see [Getting batch recommendations](recommendations-batch.md)\.
+To complete a batch worklfow, Amazon Personalize needs permission to access and add files to your Amazon S3 bucket\. Follow the steps above to attach the following policy to your Amazon Personalize role\. Replace `bucket-name` with the name of your bucket\. For more information on batch workflows, see [Getting batch recommendations and user segments](recommendations-batch.md)\.
 
 ```
 {
@@ -96,7 +96,7 @@ To complete a batch worklfow, Amazon Personalize needs permission to access and 
 
 ### Service\-linked role policy for exporting a dataset<a name="role-policy-for-export"></a>
 
-To export a dataset, your Amazon Personalize service\-linked role needs permission to use the `PutObject` and `ListBucket` Actions on your Amazon S3 bucket\. The following example policy grants Amazon Personalize `PutObject` and `ListBucket` permissions\. Replace `bucket-name` with the name of your bucket and attach the policy to your service\-linked role\. For information about attaching policies to a service\-linked IAM role see [Attaching an Amazon S3 policy to the Amazon Personalize service role](#attaching-s3-policy-to-role)\. 
+To export a dataset, your Amazon Personalize service\-linked role needs permission to use the `PutObject` and `ListBucket` Actions on your Amazon S3 bucket\. The following example policy grants Amazon Personalize `PutObject` and `ListBucket` permissions\. Replace `bucket-name` with the name of your bucket and attach the policy to your service\-linked role\. For information about attaching policies to a service\-linked IAM role see [Attaching an Amazon S3 policy to your Amazon Personalize service role](#attaching-s3-policy-to-role)\. 
 
 ```
 {
@@ -153,7 +153,7 @@ For more information on Amazon S3 bucket policies, see [How Do I Add an S3 Bucke
 
 For batch workflows, Amazon Personalize needs permission to access and add files to your Amazon S3 bucket\. Attach the following policy to your bucket\. Replace `bucket-name` with the name of your bucket\.
 
-For more information on adding an Amazon S3 bucket policy to a bucket, see [How Do I Add an S3 Bucket Policy?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/add-bucket-policy.html)\. For more information on batch workflows, see [Getting batch recommendations](recommendations-batch.md)\.
+For more information on adding an Amazon S3 bucket policy to a bucket, see [How Do I Add an S3 Bucket Policy?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/add-bucket-policy.html)\. For more information on batch workflows, see [Getting batch recommendations and user segments](recommendations-batch.md)\.
 
 ```
 {
@@ -182,7 +182,7 @@ For more information on adding an Amazon S3 bucket policy to a bucket, see [How 
 
 ### Amazon S3 bucket policy for exporting a dataset<a name="bucket-policy-for-export"></a>
 
-To export a dataset, Amazon Personalize needs permission to use the `PutObject` and `ListBucket` Actions on your Amazon S3 bucket\. The following example policy grants the Amazon Personalize principle `PutObject` and `ListBucket` permissions\. Replace `bucket-name` with the name of your bucket and attach the policy to your bucket\. For information on adding an Amazon S3 bucket policy to a bucket, see [How Do I Add an S3 Bucket Policy?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/add-bucket-policy.html) in the Amazon Simple Storage Service Console User Guide\. 
+To export a dataset, Amazon Personalize needs permission to use the `PutObject` and `ListBucket` Actions on your Amazon S3 bucket\. The following example policy grants the Amazon Personalize principle `PutObject` and `ListBucket` permissions\. Replace `bucket-name` with the name of your bucket and attach the policy to your bucket\. For information on adding an Amazon S3 bucket policy to a bucket, see [How Do I Add an S3 Bucket Policy?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/add-bucket-policy.html) in the Amazon Simple Storage Service User Guide\. 
 
 ```
 {

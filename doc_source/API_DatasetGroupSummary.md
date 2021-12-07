@@ -16,6 +16,12 @@ Length Constraints: Maximum length of 256\.
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
+ ** domain **   <a name="personalize-Type-DatasetGroupSummary-domain"></a>
+The domain of a Domain dataset group\.  
+Type: String  
+Valid Values:` ECOMMERCE | VIDEO_ON_DEMAND`   
+Required: No
+
  ** failureReason **   <a name="personalize-Type-DatasetGroupSummary-failureReason"></a>
 If creating a dataset group fails, the reason behind the failure\.  
 Type: String  

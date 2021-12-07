@@ -27,6 +27,7 @@ Required: Yes
 {
    "schema": { 
       "creationDateTime": number,
+      "domain": "string",
       "lastUpdatedDateTime": number,
       "name": "string",
       "schema": "string",

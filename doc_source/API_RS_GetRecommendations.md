@@ -1,11 +1,13 @@
 # GetRecommendations<a name="API_RS_GetRecommendations"></a>
 
-Returns a list of recommended items\. The required input depends on the recipe type used to create the solution backing the campaign, as follows:
+Returns a list of recommended items\. For campaigns, the campaign's Amazon Resource Name \(ARN\) is required and the required user and item input depends on the recipe type used to create the solution backing the campaign as follows:
++ USER\_PERSONALIZATION \- `userId` required, `itemId` not used
 + RELATED\_ITEMS \- `itemId` required, `userId` not used
-+ USER\_PERSONALIZATION \- `itemId` optional, `userId` required
 
 **Note**  
 Campaigns that are backed by a solution created using a recipe of type PERSONALIZED\_RANKING use the [ GetPersonalizedRanking ](API_RS_GetPersonalizedRanking.md) API\.
+
+ For recommenders, the recommender's ARN is required and the required item and user input depends on the use case \(domain\-based recipe\) backing the recommender\. For information on use case requirements see [Choosing recommender use cases](https://docs.aws.amazon.com/personalize/latest/dg/domain-use-cases.html)\. 
 
 ## Request Syntax<a name="API_RS_GetRecommendations_RequestSyntax"></a>
 
@@ -24,6 +26,7 @@ Content-type: application/json
    },
    "itemId": "string",
    "numResults": number,
+   "recommenderArn": "string",
    "userId": "string"
 }
 ```
@@ -41,7 +44,7 @@ The Amazon Resource Name \(ARN\) of the campaign to use for getting recommendati
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
-Required: Yes
+Required: No
 
  ** [ context ](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-context"></a>
 The contextual metadata to use when getting recommendations\. Contextual metadata includes any interaction information that might be relevant when getting a user's recommendations, such as the user's current location or device type\.  
@@ -82,6 +85,13 @@ Required: No
 The number of results to return\. The default is 25\. The maximum is 500\.  
 Type: Integer  
 Valid Range: Minimum value of 0\.  
+Required: No
+
+ ** [ recommenderArn ](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-recommenderArn"></a>
+The Amazon Resource Name \(ARN\) of the recommender to use to get recommendations\. Provide a recommender ARN if you created a Domain dataset group with a recommender for a domain use case\.  
+Type: String  
+Length Constraints: Maximum length of 256\.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
  ** [ userId ](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-userId"></a>

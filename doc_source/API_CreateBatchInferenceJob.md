@@ -1,6 +1,6 @@
 # CreateBatchInferenceJob<a name="API_CreateBatchInferenceJob"></a>
 
-Creates a batch inference job\. The operation can handle up to 50 million records and the input file must be in JSON format\. For more information, see [Getting batch recommendations](recommendations-batch.md)\.
+Creates a batch inference job\. The operation can handle up to 50 million records and the input file must be in JSON format\. For more information, see [Getting batch recommendations and user segments](recommendations-batch.md)\.
 
 ## Request Syntax<a name="API_CreateBatchInferenceJob_RequestSyntax"></a>
 

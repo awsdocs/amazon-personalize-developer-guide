@@ -1,6 +1,6 @@
 # Step 2: Creating a dataset and a schema<a name="data-prep-creating-datasets"></a>
 
-After you have completed [Step 1: Creating a dataset group](data-prep-ds-group.md), you are ready to create a dataset\. *Datasets* are Amazon Personalize containers for data\. When you create a dataset, you also create a schema for the dataset\. A *schema* tells Amazon Personalize about the structure of your data and allows Amazon Personalize to parse the data\.
+After you have completed [Step 1: Creating a Custom dataset group](data-prep-ds-group.md), you are ready to create a dataset\. *Datasets* are Amazon Personalize containers for data\. When you create a dataset, you also create a schema for the dataset\. A *schema* tells Amazon Personalize about the structure of your data and allows Amazon Personalize to parse the data\.
 
 You create datasets with the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\), or AWS SDKs\. For information about the different types of datasets, and dataset and schema requirements, see [Datasets and schemas](how-it-works-dataset-schema.md)\.
 
@@ -16,13 +16,13 @@ You create datasets with the Amazon Personalize console, AWS Command Line Interf
 For information on Amazon Personalize datasets and schema requirements, see [Datasets and schemas](how-it-works-dataset-schema.md)\. 
 
 **Note**  
- If you just completed [Step 1: Creating a dataset group](data-prep-ds-group.md) and you are already on the **user\-item interaction** page, skip to step 4 in this procedure\. 
+ If you just completed [Step 1: Creating a Custom dataset group](data-prep-ds-group.md) and you are already on the **user\-item interaction** page, skip to step 4 in this procedure\. 
 
 **To create a dataset and a schema**
 
 1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign in to your account\.
 
-1.  On the **Dataset groups** page, choose the dataset group you created in [Step 1: Creating a dataset group](data-prep-ds-group.md)\. This displays the dataset group **Dashboard**\. 
+1.  On the **Dataset groups** page, choose the dataset group you created in [Step 1: Creating a Custom dataset group](data-prep-ds-group.md)\. This displays the dataset group **Dashboard**\. 
 
 1. In the **Upload datasets** section, for the type of dataset that you want to import \(Amazon Personalize datasets include Interactions, Users, or Items\), choose **Import**\. The **Configure < dataset type >** page is displayed\. 
 

@@ -121,7 +121,7 @@ The `describe-object` and `list-objects` commands are available for most Amazon 
 
 1. Add the training data to the dataset\.
 
-   1. Create a dataset import job by running the following command\. Provide the dataset ARN and Amazon S3 bucket name that were returned in the previous steps\. Supply the AWS Identity and Access Management \(IAM\) role ARN you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. For more information about the API, see [ CreateDatasetImportJob ](API_CreateDatasetImportJob.md)\.
+   1. Create a dataset import job by running the following command\. Provide the dataset ARN and Amazon S3 bucket name that were returned in the previous steps\. Supply the AWS Identity and Access Management \(IAM\) role ARN you created in [Creating an IAM service role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. For more information about the API, see [ CreateDatasetImportJob ](API_CreateDatasetImportJob.md)\.
 
       ```
       aws personalize create-dataset-import-job \

@@ -1,6 +1,6 @@
 # Creating a campaign<a name="campaigns"></a>
 
-After you complete [Preparing and importing data](data-prep.md) and [Creating a solution](training-deploying-solutions.md), you are ready to deploy your solution version to generate real\-time recommendations\. You deploy a solution version by creating an Amazon Personalize campaign\.
+For real\-time recommendations, after you complete [Preparing and importing data](data-prep.md) and [Creating a solution](training-deploying-solutions.md), you are ready to deploy your solution version to generate recommendations\. You deploy a solution version by creating an Amazon Personalize campaign\. If you are getting batch recommendations, you don't need to create a campaign\. For more information see [Getting batch recommendations and user segments](recommendations-batch.md)\.
 
  A campaign is a deployed solution version \(trained model\) with provisioned dedicated transaction capacity for creating real\-time recommendations for your application users\. After you create a campaign, you use the [ GetRecommendations ](API_RS_GetRecommendations.md) or [ GetPersonalizedRanking ](API_RS_GetPersonalizedRanking.md) API operations to get recommendations\. 
 
@@ -48,7 +48,7 @@ After your solution version status is Active you are ready to deploy it with an 
 
 1. Choose **Create campaign**\.
 
-1. On the campaign details page, when the campaign status is **Active**, you can use the campaign to get recommendations and record impressions\. For more information, see [Getting recommendations](getting-recommendations.md)\. 
+1. On the campaign details page, when the campaign status is **Active**, you can use the campaign to get recommendations and record impressions\. For more information, see [Getting recommendations \(Custom dataset group\)](getting-recommendations.md)\. 
 
    The campaign is ready when its status is ACTIVE\. If you retrain your solution version or want to change your campaign settings, you must update your campaign\. For more information see [Updating a campaign](update-campaigns.md)\. 
 
@@ -72,7 +72,7 @@ The campaign is ready when its status is ACTIVE\. To get the current status, cal
 
 Amazon Personalize provides operations for managing campaigns such as [ ListCampaigns ](API_ListCampaigns.md) to list the campaigns you have created\. You can delete a campaign by calling [ DeleteCampaign ](API_DeleteCampaign.md)\. If you delete a campaign, the solution versions that are part of the campaign are not deleted\.
 
-After you have created your campaign, use it to make recommendations\. For more information, see [Getting recommendations](getting-recommendations.md)\.
+After you have created your campaign, use it to make recommendations\. For more information, see [Getting recommendations \(Custom dataset group\)](getting-recommendations.md)\.
 
 ## Creating a campaign \(AWS SDKs\)<a name="create-campaign-sdk"></a>
 
@@ -169,4 +169,4 @@ The campaign is ready when its status is ACTIVE\. To get the current status, cal
 
 Amazon Personalize provides operations for managing campaigns such as [ ListCampaigns ](API_ListCampaigns.md) to list the campaigns you have created\. You can delete a campaign by calling [ DeleteCampaign ](API_DeleteCampaign.md)\. If you delete a campaign, the solution versions that are part of the campaign are not deleted\.
 
-After you have created your campaign, use it to make recommendations\. For more information, see [Getting recommendations](getting-recommendations.md)\.
+After you have created your campaign, use it to make recommendations\. For more information, see [Getting recommendations \(Custom dataset group\)](getting-recommendations.md)\.

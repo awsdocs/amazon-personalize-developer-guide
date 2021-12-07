@@ -11,8 +11,8 @@ To avoid incurring unnecessary charges, when you finish the getting started exer
 ## Prerequisites<a name="gs-java-prerequisites"></a>
 
 The following are prerequisite steps for completing this tutorial:
-+ Complete the [Getting started prerequisites](gs-prerequisites.md)\. You create the training data for this tutorial when you complete the prerequisite steps\. You can use the same source data used in the [Getting started \(console\)](getting-started-console.md) or [Getting started \(AWS CLI\)](getting-started-cli.md) exercises\. If you are using your own source data, make sure that your data is formatted like in the prerequisite step [Creating the training data](gs-prerequisites.md#gs-upload-to-bucket)\.
-+ Set up your SDK for Java 2\.x environment and AWS credentials as specified in the [Setting up the AWS SDK for Java 2\.x](https://docs.aws.amazon.com/https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/setup.html) procedure in the *AWS SDK for Java 2\.x Developer Guide*\. 
++ Complete the [Getting started prerequisites](gs-prerequisites.md)\. You create the training data for this tutorial when you complete the prerequisite steps\. You can use the same source data used in the [Getting started \(console\)](getting-started-console.md) or [Getting started \(AWS CLI\)](getting-started-cli.md) exercises\. If you are using your own source data, make sure that your data is formatted like in the prerequisite step [Creating the training data \(custom resources\)](gs-prerequisites.md#gs-upload-to-bucket)\.
++ Set up your SDK for Java 2\.x environment and AWS credentials as specified in the [Setting up the AWS SDK for Java 2\.x](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/setup.html) procedure in the *AWS SDK for Java 2\.x Developer Guide*\. 
 
 ## Step 1: Set up your project to use Amazon Personalize packages<a name="gs-java-example"></a>
 

@@ -9,6 +9,12 @@ The date and time \(in Unix time\) that the recipe was created\.
 Type: Timestamp  
 Required: No
 
+ ** domain **   <a name="personalize-Type-RecipeSummary-domain"></a>
+The domain of the recipe \(if the recipe is a Domain dataset group use case\)\.  
+Type: String  
+Valid Values:` ECOMMERCE | VIDEO_ON_DEMAND`   
+Required: No
+
  ** lastUpdatedDateTime **   <a name="personalize-Type-RecipeSummary-lastUpdatedDateTime"></a>
 The date and time \(in Unix time\) that the recipe was last updated\.  
 Type: Timestamp  

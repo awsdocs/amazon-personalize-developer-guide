@@ -25,7 +25,7 @@ Required: No
  ** [ nextToken ](#API_ListCampaigns_RequestSyntax) **   <a name="personalize-ListCampaigns-request-nextToken"></a>
 A token returned from the previous call to `ListCampaigns` for getting the next set of campaigns \(if they exist\)\.  
 Type: String  
-Length Constraints: Maximum length of 1300\.  
+Length Constraints: Maximum length of 1500\.  
 Required: No
 
  ** [ solutionArn ](#API_ListCampaigns_RequestSyntax) **   <a name="personalize-ListCampaigns-request-solutionArn"></a>
@@ -67,7 +67,7 @@ Array Members: Maximum number of 100 items\.
  ** [ nextToken ](#API_ListCampaigns_ResponseSyntax) **   <a name="personalize-ListCampaigns-response-nextToken"></a>
 A token for getting the next set of campaigns \(if they exist\)\.  
 Type: String  
-Length Constraints: Maximum length of 1300\.
+Length Constraints: Maximum length of 1500\.
 
 ## Errors<a name="API_ListCampaigns_Errors"></a>
 

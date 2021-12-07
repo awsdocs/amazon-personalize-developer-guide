@@ -1,35 +1,16 @@
-# Interactions dataset<a name="interactions-datasets"></a>
-
- An *Interactions dataset* stores historical and real\-time data from interactions between users and items\. To create a recommendation system using Amazon Personalize, you must at minimum create an Interactions dataset\. 
+# Interactions data<a name="interactions-datasets"></a>
 
  In Amazon Personalize, an *interaction* is an *event* that you record and then import as training data\. You can record multiple event types, such as *click*, *watch* or *like*\. For example, if a user *clicks* a particular item and then *likes* the item, and you want Amazon Personalize to use these events as training data, for each event you would record the user's ID, the item's ID, the timestamp \(in Unix time epoch format\), and the event type \(*click* and *like*\)\. You would then add both interaction events to an Interactions dataset\. Once you have recorded enough events, you can train a model and use Amazon Personalize to generate recommendations for users\. For minimum requirements see [Service quotas](limits.md#limits-table)\. 
 
- When you create an Interactions dataset, you must also create a schema for the dataset\. A *schema* tells Amazon Personalize about the structure of your data and allows Amazon Personalize to parse the data\.  For an example of a schema for an Interactions dataset see [Interactions schema example](#schema-examples-interactions)\. For information on schema requirements see [Dataset and schema requirements](how-it-works-dataset-schema.md#dataset-requirements)\. 
-
- This section provides information about the kinds of interactions data, including impressions data and contextual metadata, you can upload for training\. It also includes an [Interactions schema example](#schema-examples-interactions)\. For information about importing historical interactions data, see [Preparing and importing data](data-prep.md)\. For information about recording events in real\-time using the [ PutEvents ](API_UBS_PutEvents.md) API, see [Recording events](recording-events.md)\. 
-
- Once you create an Interactions dataset and import interaction data, you can then filter recommendations to include or exclude items that a user has interacted with\. For more information see [Filtering recommendations](filter.md)\. 
+ Amazon Personalize stores interactions data in an *Interactions dataset*\. To create a recommender or a custom solution, you must at minimum create an Interactions dataset\. This section provides information about the following types of interactions data you can import into Amazon Personalize\. 
 
 **Topics**
-+ [Required interaction data](#interactions-dataset-requirements)
 + [Contextual metadata](#interactions-contextual-metadata)
 + [Impressions data](#interactions-impressions-data)
-+ [Interactions schema example](#schema-examples-interactions)
-
-## Required interaction data<a name="interactions-dataset-requirements"></a>
-
- The training data you provide for each interaction must match your schema\. Depending on your schema, interaction metadata can include empty/null values\. At minimum, you must provide the following for each interaction: 
-+ User ID
-+ Item ID
-+ Timestamp \(in Unix epoch time format\)
-
-The maximum total number of optional metadata fields you can add to an Interactions dataset, combined with total number of *distinct* event types in your data, is 10\. The metadata fields included in this count are EVENT\_TYPE, EVENT\_VALUE fields along with any custom metadata fields you add to your schema\. The maximum number of metadata fields excluding reserved fields, such as IMPRESSION, is 5\. Categorical values can have at most 1000 characters\. Any interaction with a categorical value with more than 1,000 characters is dropped during a dataset import job and is not used in training\. 
-
-For more information on minimum requirements and maximum data limits for an Interactions dataset, see [Service quotas](limits.md#limits-table)\.
 
 ## Contextual metadata<a name="interactions-contextual-metadata"></a>
 
-If you use the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) or the [Personalized\-Ranking](native-recipe-search.md) recipes, Interactions datasets can store contextual information for use in training\. Contextual metadata is interactions data you collect on the user's environment at the time of an event\. Including contextual metadata allows you to provide a more personalized experience for existing users\. For example, if customers shop differently when accessing your catalog from a phone compared to a computer, include contextual metadata about the user's device\. Recommendations will then be more relevant based on how they are browsing\. 
+If you use the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) or the [Personalized\-Ranking](native-recipe-search.md) recipes, you can import contextual information for use in training\. Domain dataset group VIDEO\_ON\_DEMAND and ECOMMERCE domains don't use contextual metadata\. Contextual metadata is interactions data you collect on the user's environment at the time of an event\. Including contextual metadata allows you to provide a more personalized experience for existing users\. For example, if customers shop differently when accessing your catalog from a phone compared to a computer, include contextual metadata about the user's device\. Recommendations will then be more relevant based on how they are browsing\. 
 
  Additionally, contextual metadata helps decrease the cold\-start phase for new or unidentified users\. The cold\-start phase refers to the period when your recommendation engine provides less relevant recommendations due to the lack of historical information regarding that user\. 
 
@@ -37,7 +18,7 @@ If you use the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATI
 
 ## Impressions data<a name="interactions-impressions-data"></a>
 
- If you use the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) recipe, Amazon Personalize can model impressions data that you upload to an Interactions dataset\. Impressions are lists of items that were visible to a user when they interacted with \(for example, clicked or watched\) a particular item\. Amazon Personalize uses impressions data to determine what items to include in exploration\. *Exploration* is where recommendations include new items with less interactions data or relevance\. The more frequently an item occurs in impressions data, the less likely it is that Amazon Personalize includes the item in exploration\. 
+ If you create a Domain dataset group for the VIDEO\_ON\_DEMAND or ECOMMERCE domain, or use the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) recipe, Amazon Personalize can model impressions data that you upload to an Interactions dataset\. Impressions are lists of items that were visible to a user when they interacted with \(for example, clicked or watched\) a particular item\. Amazon Personalize uses impressions data to determine what items to include in exploration\. *Exploration* is where recommendations include new items with less interactions data or relevance\. The more frequently an item occurs in impressions data, the less likely it is that Amazon Personalize includes the item in exploration\. 
 
 For information about the benefits of exploration see [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md)\. Amazon Personalize can model two types of impressions: [Implicit impressions](#implicit-impressions-info) and [Explicit impressions](#explicit-impressions-info)\. 
 
@@ -76,72 +57,3 @@ For information about the benefits of exploration see [User\-Personalization](na
    For importing impressions in historical interactions data, you can list explicit impressions in your csv file and separate each item with a '\|' character\. See [Formatting explicit impressions](data-prep-formatting.md#data-prep-including-explicit-impressions)\.
 
 1. Amazon Personalize uses the impression data to guide exploration, where future recommendations include new shoes with less interactions data or relevance\. 
-
-## Interactions schema example<a name="schema-examples-interactions"></a>
-
-The following example shows a schema for an Interactions dataset\. The `USER_ID`, `ITEM_ID`, and `TIMESTAMP` fields are required\. The `EVENT_TYPE`, `EVENT_VALUE`, and `IMPRESSION` fields are optional reserved keywords recognized by Amazon Personalize\. `LOCATION` and `DEVICE` are optional contextual metadata fields\. For information on schema requirements see [Dataset and schema requirements](how-it-works-dataset-schema.md#dataset-requirements)\. 
-
-```
-{
-
-  "type": "record",
-  "name": "Interactions",
-  "namespace": "com.amazonaws.personalize.schema",
-  "fields": [
-      {
-          "name": "USER_ID",
-          "type": "string"
-      },
-      {
-          "name": "ITEM_ID",
-          "type": "string"
-      },
-      {
-          "name": "EVENT_TYPE",
-          "type": "string"
-      },
-      {
-          "name": "EVENT_VALUE",
-          "type": [
-             "float",
-             "null"
-          ]
-      },
-      {
-          "name": "LOCATION",
-          "type": "string",
-          "categorical": true
-      },
-      {
-          "name": "DEVICE",
-          "type": [
-              "string",
-              "null"
-          ],
-          "categorical": true
-      },
-      {
-          "name": "TIMESTAMP",
-          "type": "long"
-      },
-      {
-          "name": "IMPRESSION",
-          "type": "string"
-      }
-  ],
-  "version": "1.0"
-}
-```
-
-For this schema, the first few lines of historical data in a CSV file might look like the following\. Note that some values for EVENT\_VALUE are null\.
-
-```
-USER_ID,ITEM_ID,EVENT_TYPE,EVENT_VALUE,LOCATION,DEVICE,TIMESTAMP,IMPRESSION
-35,73,click,,Ohio,Tablet,1586731606,73|70|17|95|96|92|55|45|16|97|56|54|33|94|36|10|5|43|19|13|51|90|65|59|38
-54,35,watch,0.75,Indiana,Cellphone,1586735164,35|82|78|57|20|63|1|90|76|75|49|71|26|24|25|6|37|85|40|98|32|13|11|54|48
-9,33,click,,Oregon,Cellphone,1586735158,68|33|62|6|15|57|45|24|78|89|90|40|26|91|66|31|47|17|99|29|27|41|77|75|14
-23,10,watch,0.25,California,Tablet,1586735697,92|89|36|10|39|77|4|27|79|18|83|16|28|68|78|40|50|3|99|7|87|49|12|57|53
-27,11,watch,0.55,Indiana,Tablet,1586735763,11|7|39|95|71|1|6|40|41|28|99|53|68|76|0|65|69|36|22|42|34|67|24|20|66
-...
-...
-```

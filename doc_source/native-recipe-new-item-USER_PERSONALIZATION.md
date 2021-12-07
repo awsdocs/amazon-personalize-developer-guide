@@ -17,7 +17,9 @@ You can balance how much to explore \(where items with less interactions data or
 
 ## Automatic updates<a name="automatic-updates"></a>
 
- With User\-Personalization, Amazon Personalize automatically updates the latest model \(solution version\) every two hours behind the scenes to include new data without creating a new solution version\. With each update, Amazon Personalize updates the solution version with the latest item information and adjusts the exploration according to implicit feedback from users\. This allows Amazon Personalize to gauge item quality based on new interactions for already explored items and continually update item exploration\. 
+ With User\-Personalization, Amazon Personalize automatically updates the latest model \(solution version\) every two hours behind the scenes to include new data without creating a new solution version\. With each update, Amazon Personalize updates the solution version with the latest item information and adjusts the exploration according to implicit feedback from users\. This allows Amazon Personalize to gauge item quality based on new interactions for already explored items and continually update item exploration\. This is not a full retraining; you should still train a new solution version weekly with `trainingMode` set to `FULL` so the model can learn from your users' behavior\. 
+
+If every two hours is not frequent enough, you can manually create a solution version with `trainingMode` set to `UPDATE` to include those new items in recommendations\. Just remember that Amazon Personalize automatically updates only your latest fully trained solution version, so the manually updated solution version won't be automatically updated in the future\.
 
 **Note**  
 There is no cost for automatic updates\.
@@ -73,7 +75,7 @@ To use the User\-Personalization recipe to generate recommendations in the conso
 
 1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign into your account\.
 
-1. Create a dataset group with a new schema and upload your dataset with impressions data\. Optionally include [CREATION\_TIMESTAMP]() and [Unstructured text metadata](items-datasets.md#text-data) data in your Items dataset so Amazon Personalize can more accurately calculate the age of an item and identify cold items\.
+1. Create a Custom dataset group with a new schema and upload your dataset with impressions data\. Optionally include [CREATION\_TIMESTAMP]() and [Unstructured text metadata](items-datasets.md#text-data) data in your Items dataset so Amazon Personalize can more accurately calculate the age of an item and identify cold items\.
 
    For more information on importing data, see [Preparing and importing data](data-prep.md)\.
 
@@ -83,21 +85,19 @@ To use the User\-Personalization recipe to generate recommendations in the conso
 
 1. On the **Create solution** page, for the **Solution name**, enter the name of your new solution\.
 
+1. For **Solution type**, choose **Item recommendation** to get item recommendations for your users\. 
+
 1. For **Recipe**, choose **aws\-user\-personalization**\. The **Solution configuration** section appears providing several configuration options\. 
 
-1. In **Solution configuration**, if your data has EVENT\_TYPE or EVENT\_VALUE\_THRESHOLD columns, use the following fields to choose the interactions data that Amazon Personalize uses when training the model\. 
-   +  **Event type:** If your data has multiple event types in an EVENT\_TYPE column and you want to train with just a single type of event, optionally enter an event type, such as *click*\. Amazon Personalize will use only events with this type when training a model\. You can enter only one type\. If you don't provide an event type, Amazon Personalize trains the model with all interactions data regardless of type\. 
-   +  **Event value threshold:** If your Interactions dataset has an EVENT\_VALUE\_THRESHOLD column and you want to train events based on value, optionally enter a value\. Amazon Personalize will use only events with a value greater than or equal to this value to train the model\. If you don't provide a value, Amazon Personalize trains the model with all interactions data regardless of value\. 
+1. In **Solution configuration**, if your Interactions dataset has EVENT\_TYPE or both EVENT\_TYPE and EVENT\_VALUE columns, optionally use the **Event type** and **Event value threshold** fields to choose the interactions data that Amazon Personalize uses when training the model\. 
 
     For more information see [Choosing the interactions data used for training](event-values-types.md)\. 
 
 1. Optionally configure hyperparameters for your solution\. For a list of User\-Personalization recipe properties and hyperparameters, see [Properties and hyperparameters](#bandit-hyperparameters)\. 
 
-1. Choose **Next**\. You can review your settings on the **Create solution version** page\.
+1. Choose **Create and train solution** to start training\. The **Dashboard** page displays\.
 
-1. Choose **Finish** to create the solution version\.
-
-   On the solution details page, you can track training progress in the **Solution versions** section\. When training is complete, the status is **Active**\.
+   You can navigate to the solution details page to track training progress in the **Solution versions** section\. When training is complete, the status is **Active**\.
 
 **Creating a campaign and getting recommendations \(console\)**
 
@@ -145,8 +145,8 @@ When you have created a dataset group and uploaded your dataset\(s\) with impres
    personalize = boto3.client('personalize')
    
    print('Creating solution')
-   create_solution_response = personalize.create_solution(name='solution name', 
-                               recipeArn= arn:aws:personalize:::recipe/aws-user-personalization, 
+   create_solution_response = personalize.create_solution(name = 'solution name', 
+                               recipeArn = 'arn:aws:personalize:::recipe/aws-user-personalization', 
                                datasetGroupArn = 'dataset group arn',
                                )
    solution_arn = create_solution_response['solutionArn']
@@ -200,7 +200,7 @@ When you have created a dataset group and uploaded your dataset\(s\) with impres
 
 ## Getting recommendations and recording impressions \(SDK for Python \(Boto3\)\)<a name="user-personalization-get-recommendations-recording-impressions"></a>
 
-When your campaign is created, you can use it to get recommendations for a user and record impressions\. For information on getting batch recommendations using the AWS SDKs see [Creating a batch inference job \(AWS SDKs\)](recommendations-batch.md#batch-sdk)\.
+When your campaign is created, you can use it to get recommendations for a user and record impressions\. For information on getting batch recommendations using the AWS SDKs see [Creating a batch inference job \(AWS SDKs\)](creating-batch-inference-job.md#batch-sdk)\.
 
 
 

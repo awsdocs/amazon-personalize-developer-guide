@@ -32,7 +32,7 @@ Required: No
  ** [ nextToken ](#API_ListDatasets_RequestSyntax) **   <a name="personalize-ListDatasets-request-nextToken"></a>
 A token returned from the previous call to `ListDatasetImportJobs` for getting the next set of dataset import jobs \(if they exist\)\.  
 Type: String  
-Length Constraints: Maximum length of 1300\.  
+Length Constraints: Maximum length of 1500\.  
 Required: No
 
 ## Response Syntax<a name="API_ListDatasets_ResponseSyntax"></a>
@@ -67,7 +67,7 @@ Array Members: Maximum number of 100 items\.
  ** [ nextToken ](#API_ListDatasets_ResponseSyntax) **   <a name="personalize-ListDatasets-response-nextToken"></a>
 A token for getting the next set of datasets \(if they exist\)\.  
 Type: String  
-Length Constraints: Maximum length of 1300\.
+Length Constraints: Maximum length of 1500\.
 
 ## Errors<a name="API_ListDatasets_Errors"></a>
 

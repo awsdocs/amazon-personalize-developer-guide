@@ -28,6 +28,7 @@ Required: Yes
    "datasetGroup": { 
       "creationDateTime": number,
       "datasetGroupArn": "string",
+      "domain": "string",
       "failureReason": "string",
       "kmsKeyArn": "string",
       "lastUpdatedDateTime": number,

@@ -18,6 +18,9 @@ Before you get started providing personalized experiences for your users, choose
 +  Recommending similar items \(RELATED\_ITEMS recipes\)
 
   To recommend similar items, such as items frequently bought together or movies that other users have also watched, you should use a RELATED\_ITEMS recipe\. Recommending similar items can help your customers discover items and can increase user conversion rate\. 
++  Getting user segments \(USER\_SEGMENTATION recipes\)
+
+  To get segments of users based on item input data, such as users who will most likely interact with items with a certain attribute, you should use a USER\_SEGMENTATION recipe\. Getting user segments can help you create advanced marketing campaigns that promote different items to different user segments based on the likelihood that they will take an action\. 
 
 ## What data to import<a name="what-data-to-import"></a>
 
@@ -25,4 +28,4 @@ Before you get started providing personalized experiences for your users, choose
 
  For personalized recommendations or ranked items, import categorical data, such as a user's gender or an item's genre, to help Amazon Personalize identify underlying patterns that reveal the most relevant items for your users\. For all use cases, you can use categorical metadata to filter recommendations from Amazon Personalize based on a user or item's attributes\. 
 
- For general information about how Amazon Personalize reads and stores your data, see [Datasets and schemas](how-it-works-dataset-schema.md)\. For more information on the types of data you can import, see [Interactions dataset](interactions-datasets.md), [Items dataset](items-datasets.md), and [Users dataset](users-datasets.md)\. 
+ For general information about how Amazon Personalize reads and stores your data, see [Datasets and schemas](how-it-works-dataset-schema.md)\. For more information on the types of data you can import, see [Interactions data](interactions-datasets.md), [Item data](items-datasets.md), and [User data](users-datasets.md)\. 

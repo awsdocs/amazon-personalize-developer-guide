@@ -8,6 +8,7 @@ This guide includes examples for AWS CLI, SDK for Python \(Boto3\), and SDK for 
 + [Sign up for AWS](#aws-personalize-set-up-aws-account)
 + [Regions and endpoints](#endpoints)
 + [Setting up permissions](aws-personalize-set-up-permissions.md)
++ [Giving Amazon Personalize access to Amazon S3 resources](granting-personalize-s3-access.md)
 + [Setting up the AWS CLI](aws-personalize-set-up-aws-cli.md)
 + [Setting up the AWS SDKs](aws-personalize-set-up-sdks.md)
 

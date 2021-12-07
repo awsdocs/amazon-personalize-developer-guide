@@ -12,11 +12,11 @@ You can filter real\-time recommendations with the Amazon Personalize console, A
 To filter real\-time recommendations using the console, create a filter and then apply it to a recommendation request\. 
 
 **Note**  
-To filter recommendations using a filter with parameters and a campaign that you deployed before November 10, 2020, you must redeploy the campaign by using the [ UpdateCampaign ](API_UpdateCampaign.md) operation or create a new campaign\.
+To filter recommendations using a filter with parameters and a campaign deployed before November 10, 2020, you must redeploy the campaign by using the [ UpdateCampaign ](API_UpdateCampaign.md) operation or create a new campaign\.
 
 ### Creating a filter \(console\)<a name="creating-filter-console"></a>
 
- To create a filter in the console, choose the dataset group that contains the campaign you want to filter results for and then provide a filter name and a filter expression\. 
+ To create a filter in the console, choose the dataset group that contains the campaign for which you want to filter results, and then provide a filter name and a filter expression\. 
 
 **To create a filter \(console\)**
 
@@ -59,7 +59,7 @@ For filter expressions that use an `INCLUDE` element to include items, you must 
 1. Using the same `User ID` as in the earlier step, choose **Get recommendations**\. The recommendations table appears\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/Recommendations_filter.png)
 
-   If the user already bought a recommended item, the filter removes it from the recommendation list\. In this example, items 2657, 2985 were replaced by the most suitable items that the user had not purchased \(items 2641 and 1573\)\.
+   If the user already bought a recommended item, the filter removes it from the recommendation list\. In this example, items 2657, 2985 were replaced by the most suitable items that the user didn't buy \(items 2641 and 1573\)\.
 
 ### Using the filter expression builder<a name="using-filter-expression-builder"></a>
 

@@ -3,7 +3,7 @@
 **Important**  
 Bulk imports in Amazon Personalize are a full refresh of bulk data\. Existing bulk data in the dataset is replaced\. This does not include records imported incrementally\.
 
- After you have completed [Step 1: Creating a dataset group](data-prep-ds-group.md) and [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md), you can import bulk records, such as a large CSV file, into an Amazon Personalize dataset\.
+ After you have completed [Step 1: Creating a Custom dataset group](data-prep-ds-group.md) and [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md), you can import bulk records, such as a large CSV file, into an Amazon Personalize dataset\.
 
 Amazon Personalize updates any filters you created in the dataset group with your new item and user data within 15 minutes from the last bulk import\. This update allows your campaigns to use your most recent data when filtering recommendations for your users\. 
 

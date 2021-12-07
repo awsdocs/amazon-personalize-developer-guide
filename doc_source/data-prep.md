@@ -10,7 +10,7 @@ This section provides information about importing historical data into Amazon Pe
 
 To import your historical training data into Amazon Personalize, you do the following:
 
-1. Create an empty dataset group\.* Dataset groups* are domain\-specific containers for related datasets\. For more information, see [Step 1: Creating a dataset group](data-prep-ds-group.md)\.
+1. Create an empty dataset group\.* Dataset groups* are domain\-specific containers for related datasets\. For more information, see [Step 1: Creating a Custom dataset group](data-prep-ds-group.md)\.
 
 1. For each type of dataset you are using, create an empty dataset with an associated schema\. *Datasets* are Amazon Personalize containers for data and schemas that specify contents of a dataset\. For more information, see [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md)\. 
 

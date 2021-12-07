@@ -1,8 +1,6 @@
 # Getting started \(console\)<a name="getting-started-console"></a>
 
-In this exercise, you use the Amazon Personalize console to create a campaign that returns movie recommendations for a given user\.
-
-Before you start this exercise, review the Getting Started [Getting started prerequisites](gs-prerequisites.md)\.
+In this exercise, you use the Amazon Personalize console to create a Custom dataset group with a solution that returns movie recommendations for a given user\. Before you start this exercise, review the Getting Started [Getting started prerequisites](gs-prerequisites.md)\.
 
 When you finish the getting started exercise, to avoid incurring unnecessary charges, follow the steps in [Cleaning up resources](gs-cleanup.md) to delete the resources you created\. 
 
@@ -16,16 +14,16 @@ In this procedure, you first create a dataset group\. Next, you create an Amazon
 
 1. Choose **Create dataset group**\.
 
-1. If this is your first time using Amazon Personalize, on the **Create dataset group** page, in **New dataset group**, choose **Get started**\.
+1. In **Dataset group details**, for **Dataset group name**, specify a name for your dataset group\. 
 
-1. In **Dataset group details**, for **Dataset group name**, specify a name for your dataset group\. Your screen should look similar to the following:  
+1. For **Domain** choose **Custom**\.Your screen should look similar to the following:  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-1-dataset-group-v02.png)
 
-1. Choose **Next**\. 
+1. Choose **Create dataset group and continue**\. 
 
 1. On the **Create user\-item interaction data** page, in **Dataset details**, for **Dataset name**, specify a name for your dataset\.
 
-1. In **Schema details**, for **Schema selection**, choose **Create new schema**\. A minimal Interactions schema is displayed in the **Schema definition** field\. The schema matches the headers you previously added to the `ratings.csv` file\. For more information see [Creating the training data](gs-prerequisites.md#gs-upload-to-bucket)\. 
+1. In **Schema details**, for **Schema selection**, choose **Create new schema**\. A minimal Interactions schema is displayed in the **Schema definition** field\. The schema matches the headers you previously added to the `ratings.csv` file\. For more information see [Creating the training data \(custom resources\)](gs-prerequisites.md#gs-upload-to-bucket)\. 
 
 1. For **New schema name**, specify a name for the new schema\.
 
@@ -38,7 +36,7 @@ In this procedure, you first create a dataset group\. Next, you create an Amazon
 
 1. For **IAM service role**, keep the default selection of **Enter a custom IAM role ARN**\.
 
-1. For **Custom IAM role ARN**, specify the role that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
+1. For **Custom IAM role ARN**, specify the role that you created in [Creating an IAM service role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
 
 1. In the informational dialog box named **Additional S3 bucket policy required**, follow the [instructions](data-prep-upload-s3.md) to add the required Amazon S3 bucket policy\.
 
@@ -68,6 +66,8 @@ In this procedure, you use the dataset that you imported in the previous step to
 
 1. If the **Create solution** page is not already displayed, in the navigation pane, under the dataset group that you created, choose the Solution creation **Start** button\.
 
+1. For **Solution type**, choose **Item recommendation** to get item recommendations for your users\. 
+
 1. For **Solution name**, specify a name for your solution\.
 
 1. For **Recipe**, choose **aws\-user\-personalization**\. Leave the optional **Solution configuration** and **Advanced configuration** fields unchanged\.
@@ -75,14 +75,9 @@ In this procedure, you use the dataset that you imported in the previous step to
    Your screen should look similar to the following:  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-create-solution.png)
 
-1. Choose **Next** to display the **Create solution version** screen\.
+1. Choose **Create and train solution**\. Solution version training starts and the **Dashboard** page displays\.
 
-   Your screen should look similar to the following:  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-create-solution-version-console.png)
-
-1. Choose **Finish**\. Model training starts and the **Dashboard Overview** page is displayed\.
-
-1. Initially, in **Create solutions**, the **Solution creation** status is **Create pending** \(followed by **Create in progress**\), the **Launch campaigns \- Start** button is disabled, and a banner is displayed on the top of the console showing the progress\.
+   Initially, in **Create solutions**, the **Solution creation** status is **Create pending** \(followed by **Create in progress**\), the **Launch campaigns \- Start** button is disabled, and a banner is displayed on the top of the console showing the progress\.
 **Note**  
 The time it takes to train a model depends on the size of the dataset and the chosen recipe\.
 

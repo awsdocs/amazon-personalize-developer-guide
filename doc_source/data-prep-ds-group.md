@@ -1,6 +1,6 @@
-# Step 1: Creating a dataset group<a name="data-prep-ds-group"></a>
+# Step 1: Creating a Custom dataset group<a name="data-prep-ds-group"></a>
 
-A *dataset group* is container for Amazon Personalize components, including datasets, event trackers, solutions, filters, campaigns, and batch inference jobs\. A dataset group organizes your resources into independent collections, so resources from one dataset group cannot influence resources in any other dataset group\. 
+A *Custom dataset group* is container for Amazon Personalize components and custom resources, including datasets, event trackers, solutions, filters, campaigns, and batch inference jobs\. A dataset group organizes your resources into independent collections, so resources from one dataset group cannot influence resources in any other dataset group\. 
 
 For example, you might have an application that provides recommendations for streaming video and another that provides recommendations for audio books\. In Amazon Personalize, each application would have its own dataset group\. You can create a dataset group with the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\) or AWS SDKs\.
 
@@ -22,6 +22,8 @@ Create a dataset group by specifying the dataset group name in the Amazon Person
 1. If this is your first time using Amazon Personalize, on the **Create dataset group** page, in **New dataset group**, choose **Get started**\.
 
 1. In **Dataset group details**, for **Dataset group name**, specify a name for your dataset group\. 
+
+1. For **Domain** choose **Custom**\.
 
 1. Choose **Next**\. The **Create user\-item interaction data** page displays\. You are now ready to add a dataset with an associated schema to your dataset group\. See [Creating a dataset and a schema \(console\)](data-prep-creating-datasets.md#data-prep-creating-ds-console)\. 
 

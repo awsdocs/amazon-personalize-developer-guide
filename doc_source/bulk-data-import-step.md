@@ -34,7 +34,7 @@ If you just created your dataset in [Step 2: Creating a dataset and a schema](da
 
 1. For **IAM service role**, keep the default selection of **Enter a custom IAM role ARN**\.
 
-1. For **Custom IAM role ARN**, specify the role that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
+1. For **Custom IAM role ARN**, specify the role that you created in [Creating an IAM service role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
 
 1. For **Data location**, specify where your data file is stored in Amazon S3\. Use the following syntax:
 
@@ -54,7 +54,7 @@ If your CSV files are in a folder in your S3 bucket and you want to upload multi
 
 **Import bulk records \(AWS CLI\)**
 
-1. Create a dataset import job by running the following command\. Provide the dataset Amazon Resource Name \(ARN\) from [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md) and your S3 bucket name\. Supply the AWS Identity and Access Management \(IAM\) role Amazon Resource Name \(ARN\) that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. For more information about the operation, see [ CreateDatasetImportJob ](API_CreateDatasetImportJob.md)\.
+1. Create a dataset import job by running the following command\. Provide the dataset Amazon Resource Name \(ARN\) from [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md) and your S3 bucket name\. Supply the AWS Identity and Access Management \(IAM\) role Amazon Resource Name \(ARN\) that you created in [Creating an IAM service role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. For more information about the operation, see [ CreateDatasetImportJob ](API_CreateDatasetImportJob.md)\.
 
    ```
    aws personalize create-dataset-import-job \
@@ -111,7 +111,7 @@ To add data to your dataset, create and run a dataset import job using the [ Cre
 
 Specify the `datasetGroupArn` and set the `dataLocation` to the path to your Amazon S3 bucket where you stored the training data\. 
 
-For the `roleArn`, specify the AWS Identity and Access Management \(IAM\) role that gives Amazon Personalize permissions to access your S3 bucket\. See [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
+For the `roleArn`, specify the AWS Identity and Access Management \(IAM\) role that gives Amazon Personalize permissions to access your S3 bucket\. See [Creating an IAM service role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
 
 ```
 import boto3
@@ -140,7 +140,7 @@ print('Status: ' + description['status'])
 ------
 #### [ SDK for Java 2\.x ]
 
-Use the following `createPersonalizeDatasetImportJob` method to create a dataset import job\. Pass the following as parameters: an Amazon Personalize service client, the dataset group's ARN \(Amazon Resource Name\), a name for the job, the dataset ARN, the Amazon S3 bucket path \(`s3://<bucketname>/<file name.csv>`\) where you stored your training data, and your service\-linked role's ARN \(see [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\)\. 
+Use the following `createPersonalizeDatasetImportJob` method to create a dataset import job\. Pass the following as parameters: an Amazon Personalize service client, the dataset group's ARN \(Amazon Resource Name\), a name for the job, the dataset ARN, the Amazon S3 bucket path \(`s3://<bucketname>/<file name.csv>`\) where you stored your training data, and your service\-linked role's ARN \(see [Creating an IAM service role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\)\. 
 
 If your CSV files are in a folder in an Amazon S3 bucket, you can upload multiple CSV files to a dataset in one dataset import job\. For the bucket path, specify the `bucket-name/folder-name/` instead of the file name\.
 

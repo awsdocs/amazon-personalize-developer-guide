@@ -18,6 +18,12 @@ Length Constraints: Maximum length of 256\.
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: No
 
+ ** domain **   <a name="personalize-Type-DatasetGroup-domain"></a>
+The domain of a Domain dataset group\.  
+Type: String  
+Valid Values:` ECOMMERCE | VIDEO_ON_DEMAND`   
+Required: No
+
  ** failureReason **   <a name="personalize-Type-DatasetGroup-failureReason"></a>
 If creating a dataset group fails, provides the reason why\.  
 Type: String  
@@ -26,6 +32,7 @@ Required: No
  ** kmsKeyArn **   <a name="personalize-Type-DatasetGroup-kmsKeyArn"></a>
 The Amazon Resource Name \(ARN\) of the AWS Key Management Service \(KMS\) key used to encrypt the datasets\.  
 Type: String  
+Length Constraints: Maximum length of 2048\.  
 Pattern: `arn:aws.*:kms:.*:[0-9]{12}:key/.*`   
 Required: No
 

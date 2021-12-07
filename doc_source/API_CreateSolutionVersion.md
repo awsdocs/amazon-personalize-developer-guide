@@ -1,6 +1,6 @@
 # CreateSolutionVersion<a name="API_CreateSolutionVersion"></a>
 
-Trains or retrains an active solution\. A solution is created using the [ CreateSolution ](API_CreateSolution.md) operation and must be in the ACTIVE state before calling `CreateSolutionVersion`\. A new version of the solution is created every time you call this operation\.
+Trains or retrains an active solution in a Custom dataset group\. A solution is created using the [ CreateSolution ](API_CreateSolution.md) operation and must be in the ACTIVE state before calling `CreateSolutionVersion`\. A new version of the solution is created every time you call this operation\.
 
  **Status** 
 

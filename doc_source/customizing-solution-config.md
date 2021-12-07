@@ -30,11 +30,11 @@ You can create and configure a solution using the console, AWS Command Line Inte
 
 1. For **Solution name**, specify a name for your solution\.
 
+1. For **Solution type**, choose either **Item recommendation** to get item recommendations for your users, or choose **User segmentation** to get user segments \(groups of users\) based on your item data\. 
+
 1. For **Recipe**, choose a recipe \(see [Step 1: Choosing a recipe](working-with-predefined-recipes.md)\)\. 
 
-1. In **Solution configuration**, if your data has EVENT\_TYPE or EVENT\_VALUE\_THRESHOLD columns, use the following fields to choose the interactions data that Amazon Personalize uses when training the model\. 
-   +  **Event type:** If your data has multiple event types in an EVENT\_TYPE column and you want to train with just a single type of event, optionally enter an event type, such as *click*\. Amazon Personalize will use only events with this type when training a model\. You can enter only one type\. If you don't provide an event type, Amazon Personalize trains the model with all interactions data regardless of type\. 
-   +  **Event value threshold:** If your Interactions dataset has an EVENT\_VALUE\_THRESHOLD column and you want to train events based on value, optionally enter a value\. Amazon Personalize will use only events with a value greater than or equal to this value to train the model\. If you don't provide a value, Amazon Personalize trains the model with all interactions data regardless of value\. 
+1. In **Solution configuration**, if your Interactions dataset has EVENT\_TYPE or both EVENT\_TYPE and EVENT\_VALUE columns, optionally use the **Event type** and **Event value threshold** fields to choose the interactions data that Amazon Personalize uses when training the model\. 
 
     For more information see [Choosing the interactions data used for training](event-values-types.md)\. 
 
@@ -42,7 +42,7 @@ You can create and configure a solution using the console, AWS Command Line Inte
 
 1. Configure any hyperparameter options based on your recipe and business needs\. Different recipes use different hyperparameters\. For the available hyperparameters, see the individual recipes in [Step 1: Choosing a recipe](working-with-predefined-recipes.md)\. 
 
-1. Choose **Next**\. The Create Solution Version page displays\. Proceed to [Creating a solution version \(console\)](creating-a-solution-version.md#create-solution-version-console)\.
+1. Choose **Create and train solution**\. The **Dashboard** page displays\. Proceed to [Creating a solution version \(console\)](creating-a-solution-version.md#create-solution-version-console)\.
 
 ## Configuring a solution \(AWS CLI\)<a name="configure-solution-cli"></a>
 

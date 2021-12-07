@@ -1,6 +1,6 @@
 # CreateCampaign<a name="API_CreateCampaign"></a>
 
-Creates a campaign by deploying a solution version\. When a client calls the [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html) and [GetPersonalizedRanking](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetPersonalizedRanking.html) APIs, a campaign is specified in the request\.
+Creates a campaign that deploys a solution version\. When a client calls the [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html) and [GetPersonalizedRanking](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetPersonalizedRanking.html) APIs, a campaign is specified in the request\.
 
  **Minimum Provisioned TPS and Auto\-Scaling** 
 

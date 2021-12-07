@@ -8,6 +8,27 @@ Some resources must be deleted before others, as shown in the following table\. 
 
 To delete the training data you uploaded, `ratings.csv`, see [How do I delete objects from an S3 bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/delete-objects.html)\.
 
+**Topics**
++ [Cleaning up domain\-based resources](#cleaning-up-domain-resources)
++ [Cleaning up custom resources](#cleaning-up-custom-resources)
+
+## Cleaning up domain\-based resources<a name="cleaning-up-domain-resources"></a>
+
+If you created a Domain dataset group, delete resources as follows:
+
+
+| Resource to be deleted | Delete this first | Notes | 
+| --- | --- | --- | 
+| [ Recommender ](API_Recommender.md) |  |  | 
+| [ DatasetImportJob ](API_DatasetImportJob.md) |  | Can't be deleted\. | 
+| [ Dataset ](API_Dataset.md) |  |  No associated `DatasetImportJobs` can have a status of CREATE PENDING or IN PROGRESS\. No associated `Recommenders` can have a status of CREATE PENDING or IN PROGRESS\.  | 
+| [ DatasetSchema ](API_DatasetSchema.md) | All datasets that reference the schema\. |  | 
+| [ DatasetGroup ](API_DatasetGroup.md) |  All associated recommenders All datasets in the dataset group\.  | 
+
+## Cleaning up custom resources<a name="cleaning-up-custom-resources"></a>
+
+If you created a Custom dataset group, delete resources as follows:
+
 
 | Resource to be deleted | Delete this first | Notes | 
 | --- | --- | --- | 

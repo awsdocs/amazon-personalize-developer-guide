@@ -1,6 +1,6 @@
 # SolutionVersion<a name="API_SolutionVersion"></a>
 
-An object that provides information about a specific version of a [ Solution ](API_Solution.md)\.
+An object that provides information about a specific version of a [ Solution ](API_Solution.md) in a Custom dataset group\.
 
 ## Contents<a name="API_SolutionVersion_Contents"></a>
 

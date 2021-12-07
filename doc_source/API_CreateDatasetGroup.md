@@ -1,11 +1,11 @@
 # CreateDatasetGroup<a name="API_CreateDatasetGroup"></a>
 
-Creates an empty dataset group\. A dataset group contains related datasets that supply data for training a model\. A dataset group can contain at most three datasets, one for each type of dataset:
+Creates an empty dataset group\. A dataset group is a container for Amazon Personalize resources\. A dataset group can contain at most three datasets, one for each type of dataset:
 + Interactions
 + Items
 + Users
 
-To train a model \(create a solution\), a dataset group that contains an `Interactions` dataset is required\. Call [ CreateDataset ](API_CreateDataset.md) to add a dataset to the group\.
+ A dataset group can be a Domain dataset group, where you specify a domain and use pre\-configured resources like recommenders, or a Custom dataset group, where you use custom resources, such as a solution with a solution version, that you deploy with a campaign\. If you start with a Domain dataset group, you can still add custom resources such as solutions and solution versions trained with recipes for custom use cases and deployed with campaigns\. 
 
 A dataset group can be in one of the following states:
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
@@ -32,6 +32,7 @@ You can specify an AWS Key Management Service \(KMS\) key to encrypt the dataset
 
 ```
 {
+   "domain": "string",
    "kmsKeyArn": "string",
    "name": "string",
    "roleArn": "string"
@@ -42,9 +43,16 @@ You can specify an AWS Key Management Service \(KMS\) key to encrypt the dataset
 
 The request accepts the following data in JSON format\.
 
+ ** [ domain ](#API_CreateDatasetGroup_RequestSyntax) **   <a name="personalize-CreateDatasetGroup-request-domain"></a>
+The domain of the dataset group\. Specify a domain to create a Domain dataset group\. The domain you specify determines the default schemas for datasets and the use cases available for recommenders\. If you don't specify a domain, you create a Custom dataset group with solution versions that you deploy with a campaign\.   
+Type: String  
+Valid Values:` ECOMMERCE | VIDEO_ON_DEMAND`   
+Required: No
+
  ** [ kmsKeyArn ](#API_CreateDatasetGroup_RequestSyntax) **   <a name="personalize-CreateDatasetGroup-request-kmsKeyArn"></a>
 The Amazon Resource Name \(ARN\) of a AWS Key Management Service \(KMS\) key used to encrypt the datasets\.  
 Type: String  
+Length Constraints: Maximum length of 2048\.  
 Pattern: `arn:aws.*:kms:.*:[0-9]{12}:key/.*`   
 Required: No
 
@@ -66,7 +74,8 @@ Required: No
 
 ```
 {
-   "datasetGroupArn": "string"
+   "datasetGroupArn": "string",
+   "domain": "string"
 }
 ```
 
@@ -81,6 +90,11 @@ The Amazon Resource Name \(ARN\) of the new dataset group\.
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+` 
+
+ ** [ domain ](#API_CreateDatasetGroup_ResponseSyntax) **   <a name="personalize-CreateDatasetGroup-response-domain"></a>
+The domain for the new Domain dataset group\.  
+Type: String  
+Valid Values:` ECOMMERCE | VIDEO_ON_DEMAND` 
 
 ## Errors<a name="API_CreateDatasetGroup_Errors"></a>
 

@@ -39,7 +39,7 @@ To get a personalized ranking for a user from the Amazon Personalize console, ch
 
 1. For **Item IDs**, enter the list of items to be ranked for the user\.
 
-1. Optionally choose a filter\. For more information, see [Filtering recommendations](filter.md)\. 
+1. Optionally choose a filter\. For more information, see [Filtering recommendations and user segments](filter.md)\. 
 
 1. If your campaign uses contextual metadata \(for requirements see [Increasing recommendation relevance with contextual metadata](getting-real-time-recommendations.md#contextual-metadata)\) optionally provide context data\. 
 

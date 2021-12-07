@@ -32,7 +32,7 @@ Required: No
  ** [ nextToken ](#API_ListSolutions_RequestSyntax) **   <a name="personalize-ListSolutions-request-nextToken"></a>
 A token returned from the previous call to `ListSolutions` for getting the next set of solutions \(if they exist\)\.  
 Type: String  
-Length Constraints: Maximum length of 1300\.  
+Length Constraints: Maximum length of 1500\.  
 Required: No
 
 ## Response Syntax<a name="API_ListSolutions_ResponseSyntax"></a>
@@ -61,7 +61,7 @@ The following data is returned in JSON format by the service\.
  ** [ nextToken ](#API_ListSolutions_ResponseSyntax) **   <a name="personalize-ListSolutions-response-nextToken"></a>
 A token for getting the next set of solutions \(if they exist\)\.  
 Type: String  
-Length Constraints: Maximum length of 1300\.
+Length Constraints: Maximum length of 1500\.
 
  ** [ solutions ](#API_ListSolutions_ResponseSyntax) **   <a name="personalize-ListSolutions-response-solutions"></a>
 A list of the current solutions\.  

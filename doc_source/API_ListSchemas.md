@@ -24,7 +24,7 @@ Required: No
  ** [ nextToken ](#API_ListSchemas_RequestSyntax) **   <a name="personalize-ListSchemas-request-nextToken"></a>
 A token returned from the previous call to `ListSchemas` for getting the next set of schemas \(if they exist\)\.  
 Type: String  
-Length Constraints: Maximum length of 1300\.  
+Length Constraints: Maximum length of 1500\.  
 Required: No
 
 ## Response Syntax<a name="API_ListSchemas_ResponseSyntax"></a>
@@ -35,6 +35,7 @@ Required: No
    "schemas": [ 
       { 
          "creationDateTime": number,
+         "domain": "string",
          "lastUpdatedDateTime": number,
          "name": "string",
          "schemaArn": "string"
@@ -52,7 +53,7 @@ The following data is returned in JSON format by the service\.
  ** [ nextToken ](#API_ListSchemas_ResponseSyntax) **   <a name="personalize-ListSchemas-response-nextToken"></a>
 A token used to get the next set of schemas \(if they exist\)\.  
 Type: String  
-Length Constraints: Maximum length of 1300\.
+Length Constraints: Maximum length of 1500\.
 
  ** [ schemas ](#API_ListSchemas_ResponseSyntax) **   <a name="personalize-ListSchemas-response-schemas"></a>
 A list of schemas\.  

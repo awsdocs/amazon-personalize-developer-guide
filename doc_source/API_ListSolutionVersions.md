@@ -25,7 +25,7 @@ Required: No
  ** [ nextToken ](#API_ListSolutionVersions_RequestSyntax) **   <a name="personalize-ListSolutionVersions-request-nextToken"></a>
 A token returned from the previous call to `ListSolutionVersions` for getting the next set of solution versions \(if they exist\)\.  
 Type: String  
-Length Constraints: Maximum length of 1300\.  
+Length Constraints: Maximum length of 1500\.  
 Required: No
 
  ** [ solutionArn ](#API_ListSolutionVersions_RequestSyntax) **   <a name="personalize-ListSolutionVersions-request-solutionArn"></a>
@@ -61,7 +61,7 @@ The following data is returned in JSON format by the service\.
  ** [ nextToken ](#API_ListSolutionVersions_ResponseSyntax) **   <a name="personalize-ListSolutionVersions-response-nextToken"></a>
 A token for getting the next set of solution versions \(if they exist\)\.  
 Type: String  
-Length Constraints: Maximum length of 1300\.
+Length Constraints: Maximum length of 1500\.
 
  ** [ solutionVersions ](#API_ListSolutionVersions_ResponseSyntax) **   <a name="personalize-ListSolutionVersions-response-solutionVersions"></a>
 A list of solution versions describing the version properties\.  

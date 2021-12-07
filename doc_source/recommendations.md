@@ -41,7 +41,9 @@ Amazon Personalize doesn't show scores for SIMS or Popularity\-Count\-based mode
 
 1.  Under **Test campaign results**, enter your recommendation request details based on the recipe you used\. For USER\_PERSONALIZATION recipes, enter the **User ID** of the user that you want to get recommendations for\. For RELATED\_ITEMS recipes, enter the **Item ID** of the item you want Amazon Personalize to use to determine similar items\. 
 
-1. Optionally choose a filter\. For more information, see [Filtering recommendations](filter.md)\. 
+    If you recorded events for a user before they logged in \(an anonymous user\), you can get recommendations for this user by providing the `sessionId` from those events instead of a `userId`\. For more information about recording events for anonymous users, see [PutEvents operation](recording-events.md#event-record-api)\. 
+
+1. Optionally choose a filter\. For more information, see [Filtering recommendations and user segments](filter.md)\. 
 
 1. If your campaign uses contextual metadata \(for requirements see [Increasing recommendation relevance with contextual metadata](getting-real-time-recommendations.md#contextual-metadata)\) optionally provide context data\. 
 
@@ -53,6 +55,8 @@ Amazon Personalize doesn't show scores for SIMS or Popularity\-Count\-based mode
 
 Use the following code to get recommendations\. Change the value of `userId` to a user ID that is in the data that you used to train the solution\. A list of the top 10 recommended items for the user displays\. To change the number of recommended items, change the value for `numResults`\. The default is 25 items\. The maximum is 500 items\. If you used a RELATED\_ITEMS recipe to train the solution version backing the campaign, replace the `user-id` parameter with `item-id` and specify the item ID\. 
 
+ If you recorded events for a user before they logged in \(an anonymous user\), you can get recommendations for this user by providing the `sessionId` from those events instead of a `userId`\. For more information about recording events for anonymous users, see [PutEvents operation](recording-events.md#event-record-api)\. 
+
 ```
 aws personalize-runtime get-recommendations \
 --campaign-arn campaign arn \
@@ -62,12 +66,12 @@ aws personalize-runtime get-recommendations \
 
 ## Getting recommendations \(AWS SDKs\)<a name="get-recommendations-sdk-example"></a>
 
-The following code shows how to get Amazon Personalize recommendations using the SDK for Python \(Boto3\) or SDK for Java 2\.x\.
+The following code shows how to get Amazon Personalize recommendations using the SDK for Python \(Boto3\) or SDK for Java 2\.x\. Change the value of `userId` to a user ID that is in the data that you used to train the solution\. A list of the top 10 recommended items for the user displays\. To change the number of recommended items, change the value for `numResults`\. The default is 25 items\. The maximum is 500 items\. If you used a RELATED\_ITEMS recipe to train the solution version backing the campaign, replace the `userId` parameter with `itemId` and specify the item ID\. 
+
+ If you recorded events for a user before they logged in \(an anonymous user\), you can get recommendations for this user by providing the `sessionId` from those events instead of a `userId`\. For more information about recording events for anonymous users, see [PutEvents operation](recording-events.md#event-record-api)\. 
 
 ------
 #### [ SDK for Python \(Boto3\) ]
-
-Use the following code to get recommendations\. Change the value of `userId` to a user ID that is in the data that you used to train the solution\. A list of the top 10 recommended items for the user displays\. To change the number of recommended items, change the value for `numResults`\. The default is 25 items\. The maximum is 500 items\. If you used a RELATED\_ITEMS recipe to train the solution version backing the campaign, replace the `userId` parameter with `itemId` and specify the item ID\. 
 
 ```
 import boto3
@@ -87,8 +91,6 @@ for item in response['itemList']:
 
 ------
 #### [ SDK for Java 2\.x ]
-
-To get recommendations, use the following `getRecommendations` method and pass the following as parameters: A `PersonalizeRuntimeClient`, the Amazon Resource Name \(ARN\) of your campaign, and the `userId` of the user you want to get recommendations for\. If you used a RELATED\_ITEMS recipe to train the solution version backing the campaign, replace the `userId` parameter with `itemId` and specify the item ID\. 
 
 ```
     public static void getRecs(PersonalizeRuntimeClient personalizeRuntimeClient, String campaignArn, String userId){

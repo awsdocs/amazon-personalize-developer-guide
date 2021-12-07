@@ -1,0 +1,14 @@
+# Maintaining recommendation relevance \(Domain dataset group\)<a name="maintaining-relevance-domain"></a>
+
+ Maintain the relevance of recommendations to increase user engagement, click\-through rate, and conversion rate for your application as your catalogue grows\. To maintain and improve the relevance of Amazon Personalize recommendations for your users, keep your data in Amazon Personalize up to date\. This allows Amazon Personalize to learn from your user’s most recent behavior and include your newest items in recommendations\. 
+
+ For users and items, as your catalog grows, update your historical data with bulk or incremental data import operations\. We recommend that you first import your records in bulk, and then incrementally add items and users as your catalog grows\. For information on importing user data, see 
+
+For interactions data, keep your Interactions dataset up to date with your users' behavior by recording interaction *[events](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#event)* with the [ PutEvents ](API_UBS_PutEvents.md) operation\. Amazon Personalize updates recommendations based on your user's most recent activity as they interact with your application\. For more information on recording real\-time events, see [Recording events](recording-events.md)\. 
+
+New records influence recommendations as follows:
++  For *new events*, Amazon Personalize immediately uses historical and real\-time interaction events between a user and existing items \(items you included in the data you used to train the latest model\) when generating recommendations for the same user\. Historical events that you import using the Amazon Personalize console and events that you record in real\-time influence recommendations in the same way\. For more information, see [How real\-time events influence recommendations](recording-events.md#recorded-events-influence-recommendations)\. 
++ For *new items*, if you create the recommender with Top picks for you and Recommended for you or trained the solution version with User\-Personalization, Amazon Personalize automatically updates the underlying models every two hours\. After each update, the new items can be included in recommendations with exploration\. 
+
+  For any other domain use case, Amazon Personalize automatically trains new models for your recommenders every 7 days, starting from the recommender creation date\. For any other custom solution recipe, you must create create a new solution version for the new items to be included in recommendations\.
++  For *new users*, recommendations will initially be only for popular items\. Starting with the first event, user recommendations will be more relevant as you record events\. For more information, see [Recording events](recording-events.md)\. 

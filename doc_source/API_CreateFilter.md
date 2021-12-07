@@ -1,6 +1,6 @@
 # CreateFilter<a name="API_CreateFilter"></a>
 
-Creates a recommendation filter\. For more information, see [Filtering recommendations](filter.md)\.
+Creates a recommendation filter\. For more information, see [Filtering recommendations and user segments](filter.md)\.
 
 ## Request Syntax<a name="API_CreateFilter_RequestSyntax"></a>
 

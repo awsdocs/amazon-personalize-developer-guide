@@ -1,6 +1,6 @@
 # Campaign<a name="API_Campaign"></a>
 
-Describes a deployed solution version, otherwise known as a campaign\. For more information on campaigns, see [ CreateCampaign ](API_CreateCampaign.md)\.
+An object that describes the deployment of a solution version\. For more information on campaigns, see [ CreateCampaign ](API_CreateCampaign.md)\.
 
 ## Contents<a name="API_Campaign_Contents"></a>
 
