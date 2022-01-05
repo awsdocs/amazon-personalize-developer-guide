@@ -60,6 +60,7 @@ Use the following syntax for input and output locations: **s3://<name of your S3
 ```
 aws personalize create-batch-segment-job --job-name Job name \
                 --solution-version-arn Solution version ARN \
+                --num-results  The number of predicted users \
                 --job-input s3DataSource={path=s3://S3 input path} \
                 --job-output s3DataDestination={path=s3://S3 output path} \
                 --role-arn IAM service role ARN
@@ -89,8 +90,8 @@ personalize_rec = boto3.client(service_name='personalize')
 personalize_rec.create_batch_segment_job (
     solutionVersionArn = "Solution version ARN",
     jobName = "Job name",
+    numResults = 123, 
     roleArn = "IAM service role ARN",
-    },
     jobInput = 
        {"s3DataSource": {"path": "s3://<name of your S3 bucket>/<folder name>/<input JSON file name>"}},
     jobOutput = 
@@ -107,6 +108,7 @@ personalize_rec.create_batch_segment_job (
 public static String createBatchSegmentJob(PersonalizeClient personalizeClient,
                                                         String solutionVersionArn,
                                                         String jobName,
+                                                        int numResults,
                                                         String s3InputDataSourcePath,
                                                         String s3DataDestinationPath,
                                                         String roleArn,
@@ -139,6 +141,7 @@ public static String createBatchSegmentJob(PersonalizeClient personalizeClient,
                 .jobInput(jobInput)
                 .jobOutput(jobOutputLocation)
                 .jobName(jobName)
+                .numResults(numResults)
                 .roleArn(roleArn)
                 .build();
 
