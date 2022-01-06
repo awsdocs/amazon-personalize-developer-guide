@@ -15,7 +15,7 @@ A condensed version of the `CreateSolution` request is below\. The example inclu
   "eventType": "string",
   "solutionConfig": {
       "optimizationObjective": {
-          "itemAttribute": "string,
+          "itemAttribute": "string",
           "objectiveSensitivity": "string"
       }
       "autoMLConfig": {
