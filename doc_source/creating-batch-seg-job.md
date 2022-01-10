@@ -60,7 +60,7 @@ Use the following syntax for input and output locations: **s3://<name of your S3
 ```
 aws personalize create-batch-segment-job --job-name Job name \
                 --solution-version-arn Solution version ARN \
-                ----num-results The number of predicted users \
+                --num-results  The number of predicted users \
                 --job-input s3DataSource={path=s3://S3 input path} \
                 --job-output s3DataDestination={path=s3://S3 output path} \
                 --role-arn IAM service role ARN
