@@ -1,6 +1,6 @@
 # CampaignSummary<a name="API_CampaignSummary"></a>
 
-Provides a summary of the properties of a campaign\. For a complete listing, call the [ DescribeCampaign ](API_DescribeCampaign.md) API\.
+Provides a summary of the properties of a campaign\. For a complete listing, call the [DescribeCampaign](API_DescribeCampaign.md) API\.
 
 ## Contents<a name="API_CampaignSummary_Contents"></a>
 

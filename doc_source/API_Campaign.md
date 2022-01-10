@@ -1,6 +1,6 @@
 # Campaign<a name="API_Campaign"></a>
 
-An object that describes the deployment of a solution version\. For more information on campaigns, see [ CreateCampaign ](API_CreateCampaign.md)\.
+An object that describes the deployment of a solution version\. For more information on campaigns, see [CreateCampaign](API_CreateCampaign.md)\.
 
 ## Contents<a name="API_Campaign_Contents"></a>
 
@@ -13,7 +13,7 @@ Required: No
 
  ** campaignConfig **   <a name="personalize-Type-Campaign-campaignConfig"></a>
 The configuration details of a campaign\.  
-Type: [ CampaignConfig ](API_CampaignConfig.md) object  
+Type: [CampaignConfig](API_CampaignConfig.md) object  
 Required: No
 
  ** creationDateTime **   <a name="personalize-Type-Campaign-creationDateTime"></a>
@@ -32,8 +32,8 @@ Type: Timestamp
 Required: No
 
  ** latestCampaignUpdate **   <a name="personalize-Type-Campaign-latestCampaignUpdate"></a>
-Provides a summary of the properties of a campaign update\. For a complete listing, call the [ DescribeCampaign ](API_DescribeCampaign.md) API\.  
-Type: [ CampaignUpdateSummary ](API_CampaignUpdateSummary.md) object  
+Provides a summary of the properties of a campaign update\. For a complete listing, call the [DescribeCampaign](API_DescribeCampaign.md) API\.  
+Type: [CampaignUpdateSummary](API_CampaignUpdateSummary.md) object  
 Required: No
 
  ** minProvisionedTPS **   <a name="personalize-Type-Campaign-minProvisionedTPS"></a>

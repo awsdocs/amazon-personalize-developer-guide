@@ -79,7 +79,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ algorithm ](#API_DescribeAlgorithm_ResponseSyntax) **   <a name="personalize-DescribeAlgorithm-response-algorithm"></a>
 A listing of the properties of the algorithm\.  
-Type: [ Algorithm ](API_Algorithm.md) object
+Type: [Algorithm](API_Algorithm.md) object
 
 ## Errors<a name="API_DescribeAlgorithm_Errors"></a>
 

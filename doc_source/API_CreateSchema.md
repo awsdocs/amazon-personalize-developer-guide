@@ -2,14 +2,14 @@
 
 Creates an Amazon Personalize schema from the specified schema string\. The schema you create must be in Avro JSON format\.
 
-Amazon Personalize recognizes three schema variants\. Each schema is associated with a dataset type and has a set of required field and keywords\. If you are creating a schema for a dataset in a Domain dataset group, you provide the domain of the Domain dataset group\. You specify a schema when you call [ CreateDataset ](API_CreateDataset.md)\.
+Amazon Personalize recognizes three schema variants\. Each schema is associated with a dataset type and has a set of required field and keywords\. If you are creating a schema for a dataset in a Domain dataset group, you provide the domain of the Domain dataset group\. You specify a schema when you call [CreateDataset](API_CreateDataset.md)\.
 
 For more information on schemas, see [Datasets and Schemas](https://docs.aws.amazon.com/personalize/latest/dg/how-it-works-dataset-schema.html)\.
 
 **Related APIs**
-+  [ ListSchemas ](API_ListSchemas.md) 
-+  [ DescribeSchema ](API_DescribeSchema.md) 
-+  [ DeleteSchema ](API_DeleteSchema.md) 
++  [ListSchemas](API_ListSchemas.md) 
++  [DescribeSchema](API_DescribeSchema.md) 
++  [DeleteSchema](API_DeleteSchema.md) 
 
 ## Request Syntax<a name="API_CreateSchema_RequestSyntax"></a>
 

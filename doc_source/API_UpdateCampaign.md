@@ -2,12 +2,12 @@
 
 Updates a campaign by either deploying a new solution or changing the value of the campaign's `minProvisionedTPS` parameter\.
 
-To update a campaign, the campaign status must be ACTIVE or CREATE FAILED\. Check the campaign status using the [ DescribeCampaign ](API_DescribeCampaign.md) API\.
+To update a campaign, the campaign status must be ACTIVE or CREATE FAILED\. Check the campaign status using the [DescribeCampaign](API_DescribeCampaign.md) API\.
 
 **Note**  
 You must wait until the `status` of the updated campaign is `ACTIVE` before asking the campaign for recommendations\.
 
-For more information on campaigns, see [ CreateCampaign ](API_CreateCampaign.md)\.
+For more information on campaigns, see [CreateCampaign](API_CreateCampaign.md)\.
 
 ## Request Syntax<a name="API_UpdateCampaign_RequestSyntax"></a>
 
@@ -37,7 +37,7 @@ Required: Yes
 
  ** [ campaignConfig ](#API_UpdateCampaign_RequestSyntax) **   <a name="personalize-UpdateCampaign-request-campaignConfig"></a>
 The configuration details of a campaign\.  
-Type: [ CampaignConfig ](API_CampaignConfig.md) object  
+Type: [CampaignConfig](API_CampaignConfig.md) object  
 Required: No
 
  ** [ minProvisionedTPS ](#API_UpdateCampaign_RequestSyntax) **   <a name="personalize-UpdateCampaign-request-minProvisionedTPS"></a>

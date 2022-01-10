@@ -62,7 +62,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ batchInferenceJobs ](#API_ListBatchInferenceJobs_ResponseSyntax) **   <a name="personalize-ListBatchInferenceJobs-response-batchInferenceJobs"></a>
 A list containing information on each job that is returned\.  
-Type: Array of [ BatchInferenceJobSummary ](API_BatchInferenceJobSummary.md) objects  
+Type: Array of [BatchInferenceJobSummary](API_BatchInferenceJobSummary.md) objects  
 Array Members: Maximum number of 100 items\.
 
  ** [ nextToken ](#API_ListBatchInferenceJobs_ResponseSyntax) **   <a name="personalize-ListBatchInferenceJobs-response-nextToken"></a>

@@ -62,7 +62,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ Filters ](#API_ListFilters_ResponseSyntax) **   <a name="personalize-ListFilters-response-Filters"></a>
 A list of returned filters\.  
-Type: Array of [ FilterSummary ](API_FilterSummary.md) objects  
+Type: Array of [FilterSummary](API_FilterSummary.md) objects  
 Array Members: Maximum number of 100 items\.
 
  ** [ nextToken ](#API_ListFilters_ResponseSyntax) **   <a name="personalize-ListFilters-response-nextToken"></a>

@@ -1,6 +1,6 @@
 # DescribeSchema<a name="API_DescribeSchema"></a>
 
-Describes a schema\. For more information on schemas, see [ CreateSchema ](API_CreateSchema.md)\.
+Describes a schema\. For more information on schemas, see [CreateSchema](API_CreateSchema.md)\.
 
 ## Request Syntax<a name="API_DescribeSchema_RequestSyntax"></a>
 
@@ -44,7 +44,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ schema ](#API_DescribeSchema_ResponseSyntax) **   <a name="personalize-DescribeSchema-response-schema"></a>
 The requested schema\.  
-Type: [ DatasetSchema ](API_DatasetSchema.md) object
+Type: [DatasetSchema](API_DatasetSchema.md) object
 
 ## Errors<a name="API_DescribeSchema_Errors"></a>
 

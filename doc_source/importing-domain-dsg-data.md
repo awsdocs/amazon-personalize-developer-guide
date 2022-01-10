@@ -1,6 +1,6 @@
 # Importing data into Domain dataset group datasets<a name="importing-domain-dsg-data"></a>
 
- After you create a Domain dataset group and one or more datasets, you are ready to import data into Amazon Personalize\. When you import data, you can choose to import records in bulk, import records individually, or both, depending on your business requirements and the amount of historical data you have collected\. If you have a large amount of historical records, we recommend you first import data in bulk and then add data incrementally as your catalog grows\. Keeping your data current helps maintain the relevance of your recommendations\. If you completed [Creating a Domain dataset group](create-domain-dataset-group.md), you may have already imported historical interactions data\. 
+ After you create a Domain dataset group and one or more datasets, you are ready to import data into Amazon Personalize\. When you import data, you can choose to import records in bulk, import records individually, or both, depending on your business requirements and the amount of historical data you have collected\. If you have a large amount of historical records, we recommend you first import data in bulk and then add data incrementally as your catalog grows\. Keeping your data current helps maintain the relevance of your recommendations\. If you completed [Creating a Domain dataset group](create-domain-dataset-group.md), you may have already imported interactions data\. 
 
 **Topics**
 + [Importing bulk records](#importing-bulk-domain-dsg)

@@ -1,6 +1,6 @@
 # DatasetImportJob<a name="API_DatasetImportJob"></a>
 
-Describes a job that imports training data from a data source \(Amazon S3 bucket\) to an Amazon Personalize dataset\. For more information, see [ CreateDatasetImportJob ](API_CreateDatasetImportJob.md)\.
+Describes a job that imports training data from a data source \(Amazon S3 bucket\) to an Amazon Personalize dataset\. For more information, see [CreateDatasetImportJob](API_CreateDatasetImportJob.md)\.
 
 A dataset import job can be in one of the following states:
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
@@ -28,7 +28,7 @@ Required: No
 
  ** dataSource **   <a name="personalize-Type-DatasetImportJob-dataSource"></a>
 The Amazon S3 bucket that contains the training data to import\.  
-Type: [ DataSource ](API_DataSource.md) object  
+Type: [DataSource](API_DataSource.md) object  
 Required: No
 
  ** failureReason **   <a name="personalize-Type-DatasetImportJob-failureReason"></a>

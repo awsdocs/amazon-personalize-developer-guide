@@ -28,7 +28,7 @@ Required: Yes
 
  ** [ recommenderConfig ](#API_UpdateRecommender_RequestSyntax) **   <a name="personalize-UpdateRecommender-request-recommenderConfig"></a>
 The configuration details of the recommender\.  
-Type: [ RecommenderConfig ](API_RecommenderConfig.md) object  
+Type: [RecommenderConfig](API_RecommenderConfig.md) object  
 Required: Yes
 
 ## Response Syntax<a name="API_UpdateRecommender_ResponseSyntax"></a>

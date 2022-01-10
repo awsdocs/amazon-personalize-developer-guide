@@ -6,7 +6,7 @@ The output configuration parameters of a dataset export job\.
 
  ** s3DataDestination **   <a name="personalize-Type-DatasetExportJobOutput-s3DataDestination"></a>
 The configuration details of an Amazon S3 input or output bucket\.  
-Type: [ S3DataConfig ](API_S3DataConfig.md) object  
+Type: [S3DataConfig](API_S3DataConfig.md) object  
 Required: Yes
 
 ## See Also<a name="API_DatasetExportJobOutput_SeeAlso"></a>

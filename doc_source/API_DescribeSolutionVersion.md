@@ -1,6 +1,6 @@
 # DescribeSolutionVersion<a name="API_DescribeSolutionVersion"></a>
 
-Describes a specific version of a solution\. For more information on solutions, see [ CreateSolution ](API_CreateSolution.md)\.
+Describes a specific version of a solution\. For more information on solutions, see [CreateSolution](API_CreateSolution.md)\.
 
 ## Request Syntax<a name="API_DescribeSolutionVersion_RequestSyntax"></a>
 
@@ -106,7 +106,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ solutionVersion ](#API_DescribeSolutionVersion_ResponseSyntax) **   <a name="personalize-DescribeSolutionVersion-response-solutionVersion"></a>
 The solution version\.  
-Type: [ SolutionVersion ](API_SolutionVersion.md) object
+Type: [SolutionVersion](API_SolutionVersion.md) object
 
 ## Errors<a name="API_DescribeSolutionVersion_Errors"></a>
 

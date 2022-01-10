@@ -31,7 +31,7 @@ The batch workflow is as follows:
 
  For batch workflows, your Amazon Personalize IAM service role needs permission to access and add files to your Amazon S3 buckets\. For information on granting permissions, see [Service\-linked role policy for batch workflows](granting-personalize-s3-access.md#role-policy-for-batch-workflows)\. For more information on bucket permissions, see [User policy examples](https://docs.aws.amazon.com/AmazonS3/latest/dev/example-policies-s3.html) in the *Amazon Simple Storage Service Developer Guide*\. 
 
- Amazon S3 buckets and objects must be either encryption free or, if you are using AWS Key Management Service \(AWS KMS\) for encryption, you must give your IAM user and Amazon Personalize service\-linked role permission to use your key\. You must also add Amazon Personalize as a Principle in your AWS KMS key policy\. For more information, see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\.
+ Amazon S3 buckets and objects must be either encryption free or, if you are using AWS Key Management Service \(AWS KMS\) for encryption, you must give your IAM user and Amazon Personalize service role permission to use your key\. You must also add Amazon Personalize as a Principle in your AWS KMS key policy\. For more information, see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\.
 
 ## Batch workflow scoring<a name="batch-scoring"></a>
 

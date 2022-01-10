@@ -72,7 +72,7 @@ Length Constraints: Maximum length of 1500\.
 
  ** [ recipes ](#API_ListRecipes_ResponseSyntax) **   <a name="personalize-ListRecipes-response-recipes"></a>
 The list of available recipes\.  
-Type: Array of [ RecipeSummary ](API_RecipeSummary.md) objects  
+Type: Array of [RecipeSummary](API_RecipeSummary.md) objects  
 Array Members: Maximum number of 100 items\.
 
 ## Errors<a name="API_ListRecipes_Errors"></a>

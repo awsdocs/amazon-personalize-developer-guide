@@ -1,6 +1,6 @@
 # BatchInferenceJobSummary<a name="API_BatchInferenceJobSummary"></a>
 
-A truncated version of the [ BatchInferenceJob ](API_BatchInferenceJob.md) datatype\. The [ ListBatchInferenceJobs ](API_ListBatchInferenceJobs.md) operation returns a list of batch inference job summaries\.
+A truncated version of the [BatchInferenceJob](API_BatchInferenceJob.md) datatype\. The [ListBatchInferenceJobs](API_ListBatchInferenceJobs.md) operation returns a list of batch inference job summaries\.
 
 ## Contents<a name="API_BatchInferenceJobSummary_Contents"></a>
 

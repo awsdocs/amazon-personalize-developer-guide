@@ -1,6 +1,6 @@
 # ListDatasetGroups<a name="API_ListDatasetGroups"></a>
 
-Returns a list of dataset groups\. The response provides the properties for each dataset group, including the Amazon Resource Name \(ARN\)\. For more information on dataset groups, see [ CreateDatasetGroup ](API_CreateDatasetGroup.md)\.
+Returns a list of dataset groups\. The response provides the properties for each dataset group, including the Amazon Resource Name \(ARN\)\. For more information on dataset groups, see [CreateDatasetGroup](API_CreateDatasetGroup.md)\.
 
 ## Request Syntax<a name="API_ListDatasetGroups_RequestSyntax"></a>
 
@@ -54,7 +54,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ datasetGroups ](#API_ListDatasetGroups_ResponseSyntax) **   <a name="personalize-ListDatasetGroups-response-datasetGroups"></a>
 The list of your dataset groups\.  
-Type: Array of [ DatasetGroupSummary ](API_DatasetGroupSummary.md) objects  
+Type: Array of [DatasetGroupSummary](API_DatasetGroupSummary.md) objects  
 Array Members: Maximum number of 100 items\.
 
  ** [ nextToken ](#API_ListDatasetGroups_ResponseSyntax) **   <a name="personalize-ListDatasetGroups-response-nextToken"></a>

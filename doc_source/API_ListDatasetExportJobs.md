@@ -1,6 +1,6 @@
 # ListDatasetExportJobs<a name="API_ListDatasetExportJobs"></a>
 
-Returns a list of dataset export jobs that use the given dataset\. When a dataset is not specified, all the dataset export jobs associated with the account are listed\. The response provides the properties for each dataset export job, including the Amazon Resource Name \(ARN\)\. For more information on dataset export jobs, see [ CreateDatasetExportJob ](API_CreateDatasetExportJob.md)\. For more information on datasets, see [ CreateDataset ](API_CreateDataset.md)\.
+Returns a list of dataset export jobs that use the given dataset\. When a dataset is not specified, all the dataset export jobs associated with the account are listed\. The response provides the properties for each dataset export job, including the Amazon Resource Name \(ARN\)\. For more information on dataset export jobs, see [CreateDatasetExportJob](API_CreateDatasetExportJob.md)\. For more information on datasets, see [CreateDataset](API_CreateDataset.md)\.
 
 ## Request Syntax<a name="API_ListDatasetExportJobs_RequestSyntax"></a>
 
@@ -61,7 +61,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ datasetExportJobs ](#API_ListDatasetExportJobs_ResponseSyntax) **   <a name="personalize-ListDatasetExportJobs-response-datasetExportJobs"></a>
 The list of dataset export jobs\.  
-Type: Array of [ DatasetExportJobSummary ](API_DatasetExportJobSummary.md) objects  
+Type: Array of [DatasetExportJobSummary](API_DatasetExportJobSummary.md) objects  
 Array Members: Maximum number of 100 items\.
 
  ** [ nextToken ](#API_ListDatasetExportJobs_ResponseSyntax) **   <a name="personalize-ListDatasetExportJobs-response-nextToken"></a>

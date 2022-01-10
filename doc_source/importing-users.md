@@ -33,7 +33,7 @@ You can import up to 10 users at a time\. This procedure assumes you have alread
 
 ## Importing users incrementally \(AWS CLI\)<a name="importing-users-cli"></a>
 
-Add one or more users to your Users dataset with the [ PutUsers ](API_UBS_PutUsers.md) operation\. You can import up to 10 users with a single `PutUsers` call\. This section assumes that you have already created an Users dataset\. For information about creating datasets, see [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md)\.
+Add one or more users to your Users dataset with the [PutUsers](API_UBS_PutUsers.md) operation\. You can import up to 10 users with a single `PutUsers` call\. This section assumes that you have already created an Users dataset\. For information about creating datasets, see [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md)\.
 
 Use the following `put-users` command to add one or more users with the AWS CLI\. Replace `dataset arn` with the Amazon Resource Name \(ARN\) of your dataset and `user Id` with the ID of the user\. If an user with the same `userId` is already in your Users dataset, Amazon Personalize replaces it with the new one\.
 
@@ -54,7 +54,7 @@ aws personalize-events put-users \
 
 ## Importing users incrementally \(AWS SDKs\)<a name="importing-users-cli-sdk"></a>
 
-Add one or more users to your Users dataset with the [ PutUsers ](API_UBS_PutUsers.md) operation\. You can import up to 10 users with a single `PutUsers` call\. This section assumes that you have already created a Users dataset\. For information about creating datasets, see [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md)\.
+Add one or more users to your Users dataset with the [PutUsers](API_UBS_PutUsers.md) operation\. You can import up to 10 users with a single `PutUsers` call\. This section assumes that you have already created a Users dataset\. For information about creating datasets, see [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md)\.
 
  The following code shows how to add one or more users to your Users dataset with the AWS SDK for Python \(Boto3\) or the AWS SDK for Java 2\.x\. 
 

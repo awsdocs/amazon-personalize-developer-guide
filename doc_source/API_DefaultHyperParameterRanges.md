@@ -6,19 +6,19 @@ Specifies the hyperparameters and their default ranges\. Hyperparameters can be 
 
  ** categoricalHyperParameterRanges **   <a name="personalize-Type-DefaultHyperParameterRanges-categoricalHyperParameterRanges"></a>
 The categorical hyperparameters and their default ranges\.  
-Type: Array of [ DefaultCategoricalHyperParameterRange ](API_DefaultCategoricalHyperParameterRange.md) objects  
+Type: Array of [DefaultCategoricalHyperParameterRange](API_DefaultCategoricalHyperParameterRange.md) objects  
 Array Members: Maximum number of 100 items\.  
 Required: No
 
  ** continuousHyperParameterRanges **   <a name="personalize-Type-DefaultHyperParameterRanges-continuousHyperParameterRanges"></a>
 The continuous hyperparameters and their default ranges\.  
-Type: Array of [ DefaultContinuousHyperParameterRange ](API_DefaultContinuousHyperParameterRange.md) objects  
+Type: Array of [DefaultContinuousHyperParameterRange](API_DefaultContinuousHyperParameterRange.md) objects  
 Array Members: Maximum number of 100 items\.  
 Required: No
 
  ** integerHyperParameterRanges **   <a name="personalize-Type-DefaultHyperParameterRanges-integerHyperParameterRanges"></a>
 The integer\-valued hyperparameters and their default ranges\.  
-Type: Array of [ DefaultIntegerHyperParameterRange ](API_DefaultIntegerHyperParameterRange.md) objects  
+Type: Array of [DefaultIntegerHyperParameterRange](API_DefaultIntegerHyperParameterRange.md) objects  
 Array Members: Maximum number of 100 items\.  
 Required: No
 

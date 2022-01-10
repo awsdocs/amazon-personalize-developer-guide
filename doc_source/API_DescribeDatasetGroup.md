@@ -1,6 +1,6 @@
 # DescribeDatasetGroup<a name="API_DescribeDatasetGroup"></a>
 
-Describes the given dataset group\. For more information on dataset groups, see [ CreateDatasetGroup ](API_CreateDatasetGroup.md)\.
+Describes the given dataset group\. For more information on dataset groups, see [CreateDatasetGroup](API_CreateDatasetGroup.md)\.
 
 ## Request Syntax<a name="API_DescribeDatasetGroup_RequestSyntax"></a>
 
@@ -47,7 +47,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ datasetGroup ](#API_DescribeDatasetGroup_ResponseSyntax) **   <a name="personalize-DescribeDatasetGroup-response-datasetGroup"></a>
 A listing of the dataset group's properties\.  
-Type: [ DatasetGroup ](API_DatasetGroup.md) object
+Type: [DatasetGroup](API_DatasetGroup.md) object
 
 ## Errors<a name="API_DescribeDatasetGroup_Errors"></a>
 

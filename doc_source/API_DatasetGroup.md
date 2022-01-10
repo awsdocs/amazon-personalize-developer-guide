@@ -1,6 +1,6 @@
 # DatasetGroup<a name="API_DatasetGroup"></a>
 
-A dataset group is a collection of related datasets \(Interactions, User, and Item\)\. You create a dataset group by calling [ CreateDatasetGroup ](API_CreateDatasetGroup.md)\. You then create a dataset and add it to a dataset group by calling [ CreateDataset ](API_CreateDataset.md)\. The dataset group is used to create and train a solution by calling [ CreateSolution ](API_CreateSolution.md)\. A dataset group can contain only one of each type of dataset\.
+A dataset group is a collection of related datasets \(Interactions, User, and Item\)\. You create a dataset group by calling [CreateDatasetGroup](API_CreateDatasetGroup.md)\. You then create a dataset and add it to a dataset group by calling [CreateDataset](API_CreateDataset.md)\. The dataset group is used to create and train a solution by calling [CreateSolution](API_CreateSolution.md)\. A dataset group can contain only one of each type of dataset\.
 
 You can specify an AWS Key Management Service \(KMS\) key to encrypt the datasets in the group\.
 

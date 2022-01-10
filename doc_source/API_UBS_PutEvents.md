@@ -37,7 +37,7 @@ The request accepts the following data in JSON format\.
 
  ** [ eventList ](#API_UBS_PutEvents_RequestSyntax) **   <a name="personalize-UBS_PutEvents-request-eventList"></a>
 A list of event data from the session\.  
-Type: Array of [ Event ](API_UBS_Event.md) objects  
+Type: Array of [Event](API_UBS_Event.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 10 items\.  
 Required: Yes
 

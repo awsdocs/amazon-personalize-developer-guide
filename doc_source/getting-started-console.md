@@ -23,7 +23,7 @@ In this procedure, you first create a dataset group\. Next, you create an Amazon
 
 1. On the **Create user\-item interaction data** page, in **Dataset details**, for **Dataset name**, specify a name for your dataset\.
 
-1. In **Schema details**, for **Schema selection**, choose **Create new schema**\. A minimal Interactions schema is displayed in the **Schema definition** field\. The schema matches the headers you previously added to the `ratings.csv` file\. For more information see [Creating the training data \(custom resources\)](gs-prerequisites.md#gs-upload-to-bucket)\. 
+1. In **Schema details**, for **Schema selection**, choose **Create new schema**\. A minimal Interactions schema is displayed in the **Schema definition** field\. The schema matches the headers you previously added to the `ratings.csv` file\. For more information see [Creating the training data \(Custom dataset group\)](gs-prerequisites.md#gs-upload-to-bucket)\. 
 
 1. For **New schema name**, specify a name for the new schema\.
 
@@ -36,7 +36,7 @@ In this procedure, you first create a dataset group\. Next, you create an Amazon
 
 1. For **IAM service role**, keep the default selection of **Enter a custom IAM role ARN**\.
 
-1. For **Custom IAM role ARN**, specify the role that you created in [Creating an IAM service role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
+1. For **Custom IAM role ARN**, specify the role that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
 
 1. In the informational dialog box named **Additional S3 bucket policy required**, follow the [instructions](data-prep-upload-s3.md) to add the required Amazon S3 bucket policy\.
 

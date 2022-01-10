@@ -1,8 +1,8 @@
 # Stopping the creation of a solution version<a name="stop-solution-version"></a>
 
-If your solution version has a status of CREATE\_PENDING or CREATE\_IN\_PROGRESS, you can use the Amazon Personalize console or the [ StopSolutionVersionCreation ](API_StopSolutionVersionCreation.md) operation to stop creating the solution version \(stop training a model\)\. You can't resume creating a solution version after it has stopped\. You are billed for resources used up to the point when the creation of the solution version stopped\. 
+If your solution version has a status of CREATE\_PENDING or CREATE\_IN\_PROGRESS, you can use the Amazon Personalize console or the [StopSolutionVersionCreation](API_StopSolutionVersionCreation.md) operation to stop creating the solution version \(stop training a model\)\. You can't resume creating a solution version after it has stopped\. You are billed for resources used up to the point when the creation of the solution version stopped\. 
 
-Stopping the creation of a solution version ends model training, but doesn't delete the solution version\. You can still view the solution version details in the Amazon Personalize console and with the [ DescribeSolutionVersion ](API_DescribeSolutionVersion.md) operation\. 
+Stopping the creation of a solution version ends model training, but doesn't delete the solution version\. You can still view the solution version details in the Amazon Personalize console and with the [DescribeSolutionVersion](API_DescribeSolutionVersion.md) operation\. 
 
 You can stop the solution version creation process with the Amazon Personalize console, the AWS Command Line Interface \(AWS CLI\), or the AWS SDKs\.
 
@@ -60,7 +60,7 @@ If your solution version has a status of CREATE\_PENDING or CREATE\_IN\_PROGRESS
 ------
 #### [ SDK for Python \(Boto3\) ]
 
-Use the following `stop_solution_version_creation`method to stop creation of a solution version\. Replace `solution_version_arn` with the Amazon Resource Name \(ARN\) of the solution version that you want to stop\. The method uses the [ DescribeSolutionVersion ](API_DescribeSolutionVersion.md) operation to retrieve the solution version's status\.
+Use the following `stop_solution_version_creation`method to stop creation of a solution version\. Replace `solution_version_arn` with the Amazon Resource Name \(ARN\) of the solution version that you want to stop\. The method uses the [DescribeSolutionVersion](API_DescribeSolutionVersion.md) operation to retrieve the solution version's status\.
 
 ```
 import boto3
@@ -80,7 +80,7 @@ print('Solution version status: ' + solution_version_description['status'])
 ------
 #### [ SDK for Java 2\.x ]
 
-Use the following `stopSolutionVersionCreation` method to stop creating a solution version\. Pass as parameters an Amazon Personalize service client and the Amazon Resource Name \(ARN\) of the solution version that you want to stop creating\. The following code uses the [ DescribeSolutionVersion ](API_DescribeSolutionVersion.md) operation to retrieve the solution version's status\.
+Use the following `stopSolutionVersionCreation` method to stop creating a solution version\. Pass as parameters an Amazon Personalize service client and the Amazon Resource Name \(ARN\) of the solution version that you want to stop creating\. The following code uses the [DescribeSolutionVersion](API_DescribeSolutionVersion.md) operation to retrieve the solution version's status\.
 
 ```
 public static void stopSolutionVersionCreation(PersonalizeClient personalizeClient, String solutionVersionArn) {

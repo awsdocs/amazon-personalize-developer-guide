@@ -7,7 +7,7 @@
 A dataset export job can be in one of the following states:
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
 
- To get the status of the export job, call [ DescribeDatasetExportJob ](API_DescribeDatasetExportJob.md), and specify the Amazon Resource Name \(ARN\) of the dataset export job\. The dataset export is complete when the status shows as ACTIVE\. If the status shows as CREATE FAILED, the response includes a `failureReason` key, which describes why the job failed\. 
+ To get the status of the export job, call [DescribeDatasetExportJob](API_DescribeDatasetExportJob.md), and specify the Amazon Resource Name \(ARN\) of the dataset export job\. The dataset export is complete when the status shows as ACTIVE\. If the status shows as CREATE FAILED, the response includes a `failureReason` key, which describes why the job failed\. 
 
 ## Request Syntax<a name="API_CreateDatasetExportJob_RequestSyntax"></a>
 
@@ -52,7 +52,7 @@ Required: Yes
 
  ** [ jobOutput ](#API_CreateDatasetExportJob_RequestSyntax) **   <a name="personalize-CreateDatasetExportJob-request-jobOutput"></a>
 The path to the Amazon S3 bucket where the job's output is stored\.  
-Type: [ DatasetExportJobOutput ](API_DatasetExportJobOutput.md) object  
+Type: [DatasetExportJobOutput](API_DatasetExportJobOutput.md) object  
 Required: Yes
 
  ** [ roleArn ](#API_CreateDatasetExportJob_RequestSyntax) **   <a name="personalize-CreateDatasetExportJob-request-roleArn"></a>

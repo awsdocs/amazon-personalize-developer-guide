@@ -8,16 +8,16 @@ A recommender can be in one of the following states:
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
 + DELETE PENDING > DELETE IN\_PROGRESS
 
-To get the recommender status, call [ DescribeRecommender ](API_DescribeRecommender.md)\.
+To get the recommender status, call [DescribeRecommender](API_DescribeRecommender.md)\.
 
 **Note**  
 Wait until the `status` of the recommender is `ACTIVE` before asking the recommender for recommendations\.
 
 **Related APIs**
-+  [ ListRecommenders ](API_ListRecommenders.md) 
-+  [ DescribeRecommender ](API_DescribeRecommender.md) 
-+  [ UpdateRecommender ](API_UpdateRecommender.md) 
-+  [ DeleteRecommender ](API_DeleteRecommender.md) 
++  [ListRecommenders](API_ListRecommenders.md) 
++  [DescribeRecommender](API_DescribeRecommender.md) 
++  [UpdateRecommender](API_UpdateRecommender.md) 
++  [DeleteRecommender](API_DeleteRecommender.md) 
 
 ## Request Syntax<a name="API_CreateRecommender_RequestSyntax"></a>
 
@@ -61,7 +61,7 @@ Required: Yes
 
  ** [ recommenderConfig ](#API_CreateRecommender_RequestSyntax) **   <a name="personalize-CreateRecommender-request-recommenderConfig"></a>
 The configuration details of the recommender\.  
-Type: [ RecommenderConfig ](API_RecommenderConfig.md) object  
+Type: [RecommenderConfig](API_RecommenderConfig.md) object  
 Required: No
 
 ## Response Syntax<a name="API_CreateRecommender_ResponseSyntax"></a>

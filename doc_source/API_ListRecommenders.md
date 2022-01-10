@@ -72,7 +72,7 @@ Length Constraints: Maximum length of 1500\.
 
  ** [ recommenders ](#API_ListRecommenders_ResponseSyntax) **   <a name="personalize-ListRecommenders-response-recommenders"></a>
 A list of the recommenders\.  
-Type: Array of [ RecommenderSummary ](API_RecommenderSummary.md) objects  
+Type: Array of [RecommenderSummary](API_RecommenderSummary.md) objects  
 Array Members: Maximum number of 100 items\.
 
 ## Errors<a name="API_ListRecommenders_Errors"></a>

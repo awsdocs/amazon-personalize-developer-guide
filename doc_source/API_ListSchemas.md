@@ -1,6 +1,6 @@
 # ListSchemas<a name="API_ListSchemas"></a>
 
-Returns the list of schemas associated with the account\. The response provides the properties for each schema, including the Amazon Resource Name \(ARN\)\. For more information on schemas, see [ CreateSchema ](API_CreateSchema.md)\.
+Returns the list of schemas associated with the account\. The response provides the properties for each schema, including the Amazon Resource Name \(ARN\)\. For more information on schemas, see [CreateSchema](API_CreateSchema.md)\.
 
 ## Request Syntax<a name="API_ListSchemas_RequestSyntax"></a>
 
@@ -57,7 +57,7 @@ Length Constraints: Maximum length of 1500\.
 
  ** [ schemas ](#API_ListSchemas_ResponseSyntax) **   <a name="personalize-ListSchemas-response-schemas"></a>
 A list of schemas\.  
-Type: Array of [ DatasetSchemaSummary ](API_DatasetSchemaSummary.md) objects  
+Type: Array of [DatasetSchemaSummary](API_DatasetSchemaSummary.md) objects  
 Array Members: Maximum number of 100 items\.
 
 ## Errors<a name="API_ListSchemas_Errors"></a>

@@ -2,9 +2,14 @@
 
  The data you provide for each item must match your Items dataset schema\. At minimum, you must provide an Item ID for each item \(max length 256 characters\)\. Depending on your schema, item metadata can include empty/null values\. Your schema must have minimum one metadata field, but if you add a `null` type, this value can be null for the item\. 
 
- To use categorical data, add a field of type `string` and set the field's categorical attribute to `true` in your schema\. Then include the categorical data in your bulk CSV file and incremental item imports\. For items with multiple categories, separate each value using the vertical bar, '\|'\. For example, for a GENRES field your data for an item might be action\|adventure\|comedy\. If you have a multiple levels of categorical data, add a field for each level and append a level indicator after each field name\. For example, CATEGORY\_L1, CATEGORY\_L2, CATEGORY\_L3\. 
+ To use categorical data, add a field of type `string` and set the field's categorical attribute to `true` in your schema\. Then include the categorical data in your bulk CSV file and incremental item imports\. Categorical values can have at most 1,000 characters\. If you have an item with a categorical value with more than 1,000 characters, your dataset import job will fail\.
 
-Categorical values can have at most 1,000 characters\. If you have a user with a categorical value with more than 1,000 characters, your dataset import job will fail\. 
+ For items with multiple categories, separate each value with the vertical bar, '\|'\. For example, for a GENRES field your data for an item might be `Action|Crime|Biopic`\. If you have a multiple levels of categorical data and some items have multiple categories for each level in the hierarchy, add a field for each level and append a level indicator after each field name: GENRES, GENRE\_L2, GENRE\_L3\. This allows you filter recommendations based on sub\-categories, even if an item belongs to multiple multi\-level categories \(for information on creating and using filters see [Filtering recommendations and user segments](filter.md)\)\. For example, a video might have the following data for each category level: 
++ GENRES: Action\|Adventure
++ GENRE\_L2: Crime\|Western
++ GENRE\_L3: biopic
+
+In this example, the video is in the action > crime > biopic hierarchy *and* the adventure > western > biopic hierarchy\. We recommend only using up to L3 but you can use more levels if necessary\.
 
 During model training, Amazon Personalize considers a maximum of 750,000 items\. If you import more than 750,000 items, Amazon Personalize decides which items to include in training, with an emphasis on including new items \(items you recently added with no interactions\) and existing items with recent interactions data\.
 

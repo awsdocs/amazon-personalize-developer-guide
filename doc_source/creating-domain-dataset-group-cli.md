@@ -2,7 +2,7 @@
 
  When you create a Domain dataset group, you choose a domain, create a schema and an Interactions dataset, and import historical data\. If you don't have historical data you can choose to record interactions data incrementally later\. 
 
- When you create an Interactions dataset, you can either use the default schema for each dataset for your domain, or customize it to create your own schema\. A schema allows Amazon Personalize to read your data\. Use the fields and their types as a guide to determine what data to import into Amazon Personalize\. For more information about default schemas, see [Domain datasets and schemas](domain-datasets-and-schemas.md)\. 
+ When you create an Interactions dataset, you can either use the default schema for your domain, or customize it to create your own schema\. A schema allows Amazon Personalize to read your data\. Use the fields and their types as a guide to determine what data to import into Amazon Personalize\. For more information about default schemas, see [Domain datasets and schemas](domain-datasets-and-schemas.md)\. 
 
 **Topics**
 + [Step 1: Create a Domain dataset group](#create-domain-dsg-cli)
@@ -56,7 +56,7 @@ After you complete [Step 1: Create a Domain dataset group](#create-domain-dsg-cl
    }
    ```
 
-1. Create a schema in Amazon Personalize by running the following command\. Replace `schemaName` with the name of the schema, replace `business domain` with `VIDEO_ON_DEMAND` or `ECOMMERCE`, and replace `file://SchemaName.json` with the location of the JSON file you created in the previous step\. The example shows the file as belonging to the current folder\. For more information about the API, see [ CreateSchema ](API_CreateSchema.md)\.
+1. Create a schema in Amazon Personalize by running the following command\. Replace `schemaName` with the name of the schema, replace `business domain` with `VIDEO_ON_DEMAND` or `ECOMMERCE`, and replace `file://SchemaName.json` with the location of the JSON file you created in the previous step\. The example shows the file as belonging to the current folder\. For more information about the API, see [CreateSchema](API_CreateSchema.md)\.
 
    ```
    aws personalize create-schema \
@@ -67,7 +67,7 @@ After you complete [Step 1: Create a Domain dataset group](#create-domain-dsg-cl
 
    Amazon Personalize returns the ARN of the new schema\. Record it because you'll need it in the next step\.
 
-1. Create a dataset using the [ CreateDataset ](API_CreateDataset.md) operation\. For information about the different types of datasets, see [Datasets and schemas](how-it-works-dataset-schema.md)\. 
+1. Create a dataset using the [CreateDataset](API_CreateDataset.md) operation\. For information about the different types of datasets, see [Datasets and schemas](how-it-works-dataset-schema.md)\. 
 
    Use the following `create-dataset` command to create an Interactions dataset\. Give the dataset a name and specify the `datasetGroupArn` returned in [Step 1: Create a Domain dataset group](#create-domain-dsg-cli)\. Use the `schemaArn` from the schema you just created\.
 
@@ -83,9 +83,13 @@ After you complete [Step 1: Create a Domain dataset group](#create-domain-dsg-cl
 
 ## Step 3: Import interactions data<a name="import-domain-interactions-cli"></a>
 
-After you complete [Step 2: Create a schema and an Interactions dataset](#create-domain-interactions-dataset-cli), you are ready to import data\. If you have data in Amazon S3, import data with a dataset import job\. If you want to only incrementally import interactions data, you can skip this step and instead use the [ PutEvents ](API_UBS_PutEvents.md) operation until you have at least 1000 combined historical and incremental interactions\. For more information see [Recording events](recording-events.md)\. 
+After you complete [Step 2: Create a schema and an Interactions dataset](#create-domain-interactions-dataset-cli), you are ready to import data\. If you have data in Amazon S3, import data with a dataset import job\. If you want to only incrementally import interactions data, you can skip this step and instead use the [PutEvents](API_UBS_PutEvents.md) operation until you have at least 1000 combined historical and incremental interactions\. For more information see [Recording events](recording-events.md)\. 
 
- For bulk imports, create a dataset import job by running the following command\. Provide the dataset Amazon Resource Name \(ARN\) for your Domain dataset group and your Amazon S3 bucket name\. Supply the AWS Identity and Access Management \(IAM\) role Amazon Resource Name \(ARN\) that you created in [Creating an IAM service role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. For more information about the operation, see [ CreateDatasetImportJob ](API_CreateDatasetImportJob.md)\.
+ For bulk imports, create a dataset import job by running the following command\. Provide the dataset Amazon Resource Name \(ARN\) for your Domain dataset group and specify the path to your Amazon S3 bucket where you stored the training data\. Use the following syntax for the path:
+
+**s3://<name of your S3 bucket>/<folder path>/<CSV filename>**
+
+Supply the AWS Identity and Access Management \(IAM\) role Amazon Resource Name \(ARN\) that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. For more information about the operation, see [CreateDatasetImportJob](API_CreateDatasetImportJob.md)\.
 
 ```
 aws personalize create-dataset-import-job \
@@ -103,7 +107,7 @@ The dataset import job ARN is displayed, as shown in the following example\.
 }
 ```
 
-Check the status by using the `describe-dataset-import-job` command\. Provide the dataset import job ARN\. For more information about the operation, see [ DescribeDatasetImportJob ](API_DescribeDatasetImportJob.md)\.
+Check the status by using the `describe-dataset-import-job` command\. Provide the dataset import job ARN\. For more information about the operation, see [DescribeDatasetImportJob](API_DescribeDatasetImportJob.md)\.
 
 ```
 aws personalize describe-dataset-import-job \

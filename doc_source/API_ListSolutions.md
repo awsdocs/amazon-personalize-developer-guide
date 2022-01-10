@@ -1,6 +1,6 @@
 # ListSolutions<a name="API_ListSolutions"></a>
 
-Returns a list of solutions that use the given dataset group\. When a dataset group is not specified, all the solutions associated with the account are listed\. The response provides the properties for each solution, including the Amazon Resource Name \(ARN\)\. For more information on solutions, see [ CreateSolution ](API_CreateSolution.md)\.
+Returns a list of solutions that use the given dataset group\. When a dataset group is not specified, all the solutions associated with the account are listed\. The response provides the properties for each solution, including the Amazon Resource Name \(ARN\)\. For more information on solutions, see [CreateSolution](API_CreateSolution.md)\.
 
 ## Request Syntax<a name="API_ListSolutions_RequestSyntax"></a>
 
@@ -65,7 +65,7 @@ Length Constraints: Maximum length of 1500\.
 
  ** [ solutions ](#API_ListSolutions_ResponseSyntax) **   <a name="personalize-ListSolutions-response-solutions"></a>
 A list of the current solutions\.  
-Type: Array of [ SolutionSummary ](API_SolutionSummary.md) objects  
+Type: Array of [SolutionSummary](API_SolutionSummary.md) objects  
 Array Members: Maximum number of 100 items\.
 
 ## Errors<a name="API_ListSolutions_Errors"></a>

@@ -4,11 +4,11 @@ To give Amazon Personalize access to your Amazon S3 bucket, do the following:
 
 1. If you haven't already, follow the steps in [Setting up permissions](aws-personalize-set-up-permissions.md) to set up permissions so your IAM users can access Amazon Personalize and Amazon Personalize can access your resources\.
 
-1.  Attach a policy to the Amazon Personalize service role \(see [Creating an IAM service role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\) that allows access to your Amazon S3 bucket\. For more information, see [Attaching an Amazon S3 policy to your Amazon Personalize service role](#attaching-s3-policy-to-role)\. 
+1.  Attach a policy to the Amazon Personalize service role \(see [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\) that allows access to your Amazon S3 bucket\. For more information, see [Attaching an Amazon S3 policy to your Amazon Personalize service role](#attaching-s3-policy-to-role)\. 
 
 1.  Attach a bucket policy to the Amazon S3 bucket containing your data files so Amazon Personalize can access them\. For more information, see [Attaching an Amazon Personalize access policy to your Amazon S3 bucket](#attach-bucket-policy)\. 
 
-1. If you are using AWS Key Management Service \(AWS KMS\) for encryption, you must give your IAM user and Amazon Personalize IAM service\-linked role permission to use your key\. You must also add Amazon Personalize as a Principle in your AWS KMS key policy\. For more information see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\.
+1. If you are using AWS Key Management Service \(AWS KMS\) for encryption, you must give your IAM user and Amazon Personalize IAM service role permission to use your key\. You must also add Amazon Personalize as a Principle in your AWS KMS key policy\. For more information see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\.
 
 **Note**  
 Because Amazon Personalize doesn’t communicate with AWS VPCs, Amazon Personalize can't interact with Amazon S3 buckets that allow only VPC access\.
@@ -56,7 +56,7 @@ To attach an Amazon S3 policy to your Amazon Personalize role do the following:
 
 1. Choose **Create policy**\.
 
-1. In the navigation pane, choose **Roles**, and choose the role you created for Amazon Personalize\. See [Creating an IAM service role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
+1. In the navigation pane, choose **Roles**, and choose the role you created for Amazon Personalize\. See [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
 
 1. For **Permissions**, choose **Attach policies**\.
 

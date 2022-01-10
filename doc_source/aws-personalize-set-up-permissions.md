@@ -19,9 +19,9 @@ We recommend creating an AWS Identity and Access Management \(IAM\) user with ac
 
 1.  Optionally attach the `CloudWatchFullAccess` AWS managed policy to your IAM user or group to grant permissions to monitor Amazon Personalize with CloudWatch\. See [AWS managed policies](security_iam_id-based-policy-examples.md#using-managed-policies)\. 
 
-1.  Create an IAM role for Amazon Personalize and attach the policy from step 1 to the new role\. See [Creating an IAM service role for Amazon Personalize](#set-up-create-role-with-permissions)\. 
+1.  Create an IAM role for Amazon Personalize and attach the policy from step 1 to the new role\. See [Creating an IAM role for Amazon Personalize](#set-up-create-role-with-permissions)\. 
 
-1. If you are using AWS Key Management Service \(AWS KMS\) for encryption, you must give your IAM user and Amazon Personalize IAM service\-linked role permission to use your key\. You must also add Amazon Personalize as a Principle in your AWS KMS key policy\. For more information see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\.
+1. If you are using AWS Key Management Service \(AWS KMS\) for encryption, you must give your IAM user and Amazon Personalize IAM service role permission to use your key\. You must also add Amazon Personalize as a Principle in your AWS KMS key policy\. For more information see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\.
 
 ## Creating a new IAM policy<a name="set-up-required-permissions"></a>
 
@@ -78,13 +78,16 @@ Create an IAM policy that provides users and Amazon Personalize full access to y
 
 1. If you are using AWS KMS for encryption, give your user or group permission to use your key\. For more information see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\. 
 
-## Creating an IAM service role for Amazon Personalize<a name="set-up-create-role-with-permissions"></a>
+## Creating an IAM role for Amazon Personalize<a name="set-up-create-role-with-permissions"></a>
 
- To use Amazon Personalize, you must create an AWS Identity and Access Management service role for Amazon Personalize\. For information on how to create an IAM service role, see [Creating a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) in the *IAM User Guide*\. As you create your role, configure the following for Amazon Personalize: 
+ To use Amazon Personalize, you must create an AWS Identity and Access Management service role for Amazon Personalize\. For information on how to create an IAM role, see [Creating a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) in the *IAM User Guide*\. As you create your role, configure the following for Amazon Personalize: 
 + For **Choose the service that will use this role**, choose `Personalize`\.
 + For **Attach permissions policies**, either choose the policy you created in [Creating a new IAM policy](#set-up-required-permissions) or choose `AmazonPersonalizeFullAccess` \(see [AWS managed policies](security_iam_id-based-policy-examples.md#using-managed-policies)\)\.
-+ If you are using AWS KMS for encryption, give your Amazon Personalize service\-linked role permission to use your key\. For more information see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\. 
++ If you are using AWS KMS for encryption, give your Amazon Personalize IAM role permission to use your key\. For more information see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\. 
++  To prevent the [confused deputy problem](cross-service-confused-deputy-prevention.md), in the role's trust relationship policy use `aws:SourceArn` and `aws:SourceAccount` global condition context keys\. For a trust relationship policy example, see [Cross\-service confused deputy prevention](cross-service-confused-deputy-prevention.md)\.
 
-Next, if you are completing the getting started exercise, you are ready create your training data and grant Amazon Personalize access to your Amazon S3 bucket\. See [Creating the training data \(custom resources\)](gs-prerequisites.md#gs-upload-to-bucket)\. 
+   For information modifying an IAM role's trust policy, see [Modifying a role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html)\. 
+
+Next, if you are completing the getting started exercise, you are ready create your training data and grant Amazon Personalize access to your Amazon S3 bucket\. See [Creating the training data \(Custom dataset group\)](gs-prerequisites.md#gs-upload-to-bucket)\. 
 
 If you are not completing the getting started exercise, you are ready to import your data\. See [Preparing and importing data](data-prep.md)\. 

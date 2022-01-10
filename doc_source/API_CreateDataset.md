@@ -1,6 +1,6 @@
 # CreateDataset<a name="API_CreateDataset"></a>
 
-Creates an empty dataset and adds it to the specified dataset group\. Use [ CreateDatasetImportJob ](API_CreateDatasetImportJob.md) to import your training data to a dataset\.
+Creates an empty dataset and adds it to the specified dataset group\. Use [CreateDatasetImportJob](API_CreateDatasetImportJob.md) to import your training data to a dataset\.
 
 There are three types of datasets:
 + Interactions
@@ -13,13 +13,13 @@ A dataset can be in one of the following states:
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
 + DELETE PENDING > DELETE IN\_PROGRESS
 
-To get the status of the dataset, call [ DescribeDataset ](API_DescribeDataset.md)\.
+To get the status of the dataset, call [DescribeDataset](API_DescribeDataset.md)\.
 
 **Related APIs**
-+  [ CreateDatasetGroup ](API_CreateDatasetGroup.md) 
-+  [ ListDatasets ](API_ListDatasets.md) 
-+  [ DescribeDataset ](API_DescribeDataset.md) 
-+  [ DeleteDataset ](API_DeleteDataset.md) 
++  [CreateDatasetGroup](API_CreateDatasetGroup.md) 
++  [ListDatasets](API_ListDatasets.md) 
++  [DescribeDataset](API_DescribeDataset.md) 
++  [DeleteDataset](API_DeleteDataset.md) 
 
 ## Request Syntax<a name="API_CreateDataset_RequestSyntax"></a>
 

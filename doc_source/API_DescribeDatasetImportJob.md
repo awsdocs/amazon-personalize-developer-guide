@@ -1,6 +1,6 @@
 # DescribeDatasetImportJob<a name="API_DescribeDatasetImportJob"></a>
 
-Describes the dataset import job created by [ CreateDatasetImportJob ](API_CreateDatasetImportJob.md), including the import job status\.
+Describes the dataset import job created by [CreateDatasetImportJob](API_CreateDatasetImportJob.md), including the import job status\.
 
 ## Request Syntax<a name="API_DescribeDatasetImportJob_RequestSyntax"></a>
 
@@ -54,7 +54,7 @@ The status is one of the following values:
 + CREATE IN\_PROGRESS
 + ACTIVE
 + CREATE FAILED
-Type: [ DatasetImportJob ](API_DatasetImportJob.md) object
+Type: [DatasetImportJob](API_DatasetImportJob.md) object
 
 ## Errors<a name="API_DescribeDatasetImportJob_Errors"></a>
 

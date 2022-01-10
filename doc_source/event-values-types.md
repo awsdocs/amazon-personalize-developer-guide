@@ -73,7 +73,7 @@ In the following procedure, you use the AWS SDK for Python \(Boto3\) to create a
 
 1. Upload your data to an Amazon Simple Storage Service \(Amazon S3\) bucket\. For a code sample, see [Uploading to an Amazon S3 bucket](data-prep-upload-s3.md)\.
 
-1. Import your data into Amazon Personalize with the [ CreateDatasetImportJob ](API_CreateDatasetImportJob.md) API\. Be sure to record your dataset group Amazon Resource Name \(ARN\) because you will need it when you create the solution\. For a code sample, see [Importing bulk records \(AWS SDKs\)](bulk-data-import-step.md#python-import-ex)\.
+1. Import your data into Amazon Personalize with the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) API\. Be sure to record your dataset group Amazon Resource Name \(ARN\) because you will need it when you create the solution\. For a code sample, see [Importing bulk records \(AWS SDKs\)](bulk-data-import-step.md#python-import-ex)\.
 
 1. Get the ARN of the recipe that you want to use when you create your solution\. You'll need it when you create the solution\.
 
@@ -91,7 +91,7 @@ In the following procedure, you use the AWS SDK for Python \(Boto3\) to create a
     recipe_arn = "arn:aws:personalize:::recipe/aws-recipe-name"
    ```
 
-1. Call the [ CreateSolution ](API_CreateSolution.md) API\. If you want to specify the event type, for example `“purchase”`, set it in the `eventType` parameter\. If you want to specify an event value, for example `10`, set it in the `eventValueThreshold` parameter\. You can also specify both an event type and an event value\.
+1. Call the [CreateSolution](API_CreateSolution.md) API\. If you want to specify the event type, for example `“purchase”`, set it in the `eventType` parameter\. If you want to specify an event value, for example `10`, set it in the `eventValueThreshold` parameter\. You can also specify both an event type and an event value\.
 
    ```
    import boto3
@@ -117,7 +117,7 @@ In the following procedure, you use the AWS SDK for Python \(Boto3\) to create a
    print('Solution status: ' + solution_description['status'])
    ```
 
-1. When you have the solution, use it to train a model by specifying its solution ARN in a [ CreateSolutionVersion ](API_CreateSolutionVersion.md) request\.
+1. When you have the solution, use it to train a model by specifying its solution ARN in a [CreateSolutionVersion](API_CreateSolutionVersion.md) request\.
 
    ```
    import boto3

@@ -37,7 +37,7 @@ The request accepts the following data in JSON format\.
 
  ** [ batchInferenceJobConfig ](#API_CreateBatchInferenceJob_RequestSyntax) **   <a name="personalize-CreateBatchInferenceJob-request-batchInferenceJobConfig"></a>
 The configuration details of a batch inference job\.  
-Type: [ BatchInferenceJobConfig ](API_BatchInferenceJobConfig.md) object  
+Type: [BatchInferenceJobConfig](API_BatchInferenceJobConfig.md) object  
 Required: No
 
  ** [ filterArn ](#API_CreateBatchInferenceJob_RequestSyntax) **   <a name="personalize-CreateBatchInferenceJob-request-filterArn"></a>
@@ -49,7 +49,7 @@ Required: No
 
  ** [ jobInput ](#API_CreateBatchInferenceJob_RequestSyntax) **   <a name="personalize-CreateBatchInferenceJob-request-jobInput"></a>
 The Amazon S3 path that leads to the input file to base your recommendations on\. The input material must be in JSON format\.  
-Type: [ BatchInferenceJobInput ](API_BatchInferenceJobInput.md) object  
+Type: [BatchInferenceJobInput](API_BatchInferenceJobInput.md) object  
 Required: Yes
 
  ** [ jobName ](#API_CreateBatchInferenceJob_RequestSyntax) **   <a name="personalize-CreateBatchInferenceJob-request-jobName"></a>
@@ -61,7 +61,7 @@ Required: Yes
 
  ** [ jobOutput ](#API_CreateBatchInferenceJob_RequestSyntax) **   <a name="personalize-CreateBatchInferenceJob-request-jobOutput"></a>
 The path to the Amazon S3 bucket where the job's output will be stored\.  
-Type: [ BatchInferenceJobOutput ](API_BatchInferenceJobOutput.md) object  
+Type: [BatchInferenceJobOutput](API_BatchInferenceJobOutput.md) object  
 Required: Yes
 
  ** [ numResults ](#API_CreateBatchInferenceJob_RequestSyntax) **   <a name="personalize-CreateBatchInferenceJob-request-numResults"></a>

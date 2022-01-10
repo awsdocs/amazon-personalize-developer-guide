@@ -5,7 +5,7 @@ Returns a list of recommended items\. For campaigns, the campaign's Amazon Resou
 + RELATED\_ITEMS \- `itemId` required, `userId` not used
 
 **Note**  
-Campaigns that are backed by a solution created using a recipe of type PERSONALIZED\_RANKING use the [ GetPersonalizedRanking ](API_RS_GetPersonalizedRanking.md) API\.
+Campaigns that are backed by a solution created using a recipe of type PERSONALIZED\_RANKING use the [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) API\.
 
  For recommenders, the recommender's ARN is required and the required item and user input depends on the use case \(domain\-based recipe\) backing the recommender\. For information on use case requirements see [Choosing recommender use cases](https://docs.aws.amazon.com/personalize/latest/dg/domain-use-cases.html)\. 
 
@@ -126,7 +126,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ itemList ](#API_RS_GetRecommendations_ResponseSyntax) **   <a name="personalize-RS_GetRecommendations-response-itemList"></a>
 A list of recommendations sorted in descending order by prediction score\. There can be a maximum of 500 items in the list\.  
-Type: Array of [ PredictedItem ](API_RS_PredictedItem.md) objects
+Type: Array of [PredictedItem](API_RS_PredictedItem.md) objects
 
  ** [ recommendationId ](#API_RS_GetRecommendations_ResponseSyntax) **   <a name="personalize-RS_GetRecommendations-response-recommendationId"></a>
 The ID of the recommendation\.  

@@ -15,7 +15,7 @@ In order for Amazon Personalize to generate solution version metrics, you must h
 
 ## Retrieving Metrics<a name="working-with-training-metrics-metrics"></a>
 
-You retrieve the metrics for a specific solution version by calling the [ GetSolutionMetrics ](API_GetSolutionMetrics.md) operation\.
+You retrieve the metrics for a specific solution version by calling the [GetSolutionMetrics](API_GetSolutionMetrics.md) operation\.
 
 **Retrieve metrics using the AWS Python SDK**
 
@@ -56,7 +56,7 @@ The following is an example the output from a solution version created using the
 The above metrics are described below using the following terms:
 + *Relevant recommendation* refers to a recommendation that matches a value in the testing data for the particular user\.
 + *Rank* refers to the position of a recommended item in the list of recommendations\. Position 1 \(the top of the list\) is presumed to be the most relevant to the user\.
-+ *Query* refers to the internal equivalent of a [ GetRecommendations ](API_RS_GetRecommendations.md) call\.
++ *Query* refers to the internal equivalent of a [GetRecommendations](API_RS_GetRecommendations.md) call\.
 
 For each metric, higher numbers are better\.
 

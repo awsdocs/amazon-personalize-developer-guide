@@ -1,6 +1,6 @@
 # Filtering batch recommendations and user segments<a name="filter-batch"></a>
 
-Filtering batch recommendations and user segments works nearly the same as filtering real\-time recommendations\. To filter batch recommendations or user segments, you [create a filter](filter-real-time.md)\. You can then apply it to a [ CreateBatchInferenceJob ](API_CreateBatchInferenceJob.md) or [ CreateBatchSegmentJob ](API_CreateBatchSegmentJob.md) operation, or a new batch inference job or batch segmentation job in the Amazon Personalize console\. Amazon Personalize then filters the recommendations from the batch job’s output JSON file\. For more information about batch workflows, see [Getting batch recommendations and user segments](recommendations-batch.md)\.
+Filtering batch recommendations and user segments works nearly the same as filtering real\-time recommendations\. To filter batch recommendations or user segments, you [create a filter](filter-real-time.md)\. You can then apply it to a [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) or [CreateBatchSegmentJob](API_CreateBatchSegmentJob.md) operation, or a new batch inference job or batch segmentation job in the Amazon Personalize console\. Amazon Personalize then filters the recommendations from the batch job’s output JSON file\. For more information about batch workflows, see [Getting batch recommendations and user segments](recommendations-batch.md)\.
 
 For filters with placeholder parameters, such as `$GENRE`, provide the values in a `filterValues` object in your input JSON\. For a `filterValues` object, each key is a parameter name and each value is the criteria that you are passing as a parameter\. For multiple values, separate each value with a comma\. The following is an example of a JSON input file with filter values\. The `GENRES` key corresponds to a `$GENRES` placeholder in the filter expression\.
 
@@ -30,7 +30,7 @@ For filters with placeholder parameters, such as `$GENRE`, provide the values in
 
 1. Use the console or the SDKs to [create a filter](filter-real-time.md)\. 
 
-1.  Include the `FilterArn` parameter in the [ CreateBatchInferenceJob ](API_CreateBatchInferenceJob.md) or [ CreateBatchSegmentJob ](API_CreateBatchSegmentJob.md) request\. n example of a `create_batch_inference_job` method is below\.
+1.  Include the `FilterArn` parameter in the [CreateBatchInferenceJob](API_CreateBatchInferenceJob.md) or [CreateBatchSegmentJob](API_CreateBatchSegmentJob.md) request\. n example of a `create_batch_inference_job` method is below\.
 
 ```
 import boto3

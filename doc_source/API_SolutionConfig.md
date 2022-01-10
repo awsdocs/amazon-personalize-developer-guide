@@ -13,8 +13,8 @@ Value Length Constraints: Maximum length of 1000\.
 Required: No
 
  ** autoMLConfig **   <a name="personalize-Type-SolutionConfig-autoMLConfig"></a>
-The [ AutoMLConfig ](API_AutoMLConfig.md) object containing a list of recipes to search when AutoML is performed\.  
-Type: [ AutoMLConfig ](API_AutoMLConfig.md) object  
+The [AutoMLConfig](API_AutoMLConfig.md) object containing a list of recipes to search when AutoML is performed\.  
+Type: [AutoMLConfig](API_AutoMLConfig.md) object  
 Required: No
 
  ** eventValueThreshold **   <a name="personalize-Type-SolutionConfig-eventValueThreshold"></a>
@@ -33,12 +33,12 @@ Required: No
 
  ** hpoConfig **   <a name="personalize-Type-SolutionConfig-hpoConfig"></a>
 Describes the properties for hyperparameter optimization \(HPO\)\.  
-Type: [ HPOConfig ](API_HPOConfig.md) object  
+Type: [HPOConfig](API_HPOConfig.md) object  
 Required: No
 
  ** optimizationObjective **   <a name="personalize-Type-SolutionConfig-optimizationObjective"></a>
 Describes the additional objective for the solution, such as maximizing streaming minutes or increasing revenue\. For more information see [Optimizing a solution](https://docs.aws.amazon.com/personalize/latest/dg/optimizing-solution-for-objective.html)\.  
-Type: [ OptimizationObjective ](API_OptimizationObjective.md) object  
+Type: [OptimizationObjective](API_OptimizationObjective.md) object  
 Required: No
 
 ## See Also<a name="API_SolutionConfig_SeeAlso"></a>

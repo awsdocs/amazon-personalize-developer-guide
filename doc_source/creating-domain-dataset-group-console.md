@@ -49,13 +49,13 @@ After you complete [Step 1: Create a Domain dataset group](#create-domain-dsg-co
 
 ## Step 3: Import interactions data<a name="import-domain-interactions-console"></a>
 
-After you complete [Step 2: Create a schema and Interactions dataset](#create-domain-interactions-dataset-console), import your interactions data from Amazon S3 into your Interactions dataset\. If you don't have bulk data in Amazon S3, you can skip this step and incrementally import interactions data with the event ingestion SDK and the [ PutEvents ](API_UBS_PutEvents.md) operation\. For more information see [Recording events](recording-events.md)\.
+After you complete [Step 2: Create a schema and Interactions dataset](#create-domain-interactions-dataset-console), import your interactions data from Amazon S3 into your Interactions dataset\. If you don't have bulk data in Amazon S3, you can skip this step and incrementally import interactions data with the event ingestion SDK and the [PutEvents](API_UBS_PutEvents.md) operation\. For more information see [Recording events](recording-events.md)\.
 
 **To import interactions data**
 
 1.  On the **Import interactions data** page, for **Data import source** choose how you want to import your data from one of the following options: 
    + Choose **Import bulk data from S3** if you have bulk historical data stored in an Amazon S3 bucket\. Your bucket must have the correct permissions\. For more information on granting permissions, see [Giving Amazon Personalize access to Amazon S3 resources](granting-personalize-s3-access.md)\. You can still incrementally import data with APIs after you import data from Amazon S3\. 
-   +  Or choose **Incrementally data with APIS** if you don't have historical data in Amazon S3 and want to incrementally import interactions data with the event ingestion SDK and the [ PutEvents ](API_UBS_PutEvents.md) operation\. If you choose this option, you will need to collect data until you have recorded the minimum 1000 interactions before you create a recommender\. For more information see [Recording events](recording-events.md)\. 
+   +  Or choose **Incrementally data with APIS** if you don't have historical data in Amazon S3 and want to incrementally import interactions data with the event ingestion SDK and the [PutEvents](API_UBS_PutEvents.md) operation\. If you choose this option, you will need to collect data until you have recorded the minimum 1000 interactions before you create a recommender\. For more information see [Recording events](recording-events.md)\. 
 
 1. For **Dataset import job name**, give your import job a name\.
 
@@ -67,6 +67,6 @@ If your CSV files are in a folder in your S3 bucket and you want to upload multi
 
 1. In **IAM role**, for **IAM service role** choose one of the following:
    + Choose **Create and use new service role** and provide a **Service role name** to create a new service role with the `AmazonPersonalizeFullAccess` policy attached\.
-   + If you already created a role, choose **Use an existing service role**\. For information on creating a role, see [Creating an IAM service role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
+   + If you already created a role, choose **Use an existing service role**\. For information on creating a role, see [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
 
 1. Choose **Import data** to import data\. The **Overview** page for your Domain dataset group appears\. Note the status of the import in the **Set up datasets** section\.

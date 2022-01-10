@@ -65,7 +65,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ batchInferenceJob ](#API_DescribeBatchInferenceJob_ResponseSyntax) **   <a name="personalize-DescribeBatchInferenceJob-response-batchInferenceJob"></a>
 Information on the specified batch inference job\.  
-Type: [ BatchInferenceJob ](API_BatchInferenceJob.md) object
+Type: [BatchInferenceJob](API_BatchInferenceJob.md) object
 
 ## Errors<a name="API_DescribeBatchInferenceJob_Errors"></a>
 

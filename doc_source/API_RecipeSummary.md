@@ -1,6 +1,6 @@
 # RecipeSummary<a name="API_RecipeSummary"></a>
 
-Provides a summary of the properties of a recipe\. For a complete listing, call the [ DescribeRecipe ](API_DescribeRecipe.md) API\.
+Provides a summary of the properties of a recipe\. For a complete listing, call the [DescribeRecipe](API_DescribeRecipe.md) API\.
 
 ## Contents<a name="API_RecipeSummary_Contents"></a>
 

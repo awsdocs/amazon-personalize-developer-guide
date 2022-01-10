@@ -7,6 +7,7 @@ AWS Identity and Access Management \(IAM\) is an AWS service that helps an admin
 + [Authenticating with identities](#security_iam_authentication)
 + [Managing access using policies](#security_iam_access-manage)
 + [How Amazon Personalize works with IAM](security_iam_service-with-iam.md)
++ [Cross\-service confused deputy prevention](cross-service-confused-deputy-prevention.md)
 + [Amazon Personalize identity\-based policy examples](security_iam_id-based-policy-examples.md)
 + [Troubleshooting Amazon Personalize identity and access](security_iam_troubleshoot.md)
 

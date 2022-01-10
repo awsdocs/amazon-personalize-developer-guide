@@ -28,7 +28,7 @@ With Domain dataset groups and Custom dataset groups, Amazon Personalize can cap
 
 1.  Create a schema that includes your domain's required fields\. You must create a schema before you import data\. 
 
-1.  Format any historical input data to match your schema \(list of required fields and types\) and upload the data into an Amazon S3 bucket\. 
+1.  Format any historical input data to match your schema and upload the data into an Amazon S3 bucket\. 
 
 1.  Import your data into an Amazon Personalize dataset and record real\-time event data from user interactions with items\. 
 
@@ -83,7 +83,7 @@ If you're a first\-time user of Amazon Personalize, we recommend you read the fo
    + **[Domain dataset groups](domain-dataset-groups.md)** – If you have a streaming video or e\-commerce application, follow the procedures in this section to create a Domain dataset group and recommenders for your use cases\. These procedures build upon what you learned when completing the Domain dataset group getting started exercises and provide more in depth information about recommenders and domain use cases\. 
    + **[Custom dataset groups](custom-dataset-groups.md)** – If you don't have a streaming video or e\-commerce application, follow the procedures in this section to create a Custom dataset group\. These procedures build upon what you learned when completing the Custom dataset group getting started exercises and provide more in depth information about custom recipes and models\. 
 
-1. **[Recording events](recording-events.md)** – This section covers how to record user interaction events in real\-time\. After you have set up your Amazon Personalize resources, complete this section to learn how to keep your Interactions dataset up to date with your users' behavior by recording interaction *[events](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#event)* with an event tracker and the [ PutEvents ](API_UBS_PutEvents.md) operation\. 
+1. **[Recording events](recording-events.md)** – This section covers how to record user interaction events in real\-time\. After you have set up your Amazon Personalize resources, complete this section to learn how to keep your Interactions dataset up to date with your users' behavior by recording interaction *[events](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#event)* with an event tracker and the [PutEvents](API_UBS_PutEvents.md) operation\. 
 
 1. **[Filtering recommendations and user segments](filter.md)** – This section covers how to filter recommendations\. Complete this section to learn how to construct filter expressions to filter recommendations based on custom criteria\. For example, you might not want to recommend products that a user has already purchased, or recommend movies that a user has already watched\. 
 

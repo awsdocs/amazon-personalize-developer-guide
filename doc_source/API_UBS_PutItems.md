@@ -36,7 +36,7 @@ Required: Yes
 
  ** [ items ](#API_UBS_PutItems_RequestSyntax) **   <a name="personalize-UBS_PutItems-request-items"></a>
 A list of item data\.  
-Type: Array of [ Item ](API_UBS_Item.md) objects  
+Type: Array of [Item](API_UBS_Item.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 10 items\.  
 Required: Yes
 

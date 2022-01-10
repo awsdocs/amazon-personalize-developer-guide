@@ -1,6 +1,6 @@
 # DescribeDatasetExportJob<a name="API_DescribeDatasetExportJob"></a>
 
-Describes the dataset export job created by [ CreateDatasetExportJob ](API_CreateDatasetExportJob.md), including the export job status\.
+Describes the dataset export job created by [CreateDatasetExportJob](API_CreateDatasetExportJob.md), including the export job status\.
 
 ## Request Syntax<a name="API_DescribeDatasetExportJob_RequestSyntax"></a>
 
@@ -58,7 +58,7 @@ The status is one of the following values:
 + CREATE IN\_PROGRESS
 + ACTIVE
 + CREATE FAILED
-Type: [ DatasetExportJob ](API_DatasetExportJob.md) object
+Type: [DatasetExportJob](API_DatasetExportJob.md) object
 
 ## Errors<a name="API_DescribeDatasetExportJob_Errors"></a>
 

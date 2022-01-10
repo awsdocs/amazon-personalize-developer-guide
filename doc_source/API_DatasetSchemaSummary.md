@@ -1,6 +1,6 @@
 # DatasetSchemaSummary<a name="API_DatasetSchemaSummary"></a>
 
-Provides a summary of the properties of a dataset schema\. For a complete listing, call the [ DescribeSchema ](API_DescribeSchema.md) API\.
+Provides a summary of the properties of a dataset schema\. For a complete listing, call the [DescribeSchema](API_DescribeSchema.md) API\.
 
 ## Contents<a name="API_DatasetSchemaSummary_Contents"></a>
 

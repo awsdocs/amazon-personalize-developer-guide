@@ -24,17 +24,17 @@ For information about the benefits of exploration see [User\-Personalization](na
 
 ### Implicit impressions<a name="implicit-impressions-info"></a>
 
-*Implicit impressions* are the recommendations, retrieved from Amazon Personalize, that you show the user\. You can integrate them into your recommendation workflow by including the `RecommendationId` \(returned by the [ GetRecommendations ](API_RS_GetRecommendations.md) and [ GetPersonalizedRanking ](API_RS_GetPersonalizedRanking.md) operations\) as input for future [ PutEvents ](API_UBS_PutEvents.md) requests\. Amazon Personalize derives the implicit impressions based on your recommendation data\. 
+*Implicit impressions* are the recommendations, retrieved from Amazon Personalize, that you show the user\. You can integrate them into your recommendation workflow by including the `RecommendationId` \(returned by the [GetRecommendations](API_RS_GetRecommendations.md) and [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) operations\) as input for future [PutEvents](API_UBS_PutEvents.md) requests\. Amazon Personalize derives the implicit impressions based on your recommendation data\. 
 
  For example, you might have an application that provides recommendations for streaming video\. Your recommendation workflow using implicit impressions might be as follows:
 
-1. You request video recommendations for one of your users using the Amazon Personalize [ GetRecommendations ](API_RS_GetRecommendations.md) API operation\.
+1. You request video recommendations for one of your users using the Amazon Personalize [GetRecommendations](API_RS_GetRecommendations.md) API operation\.
 
 1. Amazon Personalize generates recommendations for the user using your model \(solution version\) and returns them with a `recommendationId` in the API response\.
 
 1. You show the video recommendations to your user in your application\.
 
-1. When your user interacts with \(for example, clicks\) a video, record the choice in a call to the [ PutEvents ](API_UBS_PutEvents.md) API and include the `recommendationId` as a parameter\. For a code sample see [Recording impressions data](recording-events.md#putevents-including-impressions-data)\.
+1. When your user interacts with \(for example, clicks\) a video, record the choice in a call to the [PutEvents](API_UBS_PutEvents.md) API and include the `recommendationId` as a parameter\. For a code sample see [Recording impressions data](recording-events.md#putevents-including-impressions-data)\.
 
 1. Amazon Personalize uses the `recommendationId` to derive the impression data from the previous video recommendations, and then uses the impression data to guide exploration, where future recommendations include new videos with less interactions data or relevance\. 
 
@@ -46,13 +46,13 @@ For information about the benefits of exploration see [User\-Personalization](na
 
  For example, you might have a shopping application that provides recommendations for shoes\. If you only recommend shoes that are currently in stock, you can specify these items using explicit impressions\. Your recommendation workflow using explicit impressions might be as follows:
 
-1. You request recommendations for one of your users using the Amazon Personalize [ GetRecommendations ](API_RS_GetRecommendations.md) API\.
+1. You request recommendations for one of your users using the Amazon Personalize [GetRecommendations](API_RS_GetRecommendations.md) API\.
 
 1. Amazon Personalize generates recommendations for the user using your model \(solution version\) and returns them in the API response\.
 
 1. You show the user only the recommended shoes that are in stock\.
 
-1. For real\-time incremental data import, when your user interacts with \(for example, clicks\) a pair of shoes, you record the choice in a call to the [ PutEvents ](API_UBS_PutEvents.md) API and list the recommended items that are in stock in the `impression` parameter\. For a code sample see [Recording impressions data](recording-events.md#putevents-including-impressions-data)\.
+1. For real\-time incremental data import, when your user interacts with \(for example, clicks\) a pair of shoes, you record the choice in a call to the [PutEvents](API_UBS_PutEvents.md) API and list the recommended items that are in stock in the `impression` parameter\. For a code sample see [Recording impressions data](recording-events.md#putevents-including-impressions-data)\.
 
    For importing impressions in historical interactions data, you can list explicit impressions in your csv file and separate each item with a '\|' character\. See [Formatting explicit impressions](data-prep-formatting.md#data-prep-including-explicit-impressions)\.
 

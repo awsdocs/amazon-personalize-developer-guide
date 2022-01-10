@@ -1,6 +1,6 @@
 # RecommenderUpdateSummary<a name="API_RecommenderUpdateSummary"></a>
 
-Provides a summary of the properties of a recommender update\. For a complete listing, call the [ DescribeRecommender ](API_DescribeRecommender.md) API\.
+Provides a summary of the properties of a recommender update\. For a complete listing, call the [DescribeRecommender](API_DescribeRecommender.md) API\.
 
 ## Contents<a name="API_RecommenderUpdateSummary_Contents"></a>
 
@@ -21,7 +21,7 @@ Required: No
 
  ** recommenderConfig **   <a name="personalize-Type-RecommenderUpdateSummary-recommenderConfig"></a>
 The configuration details of the recommender update\.  
-Type: [ RecommenderConfig ](API_RecommenderConfig.md) object  
+Type: [RecommenderConfig](API_RecommenderConfig.md) object  
 Required: No
 
  ** status **   <a name="personalize-Type-RecommenderUpdateSummary-status"></a>

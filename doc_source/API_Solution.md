@@ -6,7 +6,7 @@ An object that provides information about a solution\. A solution is a trained m
 
  ** autoMLResult **   <a name="personalize-Type-Solution-autoMLResult"></a>
 When `performAutoML` is true, specifies the best recipe found\.  
-Type: [ AutoMLResult ](API_AutoMLResult.md) object  
+Type: [AutoMLResult](API_AutoMLResult.md) object  
 Required: No
 
  ** creationDateTime **   <a name="personalize-Type-Solution-creationDateTime"></a>
@@ -34,7 +34,7 @@ Required: No
 
  ** latestSolutionVersion **   <a name="personalize-Type-Solution-latestSolutionVersion"></a>
 Describes the latest version of the solution, including the status and the ARN\.  
-Type: [ SolutionVersionSummary ](API_SolutionVersionSummary.md) object  
+Type: [SolutionVersionSummary](API_SolutionVersionSummary.md) object  
 Required: No
 
  ** name **   <a name="personalize-Type-Solution-name"></a>
@@ -70,7 +70,7 @@ Required: No
 
  ** solutionConfig **   <a name="personalize-Type-Solution-solutionConfig"></a>
 Describes the configuration properties for the solution\.  
-Type: [ SolutionConfig ](API_SolutionConfig.md) object  
+Type: [SolutionConfig](API_SolutionConfig.md) object  
 Required: No
 
  ** status **   <a name="personalize-Type-Solution-status"></a>

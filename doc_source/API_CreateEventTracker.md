@@ -11,15 +11,15 @@ The event tracker can be in one of the following states:
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
 + DELETE PENDING > DELETE IN\_PROGRESS
 
-To get the status of the event tracker, call [ DescribeEventTracker ](API_DescribeEventTracker.md)\.
+To get the status of the event tracker, call [DescribeEventTracker](API_DescribeEventTracker.md)\.
 
 **Note**  
 The event tracker must be in the ACTIVE state before using the tracking ID\.
 
 **Related APIs**
-+  [ ListEventTrackers ](API_ListEventTrackers.md) 
-+  [ DescribeEventTracker ](API_DescribeEventTracker.md) 
-+  [ DeleteEventTracker ](API_DeleteEventTracker.md) 
++  [ListEventTrackers](API_ListEventTrackers.md) 
++  [DescribeEventTracker](API_DescribeEventTracker.md) 
++  [DeleteEventTracker](API_DeleteEventTracker.md) 
 
 ## Request Syntax<a name="API_CreateEventTracker_RequestSyntax"></a>
 

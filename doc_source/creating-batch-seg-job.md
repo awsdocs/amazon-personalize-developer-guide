@@ -51,7 +51,7 @@
 
 ## Creating a batch segment job \(AWS CLI\)<a name="batch-segment-cli"></a>
 
-After you have completed [Preparing and importing batch input data](batch-data-upload.md), you are ready to create a batch segment job using the following `create-batch-segment-job` code\. Specify a job name, replace `Solution version ARN` with the Amazon Resource Name \(ARN\) of your solution version, and replace the `IAM service role ARN` with the ARN of the IAM service role you created for Amazon Personalize during set up\. This role must have read and write access to your input and output Amazon S3 buckets respectively\. 
+After you have completed [Preparing and importing batch input data](batch-data-upload.md), you are ready to create a batch segment job using the following `create-batch-segment-job` code\. Specify a job name, replace `Solution version ARN` with the Amazon Resource Name \(ARN\) of your solution version, and replace the `IAM service role ARN` with the ARN of the IAM service role you created for Amazon Personalize during set up\. This role must have read and write access to your input and output Amazon S3 buckets respectively\. For `num-results` specify the number of users you want Amazon Personalize to predict for each line of input data\. 
 
 Replace `S3 input path` and `S3 output path` with the Amazon S3 path to your input file and output locations\. We recommend using a different location for your output data \(either a folder or a different Amazon S3 bucket\)\. You can apply a filter to the recommendations added to the output JSON file\. For more information see [Filtering batch recommendations and user segments](filter-batch.md)\. 
 
@@ -60,6 +60,7 @@ Use the following syntax for input and output locations: **s3://<name of your S3
 ```
 aws personalize create-batch-segment-job --job-name Job name \
                 --solution-version-arn Solution version ARN \
+                ----num-results The number of predicted users \
                 --job-input s3DataSource={path=s3://S3 input path} \
                 --job-output s3DataDestination={path=s3://S3 output path} \
                 --role-arn IAM service role ARN
@@ -77,7 +78,7 @@ Use the following syntax for input and output locations: **s3://<name of your S3
 ------
 #### [ SDK for Python \(Boto3\) ]
 
- Use the following `create_batch_segment_job` code to create a batch segment job\. Specify a `Job name`, replace `Solution version ARN` with the Amazon Resource Name \(ARN\) of your solution version, and replace the `IAM service role ARN` with the ARN of the IAM service role you created for Amazon Personalize during set up\. T his role must have read and write access to your input and output Amazon S3 buckets respectively\. 
+ Use the following `create_batch_segment_job` code to create a batch segment job\. Specify a `Job name`, replace `Solution version ARN` with the Amazon Resource Name \(ARN\) of your solution version, and replace the `IAM service role ARN` with the ARN of the IAM service role you created for Amazon Personalize during set up\. This role must have read and write access to your input and output Amazon S3 buckets respectively\. For `numResults` specify the number of users you want Amazon Personalize to predict for each line of input data\. 
 
 Replace Amazon S3 data source and data destinations with the Amazon S3 path to your input file and output locations\. We recommend using a different location for your output data \(either a folder or a different Amazon S3 bucket\)\. You can apply a filter to the recommendations added to the output JSON file\. For more information see [Filtering batch recommendations and user segments](filter-batch.md)\. 
 
@@ -89,8 +90,8 @@ personalize_rec = boto3.client(service_name='personalize')
 personalize_rec.create_batch_segment_job (
     solutionVersionArn = "Solution version ARN",
     jobName = "Job name",
+    numResults = Number of predicted users,
     roleArn = "IAM service role ARN",
-    },
     jobInput = 
        {"s3DataSource": {"path": "s3://<name of your S3 bucket>/<folder name>/<input JSON file name>"}},
     jobOutput = 
@@ -101,12 +102,13 @@ personalize_rec.create_batch_segment_job (
 ------
 #### [ SDK for Java 2\.x ]
 
- Use the following `createBatchSegmentJob` method to create a batch segment job\. Pass the following as parameters: an Amazon Personalize service client, the solution version's ARN \(Amazon Resource Name\), a name for the job, the Amazon S3 location where you stored your input data \(s3InputDataSourcePath\), the `bucket-name/folder name` of your output data location \(s3DataDestinationPath\), and your service\-linked role's ARN \(see [Creating an IAM service role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\)\. We recommend using a different location for your output data \(either a folder or a different Amazon S3 bucket\)\. 
+ Use the following `createBatchSegmentJob` method to create a batch segment job\. Pass the following as parameters: an Amazon Personalize service client, the solution version's ARN \(Amazon Resource Name\), a name for the job, the number of predicted users you want for each line of input data \(numResults\), the Amazon S3 location where you stored your input data \(s3InputDataSourcePath\), the `bucket-name/folder name` of your output data location \(s3DataDestinationPath\), and your service\-linked role's ARN \(see [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\)\. We recommend using a different location for your output data \(either a folder or a different Amazon S3 bucket\)\. 
 
 ```
 public static String createBatchSegmentJob(PersonalizeClient personalizeClient,
                                                         String solutionVersionArn,
                                                         String jobName,
+                                                        int numResults,
                                                         String s3InputDataSourcePath,
                                                         String s3DataDestinationPath,
                                                         String roleArn,
@@ -139,6 +141,7 @@ public static String createBatchSegmentJob(PersonalizeClient personalizeClient,
                 .jobInput(jobInput)
                 .jobOutput(jobOutputLocation)
                 .jobName(jobName)
+                .numResults(numResults)
                 .roleArn(roleArn)
                 .build();
 

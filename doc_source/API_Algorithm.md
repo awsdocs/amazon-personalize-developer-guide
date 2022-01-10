@@ -13,7 +13,7 @@ Required: No
 
  ** algorithmImage **   <a name="personalize-Type-Algorithm-algorithmImage"></a>
 The URI of the Docker container for the algorithm image\.  
-Type: [ AlgorithmImage ](API_AlgorithmImage.md) object  
+Type: [AlgorithmImage](API_AlgorithmImage.md) object  
 Required: No
 
  ** creationDateTime **   <a name="personalize-Type-Algorithm-creationDateTime"></a>
@@ -23,7 +23,7 @@ Required: No
 
  ** defaultHyperParameterRanges **   <a name="personalize-Type-Algorithm-defaultHyperParameterRanges"></a>
 Specifies the default hyperparameters, their ranges, and whether they are tunable\. A tunable hyperparameter can have its value determined during hyperparameter optimization \(HPO\)\.  
-Type: [ DefaultHyperParameterRanges ](API_DefaultHyperParameterRanges.md) object  
+Type: [DefaultHyperParameterRanges](API_DefaultHyperParameterRanges.md) object  
 Required: No
 
  ** defaultHyperParameters **   <a name="personalize-Type-Algorithm-defaultHyperParameters"></a>

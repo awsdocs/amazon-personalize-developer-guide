@@ -33,7 +33,7 @@ You can import up to 10 items to an Items dataset at a time\. This procedure ass
 
 ## Importing items incrementally \(AWS CLI\)<a name="importing-items-cli"></a>
 
-Add one or more items to your Items dataset using the [ PutItems ](API_UBS_PutItems.md) operation\. You can import up to 10 items with a single `PutItems` call\. This section assumes that you have already created an Items dataset\. For information about creating datasets, see [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md)\.
+Add one or more items to your Items dataset using the [PutItems](API_UBS_PutItems.md) operation\. You can import up to 10 items with a single `PutItems` call\. This section assumes that you have already created an Items dataset\. For information about creating datasets, see [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md)\.
 
 Use the following `put-items` command to add one or more items with the AWS CLI\. Replace `dataset arn` with the Amazon Resource Name \(ARN\) of your dataset and `item Id` with the ID of the item\. If an item with the same `itemId` is already in your Items dataset, Amazon Personalize replaces it with the new one\.
 
@@ -54,7 +54,7 @@ aws personalize-events put-items \
 
 ## Importing items incrementally \(AWS SDKs\)<a name="importing-items-cli-sdk"></a>
 
-Add one or more items to your Items dataset using the [ PutItems ](API_UBS_PutItems.md) operation\. You can import up to 10 items with a single `PutItems` call\. This section assumes that you have already created an Items dataset\. For information about creating datasets, see [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md)\.
+Add one or more items to your Items dataset using the [PutItems](API_UBS_PutItems.md) operation\. You can import up to 10 items with a single `PutItems` call\. This section assumes that you have already created an Items dataset\. For information about creating datasets, see [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md)\.
 
  The following code shows how to add one or more items to your Items dataset with the AWS SDK for Python \(Boto3\) or the AWS SDK for Java 2\.x\. 
 

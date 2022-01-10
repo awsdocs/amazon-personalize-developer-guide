@@ -1,6 +1,6 @@
 # ListEventTrackers<a name="API_ListEventTrackers"></a>
 
-Returns the list of event trackers associated with the account\. The response provides the properties for each event tracker, including the Amazon Resource Name \(ARN\) and tracking ID\. For more information on event trackers, see [ CreateEventTracker ](API_CreateEventTracker.md)\.
+Returns the list of event trackers associated with the account\. The response provides the properties for each event tracker, including the Amazon Resource Name \(ARN\) and tracking ID\. For more information on event trackers, see [CreateEventTracker](API_CreateEventTracker.md)\.
 
 ## Request Syntax<a name="API_ListEventTrackers_RequestSyntax"></a>
 
@@ -60,7 +60,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ eventTrackers ](#API_ListEventTrackers_ResponseSyntax) **   <a name="personalize-ListEventTrackers-response-eventTrackers"></a>
 A list of event trackers\.  
-Type: Array of [ EventTrackerSummary ](API_EventTrackerSummary.md) objects  
+Type: Array of [EventTrackerSummary](API_EventTrackerSummary.md) objects  
 Array Members: Maximum number of 100 items\.
 
  ** [ nextToken ](#API_ListEventTrackers_ResponseSyntax) **   <a name="personalize-ListEventTrackers-response-nextToken"></a>

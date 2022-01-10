@@ -11,7 +11,7 @@
 The following sections list the requirements and Amazon Resource Name \(ARN\) for each VIDEO\_ON\_DEMAND use case\. 
 
 **Note**  
-If you use the [ CreateRecommender ](API_CreateRecommender.md) API, provide the ARN listed here for the recipe ARN\.
+If you use the [CreateRecommender](API_CreateRecommender.md) API, provide the ARN listed here for the recipe ARN\.
 
 **Topics**
 + [Most popular](#hot-picks-use-case)
@@ -76,7 +76,7 @@ Get personalized streaming content recommendations for a user that you specify\.
 The following sections list the requirements and Amazon Resource Name \(ARN\) for each ECOMMERCE use case\.
 
 **Note**  
-If you use the [ CreateRecommender ](API_CreateRecommender.md) API, provide the ARN listed here for the recipe ARN\.
+If you use the [CreateRecommender](API_CreateRecommender.md) API, provide the ARN listed here for the recipe ARN\.
 
 **Topics**
 + [Most viewed](#most-viewed-use-case)

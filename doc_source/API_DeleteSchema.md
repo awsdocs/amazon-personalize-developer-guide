@@ -1,6 +1,6 @@
 # DeleteSchema<a name="API_DeleteSchema"></a>
 
-Deletes a schema\. Before deleting a schema, you must delete all datasets referencing the schema\. For more information on schemas, see [ CreateSchema ](API_CreateSchema.md)\.
+Deletes a schema\. Before deleting a schema, you must delete all datasets referencing the schema\. For more information on schemas, see [CreateSchema](API_CreateSchema.md)\.
 
 ## Request Syntax<a name="API_DeleteSchema_RequestSyntax"></a>
 

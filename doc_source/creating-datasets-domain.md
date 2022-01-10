@@ -28,6 +28,6 @@ For code examples, see [Step 2: Create a schema and an Interactions dataset](cre
 
 ## Creating datasets for a Domain dataset group \(AWS SDKs\)<a name="create-domain-datsets-sdk"></a>
 
-To create a dataset with the AWS SDKs you first use the [ CreateSchema ](API_CreateSchema.md) operation to define a schema for the dataset\. Then use the [ CreateDataset ](API_CreateDataset.md) operation to create the dataset\. 
+To create a dataset with the AWS SDKs you first use the [CreateSchema](API_CreateSchema.md) operation to define a schema for the dataset\. Then use the [CreateDataset](API_CreateDataset.md) operation to create the dataset\. 
 
 For examples that use the SDK for Python \(Boto3\), see [Step 2: Create a schema and an Interactions dataset](creating-domain-dataset-group-sdk.md#create-domain-interactions-dataset-sdk)\. In each example, replace INTERACTIONS with your dataset's type \(ITEMS or USERS\)\.

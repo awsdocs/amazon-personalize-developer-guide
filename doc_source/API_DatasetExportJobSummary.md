@@ -1,6 +1,6 @@
 # DatasetExportJobSummary<a name="API_DatasetExportJobSummary"></a>
 
-Provides a summary of the properties of a dataset export job\. For a complete listing, call the [ DescribeDatasetExportJob ](API_DescribeDatasetExportJob.md) API\.
+Provides a summary of the properties of a dataset export job\. For a complete listing, call the [DescribeDatasetExportJob](API_DescribeDatasetExportJob.md) API\.
 
 ## Contents<a name="API_DatasetExportJobSummary_Contents"></a>
 

@@ -1,6 +1,6 @@
 # DatasetSchema<a name="API_DatasetSchema"></a>
 
-Describes the schema for a dataset\. For more information on schemas, see [ CreateSchema ](API_CreateSchema.md)\.
+Describes the schema for a dataset\. For more information on schemas, see [CreateSchema](API_CreateSchema.md)\.
 
 ## Contents<a name="API_DatasetSchema_Contents"></a>
 

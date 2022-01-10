@@ -1,6 +1,6 @@
 # ListCampaigns<a name="API_ListCampaigns"></a>
 
-Returns a list of campaigns that use the given solution\. When a solution is not specified, all the campaigns associated with the account are listed\. The response provides the properties for each campaign, including the Amazon Resource Name \(ARN\)\. For more information on campaigns, see [ CreateCampaign ](API_CreateCampaign.md)\.
+Returns a list of campaigns that use the given solution\. When a solution is not specified, all the campaigns associated with the account are listed\. The response provides the properties for each campaign, including the Amazon Resource Name \(ARN\)\. For more information on campaigns, see [CreateCampaign](API_CreateCampaign.md)\.
 
 ## Request Syntax<a name="API_ListCampaigns_RequestSyntax"></a>
 
@@ -61,7 +61,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ campaigns ](#API_ListCampaigns_ResponseSyntax) **   <a name="personalize-ListCampaigns-response-campaigns"></a>
 A list of the campaigns\.  
-Type: Array of [ CampaignSummary ](API_CampaignSummary.md) objects  
+Type: Array of [CampaignSummary](API_CampaignSummary.md) objects  
 Array Members: Maximum number of 100 items\.
 
  ** [ nextToken ](#API_ListCampaigns_ResponseSyntax) **   <a name="personalize-ListCampaigns-response-nextToken"></a>

@@ -1,6 +1,6 @@
 # DatasetImportJobSummary<a name="API_DatasetImportJobSummary"></a>
 
-Provides a summary of the properties of a dataset import job\. For a complete listing, call the [ DescribeDatasetImportJob ](API_DescribeDatasetImportJob.md) API\.
+Provides a summary of the properties of a dataset import job\. For a complete listing, call the [DescribeDatasetImportJob](API_DescribeDatasetImportJob.md) API\.
 
 ## Contents<a name="API_DatasetImportJobSummary_Contents"></a>
 

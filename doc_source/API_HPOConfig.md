@@ -6,18 +6,18 @@ Describes the properties for hyperparameter optimization \(HPO\)\.
 
  ** algorithmHyperParameterRanges **   <a name="personalize-Type-HPOConfig-algorithmHyperParameterRanges"></a>
 The hyperparameters and their allowable ranges\.  
-Type: [ HyperParameterRanges ](API_HyperParameterRanges.md) object  
+Type: [HyperParameterRanges](API_HyperParameterRanges.md) object  
 Required: No
 
  ** hpoObjective **   <a name="personalize-Type-HPOConfig-hpoObjective"></a>
 The metric to optimize during HPO\.  
 Amazon Personalize doesn't support configuring the `hpoObjective` at this time\.
-Type: [ HPOObjective ](API_HPOObjective.md) object  
+Type: [HPOObjective](API_HPOObjective.md) object  
 Required: No
 
  ** hpoResourceConfig **   <a name="personalize-Type-HPOConfig-hpoResourceConfig"></a>
 Describes the resource configuration for HPO\.  
-Type: [ HPOResourceConfig ](API_HPOResourceConfig.md) object  
+Type: [HPOResourceConfig](API_HPOResourceConfig.md) object  
 Required: No
 
 ## See Also<a name="API_HPOConfig_SeeAlso"></a>

@@ -104,7 +104,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ personalizedRanking ](#API_RS_GetPersonalizedRanking_ResponseSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-response-personalizedRanking"></a>
 A list of items in order of most likely interest to the user\. The maximum is 500\.  
-Type: Array of [ PredictedItem ](API_RS_PredictedItem.md) objects
+Type: Array of [PredictedItem](API_RS_PredictedItem.md) objects
 
  ** [ recommendationId ](#API_RS_GetPersonalizedRanking_ResponseSyntax) **   <a name="personalize-RS_GetPersonalizedRanking-response-recommendationId"></a>
 The ID of the recommendation\.  

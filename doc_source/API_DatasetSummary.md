@@ -1,6 +1,6 @@
 # DatasetSummary<a name="API_DatasetSummary"></a>
 
-Provides a summary of the properties of a dataset\. For a complete listing, call the [ DescribeDataset ](API_DescribeDataset.md) API\.
+Provides a summary of the properties of a dataset\. For a complete listing, call the [DescribeDataset](API_DescribeDataset.md) API\.
 
 ## Contents<a name="API_DatasetSummary_Contents"></a>
 

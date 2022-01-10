@@ -5,7 +5,7 @@ The configuration details of an Amazon S3 input or output bucket\.
 ## Contents<a name="API_S3DataConfig_Contents"></a>
 
  ** kmsKeyArn **   <a name="personalize-Type-S3DataConfig-kmsKeyArn"></a>
-The Amazon Resource Name \(ARN\) of the AWS Key Management Service \(KMS\) key that Amazon Personalize uses to encrypt or decrypt the input and output files of a batch inference job\.  
+The Amazon Resource Name \(ARN\) of the AWS Key Management Service \(KMS\) key that Amazon Personalize uses to encrypt or decrypt the input and output files\.  
 Type: String  
 Length Constraints: Maximum length of 2048\.  
 Pattern: `arn:aws.*:kms:.*:[0-9]{12}:key/.*`   

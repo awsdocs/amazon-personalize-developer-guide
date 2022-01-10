@@ -1,6 +1,6 @@
 # DatasetExportJob<a name="API_DatasetExportJob"></a>
 
-Describes a job that exports a dataset to an Amazon S3 bucket\. For more information, see [ CreateDatasetExportJob ](API_CreateDatasetExportJob.md)\.
+Describes a job that exports a dataset to an Amazon S3 bucket\. For more information, see [CreateDatasetExportJob](API_CreateDatasetExportJob.md)\.
 
 A dataset export job can be in one of the following states:
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
@@ -47,7 +47,7 @@ Required: No
  ** jobOutput **   <a name="personalize-Type-DatasetExportJob-jobOutput"></a>
 The path to the Amazon S3 bucket where the job's output is stored\. For example:  
  `s3://bucket-name/folder-name/`   
-Type: [ DatasetExportJobOutput ](API_DatasetExportJobOutput.md) object  
+Type: [DatasetExportJobOutput](API_DatasetExportJobOutput.md) object  
 Required: No
 
  ** lastUpdatedDateTime **   <a name="personalize-Type-DatasetExportJob-lastUpdatedDateTime"></a>

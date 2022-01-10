@@ -1,6 +1,6 @@
 # SolutionSummary<a name="API_SolutionSummary"></a>
 
-Provides a summary of the properties of a solution\. For a complete listing, call the [ DescribeSolution ](API_DescribeSolution.md) API\.
+Provides a summary of the properties of a solution\. For a complete listing, call the [DescribeSolution](API_DescribeSolution.md) API\.
 
 ## Contents<a name="API_SolutionSummary_Contents"></a>
 

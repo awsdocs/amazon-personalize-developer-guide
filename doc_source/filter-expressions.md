@@ -34,13 +34,10 @@ You can either manually create filter expressions or get help with expression sy
      If you have a Users dataset, you can add an `IF` condition to your expression to check conditions for the `CurrentUser` regardless of the dataset that is being used in the expression\. 
   +  For *user segments*, use filter expressions to include or exclude *users* from user segments based on properties of users\. 
 
-  For filtering recommendations, 
-
  When creating a filter expression, note the following limitations: 
 + You can't use filters to include or exclude items based on unstructured textual item metadata such as product descriptions\.
 + You can't chain Interaction and Item datasets into one expression\. To create a filter that filters by Interaction and then Item datasets \(or the opposite\), you must chain two or more expressions together\. For more information, see [Combining multiple expressions](#multiple-expression-example)\. 
 +  You can't create filter expressions that filter using values with a boolean type in your schema\. To filter based on boolean values, use a schema with a field of type *String* and use the values `"True"` and `"False"` in your data\. Or you can use type *int* or *long* and values `0` and `1`\. 
-+ 
 
 ### Filter expression elements<a name="filter-expression-elements"></a>
 
@@ -108,7 +105,7 @@ EXCLUDE ItemID WHERE Interactions.EVENT_TYPE IN ("click", "stream")
 The following expression includes only items that the user has clicked\.
 
 ```
-INCLUDE ItemID WHERE Interactions.EVENT_TYPE IN (""click")
+INCLUDE ItemID WHERE Interactions.EVENT_TYPE IN ("click")
 ```
 
  **Item data** 
@@ -198,6 +195,8 @@ INCLUDE ItemID WHERE Items.CATEGORY IN ($CATEGORY) | INCLUDE ItemID WHERE Intera
  If one or more expression uses `INCLUDE` and one more expression uses `EXCLUDE`, the result is the subtraction of the `EXCLUDE` expression result from the `INCLUDE` expression result as follows \(A, B, C, and D are different expressions\)\.
 + `Include A | Exclude B` is equal to `Include result from A - result from B`
 +  `Include A | Include B | Exclude C | Exclude D` is equal to `Include (A or B) - (C or D)` 
+
+Expression order does not matter: If the EXCLUDE expression comes before the INCLUDE expression, the result is the same\.
 
 The following example shows how to combine an `INCLUDE` expression and a `EXCLUDE` expression\. The first expression includes only items with a genre or genres that you specify when you get recommendations using the `$GENRE` parameter\. The second expression excludes items that the user has clicked or streamed\. Recommendations will include only items with a genre that you specify that have not have been clicked or streamed\.
 

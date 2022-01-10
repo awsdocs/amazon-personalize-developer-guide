@@ -24,6 +24,6 @@
 
 1. Amazon Personalize returns the ARN of the new schema\. Store it for later use\.
 
-Amazon Personalize provides operations for managing schemas\. For example, you can use the [ ListSchemas ](API_ListSchemas.md) API to get a list of the available schemas\.
+Amazon Personalize provides operations for managing schemas\. For example, you can use the [ListSchemas](API_ListSchemas.md) API to get a list of the available schemas\.
 
 After you create a schema, use it with datasets that match the schema\. For more information, see [Formatting your input data](data-prep-formatting.md)\. 

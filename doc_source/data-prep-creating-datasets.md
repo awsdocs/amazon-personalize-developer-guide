@@ -38,7 +38,7 @@ For information on Amazon Personalize datasets and schema requirements, see [Dat
 
 ## Creating a dataset and a schema \(AWS CLI\)<a name="data-prep-creating-ds-cli"></a>
 
-To create a dataset and a schema using the AWS CLI, you first define a schema in [Avro format](https://docs.oracle.com/database/nosql-12.1.3.0/GettingStartedGuide/avroschemas.html) and add it to Amazon Personalize using the [ CreateSchema ](API_CreateSchema.md) operation\. Then create a dataset using the [ CreateDataset ](API_CreateDataset.md) operation\. For information on Amazon Personalize datasets and schema requirements, see [Datasets and schemas](how-it-works-dataset-schema.md)\.
+To create a dataset and a schema using the AWS CLI, you first define a schema in [Avro format](https://docs.oracle.com/database/nosql-12.1.3.0/GettingStartedGuide/avroschemas.html) and add it to Amazon Personalize using the [CreateSchema](API_CreateSchema.md) operation\. Then create a dataset using the [CreateDataset](API_CreateDataset.md) operation\. For information on Amazon Personalize datasets and schema requirements, see [Datasets and schemas](how-it-works-dataset-schema.md)\.
 
 **To create a schema and dataset**
 
@@ -69,7 +69,7 @@ To create a dataset and a schema using the AWS CLI, you first define a schema in
    }
    ```
 
-1. Create a schema in Amazon Personalize by running the following command\. Replace `schemaName` with the name of the schema, and replace `file://SchemaName.json` with the location of the JSON file you created in the previous step\. The example shows the file as belonging to the current folder\. For more information about the API, see [ CreateSchema ](API_CreateSchema.md)\.
+1. Create a schema in Amazon Personalize by running the following command\. Replace `schemaName` with the name of the schema, and replace `file://SchemaName.json` with the location of the JSON file you created in the previous step\. The example shows the file as belonging to the current folder\. For more information about the API, see [CreateSchema](API_CreateSchema.md)\.
 
    ```
    aws personalize create-schema \
@@ -85,7 +85,7 @@ To create a dataset and a schema using the AWS CLI, you first define a schema in
    }
    ```
 
-1. Create an empty dataset by running the following command\. Provide the dataset group Amazon Resource Name \(ARN\) from [Creating a dataset group \(AWS CLI\)](data-prep-ds-group.md#data-prep-creating-ds-group-cli) and schema ARN from the previous step\. The `dataset-type` must match the schema `name` from the previous step\. For more information about the API, see [ CreateDataset ](API_CreateDataset.md)\.
+1. Create an empty dataset by running the following command\. Provide the dataset group Amazon Resource Name \(ARN\) from [Creating a dataset group \(AWS CLI\)](data-prep-ds-group.md#data-prep-creating-ds-group-cli) and schema ARN from the previous step\. The `dataset-type` must match the schema `name` from the previous step\. For more information about the API, see [CreateDataset](API_CreateDataset.md)\.
 
    ```
    aws personalize create-dataset \
@@ -107,7 +107,7 @@ To create a dataset and a schema using the AWS CLI, you first define a schema in
 
 ## Creating a dataset and a schema \(AWS SDKs\)<a name="data-prep-creating-ds-sdk"></a>
 
-To create a dataset and a schema using the AWS SDKs, you first define a schema in [Avro format](https://docs.oracle.com/database/nosql-12.1.3.0/GettingStartedGuide/avroschemas.html) and add it to Amazon Personalize using the [ CreateSchema ](API_CreateSchema.md) operation\. Then create a dataset using the [ CreateDataset ](API_CreateDataset.md) operation\. For information on Amazon Personalize datasets and schema requirements, see [Datasets and schemas](how-it-works-dataset-schema.md)\.
+To create a dataset and a schema using the AWS SDKs, you first define a schema in [Avro format](https://docs.oracle.com/database/nosql-12.1.3.0/GettingStartedGuide/avroschemas.html) and add it to Amazon Personalize using the [CreateSchema](API_CreateSchema.md) operation\. Then create a dataset using the [CreateDataset](API_CreateDataset.md) operation\. For information on Amazon Personalize datasets and schema requirements, see [Datasets and schemas](how-it-works-dataset-schema.md)\.
 
 **To create a schema and a dataset**
 
@@ -138,7 +138,7 @@ To create a dataset and a schema using the AWS SDKs, you first define a schema i
    }
    ```
 
-1. Create the schema using the [ CreateSchema ](API_CreateSchema.md) API operation\.
+1. Create the schema using the [CreateSchema](API_CreateSchema.md) API operation\.
 
 ------
 #### [ SDK for Python \(Boto3\) ]
@@ -200,7 +200,7 @@ To create a dataset and a schema using the AWS SDKs, you first define a schema i
 
    Amazon Personalize returns the ARN of the new schema\. Record it because you'll need it in the next step\.
 
-1. Create a dataset using the [ CreateDataset ](API_CreateDataset.md) operation\. For information about the different types of datasets, see [Datasets and schemas](how-it-works-dataset-schema.md)\. 
+1. Create a dataset using the [CreateDataset](API_CreateDataset.md) operation\. For information about the different types of datasets, see [Datasets and schemas](how-it-works-dataset-schema.md)\. 
 
 ------
 #### [ SDK for Python \(Boto3\) ]

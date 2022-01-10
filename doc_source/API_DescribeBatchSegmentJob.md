@@ -60,7 +60,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ batchSegmentJob ](#API_DescribeBatchSegmentJob_ResponseSyntax) **   <a name="personalize-DescribeBatchSegmentJob-response-batchSegmentJob"></a>
 Information on the specified batch segment job\.  
-Type: [ BatchSegmentJob ](API_BatchSegmentJob.md) object
+Type: [BatchSegmentJob](API_BatchSegmentJob.md) object
 
 ## Errors<a name="API_DescribeBatchSegmentJob_Errors"></a>
 

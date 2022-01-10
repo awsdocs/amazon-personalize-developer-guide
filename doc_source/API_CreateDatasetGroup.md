@@ -11,7 +11,7 @@ A dataset group can be in one of the following states:
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
 + DELETE PENDING
 
-To get the status of the dataset group, call [ DescribeDatasetGroup ](API_DescribeDatasetGroup.md)\. If the status shows as CREATE FAILED, the response includes a `failureReason` key, which describes why the creation failed\.
+To get the status of the dataset group, call [DescribeDatasetGroup](API_DescribeDatasetGroup.md)\. If the status shows as CREATE FAILED, the response includes a `failureReason` key, which describes why the creation failed\.
 
 **Note**  
 You must wait until the `status` of the dataset group is `ACTIVE` before adding a dataset to the group\.
@@ -19,14 +19,14 @@ You must wait until the `status` of the dataset group is `ACTIVE` before adding 
 You can specify an AWS Key Management Service \(KMS\) key to encrypt the datasets in the group\. If you specify a KMS key, you must also include an AWS Identity and Access Management \(IAM\) role that has permission to access the key\.
 
 **APIs that require a dataset group ARN in the request**
-+  [ CreateDataset ](API_CreateDataset.md) 
-+  [ CreateEventTracker ](API_CreateEventTracker.md) 
-+  [ CreateSolution ](API_CreateSolution.md) 
++  [CreateDataset](API_CreateDataset.md) 
++  [CreateEventTracker](API_CreateEventTracker.md) 
++  [CreateSolution](API_CreateSolution.md) 
 
 **Related APIs**
-+  [ ListDatasetGroups ](API_ListDatasetGroups.md) 
-+  [ DescribeDatasetGroup ](API_DescribeDatasetGroup.md) 
-+  [ DeleteDatasetGroup ](API_DeleteDatasetGroup.md) 
++  [ListDatasetGroups](API_ListDatasetGroups.md) 
++  [DescribeDatasetGroup](API_DescribeDatasetGroup.md) 
++  [DeleteDatasetGroup](API_DeleteDatasetGroup.md) 
 
 ## Request Syntax<a name="API_CreateDatasetGroup_RequestSyntax"></a>
 

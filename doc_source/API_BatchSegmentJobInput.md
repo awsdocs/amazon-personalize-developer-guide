@@ -6,7 +6,7 @@ The input configuration of a batch segment job\.
 
  ** s3DataSource **   <a name="personalize-Type-BatchSegmentJobInput-s3DataSource"></a>
 The configuration details of an Amazon S3 input or output bucket\.  
-Type: [ S3DataConfig ](API_S3DataConfig.md) object  
+Type: [S3DataConfig](API_S3DataConfig.md) object  
 Required: Yes
 
 ## See Also<a name="API_BatchSegmentJobInput_SeeAlso"></a>

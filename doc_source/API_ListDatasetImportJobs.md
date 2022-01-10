@@ -1,6 +1,6 @@
 # ListDatasetImportJobs<a name="API_ListDatasetImportJobs"></a>
 
-Returns a list of dataset import jobs that use the given dataset\. When a dataset is not specified, all the dataset import jobs associated with the account are listed\. The response provides the properties for each dataset import job, including the Amazon Resource Name \(ARN\)\. For more information on dataset import jobs, see [ CreateDatasetImportJob ](API_CreateDatasetImportJob.md)\. For more information on datasets, see [ CreateDataset ](API_CreateDataset.md)\.
+Returns a list of dataset import jobs that use the given dataset\. When a dataset is not specified, all the dataset import jobs associated with the account are listed\. The response provides the properties for each dataset import job, including the Amazon Resource Name \(ARN\)\. For more information on dataset import jobs, see [CreateDatasetImportJob](API_CreateDatasetImportJob.md)\. For more information on datasets, see [CreateDataset](API_CreateDataset.md)\.
 
 ## Request Syntax<a name="API_ListDatasetImportJobs_RequestSyntax"></a>
 
@@ -61,7 +61,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ datasetImportJobs ](#API_ListDatasetImportJobs_ResponseSyntax) **   <a name="personalize-ListDatasetImportJobs-response-datasetImportJobs"></a>
 The list of dataset import jobs\.  
-Type: Array of [ DatasetImportJobSummary ](API_DatasetImportJobSummary.md) objects  
+Type: Array of [DatasetImportJobSummary](API_DatasetImportJobSummary.md) objects  
 Array Members: Maximum number of 100 items\.
 
  ** [ nextToken ](#API_ListDatasetImportJobs_ResponseSyntax) **   <a name="personalize-ListDatasetImportJobs-response-nextToken"></a>

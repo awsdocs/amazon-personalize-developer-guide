@@ -1,6 +1,6 @@
 # AutoMLResult<a name="API_AutoMLResult"></a>
 
-When the solution performs AutoML \(`performAutoML` is true in [ CreateSolution ](API_CreateSolution.md)\), specifies the recipe that best optimized the specified metric\.
+When the solution performs AutoML \(`performAutoML` is true in [CreateSolution](API_CreateSolution.md)\), specifies the recipe that best optimized the specified metric\.
 
 ## Contents<a name="API_AutoMLResult_Contents"></a>
 

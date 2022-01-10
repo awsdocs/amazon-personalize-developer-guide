@@ -1,6 +1,6 @@
 # ListSolutionVersions<a name="API_ListSolutionVersions"></a>
 
-Returns a list of solution versions for the given solution\. When a solution is not specified, all the solution versions associated with the account are listed\. The response provides the properties for each solution version, including the Amazon Resource Name \(ARN\)\. For more information on solutions, see [ CreateSolution ](API_CreateSolution.md)\.
+Returns a list of solution versions for the given solution\. When a solution is not specified, all the solution versions associated with the account are listed\. The response provides the properties for each solution version, including the Amazon Resource Name \(ARN\)\. For more information on solutions, see [CreateSolution](API_CreateSolution.md)\.
 
 ## Request Syntax<a name="API_ListSolutionVersions_RequestSyntax"></a>
 
@@ -65,7 +65,7 @@ Length Constraints: Maximum length of 1500\.
 
  ** [ solutionVersions ](#API_ListSolutionVersions_ResponseSyntax) **   <a name="personalize-ListSolutionVersions-response-solutionVersions"></a>
 A list of solution versions describing the version properties\.  
-Type: Array of [ SolutionVersionSummary ](API_SolutionVersionSummary.md) objects  
+Type: Array of [SolutionVersionSummary](API_SolutionVersionSummary.md) objects  
 Array Members: Maximum number of 100 items\.
 
 ## Errors<a name="API_ListSolutionVersions_Errors"></a>

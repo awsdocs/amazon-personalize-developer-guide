@@ -1,6 +1,6 @@
 # DescribeDataset<a name="API_DescribeDataset"></a>
 
-Describes the given dataset\. For more information on datasets, see [ CreateDataset ](API_CreateDataset.md)\.
+Describes the given dataset\. For more information on datasets, see [CreateDataset](API_CreateDataset.md)\.
 
 ## Request Syntax<a name="API_DescribeDataset_RequestSyntax"></a>
 
@@ -46,7 +46,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ dataset ](#API_DescribeDataset_ResponseSyntax) **   <a name="personalize-DescribeDataset-response-dataset"></a>
 A listing of the dataset's properties\.  
-Type: [ Dataset ](API_Dataset.md) object
+Type: [Dataset](API_Dataset.md) object
 
 ## Errors<a name="API_DescribeDataset_Errors"></a>
 

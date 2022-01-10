@@ -1,6 +1,6 @@
 # DeleteEventTracker<a name="API_DeleteEventTracker"></a>
 
-Deletes the event tracker\. Does not delete the event\-interactions dataset from the associated dataset group\. For more information on event trackers, see [ CreateEventTracker ](API_CreateEventTracker.md)\.
+Deletes the event tracker\. Does not delete the event\-interactions dataset from the associated dataset group\. For more information on event trackers, see [CreateEventTracker](API_CreateEventTracker.md)\.
 
 ## Request Syntax<a name="API_DeleteEventTracker_RequestSyntax"></a>
 

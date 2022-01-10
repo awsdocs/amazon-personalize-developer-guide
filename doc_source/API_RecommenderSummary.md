@@ -44,7 +44,7 @@ Required: No
 
  ** recommenderConfig **   <a name="personalize-Type-RecommenderSummary-recommenderConfig"></a>
 The configuration details of the recommender\.  
-Type: [ RecommenderConfig ](API_RecommenderConfig.md) object  
+Type: [RecommenderConfig](API_RecommenderConfig.md) object  
 Required: No
 
  ** status **   <a name="personalize-Type-RecommenderSummary-status"></a>

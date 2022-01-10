@@ -1,6 +1,6 @@
 # SolutionVersionSummary<a name="API_SolutionVersionSummary"></a>
 
-Provides a summary of the properties of a solution version\. For a complete listing, call the [ DescribeSolutionVersion ](API_DescribeSolutionVersion.md) API\.
+Provides a summary of the properties of a solution version\. For a complete listing, call the [DescribeSolutionVersion](API_DescribeSolutionVersion.md) API\.
 
 ## Contents<a name="API_SolutionVersionSummary_Contents"></a>
 

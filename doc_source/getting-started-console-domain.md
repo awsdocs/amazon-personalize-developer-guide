@@ -42,7 +42,7 @@ When you finish the getting started exercise, to avoid incurring unnecessary cha
 
    **s3://<name of your S3 bucket>/<folder path>/<CSV filename>**
 
-1. In **IAM role**, for **IAM service role** choose **Use an existing service role** and choose the role you created in [Creating an IAM service role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
+1. In **IAM role**, for **IAM service role** choose **Use an existing service role** and choose the role you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
 
 1. Choose **Import data** to import data\. The **Overview** page for your Domain dataset group appears\. Note the status of the import in the **Set up datasets** section\. When the status is `Interaction data active` proceed to [Step 3: Create a recommender](#getting-started-console-create-recommenders)\.
 

@@ -12,7 +12,7 @@ You can create a Domain dataset group with the Amazon Personalize console, AWS C
 
 1.  Create a schema that includes your domain's required fields\. You must create a schema before you import data\. 
 
-1.  Format any historical input data to match your schema \(list of required fields and types\) and upload the data into an Amazon S3 bucket\. 
+1.  Format any historical input data to match your schema and upload the data into an Amazon S3 bucket\. 
 
 1.  Import your data into an Amazon Personalize dataset and record real\-time event data from user interactions with items\. 
 

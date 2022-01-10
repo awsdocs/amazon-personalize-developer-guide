@@ -46,7 +46,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ filter ](#API_DescribeFilter_ResponseSyntax) **   <a name="personalize-DescribeFilter-response-filter"></a>
 The filter's details\.  
-Type: [ Filter ](API_Filter.md) object
+Type: [Filter](API_Filter.md) object
 
 ## Errors<a name="API_DescribeFilter_Errors"></a>
 

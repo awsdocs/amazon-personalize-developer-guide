@@ -2,7 +2,7 @@
 
 An object that identifies an item\.
 
-The [ GetRecommendations ](API_RS_GetRecommendations.md) and [ GetPersonalizedRanking ](API_RS_GetPersonalizedRanking.md) APIs return a list of `PredictedItem`s\.
+The [GetRecommendations](API_RS_GetRecommendations.md) and [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) APIs return a list of `PredictedItem`s\.
 
 ## Contents<a name="API_RS_PredictedItem_Contents"></a>
 

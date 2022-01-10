@@ -10,7 +10,7 @@ The following are legacy USER\_PERSONALIZATION recipes\.
 
 ## Using AutoML to choose an HRNN recipe \(API only\)<a name="training-solution-auto-ml"></a>
 
-Amazon Personalize can automatically choose the most appropriate hierarchical recurrent neural network \(HRNN\) recipe based on its analysis of the input data\. This option is called AutoML\. To perform AutoML, set the `performAutoML` parameter to `true` when you call the [ CreateSolution ](API_CreateSolution.md) API\. 
+Amazon Personalize can automatically choose the most appropriate hierarchical recurrent neural network \(HRNN\) recipe based on its analysis of the input data\. This option is called AutoML\. To perform AutoML, set the `performAutoML` parameter to `true` when you call the [CreateSolution](API_CreateSolution.md) API\. 
 
 You can also specify the list of recipes that Amazon Personalize examines to determine the optimal recipe, based on a metric you specify\. In this case, you call the `CreateSolution` operation, specify `true` for the `performAutoML` parameter, omit the `recipeArn` parameter, and include the `solutionConfig` parameter, specifying the `metricName` and `recipeList` as part of the `autoMLConfig` object\. 
 

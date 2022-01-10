@@ -1,6 +1,6 @@
 # DescribeSolution<a name="API_DescribeSolution"></a>
 
-Describes a solution\. For more information on solutions, see [ CreateSolution ](API_CreateSolution.md)\.
+Describes a solution\. For more information on solutions, see [CreateSolution](API_CreateSolution.md)\.
 
 ## Request Syntax<a name="API_DescribeSolution_RequestSyntax"></a>
 
@@ -108,7 +108,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ solution ](#API_DescribeSolution_ResponseSyntax) **   <a name="personalize-DescribeSolution-response-solution"></a>
 An object that describes the solution\.  
-Type: [ Solution ](API_Solution.md) object
+Type: [Solution](API_Solution.md) object
 
 ## Errors<a name="API_DescribeSolution_Errors"></a>
 

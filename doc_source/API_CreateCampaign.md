@@ -16,16 +16,16 @@ A campaign can be in one of the following states:
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
 + DELETE PENDING > DELETE IN\_PROGRESS
 
-To get the campaign status, call [ DescribeCampaign ](API_DescribeCampaign.md)\.
+To get the campaign status, call [DescribeCampaign](API_DescribeCampaign.md)\.
 
 **Note**  
 Wait until the `status` of the campaign is `ACTIVE` before asking the campaign for recommendations\.
 
 **Related APIs**
-+  [ ListCampaigns ](API_ListCampaigns.md) 
-+  [ DescribeCampaign ](API_DescribeCampaign.md) 
-+  [ UpdateCampaign ](API_UpdateCampaign.md) 
-+  [ DeleteCampaign ](API_DeleteCampaign.md) 
++  [ListCampaigns](API_ListCampaigns.md) 
++  [DescribeCampaign](API_DescribeCampaign.md) 
++  [UpdateCampaign](API_UpdateCampaign.md) 
++  [DeleteCampaign](API_DeleteCampaign.md) 
 
 ## Request Syntax<a name="API_CreateCampaign_RequestSyntax"></a>
 
@@ -48,7 +48,7 @@ The request accepts the following data in JSON format\.
 
  ** [ campaignConfig ](#API_CreateCampaign_RequestSyntax) **   <a name="personalize-CreateCampaign-request-campaignConfig"></a>
 The configuration details of a campaign\.  
-Type: [ CampaignConfig ](API_CampaignConfig.md) object  
+Type: [CampaignConfig](API_CampaignConfig.md) object  
 Required: No
 
  ** [ minProvisionedTPS ](#API_CreateCampaign_RequestSyntax) **   <a name="personalize-CreateCampaign-request-minProvisionedTPS"></a>

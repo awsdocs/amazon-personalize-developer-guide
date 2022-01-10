@@ -1,6 +1,6 @@
 # DeleteDataset<a name="API_DeleteDataset"></a>
 
-Deletes a dataset\. You can't delete a dataset if an associated `DatasetImportJob` or `SolutionVersion` is in the CREATE PENDING or IN PROGRESS state\. For more information on datasets, see [ CreateDataset ](API_CreateDataset.md)\.
+Deletes a dataset\. You can't delete a dataset if an associated `DatasetImportJob` or `SolutionVersion` is in the CREATE PENDING or IN PROGRESS state\. For more information on datasets, see [CreateDataset](API_CreateDataset.md)\.
 
 ## Request Syntax<a name="API_DeleteDataset_RequestSyntax"></a>
 

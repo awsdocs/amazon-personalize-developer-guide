@@ -1,6 +1,6 @@
 # Getting recommendations from a recommender<a name="domain-dsg-recommendations"></a>
 
- With a Domain dataset group, after you create a recommender you can use it in your application to get real\-time recommendations with the [ GetRecommendations ](API_RS_GetRecommendations.md) operation\. Or you can test the recommender with the Amazon Personalize console\. For more information about recommenders see [Creating recommenders](creating-recommenders.md) 
+ With a Domain dataset group, after you create a recommender you can use it in your application to get real\-time recommendations with the [GetRecommendations](API_RS_GetRecommendations.md) operation\. Or you can test the recommender with the Amazon Personalize console\. For more information about recommenders see [Creating recommenders](creating-recommenders.md) 
 
 **Topics**
 + [Getting recommendations with a recommender \(console\)](#get-domain-rec-console)
@@ -46,9 +46,12 @@ aws personalize-runtime get-recommendations \
 
 ## Getting recommendations with a recommender \(AWS SDKs\)<a name="get-domain-rec-sdk"></a>
 
-The following code shows how to get Amazon Personalize recommendations from your recommender with the SDK for Python \(Boto3\)\. Change the value of `userId` to a user ID that is in the data that you imported\. A list of the top 10 recommended items for the user displays\. To change the number of recommended items, change the value for `numResults`\. The default is 25 items\. The maximum is 500 items\. If your recommender's use case requires an itemId, replace the `userId` parameter with `itemId` and specify the item ID\. 
+The following code shows how to get Amazon Personalize recommendations from your recommender with the AWS SDKs\. Change the value of `userId` to a user ID that is in the data that you imported\. A list of the top 10 recommended items for the user displays\. To change the number of recommended items, change the value for `numResults`\. The default is 25 items\. The maximum is 500 items\. If your recommender's use case requires an itemId, replace the `userId` parameter with `itemId` and specify the item ID\. 
 
  If you recorded events for a user before they logged in \(an anonymous user\), you can get recommendations for this user by providing the `sessionId` from those events instead of a `userId`\. For more information about recording events for anonymous users, see [PutEvents operation](recording-events.md#event-record-api)\. 
+
+------
+#### [ SDK for Python \(Boto3\) ]
 
 ```
 import boto3
@@ -65,3 +68,32 @@ print("Recommended items")
 for item in response['itemList']:
     print (item['itemId'])
 ```
+
+------
+#### [ SDK for Java 2\.x ]
+
+```
+public static void getRecs(PersonalizeRuntimeClient personalizeRuntimeClient, String recommenderArn, String userId){
+
+      try {
+          GetRecommendationsRequest recommendationsRequest = GetRecommendationsRequest.builder()
+                  .recommenderArn(recommenderArn)
+                  .numResults(10)
+                  .userId(userId)
+                  .build();
+
+          GetRecommendationsResponse recommendationsResponse = personalizeRuntimeClient.getRecommendations(recommendationsRequest);
+          List<PredictedItem> items = recommendationsResponse.itemList();
+
+          for (PredictedItem item: items) {
+              System.out.println("Item Id is : "+item.itemId());
+              System.out.println("Item score is : "+item.score());
+          }
+      } catch (AwsServiceException e) {
+          System.err.println(e.awsErrorDetails().errorMessage());
+          System.exit(1);
+      }
+  }
+```
+
+------

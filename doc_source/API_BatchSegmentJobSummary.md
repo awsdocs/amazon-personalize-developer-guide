@@ -1,6 +1,6 @@
 # BatchSegmentJobSummary<a name="API_BatchSegmentJobSummary"></a>
 
-A truncated version of the [ BatchSegmentJob ](API_BatchSegmentJob.md) datatype\. The [ ListBatchSegmentJobs ](API_ListBatchSegmentJobs.md) operation returns a list of batch segment job summaries\.
+A truncated version of the [BatchSegmentJob](API_BatchSegmentJob.md) datatype\. The [ListBatchSegmentJobs](API_ListBatchSegmentJobs.md) operation returns a list of batch segment job summaries\.
 
 ## Contents<a name="API_BatchSegmentJobSummary_Contents"></a>
 

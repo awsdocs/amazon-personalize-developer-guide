@@ -28,7 +28,7 @@ Required: No
 
  ** latestRecommenderUpdate **   <a name="personalize-Type-Recommender-latestRecommenderUpdate"></a>
 Provides a summary of the latest updates to the recommender\.   
-Type: [ RecommenderUpdateSummary ](API_RecommenderUpdateSummary.md) object  
+Type: [RecommenderUpdateSummary](API_RecommenderUpdateSummary.md) object  
 Required: No
 
  ** name **   <a name="personalize-Type-Recommender-name"></a>
@@ -54,7 +54,7 @@ Required: No
 
  ** recommenderConfig **   <a name="personalize-Type-Recommender-recommenderConfig"></a>
 The configuration details of the recommender\.  
-Type: [ RecommenderConfig ](API_RecommenderConfig.md) object  
+Type: [RecommenderConfig](API_RecommenderConfig.md) object  
 Required: No
 
  ** status **   <a name="personalize-Type-Recommender-status"></a>

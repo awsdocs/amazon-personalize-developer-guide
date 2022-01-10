@@ -62,7 +62,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ batchSegmentJobs ](#API_ListBatchSegmentJobs_ResponseSyntax) **   <a name="personalize-ListBatchSegmentJobs-response-batchSegmentJobs"></a>
 A list containing information on each job that is returned\.  
-Type: Array of [ BatchSegmentJobSummary ](API_BatchSegmentJobSummary.md) objects  
+Type: Array of [BatchSegmentJobSummary](API_BatchSegmentJobSummary.md) objects  
 Array Members: Maximum number of 100 items\.
 
  ** [ nextToken ](#API_ListBatchSegmentJobs_ResponseSyntax) **   <a name="personalize-ListBatchSegmentJobs-response-nextToken"></a>

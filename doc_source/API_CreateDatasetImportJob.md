@@ -10,14 +10,14 @@ The dataset import job replaces any existing data in the dataset that you import
 A dataset import job can be in one of the following states:
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
 
-To get the status of the import job, call [ DescribeDatasetImportJob ](API_DescribeDatasetImportJob.md), providing the Amazon Resource Name \(ARN\) of the dataset import job\. The dataset import is complete when the status shows as ACTIVE\. If the status shows as CREATE FAILED, the response includes a `failureReason` key, which describes why the job failed\.
+To get the status of the import job, call [DescribeDatasetImportJob](API_DescribeDatasetImportJob.md), providing the Amazon Resource Name \(ARN\) of the dataset import job\. The dataset import is complete when the status shows as ACTIVE\. If the status shows as CREATE FAILED, the response includes a `failureReason` key, which describes why the job failed\.
 
 **Note**  
 Importing takes time\. You must wait until the status shows as ACTIVE before training a model using the dataset\.
 
 **Related APIs**
-+  [ ListDatasetImportJobs ](API_ListDatasetImportJobs.md) 
-+  [ DescribeDatasetImportJob ](API_DescribeDatasetImportJob.md) 
++  [ListDatasetImportJobs](API_ListDatasetImportJobs.md) 
++  [DescribeDatasetImportJob](API_DescribeDatasetImportJob.md) 
 
 ## Request Syntax<a name="API_CreateDatasetImportJob_RequestSyntax"></a>
 
@@ -45,7 +45,7 @@ Required: Yes
 
  ** [ dataSource ](#API_CreateDatasetImportJob_RequestSyntax) **   <a name="personalize-CreateDatasetImportJob-request-dataSource"></a>
 The Amazon S3 bucket that contains the training data to import\.  
-Type: [ DataSource ](API_DataSource.md) object  
+Type: [DataSource](API_DataSource.md) object  
 Required: Yes
 
  ** [ jobName ](#API_CreateDatasetImportJob_RequestSyntax) **   <a name="personalize-CreateDatasetImportJob-request-jobName"></a>

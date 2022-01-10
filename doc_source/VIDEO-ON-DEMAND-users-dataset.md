@@ -8,7 +8,7 @@ For an example of the default schema for Users datasets for VIDEO\_ON\_DEMAND do
 
 A `SUBSCRIPTION_MODEL` field is included in the default schema\. This field is an optional reserved keyword and must have a type of `string` with categorical set to `true`\. To get the best recommendations, we recommend that you keep this field in your schema if you have subscription model information about each of your users in your data\. The data you import must match your schema\. 
 
- To use categorical data, add a field of type `string` and set the field's categorical attribute to `true` in your schema\. Then include the categorical data in your bulk CSV file and incremental item imports\. For users with multiple categories, separate each value using the vertical bar, '\|'\. For example, for a SUBSCRIPTION\_MODEL field, your data for a user might be ads\|4k\|DVR\|live\. If you have a multiple levels of categorical data, add a field for each level and append a level indicator after each field name\. For example, CATEGORY\_L1, CATEGORY\_L2, CATEGORY\_L3\. 
+ To use categorical data, add a field of type `string` and set the field's categorical attribute to `true` in your schema\. Then include the categorical data in your bulk CSV file and incremental item imports\. For users with multiple categories, separate each value using the vertical bar, '\|'\. For example, for a SUBSCRIPTION\_MODEL field, your data for a user might be student\|monthly\|discount\. 
 
 Categorical values can have at most 1,000 characters\. If you have a user with a categorical value with more than 1,000 characters, your dataset import job will fail\. 
 
@@ -22,7 +22,7 @@ Categorical values can have at most 1,000 characters\. If you have a user with a
 {
 
   "type": "record",
-  "name": "Interactions",
+  "name": "Users",
   "namespace": "com.amazonaws.personalize.schema",
   "fields": [
       {

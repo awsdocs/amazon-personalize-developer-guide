@@ -8,7 +8,7 @@ A campaign can be in one of the following states:
 
 When the `status` is `CREATE FAILED`, the response includes the `failureReason` key, which describes why\.
 
-For more information on campaigns, see [ CreateCampaign ](API_CreateCampaign.md)\.
+For more information on campaigns, see [CreateCampaign](API_CreateCampaign.md)\.
 
 ## Request Syntax<a name="API_DescribeCampaign_RequestSyntax"></a>
 
@@ -72,7 +72,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ campaign ](#API_DescribeCampaign_ResponseSyntax) **   <a name="personalize-DescribeCampaign-response-campaign"></a>
 The properties of the campaign\.  
-Type: [ Campaign ](API_Campaign.md) object
+Type: [Campaign](API_Campaign.md) object
 
 ## Errors<a name="API_DescribeCampaign_Errors"></a>
 

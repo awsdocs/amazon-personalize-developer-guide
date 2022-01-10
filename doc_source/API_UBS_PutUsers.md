@@ -36,7 +36,7 @@ Required: Yes
 
  ** [ users ](#API_UBS_PutUsers_RequestSyntax) **   <a name="personalize-UBS_PutUsers-request-users"></a>
 A list of user data\.  
-Type: Array of [ User ](API_UBS_User.md) objects  
+Type: Array of [User](API_UBS_User.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 10 items\.  
 Required: Yes
 

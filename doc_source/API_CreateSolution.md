@@ -1,8 +1,8 @@
 # CreateSolution<a name="API_CreateSolution"></a>
 
-Creates the configuration for training a model\. A trained model is known as a solution\. After the configuration is created, you train the model \(create a solution\) by calling the [ CreateSolutionVersion ](API_CreateSolutionVersion.md) operation\. Every time you call `CreateSolutionVersion`, a new version of the solution is created\.
+Creates the configuration for training a model\. A trained model is known as a solution\. After the configuration is created, you train the model \(create a solution\) by calling the [CreateSolutionVersion](API_CreateSolutionVersion.md) operation\. Every time you call `CreateSolutionVersion`, a new version of the solution is created\.
 
-After creating a solution version, you check its accuracy by calling [ GetSolutionMetrics ](API_GetSolutionMetrics.md)\. When you are satisfied with the version, you deploy it using [ CreateCampaign ](API_CreateCampaign.md)\. The campaign provides recommendations to a client through the [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html) API\.
+After creating a solution version, you check its accuracy by calling [GetSolutionMetrics](API_GetSolutionMetrics.md)\. When you are satisfied with the version, you deploy it using [CreateCampaign](API_CreateCampaign.md)\. The campaign provides recommendations to a client through the [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html) API\.
 
 To train a model, Amazon Personalize requires training data and a recipe\. The training data comes from the dataset group that you provide in the request\. A recipe specifies the training algorithm and a feature transformation\. You can specify one of the predefined recipes provided by Amazon Personalize\. Alternatively, you can specify `performAutoML` and Amazon Personalize will analyze your data and select the optimum USER\_PERSONALIZATION recipe for you\.
 
@@ -15,15 +15,15 @@ A solution can be in one of the following states:
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
 + DELETE PENDING > DELETE IN\_PROGRESS
 
-To get the status of the solution, call [ DescribeSolution ](API_DescribeSolution.md)\. Wait until the status shows as ACTIVE before calling `CreateSolutionVersion`\.
+To get the status of the solution, call [DescribeSolution](API_DescribeSolution.md)\. Wait until the status shows as ACTIVE before calling `CreateSolutionVersion`\.
 
 **Related APIs**
-+  [ ListSolutions ](API_ListSolutions.md) 
-+  [ CreateSolutionVersion ](API_CreateSolutionVersion.md) 
-+  [ DescribeSolution ](API_DescribeSolution.md) 
-+  [ DeleteSolution ](API_DeleteSolution.md) 
-+  [ ListSolutionVersions ](API_ListSolutionVersions.md) 
-+  [ DescribeSolutionVersion ](API_DescribeSolutionVersion.md) 
++  [ListSolutions](API_ListSolutions.md) 
++  [CreateSolutionVersion](API_CreateSolutionVersion.md) 
++  [DescribeSolution](API_DescribeSolution.md) 
++  [DeleteSolution](API_DeleteSolution.md) 
++  [ListSolutionVersions](API_ListSolutionVersions.md) 
++  [DescribeSolutionVersion](API_DescribeSolutionVersion.md) 
 
 ## Request Syntax<a name="API_CreateSolution_RequestSyntax"></a>
 
@@ -135,7 +135,7 @@ Required: No
  ** [ solutionConfig ](#API_CreateSolution_RequestSyntax) **   <a name="personalize-CreateSolution-request-solutionConfig"></a>
 The configuration to use with the solution\. When `performAutoML` is set to true, Amazon Personalize only evaluates the `autoMLConfig` section of the solution configuration\.  
 Amazon Personalize doesn't support configuring the `hpoObjective` at this time\.
-Type: [ SolutionConfig ](API_SolutionConfig.md) object  
+Type: [SolutionConfig](API_SolutionConfig.md) object  
 Required: No
 
 ## Response Syntax<a name="API_CreateSolution_ResponseSyntax"></a>

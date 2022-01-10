@@ -39,7 +39,7 @@ Required: No
 
  ** [ jobInput ](#API_CreateBatchSegmentJob_RequestSyntax) **   <a name="personalize-CreateBatchSegmentJob-request-jobInput"></a>
 The Amazon S3 path for the input data used to generate the batch segment job\.  
-Type: [ BatchSegmentJobInput ](API_BatchSegmentJobInput.md) object  
+Type: [BatchSegmentJobInput](API_BatchSegmentJobInput.md) object  
 Required: Yes
 
  ** [ jobName ](#API_CreateBatchSegmentJob_RequestSyntax) **   <a name="personalize-CreateBatchSegmentJob-request-jobName"></a>
@@ -51,7 +51,7 @@ Required: Yes
 
  ** [ jobOutput ](#API_CreateBatchSegmentJob_RequestSyntax) **   <a name="personalize-CreateBatchSegmentJob-request-jobOutput"></a>
 The Amazon S3 path for the bucket where the job's output will be stored\.  
-Type: [ BatchSegmentJobOutput ](API_BatchSegmentJobOutput.md) object  
+Type: [BatchSegmentJobOutput](API_BatchSegmentJobOutput.md) object  
 Required: Yes
 
  ** [ numResults ](#API_CreateBatchSegmentJob_RequestSyntax) **   <a name="personalize-CreateBatchSegmentJob-request-numResults"></a>

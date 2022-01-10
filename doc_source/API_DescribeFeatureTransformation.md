@@ -46,7 +46,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ featureTransformation ](#API_DescribeFeatureTransformation_ResponseSyntax) **   <a name="personalize-DescribeFeatureTransformation-response-featureTransformation"></a>
 A listing of the FeatureTransformation properties\.  
-Type: [ FeatureTransformation ](API_FeatureTransformation.md) object
+Type: [FeatureTransformation](API_FeatureTransformation.md) object
 
 ## Errors<a name="API_DescribeFeatureTransformation_Errors"></a>
 

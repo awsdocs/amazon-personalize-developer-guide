@@ -4,6 +4,10 @@
 + You can create a Domain dataset group with resources optimized for different use cases\. If you start with a Domain dataset group, you can still add custom resources such as solutions and solution versions trained for custom use cases\.
 +  Or you can create a Custom dataset group with custom resources\. 
 
+**Topics**
++ [Workflow for Domain dataset groups](#domain-workflow)
++ [Workflow for Custom dataset groups](#custom-workflow)
+
 ## Workflow for Domain dataset groups<a name="domain-workflow"></a>
 
 To create domain\-based resources, you create a Domain dataset group for your business domain, import your data, create recommenders for each of your uses cases and get recommendations\. Repeat the data import process to maintain the relevance of your recommendations as your catalogue grows\. You can complete the domain workflow with the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\), or the AWS SDKs\.

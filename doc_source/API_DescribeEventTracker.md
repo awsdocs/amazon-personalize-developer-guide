@@ -1,6 +1,6 @@
 # DescribeEventTracker<a name="API_DescribeEventTracker"></a>
 
-Describes an event tracker\. The response includes the `trackingId` and `status` of the event tracker\. For more information on event trackers, see [ CreateEventTracker ](API_CreateEventTracker.md)\.
+Describes an event tracker\. The response includes the `trackingId` and `status` of the event tracker\. For more information on event trackers, see [CreateEventTracker](API_CreateEventTracker.md)\.
 
 ## Request Syntax<a name="API_DescribeEventTracker_RequestSyntax"></a>
 
@@ -46,7 +46,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ eventTracker ](#API_DescribeEventTracker_ResponseSyntax) **   <a name="personalize-DescribeEventTracker-response-eventTracker"></a>
 An object that describes the event tracker\.  
-Type: [ EventTracker ](API_EventTracker.md) object
+Type: [EventTracker](API_EventTracker.md) object
 
 ## Errors<a name="API_DescribeEventTracker_Errors"></a>
 

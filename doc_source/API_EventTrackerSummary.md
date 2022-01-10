@@ -1,6 +1,6 @@
 # EventTrackerSummary<a name="API_EventTrackerSummary"></a>
 
-Provides a summary of the properties of an event tracker\. For a complete listing, call the [ DescribeEventTracker ](API_DescribeEventTracker.md) API\.
+Provides a summary of the properties of an event tracker\. For a complete listing, call the [DescribeEventTracker](API_DescribeEventTracker.md) API\.
 
 ## Contents<a name="API_EventTrackerSummary_Contents"></a>
 

@@ -141,6 +141,7 @@ In this example, you grant an IAM user in your AWS account read\-only access to 
                 "personalize:ListDatasetImportJobs",
                 "personalize:ListDatasets",
                 "personalize:ListEventTrackers",
+                "personalize:ListFilters",
                 "personalize:ListRecipes",
                 "personalize:ListSchemas",
                 "personalize:ListSolutions",

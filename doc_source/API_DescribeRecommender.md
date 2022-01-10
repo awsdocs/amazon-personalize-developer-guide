@@ -70,7 +70,7 @@ The following data is returned in JSON format by the service\.
 
  ** [ recommender ](#API_DescribeRecommender_ResponseSyntax) **   <a name="personalize-DescribeRecommender-response-recommender"></a>
 The properties of the recommender\.  
-Type: [ Recommender ](API_Recommender.md) object
+Type: [Recommender](API_Recommender.md) object
 
 ## Errors<a name="API_DescribeRecommender_Errors"></a>
 

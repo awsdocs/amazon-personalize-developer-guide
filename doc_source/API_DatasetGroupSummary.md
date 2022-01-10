@@ -1,6 +1,6 @@
 # DatasetGroupSummary<a name="API_DatasetGroupSummary"></a>
 
-Provides a summary of the properties of a dataset group\. For a complete listing, call the [ DescribeDatasetGroup ](API_DescribeDatasetGroup.md) API\.
+Provides a summary of the properties of a dataset group\. For a complete listing, call the [DescribeDatasetGroup](API_DescribeDatasetGroup.md) API\.
 
 ## Contents<a name="API_DatasetGroupSummary_Contents"></a>
 

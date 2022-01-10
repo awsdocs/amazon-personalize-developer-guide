@@ -1,6 +1,6 @@
 # SolutionVersion<a name="API_SolutionVersion"></a>
 
-An object that provides information about a specific version of a [ Solution ](API_Solution.md) in a Custom dataset group\.
+An object that provides information about a specific version of a [Solution](API_Solution.md) in a Custom dataset group\.
 
 ## Contents<a name="API_SolutionVersion_Contents"></a>
 
@@ -58,7 +58,7 @@ Required: No
 
  ** solutionConfig **   <a name="personalize-Type-SolutionVersion-solutionConfig"></a>
 Describes the configuration properties for the solution\.  
-Type: [ SolutionConfig ](API_SolutionConfig.md) object  
+Type: [SolutionConfig](API_SolutionConfig.md) object  
 Required: No
 
  ** solutionVersionArn **   <a name="personalize-Type-SolutionVersion-solutionVersionArn"></a>
@@ -96,7 +96,7 @@ Required: No
 
  ** tunedHPOParams **   <a name="personalize-Type-SolutionVersion-tunedHPOParams"></a>
 If hyperparameter optimization was performed, contains the hyperparameter values of the best performing model\.  
-Type: [ TunedHPOParams ](API_TunedHPOParams.md) object  
+Type: [TunedHPOParams](API_TunedHPOParams.md) object  
 Required: No
 
 ## See Also<a name="API_SolutionVersion_SeeAlso"></a>

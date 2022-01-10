@@ -46,7 +46,7 @@ aws personalize update-campaign \
 
 ## Updating a campaign \(AWS SDKs\)<a name="update-campaign-sdk"></a>
 
-To deploy a new solution version, change your campaign's [Minimum provisioned TPS](campaigns.md#min-tps-auto-scaling) or change your campaign's configuration, you must update your campaign\. Use the following code to update a campaign with the SDK for Python \(Boto3\) or SDK for Java 2\.x\. For a complete list of parameters, see [ UpdateCampaign ](API_UpdateCampaign.md)\. 
+To deploy a new solution version, change your campaign's [Minimum provisioned TPS](campaigns.md#min-tps-auto-scaling) or change your campaign's configuration, you must update your campaign\. Use the following code to update a campaign with the SDK for Python \(Boto3\) or SDK for Java 2\.x\. For a complete list of parameters, see [UpdateCampaign](API_UpdateCampaign.md)\. 
 
 ------
 #### [ SDK for Python \(Boto3\) ]
