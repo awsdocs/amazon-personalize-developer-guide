@@ -1,13 +1,15 @@
 # Interactions dataset requirements \(custom\)<a name="interactions-dataset-requirements"></a>
 
- The training data you provide for each interaction must match your schema\. Depending on your schema, interaction metadata can include empty/null values\. At minimum, you must provide the following for each interaction: 
+An *Interactions dataset* stores historical and real\-time data from interactions between users and items in your catalog\. For information on the types of interactions data Amazon Personalize can use, see [Interactions data](interactions-datasets.md)\.
+
+ The data you provide for each interaction must match your schema\. Depending on your schema, interaction metadata can include empty/null values\. At minimum, you must provide the following for each interaction: 
 + User ID
 + Item ID
 + Timestamp \(in Unix epoch time format\)
 
  The maximum total number of optional metadata fields you can add to an Interactions dataset, combined with total number of *distinct* event types in your data, is 10\. The metadata fields included in this count are EVENT\_TYPE, EVENT\_VALUE fields along with any custom metadata fields you add to your schema\. The maximum number of metadata fields excluding reserved fields, such as IMPRESSION, is 5\. Categorical values can have at most 1000 characters\. If you have an interaction with a categorical value with more than 1000, your dataset import job will fail\. 
 
-For more information on minimum requirements and maximum data limits for an Interactions dataset, see [Service quotas](limits.md#limits-table)\.
+For more information on minimum requirements and maximum data limits for an Interactions dataset, see [Service quotas](limits.md#limits-table)\. 
 
 ## Interactions schema example \(custom\)<a name="schema-examples-interactions"></a>
 

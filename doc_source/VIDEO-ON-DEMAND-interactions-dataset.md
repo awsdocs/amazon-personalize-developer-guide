@@ -2,7 +2,7 @@
 
  An *Interactions dataset* stores historical and real\-time data from interactions between users and items in your VIDEO\_ON\_DEMAND catalog\. For more information about the types of data you can store in an interactions dataset, see [Interactions data](interactions-datasets.md)\. 
 
- You must at minimum create an Interactions dataset and your schema must have the following fields: 
+ You must an Interactions dataset for all use cases and your schema must have the following fields: 
 + USER\_ID \(`string`\)
 + ITEM\_ID `string`
 + TIMESTAMP \(`long`\)

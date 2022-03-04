@@ -1,6 +1,6 @@
 # DescribeDatasetExportJob<a name="API_DescribeDatasetExportJob"></a>
 
-Describes the dataset export job created by [CreateDatasetExportJob](API_CreateDatasetExportJob.md), including the export job status\.
+Describes the dataset export job created by [CreateDatasetExportJob](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html), including the export job status\.
 
 ## Request Syntax<a name="API_DescribeDatasetExportJob_RequestSyntax"></a>
 
@@ -14,7 +14,7 @@ Describes the dataset export job created by [CreateDatasetExportJob](API_CreateD
 
 The request accepts the following data in JSON format\.
 
- ** [ datasetExportJobArn ](#API_DescribeDatasetExportJob_RequestSyntax) **   <a name="personalize-DescribeDatasetExportJob-request-datasetExportJobArn"></a>
+ ** [datasetExportJobArn](#API_DescribeDatasetExportJob_RequestSyntax) **   <a name="personalize-DescribeDatasetExportJob-request-datasetExportJobArn"></a>
 The Amazon Resource Name \(ARN\) of the dataset export job to describe\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -51,7 +51,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [ datasetExportJob ](#API_DescribeDatasetExportJob_ResponseSyntax) **   <a name="personalize-DescribeDatasetExportJob-response-datasetExportJob"></a>
+ ** [datasetExportJob](#API_DescribeDatasetExportJob_ResponseSyntax) **   <a name="personalize-DescribeDatasetExportJob-response-datasetExportJob"></a>
 Information about the dataset export job, including the status\.  
 The status is one of the following values:  
 + CREATE PENDING
@@ -73,12 +73,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_DescribeDatasetExportJob_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/personalize-2018-05-22/DescribeDatasetExportJob) 
-+  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-2018-05-22/DescribeDatasetExportJob) 
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DescribeDatasetExportJob) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/DescribeDatasetExportJob) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DescribeDatasetExportJob) 
-+  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-2018-05-22/DescribeDatasetExportJob) 
-+  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/DescribeDatasetExportJob) 
-+  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/DescribeDatasetExportJob) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DescribeDatasetExportJob) 
++  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/personalize-2018-05-22/DescribeDatasetExportJob) 
++  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-2018-05-22/DescribeDatasetExportJob) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DescribeDatasetExportJob) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/DescribeDatasetExportJob) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DescribeDatasetExportJob) 
++  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-2018-05-22/DescribeDatasetExportJob) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/DescribeDatasetExportJob) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/DescribeDatasetExportJob) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DescribeDatasetExportJob) 

@@ -1,6 +1,6 @@
 # DatasetGroup<a name="API_DatasetGroup"></a>
 
-A dataset group is a collection of related datasets \(Interactions, User, and Item\)\. You create a dataset group by calling [CreateDatasetGroup](API_CreateDatasetGroup.md)\. You then create a dataset and add it to a dataset group by calling [CreateDataset](API_CreateDataset.md)\. The dataset group is used to create and train a solution by calling [CreateSolution](API_CreateSolution.md)\. A dataset group can contain only one of each type of dataset\.
+A dataset group is a collection of related datasets \(Interactions, User, and Item\)\. You create a dataset group by calling [CreateDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html)\. You then create a dataset and add it to a dataset group by calling [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html)\. The dataset group is used to create and train a solution by calling [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html)\. A dataset group can contain only one of each type of dataset\.
 
 You can specify an AWS Key Management Service \(KMS\) key to encrypt the datasets in the group\.
 
@@ -67,7 +67,7 @@ Required: No
 ## See Also<a name="API_DatasetGroup_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DatasetGroup) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/DatasetGroup) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DatasetGroup) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DatasetGroup) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DatasetGroup) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/DatasetGroup) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DatasetGroup) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DatasetGroup) 

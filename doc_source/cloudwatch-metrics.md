@@ -22,7 +22,15 @@ The following table lists the Amazon Personalize metrics\. All metrics except Ge
 | GetRecommendations4xxErrors |  The number of `GetRecommendations` API calls that returned a 4xx HTTP response code\. Dimension: `CampaignArn`  | 
 | GetRecommendations5xxErrors |  The number of `GetRecommendations` API calls that returned a 5xx HTTP response code\. Dimension: CampaignArn  | 
 | GetRecommendationsLatency |  The time between receiving the `GetRecommendations` API call and the sending of recommendations \(excludes 4xx and 5xx errors\)\. Dimension: `CampaignArn` Unit: Milliseconds  | 
-| PutEventsRequests |  The number of successful [PutEvents](API_UBS_PutEvents.md) API calls\. Dimension:` EventTrackerArn`  | 
-| PutEvents4xxErrors |  The number of `PutEvents` API calls that returned a 4xx HTTP response code\. Dimension: `EventTrackerArn`  | 
-| PutEvents5xxErrors |  The number of `PutEvents` API calls that returned a 5xx HTTP response code\. Dimension: `EventTrackerArn`  | 
-| PutEventLatency |  The time taken for the completion of the `PutEvents` API call \(excludes 4xx and 5xx errors\)\. Dimension: `EventTrackerArn` Unit: Milliseconds  | 
+| PutEventsRequests |  The number of successful [PutEvents](API_UBS_PutEvents.md) API calls\. Dimension:` DatasetGroupArn, DatasetArn, EventTrackerArn`  | 
+| PutEvents4xxErrors |  The number of `PutEvents` API calls that returned a 4xx HTTP response code\. Dimension: ` DatasetGroupArn, DatasetArn, EventTrackerArn`  | 
+| PutEvents5xxErrors |  The number of `PutEvents` API calls that returned a 5xx HTTP response code\. Dimension: ` DatasetGroupArn, DatasetArn, EventTrackerArn`  | 
+| PutEventLatency |  The time taken for the completion of the `PutEvents` API call \(excludes 4xx and 5xx errors\)\. Dimension: ` DatasetGroupArn, DatasetArn, EventTrackerArn` Unit: Milliseconds  | 
+| PutItemsRequests |  The number of successful [PutItems](API_UBS_PutItems.md) API calls\. Dimension:` DatasetGroupArn, DatasetArn`  | 
+| PutItems4xxErrors |  The number of `PutItems` API calls that returned a 4xx HTTP response code\. Dimension: ` DatasetGroupArn, DatasetArn`  | 
+| PutItems5xxErrors |  The number of `PutItems` API calls that returned a 5xx HTTP response code\. Dimension: ` DatasetGroupArn, DatasetArn`  | 
+| PutItemsLatency |  The time taken for the completion of the `PutItems` API call \(excludes 4xx and 5xx errors\)\. Dimension: ` DatasetGroupArn, DatasetArn` Unit: Milliseconds  | 
+| PutUsersRequests |  The number of successful [PutUsers](API_UBS_PutUsers.md) API calls\. Dimension:` DatasetGroupArn, DatasetArn`  | 
+| PutUsers4xxErrors |  The number of `PutUsers` API calls that returned a 4xx HTTP response code\. Dimension: ` DatasetGroupArn, DatasetArn`  | 
+| PutUsers5xxErrors |  The number of `PutUsers` API calls that returned a 5xx HTTP response code\. Dimension: ` DatasetGroupArn, DatasetArn`  | 
+| PutUsersLatency |  The time taken for the completion of the `PutUsers` API call \(excludes 4xx and 5xx errors\)\. Dimension: ` DatasetGroupArn, DatasetArn` Unit: Milliseconds  | 

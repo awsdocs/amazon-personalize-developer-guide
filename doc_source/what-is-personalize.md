@@ -5,16 +5,23 @@ Amazon Personalize is a fully managed machine learning service that makes it eas
 You can use Amazon Personalize in a variety of scenarios, such as generating recommendations for users based on their preferences and behavior, personalized re\-ranking of results, personalizing content for emails, or creating targeted marketing campaigns based on user segments\. Amazon Personalize does not require machine learning experience\. You can get started quickly with use case optimized resources for your business domain, or you can create your own configurable custom resources\. 
 
  In Amazon Personalize, you start by creating a dataset group, which is a container for Amazon Personalize components\. Your dataset group can be one of the following: 
-+  A *Domain dataset group*, where you choose your business domain, import your data, and create recommenders\. You use recommenders in your application to get recommendations\.  
++  A *Domain dataset group*, where you create preconfigured resources for different business domains and use cases, such as getting recommendations for similar videos \(VIDEO\_ON\_DEMAND domain\) or best selling items \(ECOMMERCE domain\)\. You choose your business domain, import your data, and create recommenders\. You use recommenders in your application to get recommendations\.  
 
   Use a Domain dataset group if you have a video on demand or e\-commerce application and want Amazon Personalize to find the best configurations for your use cases\. If you start with a Domain dataset group, you can also add custom resources such as solutions with solution versions trained with recipes for custom use cases\. 
-+ A *Custom dataset group*, where you choose a recipe, train a solution version \(model\), and deploy the solution version with a campaign\. 
++ A *Custom dataset group*, where you create configurable resources for custom use cases and batch recommendation workflows\. You choose a recipe, train a solution version \(model\), and deploy the solution version with a campaign\. You use a campaign in your application to get recommendations\. 
 
   Use a Custom dataset group if you don't have a video on demand or e\-commerce application or want to configure and manage only custom resources, or want to get recommendations in a batch workflow\. If you start with a Custom dataset group, you can't associate it with a domain later\. Instead, create a new Domain dataset group\. 
 
 You can create and manage Domain dataset groups and Custom dataset groups with the AWS console, the AWS Command Line Interface \(AWS CLI\), or programmatically with the AWS SDKs\. 
 
 With Domain dataset groups and Custom dataset groups, Amazon Personalize can capture real\-time events from your users to deliver real\-time personalization\. Amazon Personalize can blend real\-time user activity data with existing user profile and item information \(historical data\) to recommend the most relevant items for the user\. You can also use Amazon Personalize to collect interactions data for new properties, such as a new website, and after enough data has been collected, Amazon Personalize can start to make recommendations\.
+
+**Topics**
++ [Using Domain dataset groups](#what-are-domain-dataset-groups)
++ [Using Custom dataset groups](#what-are-custom-dataset-groups)
++ [Pricing for Amazon Personalize](#whatis-pricing)
++ [Recommended sections for first\-time Amazon Personalize users](#first-time-user)
++ [Explore in\-depth tutorials and code samples](#experienced-user)
 
 ## Using Domain dataset groups<a name="what-are-domain-dataset-groups"></a>
 
@@ -64,8 +71,16 @@ With recipes, you can to create custom personalization models in Amazon Personal
 
 1. Get recommendations or user segments with the following methods: 
    + Deploy the solution version with a campaign and get recommendations\.
-   + Create a batch inference job to get batch recommentations\.
+   + Create a batch inference job to get batch recommendations\.
    + Create a user segment job to get user segments\.
+
+## Pricing for Amazon Personalize<a name="whatis-pricing"></a>
+
+ With Amazon Personalize, you pay only for what you use\. There are no minimum fees and no upfront commitments\. The costs of Amazon Personalize depend on data processing and storage, training, and number of recommendation requests\.
+
+The [AWS Free Tier](https://aws.amazon.com/free/) allows you a monthly up to 20GB of storage per available AWS region, up to 100 hours of training time per eligible AWS region, and up to 50 TPS\-hours of real\-time recommendations/month\. The Amazon Personalize free tier is valid for the first two months of usage\.
+
+For a complete list of charges and prices, see [Amazon Personalize pricing](https://aws.amazon.com/personalize/pricing/)\.
 
 ## Recommended sections for first\-time Amazon Personalize users<a name="first-time-user"></a>
 

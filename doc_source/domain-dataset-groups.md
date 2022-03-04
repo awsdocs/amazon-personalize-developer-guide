@@ -4,7 +4,7 @@
 
 A *recommender* is a resource that generates recommendations for specific use cases, such as recommending similar movies\. You can create at most 5 recommenders per AWS account\. The domain you choose when you create a Domain dataset group determines what data you import and the use cases available for your recommenders\. 
 
- Amazon Personalize automatically retrains the models backing your recommenders every 7 days\. This is a full retraining that creates entirely new models based on the entirety of the data in your datasets\. With Top picks for you and Recommended for you use cases, Amazon Personalize updates the existing models every two hours to include new items in recommendations with exploration\. 
+ Amazon Personalize automatically retrains the models backing your recommenders every 7 days\. This is a full retraining that creates entirely new models based on the entirety of the data in your datasets\. With *Top picks for you* and *Recommended for you* use cases, Amazon Personalize updates the existing models every two hours to include new items in recommendations with exploration\. 
 
 You can create a Domain dataset group with the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\), or AWS SDKs\. To get recommendations with a Domain dataset group, do the following: 
 

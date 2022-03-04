@@ -1,6 +1,6 @@
 # Campaign<a name="API_Campaign"></a>
 
-An object that describes the deployment of a solution version\. For more information on campaigns, see [CreateCampaign](API_CreateCampaign.md)\.
+An object that describes the deployment of a solution version\. For more information on campaigns, see [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html)\.
 
 ## Contents<a name="API_Campaign_Contents"></a>
 
@@ -32,7 +32,7 @@ Type: Timestamp
 Required: No
 
  ** latestCampaignUpdate **   <a name="personalize-Type-Campaign-latestCampaignUpdate"></a>
-Provides a summary of the properties of a campaign update\. For a complete listing, call the [DescribeCampaign](API_DescribeCampaign.md) API\.  
+Provides a summary of the properties of a campaign update\. For a complete listing, call the [DescribeCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html) API\.  
 Type: [CampaignUpdateSummary](API_CampaignUpdateSummary.md) object  
 Required: No
 
@@ -68,7 +68,7 @@ Required: No
 ## See Also<a name="API_Campaign_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/Campaign) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/Campaign) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/Campaign) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/Campaign) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/Campaign) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/Campaign) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/Campaign) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/Campaign) 

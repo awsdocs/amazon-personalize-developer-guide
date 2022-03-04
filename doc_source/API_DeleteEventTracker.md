@@ -1,6 +1,6 @@
 # DeleteEventTracker<a name="API_DeleteEventTracker"></a>
 
-Deletes the event tracker\. Does not delete the event\-interactions dataset from the associated dataset group\. For more information on event trackers, see [CreateEventTracker](API_CreateEventTracker.md)\.
+Deletes the event tracker\. Does not delete the event\-interactions dataset from the associated dataset group\. For more information on event trackers, see [CreateEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html)\.
 
 ## Request Syntax<a name="API_DeleteEventTracker_RequestSyntax"></a>
 
@@ -14,7 +14,7 @@ Deletes the event tracker\. Does not delete the event\-interactions dataset from
 
 The request accepts the following data in JSON format\.
 
- ** [ eventTrackerArn ](#API_DeleteEventTracker_RequestSyntax) **   <a name="personalize-DeleteEventTracker-request-eventTrackerArn"></a>
+ ** [eventTrackerArn](#API_DeleteEventTracker_RequestSyntax) **   <a name="personalize-DeleteEventTracker-request-eventTrackerArn"></a>
 The Amazon Resource Name \(ARN\) of the event tracker to delete\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -42,12 +42,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_DeleteEventTracker_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/personalize-2018-05-22/DeleteEventTracker) 
-+  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-2018-05-22/DeleteEventTracker) 
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DeleteEventTracker) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/DeleteEventTracker) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DeleteEventTracker) 
-+  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-2018-05-22/DeleteEventTracker) 
-+  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/DeleteEventTracker) 
-+  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/DeleteEventTracker) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DeleteEventTracker) 
++  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/personalize-2018-05-22/DeleteEventTracker) 
++  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-2018-05-22/DeleteEventTracker) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DeleteEventTracker) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/DeleteEventTracker) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DeleteEventTracker) 
++  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-2018-05-22/DeleteEventTracker) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/DeleteEventTracker) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/DeleteEventTracker) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DeleteEventTracker) 

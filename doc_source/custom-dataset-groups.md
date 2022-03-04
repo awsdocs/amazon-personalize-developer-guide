@@ -16,5 +16,5 @@
 
 1. Get recommendations or user segments with the following methods: 
    + Deploy the solution version with a campaign and get recommendations\.
-   + Create a batch inference job to get batch recommentations\.
+   + Create a batch inference job to get batch recommendations\.
    + Create a user segment job to get user segments\.

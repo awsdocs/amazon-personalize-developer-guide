@@ -30,20 +30,23 @@ Your AWS account has the following quotas for Amazon Personalize\.
 | Maximum number of distinct event types combined with total number of optional metadata columns in Interactions datasets\. | 10 | 
 | Maximum number of metadata columns, excluding reserved fields, in Interactions datasets\. | 5 | 
 | Maximum number of characters for categorical data values\. | 1000 | 
+| Maximum amount of interactions data for all recipes and use cases\. | 100 GB | 
 | Users | 
 | --- |
 | Minimum number of unique users, with at least 2 interactions each, required to train a model \(create a solution version\)\. | 25 | 
 | Maximum number of users that are considered by a model during training\. | 50 million | 
 | Maximum number of metadata fields for a Users dataset\. | 5 | 
 | Maximum number of characters for USER\_ID data values\. | 256 | 
-| Maximum number of characters for categorical data values\. | 1,000 characters | 
+| Maximum number of characters for categorical data values\. | 1000 characters | 
+| Maximum amount of user data for all recipes and use cases \(except legacy HRNN\-metadata and HRNN\-coldstart recipes\)\. | 100 GB | 
 | Items | 
 | --- |
 | Maximum number of items that are considered by a model during training\. | 750,000 | 
 | Maximum number of metadata fields for an Items dataset\. | 50 | 
 | Maximum number of characters for ITEM\_ID data values\. | 256 | 
-| Maximum number of characters for categorical data values\. | 1,000 characters | 
+| Maximum number of characters for categorical data values\. | 1000 characters | 
 | Maximum number of characters for textual data values\. | 20,000 characters | 
+| Maximum amount of items data for all recipes and use cases \(except legacy HRNN\-metadata and HRNN\-coldstart recipes\)\. | 100 GB | 
 | Data import APIs | 
 | --- |
 | Maximum rate of PutEvents requests\. | 1000/second | 
@@ -53,16 +56,14 @@ Your AWS account has the following quotas for Amazon Personalize\.
 | Maximum number of items in a PutItems call\. | 10 | 
 | Maximum rate of PutUsers requests\. | 10/second | 
 | Maximum number of users in a PutUsers call\. | 10 | 
-| Recipes | 
+| Legacy recipes | 
 | --- |
-| Maximum amount of data for an individual dataset \(Users, Items, or Interactions\) for HRNN, SIMS, Popularity\-Count, and Personalized\-Ranking recipes\. | 100 GB | 
-| Maximum amount of data for Interactions dataset for HRNN\-metadata and HRNN\-coldstart recipes\. | 100 GB | 
-| Maximum amount of combined data for Users and Items datasets for HRNN\-metadata and HRNN\-coldstart recipes\. | 5 GB | 
-| Maximum number of cold start items the HRNN\-Coldstart recipe supports to train a model \(create a solution version\)\. | 80,000 | 
+| Maximum amount of combined data for Users and Items datasets for HRNN\-metadata and HRNN\-Coldstart recipes\. | 5 GB | 
+| Maximum number of cold start items the HRNN\-Coldstart recipe supports to train a model \(create a solution version\)\. | 80000 | 
 | Minimum number of cold start items the HRNN\-Coldstart recipe requires to train a model \(create a solution version\)\. | 100 | 
 | Filters | 
 | --- |
-| Maximum number of filters per account | 10 filters | 
+| Maximum number of filters per account\. | 10 filters | 
 | Maximum number of parameters for a filter expression\. | 5 parameters | 
 | Maximum number of parameters across all filters in a dataset group\. | 10 parameters | 
 | GetRecommendations / GetPersonalizedRanking requests | 

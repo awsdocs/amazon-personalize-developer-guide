@@ -19,6 +19,8 @@ Import bulk records into an Amazon Personalize dataset with a dataset import job
 
 After you create a Domain dataset group and datasets, you can incrementally import one or more new records, including interaction *[events](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#event)*, users, or items, to an existing dataset\. Incrementally importing records allows you to import one or more records into your Amazon Personalize datasets as your catalog grows\. 
 
+You incrementally import records with the Amazon Personalize console, AWS CLI, or AWS SDKs\. You incrementally import records for a dataset in a Domain dataset group the same way you incrementally import records for a Custom dataset group\. For step by step instructions see [Importing records incrementally](incremental-data-updates.md)\. 
+
 **Filter updates for incremental record imports**
 
 Amazon Personalize updates any filters you created in the dataset group with your new interaction, item, and user data within 20 minutes from the last incremental import\. This update allows your campaigns to use your most recent data when filtering recommendations for your users\. 
@@ -31,5 +33,3 @@ If you have already created a solution version \(trained a model\), new records 
 
    For any other recipe, you must retrain the model for the new items to be included in recommendations\. 
 +  For *new users*, recommendations will initially be only for popular items\. Starting with the first event, user recommendations will be more relevant as you record events\. For more information, see [Recording events](recording-events.md)\. 
-
-You incrementally import records with the Amazon Personalize console, AWS CLI, or AWS SDKs\. You incrementally import records for a dataset in a Domain dataset group the same way you incrementally import records for a Custom dataset group\. For step by step instructions see [Importing records incrementally](incremental-data-updates.md)\. 

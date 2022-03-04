@@ -12,10 +12,16 @@ Key Length Constraints: Maximum length of 256\.
 Value Length Constraints: Maximum length of 1000\.  
 Required: No
 
+ ** minRecommendationRequestsPerSecond **   <a name="personalize-Type-RecommenderConfig-minRecommendationRequestsPerSecond"></a>
+Specifies the requested minimum provisioned recommendation requests per second that Amazon Personalize will support\.  
+Type: Integer  
+Valid Range: Minimum value of 1\.  
+Required: No
+
 ## See Also<a name="API_RecommenderConfig_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/RecommenderConfig) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/RecommenderConfig) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/RecommenderConfig) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/RecommenderConfig) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/RecommenderConfig) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/RecommenderConfig) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/RecommenderConfig) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/RecommenderConfig) 

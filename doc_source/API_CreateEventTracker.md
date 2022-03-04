@@ -11,15 +11,15 @@ The event tracker can be in one of the following states:
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
 + DELETE PENDING > DELETE IN\_PROGRESS
 
-To get the status of the event tracker, call [DescribeEventTracker](API_DescribeEventTracker.md)\.
+To get the status of the event tracker, call [DescribeEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html)\.
 
 **Note**  
 The event tracker must be in the ACTIVE state before using the tracking ID\.
 
 **Related APIs**
-+  [ListEventTrackers](API_ListEventTrackers.md) 
-+  [DescribeEventTracker](API_DescribeEventTracker.md) 
-+  [DeleteEventTracker](API_DeleteEventTracker.md) 
++  [ListEventTrackers](https://docs.aws.amazon.com/personalize/latest/dg/API_ListEventTrackers.html) 
++  [DescribeEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html) 
++  [DeleteEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteEventTracker.html) 
 
 ## Request Syntax<a name="API_CreateEventTracker_RequestSyntax"></a>
 
@@ -34,14 +34,14 @@ The event tracker must be in the ACTIVE state before using the tracking ID\.
 
 The request accepts the following data in JSON format\.
 
- ** [ datasetGroupArn ](#API_CreateEventTracker_RequestSyntax) **   <a name="personalize-CreateEventTracker-request-datasetGroupArn"></a>
+ ** [datasetGroupArn](#API_CreateEventTracker_RequestSyntax) **   <a name="personalize-CreateEventTracker-request-datasetGroupArn"></a>
 The Amazon Resource Name \(ARN\) of the dataset group that receives the event data\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: Yes
 
- ** [ name ](#API_CreateEventTracker_RequestSyntax) **   <a name="personalize-CreateEventTracker-request-name"></a>
+ ** [name](#API_CreateEventTracker_RequestSyntax) **   <a name="personalize-CreateEventTracker-request-name"></a>
 The name for the event tracker\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
@@ -63,13 +63,13 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [ eventTrackerArn ](#API_CreateEventTracker_ResponseSyntax) **   <a name="personalize-CreateEventTracker-response-eventTrackerArn"></a>
+ ** [eventTrackerArn](#API_CreateEventTracker_ResponseSyntax) **   <a name="personalize-CreateEventTracker-response-eventTrackerArn"></a>
 The ARN of the event tracker\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+` 
 
- ** [ trackingId ](#API_CreateEventTracker_ResponseSyntax) **   <a name="personalize-CreateEventTracker-response-trackingId"></a>
+ ** [trackingId](#API_CreateEventTracker_ResponseSyntax) **   <a name="personalize-CreateEventTracker-response-trackingId"></a>
 The ID of the event tracker\. Include this ID in requests to the [PutEvents](https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html) API\.  
 Type: String  
 Length Constraints: Maximum length of 256\.
@@ -99,12 +99,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_CreateEventTracker_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/personalize-2018-05-22/CreateEventTracker) 
-+  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-2018-05-22/CreateEventTracker) 
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/CreateEventTracker) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/CreateEventTracker) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/CreateEventTracker) 
-+  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-2018-05-22/CreateEventTracker) 
-+  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/CreateEventTracker) 
-+  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/CreateEventTracker) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/CreateEventTracker) 
++  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/personalize-2018-05-22/CreateEventTracker) 
++  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-2018-05-22/CreateEventTracker) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/CreateEventTracker) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/CreateEventTracker) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/CreateEventTracker) 
++  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-2018-05-22/CreateEventTracker) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/CreateEventTracker) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/CreateEventTracker) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/CreateEventTracker) 

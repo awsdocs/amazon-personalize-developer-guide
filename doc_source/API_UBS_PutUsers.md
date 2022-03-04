@@ -27,14 +27,14 @@ The request does not use any URI parameters\.
 
 The request accepts the following data in JSON format\.
 
- ** [ datasetArn ](#API_UBS_PutUsers_RequestSyntax) **   <a name="personalize-UBS_PutUsers-request-datasetArn"></a>
+ ** [datasetArn](#API_UBS_PutUsers_RequestSyntax) **   <a name="personalize-UBS_PutUsers-request-datasetArn"></a>
 The Amazon Resource Name \(ARN\) of the Users dataset you are adding the user or users to\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: Yes
 
- ** [ users ](#API_UBS_PutUsers_RequestSyntax) **   <a name="personalize-UBS_PutUsers-request-users"></a>
+ ** [users](#API_UBS_PutUsers_RequestSyntax) **   <a name="personalize-UBS_PutUsers-request-users"></a>
 A list of user data\.  
 Type: Array of [User](API_UBS_User.md) objects  
 Array Members: Minimum number of 1 item\. Maximum number of 10 items\.  
@@ -67,12 +67,12 @@ HTTP Status Code: 404
 ## See Also<a name="API_UBS_PutUsers_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/personalize-events-2018-03-22/PutUsers) 
-+  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-events-2018-03-22/PutUsers) 
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-events-2018-03-22/PutUsers) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-events-2018-03-22/PutUsers) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-events-2018-03-22/PutUsers) 
-+  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-events-2018-03-22/PutUsers) 
-+  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-events-2018-03-22/PutUsers) 
-+  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-events-2018-03-22/PutUsers) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-events-2018-03-22/PutUsers) 
++  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/personalize-events-2018-03-22/PutUsers) 
++  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-events-2018-03-22/PutUsers) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-events-2018-03-22/PutUsers) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-events-2018-03-22/PutUsers) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-events-2018-03-22/PutUsers) 
++  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-events-2018-03-22/PutUsers) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-events-2018-03-22/PutUsers) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-events-2018-03-22/PutUsers) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-events-2018-03-22/PutUsers) 

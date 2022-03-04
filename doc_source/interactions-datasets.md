@@ -5,14 +5,41 @@
  Amazon Personalize stores interactions data in an *Interactions dataset*\. To create a recommender or a custom solution, you must at minimum create an Interactions dataset\. This section provides information about the following types of interactions data you can import into Amazon Personalize\. 
 
 **Topics**
++ [Event type and event value data](#event-type-and-event-value-data)
 + [Contextual metadata](#interactions-contextual-metadata)
 + [Impressions data](#interactions-impressions-data)
 
+## Event type and event value data<a name="event-type-and-event-value-data"></a>
+
+ Interactions datasets can store event type data, such as *click* and *watch* event types, and event value data for each of your events\. 
++  If you create a Domain dataset group for the VIDEO\_ON\_DEMAND or ECOMMERCE domain, all use cases require your data to include an EVENT\_TYPE field\. Different use cases require different event types\. For more information see [Choosing recommender use cases](domain-use-cases.md)\. 
+
+   With a Domain dataset group, Amazon Personalize does not use event value data\. 
++  If you create a Custom dataset group, Amazon Personalize uses event type and event value data to filter events before training\. You can import event type data, or event type *and* event value data\. Import this data to choose the interactions data Amazon Personalize uses in training as follows: 
+  + **Choose events based on event type** – To choose records based on type, record a type for each of your events in an EVENT\_TYPE column\. When you configure a solution you'll specify the type and Amazon Personalize will use only records with this type in training\. 
+
+     For example, if your data includes *purchase*, *click*, and *watch* event types, and you want Amazon Personalize to train the model with only *watch* events, you would include each event's type in an EVENT\_TYPE column\. Then, when you create a solution, specify *watch* as the `event type` that Amazon Personalize uses in training\. 
+
+     If your Interactions dataset has multiple event types in an EVENT\_TYPE column, and you do not provide an event type when you configure your solution, Amazon Personalize uses all interactions data for training with equal weight regardless of type\. 
+  + **Choose records based on type and value ** – To choose records based on type and value, record an event type and event value for each event\. The value you choose for each event depends on what data you want to exclude and what event types you are recording\. For example, you might match the user activity, such as the percentage of video the user watched for *watch* event types\. 
+
+     When you configure a solution, you set a specific value as a threshold to exclude records from training\. For example, if your EVENT\_VALUE data for events with an EVENT\_TYPE of *watch* is the percentage of a video that a user watched, if you set the event value threshold to 0\.5, and the event type to *watch*, Amazon Personalize trains the model using only *watch* interaction events with an EVENT\_VALUE greater than or equal to 0\.5\. 
+
 ## Contextual metadata<a name="interactions-contextual-metadata"></a>
 
-If you use the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) or the [Personalized\-Ranking](native-recipe-search.md) recipes, you can import contextual information for use in training\. Domain dataset group VIDEO\_ON\_DEMAND and ECOMMERCE domains don't use contextual metadata\. Contextual metadata is interactions data you collect on the user's environment at the time of an event\. Including contextual metadata allows you to provide a more personalized experience for existing users\. For example, if customers shop differently when accessing your catalog from a phone compared to a computer, include contextual metadata about the user's device\. Recommendations will then be more relevant based on how they are browsing\. 
+ With certain recipes and recommender use cases, Amazon Personalize can use contextual metadata when identifying underlying patterns that reveal the most relevant items for your users\. Contextual metadata is interactions data you collect on the user's environment at the time of an event, such as their location or device type\. 
+
+Including contextual metadata allows you to provide a more personalized experience for existing users\. For example, if customers shop differently when accessing your catalog from a phone compared to a computer, include contextual metadata about the user's device\. Recommendations will then be more relevant based on how they are browsing\.
 
  Additionally, contextual metadata helps decrease the cold\-start phase for new or unidentified users\. The cold\-start phase refers to the period when your recommendation engine provides less relevant recommendations due to the lack of historical information regarding that user\. 
+
+For Domain dataset groups, the following recommender use cases can use contextual metadata:
++ [Recommended for you](ECOMMERCE-use-cases.md#recommended-for-you-use-case) \(ECOMMERCE domain\)
++ [Top picks for you](VIDEO_ON_DEMAND-use-cases.md#top-picks-use-case) \(VIDEO\_ON\_DEMAND domain\)
+
+ For Custom dataset groups and custom solutions, recipes that use contextual metadata include the following:
++  [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) 
++  [Personalized\-Ranking](native-recipe-search.md) 
 
  For more information on contextual information, see the following AWS Machine Learning Blog post: [ Increasing the relevance of your Amazon Personalize recommendations by leveraging contextual information](http://aws.amazon.com/blogs/machine-learning/increasing-the-relevance-of-your-amazon-personalize-recommendations-by-leveraging-contextual-information/)\. 
 

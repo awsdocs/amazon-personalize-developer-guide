@@ -8,7 +8,7 @@ A campaign can be in one of the following states:
 
 When the `status` is `CREATE FAILED`, the response includes the `failureReason` key, which describes why\.
 
-For more information on campaigns, see [CreateCampaign](API_CreateCampaign.md)\.
+For more information on campaigns, see [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html)\.
 
 ## Request Syntax<a name="API_DescribeCampaign_RequestSyntax"></a>
 
@@ -22,7 +22,7 @@ For more information on campaigns, see [CreateCampaign](API_CreateCampaign.md)\.
 
 The request accepts the following data in JSON format\.
 
- ** [ campaignArn ](#API_DescribeCampaign_RequestSyntax) **   <a name="personalize-DescribeCampaign-request-campaignArn"></a>
+ ** [campaignArn](#API_DescribeCampaign_RequestSyntax) **   <a name="personalize-DescribeCampaign-request-campaignArn"></a>
 The Amazon Resource Name \(ARN\) of the campaign\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -70,7 +70,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [ campaign ](#API_DescribeCampaign_ResponseSyntax) **   <a name="personalize-DescribeCampaign-response-campaign"></a>
+ ** [campaign](#API_DescribeCampaign_ResponseSyntax) **   <a name="personalize-DescribeCampaign-response-campaign"></a>
 The properties of the campaign\.  
 Type: [Campaign](API_Campaign.md) object
 
@@ -87,12 +87,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_DescribeCampaign_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/personalize-2018-05-22/DescribeCampaign) 
-+  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-2018-05-22/DescribeCampaign) 
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DescribeCampaign) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/DescribeCampaign) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DescribeCampaign) 
-+  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-2018-05-22/DescribeCampaign) 
-+  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/DescribeCampaign) 
-+  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/DescribeCampaign) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DescribeCampaign) 
++  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/personalize-2018-05-22/DescribeCampaign) 
++  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-2018-05-22/DescribeCampaign) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DescribeCampaign) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/DescribeCampaign) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DescribeCampaign) 
++  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-2018-05-22/DescribeCampaign) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/DescribeCampaign) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/DescribeCampaign) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DescribeCampaign) 

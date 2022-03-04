@@ -1,6 +1,6 @@
 # DeleteDataset<a name="API_DeleteDataset"></a>
 
-Deletes a dataset\. You can't delete a dataset if an associated `DatasetImportJob` or `SolutionVersion` is in the CREATE PENDING or IN PROGRESS state\. For more information on datasets, see [CreateDataset](API_CreateDataset.md)\.
+Deletes a dataset\. You can't delete a dataset if an associated `DatasetImportJob` or `SolutionVersion` is in the CREATE PENDING or IN PROGRESS state\. For more information on datasets, see [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html)\.
 
 ## Request Syntax<a name="API_DeleteDataset_RequestSyntax"></a>
 
@@ -14,7 +14,7 @@ Deletes a dataset\. You can't delete a dataset if an associated `DatasetImportJo
 
 The request accepts the following data in JSON format\.
 
- ** [ datasetArn ](#API_DeleteDataset_RequestSyntax) **   <a name="personalize-DeleteDataset-request-datasetArn"></a>
+ ** [datasetArn](#API_DeleteDataset_RequestSyntax) **   <a name="personalize-DeleteDataset-request-datasetArn"></a>
 The Amazon Resource Name \(ARN\) of the dataset to delete\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -42,12 +42,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_DeleteDataset_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/personalize-2018-05-22/DeleteDataset) 
-+  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-2018-05-22/DeleteDataset) 
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DeleteDataset) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/DeleteDataset) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DeleteDataset) 
-+  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-2018-05-22/DeleteDataset) 
-+  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/DeleteDataset) 
-+  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/DeleteDataset) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DeleteDataset) 
++  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/personalize-2018-05-22/DeleteDataset) 
++  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-2018-05-22/DeleteDataset) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DeleteDataset) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/DeleteDataset) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DeleteDataset) 
++  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-2018-05-22/DeleteDataset) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/DeleteDataset) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/DeleteDataset) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DeleteDataset) 

@@ -11,7 +11,7 @@ A dataset group can be in one of the following states:
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
 + DELETE PENDING
 
-To get the status of the dataset group, call [DescribeDatasetGroup](API_DescribeDatasetGroup.md)\. If the status shows as CREATE FAILED, the response includes a `failureReason` key, which describes why the creation failed\.
+To get the status of the dataset group, call [DescribeDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html)\. If the status shows as CREATE FAILED, the response includes a `failureReason` key, which describes why the creation failed\.
 
 **Note**  
 You must wait until the `status` of the dataset group is `ACTIVE` before adding a dataset to the group\.
@@ -19,14 +19,14 @@ You must wait until the `status` of the dataset group is `ACTIVE` before adding 
 You can specify an AWS Key Management Service \(KMS\) key to encrypt the datasets in the group\. If you specify a KMS key, you must also include an AWS Identity and Access Management \(IAM\) role that has permission to access the key\.
 
 **APIs that require a dataset group ARN in the request**
-+  [CreateDataset](API_CreateDataset.md) 
-+  [CreateEventTracker](API_CreateEventTracker.md) 
-+  [CreateSolution](API_CreateSolution.md) 
++  [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html) 
++  [CreateEventTracker](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateEventTracker.html) 
++  [CreateSolution](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html) 
 
 **Related APIs**
-+  [ListDatasetGroups](API_ListDatasetGroups.md) 
-+  [DescribeDatasetGroup](API_DescribeDatasetGroup.md) 
-+  [DeleteDatasetGroup](API_DeleteDatasetGroup.md) 
++  [ListDatasetGroups](https://docs.aws.amazon.com/personalize/latest/dg/API_ListDatasetGroups.html) 
++  [DescribeDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html) 
++  [DeleteDatasetGroup](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteDatasetGroup.html) 
 
 ## Request Syntax<a name="API_CreateDatasetGroup_RequestSyntax"></a>
 
@@ -43,27 +43,27 @@ You can specify an AWS Key Management Service \(KMS\) key to encrypt the dataset
 
 The request accepts the following data in JSON format\.
 
- ** [ domain ](#API_CreateDatasetGroup_RequestSyntax) **   <a name="personalize-CreateDatasetGroup-request-domain"></a>
+ ** [domain](#API_CreateDatasetGroup_RequestSyntax) **   <a name="personalize-CreateDatasetGroup-request-domain"></a>
 The domain of the dataset group\. Specify a domain to create a Domain dataset group\. The domain you specify determines the default schemas for datasets and the use cases available for recommenders\. If you don't specify a domain, you create a Custom dataset group with solution versions that you deploy with a campaign\.   
 Type: String  
 Valid Values:` ECOMMERCE | VIDEO_ON_DEMAND`   
 Required: No
 
- ** [ kmsKeyArn ](#API_CreateDatasetGroup_RequestSyntax) **   <a name="personalize-CreateDatasetGroup-request-kmsKeyArn"></a>
+ ** [kmsKeyArn](#API_CreateDatasetGroup_RequestSyntax) **   <a name="personalize-CreateDatasetGroup-request-kmsKeyArn"></a>
 The Amazon Resource Name \(ARN\) of a AWS Key Management Service \(KMS\) key used to encrypt the datasets\.  
 Type: String  
 Length Constraints: Maximum length of 2048\.  
 Pattern: `arn:aws.*:kms:.*:[0-9]{12}:key/.*`   
 Required: No
 
- ** [ name ](#API_CreateDatasetGroup_RequestSyntax) **   <a name="personalize-CreateDatasetGroup-request-name"></a>
+ ** [name](#API_CreateDatasetGroup_RequestSyntax) **   <a name="personalize-CreateDatasetGroup-request-name"></a>
 The name for the new dataset group\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: Yes
 
- ** [ roleArn ](#API_CreateDatasetGroup_RequestSyntax) **   <a name="personalize-CreateDatasetGroup-request-roleArn"></a>
+ ** [roleArn](#API_CreateDatasetGroup_RequestSyntax) **   <a name="personalize-CreateDatasetGroup-request-roleArn"></a>
 The ARN of the AWS Identity and Access Management \(IAM\) role that has permissions to access the AWS Key Management Service \(KMS\) key\. Supplying an IAM role is only valid when also specifying a KMS key\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -85,13 +85,13 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [ datasetGroupArn ](#API_CreateDatasetGroup_ResponseSyntax) **   <a name="personalize-CreateDatasetGroup-response-datasetGroupArn"></a>
+ ** [datasetGroupArn](#API_CreateDatasetGroup_ResponseSyntax) **   <a name="personalize-CreateDatasetGroup-response-datasetGroupArn"></a>
 The Amazon Resource Name \(ARN\) of the new dataset group\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+` 
 
- ** [ domain ](#API_CreateDatasetGroup_ResponseSyntax) **   <a name="personalize-CreateDatasetGroup-response-domain"></a>
+ ** [domain](#API_CreateDatasetGroup_ResponseSyntax) **   <a name="personalize-CreateDatasetGroup-response-domain"></a>
 The domain for the new Domain dataset group\.  
 Type: String  
 Valid Values:` ECOMMERCE | VIDEO_ON_DEMAND` 
@@ -113,12 +113,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_CreateDatasetGroup_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/personalize-2018-05-22/CreateDatasetGroup) 
-+  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-2018-05-22/CreateDatasetGroup) 
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/CreateDatasetGroup) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/CreateDatasetGroup) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/CreateDatasetGroup) 
-+  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-2018-05-22/CreateDatasetGroup) 
-+  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/CreateDatasetGroup) 
-+  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/CreateDatasetGroup) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/CreateDatasetGroup) 
++  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/personalize-2018-05-22/CreateDatasetGroup) 
++  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-2018-05-22/CreateDatasetGroup) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/CreateDatasetGroup) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/CreateDatasetGroup) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/CreateDatasetGroup) 
++  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-2018-05-22/CreateDatasetGroup) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/CreateDatasetGroup) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/CreateDatasetGroup) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/CreateDatasetGroup) 

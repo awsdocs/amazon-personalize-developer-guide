@@ -1,6 +1,6 @@
 # DatasetSchema<a name="API_DatasetSchema"></a>
 
-Describes the schema for a dataset\. For more information on schemas, see [CreateSchema](API_CreateSchema.md)\.
+Describes the schema for a dataset\. For more information on schemas, see [CreateSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html)\.
 
 ## Contents<a name="API_DatasetSchema_Contents"></a>
 
@@ -43,7 +43,7 @@ Required: No
 ## See Also<a name="API_DatasetSchema_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DatasetSchema) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/DatasetSchema) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DatasetSchema) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DatasetSchema) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DatasetSchema) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/DatasetSchema) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DatasetSchema) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DatasetSchema) 

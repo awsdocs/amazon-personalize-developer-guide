@@ -22,7 +22,7 @@ For more information on recommenders, see [CreateRecommender](https://docs.aws.a
 
 The request accepts the following data in JSON format\.
 
- ** [ recommenderArn ](#API_DescribeRecommender_RequestSyntax) **   <a name="personalize-DescribeRecommender-request-recommenderArn"></a>
+ ** [recommenderArn](#API_DescribeRecommender_RequestSyntax) **   <a name="personalize-DescribeRecommender-request-recommenderArn"></a>
 The Amazon Resource Name \(ARN\) of the recommender to describe\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -45,7 +45,8 @@ Required: Yes
          "recommenderConfig": { 
             "itemExplorationConfig": { 
                "string" : "string" 
-            }
+            },
+            "minRecommendationRequestsPerSecond": number
          },
          "status": "string"
       },
@@ -55,7 +56,8 @@ Required: Yes
       "recommenderConfig": { 
          "itemExplorationConfig": { 
             "string" : "string" 
-         }
+         },
+         "minRecommendationRequestsPerSecond": number
       },
       "status": "string"
    }
@@ -68,7 +70,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [ recommender ](#API_DescribeRecommender_ResponseSyntax) **   <a name="personalize-DescribeRecommender-response-recommender"></a>
+ ** [recommender](#API_DescribeRecommender_ResponseSyntax) **   <a name="personalize-DescribeRecommender-response-recommender"></a>
 The properties of the recommender\.  
 Type: [Recommender](API_Recommender.md) object
 
@@ -85,12 +87,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_DescribeRecommender_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/personalize-2018-05-22/DescribeRecommender) 
-+  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-2018-05-22/DescribeRecommender) 
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DescribeRecommender) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/DescribeRecommender) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DescribeRecommender) 
-+  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-2018-05-22/DescribeRecommender) 
-+  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/DescribeRecommender) 
-+  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/DescribeRecommender) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DescribeRecommender) 
++  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/personalize-2018-05-22/DescribeRecommender) 
++  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-2018-05-22/DescribeRecommender) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/DescribeRecommender) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/DescribeRecommender) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/DescribeRecommender) 
++  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-2018-05-22/DescribeRecommender) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/DescribeRecommender) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/DescribeRecommender) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/DescribeRecommender) 

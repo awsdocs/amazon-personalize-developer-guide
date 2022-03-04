@@ -1,6 +1,6 @@
 # SolutionVersion<a name="API_SolutionVersion"></a>
 
-An object that provides information about a specific version of a [Solution](API_Solution.md) in a Custom dataset group\.
+An object that provides information about a specific version of a [Solution](https://docs.aws.amazon.com/personalize/latest/dg/API_Solution.html) in a Custom dataset group\.
 
 ## Contents<a name="API_SolutionVersion_Contents"></a>
 
@@ -102,7 +102,7 @@ Required: No
 ## See Also<a name="API_SolutionVersion_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/SolutionVersion) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/SolutionVersion) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/SolutionVersion) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/SolutionVersion) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/SolutionVersion) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/SolutionVersion) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/SolutionVersion) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/SolutionVersion) 

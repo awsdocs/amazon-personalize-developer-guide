@@ -6,7 +6,7 @@ For example, you might want to create a marketing campaign for your retail appli
 
  To get user segments based on items, you create a solution and a solution version with the Item\-Affinity recipe, then add a list of items in JSON format to an Amazon S3 bucket and create a [batch segment job](creating-batch-seg-job.md)\. Amazon Personalize outputs a user segment for each item to your output location in Amazon S3\. For information about preparing input data for a batch segment job, see [Preparing and importing batch input data](batch-data-upload.md)\. 
 
-You must have an Interactions dataset and an Items dataset to use Item\-Affinity\. Your Items dataset must have at least one column that is a non\-textual, non\-reserved metadata column\. You can get user segments with batch segment jobs\. For more information, see [Getting batch recommendations and user segments](recommendations-batch.md)\.
+You must have an Interactions dataset to use Item\-Affinity\. Items and Users datasets are optional\.  You can get user segments with batch segment jobs\. For more information, see [Getting batch recommendations and user segments](recommendations-batch.md)\.
 
 The Item\-Affinity recipe has the following properties:
 +  **Name** – `aws-item-affinity`

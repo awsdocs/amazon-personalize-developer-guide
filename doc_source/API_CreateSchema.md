@@ -2,14 +2,14 @@
 
 Creates an Amazon Personalize schema from the specified schema string\. The schema you create must be in Avro JSON format\.
 
-Amazon Personalize recognizes three schema variants\. Each schema is associated with a dataset type and has a set of required field and keywords\. If you are creating a schema for a dataset in a Domain dataset group, you provide the domain of the Domain dataset group\. You specify a schema when you call [CreateDataset](API_CreateDataset.md)\.
+Amazon Personalize recognizes three schema variants\. Each schema is associated with a dataset type and has a set of required field and keywords\. If you are creating a schema for a dataset in a Domain dataset group, you provide the domain of the Domain dataset group\. You specify a schema when you call [CreateDataset](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html)\.
 
-For more information on schemas, see [Datasets and Schemas](https://docs.aws.amazon.com/personalize/latest/dg/how-it-works-dataset-schema.html)\.
+For more information on schemas, see [Datasets and schemas](https://docs.aws.amazon.com/personalize/latest/dg/how-it-works-dataset-schema.html)\.
 
 **Related APIs**
-+  [ListSchemas](API_ListSchemas.md) 
-+  [DescribeSchema](API_DescribeSchema.md) 
-+  [DeleteSchema](API_DeleteSchema.md) 
++  [ListSchemas](https://docs.aws.amazon.com/personalize/latest/dg/API_ListSchemas.html) 
++  [DescribeSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSchema.html) 
++  [DeleteSchema](https://docs.aws.amazon.com/personalize/latest/dg/API_DeleteSchema.html) 
 
 ## Request Syntax<a name="API_CreateSchema_RequestSyntax"></a>
 
@@ -25,20 +25,20 @@ For more information on schemas, see [Datasets and Schemas](https://docs.aws.ama
 
 The request accepts the following data in JSON format\.
 
- ** [ domain ](#API_CreateSchema_RequestSyntax) **   <a name="personalize-CreateSchema-request-domain"></a>
+ ** [domain](#API_CreateSchema_RequestSyntax) **   <a name="personalize-CreateSchema-request-domain"></a>
 The domain for the schema\. If you are creating a schema for a dataset in a Domain dataset group, specify the domain you chose when you created the Domain dataset group\.  
 Type: String  
 Valid Values:` ECOMMERCE | VIDEO_ON_DEMAND`   
 Required: No
 
- ** [ name ](#API_CreateSchema_RequestSyntax) **   <a name="personalize-CreateSchema-request-name"></a>
+ ** [name](#API_CreateSchema_RequestSyntax) **   <a name="personalize-CreateSchema-request-name"></a>
 The name for the schema\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 63\.  
 Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: Yes
 
- ** [ schema ](#API_CreateSchema_RequestSyntax) **   <a name="personalize-CreateSchema-request-schema"></a>
+ ** [schema](#API_CreateSchema_RequestSyntax) **   <a name="personalize-CreateSchema-request-schema"></a>
 A schema in Avro JSON format\.  
 Type: String  
 Length Constraints: Maximum length of 10000\.  
@@ -58,7 +58,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 
 The following data is returned in JSON format by the service\.
 
- ** [ schemaArn ](#API_CreateSchema_ResponseSyntax) **   <a name="personalize-CreateSchema-response-schemaArn"></a>
+ ** [schemaArn](#API_CreateSchema_ResponseSyntax) **   <a name="personalize-CreateSchema-response-schemaArn"></a>
 The Amazon Resource Name \(ARN\) of the created schema\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
@@ -81,12 +81,12 @@ HTTP Status Code: 400
 ## See Also<a name="API_CreateSchema_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/personalize-2018-05-22/CreateSchema) 
-+  [ AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-2018-05-22/CreateSchema) 
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/CreateSchema) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/CreateSchema) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/CreateSchema) 
-+  [ AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-2018-05-22/CreateSchema) 
-+  [ AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/CreateSchema) 
-+  [ AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/CreateSchema) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/CreateSchema) 
++  [AWS Command Line Interface](https://docs.aws.amazon.com/goto/aws-cli/personalize-2018-05-22/CreateSchema) 
++  [AWS SDK for \.NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/personalize-2018-05-22/CreateSchema) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/CreateSchema) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/CreateSchema) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/CreateSchema) 
++  [AWS SDK for JavaScript](https://docs.aws.amazon.com/goto/AWSJavaScriptSDK/personalize-2018-05-22/CreateSchema) 
++  [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/personalize-2018-05-22/CreateSchema) 
++  [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/personalize-2018-05-22/CreateSchema) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/CreateSchema) 

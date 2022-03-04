@@ -2,6 +2,8 @@
 
 When you create a Custom dataset group, you create your own schemas from scratch\. Custom dataset group datasets and schemas have fewer required fields and more flexibility\. The following topics explain the schema and data requirements for Interactions, Items, and Users datasets for a Custom dataset group\. Each dataset section lists the required data for the dataset type and provides a JSON example of a schema\. 
 
+For information on the types of data you can import into Amazon Personalize see [Types of data you can import into Amazon Personalize](data.md)\.
+
 **Topics**
 + [Custom dataset and schema requirements](#dataset-requirements)
 + [Interactions dataset requirements \(custom\)](interactions-dataset-requirements.md)

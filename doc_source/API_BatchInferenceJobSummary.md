@@ -1,6 +1,6 @@
 # BatchInferenceJobSummary<a name="API_BatchInferenceJobSummary"></a>
 
-A truncated version of the [BatchInferenceJob](API_BatchInferenceJob.md) datatype\. The [ListBatchInferenceJobs](API_ListBatchInferenceJobs.md) operation returns a list of batch inference job summaries\.
+A truncated version of the [BatchInferenceJob](https://docs.aws.amazon.com/personalize/latest/dg/API_BatchInferenceJob.html)\. The [ListBatchInferenceJobs](https://docs.aws.amazon.com/personalize/latest/dg/API_ListBatchInferenceJobs.html) operation returns a list of batch inference job summaries\.
 
 ## Contents<a name="API_BatchInferenceJobSummary_Contents"></a>
 
@@ -53,7 +53,7 @@ Required: No
 ## See Also<a name="API_BatchInferenceJobSummary_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:
-+  [ AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/BatchInferenceJobSummary) 
-+  [ AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/BatchInferenceJobSummary) 
-+  [ AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/BatchInferenceJobSummary) 
-+  [ AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/BatchInferenceJobSummary) 
++  [AWS SDK for C\+\+](https://docs.aws.amazon.com/goto/SdkForCpp/personalize-2018-05-22/BatchInferenceJobSummary) 
++  [AWS SDK for Go](https://docs.aws.amazon.com/goto/SdkForGoV1/personalize-2018-05-22/BatchInferenceJobSummary) 
++  [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/personalize-2018-05-22/BatchInferenceJobSummary) 
++  [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/personalize-2018-05-22/BatchInferenceJobSummary) 
