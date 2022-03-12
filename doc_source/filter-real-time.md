@@ -16,13 +16,13 @@ To filter recommendations using a filter with parameters and a campaign deployed
 
 ### Creating a filter \(console\)<a name="creating-filter-console"></a>
 
- To create a filter in the console, choose the dataset group that contains the campaign for which you want to filter results, and then provide a filter name and a filter expression\. 
+ To create a filter in the console, choose the dataset group that contains the campaign or recommender you want to use to get filtered recommendations\. Then provide a filter name and a filter expression\.
 
 **To create a filter \(console\)**
 
 1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign into your account\. 
 
-1. Choose the dataset group that contains the campaign that you want to filter results for\.
+1. Choose the dataset group that contains the campaign or recommender that you want to use to get filtered recommendations\.
 
 1. In the navigation page, choose **Filters** and then choose **Create new filter**\. The **Create filter** page displays\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/create-filter-page.png)
@@ -38,18 +38,26 @@ To filter recommendations using a filter with parameters and a campaign deployed
 
 ### Applying a filter \(console\)<a name="apply-filter-console"></a>
 
- To apply a filter, on the **Test campaign results** panel for the campaign, choose the filter and enter any filter parameter values\. Then get recommendations for a user\. 
+ To apply a filter, on the **Test recommender** panel for the recommender \(Domain dataset group\) or **Test campaign results** panel for the campaign \(Custom dataset group\), choose the filter and enter any filter parameter values\. Then get recommendations for a user\. 
 
 **Important**  
 For filter expressions that use an `INCLUDE` element to include items, you must provide values for all parameters that are defined in the expression\. For filters with expressions that use an `EXCLUDE` element to exclude items, you can omit the `filter-values`\. In this case, Amazon Personalize doesn't use that portion of the expression to filter recommendations\.
 
 **To apply a filter \(console\)**
 
-1. In the navigation pane, choose **Campaigns**\.
+1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign into your account\. 
 
-1. On the **Campaigns** page, choose the target campaign\.
+1. Choose the dataset group that contains the campaign or recommender that you want to use to get filtered recommendations\.
 
-1. For comparison, start by getting recommendations for a user without applying a filter\. Under **Test campaign results**, enter the ID of a user that you want to get recommendations for, and choose **Get recommendations**\. A table containing the user’s top recommendations appears\.  
+1. Depending on your dataset group type, do either of the following:
+
+   1. For a Domain dataset group, in the navigation pane choose **Recommenders**\.
+
+   1. For a Custom dataset group, in the navigation pane choose **Custom resources** then **Campaigns**\.
+
+1. On the **Recommenders** or **Campaigns** page, choose the target recommender or campaign\.
+
+1. For comparison, start by getting recommendations for a user without applying a filter\. Under **Test recommender** / **Test campaign results**, enter the ID of a user that you want to get recommendations for, and choose **Get recommendations**\. A table containing the user’s top recommendations appears\.  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/Recommendations_no-filter.PNG)
 
 1. From the **Filter name** menu, choose the filter that you created\. If your filter has any placeholder parameters, the associated fields for each parameter appear\.
@@ -87,7 +95,7 @@ To create a filter that uses both Item and Interaction datasets, you *must* use 
 
 #### Expression builder example<a name="expression-builder-example"></a>
 
-The following example shows how to build a filter that excludes items with a genre that you specify when you get recommendations \(note the $GENRES placeholder parameter\), and with a `DOWNLOAD_COUNT` of more than `200`, but only if the current user's age is greater than `17`\.
+The following example shows how to build a filter that excludes items with a genre that you specify when you get recommendations \(note the $GENRES placeholder parameter\)\. The filter also excludes items with a `DOWNLOAD_COUNT` of more than `200`, but only if the current user's age is greater than `17`\.
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/create-filter-expression-builder.png)
 
@@ -138,7 +146,7 @@ aws personalize create-filter \
 
 When you use the `get-recommendations` or `get-personalized-ranking` operations, apply a filter by passing the `filter-arn` and any filter values as parameters\. 
 
-The following is an example of the `get-recommendations` operation\. Replace `Campaign ARN` with the Amazon Resource Name \(ARN\) of your campaign, `User ID` with the ID of the user that you are getting recommendations for, and `Filter ARN` with the ARN of your filter\. 
+The following is an example of the `get-recommendations` operation\. Replace `Campaign ARN` with the Amazon Resource Name \(ARN\) of your campaign `User ID` with the ID of the user that you are getting recommendations for, and `Filter ARN` with the ARN of your filter\. If you're getting recommendations from a recommender instead of a campaign, use `--recommender-arn` instead of `--campaign-arn` and provide the ARN for the recommender\.
 
 If your expression has any parameters, include the `filter-values` object\. For each parameter in your filter expression, provide the parameter name \(case sensitive\) and the values\. For example, if your filter expression has a `$GENRE` parameter, provide *"GENRE"* as the key, and a genre or genres, such as `"Comedy"`, as the value\. Separate multiple values with a comma\. For example, `"\"comedy\",\"drama\",\"horror"\"`\. 
 
@@ -237,7 +245,7 @@ For filter expressions that use an `INCLUDE` element to include items, you must 
 ------
 #### [ SDK for Python \(Boto3\) ]
 
-Use the following `get_recommendations` method to filter recommendations with the SDK for Python \(Boto3\)\. Replace `Campaign ARN` with the Amazon Resource Name \(ARN\) of your campaign, `User ID` with the ID of the user that you are getting recommendations for, and `Filter ARN` with the ARN of your filter\. 
+Use the following `get_recommendations` method to filter recommendations with the SDK for Python \(Boto3\)\. Replace `Campaign ARN` with the Amazon Resource Name \(ARN\) of your campaign, `User ID` with the ID of the user that you are getting recommendations for, and `Filter ARN` with the ARN of your filter\. If you're getting recommendations from a recommender instead of a campaign, use `recommenderArn` instead of `campaignArn` and provide the ARN for the recommender\.
 
 For `filterValues`, for each optional parameter in your filter expression, provide the parameter name \(case sensitive\) and the value or values\. For example, if your filter expression has a `$GENRES` parameter, provide *"GENRES"* as the key, and a genre or genres, such as `"\"Comedy"\"`, as the value\. For multiple values, separate each value with a comma\. For example, `"\"comedy\",\"drama\",\"horror\""`\. 
 
@@ -261,7 +269,7 @@ response = personalize_runtime.get_recommendations(
 ------
 #### [ SDK for Java 2\.x ]
 
-Use the following `getFilteredRecs` method to apply a filter to an Amazon Personalize recommendation request\. Pass the following as parameters: an Amazon Personalize runtime service client, the campaign's ARN \(Amazon Resource Name\), the user's userID, the filter's ARN, and any filter parameter names \(case sensitive\) and their values\. For example, if your filter expression has a `$GENRES` parameter, provide *"GENRES"* as the parameter name\. 
+Use the following `getFilteredRecs` method to apply a filter to an Amazon Personalize recommendation request\. Pass the following as parameters: an Amazon Personalize runtime service client, the campaign's ARN \(Amazon Resource Name\), the user's userID, the filter's ARN, and any filter parameter names \(case sensitive\) and their values\. For example, if your filter expression has a `$GENRES` parameter, provide *"GENRES"* as the parameter name\. If you're getting recommendations from a recommender instead of a campaign, use `recommenderArn` instead of `campaignArn` and provide the ARN for the recommender\. 
 
 The following example uses two parameters, one with two values and one with one value\. Depending on your filter expression, modify the code to add or remove parameterName and parameterValue fields\.
 

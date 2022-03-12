@@ -130,6 +130,7 @@ Amazon's trademarks and trade dress may not be used in
 + [Troubleshooting](troubleshooting.md)
    + [Frequently asked questions](frequently-asked-questions.md)
    + [Error messages](error-messages.md)
++ [Specifying resources with AWS CloudFormation](creating-resources-with-cloudformation.md)
 + [Security in Amazon Personalize](security.md)
    + [Data protection in Amazon Personalize](data-protection.md)
       + [Data encryption](data-encryption.md)

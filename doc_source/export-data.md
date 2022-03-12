@@ -4,7 +4,12 @@ After you've imported your data, you can export the data in an Interactions, Ite
 
 You can choose to export only the data that you imported in bulk \(imported using an Amazon Personalize dataset import job\), only the data that you imported incrementally \(historical and real\-time records imported using the console or the `PutEvents`, `PutUsers`, or `PutItems` operations\), or both\. 
 
-To export a dataset, you create a dataset export job\. A *dataset export job* is a record export tool that outputs the records in a dataset to one or more CSV files in an Amazon S3 bucket\. The output CSV file includes a header row with column names that match the fields in the dataset's schema\. Amazon Personalize combines duplicate records \(records that match exactly for all fields\) into one record\. 
+Amazon Personalize combines duplicate records that match exactly *for all fields* into one record\. If two records have the same ID, Amazon Personalize includes or removes duplicates depending on data you choose to export: 
++ If you export both bulk and incremental data, Amazon Personalize removes duplicate items or users based on their IDs, keeping only the newest items or users\. For interactions datasets, Amazon Personalize includes all interactions data, regardless of timestamp\.
++ If you export incremental data only, Amazon Personalize includes all item, user, or interaction data that you imported incrementally, including items or users with the same IDs\. Only records that match exactly for all fields are excluded\.
++ If you export bulk data only, Amazon Personalize includes all item, user, or interaction data that you imported in bulk, including items or users with the same IDs\. Only records that match exactly for all fields are excluded\.
+
+To export a dataset, you create a dataset export job\. A *dataset export job* is a record export tool that outputs the records in a dataset to one or more CSV files in an Amazon S3 bucket\. The output CSV file includes a header row with column names that match the fields in the dataset's schema\. 
 
 You create a dataset export job using the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\), or AWS SDKs\. 
 
