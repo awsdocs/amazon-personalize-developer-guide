@@ -63,7 +63,6 @@ Your AWS account has the following quotas for Amazon Personalize\.
 | Minimum number of cold start items the HRNN\-Coldstart recipe requires to train a model \(create a solution version\)\. | 100 | 
 | Filters | 
 | --- |
-| Maximum number of filters per account\. | 10 filters | 
 | Maximum number of parameters for a filter expression\. | 5 parameters | 
 | Maximum number of parameters across all filters in a dataset group\. | 10 parameters | 
 | GetRecommendations / GetPersonalizedRanking requests | 
@@ -71,14 +70,15 @@ Your AWS account has the following quotas for Amazon Personalize\.
 | Maximum transaction rate \(GetRecommendations and GetPersonalizedRanking requests\)\. | 2500/sec | 
 | Maximum number of GetRecommendations requests per second per campaign\. | 500/sec | 
 | Maximum number of GetPersonalizedRanking requests per second per campaign\. | 500/sec | 
-| Recommenders | 
-| --- |
-| Maximum number of recommenders per account | 5 | 
 | Batch inference jobs | 
 | --- |
 | Maximum number of input files in a batch inference job\. | 1000 | 
 | Maximum size of batch inference job input\. | 1 GB | 
 | Maximum number of records per input file in a batch inference job\. | 50 million | 
+| Batch segment jobs | 
+| --- |
+| Maximum number of queries per input file for Item\-Affinity recipe\. | 500 | 
+| Maximum number of queries per input file for Item\-Attribute\-Affinity recipe\. | 10 | 
 
 Your AWS account has the following quotas per region for Amazon Personalize\.
 
@@ -89,9 +89,12 @@ Your AWS account has the following quotas per region for Amazon Personalize\.
 | Total number of active dataset groups\. | 500 | 
 | Total number of active event trackers\. | 500 | 
 | Total number of active solutions\. | 500 | 
-| Total number of active campaigns\. | 5 | 
+| Total number of active campaigns\. | 20 | 
+| Total number of recommenders\. | 5 | 
+| Total number of filters\. | 10 | 
 | Total number of pending or in progress dataset import jobs\. | 5 | 
 | Total number of pending or in progress batch inference jobs\. | 5 | 
+| Total number of pending or in progress batch segment jobs\. | 5 | 
 | Total number of pending or in progress solution versions\. | 20 | 
 
 ## Requesting a quota increase<a name="requesting-limit-increase"></a>

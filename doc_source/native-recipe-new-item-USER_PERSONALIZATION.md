@@ -121,7 +121,7 @@ Recommendations might include items without interactions data from outside this 
 
 1. Choose **Create campaign**\.
 
-1. On the campaign details page, when the campaign status is **Active**, you can use the campaign to get recommendations and record impressions\. For more information, see [Step 4: Get recommendations](getting-started-console.md#getting-started-console-get-recommendations) in "Getting Started\." 
+1. On the campaign details page, when the campaign status is **Active**, you can use the campaign to get recommendations and record impressions\. For more information, see [Step 5: Get recommendations](getting-started-console.md#getting-started-console-get-recommendations) in "Getting Started\." 
 
     Amazon Personalize automatically updates your latest solution version every two hours to include new data\. Your campaign automatically uses the updated solution version\. For more information see [Automatic updates](#automatic-updates)\. 
 

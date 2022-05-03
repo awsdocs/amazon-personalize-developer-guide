@@ -1,14 +1,14 @@
 # Getting started \(console\)<a name="getting-started-console"></a>
 
-In this exercise, you use the Amazon Personalize console to create a Custom dataset group with a solution that returns movie recommendations for a given user\. Before you start this exercise, review the Getting Started [Getting started prerequisites](gs-prerequisites.md)\.
+In this exercise, you use the Amazon Personalize console to create a Custom dataset group with a solution that returns movie recommendations for a given user\. Before you start this exercise, review the [Getting started prerequisites](gs-prerequisites.md)\.
 
 When you finish the getting started exercise, to avoid incurring unnecessary charges, follow the steps in [Cleaning up resources](gs-cleanup.md) to delete the resources you created\. 
 
-## Step 1: Import training data<a name="getting-started-console-import-dataset"></a>
+## Step 1: Create a dataset group and a dataset<a name="getting-started-console-create-dataset"></a>
 
-In this procedure, you first create a dataset group\. Next, you create an Amazon Personalize *user\-item interaction* dataset in the dataset group and a schema to match your training data\. Next, you import your training data into the dataset\.
+In this procedure, you first create a dataset group\. Next, you create an Amazon Personalize *Interactions* dataset in the dataset group\.
 
-**To import training data**
+**To create a dataset group and a dataset**
 
 1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign in to your account\.
 
@@ -16,80 +16,86 @@ In this procedure, you first create a dataset group\. Next, you create an Amazon
 
 1. In **Dataset group details**, for **Dataset group name**, specify a name for your dataset group\. 
 
-1. For **Domain** choose **Custom**\.Your screen should look similar to the following:  
+1. For **Domain** choose **Custom**\. Your screen should look similar to the following:  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-1-dataset-group-v02.png)
 
-1. Choose **Create dataset group and continue**\. 
+1. Choose **Create dataset group and continue**\. The **Create interactions dataset** page appears\.
 
-1. On the **Create user\-item interaction data** page, in **Dataset details**, for **Dataset name**, specify a name for your dataset\.
+1. On the **Create interactions dataset** page, for **Dataset name**, specify a name for your dataset\.
 
-1. In **Schema details**, for **Schema selection**, choose **Create new schema**\. A minimal Interactions schema is displayed in the **Schema definition** field\. The schema matches the headers you previously added to the `ratings.csv` file\. For more information see [Creating the training data \(Custom dataset group\)](gs-prerequisites.md#gs-upload-to-bucket)\. 
+1. For **Dataset schema**, choose **Create new schema**\. In the **Schema fields** section, a minimal Interactions schema is displayed\. The schema matches the headers you previously added to the `ratings.csv` file, so you don't need to make any changes\. If you haven't created the training data, see [Getting started prerequisites](gs-prerequisites.md)\. 
 
-1. For **New schema name**, specify a name for the new schema\.
-
-   Your screen should look similar to the following:  
+1. For **Schema name**, specify a name for the new schema\. Your screen should look similar to the following:  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-2-schema.png)
 
-1. Choose **Next**\. 
+1. Choose **Create dataset and continue**\. The **Import interactions data** page appears\. Next, complete [Step 2: Import interactions data](#getting-started-console-import-data) to import interactions data\.
 
-1. On the **Import user\-item interaction data** page, in **Dataset import job details**, for **Dataset import job name**, specify a name for your import job\.
+## Step 2: Import interactions data<a name="getting-started-console-import-data"></a>
 
-1. For **IAM service role**, keep the default selection of **Enter a custom IAM role ARN**\.
+ Now that you have created a dataset, it's time to import interactions data into the dataset\. 
 
-1. For **Custom IAM role ARN**, specify the role that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
+**To import interactions data**
 
-1. In the informational dialog box named **Additional S3 bucket policy required**, follow the [instructions](data-prep-upload-s3.md) to add the required Amazon S3 bucket policy\.
+1. On the **Import interactions data** page, for **Data import source** choose **Import data from S3**\. 
+
+1. For **Dataset import job name**, specify a name for your import job\.
+
+1. In the **Additional S3 bucket policy required** dialog box, if you haven't granted Amazon Personalize permissions, follow the instructions to [add the required Amazon S3 bucket policy](granting-personalize-s3-access.md)\.
 
 1. For **Data location**, specify where your movie data file is stored in Amazon Simple Storage Service \(S3\)\. Use the following syntax:
 
    **s3://<name of your S3 bucket>/<folder path>/<CSV filename>**
 
-   Your screen should look similar to the following:  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-4-job-details.png)
+1. In the **IAM Role** section, for **IAM service role**, keep the default selection of **Enter a custom IAM role ARN**\.
 
-1. Choose **Finish**\. The data import job starts and the **Dashboard Overview** page is displayed\.
+1. For **Custom IAM role ARN**, specify the role that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
 
-1. Initially, in **Upload datasets**, the **User\-item interaction data** status is **Create pending** \(followed by **Create in progress**\), and the **Create solutions \- Start** button is disabled\.
-**Note**  
-The time it takes for the data to be imported depends on the size of the dataset\.
+    The **Dataset import job details** and **IAM role** sections should be similar to the following:   
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-3-import-job.png)
 
-   When the data import job has finished, the **User\-item interaction data** status changes to **Active** and the **Create solutions \- Start** button is enabled\. Your screen should look similar to the following:  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-2-dataset-uploaded.png)
+1. Choose **Finish**\. The data import job starts and the **Overview** page is displayed\. Initially, the status is **Create pending** \(followed by **Create in progress**\), and the **Create solution** button is disabled\.
 
-1. After the import job has finished, choose the **Create solutions \- Start** button\. The **Create solution** page is displayed\.
+    The time it takes for the data to be imported depends on the size of the dataset\. When the data import job has finished, the status changes to **Active** and the **Create solution** button is enabled\. The **Overview** page should look similar to the following:  
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-4-dataset-uploaded.png)
 
-## Step 2: Create a solution<a name="getting-started-console-create-solution"></a>
+1. After the import job has finished, choose the **Create solution** button\. The **Create solution** page is displayed\. Now that you have imported data, you are ready to create a solution in [Step 3: Create a solution](#getting-started-console-create-solution)\.
 
-In this procedure, you use the dataset that you imported in the previous step to train a model\. A trained model is referred to as a *solution version*\.
+## Step 3: Create a solution<a name="getting-started-console-create-solution"></a>
+
+In this procedure, you use the dataset that you imported in [Step 2: Import interactions data](#getting-started-console-import-data) to train a model\. A trained model is referred to as a *solution version*\.
 
 **To create a solution**
 
-1. If the **Create solution** page is not already displayed, in the navigation pane, under the dataset group that you created, choose the Solution creation **Start** button\.
+1. On the **Overview** page for your dataset group, in **Use custom resources** choose **Create solution**\.
 
 1. For **Solution type**, choose **Item recommendation** to get item recommendations for your users\. 
 
 1. For **Solution name**, specify a name for your solution\.
 
+1. For **Solution type** choose **Item recommendations**\.
+
 1. For **Recipe**, choose **aws\-user\-personalization**\. Leave the optional **Solution configuration** and **Advanced configuration** fields unchanged\.
 
    Your screen should look similar to the following:  
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-create-solution.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-5-create-solution.png)
 
-1. Choose **Create and train solution**\. Solution version training starts and the **Dashboard** page displays\.
+1. Choose **Create and train solution**\. Solution version training starts and the **Overview** page displays\.
 
-   Initially, in **Create solutions**, the **Solution creation** status is **Create pending** \(followed by **Create in progress**\), the **Launch campaigns \- Start** button is disabled, and a banner is displayed on the top of the console showing the progress\.
-**Note**  
-The time it takes to train a model depends on the size of the dataset and the chosen recipe\.
+1. To find the training status, in the navigation pane expand **Custom resources** and choose **Solutions and recipes**\. 
 
-1. After training has finished, in the navigation pane choose Dashboard and choose **Create new campaign**\. 
+1. In the **Solutions** section, choose your solution\. The details page for the solution page appears\. The **Solution versions** page lists the status of your model\. 
 
-## Step 3: Create a campaign<a name="getting-started-console-deploy-solution"></a>
+   When the **Solution version status** is *Active*, you are ready to move to [Step 4: Create a campaign](#getting-started-console-deploy-solution)\.
+
+## Step 4: Create a campaign<a name="getting-started-console-deploy-solution"></a>
 
 In this procedure, you create a campaign, which deploys the solution version you created in the previous step\.
 
 **To create a campaign**
 
-1. If the **Create new campaign** page is not already displayed, in the navigation pane, in the dataset group that you created, choose **Dashboard**, and then choose **Create new campaign**\.
+1. In the navigation pane, expand **Custom resources** and choose **Campaigns**\.
+
+1. Choose **Create campaign**\. The **Create new campaign** page appears\.
 
 1. In **Campaign details**, for **Campaign name**, specify a name for your campaign\.
 
@@ -100,17 +106,15 @@ In this procedure, you create a campaign, which deploys the solution version you
    Your screen should look similar to the following:  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/getting-started-create-new-campaign.png)
 
-1. Choose **Create campaign**\. Campaign creation starts and the **Campaign** page appears with the **Campaign inference** section displayed\.
+1. Choose **Create campaign**\. Campaign creation starts and the campaign details pages with the **Personalization API** section displayed\.
 
    Your screen should look similar to the following:  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-6-campaign-inference-in-progress.png)
-**Note**  
-Creating a campaign takes time\.
 
-   After Amazon Personalize finishes creating your campaign, the page is updated to show the **Test campaign results** section\. Your screen should look similar to the following:  
+   Creating a campaign can take a couple minutes\. After Amazon Personalize finishes creating your campaign, the page is updated to show the **Test campaign results** section\. Your screen should look similar to the following:  
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-campaign-test-before-results.png)
 
-## Step 4: Get recommendations<a name="getting-started-console-get-recommendations"></a>
+## Step 5: Get recommendations<a name="getting-started-console-get-recommendations"></a>
 
 In this procedure, use the campaign that you created in the previous step to get recommendations\.
 

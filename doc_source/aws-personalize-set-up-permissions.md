@@ -15,13 +15,13 @@ We recommend creating an AWS Identity and Access Management \(IAM\) user with ac
      **or**
    + Attach the `AmazonPersonalizeFullAccess` AWS managed policy to your IAM user or group \(see [AWS managed policies](security_iam_id-based-policy-examples.md#using-managed-policies)\)\.
 
-1.  Attach the `AmazonS3FullAccess` AWS managed policy to your user or group to grant permissions to access Amazon S3 and create an Amazon S3 bucket\. For more information on granting permission to your Amazon S3 resources see [Using bucket policies and user policies](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html) in the *Amazon S3 Developer Guide*\.
-
 1.  Optionally attach the `CloudWatchFullAccess` AWS managed policy to your IAM user or group to grant permissions to monitor Amazon Personalize with CloudWatch\. See [AWS managed policies](security_iam_id-based-policy-examples.md#using-managed-policies)\. 
 
 1.  Create an IAM role for Amazon Personalize and attach the policy from step 1 to the new role\. See [Creating an IAM role for Amazon Personalize](#set-up-create-role-with-permissions)\. 
 
 1. If you are using AWS Key Management Service \(AWS KMS\) for encryption, you must give your IAM user and Amazon Personalize IAM service role permission to use your key\. You must also add Amazon Personalize as a Principle in your AWS KMS key policy\. For more information see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\.
+
+1.  Complete the steps in [Giving Amazon Personalize access to Amazon S3 resources](granting-personalize-s3-access.md) to use IAM and Amazon S3 bucket policies to give Amazon Personalize access to your Amazon S3 resources\. 
 
 ## Creating a new IAM policy<a name="set-up-required-permissions"></a>
 

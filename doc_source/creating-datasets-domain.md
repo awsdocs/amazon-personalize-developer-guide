@@ -18,6 +18,8 @@ Create a dataset in a Domain dataset group with the Amazon Personalize console a
 
 1.  Configure a schema for your dataset\. Follow the instructions in [Step 2: Create a schema and Interactions dataset](creating-domain-dataset-group-console.md#create-domain-interactions-dataset-console) to configure a schema and create the dataset\. The **Schema fields** are different for each domain and dataset type\. For information on domain datasets and schemas, see [Domain datasets and schemas](domain-datasets-and-schemas.md)\. 
 
+1. For **Tags**, optionally add any tags\. For more information about tagging Amazon Personalize resources, see [Tagging Amazon Personalize resources](tagging-resources.md)\.
+
 1.  Choose **Next** to import data\. Follow the instructions in [Step 3: Import interactions data](creating-domain-dataset-group-console.md#import-domain-interactions-console) to import data\. 
 
 ## Creating datasets for a Domain dataset group \(AWS CLI\)<a name="create-domain-datsets-cli"></a>

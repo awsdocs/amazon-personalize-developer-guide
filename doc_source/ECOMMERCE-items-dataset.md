@@ -1,6 +1,6 @@
 # Items dataset requirements \(ECOMMERCE domain\)<a name="ECOMMERCE-items-dataset"></a>
 
- An *Items dataset* stores metadata about your ECOMMERCE items\. This might include information such as price, category, and product description for each item\. For more information on the types of item data you can import into Amazon Personalize, see [Item data](items-datasets.md)\. 
+ An *Items dataset* stores metadata about your ECOMMERCE items\. This might include information such as price, category, and product description for each item\. For more information on the types of item data you can import into Amazon Personalize, see [Item data](items-datasets.md)\. For information about general Amazon Personalize schema requirements, such as formatting requirements and available field data types, see [Datasets and schemas](how-it-works-dataset-schema.md)\. These requirements apply to all schemas, regardless of domain\. 
 
  An Items dataset is optional for all ECOMMERCE use cases\. If you have items data, we recommend creating one to get the most relevant recommendations\. If you create an items dataset, your schema must include the following fields:
 + ITEM\_ID
@@ -16,7 +16,9 @@
 + ADULT \(categorical `string`\): Whether the item is restricted to only adults, such as alcohol\. Values might be yes or no\.
 + GENDER \(categorical `string`\): The gender the item is for\. Values might be male, female, and unisex\.
 
- To get the best recommendations, we recommend that you keep these as many of these fields in your schema as you have data\. The data you import must match your schema\. Use reserved keywords CATEGORY\_L2 and CATEGORY\_L3 for items with multiple multi\-level categories\. For more information, see [Using categorical data](#ECOMMERCE-items-categorical-data)\. For information on textual and categorical metadata see [Unstructured text metadata](items-datasets.md#text-data)\. For an example of the default schema for Items datasets for ECOMMERCE domains, see [Default Items schema \(ECOMMERCE domain\)](#ECOMMERCE-items-dataset-schema)\. 
+ To get the best recommendations, we recommend that you keep these as many of these fields in your schema as you have data\. The data you import must match your schema\. The data you import must match your schema\. You are free to add additional fields depending on your use case and your data\. As long as the fields aren't listed as required or reserved, and the data types are listed in [Schema data types](how-it-works-dataset-schema.md#personalize-datatypes), the field names and data types are up to you\. 
+
+ Use reserved keywords CATEGORY\_L2 and CATEGORY\_L3 for items with multiple multi\-level categories\. For more information, see [Using categorical data](#ECOMMERCE-items-categorical-data)\. For information on textual and categorical metadata see [Unstructured text metadata](items-datasets.md#text-data)\. For an example of the default schema for Items datasets for ECOMMERCE domains, see [Default Items schema \(ECOMMERCE domain\)](#ECOMMERCE-items-dataset-schema)\. 
 
 ## Using categorical data<a name="ECOMMERCE-items-categorical-data"></a>
 

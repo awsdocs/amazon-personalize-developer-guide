@@ -1,6 +1,6 @@
 # User data<a name="users-datasets"></a>
 
- The user data that you can import into Amazon Personalize includes numerical and categorical metadata about your users, such as gender or loyalty membership\. You import metadata about your users into an Amazon Personalize *Users dataset* 
+ The user data that you can import into Amazon Personalize includes numerical and categorical metadata about your users, such as gender or loyalty membership\. You import metadata about your users into an Amazon Personalize *Users dataset*\. 
 
  This topic provides information about the following types of user data: 
 

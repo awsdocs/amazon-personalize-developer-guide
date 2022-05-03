@@ -4,6 +4,8 @@ This tutorial shows you how to complete the Amazon Personalize workflow from sta
 
 To avoid incurring unnecessary charges, when you finish the getting started exercise follow the steps in [Cleaning up resources](gs-cleanup.md) to delete the resources you create in the tutorial\. 
 
+For more examples, see [Complete Amazon Personalize project](#gs-java-example)\.
+
 **Topics**
 + [Prerequisites](#gs-java-prerequisites)
 + [Complete Amazon Personalize project](#gs-java-example)
@@ -14,7 +16,7 @@ The following are prerequisite steps for completing this tutorial:
 + Complete the [Getting started prerequisites](gs-prerequisites.md)\. You create the training data for this tutorial when you complete the prerequisite steps\. You can use the same source data used in the [Getting started \(console\)](getting-started-console.md) or [Getting started \(AWS CLI\)](getting-started-cli.md) exercises\. If you are using your own source data, make sure that your data is formatted like in the prerequisite step [Creating the training data \(Custom dataset group\)](gs-prerequisites.md#gs-upload-to-bucket)\.
 + Set up your SDK for Java 2\.x environment and AWS credentials as specified in the [Setting up the AWS SDK for Java 2\.x](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/setup.html) procedure in the *AWS SDK for Java 2\.x Developer Guide*\. 
 
-## Step 1: Set up your project to use Amazon Personalize packages<a name="gs-java-example"></a>
+## Step 1: Set up your project to use Amazon Personalize packages<a name="gs-java-set-up-project"></a>
 
 After you complete the prerequisites, add Amazon Personalize dependencies to your pom\.xml file and import Amazon Personalize packages\. 
 
@@ -79,9 +81,9 @@ After you complete the prerequisites, add Amazon Personalize dependencies to you
    import java.time.Instant;
    ```
 
-## Step 2: Instantiate Amazon Personalize clients<a name="getting-started-java-clients"></a>
+## Step 2: Create Amazon Personalize clients<a name="getting-started-java-clients"></a>
 
-After you add Amazon Personalize dependencies to your pom\.xml file and imported the required packages, instantiate the following Amazon Personalize clients:
+After you add Amazon Personalize dependencies to your pom\.xml file and imported the required packages, create the following Amazon Personalize clients:
 
 ```
 PersonalizeClient personalizeClient = PersonalizeClient.builder()
@@ -431,6 +433,6 @@ After you create a campaign, you use it to get recommendations\. Use the followi
 
 ## Complete Amazon Personalize project<a name="gs-java-example"></a>
 
-For an all\-in\-one project that shows you how to complete the Amazon Personalize workflow with the SDK for Java 2\.x, see [create\_amazon\_personalize\_app](https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/usecases/create_amazon_personalize_app) in the [AWS SDK examples](https://github.com/aws-samples/amazon-personalize-samples) repository\. This project includes training multiple solution versions with different recipes, and recording events with the PutEvents operation\.
+For an all\-in\-one project that shows you how to complete the Amazon Personalize workflow with the SDK for Java 2\.x, see the [Amazon\-Personalize\-Java\-App](https://github.com/seashman/Amazon-Personalize-Java-App) on GitHub\. This project includes training multiple solution versions with different recipes, and recording events with the PutEvents operation\.
 
  For additional examples, see code the found in the [personalize](https://github.com/awsdocs/aws-doc-sdk-examples/tree/master/javav2/example_code/personalize/src/main/java/com/example/personalize) folder of the AWS SDK examples repository\. 

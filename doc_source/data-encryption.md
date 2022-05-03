@@ -4,12 +4,16 @@ The following information explains where Amazon Personalize uses data encryption
 
 ## Encryption at rest<a name="data-protection-at-rest"></a>
 
-Amazon Personalize uses the default Amazon S3 key \(SSE\-S3\) for server\-side encryption of Amazon Personalize data placed in your S3 buckets\. You can also use one of your own AWS Key Management Service \(AWS KMS\) keys\.
+Any data stored within Amazon Personalize is always encrypted at rest with Amazon Personalize managed AWS Key Management Service \(AWS KMS\) keys\. If you provide your own AWS KMS key during resource creation, Amazon Personalize uses the key to encrypt your data and store it\. For example, if you provide a AWS KMS ARN in the [CreateDatasetGroup](API_CreateDatasetGroup.md) operation, Amazon Personalize uses the key to encrypt and store data you import into any datasets that you create in that dataset group\. 
+
+For any data stored in your Amazon S3 bucket, data is encrypted by the default Amazon S3 key\. You can also use your own AWS KMS key to encrypt your data and give Amazon Personalize access to this key\. For information about data encryption in Amazon S3 see [Protecting data using encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingEncryption.html)\. For information about managing your own AWS KMS key, see [Managing keys](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) in the *AWS Key Management Service Developer Guide*\. 
 
 ## Encryption in transit<a name="data-protection-in-transit"></a>
 
-Amazon Personalize copies data out of your account and processes it in an internal AWS system\. By default, Amazon Personalize uses TLS 1\.2 with AWS certificates to encrypt data in transit\.
+ Amazon Personalize uses TLS with AWS certificates to encrypt any data sent to other AWS services\. Any communication with other AWS services happens over HTTPS, and Amazon Personalize endpoints support only secure connections over HTTPS\. 
+
+ Amazon Personalize copies data out of your account and processes it in an internal AWS system\. When processing data, Amazon Personalize encrypts data with either a Amazon Personalize AWS KMS key or any AWS KMS key you provide\. 
 
 ## Key management<a name="data-protection-keys"></a>
 
-The default Amazon S3 key is managed by AWS\. It is the responsibility of the customer to manage any customer\-provided [AWS Key Management Service \(AWS KMS\)](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) keys\.
+AWS manages any default AWS KMS keys\. It is your responsibility to manage any AWS KMS keys that you own\. For information about managing your own AWS KMS key, see [Managing keys](https://docs.aws.amazon.com/kms/latest/developerguide/overview.html) in the *AWS Key Management Service Developer Guide*\. 

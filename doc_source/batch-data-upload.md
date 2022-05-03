@@ -147,7 +147,7 @@ The following are correctly formatted JSON input and output examples for batch s
 ------
 #### [ Input ]
 
-Separate each `itemId` with a new line as follows\.
+Your input data can have a maximum of 500 items\. Separate each `itemId` with a new line as follows\.
 
 ```
 {"itemId": "105"}
@@ -173,7 +173,7 @@ Separate each `itemId` with a new line as follows\.
 ------
 #### [ Input ]
 
-Separate each attribute with a new line as follows\.
+Your input data can have a maximum of 10 queries, where each query is one or more item attributes\. Separate each attribute or attribute expression with a new line as follows\.
 
 ```
 {"itemAttributes": "ITEMS.genres = \"Comedy\" AND ITEMS.genres = \"Action\""}

@@ -29,6 +29,12 @@ If the status shows as CREATE FAILED, the response includes a `failureReason` ke
 ```
 {
    "solutionArn": "string",
+   "tags": [ 
+      { 
+         "tagKey": "string",
+         "tagValue": "string"
+      }
+   ],
    "trainingMode": "string"
 }
 ```
@@ -43,6 +49,12 @@ Type: String
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: Yes
+
+ ** [tags](#API_CreateSolutionVersion_RequestSyntax) **   <a name="personalize-CreateSolutionVersion-request-tags"></a>
+A list of [tags](https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html) to apply to the solution version\.  
+Type: Array of [Tag](API_Tag.md) objects  
+Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
+Required: No
 
  ** [trainingMode](#API_CreateSolutionVersion_RequestSyntax) **   <a name="personalize-CreateSolutionVersion-request-trainingMode"></a>
 The scope of training to be performed when creating the solution version\. The `FULL` option trains the solution version based on the entirety of the input solution's training data, while the `UPDATE` option processes only the data that has changed in comparison to the input solution\. Choose `UPDATE` when you want to incrementally update your solution version instead of creating an entirely new one\.  
@@ -87,6 +99,10 @@ HTTP Status Code: 400
 
  ** ResourceNotFoundException **   
 Could not find the specified resource\.  
+HTTP Status Code: 400
+
+ ** TooManyTagsException **   
+You have exceeded the maximum number of tags you can apply to this resource\.   
 HTTP Status Code: 400
 
 ## See Also<a name="API_CreateSolutionVersion_SeeAlso"></a>

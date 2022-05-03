@@ -35,7 +35,7 @@ After you verify that your Python environment is configured correctly, import yo
 
 1. \(Optional\) Add an event tracker\. To record interactions events, you must add a tracking ID to associate the event with your dataset group\. For a code sample, see [Creating an event tracker](recording-events.md#event-get-tracker)\.
 
-1. \(Optional\) Add an event record\. To add more data in training and create a better model, you can use events\. Events are recorded user activities such as a search, a view, or a purchase\. For a code sample, see [PutEvents operation](recording-events.md#event-record-api)\.
+1. \(Optional\) Add an event record\. To add more data in training and create a better model, you can use events\. Events are recorded user activities such as a search, a view, or a purchase\. For a code sample, see [Recording events with the PutEvents operation](recording-events.md#event-record-api)\.
 
 ## Step 3: Create a solution<a name="getting-started-python-create-solution"></a>
 

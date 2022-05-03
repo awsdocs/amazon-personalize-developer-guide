@@ -34,6 +34,8 @@ For information on Amazon Personalize datasets and schema requirements, see [Dat
 
 1. For **New schema name**, specify a name for the new schema\.
 
+1. For **Tags**, optionally add any tags\. For more information about tagging Amazon Personalize resources, see [Tagging Amazon Personalize resources](tagging-resources.md)\.
+
 1. Choose **Next** and follow the instructions in [ Step 3: Importing your data](data-prep-importing.md) to import your data\.
 
 ## Creating a dataset and a schema \(AWS CLI\)<a name="data-prep-creating-ds-cli"></a>

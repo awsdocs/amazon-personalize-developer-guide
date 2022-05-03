@@ -4,18 +4,18 @@
 
  You can record real\-time events using the AWS SDKs, AWS Amplify or AWS Command Line Interface \(AWS CLI\)\. When you record events, Amazon Personalize appends the event data to the Interactions dataset in your dataset group\. 
 
-**Note**  
-AWS Amplify includes a JavaScript library for recording events from web client applications, and a library for recording events in server code\. For more information, see [Amplify \- analytics](https://aws-amplify.github.io/docs/js/analytics)
+ AWS Amplify includes a JavaScript library for recording events from web client applications, and a library for recording events in server code\. For more information, see [Amplify \- analytics](https://aws-amplify.github.io/docs/js/analytics) 
 
 **Topics**
 + [Requirements for recording events and training a model](#recording-events-requirements)
 + [How real\-time events influence recommendations](#recorded-events-influence-recommendations)
 + [Creating an event tracker](#event-get-tracker)
-+ [PutEvents operation](#event-record-api)
++ [Recording events with the PutEvents operation](#event-record-api)
++ [Recording events for anonymous users](#recording-anonymous-user-events)
 + [Recording impressions data](#putevents-including-impressions-data)
 + [Event metrics](#event-metrics)
-+ [Events and solutions](#event-solutions)
 + [Sample Jupyter notebook](#recording-events-sample-notebook)
++ [Sample implementations](#recording-events-sample-architecture)
 
 ## Requirements for recording events and training a model<a name="recording-events-requirements"></a>
 
@@ -36,9 +36,9 @@ Instead, Amazon Personalize adds the new recorded event data to the user's histo
 +  For recorded events for *new items* \(items you did not include in the data you used to train the model\), if you created recommenders for *Top picks for you* and *Recommended for you* use cases \(for Domain dataset group\) or if you trained your model \(solution version\) with User\-Personalization, Amazon Personalize automatically updates the model every two hours\. After each update completes, the new items influence recommendations\. For information about auto updates for the User\-Personalization recipe, see [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
 
    For any other domain use case, Amazon Personalize will automatically train new models for your recommenders every 7 days, starting from the recommender creation date\. For any other custom recipe, you must re\-train the model for the new records to influence recommendations\. Amazon Personalize stores recorded events for new items and, once you create a new solution version \(train a new model\), this new data will influence Amazon Personalize recommendations for the user\. 
-+  For recorded events for *new users* \(users that were not included in the data you used to create recommenders or solution versions\), recommendations will initially be for popular items only\. Recommendations will be more relevant as you record more events for the user\. Amazon Personalize stores the new user data and will include the user when Amazon Personalize updates your recommender or when you manually train a new solution version\. 
++  For recorded events for *new users* \(users that were not included in the data you used to create recommenders or solution versions\), recommendations will initially be for popular items only\. Recommendations will become more relevant as you record more events for the user\. Amazon Personalize stores the new user data and will use it for training when Amazon Personalize updates your recommender, or when you manually train a new solution version\. 
 
-   For new, anonymous users \(users without a userId\), Amazon Personalize uses the `sessionId` you pass in the [PutEvents](API_UBS_PutEvents.md) operation to associate events with the user before they log in\. This creates a continuous event history that includes events that occurred when the user was anonymous\. 
+   For new, anonymous users \(users without a userId\), Amazon Personalize uses the `sessionId` you pass in the [PutEvents](API_UBS_PutEvents.md) operation to associate events with the user before they log in\. For more information see [Recording events for anonymous users](#recording-anonymous-user-events) 
 
 ## Creating an event tracker<a name="event-get-tracker"></a>
 
@@ -153,11 +153,11 @@ public static String createEventTracker(PersonalizeClient personalizeClient,
 
 ------
 
-## PutEvents operation<a name="event-record-api"></a>
+## Recording events with the PutEvents operation<a name="event-record-api"></a>
 
-To record events, you call the [PutEvents](API_UBS_PutEvents.md) operation\. The following example shows a `PutEvents` operation that passes one event that contains the minimum required information\. The corresponding Interactions schema is shown, along with an example row from the Interactions dataset\.
+To record events, you call the [PutEvents](API_UBS_PutEvents.md) operation\. The following example shows a `PutEvents` operation that passes one event\. The corresponding Interactions schema is shown, along with an example row from the Interactions dataset\.
 
-Your application generates the `sessionId` when a user first visits your website or uses your application\. For example, you could generate a universally unique identifier \(UUID\) and use this value for the `sessionId`\. Amazon Personalize uses the `sessionId` to associate events with the user before they log in \(is anonymous\)\. After the user logs in and you send an event including the `userId`, Amazon Personalize associates the previously anonymous historical event data with their `userId` by matching the `sessionId`\. This creates a continuous event history that includes events that occurred when the user was anonymous\. We recommend having at most one user mapped to one `sessionID`\. 
+Your application generates the `sessionId` when a user first visits your website or uses your application\. Amazon Personalize uses the `sessionId` to associate events with the user before they log in \(is anonymous\)\. For more information see [Recording events for anonymous users](#recording-anonymous-user-events)\.
 
 The event list is an array of [Event](API_UBS_Event.md) objects\. An `eventType` is required for each event, but in this example, `eventType` data is not used in training because it is not included in the schema\. You can provide a placeholder value to satisfy the requirement\. 
 
@@ -375,6 +375,16 @@ public static void putMultipleEvents(PersonalizeEventsClient personalizeEventsCl
 **Note**  
 The properties keys use camel case names that match the fields in the Interactions schema\. For example, if the field 'NUM\_RATINGS' is defined in the Interactions schema, the property key should be `numRatings`\.
 
+## Recording events for anonymous users<a name="recording-anonymous-user-events"></a>
+
+You can record events for users before they create an account\. This allows you to get recommendations for anonymous users\. You can provide the `sessionId` as the `userID` in your [GetRecommendations](API_RS_GetRecommendations.md) request\.
+
+ Record events for anonymous users to build a continuous event history with events from before and after they log in\. This provides Amazon Personalize more interactions data about the user, which can help generate more relevant recommendations\. 
+
+ To build a continuous event history for a user, record at minimum one event with the `sessionId` from the anonymous events and their new `userId`\. Then you can record any number of events for the `userId`\. The `sessionId` can change\. During the next full retraining, Amazon Personalize associates the `userId` with the event history tracked to the `sessionId`\. Retraining can either be the next time you create a new solution version with training mode set to FULL \(Custom dataset groups\), or the next automatic retraining for recommenders \(Domain dataset groups\)\. 
+
+ After retraining completes, recommendations will be based on activity tracked to both the sessionId from anonymous sessions and any events tracked to their userId\. 
+
 ## Recording impressions data<a name="putevents-including-impressions-data"></a>
 
 If you use the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) recipe or add the IMPRESSIONS field to your schema for a dataset in a Domain dataset group, you can record impressions data in your PutEvents operation\. Impressions are lists of items that were visible to a user when they interacted with \(for example, clicked or watched\) a particular item\. Amazon Personalize uses impressions data to guide exploration, where recommendations include items with less interactions data or relevance\. For information on the *implicit* and *explicit* impressions Amazon Personalize can model, see [Impressions data](interactions-datasets.md#interactions-impressions-data)\. 
@@ -459,12 +469,17 @@ public static void putEvents(PersonalizeEventsClient personalizeEventsClient,
 
 To monitor the type and number of events sent to Amazon Personalize, use Amazon CloudWatch metrics\. For more information, see [Monitoring Amazon Personalize](personalize-monitoring.md)\. 
 
-## Events and solutions<a name="event-solutions"></a>
-
-When training a model that uses event data, two parameters of the [CreateSolution](API_CreateSolution.md) operation are relevant\. The `eventType` parameter must be specified when multiple event types are recorded\. The `eventType` indicates which type of event Amazon Personalize uses as the label for model training\.
-
-The `eventValueThreshold` parameter of the `SolutionConfig` object creates an event filter\. When this parameter is specified, only events with a value greater than or equal to the threshold are used for training the model\. You must specify the event type when using `eventValueThreshold`\.
-
 ## Sample Jupyter notebook<a name="recording-events-sample-notebook"></a>
 
 For a sample Jupyter notebook that shows how to use Amazon Personalize to react to real\-time behavior of users using an event tracker and the [PutEvents](API_UBS_PutEvents.md) operation, see [2\.View\_Campaign\_And\_Interactions\.ipynb](https://github.com/aws-samples/amazon-personalize-samples/blob/master/getting_started/notebooks/2.View_Campaign_And_Interactions.ipynb) in the **getting\_started** folder of the [amazon\-personalize\-samples](https://github.com/aws-samples/amazon-personalize-samples) GitHub repository\. 
+
+## Sample implementations<a name="recording-events-sample-architecture"></a>
+
+ For a simple example that shows how to stream events from users interacting with recommendations, see [streaming\_events](https://github.com/aws-samples/amazon-personalize-samples/tree/master/next_steps/operations/streaming_events) in the Amazon Personalize samples Github repository\. 
+
+ For a complete example that contains the source code and supporting files to deploy real\-time APIs that sit between your Amazon Personalize resources and client applications, see [Real\-Time Personalization APIs](https://github.com/aws-samples/personalization-apis) in the AWS samples Github repository\. This project includes how to implement the following: 
++ User context and user event collection
++ Response caching
++ Decorating recommendations based on item metadata
++ A/B testing
++  API authentication 

@@ -23,6 +23,8 @@ Create a Domain dataset group and choose your domain with the Amazon Personalize
 
 1.  For **Dataset group domain**, choose **E\-commerce** to create an ECOMMERCE Domain dataset group, or choose **Video on demand** to create a VIDEO\_ON\_DEMAND Domain dataset group\. The domain you choose determines the default schema you will use when importing data and determines what use cases are available for recommenders\. 
 
+1. For **Tags**, optionally add any tags\. For more information about tagging Amazon Personalize resources, see [Tagging Amazon Personalize resources](tagging-resources.md)\.
+
 1. Choose **Create dataset group and continue**\. The **Create interactions dataset** page appears\. Proceed to [Step 2: Create a schema and Interactions dataset](#create-domain-interactions-dataset-console)\.
 
 ## Step 2: Create a schema and Interactions dataset<a name="create-domain-interactions-dataset-console"></a>
@@ -44,6 +46,8 @@ After you complete [Step 1: Create a Domain dataset group](#create-domain-dsg-co
    +  To remove optional and custom fields, select the check box for the field and choose the **Remove** button\. 
 
 1. If you have bulk data in a CSV file in Amazon S3, make sure your data matches the schema definition here\. Your CSV file must have the same columns of data listed in the **Schema definition** and each field must have the same type\. 
+
+1. For **Tags**, optionally add any tags\. For more information about tagging Amazon Personalize resources, see [Tagging Amazon Personalize resources](tagging-resources.md)\.
 
 1. Choose **Next**\. The **Import interactions data** page appears\. Proceed to [Step 3: Import interactions data](#import-domain-interactions-console)
 

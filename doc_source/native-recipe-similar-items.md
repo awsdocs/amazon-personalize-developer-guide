@@ -6,6 +6,8 @@ Similar\-Items calculates similarity based on both the co\-occurrence of the ite
 
 With Similar\-Items, you provide an item ID in a [GetRecommendations](API_RS_GetRecommendations.md) operation \(or the Amazon Personalize console\) and Amazon Personalize returns a list of similar items\. Or you can use a batch workflow to get similar items for all of the items in your inventory \(see [Getting batch recommendations and user segments](recommendations-batch.md)\)\. You can get recommendations for items that are similar to a cold item \(an item with fewer than five interactions\)\. If Amazon Personalize can't find the item ID that you specify in your recommendation request or batch input file, the recipe returns popular items as recommendations\. 
 
+ After you create a solution version, make sure you keep your solution version and data up to date\. With Similar\-Items, you must manually create a new solution version \(retrain the model\) to reflect updates to your catalog and update the model with your user’s most recent behavior\. For more information, see [Maintaining recommendation relevance](maintaining-relevance.md)\. 
+
  For information on formatting categorical and unstructured text metadata in your Items dataset, see [Item data](items-datasets.md)\. If you don't have item metadata and want to recommend similar items, use the [SIMS recipe](native-recipe-sims.md)\. 
 
 ## Properties and hyperparameters<a name="similar-items-hyperparameters"></a>

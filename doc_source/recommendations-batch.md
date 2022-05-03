@@ -35,4 +35,4 @@ The batch workflow is as follows:
 
 ## Batch workflow scoring<a name="batch-scoring"></a>
 
-Amazon Personalize calculates batch inference job Item scores as described in [Getting real\-time recommendations](getting-real-time-recommendations.md)\. You can view scores in the batch inference job's output JSON file\. Scores are only returned by models trained with the HRNN and Personalize\-Ranking recipes\.
+With User\-Personalization and Personalized\-Ranking recipes, Amazon Personalize calculates batch inference job recommendation scores as described in [How User\-Personalization recommendation scoring works](recommendations.md#how-recommendation-scoring-works) and [How personalized ranking scoring works](rankings.md#how-ranking-scoring-works)\. You can view scores in the batch inference job's output JSON file\. Scores are only returned by models trained with the User\-Personalization and Personalized\-Ranking recipes\.

@@ -42,6 +42,8 @@ If you just created your dataset in [Step 2: Creating a dataset and a schema](da
 **Note**  
 If your CSV files are in a folder in your S3 bucket and you want to upload multiple CSV files to a dataset with one dataset import job, use this syntax without the CSV file name\. 
 
+1. For **Tags**, optionally add any tags\. For more information about tagging Amazon Personalize resources, see [Tagging Amazon Personalize resources](tagging-resources.md)\.
+
 1. Choose **Finish**\. The data import job starts and the **Dashboard Overview** page is displayed\.
 
    The dataset import is complete when the status shows as ACTIVE\. You can now train the model using the specified dataset\.

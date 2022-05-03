@@ -12,11 +12,9 @@ After you have completed [Step 1: Choosing a recipe](working-with-predefined-rec
 
 ## Creating a solution version \(console\)<a name="create-solution-version-console"></a>
 
-If you just completed [Step 2: Configuring a solution](customizing-solution-config.md) and the **Create solution version** is displayed, choose **FINISH** to create a solution version\.
+When you initially create your solution with the Amazon Personalize console, you also create a solution version\. On the solution details page, you can track training progress in the **Solution versions** section\. When training is complete, the status is **Active** and you are ready to deploy a campaign and get recommendations\. See [Creating a campaign](campaigns.md)\.
 
-On the solution details page, you can track training progress in the **Solution versions** section\. When training is complete, the status is **Active** and you are ready to deploy a campaign and get recommendations\. See step 3 in the [Getting started \(console\)](getting-started-console.md) tutorial\.
-
-If you navigated away from the **Create solution version** page or want to create an additional solution version for an existing solution, create a new solution version from the solution overview page as follows\.
+If you want to create an additional solution version for an existing solution, create a new solution version from the solution overview page as follows\.
 
 **To create a new solution version**
 

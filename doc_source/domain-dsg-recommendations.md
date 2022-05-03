@@ -25,7 +25,7 @@ Use your recommender to get recommendations with the Amazon Personalize console 
 
 1.  Under **Test campaign results**, enter your recommendation request details based on your use case\. For information on different use case recommendation requirements, see [Choosing recommender use cases](domain-use-cases.md)\. 
 
-    If you recorded events for a user before they logged in \(an anonymous user\), you can get recommendations for this user by providing the `sessionId` from those events instead of a `userId`\. For more information about recording events for anonymous users, see [PutEvents operation](recording-events.md#event-record-api)\. 
+    If you recorded events for a user before they logged in \(an anonymous user\), you can get recommendations for this user by providing the `sessionId` from those events instead of a `userId`\. For more information about recording events for anonymous users, see [Recording events with the PutEvents operation](recording-events.md#event-record-api)\. 
 
 1. Optionally choose a filter to filter your recommendations\. To create a filter choose **Create filters**\. For more information, see [Filtering recommendations and user segments](filter.md)\. If your use case includes automatic filtering \(such as filtering already purchased items for the [Recommended for you](ECOMMERCE-use-cases.md#recommended-for-you-use-case) use case\), the automatic filter is applied in addition your filter\.
 
@@ -35,7 +35,7 @@ Use your recommender to get recommendations with the Amazon Personalize console 
 
 Use the following code to get recommendations from your recommender\. Change the value of `User ID` to a user ID that is in the data that you imported\. A list of the top 10 recommended items for the user displays\. To change the number of recommended items, change the value for `numResults`\. The default is 25 items\. The maximum is 500 items\. If your recommender's use case requires an itemId instead of a userId, replace the `user-id` parameter with `item-id` and specify the item ID\. 
 
- If you recorded events for a user before they logged in \(an anonymous user\), you can get recommendations for this user by providing the `sessionId` from those events instead of a `userId`\. For more information about recording events for anonymous users, see [PutEvents operation](recording-events.md#event-record-api)\. 
+ If you recorded events for a user before they logged in \(an anonymous user\), you can get recommendations for this user by providing the `sessionId` from those events instead of a `userId`\. For more information about recording events for anonymous users, see [Recording events with the PutEvents operation](recording-events.md#event-record-api)\. 
 
 ```
 aws personalize-runtime get-recommendations \
@@ -50,7 +50,7 @@ aws personalize-runtime get-recommendations \
 
 The following code shows how to get Amazon Personalize recommendations from your recommender with the AWS SDKs\. Change the value of `userId` to a user ID that is in the data that you imported\. A list of the top 10 recommended items for the user displays\. To change the number of recommended items, change the value for `numResults`\. The default is 25 items\. The maximum is 500 items\. If your recommender's use case requires an itemId, replace the `userId` parameter with `itemId` and specify the item ID\. 
 
- If you recorded events for a user before they logged in \(an anonymous user\), you can get recommendations for this user by providing the `sessionId` from those events instead of a `userId`\. For more information about recording events for anonymous users, see [PutEvents operation](recording-events.md#event-record-api)\. 
+ If you recorded events for a user before they logged in \(an anonymous user\), you can get recommendations for this user by providing the `sessionId` from those events instead of a `userId`\. For more information about recording events for anonymous users, see [Recording events with the PutEvents operation](recording-events.md#event-record-api)\. 
 
  To filter recommendation results, specify the filter's Amazon Resource Name \(ARN\) with the additional the `filterArn` parameter\. For more information, see [Filtering recommendations and user segments](filter.md)\. If your use case includes automatic filtering \(such as filtering already purchased items for the [Recommended for you](ECOMMERCE-use-cases.md#recommended-for-you-use-case) use case\), the automatic filter is applied in addition your filter\. 
 

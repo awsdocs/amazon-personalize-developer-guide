@@ -1,6 +1,6 @@
 # Interactions dataset requirements \(ECOMMERCE domain\)<a name="ECOMMERCE-interactions-dataset"></a>
 
- An *Interactions dataset* stores historical and real\-time data from interactions between users and items in your ECOMMERCE catalog\. For more information about the types of data you can store in an interactions dataset, see [Interactions data](interactions-datasets.md)\. 
+ An *Interactions dataset* stores historical and real\-time data from interactions between users and items in your ECOMMERCE catalog\. For more information about the types of data you can store in an interactions dataset, see [Interactions data](interactions-datasets.md)\. For information about general Amazon Personalize schema requirements, such as formatting requirements and available field data types, see [Datasets and schemas](how-it-works-dataset-schema.md)\. These requirements apply to all schemas, regardless of domain\. 
 
  You must at minimum create an Interactions dataset and your schema must have the following fields: 
 + USER\_ID \(`string`\)
@@ -10,10 +10,10 @@
 
  Your schema can also include the following reserved keywords:
 + EVENT\_VALUE \(`float`, `null`\)
-+ IMPRESSION \(`string`\)
++ IMPRESSION \(`string`, `null`\)
 + RECOMMENDATION\_ID \(`string`, `null`\)
 
- For an example of the default schema for Interactions datasets for ECOMMERCE domains, see [Default Interactions schema \(ECOMMERCE domain\)](#ECOMMERCE-interactions-schema)\. 
+ The data you import must match your schema\. You are free to add additional fields depending on your use case and your data\. As long as the fields aren't listed as required or reserved, and the data types are listed in [Schema data types](how-it-works-dataset-schema.md#personalize-datatypes), the field names and data types are up to you\. For an example of the default schema for Interactions datasets for ECOMMERCE domains, see [Default Interactions schema \(ECOMMERCE domain\)](#ECOMMERCE-interactions-schema)\. 
 
  Optionally add the reserved keyword EVENT\_VALUE if you have value data for events\. Optionally add the reserved keyword IMPRESSION if you want to include explicit and implicit impressions data\. For more information about recording impressions data see [Impressions data](interactions-datasets.md#interactions-impressions-data)\. 
 

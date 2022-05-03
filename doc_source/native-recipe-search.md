@@ -4,6 +4,8 @@ The Personalized\-Ranking recipe generates personalized rankings of items\. A *p
 
 To train a model, the Personalized\-Ranking recipe uses the data in your Interactions dataset, and if you created them, the Items dataset and Users dataset in your dataset group \(these datasets are optional\)\. With Personalized\-Ranking, your Items dataset can include [Unstructured text metadata](items-datasets.md#text-data) and your Interactions dataset can include [Contextual metadata](interactions-datasets.md#interactions-contextual-metadata)\. To get a personalized ranking, use the [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) API\. 
 
+ After you create a solution version, make sure you keep your solution version and data up to date\. With Personalized\-Ranking, you must manually create a new solution version \(retrain the model\) to reflect updates to your catalog and update the model with your user’s most recent behavior\. For more information, see [Maintaining recommendation relevance](maintaining-relevance.md)\.  
+
 **Note**  
  If you provide items without interactions data for ranking, Amazon Personalize will return these items without a recommendation score in the GetPersonalizedRanking API response\. 
 

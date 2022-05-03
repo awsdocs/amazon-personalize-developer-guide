@@ -2,7 +2,7 @@
 
  A *Domain dataset group* is a Amazon Personalize container for domain specific pre\-configured resources, including datasets, recommenders, and filters\. Use a Domain dataset group if you have a streaming video or e\-commerce application and want to let Amazon Personalize find the best configurations for your recommenders\. 
 
-A *recommender* is a resource that generates recommendations for specific use cases, such as recommending similar movies\. You can create at most 5 recommenders per AWS account\. The domain you choose when you create a Domain dataset group determines what data you import and the use cases available for your recommenders\. 
+A *recommender* is a resource that generates recommendations for specific use cases, such as recommending similar movies\. You can create at most recommenders per AWS account\. The domain you choose when you create a Domain dataset group determines what data you import and the use cases available for your recommenders\. 
 
  Amazon Personalize automatically retrains the models backing your recommenders every 7 days\. This is a full retraining that creates entirely new models based on the entirety of the data in your datasets\. With *Top picks for you* and *Recommended for you* use cases, Amazon Personalize updates the existing models every two hours to include new items in recommendations with exploration\. 
 

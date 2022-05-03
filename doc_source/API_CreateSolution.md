@@ -84,7 +84,13 @@ To get the status of the solution, call [DescribeSolution](https://docs.aws.amaz
          "itemAttribute": "string",
          "objectiveSensitivity": "string"
       }
-   }
+   },
+   "tags": [ 
+      { 
+         "tagKey": "string",
+         "tagValue": "string"
+      }
+   ]
 }
 ```
 
@@ -138,6 +144,12 @@ Amazon Personalize doesn't support configuring the `hpoObjective` at this time\.
 Type: [SolutionConfig](API_SolutionConfig.md) object  
 Required: No
 
+ ** [tags](#API_CreateSolution_RequestSyntax) **   <a name="personalize-CreateSolution-request-tags"></a>
+A list of [tags](https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html) to apply to the solution\.  
+Type: Array of [Tag](API_Tag.md) objects  
+Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
+Required: No
+
 ## Response Syntax<a name="API_CreateSolution_ResponseSyntax"></a>
 
 ```
@@ -178,6 +190,10 @@ HTTP Status Code: 400
 
  ** ResourceNotFoundException **   
 Could not find the specified resource\.  
+HTTP Status Code: 400
+
+ ** TooManyTagsException **   
+You have exceeded the maximum number of tags you can apply to this resource\.   
 HTTP Status Code: 400
 
 ## See Also<a name="API_CreateSolution_SeeAlso"></a>

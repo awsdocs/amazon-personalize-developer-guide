@@ -46,6 +46,8 @@ After your solution version status is Active you are ready to deploy it with an 
 
 1. If you used the User\-Personalization recipe, in **Campaign configuration** optionally enter values for the **Exploration weight** and **Exploration item age cut off**\. For more information see [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md)\.
 
+1. For **Tags**, optionally add any tags\. For more information about tagging Amazon Personalize resources, see [Tagging Amazon Personalize resources](tagging-resources.md)\.
+
 1. Choose **Create campaign**\.
 
 1. On the campaign details page, when the campaign status is **Active**, you can use the campaign to get recommendations and record impressions\. For more information, see [Getting recommendations \(Custom dataset group\)](getting-recommendations.md)\. 

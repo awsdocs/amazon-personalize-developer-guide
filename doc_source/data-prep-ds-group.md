@@ -25,11 +25,13 @@ Create a dataset group by specifying the dataset group name in the Amazon Person
 
 1. For **Domain** choose **Custom**\.
 
+1. For **Tags**, optionally add any tags\. For more information about tagging Amazon Personalize resources, see [Tagging Amazon Personalize resources](tagging-resources.md)\.
+
 1. Choose **Next**\. The **Create user\-item interaction data** page displays\. You are now ready to add a dataset with an associated schema to your dataset group\. See [Creating a dataset and a schema \(console\)](data-prep-creating-datasets.md#data-prep-creating-ds-console)\. 
 
 ## Creating a dataset group \(AWS CLI\)<a name="data-prep-creating-ds-group-cli"></a>
 
-Create a dataset group with the following command\. For more information about the CreateDatasetGroup API operation, see [CreateDatasetGroup](API_CreateDatasetGroup.md) in the API reference section\.
+Create a dataset group with the following command\. For more information about the CreateDatasetGroup API operation, see [CreateDatasetGroup](API_CreateDatasetGroup.md) in the API reference section\. You can use the Tags parameter to optionally tag resources in Amazon Personalize\. For a sample see [Adding tags \(AWS CLI\)](tags-add.md#add-tag-cli)\.
 
 ```
 aws personalize create-dataset-group --name dataset group name
@@ -68,7 +70,7 @@ When the dataset group's `status` is ACTIVE, proceed to [Creating a dataset and 
 
 ## Creating a dataset group \(AWS SDKs\)<a name="data-prep-creating-ds-group-sdk"></a>
 
-The following code shows how to create a dataset group with the AWS SDK for Python \(Boto3\) or the SDK for Java 2\.x\. For more information about the API operation, see [CreateDatasetGroup](API_CreateDatasetGroup.md) in the API reference section\.
+The following code shows how to create a dataset group with the AWS SDK for Python \(Boto3\) or the SDK for Java 2\.x\. For more information about the API operation, see [CreateDatasetGroup](API_CreateDatasetGroup.md) in the API reference section\. You can use the Tags parameter to optionally tag resources in Amazon Personalize\. For a sample see [Adding tags \(AWS SDKs\)](tags-add.md#add-tag-sdk)\. 
 
 ------
 #### [ SDK for Python \(Boto3\) ]

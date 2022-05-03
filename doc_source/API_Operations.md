@@ -53,7 +53,12 @@ The following actions are supported by Amazon Personalize:
 +  [ListSchemas](API_ListSchemas.md) 
 +  [ListSolutions](API_ListSolutions.md) 
 +  [ListSolutionVersions](API_ListSolutionVersions.md) 
++  [ListTagsForResource](API_ListTagsForResource.md) 
++  [StartRecommender](API_StartRecommender.md) 
++  [StopRecommender](API_StopRecommender.md) 
 +  [StopSolutionVersionCreation](API_StopSolutionVersionCreation.md) 
++  [TagResource](API_TagResource.md) 
++  [UntagResource](API_UntagResource.md) 
 +  [UpdateCampaign](API_UpdateCampaign.md) 
 +  [UpdateRecommender](API_UpdateRecommender.md) 
 

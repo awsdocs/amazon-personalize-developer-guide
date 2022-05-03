@@ -45,6 +45,8 @@
 
 1.  For **Filters** optionally choose a filter to apply a filter to the recommendations added to the output JSON file\. For more information see [Filtering batch recommendations and user segments](filter-batch.md)\. 
 
+1. For **Tags**, optionally add any tags\. For more information about tagging Amazon Personalize resources, see [Tagging Amazon Personalize resources](tagging-resources.md)\.
+
 1.  Choose **Create batch segment job**\. Batch segment job creation starts and the **Batch segment jobs** page appears with the **Batch segment job detail** section displayed\.
 
 1.  When the batch segment job's status changes to **Active**, you can retrieve the job's output from the designated output Amazon S3 bucket\. The output file's name will be of the format `input-name.out`\. 

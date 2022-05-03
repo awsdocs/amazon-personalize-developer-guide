@@ -104,6 +104,10 @@ HTTP Status Code: 400
 Could not find the specified resource\.  
 HTTP Status Code: 400
 
+ ** TooManyTagsException **   
+You have exceeded the maximum number of tags you can apply to this resource\.   
+HTTP Status Code: 400
+
 ## See Also<a name="API_CreateDatasetImportJob_SeeAlso"></a>
 
 For more information about using this API in one of the language\-specific AWS SDKs, see the following:

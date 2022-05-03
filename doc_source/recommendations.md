@@ -6,24 +6,24 @@
  If you used a PERSONALIZED\_RANKING recipe, see [Getting a personalized ranking](rankings.md)\. 
 
 **Topics**
-+ [How scoring works](#how-recommendation-scoring-works)
++ [How User\-Personalization recommendation scoring works](#how-recommendation-scoring-works)
 + [Getting recommendations \(console\)](#get-real-time-recommendations-console)
 + [Getting recommendations \(AWS CLI\)](#get-recommendations-cli-example)
 + [Getting recommendations \(AWS SDKs\)](#get-recommendations-sdk-example)
 + [Getting recommendations using contextual metadata \(AWS Python SDK\)](#get-recommendations-metadata-sdk-example)
 
-## How scoring works<a name="how-recommendation-scoring-works"></a>
+## How User\-Personalization recommendation scoring works<a name="how-recommendation-scoring-works"></a>
 
-To make recommendations, Amazon Personalize generates scores for the items in your Items dataset based on a user's interaction data and metadata\. These scores represent the relative certainty that Amazon Personalize has in which item the user will select next\. Higher scores represent greater certainty\.
+With the User\-Personalization recipe, Amazon Personalize generates scores for items based on on a user's interaction data and metadata\. These scores represent the relative certainty that Amazon Personalize has in whether the user will interact with the item next\. Higher scores represent greater certainty\.
 
-Models that are based on USER\_PERSONALIZATION recipes score all of the items in your Items dataset relative to each other on a scale from 0 to 1 \(both inclusive\), so that the total of all scores equals 1\. For example, if you're getting movie recommendations for a user and there are three movies in the Items dataset, their scores might be `0.6`, `0.3`, and `0.1`\. Similarly, if you have 1,000 movies in your inventory, the highest\-scoring movies might have very small scores \(the average score would be`.001`\), but, because scoring is relative, the recommendations are still valid\.
+Amazon Personalize scores all of the items in your catalog relative to each other on a scale from 0 to 1 \(both inclusive\), so that the total of all scores equals 1\. For example, if you're getting movie recommendations for a user and there are three movies in the Items dataset, their scores might be `0.6`, `0.3`, and `0.1`\. Similarly, if you have 1,000 movies in your inventory, the highest\-scoring movies might have very small scores \(the average score would be`.001`\), but, because scoring is relative, the recommendations are still valid\.
 
 In mathematical terms, scores for each user\-item pair \(u,i\) are computed according to the following formula, where `exp` is the exponential function, w̅u and wi/j are user and item embeddings respectively, and the Greek letter sigma \(Σ\) represents summation over all items in the item dataset:
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/get_recommendations_score.png)
 
 **Note**  
-Amazon Personalize doesn't show scores for SIMS or Popularity\-Count\-based models\.
+Amazon Personalize doesn't show scores for Similar\-Items, SIMS or Popularity\-Count recipes\. For information on scores for Personalized\-Ranking recommendations, see [How personalized ranking scoring works](rankings.md#how-ranking-scoring-works)\.
 
 ## Getting recommendations \(console\)<a name="get-real-time-recommendations-console"></a>
 
@@ -41,7 +41,7 @@ Amazon Personalize doesn't show scores for SIMS or Popularity\-Count\-based mode
 
 1.  Under **Test campaign results**, enter your recommendation request details based on the recipe you used\. For USER\_PERSONALIZATION recipes, enter the **User ID** of the user that you want to get recommendations for\. For RELATED\_ITEMS recipes, enter the **Item ID** of the item you want Amazon Personalize to use to determine similar items\. 
 
-    If you recorded events for a user before they logged in \(an anonymous user\), you can get recommendations for this user by providing the `sessionId` from those events instead of a `userId`\. For more information about recording events for anonymous users, see [PutEvents operation](recording-events.md#event-record-api)\. 
+    If you recorded events for a user before they logged in \(an anonymous user\), you can get recommendations for this user by providing the `sessionId` from those events instead of a `userId`\. For more information about recording events for anonymous users, see [Recording events with the PutEvents operation](recording-events.md#event-record-api)\. 
 
 1. Optionally choose a filter\. For more information, see [Filtering recommendations and user segments](filter.md)\. 
 
@@ -55,7 +55,7 @@ Amazon Personalize doesn't show scores for SIMS or Popularity\-Count\-based mode
 
 Use the following code to get recommendations\. Change the value of `userId` to a user ID that is in the data that you used to train the solution\. A list of the top 10 recommended items for the user displays\. To change the number of recommended items, change the value for `numResults`\. The default is 25 items\. The maximum is 500 items\. If you used a RELATED\_ITEMS recipe to train the solution version backing the campaign, replace the `user-id` parameter with `item-id` and specify the item ID\. 
 
- If you recorded events for a user before they logged in \(an anonymous user\), you can get recommendations for this user by providing the `sessionId` from those events instead of a `userId`\. For more information about recording events for anonymous users, see [PutEvents operation](recording-events.md#event-record-api)\. 
+ If you recorded events for a user before they logged in \(an anonymous user\), you can get recommendations for this user by providing the `sessionId` from those events instead of a `userId`\. For more information about recording events for anonymous users, see [Recording events with the PutEvents operation](recording-events.md#event-record-api)\. 
 
 ```
 aws personalize-runtime get-recommendations \
@@ -68,7 +68,7 @@ aws personalize-runtime get-recommendations \
 
 The following code shows how to get Amazon Personalize recommendations using the SDK for Python \(Boto3\) or SDK for Java 2\.x\. Change the value of `userId` to a user ID that is in the data that you used to train the solution\. A list of the top 10 recommended items for the user displays\. To change the number of recommended items, change the value for `numResults`\. The default is 25 items\. The maximum is 500 items\. If you used a RELATED\_ITEMS recipe to train the solution version backing the campaign, replace the `userId` parameter with `itemId` and specify the item ID\. 
 
- If you recorded events for a user before they logged in \(an anonymous user\), you can get recommendations for this user by providing the `sessionId` from those events instead of a `userId`\. For more information about recording events for anonymous users, see [PutEvents operation](recording-events.md#event-record-api)\. 
+ If you recorded events for a user before they logged in \(an anonymous user\), you can get recommendations for this user by providing the `sessionId` from those events instead of a `userId`\. For more information about recording events for anonymous users, see [Recording events with the PutEvents operation](recording-events.md#event-record-api)\. 
 
 ------
 #### [ SDK for Python \(Boto3\) ]

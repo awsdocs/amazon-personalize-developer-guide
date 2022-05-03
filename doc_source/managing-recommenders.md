@@ -1,20 +1,22 @@
 # Managing recommenders<a name="managing-recommenders"></a>
 
- Amazon Personalize automatically retrains the models backing your recommenders every 7 days\. This is a full retraining that creates entirely new models based on the entirety of the data in your datasets\. For recommenders that create personalized recommendations for users, Amazon Personalize updates the existing models every two hours to include new items in recommendations with exploration\. For instructions on creating a new recommender, see [Creating recommenders](creating-recommenders.md)\. After you create a recommender, you can update the recommender's configuration with the Amazon Personalize console or with the [UpdateRecommender](API_UpdateRecommender.md) operation\. 
+Amazon Personalize automatically retrains the models backing your recommenders every 7 days\. This is a full retraining that creates entirely new models based on the entirety of the data in your datasets\. For recommenders that create personalized recommendations for users, Amazon Personalize updates the existing models every two hours to include new items in recommendations with exploration\. For instructions, see [Creating recommenders](creating-recommenders.md)\. After you create a recommender, you can update the recommender's configuration in the Amazon Personalize console or using the [UpdateRecommender](API_UpdateRecommender.md) API operation\. 
 
- For all use cases, you can update the recommender's minimum recommendation requests per second\. The minimum recommendation requests per second \(`minRecommendationRequestsPerSecond`\) specifies the baseline recommendation request throughput provisioned by Amazon Personalize\. The default minRecommendationRequestsPerSecond is `1`\. For more information see [Minimum recommendation requests per second and auto\-scaling](creating-recommenders.md#min-rrps-auto-scaling)\. 
+If you want to pause billing for an active recommender, you can stop the recommender and restart it later\. For more information, see [Stopping and starting a recommender](stopping-starting-recommender.md)\. 
 
- For *Top picks for you* and *Recommended for you* use cases, you can update exploration configuration with the following fields: 
-+ Emphasis on exploring less relevant items: Configure how much to explore, where recommendations include items with less interactions data or relevance more frequently the more exploration you specify\. The closer the value is to 1, the more exploration\. At zero, no exploration occurs and recommendations are based on current data \(relevance\)\.
-+ Exploration item age cut off: Enter the maximum item age, in days since the latest interaction, to define the scope of item exploration\. To increase the number of items Amazon Personalize considers during exploration, enter a greater value\. 
+For all use cases, you can update the recommender's minimum recommendation requests per second\. The minimum recommendation requests per second \(`minRecommendationRequestsPerSecond`\) parameter specifies the baseline recommendation request throughput that's provisioned by Amazon Personalize\. The default minRecommendationRequestsPerSecond is `1`\. For more information, see [Minimum recommendation requests per second and auto\-scaling](creating-recommenders.md#min-rrps-auto-scaling)\. 
 
-   For example, if you enter 10, only items with interactions data from the 10 days since the latest interaction in the dataset are considered during exploration\. 
+For *Top picks for you* and *Recommended for you* use cases, you can update exploration configuration with the following fields: 
++ Emphasis on exploring less relevant items: Configure how much to explore\. With more exploration, recommendations include more items with less interactions data or relevance\. The closer the value is to 1, the more exploration\. At zero, no exploration occurs and recommendations are based on current data \(relevance\)\.
++ Exploration item age cutoff: Enter the maximum item age \(in days\) since the latest interaction\. This defines the scope of item exploration\. To increase the items Amazon Personalize considers during exploration, enter a greater value\. 
+
+  For example, if you enter 10, Amazon Personalize exploration includes only items with interactions data from the 10 days since the latest interaction in the dataset\.
 **Note**  
-Recommendations might include items without interactions data from outside this time frame\. This is because these items are relevant to the user's interests, and exploration wasn't required to identify them\.
+Recommendations might include items without interactions data from outside this time frame\. This is because these items are relevant to the user's interests\. Exploration wasn't required to identify them\.
 
 ## Updating a recommender \(Amazon Personalize console\)<a name="updating-recommender-console"></a>
 
- To update a recommender with the console, do the following\. 
+ After you create a recommender, you can update the recommender's minimum recommendation requests per second\. For *Top picks for you* and *Recommended for you* use cases, you can update exploration configuration\. To update a recommender with the console, do the following\. 
 
 **To update a recommender's configuration \(console\)**
 
@@ -24,8 +26,8 @@ Recommendations might include items without interactions data from outside this 
 
 1. From the navigation pane, choose **Recommenders**\.
 
-1. On the **Recommenders** page, choose the recommender you want to update\.
+1. On the **Recommenders** page, choose the recommender that you want to update\.
 
 1. In **Recommender configuration** choose **Edit**\.
 
-1. Make any changes to the recommender's configuration and choose **Update**\.
+1. Change the recommender's configuration to what you want, and then choose **Update**\.

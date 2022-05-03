@@ -35,7 +35,13 @@ You can specify an AWS Key Management Service \(KMS\) key to encrypt the dataset
    "domain": "string",
    "kmsKeyArn": "string",
    "name": "string",
-   "roleArn": "string"
+   "roleArn": "string",
+   "tags": [ 
+      { 
+         "tagKey": "string",
+         "tagValue": "string"
+      }
+   ]
 }
 ```
 
@@ -68,6 +74,12 @@ The ARN of the AWS Identity and Access Management \(IAM\) role that has permissi
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+`   
+Required: No
+
+ ** [tags](#API_CreateDatasetGroup_RequestSyntax) **   <a name="personalize-CreateDatasetGroup-request-tags"></a>
+A list of [tags](https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html) to apply to the dataset group\.  
+Type: Array of [Tag](API_Tag.md) objects  
+Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
 Required: No
 
 ## Response Syntax<a name="API_CreateDatasetGroup_ResponseSyntax"></a>
@@ -108,6 +120,10 @@ HTTP Status Code: 400
 
  ** ResourceAlreadyExistsException **   
 The specified resource already exists\.  
+HTTP Status Code: 400
+
+ ** TooManyTagsException **   
+You have exceeded the maximum number of tags you can apply to this resource\.   
 HTTP Status Code: 400
 
 ## See Also<a name="API_CreateDatasetGroup_SeeAlso"></a>

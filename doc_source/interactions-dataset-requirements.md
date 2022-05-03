@@ -7,13 +7,15 @@ An *Interactions dataset* stores historical and real\-time data from interaction
 + Item ID
 + Timestamp \(in Unix epoch time format\)
 
+You are free to add additional fields depending on your use case and your data\. As long as the fields aren't listed as required or reserved, and the data types are listed in [Schema data types](how-it-works-dataset-schema.md#personalize-datatypes), the field names and data types are up to you\.
+
  The maximum total number of optional metadata fields you can add to an Interactions dataset, combined with total number of *distinct* event types in your data, is 10\. The metadata fields included in this count are EVENT\_TYPE, EVENT\_VALUE fields along with any custom metadata fields you add to your schema\. The maximum number of metadata fields excluding reserved fields, such as IMPRESSION, is 5\. Categorical values can have at most 1000 characters\. If you have an interaction with a categorical value with more than 1000, your dataset import job will fail\. 
 
 For more information on minimum requirements and maximum data limits for an Interactions dataset, see [Service quotas](limits.md#limits-table)\. 
 
 ## Interactions schema example \(custom\)<a name="schema-examples-interactions"></a>
 
-The following example shows a schema for an Interactions dataset\. The `USER_ID`, `ITEM_ID`, and `TIMESTAMP` fields are required\. The `EVENT_TYPE`, `EVENT_VALUE`, and `IMPRESSION` fields are optional reserved keywords recognized by Amazon Personalize\. `LOCATION` and `DEVICE` are optional contextual metadata fields\. For information on schema requirements see [Custom dataset and schema requirements](custom-datasets-and-schemas.md#dataset-requirements)\. 
+The following example shows a schema for an Interactions dataset\. The `USER_ID`, `ITEM_ID`, and `TIMESTAMP` fields are required\. The `EVENT_TYPE`, `EVENT_VALUE`, and `IMPRESSION` fields are optional reserved keywords recognized by Amazon Personalize\. EVENT\_TYPE must of type string and can't be categorical\. `LOCATION` and `DEVICE` are optional contextual metadata fields\. For information on schema requirements see [Custom dataset and schema requirements](custom-datasets-and-schemas.md#dataset-requirements)\. 
 
 ```
 {

@@ -50,7 +50,7 @@ For real\-time recommendations, record more interaction *[events](https://docs.a
 
 **Error:** *Cannot create a campaign\. More than 5 resources in ACTIVE state\. Please delete some and try again\.*
 
- You can have a total of 5 active Amazon Personalize campaigns per region\. This quota is adjustable and you can request a quota increase using the [Service Quotas console](https://console.aws.amazon.com/servicequotas/)\. For a complete list of limits and quotas for Amazon Personalize, see [Amazon Personalize endpoints and quotas](limits.md)\. 
+ You can have a total of 20 active Amazon Personalize campaigns per region\. This quota is adjustable and you can request a quota increase using the [Service Quotas console](https://console.aws.amazon.com/servicequotas/)\. For a complete list of limits and quotas for Amazon Personalize, see [Amazon Personalize endpoints and quotas](limits.md)\. 
 
 ## Recommenders \(Domain dataset group\)<a name="recommender-errors"></a>
 

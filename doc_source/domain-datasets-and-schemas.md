@@ -6,6 +6,8 @@ When you create a dataset, you can either use the default schema or create a new
 
 For information on the types of data you can import into Amazon Personalize see [Types of data you can import into Amazon Personalize](data.md)\.
 
+For information about general Amazon Personalize schema requirements, such as formatting requirements and available field data types, see [Datasets and schemas](how-it-works-dataset-schema.md)\. These requirements apply to all schemas, regardless of domain\.
+
 **Topics**
 + [VIDEO\_ON\_DEMAND datasets and schemas](VIDEO-ON-DEMAND-datasets-and-schemas.md)
 + [ECOMMERCE datasets and schemas](ECOMMERCE-datasets-and-schemas.md)

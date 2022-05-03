@@ -22,7 +22,13 @@ Creates a batch segment job\. The operation can handle up to 50 million records 
    },
    "numResults": number,
    "roleArn": "string",
-   "solutionVersionArn": "string"
+   "solutionVersionArn": "string",
+   "tags": [ 
+      { 
+         "tagKey": "string",
+         "tagValue": "string"
+      }
+   ]
 }
 ```
 
@@ -73,6 +79,12 @@ Length Constraints: Maximum length of 256\.
 Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
 Required: Yes
 
+ ** [tags](#API_CreateBatchSegmentJob_RequestSyntax) **   <a name="personalize-CreateBatchSegmentJob-request-tags"></a>
+A list of [tags](https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html) to apply to the batch segment job\.  
+Type: Array of [Tag](API_Tag.md) objects  
+Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
+Required: No
+
 ## Response Syntax<a name="API_CreateBatchSegmentJob_ResponseSyntax"></a>
 
 ```
@@ -113,6 +125,10 @@ HTTP Status Code: 400
 
  ** ResourceNotFoundException **   
 Could not find the specified resource\.  
+HTTP Status Code: 400
+
+ ** TooManyTagsException **   
+You have exceeded the maximum number of tags you can apply to this resource\.   
 HTTP Status Code: 400
 
 ## See Also<a name="API_CreateBatchSegmentJob_SeeAlso"></a>

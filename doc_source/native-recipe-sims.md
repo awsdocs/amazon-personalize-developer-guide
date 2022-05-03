@@ -2,7 +2,7 @@
 
  The Item\-to\-item similarities \(SIMS\) recipe uses collaborative filtering to recommend items that are most similar to an item you specify when you get recommendations\. SIMS uses your Interactions dataset, not item metadata such as color or price, to determine similarity\. SIMS identifies the co\-occurrence of the item in user histories in your Interaction dataset to recommend similar items\. For example, with SIMS Amazon Personalize could recommend coffee shop items customers frequently bought together or movies that different users also watched\. 
 
- Training is faster with the SIMS recipe compared to other recipes\. If there isn't sufficient user behavior data for an item or the item ID you provide isn't found, SIMS recommends popular items\. 
+ Training is faster with the SIMS recipe compared to other recipes\. If there isn't sufficient user behavior data for an item or the item ID you provide isn't found, SIMS recommends popular items\. After you create a solution version, make sure you keep your solution version and data up to date\. With SIMS, you must manually create a new solution version \(retrain the model\) to reflect updates to your catalog and update the model with your user’s most recent behavior\. For more information, see [Maintaining recommendation relevance](maintaining-relevance.md)\.  
 
 The SIMS recipe has the following properties:
 +  **Name** – `aws-sims`

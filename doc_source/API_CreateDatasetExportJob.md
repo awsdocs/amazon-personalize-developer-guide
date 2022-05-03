@@ -22,7 +22,13 @@ A dataset export job can be in one of the following states:
          "path": "string"
       }
    },
-   "roleArn": "string"
+   "roleArn": "string",
+   "tags": [ 
+      { 
+         "tagKey": "string",
+         "tagValue": "string"
+      }
+   ]
 }
 ```
 
@@ -61,6 +67,12 @@ Type: String
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+`   
 Required: Yes
+
+ ** [tags](#API_CreateDatasetExportJob_RequestSyntax) **   <a name="personalize-CreateDatasetExportJob-request-tags"></a>
+A list of [tags](https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html) to apply to the dataset export job\.  
+Type: Array of [Tag](API_Tag.md) objects  
+Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
+Required: No
 
 ## Response Syntax<a name="API_CreateDatasetExportJob_ResponseSyntax"></a>
 
@@ -102,6 +114,10 @@ HTTP Status Code: 400
 
  ** ResourceNotFoundException **   
 Could not find the specified resource\.  
+HTTP Status Code: 400
+
+ ** TooManyTagsException **   
+You have exceeded the maximum number of tags you can apply to this resource\.   
 HTTP Status Code: 400
 
 ## See Also<a name="API_CreateDatasetExportJob_SeeAlso"></a>

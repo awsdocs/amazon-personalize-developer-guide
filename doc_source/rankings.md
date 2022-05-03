@@ -15,7 +15,7 @@ The solution backing the campaign must have been created using a recipe of type 
 
 ## How personalized ranking scoring works<a name="how-ranking-scoring-works"></a>
 
-Like the scores returned by the `GetRecommendations` operation, `GetPersonalizedRanking` scores sum to 1, but because the list of considered items is much smaller than your full Items dataset, recommendation scores tend to be higher\.
+Like the scores returned by the `GetRecommendations` operation for solutions created with the [User\-Personalization](recommendations.md#how-recommendation-scoring-works) recipe, `GetPersonalizedRanking` scores sum to 1, but because the list of considered items is much smaller than your full catalog, recommendation scores tend to be higher\.
 
 Mathematically, the scoring function for GetPersonalizedRanking is identical to `GetRecommendations`, except that it only considers the input items\. This means that scores closer to 1 become more likely, as there are fewer other choices to divide up the score:
 

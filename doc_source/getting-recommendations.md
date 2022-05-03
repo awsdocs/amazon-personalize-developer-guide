@@ -11,6 +11,8 @@
 
 ## Recommendation scores<a name="how-scores-work"></a>
 
- To make recommendations, Amazon Personalize generates scores for the items in your Items dataset based on a user's interaction data and metadata\. These scores represent the relative certainty that Amazon Personalize has in which item the user will select next\. Higher scores represent greater certainty\. 
+ With the User\-Personalization and Personalized\-Ranking recipes, Amazon Personalize includes a score for each item in recommendations\. These scores represent the relative certainty that Amazon Personalize has in which item the user will select next\. Higher scores represent greater certainty\. 
 
- The formulas that calculate scores depend on the recommendation use case and the recipe that was used to train the model\. You can view item scores in the Amazon Personalize console or by using the [Amazon Personalize Runtime](https://docs.aws.amazon.com/personalize/latest/dg/API_Operations_Amazon_Personalize_Runtime.html) APIs\. For more information on how scores are calculated and what they mean, see [Getting real\-time recommendations](getting-real-time-recommendations.md) and [Getting batch recommendations and user segments](recommendations-batch.md)\. 
+For information on scores for User\-Personalization, see [How User\-Personalization recommendation scoring works](recommendations.md#how-recommendation-scoring-works)\. For information on scores for Personalized\-Ranking recommendations, see [How personalized ranking scoring works](rankings.md#how-ranking-scoring-works)\. 
+
+ For batch inference jobs, item scores are calculated just as described in [How User\-Personalization recommendation scoring works](recommendations.md#how-recommendation-scoring-works) and [How personalized ranking scoring works](rankings.md#how-ranking-scoring-works)\. You can view scores in the batch inference job's output JSON file\. 

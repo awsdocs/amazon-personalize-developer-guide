@@ -18,15 +18,13 @@ You can create and configure a solution using the console, AWS Command Line Inte
 
  To configure a solution in the console, choose the dataset group containing the dataset you'll be using, and then specify a solution name, recipe, and optional recipe specific hyperparameters\. 
 
-**Configure a solution \(console\)**
+**To configure a solution \(console\)**
 
 1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign in to your account\.
 
-1. Choose the dataset group you want to use for training\.
+1. Go to the dataset groups page and choose the dataset group you want to use for training\.
 
-1. On the dashboard, in the Create solutions section, choose the **Start** button\. 
-
-    If you have already created a solution, choose the **Create solution** button\. 
+1. On the **Overview** page choose the **Create solution** button\. 
 
 1. For **Solution name**, specify a name for your solution\.
 
@@ -41,6 +39,8 @@ You can create and configure a solution using the console, AWS Command Line Inte
 1. If you use either the [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md) or [Personalized\-Ranking recipe](native-recipe-search.md) recipe, optionally specify an **Objective** and choose an **Objective sensitivity** to optimize your solution for an objective in addition to relevance\. For more information see [Optimizing a solution for an additional objective](optimizing-solution-for-objective.md)\.
 
 1. Configure any hyperparameter options based on your recipe and business needs\. Different recipes use different hyperparameters\. For the available hyperparameters, see the individual recipes in [Step 1: Choosing a recipe](working-with-predefined-recipes.md)\. 
+
+1. For **Tags**, optionally add any tags\. For more information about tagging Amazon Personalize resources, see [Tagging Amazon Personalize resources](tagging-resources.md)\.
 
 1. Choose **Create and train solution**\. The **Dashboard** page displays\. Proceed to [Creating a solution version \(console\)](creating-a-solution-version.md#create-solution-version-console)\.
 

@@ -39,7 +39,13 @@ Wait until the `status` of the recommender is `ACTIVE` before asking the recomme
          "string" : "string" 
       },
       "minRecommendationRequestsPerSecond": number
-   }
+   },
+   "tags": [ 
+      { 
+         "tagKey": "string",
+         "tagValue": "string"
+      }
+   ]
 }
 ```
 
@@ -71,6 +77,12 @@ Required: Yes
  ** [recommenderConfig](#API_CreateRecommender_RequestSyntax) **   <a name="personalize-CreateRecommender-request-recommenderConfig"></a>
 The configuration details of the recommender\.  
 Type: [RecommenderConfig](API_RecommenderConfig.md) object  
+Required: No
+
+ ** [tags](#API_CreateRecommender_RequestSyntax) **   <a name="personalize-CreateRecommender-request-tags"></a>
+A list of [tags](https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html) to apply to the recommender\.  
+Type: Array of [Tag](API_Tag.md) objects  
+Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
 Required: No
 
 ## Response Syntax<a name="API_CreateRecommender_ResponseSyntax"></a>
@@ -109,6 +121,10 @@ HTTP Status Code: 400
 
  ** ResourceNotFoundException **   
 Could not find the specified resource\.  
+HTTP Status Code: 400
+
+ ** TooManyTagsException **   
+You have exceeded the maximum number of tags you can apply to this resource\.   
 HTTP Status Code: 400
 
 ## See Also<a name="API_CreateRecommender_SeeAlso"></a>

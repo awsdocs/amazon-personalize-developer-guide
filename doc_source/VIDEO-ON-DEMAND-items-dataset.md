@@ -1,6 +1,6 @@
 # Items dataset requirements \(VIDEO\_ON\_DEMAND domain\)<a name="VIDEO-ON-DEMAND-items-dataset"></a>
 
- An *Items dataset* stores metadata about your items in your catalogue\. This might include information such as price, genre, and availability for each item\. For information about the types of item data you can import into Amazon Personalize, see [Item data](items-datasets.md)\. 
+ An *Items dataset* stores metadata about your items in your catalogue\. This might include information such as price, genre, and availability for each item\. For information about the types of item data you can import into Amazon Personalize, see [Item data](items-datasets.md)\. For information about general Amazon Personalize schema requirements, such as formatting requirements and available field data types, see [Datasets and schemas](how-it-works-dataset-schema.md)\. These requirements apply to all schemas, regardless of domain\. 
 
 An Items dataset is required for some use cases \(see [VIDEO\_ON\_DEMAND use cases](VIDEO_ON_DEMAND-use-cases.md)\)\. When optional, we still recommend creating one to get the most relevant recommendations\. If you create an Items dataset, your schema must include the following fields:
 + ITEM\_ID
@@ -17,7 +17,9 @@ An Items dataset is required for some use cases \(see [VIDEO\_ON\_DEMAND use cas
 + CONTENT\_OWNER \(categorical `string`\): The company that owns the video\. For example, values might be HBO, Paramount, and NBC\.
 + CONTENT\_CLASSIFICATION \(categorical `string`\): The content's rating\. For example, values might be G, PG, PG\-13, R, NC\-17, and unrated\.
 
- To get the best recommendations, we recommend that you keep these as many of these fields in your schema as you have data\. The data you import must match your schema\. Use reserved keywords GENRE\_L2 and GENERE\_L3 for items with multiple multi\-level categories\. For more information, see [Using categorical data](#VIDEO-ON-DEMAND-items-categorical-data)\. For information on textual and categorical metadata see [Item data](items-datasets.md)\. For an example of the default schema for Items datasets for ECOMMERCE domains, see [Default Items schema \(VIDEO\_ON\_DEMAND domain\)](#VIDEO-ON-DEMAND-items-dataset-schema)\. 
+ To get the best recommendations, we recommend that you keep these as many of these fields in your schema as you have data\. The data you import must match your schema\. You are free to add additional fields depending on your use case and your data\. As long as the fields aren't listed as required or reserved, and the data types are listed in [Schema data types](how-it-works-dataset-schema.md#personalize-datatypes), the field names and data types are up to you\. 
+
+ Use reserved keywords GENRE\_L2 and GENRE\_L3 for items with multiple multi\-level categories\. For more information, see [Using categorical data](#VIDEO-ON-DEMAND-items-categorical-data)\. For information on textual and categorical metadata see [Item data](items-datasets.md)\. For an example of the default schema for Items datasets for ECOMMERCE domains, see [Default Items schema \(VIDEO\_ON\_DEMAND domain\)](#VIDEO-ON-DEMAND-items-dataset-schema)\. 
 
 ## Using categorical data<a name="VIDEO-ON-DEMAND-items-categorical-data"></a>
 
