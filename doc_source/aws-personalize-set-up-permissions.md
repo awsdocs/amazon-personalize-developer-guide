@@ -19,7 +19,7 @@ We recommend creating an AWS Identity and Access Management \(IAM\) user with ac
 
 1.  Create an IAM role for Amazon Personalize and attach the policy from step 1 to the new role\. See [Creating an IAM role for Amazon Personalize](#set-up-create-role-with-permissions)\. 
 
-1. If you are using AWS Key Management Service \(AWS KMS\) for encryption, you must give your IAM user and Amazon Personalize IAM service role permission to use your key\. You must also add Amazon Personalize as a Principle in your AWS KMS key policy\. For more information see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\.
+1. If you use AWS Key Management Service \(AWS KMS\) for encryption, you must grant Amazon Personalize and your Amazon Personalize IAM service role decrypt permissions in your key policy\. For more information, see [Giving Amazon Personalize permission to use your AWS KMS key](granting-personalize-key-access.md)\.
 
 1.  Complete the steps in [Giving Amazon Personalize access to Amazon S3 resources](granting-personalize-s3-access.md) to use IAM and Amazon S3 bucket policies to give Amazon Personalize access to your Amazon S3 resources\. 
 
@@ -27,17 +27,19 @@ We recommend creating an AWS Identity and Access Management \(IAM\) user with ac
 
 Create an IAM policy that provides users and Amazon Personalize full access to your Amazon Personalize resources\. Then attach the policy to your IAM user or group\. 
 
-**To create and attach an IAM policy**
+**To use the JSON policy editor to create a policy**
 
-1. Sign in to the IAM console \([https://console\.aws\.amazon\.com/iam](https://console.aws.amazon.com/iam)\)\. 
+1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
-1. In the navigation pane, choose **Policies**\. 
+1. In the navigation column on the left, choose **Policies**\. 
 
-1. Choose **Create policy**\. 
+   If this is your first time choosing **Policies**, the **Welcome to Managed Policies** page appears\. Choose **Get Started**\.
 
-1. Choose the **JSON** tab\. 
+1. At the top of the page, choose **Create policy**\.
 
-1.  Paste following JSON policy document in the text field\.
+1. Choose the **JSON** tab\.
+
+1. Enter the following JSON policy document:
 
    ```
    {
@@ -66,24 +68,18 @@ Create an IAM policy that provides users and Amazon Personalize full access to y
    }
    ```
 
-1. Choose **Next: Tags**\. Optionally add any tags and choose **Review**\.
+1. Choose **Review policy**\.
+**Note**  
+You can switch between the **Visual editor** and **JSON** tabs any time\. However, if you make changes or choose **Review policy** in the **Visual editor** tab, IAM might restructure your policy to optimize it for the visual editor\. For more information, see [Policy restructuring](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_policies.html#troubleshoot_viseditor-restructure) in the *IAM User Guide*\.
 
-1. On the **Review policy** page, for **Name**, enter a name for the policy\. Optionally, enter a description for **Description**\. 
-
-1. In **Summary**, review the policy to see the permissions it grants, then choose **Create policy**\.
-
-1.  Attach the new policy to your IAM user or group\. 
-
-   For information on attaching a policy to a user, see [Changing permissions for an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) in the *IAM User Guide*\. For information on attaching a policy to a group, see [Attaching a policy to an IAM group](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_attach-policy.html) in the *IAM User Guide*\. 
-
-1. If you are using AWS KMS for encryption, give your user or group permission to use your key\. For more information see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\. 
+1. On the **Review policy** page, enter a **Name** and an optional **Description** for the policy that you are creating\. Review the policy **Summary** to see the permissions that are granted by your policy\. Then choose **Create policy** to save your work\.
 
 ## Creating an IAM role for Amazon Personalize<a name="set-up-create-role-with-permissions"></a>
 
  To use Amazon Personalize, you must create an AWS Identity and Access Management service role for Amazon Personalize\. For information on how to create an IAM role, see [Creating a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) in the *IAM User Guide*\. As you create your role, configure the following for Amazon Personalize: 
 + For **Choose the service that will use this role**, choose `Personalize`\.
-+ For **Attach permissions policies**, either choose the policy you created in [Creating a new IAM policy](#set-up-required-permissions) or choose `AmazonPersonalizeFullAccess` \(see [AWS managed policies](security_iam_id-based-policy-examples.md#using-managed-policies)\)\.
-+ If you are using AWS KMS for encryption, give your Amazon Personalize IAM role permission to use your key\. For more information see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\. 
++ For **Attach permissions policies**, either choose the policy you created in [Creating a new IAM policy](#set-up-required-permissions) or choose `AmazonPersonalizeFullAccess`\.
++  If you use AWS Key Management Service \(AWS KMS\) for encryption, you must grant Amazon Personalize and your Amazon Personalize IAM service role decrypt permissions in your key policy\. For more information, see [Giving Amazon Personalize permission to use your AWS KMS key](granting-personalize-key-access.md)\. 
 +  To prevent the [confused deputy problem](cross-service-confused-deputy-prevention.md), in the role's trust relationship policy use `aws:SourceArn` and `aws:SourceAccount` global condition context keys\. For a trust relationship policy example, see [Cross\-service confused deputy prevention](cross-service-confused-deputy-prevention.md)\.
 
    For information modifying an IAM role's trust policy, see [Modifying a role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html)\. 

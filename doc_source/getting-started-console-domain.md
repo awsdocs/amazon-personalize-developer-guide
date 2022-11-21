@@ -8,41 +8,44 @@ When you finish the getting started exercise, to avoid incurring unnecessary cha
 
 ## Step 1: Create a Domain dataset group<a name="getting-started-console-import-dataset-domain"></a>
 
- In this procedure you create Domain dataset group for the VIDEO\_ON\_DEMAND domain, create an Interactions dataset with the default VIDEO\_ON\_DEMAND domain schema, and import the interactions data you created in [Creating the training data \(Domain dataset group\)](gs-prerequisites.md#gs-data-prep-domain)\. 
+ In this procedure you create Domain dataset group for the VIDEO\_ON\_DEMAND domain, create an Interactions dataset with the default schema for the VIDEO\_ON\_DEMAND domain, and import the interactions data you created in [Creating the training data \(Domain dataset group\)](gs-prerequisites.md#gs-data-prep-domain)\. 
 
 **To create a Domain dataset group**
 
 1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign in to your account\.
 
-1. Choose **Create dataset group**\.
+1. In the navigation pane, choose **Create dataset group**\.
 
-1. In **Dataset group details**, for **Name**, specify a name for your dataset group\. 
+1. In **Dataset group details**, specify a name for your dataset group\. 
 
-1.  For **Domain**, choose **Video on demand**\. The domain you choose determines the default schema you will use when importing data and determines what use cases are available for recommenders\. 
+1.  For **Domain**, choose **Video on demand**\. The domain you choose determines the default schema you use when importing data\. It also determines what use cases are available for recommenders\. Your screen should look similar to the following\.   
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-domain-1-create-dsg.png)
 
 1. Choose **Create dataset group and continue**\. The **Create interactions dataset** page appears\. Proceed to [Step 2: Import data](#getting-started-import-data-domain)\.
 
 ## Step 2: Import data<a name="getting-started-import-data-domain"></a>
 
- In this procedure you create an Interactions dataset with the default VIDEO\_ON\_DEMAND domain schema and import the interactions data you created in [Creating the training data \(Domain dataset group\)](gs-prerequisites.md#gs-data-prep-domain)\. 
+ In this procedure you create an Interactions dataset with the default VIDEO\_ON\_DEMAND domain schema\. Then you import the interactions data you created in [Creating the training data \(Domain dataset group\)](gs-prerequisites.md#gs-data-prep-domain)\. 
 
 **To import data**
 
 1. On the **Create interactions dataset** page, for **Dataset name** provide a name for your Interactions dataset\. 
 
-1. For **Dataset schema**, choose **Create a new domain schema by modifying the existing default schema for your domain** and enter a name for the schema\. The **Schema definition** table updates to display the default VIDEO\_ON\_DEMAND domain schema's fields and their requirements\. 
+1. For **Dataset schema**, choose **Create a new domain schema by modifying the existing default schema for your domain** and enter a name for the schema\. The **Schema definition** updates to display the default schema for the VIDEO\_ON\_DEMAND domain\. Leave the schema unchanged\. Your screen should look similar to the following\.   
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-domain-2-create-dataset.png)
 
-1. Leave the fields in **Schema fields** unchanged and choose **Next**\.
+1. Choose **Create dataset and continue**\.
 
 1. On the **Import interactions data** page, leave the **Data import source** unchanged as **Import data from S3**\.
 
 1. For **Dataset import job name**, give your import job a name\.
 
-1. For **Data location**, specify where your movie data file is stored in Amazon Simple Storage Service \(S3\)\. Use the following syntax:
+1. For **Data location**, specify where your data is stored in Amazon Simple Storage Service \(S3\)\. Use the following syntax:
 
    **s3://<name of your S3 bucket>/<folder path>/<CSV filename>**
 
-1. In **IAM role**, for **IAM service role** choose **Use an existing service role** and choose the role you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
+1. In **IAM role**, for **IAM service role** choose **Enter a custom IAM role ARN** and enter the Amazon Resource Name \(ARN\) of the role you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. Your screen should look similar to the following\.  
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-domain-3-import-job.png)
 
 1. Choose **Import data** to import data\. The **Overview** page for your Domain dataset group appears\. Note the status of the import in the **Set up datasets** section\. When the status is `Interaction data active` proceed to [Step 3: Create a recommender](#getting-started-console-create-recommenders)\.
 
@@ -54,7 +57,8 @@ In this procedure, you create a recommender for the *Top picks for you* use case
 
 1.  On the **Overview** page for your Domain dataset group, on the middle card, choose the **Use video on demand recommenders** tab and choose **Create recommenders**\. 
 
-1. On the **Create recommenders** page, choose **Top picks for you** and provide a **Recommender name**\.
+1. On the **Create recommenders** page, choose **Top picks for you** and provide a **Recommender name**\. Leave the remaining fields unchanged\. Your screen should appear similar to the following\.  
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-domain-4-create-recommender.png)
 
 1. Choose **Create recommenders** to create your recommender\.
 
@@ -66,10 +70,13 @@ In this procedure you use the recommender that you created in the previous step 
 
 **To get recommendations**
 
-1. On the Overview page for your Domain dataset group, on the middle card, choose the **Use video on demand recommenders** tab and choose **Get recommendations**\.
+1. On the Overview page for your Domain dataset group, in the navigation pane choose **Recommenders**\.
 
-1.  On the **Recommenders** page, choose your use case\. 
+1.  On the **Recommenders** page, choose your recommender\. 
 
-1.  Under **Test campaign results**, enter a userId\. For example, enter `1` to get recommendations for the user with the userId 1\. 
+1.  At the top right, choose **Test recommender**\. 
 
-1. Choose **Get recommendations**\. The **Recommendations** panel lists the item IDs for the recommended items\.
+1. In **Recommendation parameters**, enter a user ID\. Leave the other fields unchanged\.
+
+1. Choose **Get recommendations**\. A table containing the user’s top 25 recommended items appears\. Your screen should look similar to the following\.  
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/personalize/latest/dg/images/gs-domain-5-get-recc.png)

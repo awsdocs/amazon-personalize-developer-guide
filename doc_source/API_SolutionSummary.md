@@ -21,6 +21,13 @@ Length Constraints: Minimum length of 1\. Maximum length of 63\.
 Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: No
 
+ ** recipeArn **   <a name="personalize-Type-SolutionSummary-recipeArn"></a>
+The Amazon Resource Name \(ARN\) of the recipe used by the solution\.  
+Type: String  
+Length Constraints: Maximum length of 256\.  
+Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`   
+Required: No
+
  ** solutionArn **   <a name="personalize-Type-SolutionSummary-solutionArn"></a>
 The Amazon Resource Name \(ARN\) of the solution\.  
 Type: String  

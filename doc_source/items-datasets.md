@@ -27,16 +27,36 @@ For Domain dataset groups, both VIDEO\_ON\_DEMAND and ECOMMERCE domains use cate
 +  [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) 
 +  [Personalized\-Ranking](native-recipe-search.md) 
 +  [Similar\-Items](native-recipe-similar-items.md) 
++  [Item\-Affinity](item-affinity-recipe.md) 
++  [Item\-Attribute\-Affinity](item-attribute-affinity-recipe.md) 
 
 ## Unstructured text metadata<a name="text-data"></a>
 
 With certain recipes and domains, Amazon Personalize can extract meaningful information from unstructured text metadata, such as product descriptions, product reviews, or movie synopses\. Amazon Personalize uses unstructured text to identify relevant items for your users, particularly when items are new or have less interactions data\. Include unstructured text data in your Items dataset to increase click\-through rates and conversation rates for new items in your catalog\. 
 
-To use unstructured data, add a field with type `string` to your Items schema and set the field's `textual` attribute to `true`\. Then include the text data in your bulk CSV file and incremental item imports\. For bulk CSV files, wrap the text in double quotes\. Use the `\` character to escape any double quotes or \\ characters in your data\. For an example of an Items schema with a field for unstructured text data, see [Items dataset schema example \(custom\)](item-dataset-requirements.md#schema-examples-items)\. For information about importing data into Amazon Personalize, see [Preparing and importing data](data-prep.md)\.
+To use unstructured data, add a field with type `string` to your Items schema and set the field's `textual` attribute to `true`\. Then include the text data in your bulk CSV file and individual item imports\. For bulk CSV files, wrap the text in double quotes\. Use the `\` character to escape any double quotes or \\ characters in your data\. For an example of an Items schema with a field for unstructured text data, see [Items dataset schema example \(custom\)](item-dataset-requirements.md#schema-examples-items)\. Amazon Personalize truncates text fields at the character limit\. Make sure that the most relevant information in the text is at the start of the field\. For information about importing data into Amazon Personalize, see [Preparing and importing data](data-prep.md)\.
 
-Unstructured text values can have at most 20,000 characters and text must be in English\. Amazon Personalize truncates values that exceed the character limit to 20,000 characters\.
+Before using unstructured text values, Amazon Personalize removes the following from the text:
++ HTML and XML tags and entities
++ New line, tab, and extra space characters
+
+Unstructured text values can have at most 20,000 characters in all languages except Chinese and Japanese\. For Chinese and Japanese, you can have at most 7,000 characters\. Amazon Personalize truncates values that exceed the character limit to the character limit\. 
+
+Text can be in the following languages: 
++ Chinese \(Simplified\)
++ Chinese \(Traditional\)
++ English
++ French
++ German
++ Japanese
++ Portuguese
++ Spanish
+
+You can submit unstructured text items in multiple languages, but each item's text should be in only one language\.
 
 For Domain dataset groups, both VIDEO\_ON\_DEMAND and ECOMMERCE domains use textual metadata\. For Custom dataset groups and custom solutions, recipes that use textual metadata include the following:
 +  [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) 
 +  [Personalized\-Ranking](native-recipe-search.md) 
 +  [Similar\-Items](native-recipe-similar-items.md) 
++  [Item\-Affinity](item-affinity-recipe.md) 
++  [Item\-Attribute\-Affinity](item-attribute-affinity-recipe.md) 

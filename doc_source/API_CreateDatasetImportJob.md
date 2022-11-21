@@ -3,7 +3,7 @@
 Creates a job that imports training data from your data source \(an Amazon S3 bucket\) to an Amazon Personalize dataset\. To allow Amazon Personalize to import the training data, you must specify an IAM service role that has permission to read from the data source, as Amazon Personalize makes a copy of your data and processes it internally\. For information on granting access to your Amazon S3 bucket, see [Giving Amazon Personalize Access to Amazon S3 Resources](https://docs.aws.amazon.com/personalize/latest/dg/granting-personalize-s3-access.html)\. 
 
 **Important**  
-The dataset import job replaces any existing data in the dataset that you imported in bulk\.
+By default, a dataset import job replaces any existing data in the dataset that you imported in bulk\. To add new records without replacing existing data, specify INCREMENTAL for the import mode in the CreateDatasetImportJob operation\.
 
  **Status** 
 
@@ -27,8 +27,16 @@ Importing takes time\. You must wait until the status shows as ACTIVE before tra
    "dataSource": { 
       "dataLocation": "string"
    },
+   "importMode": "string",
    "jobName": "string",
-   "roleArn": "string"
+   "publishAttributionMetricsToS3": boolean,
+   "roleArn": "string",
+   "tags": [ 
+      { 
+         "tagKey": "string",
+         "tagValue": "string"
+      }
+   ]
 }
 ```
 
@@ -48,6 +56,14 @@ The Amazon S3 bucket that contains the training data to import\.
 Type: [DataSource](API_DataSource.md) object  
 Required: Yes
 
+ ** [importMode](#API_CreateDatasetImportJob_RequestSyntax) **   <a name="personalize-CreateDatasetImportJob-request-importMode"></a>
+Specify how to add the new records to an existing dataset\. The default import mode is `FULL`\. If you haven't imported bulk records into the dataset previously, you can only specify `FULL`\.  
++ Specify `FULL` to overwrite all existing bulk data in your dataset\. Data you imported individually is not replaced\.
++ Specify `INCREMENTAL` to append the new records to the existing data in your dataset\. Amazon Personalize replaces any record with the same ID with the new one\.
+Type: String  
+Valid Values:` FULL | INCREMENTAL`   
+Required: No
+
  ** [jobName](#API_CreateDatasetImportJob_RequestSyntax) **   <a name="personalize-CreateDatasetImportJob-request-jobName"></a>
 The name for the dataset import job\.  
 Type: String  
@@ -55,12 +71,23 @@ Length Constraints: Minimum length of 1\. Maximum length of 63\.
 Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
 Required: Yes
 
+ ** [publishAttributionMetricsToS3](#API_CreateDatasetImportJob_RequestSyntax) **   <a name="personalize-CreateDatasetImportJob-request-publishAttributionMetricsToS3"></a>
+If you created a metric attribution, specify whether to publish metrics for this import job to Amazon S3  
+Type: Boolean  
+Required: No
+
  ** [roleArn](#API_CreateDatasetImportJob_RequestSyntax) **   <a name="personalize-CreateDatasetImportJob-request-roleArn"></a>
 The ARN of the IAM role that has permissions to read from the Amazon S3 data source\.  
 Type: String  
 Length Constraints: Maximum length of 256\.  
 Pattern: `arn:([a-z\d-]+):iam::\d{12}:role/?[a-zA-Z_0-9+=,.@\-_/]+`   
 Required: Yes
+
+ ** [tags](#API_CreateDatasetImportJob_RequestSyntax) **   <a name="personalize-CreateDatasetImportJob-request-tags"></a>
+A list of [tags](https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html) to apply to the dataset import job\.  
+Type: Array of [Tag](API_Tag.md) objects  
+Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
+Required: No
 
 ## Response Syntax<a name="API_CreateDatasetImportJob_ResponseSyntax"></a>
 

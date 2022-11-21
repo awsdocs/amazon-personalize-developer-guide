@@ -17,19 +17,19 @@ You can balance how much to explore \(where items with less interactions data or
 
 ## Automatic updates<a name="automatic-updates"></a>
 
- With User\-Personalization, Amazon Personalize automatically updates the latest model \(solution version\) every two hours behind the scenes to include new data without creating a new solution version\. With each update, Amazon Personalize updates the solution version with the latest item information and adjusts the exploration according to implicit feedback from users\. This allows Amazon Personalize to gauge item quality based on new interactions for already explored items and continually update item exploration\. This is not a full retraining; you should still train a new solution version weekly with `trainingMode` set to `FULL` so the model can learn from your users' behavior\. 
+ With User\-Personalization, Amazon Personalize automatically updates the latest model \(solution version\) every two hours behind the scenes to include new data\. There is no cost for automatic updates\. The solution version must be deployed with an [Amazon Personalize campaign](campaigns.md) for updates to occur\. Your campaign automatically uses the updated solution version\. No new solution version is created when an auto update completes\. If you train a new solution version, Amazon Personalize will not automatically update older solution versions, even if you have deployed them in a campaign\. Updates also do not occur if you have deleted your dataset\. 
+
+ With each update, Amazon Personalize updates the solution version with the latest item information and adjusts the exploration according to implicit feedback from users\. This allows Amazon Personalize to gauge item quality based on new interactions for already explored items and continually update item exploration\. This is not a full retraining; you should still train a new solution version weekly with `trainingMode` set to `FULL` so the model can learn from your users' behavior\. 
 
 If every two hours is not frequent enough, you can manually create a solution version with `trainingMode` set to `UPDATE` to include those new items in recommendations\. Just remember that Amazon Personalize automatically updates only your latest fully trained solution version, so the manually updated solution version won't be automatically updated in the future\.
 
-**Note**  
-There is no cost for automatic updates\.
+**Automatic update requirements**
 
-**Update requirements**
-
- Amazon Personalize automatically updates only the latest solution version trained with `trainingMode` set to `FULL` and only if you provide new item or interactions data since the last automatic update\. If you have trained a new solution version, Amazon Personalize will not automatically update older solution versions that you have deployed in a campaign\. Updates also do not occur if you have deleted your dataset\. 
-
-**Note**  
- Amazon Personalize automatically updates only solution versions you created on or after November 17, 2020\. 
+Automatic update requirements include the following:
++ You must deploy the solution version with a campaign \(for more information see [Creating a campaign](campaigns.md)\)\. The campaign automatically uses the latest automatically updated solution version\. 
++ The solution version must be trained with `trainingMode` set to `FULL` \(this is the default when creating a solution version\)\.
++ You must provide new item or interactions data since the last automatic update\.
++  Amazon Personalize automatically updates only solution versions you created on or after November 17, 2020\. 
 
 ## Working with impressions data<a name="working-with-impressions"></a>
 

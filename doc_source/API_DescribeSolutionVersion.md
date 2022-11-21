@@ -31,6 +31,7 @@ Required: Yes
       "eventType": "string",
       "failureReason": "string",
       "lastUpdatedDateTime": number,
+      "name": "string",
       "performAutoML": boolean,
       "performHPO": boolean,
       "recipeArn": "string",

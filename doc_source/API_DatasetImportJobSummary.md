@@ -21,6 +21,12 @@ If a dataset import job fails, the reason behind the failure\.
 Type: String  
 Required: No
 
+ ** importMode **   <a name="personalize-Type-DatasetImportJobSummary-importMode"></a>
+The import mode the dataset import job used to update the data in the dataset\. For more information see [Updating existing bulk data](https://docs.aws.amazon.com/personalize/latest/dg/updating-existing-bulk-data.html)\.   
+Type: String  
+Valid Values:` FULL | INCREMENTAL`   
+Required: No
+
  ** jobName **   <a name="personalize-Type-DatasetImportJobSummary-jobName"></a>
 The name of the dataset import job\.  
 Type: String  

@@ -26,6 +26,16 @@ Content-type: application/json
    },
    "itemId": "string",
    "numResults": number,
+   "promotions": [ 
+      { 
+         "filterArn": "string",
+         "filterValues": { 
+            "string" : "string" 
+         },
+         "name": "string",
+         "percentPromotedItems": number
+      }
+   ],
    "recommenderArn": "string",
    "userId": "string"
 }
@@ -66,7 +76,7 @@ Required: No
  ** [filterValues](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-filterValues"></a>
 The values to use when filtering recommendations\. For each placeholder parameter in your filter expression, provide the parameter name \(in matching case\) as a key and the filter value\(s\) as the corresponding value\. Separate multiple values for one parameter with a comma\.   
 For filter expressions that use an `INCLUDE` element to include items, you must provide values for all parameters that are defined in the expression\. For filters with expressions that use an `EXCLUDE` element to exclude items, you can omit the `filter-values`\.In this case, Amazon Personalize doesn't use that portion of the expression to filter recommendations\.  
-For more information, see [Filtering Recommendations](https://docs.aws.amazon.com/personalize/latest/dg/filter.html)\.  
+For more information, see [Filtering recommendations and user segments](https://docs.aws.amazon.com/personalize/latest/dg/filter.html)\.  
 Type: String to string map  
 Map Entries: Maximum number of 25 items\.  
 Key Length Constraints: Maximum length of 50\.  
@@ -85,6 +95,12 @@ Required: No
 The number of results to return\. The default is 25\. The maximum is 500\.  
 Type: Integer  
 Valid Range: Minimum value of 0\.  
+Required: No
+
+ ** [promotions](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-promotions"></a>
+The promotions to apply to the recommendation request\. A promotion defines additional business rules that apply to a configurable subset of recommended items\.  
+Type: Array of [Promotion](API_RS_Promotion.md) objects  
+Array Members: Maximum number of 1 item\.  
 Required: No
 
  ** [recommenderArn](#API_RS_GetRecommendations_RequestSyntax) **   <a name="personalize-RS_GetRecommendations-request-recommenderArn"></a>
@@ -111,6 +127,7 @@ Content-type: application/json
    "itemList": [ 
       { 
          "itemId": "string",
+         "promotionName": "string",
          "score": number
       }
    ],

@@ -10,7 +10,7 @@
 
 ## Workflow for Domain dataset groups<a name="domain-workflow"></a>
 
-To create domain\-based resources, you create a Domain dataset group for your business domain, import your data, create recommenders for each of your uses cases and get recommendations\. Repeat the data import process to maintain the relevance of your recommendations as your catalogue grows\. You can complete the domain workflow with the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\), or the AWS SDKs\.
+To create domain\-based resources, you create a Domain dataset group for your business domain, import your data, create recommenders for each of your uses cases, and then get recommendations\. Repeat the data import process as your catalogue grows to maintain the relevance of your recommendations\. You can complete the domain workflow with the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\), or the AWS SDKs\.
 
 1. **Create a Domain dataset group**
 
@@ -20,7 +20,7 @@ To create domain\-based resources, you create a Domain dataset group for your bu
 
 1. **Import data**
 
-   You import item, user, and interaction records into *datasets* \(Amazon Personalize containers for data\)\. You can choose to import records in bulk, or incrementally, or both\. With incremental imports, you can add one or more historical records or import data from real\-time user activity\. 
+   You import item, user, and interaction records into *datasets* \(Amazon Personalize containers for data\)\. You can choose to import records in bulk, or individually, or both\. With individual imports, you can add one or more historical records or import data from real\-time user activity\. 
 
    The data that you import depends on your domain\. Each domain has a default schema that you can map your data to\. For information about the types of data that you can import, see [Datasets and schemas](how-it-works-dataset-schema.md) and the sections on each domain \([VIDEO\_ON\_DEMAND datasets and schemas](VIDEO-ON-DEMAND-datasets-and-schemas.md) and [ECOMMERCE datasets and schemas](ECOMMERCE-datasets-and-schemas.md)\)\. 
 
@@ -51,7 +51,7 @@ With the custom workflow you determine your use case, import your data, train an
 
 1. **Import data**
 
-   You import item, user, and interaction records into *datasets* \(Amazon Personalize containers for data\)\. You can choose to import records in bulk, or incrementally, or both\. With incremental imports, you can add one or more historical records or import data from real\-time user activity\. 
+   You import item, user, and interaction records into *datasets* \(Amazon Personalize containers for data\)\. You can choose to import records in bulk, or individually, or both\. With individual imports, you can add one or more historical records or import data from real\-time user activity\. 
 
    The data that you import depends on your use case\. For information about the types of data that you can import, see [Datasets and schemas](how-it-works-dataset-schema.md) and the sections on each dataset type \([Interactions data](interactions-datasets.md), [Item data](items-datasets.md), [User data](users-datasets.md)\)\. 
 

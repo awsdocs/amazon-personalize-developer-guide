@@ -2,7 +2,11 @@
 
  In Amazon Personalize, an *interaction* is an *event* that you record and then import as training data\. You can record multiple event types, such as *click*, *watch* or *like*\. For example, if a user *clicks* a particular item and then *likes* the item, and you want Amazon Personalize to use these events as training data, for each event you would record the user's ID, the item's ID, the timestamp \(in Unix time epoch format\), and the event type \(*click* and *like*\)\. You would then add both interaction events to an Interactions dataset\. Once you have recorded enough events, you can train a model and use Amazon Personalize to generate recommendations for users\. For minimum requirements see [Service quotas](limits.md#limits-table)\. 
 
- Amazon Personalize stores interactions data in an *Interactions dataset*\. To create a recommender or a custom solution, you must at minimum create an Interactions dataset\. This section provides information about the following types of interactions data you can import into Amazon Personalize\. 
+ Amazon Personalize stores interactions data in an *Interactions dataset*\. For all use cases \(Domain dataset groups\) and recipes \(Custom dataset groups\), your interactions data must have the following: 
++ At minimum 1000 interactions records from users interacting with items in your catalog\. These interactions can be from bulk imports, or streamed events, or both\.
++ At minimum 25 unique user IDs with at least 2 interactions for each\.
+
+ To create a recommender or a custom solution, you must at minimum create an Interactions dataset\. This section provides information about the following types of interactions data you can import into Amazon Personalize\. 
 
 **Topics**
 + [Event type and event value data](#event-type-and-event-value-data)
@@ -45,7 +49,9 @@ For Domain dataset groups, the following recommender use cases can use contextua
 
 ## Impressions data<a name="interactions-impressions-data"></a>
 
- If you create a Domain dataset group for the VIDEO\_ON\_DEMAND or ECOMMERCE domain, or use the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) recipe, Amazon Personalize can model impressions data that you upload to an Interactions dataset\. Impressions are lists of items that were visible to a user when they interacted with \(for example, clicked or watched\) a particular item\. Amazon Personalize uses impressions data to determine what items to include in exploration\. *Exploration* is where recommendations include new items with less interactions data or relevance\. The more frequently an item occurs in impressions data, the less likely it is that Amazon Personalize includes the item in exploration\. 
+ If you create a Domain dataset group for the VIDEO\_ON\_DEMAND or ECOMMERCE domain, or use the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) recipe, Amazon Personalize can model impressions data that you upload to an Interactions dataset\. Impressions are lists of items that were visible to a user when they interacted with \(for example, clicked or watched\) a particular item\. 
+
+ Amazon Personalize uses impressions data to determine what items to include in exploration\. *Exploration* is where recommendations include new items with less interactions data or relevance\. The more frequently an item occurs in impressions data, the less likely it is that Amazon Personalize includes the item in exploration\. Impression values can have at most 1000 characters \(including the vertical bar character\)\. 
 
 For information about the benefits of exploration see [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md)\. Amazon Personalize can model two types of impressions: [Implicit impressions](#implicit-impressions-info) and [Explicit impressions](#explicit-impressions-info)\. 
 
@@ -81,6 +87,6 @@ For information about the benefits of exploration see [User\-Personalization](na
 
 1. For real\-time incremental data import, when your user interacts with \(for example, clicks\) a pair of shoes, you record the choice in a call to the [PutEvents](API_UBS_PutEvents.md) API and list the recommended items that are in stock in the `impression` parameter\. For a code sample see [Recording impressions data](recording-events.md#putevents-including-impressions-data)\.
 
-   For importing impressions in historical interactions data, you can list explicit impressions in your csv file and separate each item with a '\|' character\. See [Formatting explicit impressions](data-prep-formatting.md#data-prep-including-explicit-impressions)\.
+   For importing impressions in historical interactions data, you can list explicit impressions in your csv file and separate each item with a '\|' character\. The vertical bar character counts towards the 1000 character limit\. For an example see [Formatting explicit impressions](data-prep-formatting.md#data-prep-including-explicit-impressions)\.
 
 1. Amazon Personalize uses the impression data to guide exploration, where future recommendations include new shoes with less interactions data or relevance\. 

@@ -2,7 +2,7 @@
 
 The files that you use to import data into Amazon Personalize must map to the schema that you are using\.
 
-Amazon Personalize imports data only from files that are in the comma\-separated values \(CSV\) format\. Amazon Personalize requires the first row of your CSV file to contain column headers\. The column headers in your CSV file need to map to the schema to create the dataset\. Don't enclose headers in quotation marks \("\)\. `TIMESTAMP` and `CREATION_TIMESTAMP` data must be in *UNIX epoch* time format\. For more information see [Timestamp data](#timestamp-data)\. 
+Amazon Personalize imports data only from files that are in the comma\-separated values \(CSV\) format\. Amazon Personalize requires the first row of your CSV file to contain column headers\. The column headers in your CSV file need to map to the schema to create the dataset\. Don't enclose headers in quotation marks \("\)\. `TIMESTAMP` and `CREATION_TIMESTAMP` data must be in *UNIX epoch* time format\. For more information see [Timestamp data](#timestamp-data)\. For more information about schemas, see [Datasets and schemas](how-it-works-dataset-schema.md)\. 
 
 **Important**  
 If your data includes any non\-ASCII encoded characters, your CSV file must be encoded in UTF\-8 format\.
@@ -62,7 +62,7 @@ Amazon Personalize requires the `USER_ID`, `ITEM_ID`, and `TIMESTAMP` fields\. `
 
 ## Formatting explicit impressions<a name="data-prep-including-explicit-impressions"></a>
 
-If you use the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) recipe, you can record and upload impressions data\. Impressions are lists of items that were visible to a user when they interacted with \(for example, clicked or watched\) a particular item\. To upload impressions data in a bulk data import, you manually record each item ID, separating the values with a vertical bar, '\|', character as part of your historical interactions data\. For more information on impressions data, see [Impressions data](interactions-datasets.md#interactions-impressions-data)\. 
+If you use the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) recipe, you can record and upload impressions data\. Impressions are lists of items that were visible to a user when they interacted with \(for example, clicked or watched\) a particular item\. To upload impressions data in a bulk data import, you manually record each item ID, separating the values with a vertical bar, '\|', character as part of your historical interactions data\. The vertical bar character counts towards the 1000 character limit for impressions data\. For more information on impressions data, see [Impressions data](interactions-datasets.md#interactions-impressions-data)\. 
 
 The following is a short excerpt from an Interactions dataset that includes explicit impressions in the `IMPRESSION` column\.
 
@@ -77,7 +77,7 @@ The application showed user `USER_1` items `73`, `70`, `17`, `95`, and `96` and 
 
 ## Categorical data<a name="data-prep-formatting-categorical"></a>
 
-To include multiple categories for a single item when you use categorical string data, separate the values using the vertical bar, '\|', character\. For example, to match the Items schema from the previous section using two categories, a data row would resemble the following:
+To include multiple categories for a single item when you use categorical string data, separate the values using the vertical bar, '\|', character\. For example, for an item that has two categories, a data row would resemble the following:
 
 ```
 ITEM_ID,GENRE

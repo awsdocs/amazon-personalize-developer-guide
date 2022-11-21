@@ -22,7 +22,7 @@ import boto3
 personalize = boto3.client('personalize')
 
 response = personalize.create_dataset_group(
-  name = 'dataset group name'
+  name = 'dataset group name',
   domain = 'business domain'
 )
 dsg_arn = response['datasetGroupArn']
@@ -56,18 +56,48 @@ public static String createDomainDatasetGroup(PersonalizeClient personalizeClien
 ```
 
 ------
+#### [ SDK for JavaScript v3 ]
+
+```
+// Get service clients module and commands using ES6 syntax.
+import {  CreateDatasetGroupCommand } from
+  "@aws-sdk/client-personalize";
+import { personalizeClient } from "./libs/personalizeClients.js";
+
+// Or, create the client here.
+// const personalizeClient = new PersonalizeClient({ region: "REGION"});
+
+// Set the domain dataset group parameters.
+export const domainDatasetGroupParams = {
+  name: 'NAME',  /* required */
+  domain: 'DOMAIN'   /* required for a domain dsg, specify ECOMMERCE or VIDEO_ON_DEMAND */
+}
+
+export const run = async () => {
+  try {
+    const response = await personalizeClient.send(new CreateDatasetGroupCommand(domainDatasetGroupParams));
+    console.log("Success", response);
+    return response; // For unit tests.
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+run();
+```
+
+------
 
 Amazon Personalize returns the Amazon Resource Name \(ARN\) of the new Domain dataset group\. Record it because you'll need it when you create a dataset\.
 
 ## Step 2: Create a schema and an Interactions dataset<a name="create-domain-interactions-dataset-sdk"></a>
 
-After you complete [Step 1: Create a Domain dataset group](#create-domain-dsg-sdk), create a schema and an Interactions dataset to store data from interactions between your users and items in your catalog\.
+After you complete [Step 1: Create a Domain dataset group](#create-domain-dsg-sdk), create a schema and an Interactions dataset\. An Interactions dataset stores data from interactions between your users and items in your catalog\.
 
 **To create a schema and Interactions dataset**
 
 1. Create a schema file in Avro format and save it as a JSON file in your working directory\.
 
-   The schema must match the columns in your data and the schema `name` must be `Interactions`\. The following is the default Interactions schema for the VIDEO\_ON\_DEMAND domain\. For more information, see [Domain datasets and schemas](domain-datasets-and-schemas.md)\.
+   The schema must match the columns in your data and the schema `name` must be `Interactions`\. After you create a schema, you can't make changes to the schema\. The following is the default Interactions schema for the VIDEO\_ON\_DEMAND domain\. For more information, see [Domain datasets and schemas](domain-datasets-and-schemas.md)\.
 
    ```
    {
@@ -96,12 +126,10 @@ After you complete [Step 1: Create a Domain dataset group](#create-domain-dsg-sd
    }
    ```
 
-1. Create the schema with the [CreateSchema](API_CreateSchema.md) API operation\. 
+1. Create the schema with the [CreateSchema](API_CreateSchema.md) API operation\. The following code shows how to create a schema with the AWS SDKs\. For domain, specify either `VIDEO_ON_DEMAND` or `ECOMMERCE`\.
 
 ------
 #### [ SDK for Python \(Boto3\) ]
-
-   Use the following SDK for Python \(Boto3\) code to create a schema\. Give the schema a name, replace `schema.json` with the filepath for your schema JSON file, and replace `business domain` with either `VIDEO_ON_DEMAND` or `ECOMMERCE`\.
 
    ```
    import boto3
@@ -111,7 +139,7 @@ After you complete [Step 1: Create a Domain dataset group](#create-domain-dsg-sd
    with open('schema.json') as f:
        createSchemaResponse = personalize.create_schema(
            name = 'schema name',
-           domain = 'business domain'        
+           domain = 'business domain',        
            schema = f.read()
        )
    
@@ -122,8 +150,6 @@ After you complete [Step 1: Create a Domain dataset group](#create-domain-dsg-sd
 
 ------
 #### [ SDK for Java 2\.x ]
-
-   Use the following `createSchema` method to create a domain schema\. Pass the following as parameters: a PersonalizeClient, the name for your schema, your business domain \(either ECOMMERCE or VIDEO\_ON\_DEMAND\) and the file path for your schema JSON file\.
 
    ```
    public static String createDomainSchema(PersonalizeClient personalizeClient, String schemaName, 
@@ -159,10 +185,52 @@ After you complete [Step 1: Create a Domain dataset group](#create-domain-dsg-sd
    ```
 
 ------
+#### [ SDK for JavaScript v3 ]
+
+   ```
+   // Get service clients module and commands using ES6 syntax.
+   import { CreateSchemaCommand } from
+     "@aws-sdk/client-personalize";
+   import { personalizeClient } from "./libs/personalizeClients.js";
+   
+   // Or, create the client here.
+   // const personalizeClient = new PersonalizeClient({ region: "REGION"});
+   
+   import fs from 'fs';
+   
+   let schemaFilePath = "SCHEMA_PATH";
+   let mySchema = "";
+   
+   try {
+     mySchema = fs.readFileSync(schemaFilePath).toString();
+   } catch (err) {
+     mySchema = 'TEST' // for unit tests.
+   }
+   
+   // Set the domain schema parameters.
+   export const createDomainSchemaParam = {
+     name: 'NAME', /* required */
+     schema: mySchema, /* required */
+     domain: 'DOMAIN'   /* required for a domain dataset group, specify ECOMMERCE or VIDEO_ON_DEMAND */
+   };
+   
+   export const run = async () => {
+     try {
+       const response = await personalizeClient.send(new CreateSchemaCommand(createDomainSchemaParam));
+       console.log("Success", response);
+       return response; // For unit tests.
+     } catch (err) {
+       console.log("Error", err);
+     }
+   };
+   run();
+   ```
+
+------
 
    Amazon Personalize returns the Amazon Resource Name \(ARN\) of the new schema\. Record it because you'll need it in the next step\.
 
-1. Create an Interactions dataset with the [CreateDataset](API_CreateDataset.md) operation\. For information about the different types of domain datasets, see [Domain datasets and schemas](domain-datasets-and-schemas.md)\. 
+1. Create an Interactions dataset with the [CreateDataset](API_CreateDataset.md) operation\. 
 
    Use the following code to create an Interactions dataset with the AWS SDKs\. Give the dataset a name and specify the `datasetGroupArn` returned in [Step 1: Create a Domain dataset group](#create-domain-dsg-sdk)\. Use the `schemaArn` created in the previous step\. For `datasetType` specify `Interactions`\.
 
@@ -175,7 +243,7 @@ After you complete [Step 1: Create a Domain dataset group](#create-domain-dsg-sd
    personalize = boto3.client('personalize')
    
    response = personalize.create_dataset(
-       name = 'datase_name',
+       name = 'dataset_name',
        schemaArn = 'schema_arn',
        datasetGroupArn = 'dataset_group_arn',
        datasetType = 'dataset_type'
@@ -214,23 +282,61 @@ After you complete [Step 1: Create a Domain dataset group](#create-domain-dsg-sd
    ```
 
 ------
+#### [ SDK for JavaScript v3 ]
+
+   ```
+   // Get service clients module and commands using ES6 syntax.
+   import { CreateDatasetCommand } from
+     "@aws-sdk/client-personalize";
+   import { personalizeClient } from "./libs/personalizeClients.js";
+   
+   // Or, create the client here.
+   // const personalizeClient = new PersonalizeClient({ region: "REGION"});
+   
+   // Set the dataset's parameters.
+   export const createDatasetParam = {
+     datasetGroupArn: 'DATASET_GROUP_ARN', /* required */
+     datasetType: 'DATASET_TYPE', /* required */
+     name: 'NAME', /* required */
+     schemaArn: 'SCHEMA_ARN' /* required */
+   }
+   
+   export const run = async () => {
+     try {
+       const response = await personalizeClient.send(new CreateDatasetCommand(createDatasetParam));
+       console.log("Success", response);
+       return response; // For unit tests.
+     } catch (err) {
+       console.log("Error", err);
+     }
+   };
+   run();
+   ```
+
+------
 
    Amazon Personalize returns the Amazon Resource Name \(ARN\) of the new dataset\. Record it because you'll need it when you import data\. After you have created a dataset, you are ready to import data\. See [Step 3: Import interactions data](#import-domain-interactions-sdk)\.
 
 ## Step 3: Import interactions data<a name="import-domain-interactions-sdk"></a>
 
+**Important**  
+By default, a dataset import job replaces any existing data in the dataset that you imported in bulk\. To add new records without replacing existing data, specify INCREMENTAL for the `importMode` parameter\. For an example, see [Updating bulk records \(AWS SDKs\)](updating-existing-bulk-data.md#updating-bulk-data-sdk)\.
+
 After you complete [Step 2: Create a schema and an Interactions dataset](#create-domain-interactions-dataset-sdk), you are ready to import data\. If you have data in Amazon S3, import data with the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) operation\. If you want to only incrementally import interactions data, you can skip this step and instead use the [PutEvents](API_UBS_PutEvents.md) operation until you have at least 1000 combined historical and incremental interactions\. For more information see [Recording events](recording-events.md)\. 
 
 The following code shows how to import bulk data into a dataset with a dataset import job\.
 
+**Note**  
+If your CSV files are in a folder in an Amazon S3 bucket, you can upload multiple CSV files to a dataset in one dataset import job\. For the bucket path, specify the `bucket-name/folder-name/` instead of the file name\.
+
 ------
 #### [ SDK for Python \(Boto3\) ]
 
-Specify the `datasetGroupArn` and set the `dataLocation` to the path to your Amazon S3 bucket where you stored the training data\. Use the following syntax:
+Specify the `datasetGroupArn`, give the job a name, and set the `dataLocation` to the path to your Amazon S3 bucket where you stored the training data\. Use the following syntax:
 
 **s3://<name of your S3 bucket>/<folder path>/<CSV filename>**
 
-For the `roleArn`, specify the AWS Identity and Access Management \(IAM\) role that gives Amazon Personalize permissions to access your Amazon S3 bucket\. See [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
+For the `RoleARN`, specify the AWS Identity and Access Management \(IAM\) role that gives Amazon Personalize permissions to access your Amazon S3 bucket\. See [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. The default `importMode` is `FULL`\. For more information see [Updating bulk records \(AWS SDKs\)](updating-existing-bulk-data.md#updating-bulk-data-sdk)\.
 
 ```
 import boto3
@@ -238,10 +344,11 @@ import boto3
 personalize = boto3.client('personalize')
 
 response = personalize.create_dataset_import_job(
-    jobName = 'YourImportJob',
-    datasetArn = 'dataset_arn',
+    jobName = 'ImportJobName',
+    datasetArn = 'DatasetARN',
     dataSource = {'dataLocation':'s3://bucket/file.csv'},
-    roleArn = 'role_arn'
+    roleArn = 'RoleARN',
+    importMode = 'FULL'
 )
 
 dsij_arn = response['datasetImportJobArn']
@@ -261,14 +368,15 @@ print('Status: ' + description['status'])
 
 Use the following `createPersonalizeDatasetImportJob` method to create a dataset import job\. Pass the following as parameters: an Amazon Personalize service client, a name for the job, the dataset's Amazon Resource Name \(ARN\), the Amazon S3 bucket path \(`s3://<bucketname>/<file name.csv>`\) where you stored your training data, and your Amazon Personalize IAM service role's ARN \(see [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\)\. 
 
-If your CSV files are in a folder in an Amazon S3 bucket, you can upload multiple CSV files to a dataset in one dataset import job\. For the bucket path, specify the `bucket-name/folder-name/` instead of the file name\.
+ The `importMode` can be either `ImportMode.BULK` or, if you've imported bulk data previously, `ImportMode.INCREMENTAL`\. For more information see [Updating bulk records \(AWS SDKs\)](updating-existing-bulk-data.md#updating-bulk-data-sdk)\. 
 
 ```
 public static String createPersonalizeDatasetImportJob(PersonalizeClient personalizeClient,
                                                       String jobName,
                                                       String datasetArn,
                                                       String s3BucketPath,
-                                                      String roleArn) {
+                                                      String roleArn,
+                                                      ImportMode importMode) {
 
   long waitInMilliseconds = 60 * 1000;
   String status;
@@ -284,6 +392,7 @@ public static String createPersonalizeDatasetImportJob(PersonalizeClient persona
               .dataSource(importDataSource)
               .jobName(jobName)
               .roleArn(roleArn)
+              .importMode(importMode)
               .build();
   
       datasetImportJobArn = personalizeClient.createDatasetImportJob(createDatasetImportJobRequest)
@@ -320,6 +429,40 @@ public static String createPersonalizeDatasetImportJob(PersonalizeClient persona
   }
   return "";
 }
+```
+
+------
+#### [ SDK for JavaScript v3 ]
+
+```
+// Get service clients module and commands using ES6 syntax.
+import {CreateDatasetImportJobCommand } from
+  "@aws-sdk/client-personalize";
+import { personalizeClient } from "./libs/personalizeClients.js";
+
+// Or, create the client here.
+// const personalizeClient = new PersonalizeClient({ region: "REGION"});
+
+// Set the dataset import job parameters.
+export const datasetImportJobParam = {
+  datasetArn: 'DATASET_ARN', /* required */
+  dataSource: {  /* required */
+    dataLocation: 'S3_PATH'
+  },
+  jobName: 'NAME',/* required */
+  roleArn: 'ROLE_ARN' /* required */
+}
+
+export const run = async () => {
+  try {
+    const response = await personalizeClient.send(new CreateDatasetImportJobCommand(datasetImportJobParam));
+    console.log("Success", response);
+    return response; // For unit tests.
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+run();
 ```
 
 ------

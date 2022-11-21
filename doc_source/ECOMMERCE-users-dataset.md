@@ -12,7 +12,7 @@ The data you import must match your schema\. You are free to add additional fiel
 
 ## Using categorical data<a name="retail-categorical-users"></a>
 
- To use categorical data, add a field of type `string` and set the field's categorical attribute to `true` in your schema\. Then include the categorical data in your bulk CSV file and incremental item imports\. For users with multiple categories, separate each value using the vertical bar, '\|'\. For example, for a SUBSCRIPTION\_MODEL field, your data for a user might be student\|monthly\|discount\. 
+ To use categorical data, add a field of type `string` and set the field's categorical attribute to `true` in your schema\. Then include the categorical data in your bulk CSV file and individual item imports\. For users with multiple categories, separate each value using the vertical bar, '\|'\. For example, for a SUBSCRIPTION\_MODEL field, your data for a user might be student\|monthly\|discount\. 
 
 Categorical values can have at most 1000 characters\. If you have a user with a categorical value with more than 1000 characters, your dataset import job will fail\. 
 

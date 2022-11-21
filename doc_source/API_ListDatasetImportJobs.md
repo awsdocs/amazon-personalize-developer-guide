@@ -44,6 +44,7 @@ Required: No
          "creationDateTime": number,
          "datasetImportJobArn": "string",
          "failureReason": "string",
+         "importMode": "string",
          "jobName": "string",
          "lastUpdatedDateTime": number,
          "status": "string"

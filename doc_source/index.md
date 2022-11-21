@@ -4,17 +4,18 @@
 *****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
-Amazon's trademarks and trade dress may not be used in 
-     connection with any product or service that is not Amazon's, 
-     in any manner that is likely to cause confusion among customers, 
-     or in any manner that disparages or discredits Amazon. All other 
-     trademarks not owned by Amazon are the property of their respective
-     owners, who may or may not be affiliated with, connected to, or 
-     sponsored by Amazon.
+Amazon's trademarks and trade dress may not be used in
+connection with any product or service that is not Amazon's,
+in any manner that is likely to cause confusion among customers,
+or in any manner that disparages or discredits Amazon. All other
+trademarks not owned by Amazon are the property of their respective
+owners, who may or may not be affiliated with, connected to, or
+sponsored by Amazon.
 
 -----
 ## Contents
 + [What is Amazon Personalize?](what-is-personalize.md)
+   + [Guidance for first-time Amazon Personalize users](first-time-user.md)
 + [How it works](how-it-works.md)
    + [Amazon Personalize workflows](personalize-workflow.md)
    + [Amazon Personalize terms](terms.md)
@@ -24,13 +25,16 @@ Amazon's trademarks and trade dress may not be used in
       + [Item data](items-datasets.md)
 + [Setting up Amazon Personalize](setup.md)
    + [Setting up permissions](aws-personalize-set-up-permissions.md)
-   + [Giving Amazon Personalize access to Amazon S3 resources](granting-personalize-s3-access.md)
+      + [Giving Amazon Personalize access to Amazon S3 resources](granting-personalize-s3-access.md)
+      + [Giving Amazon Personalize permission to use your AWS KMS key](granting-personalize-key-access.md)
    + [Setting up the AWS CLI](aws-personalize-set-up-aws-cli.md)
    + [Setting up the AWS SDKs](aws-personalize-set-up-sdks.md)
 + [Getting started](getting-started.md)
    + [Getting started prerequisites](gs-prerequisites.md)
    + [Getting started with a Domain dataset group](getting-started-domain.md)
       + [Getting started with a Domain dataset group (console)](getting-started-console-domain.md)
+      + [Getting started with a Domain dataset group (SDK for Java 2.x)](domain-getting-started-java.md)
+      + [Getting started with a Domain dataset group (SDK for Python (Boto3))](getting-started-domain-python.md)
    + [Getting started with a Custom dataset group](getting-started-custom.md)
       + [Getting started (console)](getting-started-console.md)
       + [Getting started (AWS CLI)](getting-started-cli.md)
@@ -64,7 +68,9 @@ Amazon's trademarks and trade dress may not be used in
       + [Creating recommenders (console)](creating-recommenders-console.md)
       + [Creating recommenders (AWS CLI)](creating-recommenders-cli.md)
       + [Creating recommenders (AWS SDKs)](creating-recommenders-sdk.md)
+   + [Evaluating a recommender](evaluating-recommenders.md)
    + [Getting recommendations from a recommender](domain-dsg-recommendations.md)
+      + [Promoting items in recommendations (Domain dataset group)](promoting-items-domain-dsg.md)
    + [Managing Domain dataset group resources](managing-domain-resources.md)
       + [Creating datasets](creating-datasets-domain.md)
       + [Managing data](managing-domain-dsg-data.md)
@@ -78,15 +84,16 @@ Amazon's trademarks and trade dress may not be used in
    + [Preparing and importing data](data-prep.md)
       + [Step 1: Creating a Custom dataset group](data-prep-ds-group.md)
       + [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md)
-      + [Step 3: Importing your data](data-prep-importing.md)
+      + [Step 3: Importing your historical data](data-prep-importing.md)
          + [Importing bulk records](bulk-data-import.md)
             + [Formatting your input data](data-prep-formatting.md)
             + [Uploading to an Amazon S3 bucket](data-prep-upload-s3.md)
             + [Importing bulk records with a dataset import job](bulk-data-import-step.md)
-         + [Importing records incrementally](incremental-data-updates.md)
-            + [Importing interactions incrementally](importing-interactions.md)
-            + [Importing users incrementally](importing-users.md)
-            + [Importing items incrementally](importing-items.md)
+               + [Updating existing bulk data](updating-existing-bulk-data.md)
+         + [Importing individual records](incremental-data-updates.md)
+            + [Importing interactions individually](importing-interactions.md)
+            + [Importing users individually](importing-users.md)
+            + [Importing items individually](importing-items.md)
    + [Creating a solution](training-deploying-solutions.md)
       + [Step 1: Choosing a recipe](working-with-predefined-recipes.md)
          + [USER_PERSONALIZATION recipes](user-personalization-recipes.md)
@@ -100,7 +107,7 @@ Amazon's trademarks and trade dress may not be used in
             + [Personalized-Ranking recipe](native-recipe-search.md)
          + [RELATED_ITEMS recipes](related-items-recipes.md)
             + [Similar-Items recipe](native-recipe-similar-items.md)
-            + [SIMS recipe](native-recipe-sims.md)
+            + [SIMS recipe (legacy)](native-recipe-sims.md)
          + [USER_SEGMENTATION recipes](user-segmentation-recipes.md)
             + [Item-Affinity recipe](item-affinity-recipe.md)
             + [Item-Attribute-Affinity recipe](item-attribute-affinity-recipe.md)
@@ -116,7 +123,9 @@ Amazon's trademarks and trade dress may not be used in
    + [Getting recommendations (Custom dataset group)](getting-recommendations.md)
       + [Getting real-time recommendations](getting-real-time-recommendations.md)
          + [Getting recommendations](recommendations.md)
+            + [Promoting items in recommendations (Custom dataset group)](promoting-items.md)
          + [Getting a personalized ranking](rankings.md)
+         + [Increasing recommendation relevance with contextual metadata](contextual-metadata.md)
       + [Getting batch recommendations and user segments](recommendations-batch.md)
          + [Preparing and importing batch input data](batch-data-upload.md)
          + [Creating a batch inference job](creating-batch-inference-job.md)
@@ -128,6 +137,13 @@ Amazon's trademarks and trade dress may not be used in
    + [Filter expressions](filter-expressions.md)
    + [Filtering real-time recommendations](filter-real-time.md)
    + [Filtering batch recommendations and user segments](filter-batch.md)
++ [Measuring impact of recommendations](measuring-recommendation-impact.md)
+   + [Guidelines and requirements](metric-attribution-requirements.md)
+   + [Creating a metric attribution](creating-metric-attribution.md)
+   + [Managing a metric attribution](managing-metric-attributions.md)
+      + [Updating a metric attribution](updating-metric-attribution.md)
+      + [Deleting a metric attribution](deleting-metric-attribution.md)
+   + [Publishing and viewing results](metric-attribution-results.md)
 + [Tagging Amazon Personalize resources](tagging-resources.md)
    + [Managing tags](personalize-managing-tags.md)
    + [Adding tags to resources](tags-add.md)
@@ -163,6 +179,7 @@ Amazon's trademarks and trade dress may not be used in
          + [CreateDatasetImportJob](API_CreateDatasetImportJob.md)
          + [CreateEventTracker](API_CreateEventTracker.md)
          + [CreateFilter](API_CreateFilter.md)
+         + [CreateMetricAttribution](API_CreateMetricAttribution.md)
          + [CreateRecommender](API_CreateRecommender.md)
          + [CreateSchema](API_CreateSchema.md)
          + [CreateSolution](API_CreateSolution.md)
@@ -172,6 +189,7 @@ Amazon's trademarks and trade dress may not be used in
          + [DeleteDatasetGroup](API_DeleteDatasetGroup.md)
          + [DeleteEventTracker](API_DeleteEventTracker.md)
          + [DeleteFilter](API_DeleteFilter.md)
+         + [DeleteMetricAttribution](API_DeleteMetricAttribution.md)
          + [DeleteRecommender](API_DeleteRecommender.md)
          + [DeleteSchema](API_DeleteSchema.md)
          + [DeleteSolution](API_DeleteSolution.md)
@@ -186,6 +204,7 @@ Amazon's trademarks and trade dress may not be used in
          + [DescribeEventTracker](API_DescribeEventTracker.md)
          + [DescribeFeatureTransformation](API_DescribeFeatureTransformation.md)
          + [DescribeFilter](API_DescribeFilter.md)
+         + [DescribeMetricAttribution](API_DescribeMetricAttribution.md)
          + [DescribeRecipe](API_DescribeRecipe.md)
          + [DescribeRecommender](API_DescribeRecommender.md)
          + [DescribeSchema](API_DescribeSchema.md)
@@ -201,6 +220,8 @@ Amazon's trademarks and trade dress may not be used in
          + [ListDatasets](API_ListDatasets.md)
          + [ListEventTrackers](API_ListEventTrackers.md)
          + [ListFilters](API_ListFilters.md)
+         + [ListMetricAttributionMetrics](API_ListMetricAttributionMetrics.md)
+         + [ListMetricAttributions](API_ListMetricAttributions.md)
          + [ListRecipes](API_ListRecipes.md)
          + [ListRecommenders](API_ListRecommenders.md)
          + [ListSchemas](API_ListSchemas.md)
@@ -213,6 +234,7 @@ Amazon's trademarks and trade dress may not be used in
          + [TagResource](API_TagResource.md)
          + [UntagResource](API_UntagResource.md)
          + [UpdateCampaign](API_UpdateCampaign.md)
+         + [UpdateMetricAttribution](API_UpdateMetricAttribution.md)
          + [UpdateRecommender](API_UpdateRecommender.md)
       + [Amazon Personalize Events](API_Operations_Amazon_Personalize_Events.md)
          + [PutEvents](API_UBS_PutEvents.md)
@@ -268,6 +290,10 @@ Amazon's trademarks and trade dress may not be used in
          + [HPOResourceConfig](API_HPOResourceConfig.md)
          + [HyperParameterRanges](API_HyperParameterRanges.md)
          + [IntegerHyperParameterRange](API_IntegerHyperParameterRange.md)
+         + [MetricAttribute](API_MetricAttribute.md)
+         + [MetricAttribution](API_MetricAttribution.md)
+         + [MetricAttributionOutput](API_MetricAttributionOutput.md)
+         + [MetricAttributionSummary](API_MetricAttributionSummary.md)
          + [OptimizationObjective](API_OptimizationObjective.md)
          + [Recipe](API_Recipe.md)
          + [RecipeSummary](API_RecipeSummary.md)
@@ -286,9 +312,11 @@ Amazon's trademarks and trade dress may not be used in
       + [Amazon Personalize Events](API_Types_Amazon_Personalize_Events.md)
          + [Event](API_UBS_Event.md)
          + [Item](API_UBS_Item.md)
+         + [MetricAttribution](API_UBS_MetricAttribution.md)
          + [User](API_UBS_User.md)
       + [Amazon Personalize Runtime](API_Types_Amazon_Personalize_Runtime.md)
          + [PredictedItem](API_RS_PredictedItem.md)
+         + [Promotion](API_RS_Promotion.md)
    + [Common Errors](CommonErrors.md)
    + [Common Parameters](CommonParameters.md)
 + [Document history for Amazon Personalize](document-history.md)

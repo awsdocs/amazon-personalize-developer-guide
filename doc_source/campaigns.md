@@ -78,18 +78,12 @@ After you have created your campaign, use it to make recommendations\. For more 
 
 ## Creating a campaign \(AWS SDKs\)<a name="create-campaign-sdk"></a>
 
- After your solution version status is Active you are ready to deploy it with an Amazon Personalize campaign\. Use the following code to create a campaign with the AWS SDK for Python \(Boto3\) or AWS SDK for Java 2\.x\. 
-
-The example code uses the following parameters \(for a complete list of parameters, see [CreateCampaign](API_CreateCampaign.md)\):
-+ A name for the campaign\.
-+ The solution version's ARN \(Amazon Resource Name\)\.
-+ The [Minimum provisioned TPS](#min-tps-auto-scaling) the campaign will support \(the minimum value for this parameter is 1\)\.
-+ *Optional* campaign configuration parameters `itemExplorationWeight` and `explorationItemAgeCutOff.` 
-
-The campaign configuration parameters are specific to the recipe that you used to train the solution version \(for more information about recipes see [Step 1: Choosing a recipe](working-with-predefined-recipes.md)\)\. In this example, the `itemExplorationWeight` and `explorationItemAgeCutOff` parameters are specific to the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) recipe\. The default itemExplorationWeight is *0\.3* and the default explorationItemAgeCutOff is *30*\. If you leave out campaign configuration parameters, the default values apply\. 
+ After your solution version status is Active you are ready to deploy it with an Amazon Personalize campaign\. Use the following code to create a campaign\. Give the campaign a name, specify the Amazon Resource Name \(ARN\) of the solution version to deploy, and optionally specify the [Minimum provisioned TPS](#min-tps-auto-scaling) the campaign will support \(the default value for this parameter is 1\)\. If you use the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) recipe, you can configure item exploration with the `itemExplorationWeight` and `explorationItemAgeCutOff` parameters\.
 
 ------
 #### [ SDK for Python \(Boto3\) ]
+
+In this example, the `itemExplorationWeight` and `explorationItemAgeCutOff` parameters are specific to the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) recipe\. The default itemExplorationWeight is *0\.3* and the default explorationItemAgeCutOff is *30*\. If you leave out campaign configuration parameters, the default values apply\.
 
 ```
 import boto3
@@ -113,6 +107,8 @@ print('Status: ' + description['status'])
 
 ------
 #### [ SDK for Java 2\.x ]
+
+In this example, the `itemExplorationWeight` and `explorationItemAgeCutOff` parameters are specific to the [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) recipe\. The default itemExplorationWeight is *0\.3* and the default explorationItemAgeCutOff is *30*\. If you leave out campaign configuration parameters, the default values apply\.
 
 ```
 public static void createCampaign(PersonalizeClient personalizeClient, 
@@ -161,6 +157,38 @@ public static void createCampaign(PersonalizeClient personalizeClient,
         System.exit(1);
     }
 }
+```
+
+------
+#### [ SDK for JavaScript v3 ]
+
+```
+// Get service clients module and commands using ES6 syntax.
+
+import { CreateCampaignCommand } from
+  "@aws-sdk/client-personalize";
+import { personalizeClient } from "./libs/personalizeClients.js";
+
+// Or, create the client here.
+// const personalizeClient = new PersonalizeClient({ region: "REGION"});
+
+// Set the campaign's parameters.
+export const createCampaignParam = {
+  solutionVersionArn: 'SOLUTION_VERSION_ARN', /* required */
+  name: 'NAME',  /* required */
+  minProvisionedTPS: 1    /* optional integer */
+}
+
+export const run = async () => {
+  try {
+    const response = await personalizeClient.send(new CreateCampaignCommand(createCampaignParam));
+    console.log("Success", response);
+    return response; // For unit tests.
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+run();
 ```
 
 ------

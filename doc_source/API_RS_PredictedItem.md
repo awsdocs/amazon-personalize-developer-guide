@@ -12,6 +12,13 @@ Type: String
 Length Constraints: Maximum length of 256\.  
 Required: No
 
+ ** promotionName **   <a name="personalize-Type-RS_PredictedItem-promotionName"></a>
+The name of the promotion that included the predicted item\.  
+Type: String  
+Length Constraints: Minimum length of 1\. Maximum length of 63\.  
+Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
+Required: No
+
  ** score **   <a name="personalize-Type-RS_PredictedItem-score"></a>
 A numeric representation of the model's certainty that the item will be the next user selection\. For more information on scoring logic, see [Recommendation scores](getting-recommendations.md#how-scores-work)\.  
 Type: Double  

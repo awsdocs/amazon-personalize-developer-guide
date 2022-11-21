@@ -9,7 +9,7 @@ The following steps are prerequisites for the getting started exercises\.
 1. Create an AWS Identity and Access Management \(IAM\) service role, as specified in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. Use the role ARN when you upload the movie training data\. 
 
 1. Prepare your training data and upload the data to your Amazon S3 bucket: 
-   +  For Domain dataset group tutorials, see [Creating the training data \(Domain dataset group\)](#gs-data-prep-domain) 
+   +  For Domain dataset group tutorials, see [Creating the training data \(Domain dataset group\)](#gs-data-prep-domain)\. 
    +  For Custom dataset group tutorials, see [Creating the training data \(Custom dataset group\)](#gs-upload-to-bucket)\. 
 
 1.  Give your Amazon Personalize service role permission to access your Amazon S3 resources, as specified in [Giving Amazon Personalize access to Amazon S3 resources](granting-personalize-s3-access.md)\. 
@@ -20,9 +20,9 @@ To create training data, download, modify, and save the movie ratings data to an
 
 **To create the training data**
 
-1. Download the movie ratings zip file, [ml\-latest\-small\.zip](http://files.grouplens.org/datasets/movielens/ml-latest-small.zip) from [MovieLens](https://grouplens.org/datasets/movielens) \(under *recommended for education and development*\)\. Unzip the file\. The user\-interactions data is in the file named `ratings.csv`\.
+1. Download and unzip the movie ratings zip file, [ml\-latest\-small\.zip](http://files.grouplens.org/datasets/movielens/ml-latest-small.zip) from [MovieLens](https://grouplens.org/datasets/movielens) under *recommended for education and development* \(F\. Maxwell Harper and Joseph A\. Konstan\. 2015\. The MovieLens Datasets: History and Context\. ACM Transactions on Interactive Intelligent Systems \(TiiS\) 5, 4: 19:1–19:19\. https://doi\.org/10\.1145/2827872\)\. 
 
-1. Open the `ratings.csv` file and modify the data as follows:
+1. Open the `ratings.csv` file\. This file contains the interactions data for this tutorial\.
 
    1. Delete the *rating* column\.
 
@@ -55,9 +55,9 @@ To create training data, download, modify, and save the movie ratings data to an
 
 To create training data, download, modify, and save the movie ratings data to an Amazon Simple Storage Service \(Amazon S3\) bucket\. Then give Amazon Personalize permission to read from the bucket\.
 
-1. Download the movie ratings zip file, [ml\-latest\-small\.zip](http://files.grouplens.org/datasets/movielens/ml-latest-small.zip) from [MovieLens](https://grouplens.org/datasets/movielens) \(under *recommended for education and development*\)\. Unzip the file\. The user\-interactions data is in the file named `ratings.csv`\.
+1. Download and unzip the movie ratings zip file, [ml\-latest\-small\.zip](http://files.grouplens.org/datasets/movielens/ml-latest-small.zip) from [MovieLens](https://grouplens.org/datasets/movielens) under *recommended for education and development* \(F\. Maxwell Harper and Joseph A\. Konstan\. 2015\. The MovieLens Datasets: History and Context\. ACM Transactions on Interactive Intelligent Systems \(TiiS\) 5, 4: 19:1–19:19\. https://doi\.org/10\.1145/2827872\)\. 
 
-1. Open the `ratings.csv` file\.
+1. Open the `ratings.csv` file\. This file contains the interactions data for this tutorial\.
 
    1. Delete the *rating* column\.
 

@@ -28,6 +28,7 @@ If the status shows as CREATE FAILED, the response includes a `failureReason` ke
 
 ```
 {
+   "name": "string",
    "solutionArn": "string",
    "tags": [ 
       { 
@@ -42,6 +43,13 @@ If the status shows as CREATE FAILED, the response includes a `failureReason` ke
 ## Request Parameters<a name="API_CreateSolutionVersion_RequestParameters"></a>
 
 The request accepts the following data in JSON format\.
+
+ ** [name](#API_CreateSolutionVersion_RequestSyntax) **   <a name="personalize-CreateSolutionVersion-request-name"></a>
+The name of the solution version\.  
+Type: String  
+Length Constraints: Minimum length of 1\. Maximum length of 63\.  
+Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
+Required: No
 
  ** [solutionArn](#API_CreateSolutionVersion_RequestSyntax) **   <a name="personalize-CreateSolutionVersion-request-solutionArn"></a>
 The Amazon Resource Name \(ARN\) of the solution containing the training configuration information\.  
@@ -91,6 +99,10 @@ HTTP Status Code: 400
 
  ** LimitExceededException **   
 The limit on the number of requests per second has been exceeded\.  
+HTTP Status Code: 400
+
+ ** ResourceAlreadyExistsException **   
+The specified resource already exists\.  
 HTTP Status Code: 400
 
  ** ResourceInUseException **   

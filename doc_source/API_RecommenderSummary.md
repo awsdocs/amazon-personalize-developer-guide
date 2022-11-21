@@ -50,6 +50,7 @@ Required: No
  ** status **   <a name="personalize-Type-RecommenderSummary-status"></a>
 The status of the recommender\. A recommender can be in one of the following states:  
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
++ STOP PENDING > STOP IN\_PROGRESS > INACTIVE > START PENDING > START IN\_PROGRESS > ACTIVE
 + DELETE PENDING > DELETE IN\_PROGRESS
 Type: String  
 Length Constraints: Maximum length of 256\.  

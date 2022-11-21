@@ -39,7 +39,7 @@ If the action is successful, the service sends back an HTTP 200 response\.
 The following data is returned in JSON format by the service\.
 
  ** [metrics](#API_GetSolutionMetrics_ResponseSyntax) **   <a name="personalize-GetSolutionMetrics-response-metrics"></a>
-The metrics for the solution version\.  
+The metrics for the solution version\. For more information, see [ Evaluating a solution version with metrics ](https://docs.aws.amazon.com/personalize/latest/dg/working-with-training-metrics.html)\.  
 Type: String to double map  
 Map Entries: Maximum number of 100 items\.  
 Key Length Constraints: Maximum length of 256\.

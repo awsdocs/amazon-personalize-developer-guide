@@ -14,6 +14,7 @@ When you create a recommender, you can configure the recommender's minimum recom
 
 A recommender can be in one of the following states:
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
++ STOP PENDING > STOP IN\_PROGRESS > INACTIVE > START PENDING > START IN\_PROGRESS > ACTIVE
 + DELETE PENDING > DELETE IN\_PROGRESS
 
 To get the recommender status, call [DescribeRecommender](https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html)\.
@@ -117,6 +118,10 @@ HTTP Status Code: 400
 
  ** ResourceAlreadyExistsException **   
 The specified resource already exists\.  
+HTTP Status Code: 400
+
+ ** ResourceInUseException **   
+The specified resource is in use\.  
 HTTP Status Code: 400
 
  ** ResourceNotFoundException **   

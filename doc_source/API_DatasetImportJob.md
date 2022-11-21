@@ -36,6 +36,12 @@ If a dataset import job fails, provides the reason why\.
 Type: String  
 Required: No
 
+ ** importMode **   <a name="personalize-Type-DatasetImportJob-importMode"></a>
+The import mode used by the dataset import job to import new records\.  
+Type: String  
+Valid Values:` FULL | INCREMENTAL`   
+Required: No
+
  ** jobName **   <a name="personalize-Type-DatasetImportJob-jobName"></a>
 The name of the import job\.  
 Type: String  
@@ -46,6 +52,11 @@ Required: No
  ** lastUpdatedDateTime **   <a name="personalize-Type-DatasetImportJob-lastUpdatedDateTime"></a>
 The date and time \(in Unix time\) the dataset was last updated\.  
 Type: Timestamp  
+Required: No
+
+ ** publishAttributionMetricsToS3 **   <a name="personalize-Type-DatasetImportJob-publishAttributionMetricsToS3"></a>
+Whether the job publishes metrics to Amazon S3 for a metric attribution\.  
+Type: Boolean  
 Required: No
 
  ** roleArn **   <a name="personalize-Type-DatasetImportJob-roleArn"></a>

@@ -70,7 +70,7 @@ When the dataset group's `status` is ACTIVE, proceed to [Creating a dataset and 
 
 ## Creating a dataset group \(AWS SDKs\)<a name="data-prep-creating-ds-group-sdk"></a>
 
-The following code shows how to create a dataset group with the AWS SDK for Python \(Boto3\) or the SDK for Java 2\.x\. For more information about the API operation, see [CreateDatasetGroup](API_CreateDatasetGroup.md) in the API reference section\. You can use the Tags parameter to optionally tag resources in Amazon Personalize\. For a sample see [Adding tags \(AWS SDKs\)](tags-add.md#add-tag-sdk)\. 
+The following code shows how to create a Custom dataset group\. For more information about the API operation, see [CreateDatasetGroup](API_CreateDatasetGroup.md) in the API reference section\. You can use the Tags parameter to optionally tag resources in Amazon Personalize\. For a sample see [Adding tags \(AWS SDKs\)](tags-add.md#add-tag-sdk)\. 
 
 ------
 #### [ SDK for Python \(Boto3\) ]
@@ -136,6 +136,36 @@ public static void createDatasetGroup(PersonalizeClient personalizeClient, Strin
         System.out.println(e.awsErrorDetails().errorMessage());
     }
 }
+```
+
+------
+#### [ SDK for JavaScript v3 ]
+
+```
+// Get service clients module and commands using ES6 syntax.
+
+import { CreateDatasetGroupCommand } from
+  "@aws-sdk/client-personalize";
+import { personalizeClient } from "./libs/personalizeClients.js";
+
+// Or, create the client here.
+// const personalizeClient = new PersonalizeClient({ region: "REGION"});
+
+// Set the dataset group parameters.
+export const createDatasetGroupParam = { 
+  name: 'NAME' /* required */
+}
+
+export const run = async (createDatasetGroupParam) => {
+  try {
+    const response = await personalizeClient.send(new CreateDatasetGroupCommand(createDatasetGroupParam));
+    console.log("Success", response);
+    return "Run successfully"; // For unit tests.
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+run(createDatasetGroupParam);
 ```
 
 ------

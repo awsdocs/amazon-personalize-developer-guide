@@ -1,6 +1,7 @@
 # HRNN recipe \(legacy\)<a name="native-recipe-hrnn"></a>
 
 **Note**  
+Legacy HRNN recipes are no longer available\. This documentation is for reference purposes\.  
  We recommend using the aws\-user\-personalizaton \(User\-Personalization\) recipe over the legacy HRNN recipes\. User\-Personalization improves upon and unifies the functionality offered by the HRNN recipes\. For more information, see [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
 
 The Amazon Personalize hierarchical recurrent neural network \(HRNN\) recipe models changes in user behavior to provide recommendations during a session\. A session is a set of user interactions within a given timeframe with a goal of finding a specific item to fill a need, for example\. By weighing a user's recent interactions higher, you can provide more relevant recommendations during a session\.

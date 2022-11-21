@@ -18,7 +18,7 @@ When you create a dataset for a Custom dataset group, each dataset type has the 
 
 | Dataset type | Required fields | Reserved keywords | 
 | --- | --- | --- | 
-| Interactions \([schema example](interactions-dataset-requirements.md#schema-examples-interactions)\) |  USER\_ID \(`string`\) ITEM\_ID \(`string`\) TIMESTAMP \(`long`\)  |  EVENT\_TYPE \(`string`\) EVENT\_VALUE \(`float`, `null`\) IMPRESSION \(`string`, `null`\) RECOMMENDATION\_ID \(`string`, `null`\)  | 
+| Interactions \([schema example](interactions-dataset-requirements.md#schema-examples-interactions)\) |  USER\_ID \(`string`\) ITEM\_ID \(`string`\) TIMESTAMP \(`long`\)  |  EVENT\_TYPE \(`string`\) EVENT\_VALUE \(`float`, `null`\) IMPRESSION \(`string`, `null`\) RECOMMENDATION\_ID \(`string`, `null`\) EVENT\_ATTRIBUTION\_SOURCE \(`string`, `null`\)  | 
 | Users \([schema example](user-dataset-requirements.md#schema-examples-users)\) |  USER\_ID \(`string`\) 1 metadata field \(categorical `string` or numerical\)  |  | 
 | Items |  ITEM\_ID \([schema example](item-dataset-requirements.md#schema-examples-items)\) 1 metadata field \(categorical or textual `string` field or numerical field\)  |  CREATION\_TIMESTAMP \(`long`\)  | 
 

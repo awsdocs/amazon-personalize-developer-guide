@@ -56,7 +56,7 @@ After you complete [Step 1: Create a Domain dataset group](#create-domain-dsg-cl
    }
    ```
 
-1. Create a schema in Amazon Personalize by running the following command\. Replace `schemaName` with the name of the schema, replace `business domain` with `VIDEO_ON_DEMAND` or `ECOMMERCE`, and replace `file://SchemaName.json` with the location of the JSON file you created in the previous step\. The example shows the file as belonging to the current folder\. For more information about the API, see [CreateSchema](API_CreateSchema.md)\.
+1. Create a schema in Amazon Personalize by running the following command\. Replace `schemaName` with the name of the schema, replace `business domain` with `VIDEO_ON_DEMAND` or `ECOMMERCE`, and replace `file://SchemaName.json` with the location of the JSON file you created in the previous step\. The example shows the file as belonging to the current folder\. After you create a schema, you can't make changes to the schema\. For more information about the API, see [CreateSchema](API_CreateSchema.md)\.
 
    ```
    aws personalize create-schema \
@@ -83,13 +83,16 @@ After you complete [Step 1: Create a Domain dataset group](#create-domain-dsg-cl
 
 ## Step 3: Import interactions data<a name="import-domain-interactions-cli"></a>
 
+**Important**  
+By default, a dataset import job replaces any existing data in the dataset that you imported in bulk\. To add new records without replacing existing data, specify INCREMENTAL for the `import-mode`\. For more information, see [Updating existing bulk data](updating-existing-bulk-data.md)\.
+
 After you complete [Step 2: Create a schema and an Interactions dataset](#create-domain-interactions-dataset-cli), you are ready to import data\. If you have data in Amazon S3, import data with a dataset import job\. If you want to only incrementally import interactions data, you can skip this step and instead use the [PutEvents](API_UBS_PutEvents.md) operation until you have at least 1000 combined historical and incremental interactions\. For more information see [Recording events](recording-events.md)\. 
 
  For bulk imports, create a dataset import job by running the following command\. Provide the dataset Amazon Resource Name \(ARN\) for your Domain dataset group and specify the path to your Amazon S3 bucket where you stored the training data\. Use the following syntax for the path:
 
 **s3://<name of your S3 bucket>/<folder path>/<CSV filename>**
 
-Supply the AWS Identity and Access Management \(IAM\) role Amazon Resource Name \(ARN\) that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. For more information about the operation, see [CreateDatasetImportJob](API_CreateDatasetImportJob.md)\.
+Supply the AWS Identity and Access Management \(IAM\) role Amazon Resource Name \(ARN\) that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. The default `import-mode` is `FULL`\. For more information see [Updating existing bulk data](updating-existing-bulk-data.md)\. For more information about the API operation, see [CreateDatasetImportJob](API_CreateDatasetImportJob.md)\.
 
 ```
 aws personalize create-dataset-import-job \
@@ -97,6 +100,7 @@ aws personalize create-dataset-import-job \
 --dataset-arn dataset arn \
 --data-source dataLocation=s3://bucketname/filename \
 --role-arn roleArn
+--import-mode FULL
 ```
 
 The dataset import job ARN is displayed, as shown in the following example\.
@@ -127,6 +131,7 @@ The properties of the dataset import job, including its status, are displayed\. 
       },
       "roleArn": "role-arn",
       "status": "CREATE PENDING",
+      "importMode": "FULL",
       "creationDateTime": 1542392161.837,
       "lastUpdatedDateTime": 1542393013.377
   }

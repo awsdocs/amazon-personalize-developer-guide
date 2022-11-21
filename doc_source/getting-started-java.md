@@ -13,10 +13,14 @@ For more examples, see [Complete Amazon Personalize project](#gs-java-example)\.
 ## Prerequisites<a name="gs-java-prerequisites"></a>
 
 The following are prerequisite steps for completing this tutorial:
-+ Complete the [Getting started prerequisites](gs-prerequisites.md)\. You create the training data for this tutorial when you complete the prerequisite steps\. You can use the same source data used in the [Getting started \(console\)](getting-started-console.md) or [Getting started \(AWS CLI\)](getting-started-cli.md) exercises\. If you are using your own source data, make sure that your data is formatted like in the prerequisite step [Creating the training data \(Custom dataset group\)](gs-prerequisites.md#gs-upload-to-bucket)\.
++ Complete the [Getting started prerequisites](gs-prerequisites.md), to set up the required permissions and create the training data\. You can use the same source data used in the [Getting started \(console\)](getting-started-console.md) or [Getting started \(AWS CLI\)](getting-started-cli.md) exercises\. If you are using your own source data, make sure that your data is formatted like in the prerequisites\.
 + Set up your SDK for Java 2\.x environment and AWS credentials as specified in the [Setting up the AWS SDK for Java 2\.x](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/setup.html) procedure in the *AWS SDK for Java 2\.x Developer Guide*\. 
 
-## Step 1: Set up your project to use Amazon Personalize packages<a name="gs-java-set-up-project"></a>
+### Tutorial<a name="gs-custom-java-tutorial"></a>
+
+In the following steps you set up your project to use Amazon Personalize packages and create Amazon Personalize SDK for Java 2\.x clients\. Then you import data, create and deploy a solution version with a campaign, and get recommendations\.
+
+#### Step 1: Set up your project to use Amazon Personalize packages<a name="gs-java-set-up-project"></a>
 
 After you complete the prerequisites, add Amazon Personalize dependencies to your pom\.xml file and import Amazon Personalize packages\. 
 
@@ -46,8 +50,6 @@ After you complete the prerequisites, add Amazon Personalize dependencies to you
    // import client packages
    import software.amazon.awssdk.services.personalize.PersonalizeClient;
    import software.amazon.awssdk.services.personalizeruntime.PersonalizeRuntimeClient;
-   // The PersonalizeEventsClient is optional. Import if you are going to add interactions to the Interactions dataset in real time.
-   import software.amazon.awssdk.services.personalizeevents.PersonalizeEventsClient; 
    // Amazon Personalize exception package
    import software.amazon.awssdk.services.personalize.model.PersonalizeException;
    // schema packages
@@ -81,26 +83,21 @@ After you complete the prerequisites, add Amazon Personalize dependencies to you
    import java.time.Instant;
    ```
 
-## Step 2: Create Amazon Personalize clients<a name="getting-started-java-clients"></a>
+#### Step 2: Create Amazon Personalize clients<a name="getting-started-java-clients"></a>
 
-After you add Amazon Personalize dependencies to your pom\.xml file and imported the required packages, create the following Amazon Personalize clients:
+After you add Amazon Personalize dependencies to your pom\.xml file and import the required packages, create the following Amazon Personalize clients:
 
 ```
 PersonalizeClient personalizeClient = PersonalizeClient.builder()
   .region(region)
   .build();
 
-PersonalizeEventsClient personalizeEventsClient = PersonalizeEventsClient.builder()
-  .region(region)
-  .build();
-
-// a PersonalizeRuntimeClient is optional for this tutorial. Optionally use this client if you want to add new interactions to the Interactions dataset in real-time.
 PersonalizeRuntimeClient personalizeRuntimeClient = PersonalizeRuntimeClient.builder() 
   .region(region)
   .build();
 ```
 
-## Step 3: Import data<a name="getting-started-java-import-dataset"></a>
+#### Step 3: Import data<a name="getting-started-java-import-dataset"></a>
 
 After you initialize your Amazon Personalize clients, import the historical data you created when you completed the [Getting started prerequisites](gs-prerequisites.md)\. To import historical data into Amazon Personalize, do the following:
 
@@ -188,16 +185,17 @@ After you initialize your Amazon Personalize clients, import the historical data
                                           String schemaArn) {
            try {
                CreateDatasetRequest request = CreateDatasetRequest.builder()
-                       .name(datasetName)
-                       .datasetGroupArn(datasetGroupArn)
-                       .datasetType(datasetType)
-                       .schemaArn(schemaArn)
-                       .build();
+                   .name(datasetName)
+                   .datasetGroupArn(datasetGroupArn)
+                   .datasetType(datasetType)
+                   .schemaArn(schemaArn)
+                   .build();
    
                String datasetArn = personalizeClient.createDataset(request)
-                       .datasetArn();
+                   .datasetArn();
                System.out.println("Dataset " + datasetName + " created.");
                return datasetArn;
+   
            } catch (PersonalizeException e) {
                System.err.println(e.awsErrorDetails().errorMessage());
                System.exit(1);
@@ -208,7 +206,7 @@ After you initialize your Amazon Personalize clients, import the historical data
 
 1. Import your data with a dataset import job\. Use the following `createPersonalizeDatasetImportJob` method to create a dataset import job\. 
 
-   Pass the following as parameters: an Amazon Personalize service client, your dataset group's ARN, a name for the job, your Interactions dataset's ARN, the Amazon S3 bucket path \(`s3://bucket name/folder name/ratings.csv`\) where you stored the training data, and your service\-linked role's ARN \(you created this role as part of the [Getting started prerequisites](gs-prerequisites.md)\)\. The method returns the ARN of your dataset import job\. Optionally store it for later use\. 
+   Pass the following as parameters: an Amazon Personalize service client, a name for the job, your Interactions dataset's ARN, the Amazon S3 bucket path \(`s3://bucket name/folder name/ratings.csv`\) where you stored the training data, and your service role's ARN \(you created this role as part of the [Getting started prerequisites](gs-prerequisites.md)\)\. The method returns the ARN of your dataset import job\. Optionally store it for later use\. 
 
    ```
        public static String createPersonalizeDatasetImportJob(PersonalizeClient personalizeClient,
@@ -268,11 +266,7 @@ After you initialize your Amazon Personalize clients, import the historical data
        }
    ```
 
-1. \(Optional\) Add an event tracker and record events\. For more information, see [Recording events](recording-events.md)\.
-
- For more information about importing data into Amazon Personalize, see [Preparing and importing data](data-prep.md)\. 
-
-## Step 4: Create a solution<a name="getting-started-java-create-solution"></a>
+#### Step 4: Create a solution<a name="getting-started-java-create-solution"></a>
 
 After you import your data, you create a solution and solution version as follows\. The *solution* contains the configurations to train a model and a *solution version* is a trained model\. 
 
@@ -299,7 +293,7 @@ After you import your data, you create a solution and solution version as follow
                System.exit(1);
            }
            return "";
-    }
+       }
    ```
 
 1. Create a solution version with the following `createPersonalizeSolutionVersion` method\. Pass as a parameter the ARN of the solution the previous step\. The following code first checks to see if your solution is ready and then creates a solution version\. During training, the code uses the [DescribeSolutionVersion](API_DescribeSolutionVersion.md) operation to retrieve the solution version's status\. When training is complete, the method returns the ARN of your new solution version\. Store it for later use\. 
@@ -317,7 +311,7 @@ After you import your data, you create a solution and solution version as follow
                    .solutionArn(solutionArn)
                    .build();
                
-               maxTime = Instant.now().getEpochSecond() + 3 * 60 * 60;;
+               maxTime = Instant.now().getEpochSecond() + 3 * 60 * 60;
    
                // Wait until solution is active. 
                while (Instant.now().getEpochSecond() < maxTime) {
@@ -340,21 +334,21 @@ After you import your data, you create a solution and solution version as follow
                    CreateSolutionVersionRequest createSolutionVersionRequest = CreateSolutionVersionRequest.builder()
                        .solutionArn(solutionArn)
                        .build();
-                   
+   
                    CreateSolutionVersionResponse createSolutionVersionResponse = personalizeClient.createSolutionVersion(createSolutionVersionRequest);
                    solutionVersionArn = createSolutionVersionResponse.solutionVersionArn();
    
                    System.out.println("Solution version ARN: " + solutionVersionArn);
    
-                   DescribeSolutionVersionRequest describeSolutionVersionRequest = DescribeSolutionVersionRequest.builder() 
+                   DescribeSolutionVersionRequest describeSolutionVersionRequest = DescribeSolutionVersionRequest.builder()
                        .solutionVersionArn(solutionVersionArn)
                        .build();
-                  
+   
                    while (Instant.now().getEpochSecond() < maxTime) {
    
                        solutionVersionStatus = personalizeClient.describeSolutionVersion(describeSolutionVersionRequest).solutionVersion().status();
                        System.out.println("Solution version status: " + solutionVersionStatus);
-       
+   
                        if (solutionVersionStatus.equals("ACTIVE") || solutionVersionStatus.equals("CREATE FAILED")) {
                            break;
                        }
@@ -376,7 +370,7 @@ After you import your data, you create a solution and solution version as follow
 
 For more information, see [Creating a solution](training-deploying-solutions.md)\. When you create a solution version, you can evaluate its performance before proceeding\. For more information, see [Step 4: Evaluating a solution version with metrics](working-with-training-metrics.md)\.
 
-## Step 5: Create a campaign<a name="getting-started-java-deploy-solution"></a>
+#### Step 5: Create a campaign<a name="getting-started-java-deploy-solution"></a>
 
 After you train and evaluate your solution version, deploy it with an Amazon Personalize campaign\. Use the following `createPersonalCampaign` method to deploy a solution version\. Pass the following as parameters: an Amazon Personalize service client, the Amazon Resource Name \(ARN\) of the solution version you created in the previous step, and a name for the campaign\. The method returns the ARN of your new campaign\. Store it for later use\.
 
@@ -403,7 +397,7 @@ public static String createPersonalCompaign(PersonalizeClient personalizeClient,
 
 For more information about Amazon Personalize campaigns, see [Creating a campaign](campaigns.md)\.
 
-## Step 6: Get recommendations<a name="getting-started-java-get-recommendations"></a>
+#### Step 6: Get recommendations<a name="getting-started-java-get-recommendations"></a>
 
 After you create a campaign, you use it to get recommendations\. Use the following `getRecs` method to get recommendations for a user\. Pass as parameters an Amazon Personalize runtime client, the Amazon Resource Name \(ARN\) of the campaign you created in the previous step, and a user ID \(for example, `123`\) from the historical data you imported\. The method prints the list of recommended items to the screen\.
 
@@ -419,11 +413,11 @@ After you create a campaign, you use it to get recommendations\. Use the followi
 
             GetRecommendationsResponse recommendationsResponse = personalizeRuntimeClient.getRecommendations(recommendationsRequest);
             List<PredictedItem> items = recommendationsResponse.itemList();
-
             for (PredictedItem item: items) {
                 System.out.println("Item Id is : "+item.itemId());
                 System.out.println("Item score is : "+item.score());
             }
+
         } catch (AwsServiceException e) {
             System.err.println(e.awsErrorDetails().errorMessage());
             System.exit(1);

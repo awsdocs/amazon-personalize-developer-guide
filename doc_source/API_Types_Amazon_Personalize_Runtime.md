@@ -2,3 +2,4 @@
 
 The following data types are supported by Amazon Personalize Runtime:
 +  [PredictedItem](API_RS_PredictedItem.md) 
++  [Promotion](API_RS_Promotion.md) 

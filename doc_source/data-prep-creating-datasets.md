@@ -30,13 +30,13 @@ For information on Amazon Personalize datasets and schema requirements, see [Dat
 
 1. In **Schema details**, for **Schema selection**, either choose an existing schema or choose **Create new schema**\.
 
-1.  If you are creating a new schema, for **Schema definition**, paste in the schema JSON that matches your data\. Use the examples found in [Datasets and schemas](how-it-works-dataset-schema.md) as a guide\. 
+1.  If you are creating a new schema, for **Schema definition**, paste in the schema JSON that matches your data\. Use the examples found in [Datasets and schemas](how-it-works-dataset-schema.md) as a guide\. After you create a schema, you can't make changes to the schema\.
 
 1. For **New schema name**, specify a name for the new schema\.
 
 1. For **Tags**, optionally add any tags\. For more information about tagging Amazon Personalize resources, see [Tagging Amazon Personalize resources](tagging-resources.md)\.
 
-1. Choose **Next** and follow the instructions in [ Step 3: Importing your data](data-prep-importing.md) to import your data\.
+1. Choose **Next** and follow the instructions in [ Step 3: Importing your historical data](data-prep-importing.md) to import your data\.
 
 ## Creating a dataset and a schema \(AWS CLI\)<a name="data-prep-creating-ds-cli"></a>
 
@@ -71,7 +71,7 @@ To create a dataset and a schema using the AWS CLI, you first define a schema in
    }
    ```
 
-1. Create a schema in Amazon Personalize by running the following command\. Replace `schemaName` with the name of the schema, and replace `file://SchemaName.json` with the location of the JSON file you created in the previous step\. The example shows the file as belonging to the current folder\. For more information about the API, see [CreateSchema](API_CreateSchema.md)\.
+1. Create a schema in Amazon Personalize by running the following command\. After you create a schema, you can't make changes to the schema\. Replace `schemaName` with the name of the schema, and replace `file://SchemaName.json` with the location of the JSON file you created in the previous step\. The example shows the file as belonging to the current folder\. For more information about the API, see [CreateSchema](API_CreateSchema.md)\.
 
    ```
    aws personalize create-schema \
@@ -105,11 +105,11 @@ To create a dataset and a schema using the AWS CLI, you first define a schema in
    }
    ```
 
-1. Record the dataset ARN for later use\. After you have created a dataset, you are ready to import your training data\. See [ Step 3: Importing your data](data-prep-importing.md)\. 
+1. Record the dataset ARN for later use\. After you have created a dataset, you are ready to import your training data\. See [ Step 3: Importing your historical data](data-prep-importing.md)\. 
 
 ## Creating a dataset and a schema \(AWS SDKs\)<a name="data-prep-creating-ds-sdk"></a>
 
-To create a dataset and a schema using the AWS SDKs, you first define a schema in [Avro format](https://docs.oracle.com/database/nosql-12.1.3.0/GettingStartedGuide/avroschemas.html) and add it to Amazon Personalize using the [CreateSchema](API_CreateSchema.md) operation\. Then create a dataset using the [CreateDataset](API_CreateDataset.md) operation\. For information on Amazon Personalize datasets and schema requirements, see [Datasets and schemas](how-it-works-dataset-schema.md)\.
+To create a dataset and a schema using the AWS SDKs, you first define a schema in [Avro format](https://docs.oracle.com/database/nosql-12.1.3.0/GettingStartedGuide/avroschemas.html) and add it to Amazon Personalize using the [CreateSchema](API_CreateSchema.md) operation\. After you create a schema, you can't make changes to the schema\. Then create a dataset using the [CreateDataset](API_CreateDataset.md) operation\. For information on Amazon Personalize datasets and schema requirements, see [Datasets and schemas](how-it-works-dataset-schema.md)\.
 
 **To create a schema and a dataset**
 
@@ -140,12 +140,10 @@ To create a dataset and a schema using the AWS SDKs, you first define a schema i
    }
    ```
 
-1. Create the schema using the [CreateSchema](API_CreateSchema.md) API operation\.
+1. Create the schema using the [CreateSchema](API_CreateSchema.md) API operation\. The following code shows how to create a schema\. Specify the name for your schema and the file path for your schema JSON file\.
 
 ------
 #### [ SDK for Python \(Boto3\) ]
-
-   Use the following `create_schema` method to create a schema\. Replace `schema name` with the name of your schema\.
 
    ```
    import boto3
@@ -165,8 +163,6 @@ To create a dataset and a schema using the AWS SDKs, you first define a schema i
 
 ------
 #### [ SDK for Java 2\.x ]
-
-   Use the following `createSchema` method to create a schema\. Pass the following as parameters: a PersonalizeClient, the name for your schema, and the file path for your schema JSON file\.
 
    ```
    public static String createSchema(PersonalizeClient personalizeClient, String schemaName, String filePath) {
@@ -199,15 +195,53 @@ To create a dataset and a schema using the AWS SDKs, you first define a schema i
    ```
 
 ------
+#### [ SDK for JavaScript v3 ]
+
+   ```
+   // Get service clients module and commands using ES6 syntax.
+   import { CreateSchemaCommand } from
+     "@aws-sdk/client-personalize";
+   import { personalizeClient } from "./libs/personalizeClients.js";
+   
+   // Or, create the client here.
+   // const personalizeClient = new PersonalizeClient({ region: "REGION"});
+   
+   import fs from 'fs';
+   
+   let schemaFilePath = "SCHEMA_PATH";
+   let mySchema = "";
+   
+   try {
+     mySchema = fs.readFileSync(schemaFilePath).toString();
+   } catch (err) {
+     mySchema = 'TEST' // For unit tests.
+   }
+   // Set the schema parameters.
+   export const createSchemaParam = {
+     name: 'NAME', /* required */
+     schema: mySchema /* required */
+   };
+   
+   export const run = async () => {
+     try {
+       const response = await personalizeClient.send(new CreateSchemaCommand(createSchemaParam));
+       console.log("Success", response);
+       return response; // For unit tests.
+     } catch (err) {
+       console.log("Error", err);
+     }
+   };
+   run();
+   ```
+
+------
 
    Amazon Personalize returns the ARN of the new schema\. Record it because you'll need it in the next step\.
 
-1. Create a dataset using the [CreateDataset](API_CreateDataset.md) operation\. For information about the different types of datasets, see [Datasets and schemas](how-it-works-dataset-schema.md)\. 
+1. Create a dataset using the [CreateDataset](API_CreateDataset.md) operation\. The following code shows how to create a dataset\. Specify the Amazon Resource Name \(ARN\) of your dataset group, the schema ARN from the previous step, and specify the dataset type \(Interactions, Users, or Items\)\. For information about the different types of datasets, see [Datasets and schemas](how-it-works-dataset-schema.md)\. 
 
 ------
 #### [ SDK for Python \(Boto3\) ]
-
-   Use the following `create_dataset` method to create an Amazon Personalize dataset\. Specify the `datasetGroupArn` returned in [Creating a dataset group \(AWS SDKs\)](data-prep-ds-group.md#data-prep-creating-ds-group-sdk)\. Use the `schemaArn` created in the previous step\. Replace `dataset type` with the type of dataset you are uploading \(Interactions, Users, or Items\)\.
 
    ```
    import boto3
@@ -226,8 +260,6 @@ To create a dataset and a schema using the AWS SDKs, you first define a schema i
 
 ------
 #### [ SDK for Java 2\.x ]
-
-   Use the following `createDataset` method to create an Amazon Personalize dataset\. Pass the following as parameters: a PersonalizeClient, the name for your dataset, the `schemaArn` created in the previous step, your dataset group ARN, and the dataset type \(Interactions, Users, or Items\)\.
 
    ```
    public static String createDataset(PersonalizeClient personalizeClient, 
@@ -256,5 +288,37 @@ To create a dataset and a schema using the AWS SDKs, you first define a schema i
    ```
 
 ------
+#### [ SDK for JavaScript v3 ]
 
-   After you have created a dataset, you are ready to import your training data\. See [ Step 3: Importing your data](data-prep-importing.md)\.
+   ```
+   // Get service clients module and commands using ES6 syntax.
+   import { CreateDatasetCommand } from
+     "@aws-sdk/client-personalize";
+   import { personalizeClient } from "./libs/personalizeClients.js";
+   
+   // Or, create the client here.
+   // const personalizeClient = new PersonalizeClient({ region: "REGION"});
+   
+   // Set the dataset's parameters.
+   export const createDatasetParam = {
+     datasetGroupArn: 'DATASET_GROUP_ARN', /* required */
+     datasetType: 'DATASET_TYPE', /* required */
+     name: 'NAME', /* required */
+     schemaArn: 'SCHEMA_ARN' /* required */
+   }
+   
+   export const run = async () => {
+     try {
+       const response = await personalizeClient.send(new CreateDatasetCommand(createDatasetParam));
+       console.log("Success", response);
+       return response; // For unit tests.
+     } catch (err) {
+       console.log("Error", err);
+     }
+   };
+   run();
+   ```
+
+------
+
+   After you have created a dataset, you are ready to import your training data\. See [ Step 3: Importing your historical data](data-prep-importing.md)\.

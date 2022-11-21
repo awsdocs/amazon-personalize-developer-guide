@@ -89,6 +89,7 @@ Content-type: application/json
    "personalizedRanking": [ 
       { 
          "itemId": "string",
+         "promotionName": "string",
          "score": number
       }
    ],

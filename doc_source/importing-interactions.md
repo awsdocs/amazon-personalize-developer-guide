@@ -1,21 +1,21 @@
-# Importing interactions incrementally<a name="importing-interactions"></a>
+# Importing interactions individually<a name="importing-interactions"></a>
 
-To import interaction *[events](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#event)* incrementally, you create an *[event tracker](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#event-tracker)* and then import one or more events into your Interactions dataset\. You can incrementally import historical interaction events using the Amazon Personalize console, or import historical or real\-time events using the AWS Command Line Interface \(AWS CLI\), or the AWS SDKs\.
+To import interaction *[events](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#event)* individually, you create an *[event tracker](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#event-tracker)* and then import one or more events into your Interactions dataset\. You can import historical individual interaction events using the Amazon Personalize console, or import historical or real\-time events using the AWS Command Line Interface \(AWS CLI\), or the AWS SDKs\.
 
-This section includes information about importing events using the Amazon Personalize console\. We recommend using the Amazon Personalize console to incrementally import *only* historical events\. For information about using the AWS CLI or the AWS SDKs to record events in real\-time, see [Recording events](recording-events.md)\. 
+This section includes information about importing events with the Amazon Personalize console\. We recommend using the Amazon Personalize console to import *only* historical events\. For information about using the AWS CLI or the AWS SDKs to record events in real\-time, see [Recording events](recording-events.md)\. 
 
-For information about how Amazon Personalize updates filters for new records and how new records influence recommendations, see [Importing records incrementally](incremental-data-updates.md)\. 
+For information about how Amazon Personalize updates filters for new records and how new records influence recommendations, see [Importing individual records](incremental-data-updates.md)\. 
 
 **Topics**
 + [Creating an event tracker \(console\)](#event-tracker-console)
-+ [Importing events incrementally \(console\)](#importing-interactions-console)
++ [Importing events individually \(console\)](#importing-interactions-console)
 
 ## Creating an event tracker \(console\)<a name="event-tracker-console"></a>
 
 **Note**  
- If you've created an event tracker, you can skip to [Importing events incrementally \(console\)](#importing-interactions-console)\. 
+ If you've created an event tracker, you can skip to [Importing events individually \(console\)](#importing-interactions-console)\. 
 
-Before you can incrementally import an event to an Interactions dataset, you must create an *[event tracker](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#event-tracker)* for the dataset group\. 
+Before you can import an event to an Interactions dataset, you must create an *[event tracker](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#event-tracker)* for the dataset group\. 
 
 **To create an event tracker \(console\)**
 
@@ -31,13 +31,13 @@ Before you can incrementally import an event to an Interactions dataset, you mus
 
    You can ignore this information because you're using the Amazon Personalize console to upload event data\. If you want to stream event data using AWS Amplify or AWS Lambda in the future, you can view this information by choosing the event tracker on the **Event trackers** page\. 
 
-1. Choose **Finish**\. You can now incrementally import events using the console \(see [Importing events incrementally \(console\)](#importing-interactions-console) or record events in real time using the `PutEvents` operation \(see [Recording events](recording-events.md)\)\. 
+1. Choose **Finish**\. You can now import events with the console \(see [Importing events individually \(console\)](#importing-interactions-console) or record events in real time using the `PutEvents` operation \(see [Recording events](recording-events.md)\)\. 
 
-## Importing events incrementally \(console\)<a name="importing-interactions-console"></a>
+## Importing events individually \(console\)<a name="importing-interactions-console"></a>
 
- After you create an event tracker, you can incrementally import events to an Interactions dataset\. This procedure assumes you have already created an Interactions dataset\. For information about creating datasets, see [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md)\.
+ After you create an event tracker, you can import events individually into an Interactions dataset\. This procedure assumes you have already created an Interactions dataset\. For information about creating datasets, see [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md)\.
 
-**To import events incrementally \(console\)**
+**To import events individually \(console\)**
 
 1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign in to your account\.
 

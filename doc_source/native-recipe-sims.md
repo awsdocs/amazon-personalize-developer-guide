@@ -1,8 +1,11 @@
-# SIMS recipe<a name="native-recipe-sims"></a>
+# SIMS recipe \(legacy\)<a name="native-recipe-sims"></a>
+
+**Note**  
+ We recommend using the aws\-similar\-items \(Similar\-Items\) recipe over the legacy SIMS recipe\. Similar\-Items is more accurate and it calculates similarity based on interactions data *and* any item metadata\. SIMS uses only interactions data\. For more information, see [Similar\-Items recipe](native-recipe-similar-items.md)\. 
 
  The Item\-to\-item similarities \(SIMS\) recipe uses collaborative filtering to recommend items that are most similar to an item you specify when you get recommendations\. SIMS uses your Interactions dataset, not item metadata such as color or price, to determine similarity\. SIMS identifies the co\-occurrence of the item in user histories in your Interaction dataset to recommend similar items\. For example, with SIMS Amazon Personalize could recommend coffee shop items customers frequently bought together or movies that different users also watched\. 
 
- Training is faster with the SIMS recipe compared to other recipes\. If there isn't sufficient user behavior data for an item or the item ID you provide isn't found, SIMS recommends popular items\. After you create a solution version, make sure you keep your solution version and data up to date\. With SIMS, you must manually create a new solution version \(retrain the model\) to reflect updates to your catalog and update the model with your user’s most recent behavior\. For more information, see [Maintaining recommendation relevance](maintaining-relevance.md)\.  
+ If there isn't sufficient user behavior data for an item or the item ID you provide isn't found, SIMS recommends popular items\. After you create a solution version, make sure you keep your solution version and data up to date\. With SIMS, you must manually create a new solution version \(retrain the model\) to reflect updates to your catalog and update the model with your user’s most recent behavior\. Then you must update any campaign using the solution version\. For more information, see [Maintaining recommendation relevance](maintaining-relevance.md)\.  
 
 The SIMS recipe has the following properties:
 +  **Name** – `aws-sims`

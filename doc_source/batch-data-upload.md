@@ -2,6 +2,8 @@
 
  Batch inference and batch segment jobs use a solution version to make recommendations or user segments based on data that you provide in an input JSON file\. Before you can get batch recommendations or user segments, you must prepare and upload your JSON file to an Amazon S3 bucket\. We recommend that you create an output folder in your Amazon S3 bucket or use a separate output Amazon S3 bucket\. You can then run multiple batch inference jobs using the same input data location\. 
 
+ If you use a filter with placeholder parameters, such as `$GENRE`, you must provide the values for the parameters in a `filterValues` object in your input JSON\. For more information see [Providing filter values in your input JSON](filter-batch.md#providing-filter-values)\. 
+
 **To prepare and import data**
 
 1. 
@@ -19,6 +21,8 @@
 ## Input and output JSON examples<a name="batch-recommendations-json-examples"></a>
 
 How you format your input data depends on the type of batch job you create and the recipe you use\. The following sections list correctly formatted JSON input and output examples for batch inference jobs and batch segment jobs\.
+
+ If you use a filter with placeholder parameters, such as `$GENRE`, you must provide the values for the parameters in a `filterValues` object in your input JSON\. For more information see [Providing filter values in your input JSON](filter-batch.md#providing-filter-values)\. 
 
 **Topics**
 + [Batch inference job input and output JSON examples](#batch-inference-job-json-examples)

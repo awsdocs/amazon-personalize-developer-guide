@@ -1,21 +1,21 @@
-# Importing users incrementally<a name="importing-users"></a>
+# Importing users individually<a name="importing-users"></a>
 
- After you create a Users dataset, you can incrementally import one or more new users into the dataset\. Incrementally importing users allows you to keep your Users dataset current as your business grows\. If you have a large amount of new users, we recommend that you first import data in bulk and then import user data incrementally as necessary\. See [Importing bulk records](bulk-data-import.md)\. 
+ After you create a Users dataset, you can individually import one or more new users into the dataset\. Individually importing users allows you to keep your Users dataset current with small batch imports as your catalog grows\. You can import up to 10 users at a time\. If you have a large amount of new users, we recommend that you first import data in bulk and then import user data individually as necessary\. See [Importing bulk records](bulk-data-import.md)\. 
 
 You can use the Amazon Personalize console, the AWS Command Line Interface \(AWS CLI\), or AWS SDKs to import users\. If you import a user with the same `userId` as a user that's already in your Users dataset, Amazon Personalize replaces the user with the new one\. You can import up to 10 users at a time\.
 
-For information about how Amazon Personalize updates filters for new records and how new records influence recommendations, see [Importing records incrementally](incremental-data-updates.md)\. 
+For information about how Amazon Personalize updates filters for new records and how new records influence recommendations, see [Importing individual records](incremental-data-updates.md)\. 
 
 **Topics**
-+ [Importing users incrementally \(console\)](#importing-users-console)
-+ [Importing users incrementally \(AWS CLI\)](#importing-users-cli)
-+ [Importing users incrementally \(AWS SDKs\)](#importing-users-cli-sdk)
++ [Importing users individually \(console\)](#importing-users-console)
++ [Importing users individually \(AWS CLI\)](#importing-users-cli)
++ [Importing users individually \(AWS SDKs\)](#importing-users-sdk)
 
-## Importing users incrementally \(console\)<a name="importing-users-console"></a>
+## Importing users individually \(console\)<a name="importing-users-console"></a>
 
 You can import up to 10 users at a time\. This procedure assumes you have already created a Users dataset\. For information about creating datasets, see [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md)\.
 
-**To import users incrementally \(console\)**
+**To import users individually \(console\)**
 
 1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign in to your account\.
 
@@ -31,7 +31,7 @@ You can import up to 10 users at a time\. This procedure assumes you have alread
 
 1. Choose **Create record\(s\)**\. In **Response**, the result of the import is listed and a success or failure message is displayed\.
 
-## Importing users incrementally \(AWS CLI\)<a name="importing-users-cli"></a>
+## Importing users individually \(AWS CLI\)<a name="importing-users-cli"></a>
 
 Add one or more users to your Users dataset with the [PutUsers](API_UBS_PutUsers.md) operation\. You can import up to 10 users with a single `PutUsers` call\. This section assumes that you have already created an Users dataset\. For information about creating datasets, see [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md)\.
 
@@ -52,18 +52,16 @@ aws personalize-events put-users \
     }]'
 ```
 
-## Importing users incrementally \(AWS SDKs\)<a name="importing-users-cli-sdk"></a>
+## Importing users individually \(AWS SDKs\)<a name="importing-users-sdk"></a>
 
-Add one or more users to your Users dataset with the [PutUsers](API_UBS_PutUsers.md) operation\. You can import up to 10 users with a single `PutUsers` call\. This section assumes that you have already created a Users dataset\. For information about creating datasets, see [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md)\.
+Add one or more users to your Users dataset with the [PutUsers](API_UBS_PutUsers.md) operation\. If a user with the same `userId` is already in your Users dataset, Amazon Personalize replaces it with the new one\. You can import up to 10 users with a single `PutUsers` call\. This section assumes that you have already created a Users dataset\. For information about creating datasets, see [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md)\.
 
- The following code shows how to add one or more users to your Users dataset with the AWS SDK for Python \(Boto3\) or the AWS SDK for Java 2\.x\. 
+ The following code shows how to add one or more users to your Users dataset\. For each property name parameter, pass the field name from your schema in camel case\. For example, GENDER would be `gender` and MEMBERSHIP\_TYPE would be `membershipType`\. For each property value parameter, pass the data for the user\. 
+
+For categorical string data, to include multiple categories for a single property separate each category with a pipe \(`|`\)\. For example `"Premium class|Legacy Member"`\.
 
 ------
 #### [ SDK for Python \(Boto3\) ]
-
-Replace `dataset arn` with the Amazon Resource Name \(ARN\) of your dataset and `user Id` with the ID of the user\. If a user with the same `userId` is already in your Users dataset, Amazon Personalize replaces it with the new one\. 
-
-For `properties`, for each field in your Users dataset, replace the `propertyName` with the field name from your schema in camel case\. For example, GENDER would be `gender` and MEMBERSHIP\_TYPE would be `membershipType`\. Replace `user data` with the data for the user\. For categorical string data, to include multiple categories for a single property separate each category with a pipe \(`|`\)\. For example `\"Premium Class|Legacy Member\"`\.
 
 ```
 import boto3
@@ -73,22 +71,18 @@ personalize_events = boto3.client(service_name='personalize-events')
 personalize_events.put_users(
     datasetArn = 'dataset arn',
     users = [{
-        'userId': 'user ID',
-        'properties': "{\"propertyName\": \"user data\"}"   
-        },
-        {
-        'userId': 'user ID',
-        'properties': "{\"propertyName\": \"user data\"}"   
-        }]
+      'userId': 'user ID',
+      'properties': "{\"propertyName\": \"user data\"}"   
+      },
+      {
+      'userId': 'user ID',
+      'properties': "{\"propertyName\": \"user data\"}"   
+      }]
 )
 ```
 
 ------
 #### [ SDK for Java 2\.x ]
-
- The following `putUsers` method shows how to add two users to a Users dataset with the SDK for Java 2\.x\. If a user with the same `userId` is already in your Users dataset, Amazon Personalize replaces it with the new one\. In this example, each user has a single property\. If your Users dataset schema has additional fields, modify the code to use additional property and value parameters\. 
-
-For each property name parameter, pass the field name from your schema in camel case\. For example, GENDER would be `gender` and MEMBERSHIP\_TYPE would be `membershipType`\. For each property value parameter, pass the data for the user\. For categorical string data, to include multiple categories for a single property separate each category with a pipe \(`|`\)\. For example `"Premium class|Legacy Member"`\.
 
 ```
 public static int putUsers(PersonalizeEventsClient personalizeEventsClient,
@@ -131,6 +125,39 @@ public static int putUsers(PersonalizeEventsClient personalizeEventsClient,
     }
     return responseCode;
 }
+```
+
+------
+#### [ SDK for JavaScript v3 ]
+
+```
+// Get service clients module and commands using ES6 syntax.
+import { PutUsersCommand } from
+  "@aws-sdk/client-personalize-events";
+import { personalizeEventsClient } from "./libs/personalizeClients.js";
+// Or, create the client here.
+// const personalizeEventsClient = new PersonalizeEventsClient({ region: "REGION"});
+
+// Set the put users parameters. For string properties and values, use the \ character to escape quotes.
+var putUsersParam = {
+    datasetArn: "DATASET_ARN",
+    users: [ 
+      {
+        'userId': 'USER_ID',
+        'properties': "{\"PROPERTY1_NAME\": \"PROPERTY1_VALUE\"}"   
+      }
+    ]
+};
+export const run = async () => {
+  try {
+    const response = await personalizeEventsClient.send(new PutUsersCommand(putUsersParam));
+    console.log("Success!", response);
+    return response; // For unit tests.
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+run();
 ```
 
 ------

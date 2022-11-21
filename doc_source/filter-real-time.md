@@ -2,6 +2,8 @@
 
 You can filter real\-time recommendations with the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\), or the AWS SDKs\.
 
+ When you get personalized recommendations or similar items, you can specify a promotion in your request\. A *promotion* uses a filter to define additional business rules that apply to a configurable subset of recommended items\. For more information see [Promoting items in recommendations \(Custom dataset group\)](promoting-items.md)\. 
+
 **Topics**
 + [Filtering real\-time recommendations \(console\)](#filter-rt-console)
 + [Filtering real\-time recommendations \(AWS CLI\)](#filter-rt-cli)
@@ -82,7 +84,7 @@ To build a filter expression:
 
   Separate multiple non\-parameter values with a comma\. You cannot add comma\-separated parameters to a filter\.
 **Note**  
-After you choose a **Property** \(in `dataset.property` format\), the **Property** value for any succeeding rows chained by `AND` or `OR` conditions must use the same `dataset`\.
+After you choose a **Property** \(in `dataset.field` format\), the **Property** value for any succeeding rows chained by `AND` or `OR` conditions must use the same `dataset`\.
 +  Use the **\+** and **X** buttons to add or delete a row from your expression\. You can't delete the first row\. 
 +  For new rows, use the `AND`, `IF`, or `OR` operators on the **AND** menu to create a chain of conditions\. 
 
@@ -181,12 +183,10 @@ To filter recommendations using a filter with parameters and a campaign you depl
 
 ### Creating a filter \(AWS SDKs\)<a name="creating-filter-sdk"></a>
 
- Create a new filter with the [CreateFilter](API_CreateFilter.md) operation\. 
+ Create a new filter with the [CreateFilter](API_CreateFilter.md) operation\. The following code shows how to create a filter\. Specify the filter name, Amazon Resource Name \(ARN\) of your dataset group, and provide your filter expression\. 
 
 ------
 #### [ SDK for Python \(Boto3\) ]
-
-Use the following `create_filter` method to create a filter with the AWS SDK for Python \(Boto3\)\. Replace `Filter Name` with the name of the filter, and `Dataset Group ARN` with the Amazon Resource Name \(ARN\) of the dataset group\. Replace the example `filterExpression` with your own filter expression\.
 
 ```
 import boto3
@@ -202,12 +202,8 @@ filter_arn = response["filterArn"]
 print("Filter ARN: " + filter_arn)
 ```
 
-Record the filter ARN for later use\. To verify that the filter is active, use the [DescribeFilter](API_DescribeFilter.md) operation before using the filter\. For more information about the API, see [CreateFilter](API_CreateFilter.md)\. For more information about filter expressions, including examples, see [Creating filter expressions](filter-expressions.md#creating-filter-expressions)\.
-
 ------
 #### [ SDK for Java 2\.x ]
-
-The following `createFilter` method shows how to create a filter with the AWS SDK for Java 2\.x\. The method returns the ARN \(Amazon Resource Number\) of the new filter\. Pass the following as parameters: an Amazon Personalize service client, a name for the filter, the dataset group where you want to create the filter, and the filter expression\. For more information about filter expressions, including examples, see [Creating filter expressions](filter-expressions.md#creating-filter-expressions)\. 
 
 ```
 public static String createFilter(PersonalizeClient personalizeClient,
@@ -232,22 +228,52 @@ public static String createFilter(PersonalizeClient personalizeClient,
 ```
 
 ------
+#### [ SDK for JavaScript v3 ]
+
+```
+// Get service clients module and commands using ES6 syntax.
+import { CreateFilterCommand } from
+  "@aws-sdk/client-personalize";
+import { personalizeClient } from "./libs/personalizeClients.js";
+// Or, create the client here.
+// const personalizeClient = new PersonalizeClient({ region: "REGION"});
+
+// Set the filter's parameters.
+export const createFilterParam = {
+  datasetGroupArn: 'DATASET_GROUP_ARN', /* required */
+  name: 'NAME', /* required */
+  filterExpression: 'FILTER_EXPRESSION' /*required */
+}
+
+export const run = async () => {
+  try {
+    const response = await personalizeClient.send(new CreateFilterCommand(createFilterParam));
+    console.log("Success", response);
+    return response; // For unit tests.
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+run();
+```
+
+------
+
+Record the filter ARN for later use\. To verify that the filter is active, use the [DescribeFilter](API_DescribeFilter.md) operation before using the filter\. For more information about the API, see [CreateFilter](API_CreateFilter.md)\. For more information about filter expressions, including examples, see [Creating filter expressions](filter-expressions.md#creating-filter-expressions)\.
 
 ### Applying a filter \(AWS SDKs\)<a name="applying-filter-sdk"></a>
 
 When you use the `get_recommendations` or `get_personalized_ranking` methods, apply a filter by passing a `filterArn` and any filter values as parameters\.
 
- The following code shows how to filter recommendations with the AWS SDK for Python \(Boto3\) or the AWS SDK for Java 2\.x\. 
+The following code shows how to get filtered Amazon Personalize recommendations for a user\. Specify the ID of the user you want to get recommendations for, the Amazon Resource Name \(ARN\) of your campaign, and the ARN of your filter\. If you're getting recommendations from a recommender instead of a campaign, use `recommenderArn` instead of `campaignArn` and provide the ARN for the recommender\. 
+
+For `filterValues`, for each optional parameter in your filter expression, provide the parameter name \(case sensitive\) and the value or values\. For example, if your filter expression has a `$GENRES` parameter, provide *"GENRES"* as the key, and a genre or genres, such as `"\"Comedy"\"`, as the value\. For multiple values, separate each value with a comma\. For example, `"\"comedy\",\"drama\",\"horror\""`\. 
 
 **Important**  
 For filter expressions that use an `INCLUDE` element to include items, you must provide values for all parameters that are defined in the expression\. For filters with expressions that use an `EXCLUDE` element to exclude items, you can omit the `filter-values`\. In this case, Amazon Personalize doesn't use that portion of the expression to filter recommendations\. 
 
 ------
 #### [ SDK for Python \(Boto3\) ]
-
-Use the following `get_recommendations` method to filter recommendations with the SDK for Python \(Boto3\)\. Replace `Campaign ARN` with the Amazon Resource Name \(ARN\) of your campaign, `User ID` with the ID of the user that you are getting recommendations for, and `Filter ARN` with the ARN of your filter\. If you're getting recommendations from a recommender instead of a campaign, use `recommenderArn` instead of `campaignArn` and provide the ARN for the recommender\.
-
-For `filterValues`, for each optional parameter in your filter expression, provide the parameter name \(case sensitive\) and the value or values\. For example, if your filter expression has a `$GENRES` parameter, provide *"GENRES"* as the key, and a genre or genres, such as `"\"Comedy"\"`, as the value\. For multiple values, separate each value with a comma\. For example, `"\"comedy\",\"drama\",\"horror\""`\. 
 
 ```
 import boto3
@@ -268,8 +294,6 @@ response = personalize_runtime.get_recommendations(
 
 ------
 #### [ SDK for Java 2\.x ]
-
-Use the following `getFilteredRecs` method to apply a filter to an Amazon Personalize recommendation request\. Pass the following as parameters: an Amazon Personalize runtime service client, the campaign's ARN \(Amazon Resource Name\), the user's userID, the filter's ARN, and any filter parameter names \(case sensitive\) and their values\. For example, if your filter expression has a `$GENRES` parameter, provide *"GENRES"* as the parameter name\. If you're getting recommendations from a recommender instead of a campaign, use `recommenderArn` instead of `campaignArn` and provide the ARN for the recommender\. 
 
 The following example uses two parameters, one with two values and one with one value\. Depending on your filter expression, modify the code to add or remove parameterName and parameterValue fields\.
 
@@ -313,6 +337,40 @@ public static void getFilteredRecs(PersonalizeRuntimeClient personalizeRuntimeCl
         System.exit(1);
     }
 }
+```
+
+------
+#### [ SDK for JavaScript v3 ]
+
+```
+// Get service clients module and commands using ES6 syntax.
+import { GetRecommendationsCommand } from
+  "@aws-sdk/client-personalize-runtime";
+import { personalizeRuntimeClient } from "./libs/personalizeClients.js";
+// Or, create the client here:
+// const personalizeRuntimeClient = new PersonalizeRuntimeClient({ region: "REGION"});
+
+// Set recommendation request parameters.
+export const getRecommendationsParam = {
+  campaignArn: 'CAMPAIGN_ARN', /* required */
+  userId: 'USER_ID',      /* required */
+  numResults: 15,    /* optional */
+  filterArn: 'FILTER_ARN',   /* required to filter recommendations */
+  filterValues: {
+    "PROPERTY": "\"VALUE\""  /* Only required if your filter has a placeholder parameter */
+  }
+}
+
+export const run = async () => {
+  try {
+    const response = await personalizeRuntimeClient.send(new GetRecommendationsCommand(getRecommendationsParam));
+    console.log("Success!", response);
+    return response; // For unit tests.
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+run();
 ```
 
 ------

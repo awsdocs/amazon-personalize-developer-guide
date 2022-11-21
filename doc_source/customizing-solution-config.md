@@ -71,16 +71,12 @@ Record the solution ARN for future use and proceed to [Creating a solution versi
 
 ## Configuring a solution \(AWS SDKs\)<a name="configure-solution-sdk"></a>
 
-The following code shows how to create an Amazon Personalize solution using the SDK for Python \(Boto3\) or SDK for Java 2\.x\.
+The following code shows how to create an Amazon Personalize solution\. Give the solution a name, and specify the Amazon Resource Name \(ARN\) of your dataset group, and the ARN of the recipe to use\. For information on recipes, see [Step 1: Choosing a recipe](working-with-predefined-recipes.md)\. 
 
 You can modify the following code to optimize recipe properties and hyperparameters \(see [Hyperparameters and HPO](customizing-solution-config-hpo.md)\) or filter the Interactions data used for training \(see [Choosing the interactions data used for training](event-values-types.md)\)\. If you use either the [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md) or [Personalized\-Ranking recipe](native-recipe-search.md) recipe, you can optimize your solution for an objective in addition to relevance\. For more information see [Optimizing a solution for an additional objective](optimizing-solution-for-objective.md)\.
 
-Record the solution ARN for future use and proceed to [Creating a solution version \(AWS SDKs\)](creating-a-solution-version.md#create-solution-version-sdk)\.
-
 ------
 #### [ SDK for Python \(Boto3\) ]
-
-Create a new solution using the following `create_solution` method\. Replace `solution name` with your solution name, `recipe arn` with the recipe Amazon Rescource Name \(ARN\) from [Step 1: Choosing a recipe](working-with-predefined-recipes.md), and `dataset group arn` with the ARN of your dataset group\.
 
 ```
 import boto3
@@ -99,8 +95,6 @@ print('solution_arn: ', solution_arn)
 
 ------
 #### [ SDK for Java 2\.x ]
-
-Create a new solution using the following `createPersonalizeSolution` method\. Pass the following as parameters: A `PersonalizeClient`, the Amazon Resource Name \(ARN\) of your dataset group, a name for the solution, and the ARN for the recipe from [Step 1: Choosing a recipe](working-with-predefined-recipes.md)\. 
 
 ```
     public static String createPersonalizeSolution(PersonalizeClient personalizeClient,
@@ -123,7 +117,39 @@ Create a new solution using the following `createPersonalizeSolution` method\. P
             System.exit(1);
         }
         return "";
- }
+    }
 ```
 
 ------
+#### [ SDK for JavaScript v3 ]
+
+```
+// Get service clients module and commands using ES6 syntax.
+import { CreateSolutionCommand } from
+  "@aws-sdk/client-personalize";
+import { personalizeClient } from "./libs/personalizeClients.js";
+// Or, create the client here.
+// const personalizeClient = new PersonalizeClient({ region: "REGION"});
+
+// Set the solution parameters.
+export const createSolutionParam = {
+  datasetGroupArn: 'DATASET_GROUP_ARN', /* required */
+  recipeArn: 'RECIPE_ARN', /* required */
+  name: 'NAME' /* required */
+}
+
+export const run = async () => {
+  try {
+    const response = await personalizeClient.send(new CreateSolutionCommand(createSolutionParam));
+    console.log("Success", response);
+    return response; // For unit tests.
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+run();
+```
+
+------
+
+Record the solution ARN for future use and proceed to [Creating a solution version \(AWS SDKs\)](creating-a-solution-version.md#create-solution-version-sdk)\.

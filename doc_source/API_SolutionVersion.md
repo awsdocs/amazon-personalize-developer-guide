@@ -32,6 +32,13 @@ The date and time \(in Unix time\) that the solution was last updated\.
 Type: Timestamp  
 Required: No
 
+ ** name **   <a name="personalize-Type-SolutionVersion-name"></a>
+The name of the solution version\.  
+Type: String  
+Length Constraints: Minimum length of 1\. Maximum length of 63\.  
+Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`   
+Required: No
+
  ** performAutoML **   <a name="personalize-Type-SolutionVersion-performAutoML"></a>
 When true, Amazon Personalize searches for the most optimal recipe according to the solution configuration\. When false \(the default\), Amazon Personalize uses `recipeArn`\.  
 Type: Boolean  

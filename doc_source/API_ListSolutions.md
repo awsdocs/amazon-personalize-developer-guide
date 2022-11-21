@@ -45,6 +45,7 @@ Required: No
          "creationDateTime": number,
          "lastUpdatedDateTime": number,
          "name": "string",
+         "recipeArn": "string",
          "solutionArn": "string",
          "status": "string"
       }

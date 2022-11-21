@@ -1,6 +1,7 @@
 # HRNN\-Metadata recipe \(legacy\)<a name="native-recipe-hrnn-metadata"></a>
 
 **Note**  
+Legacy HRNN recipes are no longer available\. This documentation is for reference purposes\.  
  We recommend using the aws\-user\-personalizaton \(User\-Personalization\) recipe over the legacy HRNN recipes\. User\-Personalization improves upon and unifies the functionality offered by the HRNN recipes\. For more information, see [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
 
 The HRNN\-Metadata recipe predicts the items that a user will interact with\. It is similar to the [HRNN](native-recipe-hrnn.md) recipe, with additional features derived from contextual, user, and item metadata \(from Interactions, Users, and Items datasets, respectively\)\. HRNN\-Metadata provides accuracy benefits over non\-metadata models when high quality metadata is available\. Using this recipe might require longer training times\.

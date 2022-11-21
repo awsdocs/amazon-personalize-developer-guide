@@ -7,10 +7,8 @@
 1.  Import your data into an Amazon Personalize dataset and record real\-time event data from user interactions with items\. 
 
 1. Choose a recipe \(algorithm\) to use on the data and when you have collected enough data, train a solution version with the recipe\.
-
-    The minimum data requirements to train a model are as follows: 
-   +  1000 records of combined interaction data \(after filtering by `eventType` and `eventValueThreshold`, if provided\)\.
-   +  25 unique users with at least 2 interactions each\. 
+   + At minimum 1000 interactions records from users interacting with items in your catalog\. These interactions can be from bulk imports, or streamed events, or both\.
+   + At minimum 25 unique user IDs with at least 2 interactions for each\.
 
     Different recipes have additional data requirements\. For more information see [Step 1: Choosing a recipe](working-with-predefined-recipes.md)\. 
 

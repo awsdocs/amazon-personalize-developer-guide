@@ -31,6 +31,13 @@ Provides a summary of the latest updates to the recommender\.
 Type: [RecommenderUpdateSummary](API_RecommenderUpdateSummary.md) object  
 Required: No
 
+ ** modelMetrics **   <a name="personalize-Type-Recommender-modelMetrics"></a>
+Provides evaluation metrics that help you determine the performance of a recommender\. For more information, see [ Evaluating a recommender](https://docs.aws.amazon.com/personalize/latest/dg/evaluating-recommenders.html)\.  
+Type: String to double map  
+Map Entries: Maximum number of 100 items\.  
+Key Length Constraints: Maximum length of 256\.  
+Required: No
+
  ** name **   <a name="personalize-Type-Recommender-name"></a>
 The name of the recommender\.  
 Type: String  
@@ -61,6 +68,7 @@ Required: No
 The status of the recommender\.  
 A recommender can be in one of the following states:  
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
++ STOP PENDING > STOP IN\_PROGRESS > INACTIVE > START PENDING > START IN\_PROGRESS > ACTIVE
 + DELETE PENDING > DELETE IN\_PROGRESS
 Type: String  
 Length Constraints: Maximum length of 256\.  

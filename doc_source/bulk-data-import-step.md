@@ -1,58 +1,64 @@
 # Importing bulk records with a dataset import job<a name="bulk-data-import-step"></a>
 
-**Important**  
-Bulk imports in Amazon Personalize are a full refresh of bulk data\. Existing bulk data in the dataset is replaced\. This does not include records imported incrementally\.
-
 After you have formatted your input data \(see [Formatting your input data](data-prep-formatting.md)\) and uploaded it to an Amazon Simple Storage Service \(Amazon S3\) bucket \(see [Uploading to an Amazon S3 bucket](data-prep-upload-s3.md)\), import the bulk records by creating a dataset import job\. 
 
 A *dataset import job* is a bulk import tool that populates your dataset with data from your S3 bucket\. You create a dataset import job and import bulk records using the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\), or AWS SDKs\.
+
+If you've previously created a dataset import job for a dataset, you can use a new dataset import job to add to or replace the existing bulk data\. For more information see [Updating existing bulk data](updating-existing-bulk-data.md)\. 
 
 **Topics**
 + [Importing bulk records \(console\)](#bulk-data-import-console)
 + [Importing bulk records \(AWS CLI\)](#bulk-data-import-cli)
 + [Importing bulk records \(AWS SDKs\)](#python-import-ex)
++ [Updating existing bulk data](updating-existing-bulk-data.md)
 
 ## Importing bulk records \(console\)<a name="bulk-data-import-console"></a>
 
- To import bulk records into a dataset in Amazon Personalize using the console, create a dataset import job with a name, the IAM service role, and the location of your data\. 
+**Important**  
+By default, a dataset import job replaces any existing data in the dataset that you imported in bulk\. For information about updating existing data, see [Updating existing bulk data](updating-existing-bulk-data.md)\.
+
+ To import bulk records into a dataset with the Amazon Personalize console, create a dataset import job with a name, the IAM service role, and the location of your data\.
+
+If you just created your dataset in [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md), skip to step 5\. If you've already completed an initial import job and want to refresh your data, see [Updating bulk records \(console\)](updating-existing-bulk-data.md#updating-bulk-data-console)\.
 
 **To import bulk records \(console\)**
-**Note**  
-If you just created your dataset in [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md), skip to step 5\.
 
 1. Open the Amazon Personalize console at [https://console\.aws\.amazon\.com/personalize/home](https://console.aws.amazon.com/personalize/home) and sign in to your account\.
 
-1.  On the **Dataset groups** page, choose your dataset group\. The dataset group **Dashboard** is displayed\. 
+1.  On the **Dataset groups** page, choose your dataset group\. The dataset group **Overview** displays\.
 
-1. In the **Upload datasets** section, for the type of dataset you want to import, choose **Import**\.\. The **Configure < dataset type >** page is displayed\.
+1. In the **Create datasets** section, choose the **Import** button for the type of data you want to import\. The **Configure < dataset type > schema** page displays\.
 
-1. If you already created a dataset of this type, all **Dataset details** and **Schema details** fields are disabled\. Choose **Next**\. 
+1. In **Dataset import job details**, for **Data import source** choose **Import data from S3**\. 
 
-   If haven't created a dataset of this type, complete the **Dataset details** and **Schema details** fields to create a dataset\. 
+1. For **Dataset import job name**, specify a name for your import job\.
 
-1. In **Dataset import job details**, for **Dataset import job name**, specify a name for your import job\.
-
-1. For **IAM service role**, keep the default selection of **Enter a custom IAM role ARN**\.
-
-1. For **Custom IAM role ARN**, specify the role that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
-
-1. For **Data location**, specify where your data file is stored in Amazon S3\. Use the following syntax:
+1. In **Input source**, for **S3 Location**, specify where your data file is stored in Amazon S3\. Use the following syntax:
 
    **s3://<name of your S3 bucket>/<folder path>/<CSV filename>**
 **Note**  
 If your CSV files are in a folder in your S3 bucket and you want to upload multiple CSV files to a dataset with one dataset import job, use this syntax without the CSV file name\. 
 
+1. In **IAM role**, choose to either create a new role or use an existing one\. If you completed the perquisites, choose **Use an existing service role** and specify the role that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. 
+
+1. If you created a metric attribution and want to publish metrics related to this job to Amazon S3, in **Publish event metrics to S3** choose **Publish metrics for this import job**\. 
+
+   If you haven't created one and want to publish metrics for this job, choose **Create metric attribution** to create a new one on a different tab\. After you create the metric attribution, you can return to this screen and finish creating the import job\. 
+
+   For more information on metric attributions, see [Measuring impact of recommendations](measuring-recommendation-impact.md)\.
+
 1. For **Tags**, optionally add any tags\. For more information about tagging Amazon Personalize resources, see [Tagging Amazon Personalize resources](tagging-resources.md)\.
 
-1. Choose **Finish**\. The data import job starts and the **Dashboard Overview** page is displayed\.
+1. Choose **Finish**\. The data import job starts and the **Dashboard Overview** page is displayed\. The dataset import is complete when the status shows as ACTIVE\. You can now train the model using the specified dataset\.
 
-   The dataset import is complete when the status shows as ACTIVE\. You can now train the model using the specified dataset\.
-
-   After you import your data into the relevant datasets in the dataset group, create a solution version by training a model\. For more information, see [Creating a solution](training-deploying-solutions.md)\. 
+   After you import your data you are ready to create a solution\. For more information, see [Creating a solution](training-deploying-solutions.md)\. 
 
 ## Importing bulk records \(AWS CLI\)<a name="bulk-data-import-cli"></a>
 
- To import bulk records using the AWS CLI, create a dataset import job using the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) command\. 
+**Important**  
+By default, a dataset import job replaces any existing data in the dataset that you imported in bulk\. For information about updating existing data, see [Updating existing bulk data](updating-existing-bulk-data.md)\.
+
+ To import bulk records using the AWS CLI, create a dataset import job using the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) command\. If you've previously created a dataset import job for a dataset, you can use the import mode parameter to specify how to add the new data\. For a code sample, see [Updating bulk records \(AWS CLI\)](updating-existing-bulk-data.md#updating-bulk-data-cli)\.
 
 **Import bulk records \(AWS CLI\)**
 
@@ -60,14 +66,15 @@ If your CSV files are in a folder in your S3 bucket and you want to upload multi
 
    **s3://<name of your S3 bucket>/<folder path>/<CSV filename>**
 
-   Provide the AWS Identity and Access Management \(IAM\) role Amazon Resource Name \(ARN\) that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. For more information about the operation, see [CreateDatasetImportJob](API_CreateDatasetImportJob.md)\.
+   Provide the AWS Identity and Access Management \(IAM\) role Amazon Resource Name \(ARN\) that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. The default `import-mode` is `FULL`\. For more information see [Updating existing bulk data](updating-existing-bulk-data.md)\. For more information about the operation, see [CreateDatasetImportJob](API_CreateDatasetImportJob.md)\.
 
    ```
    aws personalize create-dataset-import-job \
-     --job-name dataset import job name \
-     --dataset-arn dataset arn \
-     --data-source dataLocation=s3://bucketname/filename \
-     --role-arn roleArn
+   --job-name dataset import job name \
+   --dataset-arn dataset arn \
+   --data-source dataLocation=s3://bucketname/filename \
+   --role-arn roleArn \
+   --import-mode FULL
    ```
 
    The dataset import job ARN is displayed, as shown in the following example\.
@@ -82,7 +89,7 @@ If your CSV files are in a folder in your S3 bucket and you want to upload multi
 
    ```
    aws personalize describe-dataset-import-job \
-     --dataset-import-job-arn dataset import job arn
+   --dataset-import-job-arn dataset import job arn
    ```
 
    The properties of the dataset import job, including its status, are displayed\. Initially, the `status` shows as CREATE PENDING\.
@@ -96,6 +103,7 @@ If your CSV files are in a folder in your S3 bucket and you want to upload multi
          "dataSource": {
              "dataLocation": "s3://<bucketname>/ratings.csv"
          },
+         "importMode": "FULL",
          "roleArn": "role-arn",
          "status": "CREATE PENDING",
          "creationDateTime": 1542392161.837,
@@ -110,7 +118,10 @@ If your CSV files are in a folder in your S3 bucket and you want to upload multi
 
 ## Importing bulk records \(AWS SDKs\)<a name="python-import-ex"></a>
 
-To add data to your dataset, create and run a dataset import job with the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) operation\. The following code shows how to create a dataset import job using the SDK for Python \(Boto3\) or SDK for Java 2\.x\.
+**Important**  
+By default, a dataset import job replaces any existing data in the dataset that you imported in bulk\. For information about updating existing data, see [Updating existing bulk data](updating-existing-bulk-data.md)\.
+
+To import data, create a dataset import job with the [CreateDatasetImportJob](API_CreateDatasetImportJob.md) operation\. The following code shows how to create a dataset import job\.
 
 ------
 #### [ SDK for Python \(Boto3\) ]
@@ -119,7 +130,7 @@ Give the job name, set the `datasetArn` the Amazon Resource Name \(ARN\) of your
 
 **s3://<name of your S3 bucket>/<folder path>/<CSV filename>**
 
-For the `roleArn`, specify the AWS Identity and Access Management \(IAM\) role that gives Amazon Personalize permissions to access your S3 bucket\. See [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
+For the `roleArn`, specify the AWS Identity and Access Management \(IAM\) role that gives Amazon Personalize permissions to access your S3 bucket\. See [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. The default `importMode` is `FULL`\. For more information see [Updating bulk records \(AWS SDKs\)](updating-existing-bulk-data.md#updating-bulk-data-sdk)\. 
 
 ```
 import boto3
@@ -130,7 +141,8 @@ response = personalize.create_dataset_import_job(
     jobName = 'YourImportJob',
     datasetArn = 'dataset_arn',
     dataSource = {'dataLocation':'s3://bucket/file.csv'},
-    roleArn = 'role_arn'
+    roleArn = 'role_arn',
+    importMode = 'FULL'
 )
 
 dsij_arn = response['datasetImportJobArn']
@@ -152,12 +164,15 @@ Use the following `createPersonalizeDatasetImportJob` method to create a dataset
 
 If your CSV files are in a folder in an Amazon S3 bucket, you can upload multiple CSV files to a dataset in one dataset import job\. For the bucket path, specify the `bucket-name/folder-name/` instead of the file name\.
 
+ The `importMode` can be either `ImportMode.BULK` or, if you've imported bulk data previously, `ImportMode.INCREMENTAL`\. For more information see [Updating bulk records \(AWS SDKs\)](updating-existing-bulk-data.md#updating-bulk-data-sdk)\. 
+
 ```
 public static String createPersonalizeDatasetImportJob(PersonalizeClient personalizeClient,
                                                       String jobName,
                                                       String datasetArn,
                                                       String s3BucketPath,
-                                                      String roleArn) {
+                                                      String roleArn,
+                                                      ImportMode importMode) {
 
   long waitInMilliseconds = 60 * 1000;
   String status;
@@ -173,6 +188,7 @@ public static String createPersonalizeDatasetImportJob(PersonalizeClient persona
               .dataSource(importDataSource)
               .jobName(jobName)
               .roleArn(roleArn)
+              .importMode(importMode)
               .build();
   
       datasetImportJobArn = personalizeClient.createDatasetImportJob(createDatasetImportJobRequest)
@@ -209,6 +225,36 @@ public static String createPersonalizeDatasetImportJob(PersonalizeClient persona
   }
   return "";
 }
+```
+
+------
+#### [ SDK for JavaScript v3 ]
+
+```
+// Get service clients module and commands using ES6 syntax.
+
+import { CreateDatasetGroupCommand } from
+  "@aws-sdk/client-personalize";
+import { personalizeClient } from "./libs/personalizeClients.js";
+
+// Or, create the client here.
+// const personalizeClient = new PersonalizeClient({ region: "REGION"});
+
+// Set the dataset group parameters.
+export const createDatasetGroupParam = { 
+  name: 'NAME' /* required */
+}
+
+export const run = async (createDatasetGroupParam) => {
+  try {
+    const response = await personalizeClient.send(new CreateDatasetGroupCommand(createDatasetGroupParam));
+    console.log("Success", response);
+    return "Run successfully"; // For unit tests.
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+run(createDatasetGroupParam);
 ```
 
 ------

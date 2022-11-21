@@ -33,8 +33,10 @@ Required: Yes
          "dataLocation": "string"
       },
       "failureReason": "string",
+      "importMode": "string",
       "jobName": "string",
       "lastUpdatedDateTime": number,
+      "publishAttributionMetricsToS3": boolean,
       "roleArn": "string",
       "status": "string"
    }

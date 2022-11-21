@@ -22,7 +22,7 @@ Type: Float
 Required: No
 
  ** impression **   <a name="personalize-Type-UBS_Event-impression"></a>
-A list of item IDs that represents the sequence of items you have shown the user\. For example, `["itemId1", "itemId2", "itemId3"]`\.  
+A list of item IDs that represents the sequence of items you have shown the user\. For example, `["itemId1", "itemId2", "itemId3"]`\. Provide a list of items to manually record impressions data for an event\. For more information on recording impressions data, see [Recording impressions data](https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html#putevents-including-impressions-data)\.   
 Type: Array of strings  
 Array Members: Minimum number of 1 item\. Maximum number of 25 items\.  
 Length Constraints: Minimum length of 1\. Maximum length of 256\.  
@@ -32,6 +32,11 @@ Required: No
 The item ID key that corresponds to the `ITEM_ID` field of the Interactions schema\.  
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 256\.  
+Required: No
+
+ ** metricAttribution **   <a name="personalize-Type-UBS_Event-metricAttribution"></a>
+Contains information about the metric attribution associated with an event\. For more information about metric attributions, see [Measuring impact of recommendations](https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html)\.  
+Type: [MetricAttribution](API_UBS_MetricAttribution.md) object  
 Required: No
 
  ** properties **   <a name="personalize-Type-UBS_Event-properties"></a>
@@ -44,7 +49,8 @@ Length Constraints: Minimum length of 1\. Maximum length of 1024\.
 Required: No
 
  ** recommendationId **   <a name="personalize-Type-UBS_Event-recommendationId"></a>
-The ID of the recommendation\.  
+The ID of the list of recommendations that contains the item the user interacted with\. Provide a `recommendationId` to have Amazon Personalize implicitly record the recommendations you show your user as impressions data\. Or provide a `recommendationId` if you use a metric attribution to measure the impact of recommendations\.   
+ For more information on recording impressions data, see [Recording impressions data](https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html#putevents-including-impressions-data)\. For more information on creating a metric attribution see [Measuring impact of recommendations](https://docs.aws.amazon.com/personalize/latest/dg/measuring-recommendation-impact.html)\.   
 Type: String  
 Length Constraints: Minimum length of 1\. Maximum length of 40\.  
 Required: No

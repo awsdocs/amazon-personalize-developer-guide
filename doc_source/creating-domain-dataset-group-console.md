@@ -36,7 +36,7 @@ After you complete [Step 1: Create a Domain dataset group](#create-domain-dsg-co
 1. On the **Create interactions dataset** page, for **Dataset name** provide a name for your Interactions dataset\. 
 
 1. For **Dataset schema** choose which schema you want to use:
-   + Choose **Create a new domain schema by modifying the existing default schema for your domain** and enter a schema name if you want use your domain's default schema as a template and optionally add any fields\.
+   + Choose **Create a new domain schema by modifying the existing default schema for your domain** and enter a schema name if you want use your domain's default schema as a template and optionally add any fields\. After you create a schema, you can't make changes to the schema\.
    + Choose **Use an existing schema** and choose an existing schema that is compliant with your domain\. The **Existing schema** field is disabled if no eligible schemas exist\.
 
 1. After you choose your schema, the **Schema fields** table updates to display the schema's fields\. Choose the **Tabular schema view** tab to modify the schema in a table, or choose the `JSON schema code` tab to view and modify the schema's JSON code\. 
@@ -53,13 +53,16 @@ After you complete [Step 1: Create a Domain dataset group](#create-domain-dsg-co
 
 ## Step 3: Import interactions data<a name="import-domain-interactions-console"></a>
 
+**Important**  
+By default, a dataset import job replaces any existing data in the dataset that you imported in bulk\. After you import bulk records, you can add new records without replacing existing data by choosing **Add to existing data** for the import mode\.
+
 After you complete [Step 2: Create a schema and Interactions dataset](#create-domain-interactions-dataset-console), import your interactions data from Amazon S3 into your Interactions dataset\. If you don't have bulk data in Amazon S3, you can skip this step and incrementally import interactions data with the event ingestion SDK and the [PutEvents](API_UBS_PutEvents.md) operation\. For more information see [Recording events](recording-events.md)\.
 
 **To import interactions data**
 
 1.  On the **Import interactions data** page, for **Data import source** choose how you want to import your data from one of the following options: 
    + Choose **Import bulk data from S3** if you have bulk historical data stored in an Amazon S3 bucket\. Your bucket must have the correct permissions\. For more information on granting permissions, see [Giving Amazon Personalize access to Amazon S3 resources](granting-personalize-s3-access.md)\. You can still incrementally import data with APIs after you import data from Amazon S3\. 
-   +  Or choose **Incrementally data with APIS** if you don't have historical data in Amazon S3 and want to incrementally import interactions data with the event ingestion SDK and the [PutEvents](API_UBS_PutEvents.md) operation\. If you choose this option, you will need to collect data until you have recorded the minimum 1000 interactions before you create a recommender\. For more information see [Recording events](recording-events.md)\. 
+   +  Or choose **Incrementally import data with APIS** if you don't have historical data in Amazon S3 and want to incrementally import interactions data with the event ingestion SDK and the [PutEvents](API_UBS_PutEvents.md) operation\. If you choose this option, you will need to collect data until you have recorded the minimum 1000 interactions before you create a recommender\. For more information see [Recording events](recording-events.md)\. 
 
 1. For **Dataset import job name**, give your import job a name\.
 

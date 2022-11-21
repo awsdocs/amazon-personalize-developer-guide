@@ -74,12 +74,10 @@ If your solution version has a status of CREATE\_PENDING or CREATE\_IN\_PROGRESS
 
 ## Creating a solution version \(AWS SDKs\)<a name="create-solution-version-sdk"></a>
 
-When your solution is ACTIVE, use the following code to create a solution version with the AWS SDK for Python \(Boto3\) or the AWS SDK for Java 2\.x\.
+When your solution is ACTIVE, use the following code to create a solution version\. Specify the Amazon Resource Name \(ARN\) from [Step 2: Configuring a solution](customizing-solution-config.md)\. Use the [DescribeSolutionVersion](API_DescribeSolutionVersion.md) operation to retrieve the solution version's status\.
 
 ------
 #### [ SDK for Python \(Boto3\) ]
-
-To create a solution version, using the following `create_solution_version` method\. Replace the `solution arn` with the Amazon Resource Name \(ARN\) of the solution from [Step 2: Configuring a solution](customizing-solution-config.md)\. The following code uses the [DescribeSolutionVersion](API_DescribeSolutionVersion.md) operation to retrieve the solution version's status\.
 
 ```
 import boto3
@@ -106,8 +104,6 @@ print('Solution version status: ' + solution_version_description['status'])
 
 ------
 #### [ SDK for Java 2\.x ]
-
-To create a solution version, use the following `createPersonalizeSolutionVersion` method and pass as a parameter the Amazon Resource Name \(ARN\) of the solution from [Step 2: Configuring a solution](customizing-solution-config.md)\. The following code uses the [DescribeSolutionVersion](API_DescribeSolutionVersion.md) operation to retrieve the solution version's status\. 
 
 ```
 public static String createPersonalizeSolutionVersion(PersonalizeClient personalizeClient, String solutionArn) {
@@ -182,6 +178,34 @@ public static String createPersonalizeSolutionVersion(PersonalizeClient personal
         }
         return "";
     }
+```
+
+------
+#### [ SDK for JavaScript v3 ]
+
+```
+// Get service clients module and commands using ES6 syntax.
+import { CreateSolutionVersionCommand } from
+  "@aws-sdk/client-personalize";
+import { personalizeClient } from "./libs/personalizeClients.js";
+// Or, create the client here.
+// const personalizeClient = new PersonalizeClient({ region: "REGION"});
+
+// Set the solution version parameters.
+export const solutionVersionParam = {
+  solutionArn: 'SOLUTION_ARN' /* required */
+}
+
+export const run = async () => {
+  try {
+    const response = await personalizeClient.send(new CreateSolutionVersionCommand(solutionVersionParam));
+    console.log("Success", response);
+    return response; // For unit tests.
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+run();
 ```
 
 ------

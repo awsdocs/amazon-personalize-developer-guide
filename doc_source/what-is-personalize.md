@@ -1,56 +1,56 @@
 # What is Amazon Personalize?<a name="what-is-personalize"></a>
 
-Amazon Personalize is a fully managed machine learning service that makes it easy for developers to deliver personalized experiences to their users\. It reflects the knowledge and experience that Amazon has in building personalization systems\.
+Amazon Personalize is a fully managed machine learning service that uses your data to generate item recommendations for your users\. It can also generate user segments based on the users' affinity for certain items or item metadata\. 
 
-You can use Amazon Personalize in a variety of scenarios, such as generating recommendations for users based on their preferences and behavior, personalized re\-ranking of results, personalizing content for emails, or creating targeted marketing campaigns based on user segments\. Amazon Personalize does not require machine learning experience\. You can get started quickly with use case optimized resources for your business domain, or you can create your own configurable custom resources\. 
+Common use case examples include the following:
++ **Personalizing a video streaming app** – You can use preconfigured or customizable Amazon Personalize resources to add multiple types of personalized video recommendations to your streaming app\. For example, *Top picks for you*, *More like X* and *Most popular* video recommendations\. 
++ **Adding product recommendations to an ecommerce app** – You can use preconfigured or customizable Amazon Personalize resources to add multiple types of personalized product recommendations to your retail app\. For example, *Recommended for you*, *Frequently bought together* and *Customers who viewed X also viewed* product recommendations\. 
++ **Creating personalized emails** – You can use customizable Amazon Personalize resources to generate batch recommendations for all users on an email list\. Then you can use an [AWS service](#related-services) or [third party service](#third-parties) to send users personalized emails recommending items in your catalog\. 
++ **Creating a targeted marketing campaign** – You can use Amazon Personalize to generate segments of users who will most likely interact with items in your catalog\. Then you can use an [AWS service](#related-services) or [third party service](#third-parties) to create a targeted marketing campaign that promotes different items to different user segments\.
 
- In Amazon Personalize, you start by creating a dataset group, which is a container for Amazon Personalize components\. Your dataset group can be one of the following: 
-+  A *Domain dataset group*, where you create preconfigured resources for different business domains and use cases, such as getting recommendations for similar videos \(VIDEO\_ON\_DEMAND domain\) or best selling items \(ECOMMERCE domain\)\. You choose your business domain, import your data, and create recommenders\. You use recommenders in your application to get recommendations\.  
+Amazon Personalize includes API operations for real\-time personalization, and batch operations for bulk recommendations and user segments\. You can get started quickly with use\-case optimized recommenders for your business domain, or you can create your own configurable custom resources\. 
 
-  Use a Domain dataset group if you have a video on demand or e\-commerce application and want Amazon Personalize to find the best configurations for your use cases\. If you start with a Domain dataset group, you can also add custom resources such as solutions with solution versions trained with recipes for custom use cases\. 
-+ A *Custom dataset group*, where you create configurable resources for custom use cases and batch recommendation workflows\. You choose a recipe, train a solution version \(model\), and deploy the solution version with a campaign\. You use a campaign in your application to get recommendations\. 
+ With Amazon Personalize, your data can come from both your historical bulk interaction records in a CSV file, and real\-time events from your users as they interact with your catalog\. Before Amazon Personalize can generate recommendations, your interactions data must have: 
++ At minimum 1000 interactions records from users interacting with items in your catalog\. These interactions can be from bulk imports, or streamed events, or both\.
++ At minimum 25 unique user IDs with at least 2 interactions for each\.
 
-  Use a Custom dataset group if you don't have a video on demand or e\-commerce application or want to configure and manage only custom resources, or want to get recommendations in a batch workflow\. If you start with a Custom dataset group, you can't associate it with a domain later\. Instead, create a new Domain dataset group\. 
-
-You can create and manage Domain dataset groups and Custom dataset groups with the AWS console, the AWS Command Line Interface \(AWS CLI\), or programmatically with the AWS SDKs\. 
-
-With Domain dataset groups and Custom dataset groups, Amazon Personalize can capture real\-time events from your users to deliver real\-time personalization\. Amazon Personalize can blend real\-time user activity data with existing user profile and item information \(historical data\) to recommend the most relevant items for the user\. You can also use Amazon Personalize to collect interactions data for new properties, such as a new website, and after enough data has been collected, Amazon Personalize can start to make recommendations\.
+ Different use cases may have additional data requirements\. If you don't have enough data, you can use Amazon Personalize to first collect real\-time event data\. After you have recorded enough events, Amazon Personalize can generate recommendations\. 
 
 **Topics**
 + [Pricing for Amazon Personalize](#whatis-pricing)
-+ [Recommended sections for first\-time Amazon Personalize users](#first-time-user)
++ [Guidance for first\-time Amazon Personalize users](first-time-user.md)
++ [Related AWS services and solutions](#related-services)
++ [Third\-party services](#third-parties)
 + [Learn more](#experienced-user)
 
 ## Pricing for Amazon Personalize<a name="whatis-pricing"></a>
 
- With Amazon Personalize, you pay only for what you use\. There are no minimum fees and no upfront commitments\. The costs of Amazon Personalize depend on data processing and storage, training, and number of recommendation requests\.
-
-The [AWS Free Tier](https://aws.amazon.com/free/) allows you a monthly up to 20GB of storage per available AWS region, up to 100 hours of training time per eligible AWS region, and up to 50 TPS\-hours of real\-time recommendations/month\. The Amazon Personalize free tier is valid for the first two months of usage\.
+ With Amazon Personalize, there are no minimum fees and no upfront commitments\. The [AWS Free Tier](https://aws.amazon.com/free/) provides a monthly quota of up to 20 GB of data processing per available AWS region, up to 100 hours of training time per eligible AWS region, and up to 50 TPS\-hours of real\-time recommendations/month\. The free tier is valid for the first two months of usage\.
 
 For a complete list of charges and prices, see [Amazon Personalize pricing](https://aws.amazon.com/personalize/pricing/)\.
 
-## Recommended sections for first\-time Amazon Personalize users<a name="first-time-user"></a>
+## Related AWS services and solutions<a name="related-services"></a>
 
-If you're a first\-time user of Amazon Personalize, we recommend you read the following sections in order:
+Amazon Personalize integrates seamlessly with other AWS services and solutions\. For example, you can:
++ Use AWS Amplify to record user interaction events\. Amplify includes a JavaScript library for recording events from web client applications, and a library for recording events in server code\. For more information, see [Amplify \- analytics](https://aws-amplify.github.io/docs/js/analytics)\.
++  Automate and schedule Amazon Personalize tasks with [Maintaining Personalized Experiences with Machine Learning](https://aws.amazon.com/solutions/implementations/maintaining-personalized-experiences-with-ml/)\. This AWS Solutions Implementation automates the Amazon Personalize workflow, including data import, solution version training, and batch workflows\. 
++  Use Amazon CloudWatch Evidently to perform A/B testing with Amazon Personalize recommendations\. For more information, see [Perform launches and A/B experiments with CloudWatch Evidently](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently.html) in the *Amazon CloudWatch User Guide*\. 
++ Use Amazon Pinpoint to create targeted marketing campaigns\. For an example that shows how to use Amazon Pinpoint and Amplify to add Amazon Personalize recommendations to a marketing email campaign and a web app, see [Web Analytics with Amplify](https://catalog.us-east-1.prod.workshops.aws/workshops/bb080ee8-4722-4290-ac6e-d4cde0a65142/en-US)\. 
 
-1. **[How it works](how-it-works.md)** – This section introduces the Amazon Personalize workflow and walks you through the steps to create personalized experiences for your users\. This section also includes common Amazon Personalize terms and their definitions\. Start with this section to make sure you have good understanding of Amazon Personalize workflows and terms before you start getting recommendations\. 
+## Third\-party services<a name="third-parties"></a>
 
-1. **[Setting up Amazon Personalize](setup.md)** – In this section you set up your AWS account, set up the required permissions to use Amazon Personalize, and set up the AWS CLI and the AWS SDKs to use and manage Amazon Personalize\.
+Amazon Personalize works well with various third\-party services\.
++ **Amplitude** – You can use Amplitude to track user actions to help you understand your users' behavior\. For information on using Amplitude and Amazon Personalize, see the following AWS Partner Network \(APN\) blog post: [Measuring the Effectiveness of Personalization with Amplitude and Amazon Personalize](http://aws.amazon.com/blogs/apn/measuring-the-effectiveness-of-personalization-with-amplitude-and-amazon-personalize/)\. 
++ **Braze** – You can use Braze to send users personalized emails recommending items in your catalog\. Braze is a market leading messaging platform \(email, push, SMS\)\. For a workshop that shows how to integrate Amazon Personalize and Braze, see [Amazon Personalize workshop](https://www.braze.com/docs/partners/message_personalization/dynamic_content/amazon_personalize/workshop/)\.
++ **mParticle** – You can use mParticle to collect event data from your app\. For an example that shows how to use mParticle and Amazon Personalize to implement personalized product recommendations, see [How to harness the power of a CDP for machine learning: Part 2](https://www.mparticle.com/blog/cdp-machine-learning-part-2/)\.
++ **Optimizely** – You can use Optimizely to perform A/B testing with Amazon Personalize recommendations\. For information on using Optimizely and Amazon Personalize, see [Optimizely integrates with Amazon Personalize to combine powerful machine learning with experimentation](https://www.optimizely.com/insights/blog/optimizely-for-amazon-personalize/)\.
++ **Segment** – You can use Segment to send your data to Amazon Personalize\. For more information on integrating Segment with Amazon Personalize, see [Amazon Personalize Destination](https://segment.com/docs/connections/destinations/catalog/amazon-personalize/)\. 
 
-1. **[Getting started](getting-started.md)** – In this section you get started using Amazon Personalize with a simple movie dataset\. Complete these tutorials to get hands on experience with Amazon Personalize\. You can choose to either get started with a Domain dataset group or a Custom dataset group: 
-   +  To get started creating a Domain dataset group, complete the [Getting started prerequisites](gs-prerequisites.md) and then start the tutorials in [Getting started with a Domain dataset group](getting-started-domain.md)\. 
-   +  To get started with a Custom dataset group, complete the [Getting started prerequisites](gs-prerequisites.md) and then start the tutorials in [Getting started with a Domain dataset group](getting-started-domain.md)\. 
-
-1. Depending on your application, complete either of the following sections:
-   + **[Domain dataset groups](domain-dataset-groups.md)** – If you have a streaming video or e\-commerce application, follow the procedures in this section to create a Domain dataset group and recommenders for your use cases\. These procedures build upon what you learned when completing the Domain dataset group getting started exercises and provide more in depth information about recommenders and domain use cases\. 
-   + **[Custom dataset groups](custom-dataset-groups.md)** – If you don't have a streaming video or e\-commerce application, follow the procedures in this section to create a Custom dataset group\. These procedures build upon what you learned when completing the Custom dataset group getting started exercises and provide more in depth information about custom recipes and models\. 
-
-1. **[Recording events](recording-events.md)** – This section covers how to record user interaction events in real\-time\. After you have set up your Amazon Personalize resources, complete this section to learn how to keep your Interactions dataset up to date with your users' behavior by recording interaction *[events](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#event)* with an event tracker and the [PutEvents](API_UBS_PutEvents.md) operation\. 
-
-1. **[Filtering recommendations and user segments](filter.md)** – This section covers how to filter recommendations\. Complete this section to learn how to construct filter expressions to filter recommendations based on custom criteria\. For example, you might not want to recommend products that a user has already purchased, or recommend movies that a user has already watched\. 
+For a complete list of partners, see [Amazon Personalize Partners](https://aws.amazon.com/personalize/partners/)\.
 
 ## Learn more<a name="experienced-user"></a>
 
 The following resources provide additional information about Amazon Personalize:
++ For a quick reference to help you determine if Amazon Personalize fits your use case, see the [Amazon Personalize Cheat Sheet](https://github.com/aws-samples/amazon-personalize-samples/blob/master/PersonalizeCheatSheet2.0.md) in the [Amazon Personalize samples](https://github.com/aws-samples/amazon-personalize-samples) repository\.
 + For a series of videos on how to use Amazon Personalize, see the [Amazon Personalize Deep Dive Video Series](https://www.youtube.com/watch?v=3gJmhoLaLIo) found on YouTube\.
 + For in\-depth tutorials and code samples, see the [amazon\-personalize\-samples GitHub repository](https://github.com/aws-samples/amazon-personalize-samples)\.

@@ -16,6 +16,9 @@ Content-type: application/json
          "eventValue": number,
          "impression": [ "string" ],
          "itemId": "string",
+         "metricAttribution": { 
+            "eventAttributionSource": "string"
+         },
          "properties": "string",
          "recommendationId": "string",
          "sentAt": number

@@ -41,7 +41,7 @@ To get a personalized ranking for a user from the Amazon Personalize console, ch
 
 1. Optionally choose a filter\. For more information, see [Filtering recommendations and user segments](filter.md)\. 
 
-1. If your campaign uses contextual metadata \(for requirements see [Increasing recommendation relevance with contextual metadata](getting-real-time-recommendations.md#contextual-metadata)\) optionally provide context data\. 
+1. If your campaign uses contextual metadata \(for requirements see [Increasing recommendation relevance with contextual metadata](contextual-metadata.md)\) optionally provide context data\. 
 
    For each context, for the **Key**, enter the metadata field, and for the **Value**, enter the context data\. 
 
@@ -60,12 +60,10 @@ aws personalize-runtime get-personalized-ranking \
 
 ## Getting a personalized ranking \(AWS SDKs\)<a name="get-personalized-rankings-sdk"></a>
 
-The following code shows how to get a personalized ranking with the AWS SDK for Python \(Boto3\) or AWS SDK for Java 2\.x\.
+The following code shows how to get a personalized ranking for a user\. Specify the user's ID and a list of item IDs to be ranked for the user\. The item IDs must be in the data that you used to train the solution version\. A list of ranked recommendations is returned\. Amazon Personalize considers the first item in the list of most interest to the user\.
 
 ------
 #### [ SDK for Python \(Boto3\) ]
-
-Use the following `get_personalized_ranking` method to get a personalized ranking with the SDK for Python \(Boto3\)\. Change the value of `userId` and `inputList` to a user ID and list of item IDs to be ranked for the user\. The item IDs must be in the data that you used to train the solution version\. A list of ranked recommendations is displayed\. Amazon Personalize considers the first item in the list of most interest to the user\.
 
 ```
 import boto3
@@ -85,8 +83,6 @@ for item in response['personalizedRanking']:
 
 ------
 #### [ SDK for Java 2\.x ]
-
-Use the following `getRankedRecs` method to get a personalized ranking with the SDK for Java 2\.x\. Pass the following as parameters: an Amazon Personalize runtime client, your campaign's Amazon Resource Name \(ARN\), the user ID for the user, and a list of item IDs to be ranked for the user\. The item IDs must be in the data you used to train the solution\. The method returns the list of recommended items ranked from most relevant to least relevant\.
 
 ```
 public static List<PredictedItem> getRankedRecs(PersonalizeRuntimeClient personalizeRuntimeClient,
@@ -119,6 +115,36 @@ public static List<PredictedItem> getRankedRecs(PersonalizeRuntimeClient persona
     }
     return null;
 }
+```
+
+------
+#### [ SDK for JavaScript v3 ]
+
+```
+// Get service clients module and commands using ES6 syntax.
+import { GetPersonalizedRankingCommand } from
+  "@aws-sdk/client-personalize-runtime";
+import { personalizeRuntimeClient } from "./libs/personalizeClients.js";
+// Or, create the client here.
+// const personalizeRuntimeClient = new PersonalizeRuntimeClient({ region: "REGION"});
+
+// Set the ranking request parameters.
+export const getPersonalizedRankingParam = {
+  campaignArn: "CAMPAIGN_ARN", /* required */
+  userId: 'USER_ID',      /* required */
+  inputList: ["ITEM_ID_1", "ITEM_ID_2", "ITEM_ID_3", "ITEM_ID_4"]
+}
+
+export const run = async () => {
+  try {
+    const response = await personalizeRuntimeClient.send(new GetPersonalizedRankingCommand(getPersonalizedRankingParam));
+    console.log("Success!", response);
+    return response; // For unit tests.
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+run();
 ```
 
 ------

@@ -2,7 +2,7 @@
 
  With both Domain dataset group and Custom dataset group, Amazon Personalize can make recommendations based on real\-time *[event](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#event)* data only, historical event data only \(see [Importing bulk records](bulk-data-import.md)\), or a mixture of both\. Record events in real\-time so Amazon Personalize can learn from your user’s most recent activity and update recommendations as they use your application\. This keeps your interactions data fresh and improves the relevance of Amazon Personalize recommendations\.
 
- You can record real\-time events using the AWS SDKs, AWS Amplify or AWS Command Line Interface \(AWS CLI\)\. When you record events, Amazon Personalize appends the event data to the Interactions dataset in your dataset group\. 
+ You can record real\-time events using the AWS SDKs, AWS Amplify or AWS Command Line Interface \(AWS CLI\)\. When you record events, Amazon Personalize appends the event data to the Interactions dataset in your dataset group\. If you record two events with exactly the same timestamp and identical properties, Amazon Personalize keeps only one of the events\.
 
  AWS Amplify includes a JavaScript library for recording events from web client applications, and a library for recording events in server code\. For more information, see [Amplify \- analytics](https://aws-amplify.github.io/docs/js/analytics) 
 
@@ -13,7 +13,7 @@
 + [Recording events with the PutEvents operation](#event-record-api)
 + [Recording events for anonymous users](#recording-anonymous-user-events)
 + [Recording impressions data](#putevents-including-impressions-data)
-+ [Event metrics](#event-metrics)
++ [Event metrics and attribution reports](#event-metrics)
 + [Sample Jupyter notebook](#recording-events-sample-notebook)
 + [Sample implementations](#recording-events-sample-architecture)
 
@@ -24,9 +24,9 @@ To record events, you need the following:
 + An event tracker
 + A call to the [PutEvents](API_UBS_PutEvents.md) operation\.
 
-You can start out with an empty Interactions dataset and, when you have recorded enough data, train the model using only new recorded events\. The minimum data requirements to train a model are:
-+ 1000 records of combined interaction data \(after filtering by `eventType` and `eventValueThreshold`, if provided\)
-+ 25 unique users with at least 2 interactions each
+You can start out with an empty Interactions dataset and, when you have recorded enough data, train the model using only new recorded events\. For all use cases \(Domain dataset groups\) and recipes \(Custom dataset groups\), your interactions data must have the following before training: 
++ At minimum 1000 interactions records from users interacting with items in your catalog\. These interactions can be from bulk imports, or streamed events, or both\.
++ At minimum 25 unique user IDs with at least 2 interactions for each\.
 
 ## How real\-time events influence recommendations<a name="recorded-events-influence-recommendations"></a>
 
@@ -465,9 +465,57 @@ public static void putEvents(PersonalizeEventsClient personalizeEventsClient,
 
 ------
 
-## Event metrics<a name="event-metrics"></a>
+## Event metrics and attribution reports<a name="event-metrics"></a>
 
 To monitor the type and number of events sent to Amazon Personalize, use Amazon CloudWatch metrics\. For more information, see [Monitoring Amazon Personalize](personalize-monitoring.md)\. 
+
+ To generate CloudWatch reports that show the impact of recommendations, create a metric attribution and record user interactions with real\-time recommendations\. For information on creating a metric attribution, see [Measuring impact of recommendations](measuring-recommendation-impact.md)\. 
+
+ For each event, include recommendation ID of the recommendations you showed the user\. Or include the event source, such as a third party\. Import this data to compare different campaigns, recommenders, and third parties\. You can import at most 100 event attribution sources\. 
++  If you provide a `recommendationId`, Amazon Personalize automatically determines the source campaign or recommender and identifies it in reports in an EVENT\_ATTRIBUTION\_SOURCE column\. 
++  If you provide both attributes, Amazon Personalize uses only the `eventAttributionSource`\. 
++  If you don't provide a source, Amazon Personalize labels the source `SOURCE_NAME_UNDEFINED` in reports\. 
+
+ The following code shows how to provide an `eventAttributionSource` for an event in a PutEvents operation\. 
+
+```
+response = personalize_events.put_events(
+    trackingId = 'eventTrackerId',
+    userId= 'userId',
+    sessionId = 'sessionId123',
+    eventList = [{
+        'eventId': 'event1',
+        'eventType': 'watch',
+        'sentAt': '1667260945',
+        'itemId': '123',
+        'metricAttribution': { 
+            'eventAttributionSource': 'thirdPartyServiceXYZ'
+        }
+    }]
+)
+statusCode = response['ResponseMetadata']['HTTPStatusCode']
+print(statusCode)
+```
+
+The following code shows how to provide a `recommendationId` for an event in a PutEvents operation\.
+
+```
+response = personalize_events.put_events(
+    trackingId = 'eventTrackerId',
+    userId= 'userId',
+    sessionId = 'sessionId123',
+    eventList = [{
+        'eventId': 'event1',
+        'eventType': 'watch',
+        'sentAt': '1667260945',
+        'itemId': '123',
+        'recommendationId': 'RID-12345678-1234-1234-1234-abcdefghijkl'
+      
+    }]
+)
+statusCode = response['ResponseMetadata']['HTTPStatusCode']
+print(statusCode)
+```
 
 ## Sample Jupyter notebook<a name="recording-events-sample-notebook"></a>
 

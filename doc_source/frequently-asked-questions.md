@@ -13,6 +13,18 @@
 
 ## Data import and management<a name="data-import-questions"></a>
 
+*What format should my bulk data be in?*
+
+Your bulk data must be in comma\-separated values \(CSV\) format\. The first row of your CSV file must contain column headers\. The column headers in your CSV file need to map to the schema to create the dataset\. If your data includes any non\-ASCII encoded characters, your CSV file must be encoded in UTF\-8 format\. Don't enclose headers in quotation marks \("\)\. `TIMESTAMP` and `CREATION_TIMESTAMP` data must be in *UNIX epoch* time format\. For more information on timestamp data, see [Timestamp data](data-prep-formatting.md#timestamp-data)\. For more information about schemas, see [Datasets and schemas](how-it-works-dataset-schema.md)\. 
+
+*How much training data do I need?*
+
+ For all use cases \(Domain dataset groups\) and recipes \(Custom dataset groups\), your interactions data must have the following: 
++ At minimum 1000 interactions records from users interacting with items in your catalog\. These interactions can be from bulk imports, or streamed events, or both\.
++ At minimum 25 unique user IDs with at least 2 interactions for each\.
+
+You can start out with an empty Interactions dataset and, when you have recorded enough data, create your recommender \(Domain dataset group\) or solution version \(Custom dataset group\) using only new recorded events\. Some recipes and use cases may have additional data requirements\. For information on use case requirements, see [Choosing recommender use cases](domain-use-cases.md)\. For information on recipe requirements, see [Step 1: Choosing a recipe](working-with-predefined-recipes.md)\. 
+
 *How do I update an item or user's attributes?*
 
  Use the Amazon Personalize console or the [PutItems](API_UBS_PutItems.md) or [PutUsers](API_UBS_PutUsers.md) operations to import an item or user with the same item ID but with the modified attributes\.
@@ -63,7 +75,7 @@ You can't delete batch inference jobs\. When a batch inference job's status is *
 
 *Why does my SIMS\-backed campaign recommend items that are not similar based on metadata?*
 
-SIMS uses your Interactions dataset to determine similarity; not item metadata such as color or price\. SIMS identifies the co\-occurrence of the item in user histories in your Interaction dataset to recommend similar items\. For more information, see [SIMS recipe](native-recipe-sims.md)\. 
+SIMS uses your Interactions dataset to determine similarity; not item metadata such as color or price\. SIMS identifies the co\-occurrence of the item in user histories in your Interaction dataset to recommend similar items\. For more information, see [SIMS recipe \(legacy\)](native-recipe-sims.md)\. 
 
 *Can I get more than 500 items from a single GetRecommendations API operation?*
 
@@ -75,15 +87,18 @@ SIMS uses your Interactions dataset to determine similarity; not item metadata s
 
  This can occur for a variety of reasons: 
 +  There may be issue with the format or syntax of your filter expression\. For examples of correctly formatted filter expressions, see [Filter expression examples](filter-expressions.md#filter-expression-examples)\. 
-+ When filtering, Amazon Personalize considers up to 200 historical interactions for a user, and up to 100 streamed interactions\.
-+  Your solution configuration may impact filters\. Setting an event value threshold can excludes some events \(see [Choosing the interactions data used for training](event-values-types.md)\) and the `max_user_history_length_percentile` and `min_user_history_length_percentile` hyperparameters can also affect filters: The number of *historical interactions* Amazon Personalize considers for a user depends on the `max_user_history_length_percentile` and `min_user_history_length_percentile` hyperparameters you defined before training\. 
++ Amazon Personalize considers up to 100 of the most recent interactions per user per event type\. This is an adjustable quota\. You can request a quota increase using the [Service Quotas console](https://console.aws.amazon.com/servicequotas/)\. 
 
 For more information, see [Filtering recommendations and user segments](filter.md)\.
 
 *How can I remove already purchased items from recommendations?*
 
-Add a `Purchased` event type attribute to your data, record *Purchase* events with the `PutItems` operation, and use a filter to remove purchased items from recommendations\. For example:
+For ECOMMERCE Domain dataset groups, if you create a recommender with the [Recommended for you](ECOMMERCE-use-cases.md#recommended-for-you-use-case) or [Customers who viewed X also viewed](ECOMMERCE-use-cases.md#customers-also-viewed-use-case) use case, Amazon Personalize automatically filters items the user purchased based on the userId that you specify and `Purchase` events\. 
+
+For Custom dataset groups or other Domain dataset group use cases, use a filter to remove purchased items\. Add a `Purchased` event type attribute to your data, record *Purchase* events with the `PutItems` operation, and create a filter that removes purchased items from recommendations\. For example:
 
 ```
 EXCLUDE ItemID WHERE Interactions.EVENT_TYPE IN ("purchased")
 ```
+
+For more information, see [Filtering recommendations and user segments](filter.md)\.

@@ -1,21 +1,23 @@
-# Importing records incrementally<a name="incremental-data-updates"></a>
+# Importing individual records<a name="incremental-data-updates"></a>
 
- After you have completed [Step 1: Creating a Custom dataset group](data-prep-ds-group.md) and [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md), you can incrementally import one or more new records, including interaction *[events](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#event)*, users, or items, to an existing dataset\. Incrementally importing records allows you to import one or more records into your Amazon Personalize datasets as your catalog grows\. If you have a large amount of historical records, we recommend that you first import data in bulk and then import data incrementally as necessary\. See [Importing bulk records](bulk-data-import.md)\. 
+ After you have completed [Step 1: Creating a Custom dataset group](data-prep-ds-group.md) and [Step 2: Creating a dataset and a schema](data-prep-creating-datasets.md), you can import individual records, including interaction *[events](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#event)*, users, or items, into an existing dataset\. Importing data individually allows you to add small batches of records to your Amazon Personalize datasets as your catalog grows\. You can import up to 10 records per individual import operation\. 
 
-**Filter updates for incremental record imports**
+ If you have a large amount of historical records, we recommend that you first import data in bulk and then import data individually as necessary\. See [Importing bulk records](bulk-data-import.md)\. 
 
-Amazon Personalize updates any filters you created in the dataset group with your new interaction, item, and user data within 20 minutes from the last incremental import\. This update allows your campaigns to use your most recent data when filtering recommendations for your users\. 
+**Filter updates for individual record imports**
+
+Amazon Personalize updates any filters you created in the dataset group with your new interaction, item, and user data within 15 minutes from the last individual import\. This update allows your campaigns to use your most recent data when filtering recommendations for your users\. 
 
 **How new records influence recommendations**
 
-If you have already created a solution version \(trained a model\), new records influence recommendations as follows:
-+  For *new events*, Amazon Personalize immediately uses historical and real\-time interaction events between a user and existing items \(items you included in the data you used to train the latest model\) when generating recommendations for the same user\. Historical events that you import using the Amazon Personalize console and events that you record in real\-time influence recommendations in the same way\. For more information, see [How real\-time events influence recommendations](recording-events.md#recorded-events-influence-recommendations)\. 
-+ For *new items*, if you trained the solution version with User\-Personalization, Amazon Personalize automatically updates the model every two hours\. After each update, the new items can be included in recommendations with exploration\. For information about exploration see [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
+If you already created a solution version \(trained a model\), new individual records influence recommendations as follows:
++  For *new interactions*, Amazon Personalize immediately uses real\-time interactions data involving existing items \(items you included in the data you used to train the latest model\)\. For information on interactions involving new items or users, see [How real\-time events influence recommendations](recording-events.md#recorded-events-influence-recommendations)\. 
++ For *new items* \(items not included in the data you used to train the latest model\), if you trained the solution version with User\-Personalization and deployed it in a campaign, Amazon Personalize automatically updates the model to use the new item data every two hours\. After each update, the new items can be included in recommendations with exploration\. For information about automatic updates, see [Automatic updates](native-recipe-new-item-USER_PERSONALIZATION.md#automatic-updates)\. 
 
-   For any other recipe, you must retrain the model for the new items to be included in recommendations\. 
-+  For *new users*, recommendations will initially be only for popular items\. Starting with the first event, user recommendations will be more relevant as you record events\. For more information, see [Recording events](recording-events.md)\. 
+   For any other recipe, you must create a new solution version for the new items to be included in recommendations\. 
++ For *new users* without interactions data, recommendations are initially for only popular items\. To get relevant recommendations for a new user, you can import bulk interactions for the user and create a new solution version\. Or you can record events for the user in real time as they interact with your catalog\. Their recommendations will be more relevant as you record more events\. For more information, see [Recording events](recording-events.md)\. 
 
 **Topics**
-+ [Importing interactions incrementally](importing-interactions.md)
-+ [Importing users incrementally](importing-users.md)
-+ [Importing items incrementally](importing-items.md)
++ [Importing interactions individually](importing-interactions.md)
++ [Importing users individually](importing-users.md)
++ [Importing items individually](importing-items.md)

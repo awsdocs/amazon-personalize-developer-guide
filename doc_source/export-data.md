@@ -2,11 +2,11 @@
 
 After you've imported your data, you can export the data in an Interactions, Items, or Users dataset to an Amazon S3 bucket\. After exporting a dataset, you can verify and inspect the data that Amazon Personalize uses to generate recommendations, view the user interaction events that you previously recorded in real time, and perform offline analysis on your data\. 
 
-You can choose to export only the data that you imported in bulk \(imported using an Amazon Personalize dataset import job\), only the data that you imported incrementally \(historical and real\-time records imported using the console or the `PutEvents`, `PutUsers`, or `PutItems` operations\), or both\. 
+You can choose to export only the data that you imported in bulk \(imported using an Amazon Personalize dataset import job\), only the data that you imported individually \(records imported using the console or the `PutEvents`, `PutUsers`, or `PutItems` operations\), or both\. 
 
 For records that match exactly *for all fields*, Amazon Personalize exports just one record\. If two records have the same ID but one or more fields are different, Amazon Personalize includes or removes the records depending on data you choose to export: 
 + If you export both bulk and incremental data, Amazon Personalize exports only the newest items with the same ID \(in Items dataset exports\), and only users with the same ID \(in Users dataset exports\)\. For Interactions datasets, Amazon Personalize exports all interactions data\.
-+ If you export incremental data only, Amazon Personalize exports all item, user, or interaction data that you imported incrementally, including items or users with the same IDs\. Only records that match exactly for all fields are excluded\.
++ If you export incremental data only, Amazon Personalize exports all item, user, or interaction data that you imported individually, including items or users with the same IDs\. Only records that match exactly for all fields are excluded\.
 + If you export bulk data only, Amazon Personalize includes all item, user, or interaction data that you imported in bulk, including items or users with the same IDs\. Only records that match exactly for all fields are excluded\.
 
 To export a dataset, you create a dataset export job\. A *dataset export job* is a record export tool that outputs the records in a dataset to one or more CSV files in an Amazon S3 bucket\. The output CSV file includes a header row with column names that match the fields in the dataset's schema\. 
@@ -23,9 +23,7 @@ You can create a dataset export job with the Amazon Personalize console, AWS Com
 
 To export a dataset, Amazon Personalize needs permission to add files to your Amazon S3 bucket\. To grant permissions, attach a new AWS Identity and Access Management \(IAM\) policy to your Amazon Personalize service\-linked role that grants the role permission to use the `PutObject` and `ListBucket` Actions on your bucket, and attach a bucket policy to your output Amazon S3 bucket that grants the Amazon Personalize principle permission to use the `PutObject` and `ListBucket` Actions\.
 
- Amazon S3 buckets and objects must be either encryption free or, if you are using AWS Key Management Service \(AWS KMS\) for encryption, you must give your IAM user and Amazon Personalize service role permission to use your key\. You must also add Amazon Personalize as a Principle in your AWS KMS key policy\. For more information, see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\.
-
-If your Domain dataset group or Custom dataset group uses an AWS KMS key for encryption, your IAM user and your AWS KMS key policies must grant `GenerateDataKeyWithoutPlaintext` and `Decrypt` permissions\.
+ Amazon S3 buckets and objects must be either encryption free or, if you are using AWS Key Management Service \(AWS KMS\) for encryption, you must grant Amazon Personalize and your Amazon Personalize IAM service role permission to use your key\. For more information, see [Giving Amazon Personalize permission to use your AWS KMS key](granting-personalize-key-access.md)\.
 
 ### Service\-linked role policy for exporting a dataset<a name="role-policy-for-dataset-export-job"></a>
 
@@ -112,7 +110,7 @@ Before you export a dataset, make sure that your Amazon Personalize service\-lin
 
 1. For **Export data type**, choose the type data to export based on how you originally imported the data\.
    +  Choose **Bulk** to export only data that you imported in bulk using a dataset import job\. 
-   + Choose **Incremental** to export only data that you imported incrementally using the console or the `PutEvents`, `PutUsers`, or `PutItems` operations\. 
+   + Choose **Incremental** to export only data that you imported individually using the console or the `PutEvents`, `PutUsers`, or `PutItems` operations\. 
    + Choose **Both** to export all of the data in the dataset\. 
 
 1. For **Tags**, optionally add any tags\. For more information about tagging Amazon Personalize resources, see [Tagging Amazon Personalize resources](tagging-resources.md)\.
@@ -131,7 +129,7 @@ Before you export a dataset, make sure that the Amazon Personalize service\-link
 
  For `ingestion-mode`, specify the data to export from the following options: 
 +  Specify `BULK` to export only data that you imported in bulk using a dataset import job\. 
-+  Specify `PUT` to export only data that you imported incrementally using the console or the `PutEvents`, PutUsers, or `PutItems` operations\. 
++  Specify `PUT` to export only data that you imported individually using the console or the `PutEvents`, PutUsers, or `PutItems` operations\. 
 +  Specify `ALL` to export all of the data in the dataset\. 
 
  For more information see [CreateDatasetExportJob](API_CreateDatasetExportJob.md)\. 
@@ -175,7 +173,7 @@ Use the following `create_dataset_export_job` to export the data in a dataset to
 
  For `ingestionMode`, specify the data to export from the following options: 
 + Specify `BULK` to export only data that you imported in bulk using a dataset import job\. 
-+ Specify `PUT` to export only data that you imported incrementally using the console or the `PutEvents`, PutUsers, or `PutItems` operations\. 
++ Specify `PUT` to export only data that you imported individually using the console or the `PutEvents`, PutUsers, or `PutItems` operations\. 
 + Specify `ALL` to export all of the data in the dataset\.
 
 ```
@@ -215,7 +213,7 @@ Use the following `createDatasetExportJob` method to create a dataset export job
 
  The `ingestionMode` can be one of the following options: 
 + Use `IngestionMode.BULK` to export only data that you imported in bulk using a dataset import job\. 
-+ Use `IngestionMode.PUT` to export only data that you imported incrementally using the console or the `PutEvents`, PutUsers, or `PutItems` operations\. 
++ Use `IngestionMode.PUT` to export only data that you imported individually using the console or the `PutEvents`, PutUsers, or `PutItems` operations\. 
 + Use `IngestionMode.ALL` to export all of the data in the dataset\.
 
 ```

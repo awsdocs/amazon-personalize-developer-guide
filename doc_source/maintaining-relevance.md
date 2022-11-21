@@ -10,16 +10,18 @@
 
 ## Keeping datasets current<a name="updating-data"></a>
 
- As your catalog grows, update your historical data with bulk or incremental data import operations\. We recommend that you first import your records in bulk, and then incrementally add items and users as your catalog grows\. For more information about importing historical data see [Preparing and importing data](data-prep.md)\. 
+ As your catalog grows, update your historical data with bulk or individual data import operations\. We recommend that you first import your records in bulk, and then add individual items and users as your catalog grows\. For more information about importing historical data see [Preparing and importing data](data-prep.md)\. 
 
 For real\-time recommendations, keep your Interactions dataset up to date with your users' behavior by recording interaction *[events](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#event)* with an event tracker and the [PutEvents](API_UBS_PutEvents.md) operation\. Amazon Personalize updates recommendations based on your user's most recent activity as they interact with your application\. For more information on recording real\-time events, see [Recording events](recording-events.md)\. 
 
 If you have already created a solution version \(trained a model\), new records influence recommendations as follows:
-+  For *new events*, Amazon Personalize immediately uses historical and real\-time interaction events between a user and existing items \(items you included in the data you used to train the latest model\) when generating recommendations for the same user\. Historical events that you import using the Amazon Personalize console and events that you record in real\-time influence recommendations in the same way\. For more information, see [How real\-time events influence recommendations](recording-events.md#recorded-events-influence-recommendations)\. 
-+ For *new items*, if you trained the solution version with User\-Personalization, Amazon Personalize automatically updates the model every two hours\. After each update, the new items can be included in recommendations with exploration\. For information about exploration see [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
++  For *individual interactions*, Amazon Personalize immediately uses real\-time interaction events between a user and existing items \(items you included in the data you used to train the latest model\) when generating recommendations for the same user\. For more information, see [How real\-time events influence recommendations](recording-events.md#recorded-events-influence-recommendations)\. 
+
+   For *bulk interactions*, you must create a new solution version for bulk interactions data to influence recommendations\. 
++ For *individual and bulk item data*, if you trained the solution version with User\-Personalization and deployed it in a campaign, Amazon Personalize automatically updates the model every two hours\. After each update, the new items can be included in recommendations with exploration\. For information about exploration see [Automatic updates](native-recipe-new-item-USER_PERSONALIZATION.md#automatic-updates)\. 
 
    For any other recipe, you must retrain the model for the new items to be included in recommendations\. 
-+  For *new users*, recommendations will initially be only for popular items\. Starting with the first event, user recommendations will be more relevant as you record events\. For more information, see [Recording events](recording-events.md)\. 
++ For *new users* without interactions data, recommendations are initially for only popular items\. To get relevant recommendations for a new user, you can import bulk interactions for the user and create a new solution version\. Or you can record events for the user in real time as they interact with your catalog\. Their recommendations will be more relevant as you record more events\. For more information, see [Recording events](recording-events.md)\. 
 
 ## Keeping solution versions up to date<a name="retraining-model"></a>
 
@@ -27,7 +29,7 @@ If you have already created a solution version \(trained a model\), new records 
 
  Retraining frequency depends on your business requirements and the recipe that you use\. For most workloads, we recommend training a new model weekly with training mode set to `FULL`\. This creates a completely new solution version based on the entirety of the training data from the datasets in your dataset group\. If you add new items frequently and you don't use User\-Personalization, you may need to do a full retraining more often to include those new items in recommendations\. 
 
- With User\-Personalization, Amazon Personalize automatically updates your latest fully trained solution version \(trained with `trainingMode` set to `FULL`\) every two hours to include new items in recommendations with exploration\. Your campaign automatically uses the updated solution version\. This is not a full retraining; you should still train a new solution version weekly with `trainingMode` set to `FULL` so the model can learn from your users' behavior\. 
+ With User\-Personalization, Amazon Personalize automatically updates your latest fully trained solution version \(trained with `trainingMode` set to `FULL`\) every two hours to include new items in recommendations with exploration\. The solution version must be deployed in a campaign for updates to occur\. Your campaign automatically uses the updated solution version\. This is not a full retraining; you should still train a new solution version weekly with `trainingMode` set to `FULL` so the model can learn from your users' behavior\. 
 
  If every two hours is not frequent enough, you can manually create a solution version with `trainingMode` set to `UPDATE` to include those new items in recommendations\. Just remember that Amazon Personalize automatically updates only your latest fully trained solution version, so the manually updated solution version won't be automatically updated in the future\. For more information, see [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
 

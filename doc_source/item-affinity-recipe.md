@@ -8,7 +8,7 @@ For example, you might want to create a marketing campaign for your retail appli
 
 You must have an Interactions dataset to use Item\-Affinity\. Items and Users datasets are optional\.  You can get user segments with batch segment jobs\. For more information, see [Getting batch recommendations and user segments](recommendations-batch.md)\.
 
- After you create a solution version, make sure you keep your solution version and data up to date\. With Item\-Affinity, you must manually create a new solution version \(retrain the model\) to reflect updates to your catalog and update the model with your user’s most recent behavior\. For more information, see [Maintaining recommendation relevance](maintaining-relevance.md)\. To get a user segment for an item, the item must have been present when you created the solution version\.
+ After you create a solution version, make sure you keep your solution version and data up to date\. With Item\-Affinity, you must manually create a new solution version \(retrain the model\) to reflect updates to your catalog and update the model with your user’s most recent behavior\. Then you must update any campaign using the solution version\. For more information, see [Maintaining recommendation relevance](maintaining-relevance.md)\. To get a user segment for an item, the item must have been present when you created the solution version\.
 
 The Item\-Affinity recipe has the following properties:
 +  **Name** – `aws-item-affinity`

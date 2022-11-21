@@ -5,9 +5,15 @@ Amazon Personalize *datasets* are containers for data\. There are three types of
 + [**Items**](items-datasets.md) – This dataset stores metadata about your items\. This might include information such as price, SKU type, or availability\.
 + [**Interactions**](interactions-datasets.md) – This dataset stores historical and real\-time data from interactions between users and items\. In Amazon Personalize, an *interaction* is an *event* that you record and then import as training data\. For both Domain dataset groups and Custom dataset groups, you must at minimum create an Interactions dataset\.
 
-Domain dataset groups and Custom dataset groups can have only one of each type of dataset\. Before you create a dataset, you define a schema for that dataset\. A *schema* tells Amazon Personalize about the structure of your data and allows Amazon Personalize to parse the data\. A schema has a name key whose value must match the dataset type\. 
+For all use cases \(Domain dataset groups\) and recipes \(Custom dataset groups\), your interactions data must have the following: 
++ At minimum 1000 interactions records from users interacting with items in your catalog\. These interactions can be from bulk imports, or streamed events, or both\.
++ At minimum 25 unique user IDs with at least 2 interactions for each\.
+
+Domain dataset groups and Custom dataset groups can have only one of each type of dataset\. Before you create a dataset, you define a schema for that dataset\. A *schema* tells Amazon Personalize about the structure of your data and allows Amazon Personalize to parse the data\. A schema has a name key whose value must match the dataset type\. After you create a schema, you can't make changes to the schema\. 
 
  For Domain dataset groups, each dataset type has a default schema with required fields and reserved keywords\. Each time you create a dataset, you can either use the existing domain schema or create a new one by modifying the existing default schema\. Use the default schema as a guide for what data to import for your domain\. Once you define the schema and create the dataset, you can't make changes to the schema\. 
+
+If you import data in bulk, your data must be stored in comma\-separated values \(CSV\) format\. The first row of your CSV file must contain column headers, which must match your schema\. 
 
 **Topics**
 + [Schema formatting requirements](#general-schema-requirements)

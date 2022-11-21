@@ -28,7 +28,7 @@ If your CSV files are in a folder and you want to upload multiple files with one
 
  Give Amazon Personalize access to your Amazon S3 resources by attaching access policies to your Amazon S3 bucket and your Amazon Personalize service\-linked role\. See [Giving Amazon Personalize access to Amazon S3 resources](granting-personalize-s3-access.md)\.
 
- If you are using AWS Key Management Service \(AWS KMS\) for encryption, you must give your IAM user and Amazon Personalize IAM service role permission to use your key\. You must also add Amazon Personalize as a Principle in your AWS KMS key policy\. For more information see [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\.
+ Amazon S3 buckets and objects must be either encryption free or, if you are using AWS Key Management Service \(AWS KMS\) for encryption, you must grant Amazon Personalize and your Amazon Personalize IAM service role permission to use your key\. For more information, see [Giving Amazon Personalize permission to use your AWS KMS key](granting-personalize-key-access.md)\.
 
 **Error message:** *Failed to create a data import job <dataset type> dataset\.\.\.Input CSV is missing the following columns:\[COLUMN\_NAME, COLUMN\_NAME\]\.*
 
@@ -39,18 +39,18 @@ If your CSV files are in a folder and you want to upload multiple files with one
 **Error message:** *Create failed\. Dataset has fewer than 25 users with at least 2 interactions each\.*
 
  You must import more data before you can train the model\. The minimum data requirements to train a model are: 
-+ 1000 records of combined interaction data
-+ 25 unique users with at least 2 interactions each
++ At minimum 1000 interactions records from users interacting with items in your catalog\. These interactions can be from bulk imports, or streamed events, or both\.
++ At minimum 25 unique user IDs with at least 2 interactions for each\.
 
-For real\-time recommendations, record more interaction *[events](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#event)* for your users with an event tracker and the [PutEvents](API_UBS_PutEvents.md) operation\. For more information, on recording real\-time events, see [Recording events](recording-events.md)\. 
+For real\-time recommendations, import more data with a dataset import job or record more interaction *[events](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#event)* for your users with an event tracker and the [PutEvents](API_UBS_PutEvents.md) operation\. For more information on recording real\-time events, see [Recording events](recording-events.md)\. 
 
- For batch recommendations, import your data with a dataset import job when you have more data\. Because existing bulk data in the dataset is replaced, you must include the data you already imported into Amazon Personalize in the import\. For more information, about importing historical data see [Preparing and importing data](data-prep.md)\. 
+ For batch recommendations, import your data with a dataset import job when you have more data\. For more information, about importing bulk data see [Preparing and importing data](data-prep.md)\. 
 
 ## Model deployment \(Custom dataset group campaigns\)<a name="deployment-troubleshooting"></a>
 
 **Error:** *Cannot create a campaign\. More than 5 resources in ACTIVE state\. Please delete some and try again\.*
 
- You can have a total of 20 active Amazon Personalize campaigns per region\. This quota is adjustable and you can request a quota increase using the [Service Quotas console](https://console.aws.amazon.com/servicequotas/)\. For a complete list of limits and quotas for Amazon Personalize, see [Amazon Personalize endpoints and quotas](limits.md)\. 
+ You can have a total of active Amazon Personalize campaigns per region\. This quota is adjustable and you can request a quota increase using the [Service Quotas console](https://console.aws.amazon.com/servicequotas/)\. For a complete list of limits and quotas for Amazon Personalize, see [Amazon Personalize endpoints and quotas](limits.md)\. 
 
 ## Recommenders \(Domain dataset group\)<a name="recommender-errors"></a>
 

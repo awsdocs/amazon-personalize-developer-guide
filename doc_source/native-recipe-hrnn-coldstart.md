@@ -1,6 +1,7 @@
 # HRNN\-Coldstart recipe \(legacy\)<a name="native-recipe-hrnn-coldstart"></a>
 
 **Note**  
+Legacy HRNN recipes are no longer available\. This documentation is for reference purposes\.  
  We recommend using the aws\-user\-personalizaton \(User\-Personalization\) recipe over the legacy HRNN recipes\. User\-Personalization improves upon and unifies the functionality offered by the HRNN recipes\. For more information, see [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
 
 Use the HRNN\-Coldstart recipe to predict the items that a user will interact with when you frequently add new items and interactions and want to get recommendations for those items immediately\. The HRNN\-Coldstart recipe is similar to the [HRNN\-Metadata](native-recipe-hrnn-metadata.md) recipe, but it allows you to get recommendations for new items\. 

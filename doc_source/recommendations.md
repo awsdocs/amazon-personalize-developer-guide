@@ -10,7 +10,7 @@
 + [Getting recommendations \(console\)](#get-real-time-recommendations-console)
 + [Getting recommendations \(AWS CLI\)](#get-recommendations-cli-example)
 + [Getting recommendations \(AWS SDKs\)](#get-recommendations-sdk-example)
-+ [Getting recommendations using contextual metadata \(AWS Python SDK\)](#get-recommendations-metadata-sdk-example)
++ [Promoting items in recommendations \(Custom dataset group\)](promoting-items.md)
 
 ## How User\-Personalization recommendation scoring works<a name="how-recommendation-scoring-works"></a>
 
@@ -45,15 +45,17 @@ Amazon Personalize doesn't show scores for Similar\-Items, SIMS or Popularity\-C
 
 1. Optionally choose a filter\. For more information, see [Filtering recommendations and user segments](filter.md)\. 
 
-1. If your campaign uses contextual metadata \(for requirements see [Increasing recommendation relevance with contextual metadata](getting-real-time-recommendations.md#contextual-metadata)\) optionally provide context data\. 
+1. If your campaign uses contextual metadata \(for requirements see [Increasing recommendation relevance with contextual metadata](contextual-metadata.md)\) optionally provide context data\. 
 
    For each context, for the **Key**, enter the metadata field, and for the **Value**, enter the context data\. 
+
+1.  If you want to promote a subset of items, optionally complete the **Promotion** fields\. For more information see [Promoting items in recommendations \(Custom dataset group\)](promoting-items.md)\. 
 
 1. Choose **Get recommendations**\. A table containing the user’s top 25 recommended items displays\. 
 
 ## Getting recommendations \(AWS CLI\)<a name="get-recommendations-cli-example"></a>
 
-Use the following code to get recommendations\. Change the value of `userId` to a user ID that is in the data that you used to train the solution\. A list of the top 10 recommended items for the user displays\. To change the number of recommended items, change the value for `numResults`\. The default is 25 items\. The maximum is 500 items\. If you used a RELATED\_ITEMS recipe to train the solution version backing the campaign, replace the `user-id` parameter with `item-id` and specify the item ID\. 
+Use the following code to get recommendations\. Specify the ID of the user you want to get recommendations for, and the Amazon Resource Name \(ARN\) of your campaign\. A list of the top 10 recommended items for the user displays\. To change the number of recommended items, change the value for `numResults`\. The default is 25 items\. The maximum is 500 items\. If you used a RELATED\_ITEMS recipe to train the solution version backing the campaign, replace the `user-id` parameter with `item-id` and specify the item ID\. 
 
  If you recorded events for a user before they logged in \(an anonymous user\), you can get recommendations for this user by providing the `sessionId` from those events instead of a `userId`\. For more information about recording events for anonymous users, see [Recording events with the PutEvents operation](recording-events.md#event-record-api)\. 
 
@@ -66,7 +68,7 @@ aws personalize-runtime get-recommendations \
 
 ## Getting recommendations \(AWS SDKs\)<a name="get-recommendations-sdk-example"></a>
 
-The following code shows how to get Amazon Personalize recommendations using the SDK for Python \(Boto3\) or SDK for Java 2\.x\. Change the value of `userId` to a user ID that is in the data that you used to train the solution\. A list of the top 10 recommended items for the user displays\. To change the number of recommended items, change the value for `numResults`\. The default is 25 items\. The maximum is 500 items\. If you used a RELATED\_ITEMS recipe to train the solution version backing the campaign, replace the `userId` parameter with `itemId` and specify the item ID\. 
+The following code shows how to get Amazon Personalize recommendations for a user\. Specify the ID of the user you want to get recommendations for, and the Amazon Resource Name \(ARN\) of your campaign\. A list of the top 10 recommended items for the user displays\. To change the number of recommended items, change the value for `numResults`\. The default is 25 items\. The maximum is 500 items\. If you used a RELATED\_ITEMS recipe to train the solution version backing the campaign, replace the `userId` parameter with `itemId` and specify the item ID\. 
 
  If you recorded events for a user before they logged in \(an anonymous user\), you can get recommendations for this user by providing the `sessionId` from those events instead of a `userId`\. For more information about recording events for anonymous users, see [Recording events with the PutEvents operation](recording-events.md#event-record-api)\. 
 
@@ -104,11 +106,11 @@ for item in response['itemList']:
 
             GetRecommendationsResponse recommendationsResponse = personalizeRuntimeClient.getRecommendations(recommendationsRequest);
             List<PredictedItem> items = recommendationsResponse.itemList();
-
             for (PredictedItem item: items) {
                 System.out.println("Item Id is : "+item.itemId());
                 System.out.println("Item score is : "+item.score());
             }
+
         } catch (AwsServiceException e) {
             System.err.println(e.awsErrorDetails().errorMessage());
             System.exit(1);
@@ -117,25 +119,34 @@ for item in response['itemList']:
 ```
 
 ------
-
-## Getting recommendations using contextual metadata \(AWS Python SDK\)<a name="get-recommendations-metadata-sdk-example"></a>
-
-Use the following code to get a recommendation based on contextual metadata\. For `context`, for each key\-value pair, provide the metadata field as the key and the context data as the value\. In the following sample code, the key is `DEVICE` and the value is `mobile phone`\. Replace these values and the `Campaign ARN` and `User ID` with your own\. A list of recommended items for the user displays\.
+#### [ SDK for JavaScript v3 ]
 
 ```
-import boto3
+// Get service clients module and commands using ES6 syntax.
+import { GetRecommendationsCommand } from
+  "@aws-sdk/client-personalize-runtime";
 
-personalizeRt = boto3.client('personalize-runtime')
+import { personalizeRuntimeClient } from "./libs/personalizeClients.js";
+// Or, create the client here.
+// const personalizeRuntimeClient = new PersonalizeRuntimeClient({ region: "REGION"});
 
-response = personalizeRt.get_recommendations(
-    campaignArn = 'Campaign ARN',
-    userId = 'User ID',
-    context = {
-      'DEVICE': 'mobile phone'
-    }
-)
+// Set the recommendation request parameters.
+export const getRecommendationsParam = {
+  campaignArn: 'CAMPAIGN_ARN', /* required */
+  userId: 'USER_ID',      /* required */
+  numResults: 15    /* optional */
+}
 
-print("Recommended items")
-for item in response['itemList']:
-    print (item['itemId'])
+export const run = async () => {
+  try {
+    const response = await personalizeRuntimeClient.send(new GetRecommendationsCommand(getRecommendationsParam));
+    console.log("Success!", response);
+    return response; // For unit tests.
+  } catch (err) {
+    console.log("Error", err);
+  }
+};
+run();
 ```
+
+------
