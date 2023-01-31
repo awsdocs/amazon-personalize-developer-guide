@@ -1,10 +1,10 @@
 # Recording events<a name="recording-events"></a>
 
- With both Domain dataset group and Custom dataset group, Amazon Personalize can make recommendations based on real\-time *[event](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#event)* data only, historical event data only \(see [Importing bulk records](bulk-data-import.md)\), or a mixture of both\. Record events in real\-time so Amazon Personalize can learn from your user’s most recent activity and update recommendations as they use your application\. This keeps your interactions data fresh and improves the relevance of Amazon Personalize recommendations\.
+ With both Domain dataset group and Custom dataset group, Amazon Personalize can make recommendations based on real\-time *[event](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#event)* data only, historical event data only \(see [Importing bulk records](bulk-data-import.md)\), or a mixture of both\. Record events in real\-time so Amazon Personalize can learn from your user’s most recent activity and update recommendations as they use your application\. This keeps your interactions data fresh and improves the relevance of Amazon Personalize recommendations\. 
 
  You can record real\-time events using the AWS SDKs, AWS Amplify or AWS Command Line Interface \(AWS CLI\)\. When you record events, Amazon Personalize appends the event data to the Interactions dataset in your dataset group\. If you record two events with exactly the same timestamp and identical properties, Amazon Personalize keeps only one of the events\.
 
- AWS Amplify includes a JavaScript library for recording events from web client applications, and a library for recording events in server code\. For more information, see [Amplify \- analytics](https://aws-amplify.github.io/docs/js/analytics) 
+ AWS Amplify includes a JavaScript library for recording events from web client applications, and a library for recording events in server code\. For more information, see [Amplify \- analytics](https://aws-amplify.github.io/docs/js/analytics)\. 
 
 **Topics**
 + [Requirements for recording events and training a model](#recording-events-requirements)
@@ -30,15 +30,23 @@ You can start out with an empty Interactions dataset and, when you have recorded
 
 ## How real\-time events influence recommendations<a name="recorded-events-influence-recommendations"></a>
 
- Once you create a campaign \(for custom solutions\) or a recommender \(for Domain dataset group\), Amazon Personalize automatically uses new recorded event data for existing items \(items you included in the data you used to train the latest model or create the latest recommender\) when generating recommendations for a user\. This does not require retraining the model \(unless you are using the SIMS or Popularity\-Count recipes for custom solutions\)\. 
+ Once you create a campaign \(for custom solutions\) or a recommender \(for Domain dataset group\), Amazon Personalize automatically uses new recorded event data for existing items \(items you included in the data you used to train the latest model or create the latest recommender\) when generating recommendations\. This does not require retraining the model \(unless you are using the SIMS or Popularity\-Count recipes for custom solutions\)\. 
 
 Instead, Amazon Personalize adds the new recorded event data to the user's history\. Amazon Personalize then uses the modified data when generating recommendations for the user \(and this user only\)\.
 +  For recorded events for *new items* \(items you did not include in the data you used to train the model\), if you created recommenders for *Top picks for you* and *Recommended for you* use cases \(for Domain dataset group\) or if you trained your model \(solution version\) with User\-Personalization, Amazon Personalize automatically updates the model every two hours\. After each update completes, the new items influence recommendations\. For information about auto updates for the User\-Personalization recipe, see [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md)\. 
 
    For any other domain use case, Amazon Personalize will automatically train new models for your recommenders every 7 days, starting from the recommender creation date\. For any other custom recipe, you must re\-train the model for the new records to influence recommendations\. Amazon Personalize stores recorded events for new items and, once you create a new solution version \(train a new model\), this new data will influence Amazon Personalize recommendations for the user\. 
-+  For recorded events for *new users* \(users that were not included in the data you used to create recommenders or solution versions\), recommendations will initially be for popular items only\. Recommendations will become more relevant as you record more events for the user\. Amazon Personalize stores the new user data and will use it for training when Amazon Personalize updates your recommender, or when you manually train a new solution version\. 
++  For recorded events for *new users* \(users that were not included in the data you used to create recommenders or solution versions\), recommendations will initially be for popular items\. If you provide have metadata about the user in a Users dataset and you choose a recipe that uses metadata, such as User\-Personalization or Personalized\-Ranking, these popular items will be more relevant for the user\. 
+
+   Recommendations will become more relevant as you record more events for the user\. Amazon Personalize stores the new user data and will use it for training when Amazon Personalize performs automatic updates, or when you manually train a new solution version\. 
 
    For new, anonymous users \(users without a userId\), Amazon Personalize uses the `sessionId` you pass in the [PutEvents](API_UBS_PutEvents.md) operation to associate events with the user before they log in\. For more information see [Recording events for anonymous users](#recording-anonymous-user-events) 
+
+ The following recipes and use cases support real\-time updates to recommendations, where recommendations for a user update as you record their interactions with items: 
++ User\-Personalization recipe
++ Personalized\-Ranking recipe
++ Recommended for you \(ECOMMERCE use case\)
++ Top picks for you \(VIDEO\_ON\_DEMAND use case\)
 
 ## Creating an event tracker<a name="event-get-tracker"></a>
 
@@ -510,7 +518,6 @@ response = personalize_events.put_events(
         'sentAt': '1667260945',
         'itemId': '123',
         'recommendationId': 'RID-12345678-1234-1234-1234-abcdefghijkl'
-      
     }]
 )
 statusCode = response['ResponseMetadata']['HTTPStatusCode']

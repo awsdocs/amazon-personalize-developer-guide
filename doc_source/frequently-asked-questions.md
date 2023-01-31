@@ -75,7 +75,7 @@ You can't delete batch inference jobs\. When a batch inference job's status is *
 
 *Why does my SIMS\-backed campaign recommend items that are not similar based on metadata?*
 
-SIMS uses your Interactions dataset to determine similarity; not item metadata such as color or price\. SIMS identifies the co\-occurrence of the item in user histories in your Interaction dataset to recommend similar items\. For more information, see [SIMS recipe \(legacy\)](native-recipe-sims.md)\. 
+SIMS uses your Interactions dataset to determine similarity; not item metadata such as color or price\. SIMS identifies the co\-occurrence of the item in user histories in your Interaction dataset to recommend similar items\. For more information, see [SIMS recipe](native-recipe-sims.md)\. 
 
 *Can I get more than 500 items from a single GetRecommendations API operation?*
 

@@ -35,6 +35,9 @@ aws personalize delete-metric-attribution --metric-attribution-arn metric attrib
 
  The following code shows how to delete a metric attribution with the SDK for Python \(Boto3\):
 
+------
+#### [ SDK for Python \(Boto3\) ]
+
 ```
 import boto3
             
@@ -44,3 +47,28 @@ response = personalize.delete_metric_attribution(
   metricAttributionArn = 'metric attribution ARN'
 )
 ```
+
+------
+#### [ SDK for Java 2\.x ]
+
+```
+public static void deleteMetricAttribution(PersonalizeClient client, String metricAttributionArn) {
+
+    try {
+    
+        DeleteMetricAttributionRequest request = DeleteMetricAttributionRequest.builder()
+                .metricAttributionArn(metricAttributionArn)
+                .build();
+                
+        DeleteMetricAttributionResponse response = client.deleteMetricAttribution(request);
+        if (response.sdkHttpResponse().statusCode() == 200) {
+            System.out.println("Metric attribution deleted!");
+        }
+        
+    } catch (PersonalizeException e) {
+        System.out.println(e.awsErrorDetails().errorMessage());
+    }
+}
+```
+
+------

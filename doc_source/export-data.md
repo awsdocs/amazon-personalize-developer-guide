@@ -1,6 +1,6 @@
 # Exporting a dataset<a name="export-data"></a>
 
-After you've imported your data, you can export the data in an Interactions, Items, or Users dataset to an Amazon S3 bucket\. After exporting a dataset, you can verify and inspect the data that Amazon Personalize uses to generate recommendations, view the user interaction events that you previously recorded in real time, and perform offline analysis on your data\. 
+After you import your data into an Amazon Personalize dataset, you can export the data to an Amazon S3 bucket\. You might export data to verify and inspect the data that Amazon Personalize uses to generate recommendations, view the user interaction events that you previously recorded in real time, or perform offline analysis on your data\. 
 
 You can choose to export only the data that you imported in bulk \(imported using an Amazon Personalize dataset import job\), only the data that you imported individually \(records imported using the console or the `PutEvents`, `PutUsers`, or `PutItems` operations\), or both\. 
 
@@ -21,13 +21,13 @@ You can create a dataset export job with the Amazon Personalize console, AWS Com
 
 ## Dataset export job permissions requirements<a name="export-permissions"></a>
 
-To export a dataset, Amazon Personalize needs permission to add files to your Amazon S3 bucket\. To grant permissions, attach a new AWS Identity and Access Management \(IAM\) policy to your Amazon Personalize service\-linked role that grants the role permission to use the `PutObject` and `ListBucket` Actions on your bucket, and attach a bucket policy to your output Amazon S3 bucket that grants the Amazon Personalize principle permission to use the `PutObject` and `ListBucket` Actions\.
+To export a dataset, Amazon Personalize needs permission to add files to your Amazon S3 bucket\. To grant permissions, attach a new AWS Identity and Access Management \(IAM\) policy to your Amazon Personalize service role that grants the role permission to use the `PutObject` and `ListBucket` Actions on your bucket, and attach a bucket policy to your output Amazon S3 bucket that grants the Amazon Personalize principle permission to use the `PutObject` and `ListBucket` Actions\.
 
  Amazon S3 buckets and objects must be either encryption free or, if you are using AWS Key Management Service \(AWS KMS\) for encryption, you must grant Amazon Personalize and your Amazon Personalize IAM service role permission to use your key\. For more information, see [Giving Amazon Personalize permission to use your AWS KMS key](granting-personalize-key-access.md)\.
 
-### Service\-linked role policy for exporting a dataset<a name="role-policy-for-dataset-export-job"></a>
+### Service role policy for exporting a dataset<a name="role-policy-for-dataset-export-job"></a>
 
-The following example policy grants your Amazon Personalize service\-linked role permission to use the `PutObject` and `ListBucket` Actions\. Replace `bucket-name` with the name of your output bucket\. For information about attaching policies to a service\-linked IAM role, see [Attaching an Amazon S3 policy to your Amazon Personalize service role](granting-personalize-s3-access.md#attaching-s3-policy-to-role)\. 
+The following example policy grants your Amazon Personalize service role permission to use the `PutObject` and `ListBucket` Actions\. Replace `bucket-name` with the name of your output bucket\. For information about attaching policies to a IAM service role, see [Attaching an Amazon S3 policy to your Amazon Personalize service role](granting-personalize-s3-access.md#attaching-s3-policy-to-role)\. 
 
 ```
 {
@@ -82,7 +82,7 @@ The following example policy grants Amazon Personalize permission to use the `Pu
 
 After you import your data into a dataset and create an output Amazon S3 bucket, you can export the data to the bucket for analysis\. **To export a dataset using the Amazon Personalize console, you create a dataset export job\. For information about creating an Amazon S3 bucket, see [Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html) in the *Amazon Simple Storage Service User Guide*\.
 
-Before you export a dataset, make sure that your Amazon Personalize service\-linked role can access and write to your output Amazon S3 bucket\. See [Dataset export job permissions requirements](#export-permissions)\. 
+Before you export a dataset, make sure that your Amazon Personalize service role can access and write to your output Amazon S3 bucket\. See [Dataset export job permissions requirements](#export-permissions)\. 
 
 **To create a dataset export job \(console\)**
 
@@ -100,7 +100,7 @@ Before you export a dataset, make sure that your Amazon Personalize service\-lin
 
 1. In **Dataset export job details**, for **Dataset export job name**, enter a name for the export job\.
 
-1. For **IAM service role**, choose the Amazon Personalize service\-linked role that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
+1. For **IAM service role**, choose the Amazon Personalize service role that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\.
 
 1. For **Amazon S3 data output path**, enter the destination Amazon S3 bucket\. Use the following syntax:
 
@@ -123,9 +123,9 @@ Before you export a dataset, make sure that your Amazon Personalize service\-lin
 
 After you import your data into the dataset and create an output Amazon S3 bucket, you can export the dataset to the bucket for analysis\. To export a dataset using the AWS CLI, create a dataset export job using the `create-dataset-export-job` AWS CLI command\. For information about creating an Amazon S3 bucket, see [Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html) in the *Amazon Simple Storage Service User Guide*\. 
 
-Before you export a dataset, make sure that the Amazon Personalize service\-linked role can access and write to your output Amazon S3 bucket\. See [Dataset export job permissions requirements](#export-permissions)\. 
+Before you export a dataset, make sure that the Amazon Personalize service role can access and write to your output Amazon S3 bucket\. See [Dataset export job permissions requirements](#export-permissions)\. 
 
- The following is an example of the `create-dataset-export-job` AWS CLI command\. Give the job a name, replace `dataset arn` with the Amazon Resource Name \(ARN\) of the dataset that you want to export, and replace `role ARN` with the ARN of the Amazon Personalize service\-linked role that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. In `s3DataDestination`, for the `kmsKeyArn`, optionally provide the ARN for your AWS KMS key, and for the `path` provide the path to your output Amazon S3 bucket\. 
+ The following is an example of the `create-dataset-export-job` AWS CLI command\. Give the job a name, replace `dataset arn` with the Amazon Resource Name \(ARN\) of the dataset that you want to export, and replace `role ARN` with the ARN of the Amazon Personalize service role that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. In `s3DataDestination`, for the `kmsKeyArn`, optionally provide the ARN for your AWS KMS key, and for the `path` provide the path to your output Amazon S3 bucket\. 
 
  For `ingestion-mode`, specify the data to export from the following options: 
 +  Specify `BULK` to export only data that you imported in bulk using a dataset import job\. 
@@ -164,12 +164,12 @@ aws personalize describe-dataset-export-job \
 
 The following code shows how to create a dataset export job using the SDK for Python \(Boto3\) or the SDK for Java 2\.x SDK\.
 
-Before you export a dataset, make sure that the Amazon Personalize service\-linked role can access and write to your output Amazon S3 bucket\. See [Dataset export job permissions requirements](#export-permissions)\. 
+Before you export a dataset, make sure that the Amazon Personalize service role can access and write to your output Amazon S3 bucket\. See [Dataset export job permissions requirements](#export-permissions)\. 
 
 ------
 #### [ SDK for Python \(Boto3\) ]
 
-Use the following `create_dataset_export_job` to export the data in a dataset to an Amazon S3 bucket\. Give the job a name, replace `dataset arn` with the Amazon Resource Name \(ARN\) of the dataset that you want to export, and replace `role ARN` with the ARN of the Amazon Personalize service\-linked role that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. In `s3DataDestination`, for the `kmsKeyArn`, optionally provide the ARN for your AWS KMS key, and for the `path` provide the path to your output Amazon S3 bucket\. 
+Use the following `create_dataset_export_job` to export the data in a dataset to an Amazon S3 bucket\. Give the job a name, replace `dataset arn` with the Amazon Resource Name \(ARN\) of the dataset that you want to export, and replace `role ARN` with the ARN of the Amazon Personalize service role that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. In `s3DataDestination`, for the `kmsKeyArn`, optionally provide the ARN for your AWS KMS key, and for the `path` provide the path to your output Amazon S3 bucket\. 
 
  For `ingestionMode`, specify the data to export from the following options: 
 + Specify `BULK` to export only data that you imported in bulk using a dataset import job\. 

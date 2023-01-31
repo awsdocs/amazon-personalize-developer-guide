@@ -9,7 +9,9 @@
 1. 
 
    Format your batch input data depending on the type of batch workflow you are using and the recipe your solution uses\. For both workflows, separate input data element with a new line\.
-   + For batch recommendations, your input data is a JSON file with a list of userIds \(USER\_PERSONALIZATION recipes\), a list of itemIds \(RELATED\_ITEMS\), or a list of userIds each paired with a collection of itemIds \(PERSONALIZED\_RANKING recipes\)\. For input data examples, see [Batch inference job input and output JSON examples](#batch-inference-job-json-examples)
+   + For batch recommendations, your input data is a JSON file with a list of userIds \(USER\_PERSONALIZATION recipes\), a list of itemIds \(RELATED\_ITEMS\), or a list of userIds each paired with a collection of itemIds \(PERSONALIZED\_RANKING recipes\)\. You can't get batch recommendations with the Trending\-Now recipe\. 
+
+     For input data examples, see [Batch inference job input and output JSON examples](#batch-inference-job-json-examples)\.
    + For batch segment jobs, your input data is either a list of itemIds \(Item\-Affinity\) or item attributes \(Item\-Attribute\-Affinity\)\. For item attributes, input data can include logical expressions with the `AND` operator to get users for multiple items or attributes per query\. For input data examples, see [Batch segment job input and output JSON examples](#batch-segment-job-json-examples)\.
 
 1.  Upload your input JSON to an input folder in your Amazon S3 bucket\. For more information, see [Uploading files and folders by using drag and drop](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html) in the *Amazon Simple Storage Service User Guide* 
@@ -20,7 +22,7 @@
 
 ## Input and output JSON examples<a name="batch-recommendations-json-examples"></a>
 
-How you format your input data depends on the type of batch job you create and the recipe you use\. The following sections list correctly formatted JSON input and output examples for batch inference jobs and batch segment jobs\.
+How you format your input data depends on the type of batch job you create and the recipe you use\. The following sections list correctly formatted JSON input and output examples for batch inference jobs and batch segment jobs\. You can't get batch recommendations with the Trending\-Now recipe\.
 
  If you use a filter with placeholder parameters, such as `$GENRE`, you must provide the values for the parameters in a `filterValues` object in your input JSON\. For more information see [Providing filter values in your input JSON](filter-batch.md#providing-filter-values)\. 
 
@@ -58,7 +60,7 @@ Separate each `userId` with a new line as follows\.
 
 ------
 
-**Popularity\-Count**
+**POPULAR\_ITEMS \(Popularity\-Count only\)**
 
 ------
 #### [ Input ]

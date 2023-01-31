@@ -24,9 +24,11 @@ To create domain\-based resources, you create a Domain dataset group for your bu
 
    The data that you import depends on your domain\. Each domain has a default schema that you can map your data to\. For information about the types of data that you can import, see [Datasets and schemas](how-it-works-dataset-schema.md) and the sections on each domain \([VIDEO\_ON\_DEMAND datasets and schemas](VIDEO-ON-DEMAND-datasets-and-schemas.md) and [ECOMMERCE datasets and schemas](ECOMMERCE-datasets-and-schemas.md)\)\. 
 
+   After you import data into an Amazon Personalize dataset, you can analyze it, export it to an Amazon S3 bucket, update it, or delete it by deleting the dataset\. For more information, see [Managing data](managing-data.md)\.
+
 1. **Create recommenders**
 
-   After you've imported your data, Amazon Personalize uses it to train one or more models\. For Domain dataset groups, you start training by creating a *recommender* for each of your use cases\. Amazon Personalize trains the models backing each recommender with the best configurations for the selected use case\. For more information see [Creating recommenders](creating-recommenders.md)\. 
+   After you import your data, Amazon Personalize uses it to train one or more models\. For Domain dataset groups, you start training by creating a *recommender* for each of your use cases\. Amazon Personalize trains the models backing each recommender with the best configurations for the selected use case\. For more information see [Creating recommenders](creating-recommenders.md)\. 
 
 1. **Get recommendations**
 
@@ -55,7 +57,7 @@ With the custom workflow you determine your use case, import your data, train an
 
    The data that you import depends on your use case\. For information about the types of data that you can import, see [Datasets and schemas](how-it-works-dataset-schema.md) and the sections on each dataset type \([Interactions data](interactions-datasets.md), [Item data](items-datasets.md), [User data](users-datasets.md)\)\. 
 
-   For more information about importing data see [Preparing and importing data](data-prep.md)\.
+   For more information about importing data see [Preparing and importing data](data-prep.md)\. After you import data into an Amazon Personalize dataset, you can analyze it, export it to an Amazon S3 bucket, update it, or delete it by deleting the dataset\. For more information, see [Managing data](managing-data.md)\.
 
 1. **Train a model**
 

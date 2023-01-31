@@ -1,6 +1,9 @@
 # Similar\-Items recipe<a name="native-recipe-similar-items"></a>
 
- The Similar\-Items \(aws\-similar\-items\) generates recommendations for items that are similar to an item you specify\. Use Similar\-Items to help customers discover new items in your catalog based on their previous behavior and item metadata\. Recommending similar items can increase user engagement, click\-through rate, and conversion rate for your application\. 
+**Note**  
+ All RELATED\_ITEMS recipes use interactions data\. Choose Similar\-Items if you have also have item metadata and want Amazon Personalize to use it to find similar items\. Or choose the [SIMS recipe](native-recipe-sims.md) if you want to configure more hyperparameters for the model, such as the popularity discount factor\. 
+
+ The Similar\-Items \(aws\-similar\-items\) recipe generates recommendations for items that are similar to an item you specify\. Use Similar\-Items to help customers discover new items in your catalog based on their previous behavior and item metadata\. Recommending similar items can increase user engagement, click\-through rate, and conversion rate for your application\. 
 
 Similar\-Items calculates similarity based on interactions data and any item metadata you provide\. It takes into account the co\-occurrence of the item in user histories in your Interaction dataset, and any item metadata similarities\. For example, with Similar\-Items Amazon Personalize could recommend items customers frequently bought together with a similar style \([Categorical metadata](items-datasets.md#item-categorical-data)\), or movies that different users also watched with a similar description \([Unstructured text metadata](items-datasets.md#text-data)\)\.
 

@@ -6,9 +6,6 @@ Tags can help you categorize and manage resources in different ways, such as by 
 
  To retrieve Amazon Personalizes resources by tag, you can use the filters in GetResources operation of Resource Groups Tagging API\. For more information, see [GetResources](https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html) in the *Resource Groups Tagging API* API Reference guide\. 
 
-**Note**  
-You can't use tag\-based authorization in AWS Identity and Access Management \(IAM\) policies to control a user's access to Amazon Personalize resources\.
-
 You can add tags to the following types of Amazon Personalize resources: 
 +  Batch inference jobs 
 +  Batch segment jobs 
@@ -24,4 +21,5 @@ You can add tags to the following types of Amazon Personalize resources:
 
 **Topics**
 + [Managing tags](personalize-managing-tags.md)
-+ [Adding tags to resources](tags-add.md)
++ [Adding tags to Amazon Personalize resources](tags-add.md)
++ [Using tags in IAM policies](tags-iam.md)

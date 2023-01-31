@@ -11,10 +11,13 @@ Before you use Amazon Personalize, determine your use case to identify what reci
 Before you get started providing personalized experiences for your users, choose your use case from the following and note its corresponding recipe type\.
 + Recommending items for users \(USER\_PERSONALIZATION recipes\)
 
-  To provide recommendations for your users, train your model with a USER\_PERSONALIZATION recipe\. Recommendations can either be *personalized* recommendations, such as recommending movies for a user based on interactions, items, and user data, or *popular* items based on interactions data\.
+  To provide personalized recommendations for your users, train your model with a USER\_PERSONALIZATION recipe\. Personalized recommendations help drive better engagement and conversion\.
 + Ranking items for a user \(PERSONALIZED\_RANKING recipes\) 
 
   To personalize the order of curated lists or search results for your users, train your model with a PERSONALIZED\_RANKING recipe\. PERSONALIZED\_RANKING recipes create a personalized list by re\-ranking a collection of input items based on predicted interest level for a given user\. Personalized lists improve the customer experience and increase customer loyalty and engagement\. 
++  Recommending trending or popular items \(POPULAR\_ITEMS\) 
+
+  To recommend trending or popular items use a POPULAR\_ITEMS recipe\. You might use a POPULAR\_ITEMS if your customers highly value what other users are interacting with\. Common uses include recommending viral social media content, breaking news articles, or recent sports videos\. 
 +  Recommending similar items \(RELATED\_ITEMS recipes\)
 
   To recommend similar items, such as items frequently bought together or movies that other users have also watched, you should use a RELATED\_ITEMS recipe\. Recommending similar items can help your customers discover items and can increase user conversion rate\. 

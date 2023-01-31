@@ -16,7 +16,7 @@ You can create a Domain dataset group with the Amazon Personalize console, AWS C
 
 1.  Import your data into an Amazon Personalize dataset and record real\-time event data from user interactions with items\. 
 
-1. When you have collected enough data, create recommenders for each of your use cases\. All use cases require the following before creating recommenders: 
+1. When you have collected enough data, create recommenders for each of your use cases\. Before you create a recommender, your interactions data must have the following: 
    + At minimum 1000 interactions records from users interacting with items in your catalog\. These interactions can be from bulk imports, or streamed events, or both\.
    + At minimum 25 unique user IDs with at least 2 interactions for each\.
 

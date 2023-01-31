@@ -4,7 +4,7 @@ Creates the configuration for training a model\. A trained model is known as a s
 
 After creating a solution version, you check its accuracy by calling [GetSolutionMetrics](https://docs.aws.amazon.com/personalize/latest/dg/API_GetSolutionMetrics.html)\. When you are satisfied with the version, you deploy it using [CreateCampaign](https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html)\. The campaign provides recommendations to a client through the [GetRecommendations](https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html) API\.
 
-To train a model, Amazon Personalize requires training data and a recipe\. The training data comes from the dataset group that you provide in the request\. A recipe specifies the training algorithm and a feature transformation\. You can specify one of the predefined recipes provided by Amazon Personalize\. Alternatively, you can specify `performAutoML` and Amazon Personalize will analyze your data and select the optimum USER\_PERSONALIZATION recipe for you\.
+To train a model, Amazon Personalize requires training data and a recipe\. The training data comes from the dataset group that you provide in the request\. A recipe specifies the training algorithm and a feature transformation\. You can specify one of the predefined recipes provided by Amazon Personalize\. 
 
 **Note**  
 Amazon Personalize doesn't support configuring the `hpoObjective` for solution hyperparameter optimization at this time\.
@@ -120,6 +120,7 @@ Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`
 Required: Yes
 
  ** [performAutoML](#API_CreateSolution_RequestSyntax) **   <a name="personalize-CreateSolution-request-performAutoML"></a>
+We don't recommend enabling automated machine learning\. Instead, match your use case to the available Amazon Personalize recipes\. For more information, see [Determining your use case\.](https://docs.aws.amazon.com/personalize/latest/dg/determining-use-case.html) 
 Whether to perform automated machine learning \(AutoML\)\. The default is `false`\. For this case, you must specify `recipeArn`\.  
 When set to `true`, Amazon Personalize analyzes your training data and selects the optimal USER\_PERSONALIZATION recipe and hyperparameters\. In this case, you must omit `recipeArn`\. Amazon Personalize determines the optimal recipe by running tests with different values for the hyperparameters\. AutoML lengthens the training process as compared to selecting a specific recipe\.  
 Type: Boolean  

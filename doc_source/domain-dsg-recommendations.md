@@ -2,7 +2,9 @@
 
  With a Domain dataset group, after you create a recommender you can use it in your application to get real\-time recommendations with the [GetRecommendations](API_RS_GetRecommendations.md) operation\. Or you can test the recommender with the Amazon Personalize console\. For more information about recommenders see [Creating recommenders](creating-recommenders.md)\. 
 
- For all domains and all use cases, you can specify a promotion in your request\. A *promotion* defines additional business rules that apply to a configurable subset of recommended items\. For more information see [Promoting items in recommendations \(Domain dataset group\)](promoting-items-domain-dsg.md)\. 
+ If you use the Recommended for you \(ECOMMERCE\) or Top picks for you \(VIDEO\_ON\_DEMAND\) use cases, Amazon Personalize updates recommendations in real\-time based on your user's most recent activity\. For more information on recording real\-time events, see [Recording events](recording-events.md)\. 
+
+ For all use cases except [Trending now](VIDEO_ON_DEMAND-use-cases.md#trending-now-use-case), you can specify a promotion in your request\. A *promotion* defines additional business rules that apply to a configurable subset of recommended items\. For more information see [Promoting items in recommendations \(Domain dataset group\)](promoting-items-domain-dsg.md)\. 
 
 **Topics**
 + [Getting recommendations with a recommender \(console\)](#get-domain-rec-console)

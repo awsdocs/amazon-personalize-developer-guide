@@ -8,13 +8,9 @@ Common use case examples include the following:
 + **Creating personalized emails** – You can use customizable Amazon Personalize resources to generate batch recommendations for all users on an email list\. Then you can use an [AWS service](#related-services) or [third party service](#third-parties) to send users personalized emails recommending items in your catalog\. 
 + **Creating a targeted marketing campaign** – You can use Amazon Personalize to generate segments of users who will most likely interact with items in your catalog\. Then you can use an [AWS service](#related-services) or [third party service](#third-parties) to create a targeted marketing campaign that promotes different items to different user segments\.
 
+Amazon Personalize generates recommendations primarily based on interactions data\. Interactions data is data from your users interacting with items in your catalog\. For example, users clicking different items\. Your interactions data can come from both your historical bulk interaction records in a CSV file, and real\-time events from your users as they interact with your catalog\. In some cases, Amazon Personalize also uses metadata about items and users, such as genre, price, or gender\. 
+
 Amazon Personalize includes API operations for real\-time personalization, and batch operations for bulk recommendations and user segments\. You can get started quickly with use\-case optimized recommenders for your business domain, or you can create your own configurable custom resources\. 
-
- With Amazon Personalize, your data can come from both your historical bulk interaction records in a CSV file, and real\-time events from your users as they interact with your catalog\. Before Amazon Personalize can generate recommendations, your interactions data must have: 
-+ At minimum 1000 interactions records from users interacting with items in your catalog\. These interactions can be from bulk imports, or streamed events, or both\.
-+ At minimum 25 unique user IDs with at least 2 interactions for each\.
-
- Different use cases may have additional data requirements\. If you don't have enough data, you can use Amazon Personalize to first collect real\-time event data\. After you have recorded enough events, Amazon Personalize can generate recommendations\. 
 
 **Topics**
 + [Pricing for Amazon Personalize](#whatis-pricing)

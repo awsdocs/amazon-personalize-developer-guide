@@ -6,6 +6,8 @@ The following covers importing only historical data\. If you don't have historic
 
 When you import historical data, you can choose to import records in bulk, or individually, or both\. We recommend you use bulk imports when you have many new records that you want to import or update at once\. Use individual import operations to quickly add or update small groups of records\. For example, as customers create accounts, you might use the [PutUsers](API_UBS_PutUsers.md) operation to import small batches users into Amazon Personalize\. 
 
+After you import data into an Amazon Personalize dataset, you can analyze it, export it to an Amazon S3 bucket, update it, or delete it by deleting the dataset\. For more information, see [Managing data](managing-data.md)\.
+
  As your catalog grows, we recommend that you complete additional imports to keep your data in Amazon Personalize up to date\. Keeping data current allows you to maintain recommendation relevance\. For more information, see [Maintaining recommendation relevance](maintaining-relevance.md)\. 
 
 **Topics**

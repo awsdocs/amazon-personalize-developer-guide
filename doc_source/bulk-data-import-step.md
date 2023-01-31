@@ -2,7 +2,7 @@
 
 After you have formatted your input data \(see [Formatting your input data](data-prep-formatting.md)\) and uploaded it to an Amazon Simple Storage Service \(Amazon S3\) bucket \(see [Uploading to an Amazon S3 bucket](data-prep-upload-s3.md)\), import the bulk records by creating a dataset import job\. 
 
-A *dataset import job* is a bulk import tool that populates your dataset with data from your S3 bucket\. You create a dataset import job and import bulk records using the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\), or AWS SDKs\.
+A *dataset import job* is a bulk import tool that populates your dataset with data from your Amazon S3 bucket\. You can create a dataset import job using the Amazon Personalize console, AWS Command Line Interface \(AWS CLI\), or AWS SDKs\.
 
 If you've previously created a dataset import job for a dataset, you can use a new dataset import job to add to or replace the existing bulk data\. For more information see [Updating existing bulk data](updating-existing-bulk-data.md)\. 
 
@@ -10,7 +10,6 @@ If you've previously created a dataset import job for a dataset, you can use a n
 + [Importing bulk records \(console\)](#bulk-data-import-console)
 + [Importing bulk records \(AWS CLI\)](#bulk-data-import-cli)
 + [Importing bulk records \(AWS SDKs\)](#python-import-ex)
-+ [Updating existing bulk data](updating-existing-bulk-data.md)
 
 ## Importing bulk records \(console\)<a name="bulk-data-import-console"></a>
 
@@ -49,7 +48,7 @@ If your CSV files are in a folder in your S3 bucket and you want to upload multi
 
 1. For **Tags**, optionally add any tags\. For more information about tagging Amazon Personalize resources, see [Tagging Amazon Personalize resources](tagging-resources.md)\.
 
-1. Choose **Finish**\. The data import job starts and the **Dashboard Overview** page is displayed\. The dataset import is complete when the status shows as ACTIVE\. You can now train the model using the specified dataset\.
+1. Choose **Finish**\. The data import job starts and the **Dashboard Overview** page is displayed\. The dataset import is complete when the status shows as ACTIVE\. After you import data into an Amazon Personalize dataset, you can analyze it, export it to an Amazon S3 bucket, update it, or delete it by deleting the dataset\. For more information, see [Managing data](managing-data.md)\. 
 
    After you import your data you are ready to create a solution\. For more information, see [Creating a solution](training-deploying-solutions.md)\. 
 
@@ -112,9 +111,9 @@ By default, a dataset import job replaces any existing data in the dataset that 
    }
    ```
 
-   The dataset import is complete when the status shows as ACTIVE\. You can now train the model using the specified dataset\.
+   The dataset import is complete when the status shows as ACTIVE\. After you import data into an Amazon Personalize dataset, you can analyze it, export it to an Amazon S3 bucket, update it, or delete it by deleting the dataset\. For more information, see [Managing data](managing-data.md)\. 
 
-   After you import your data into the relevant datasets in the dataset group, create a solution version by training a model\. For more information, see [Creating a solution](training-deploying-solutions.md)\.
+   After you import your data into the relevant datasets in the dataset group, you can create a solution version \(trained model\)\. For more information, see [Creating a solution](training-deploying-solutions.md)\.
 
 ## Importing bulk records \(AWS SDKs\)<a name="python-import-ex"></a>
 
@@ -263,6 +262,6 @@ The response from the [DescribeDatasetImportJob](API_DescribeDatasetImportJob.md
 
 You must wait until the status changes to ACTIVE before you can use the data to train a model\.
 
-Amazon Personalize provides operations for managing datasets, dataset groups, and dataset import jobs\. For example, you can use [ListDatasets](API_ListDatasets.md) to list the datasets in a dataset group and [DeleteDataset](API_DeleteDataset.md) to delete a dataset\.
+The dataset import is complete when the status shows as ACTIVE\. After you import data into an Amazon Personalize dataset, you can analyze it, export it to an Amazon S3 bucket, update it, or delete it by deleting the dataset\. For more information, see [Managing data](managing-data.md)\. 
 
-After you import your data into the relevant datasets in the dataset group, create a solution version by training a model\. For more information, see [Creating a solution](training-deploying-solutions.md)\.
+After you import your data into the relevant datasets in the dataset group, you can create a solution version \(trained model\)\. For more information, see [Creating a solution](training-deploying-solutions.md)\.

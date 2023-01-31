@@ -1,6 +1,6 @@
 # Popularity\-Count recipe<a name="native-recipe-popularity"></a>
 
-Popularity\-Count recommends the most popular item items based on all of your user behavioral data\. The most popular items have the most interactions with unique users\. The recipe returns the same popular items for all users\. Popularity\-Count is a good baseline for comparing with other recipes using the evaluation metrics Amazon Personalize generates when you create a solution version\. For more information see [Step 4: Evaluating a solution version with metrics](working-with-training-metrics.md)\. 
+Popularity\-Count recommends the most popular items based your interactions data\. The most popular items are the items with the most interactions data from unique users\. The recipe returns the same popular items for all users\. Popularity\-Count is a good baseline for comparing with other recipes using the evaluation metrics Amazon Personalize generates when you create a solution version\. For more information, see [Step 4: Evaluating a solution version with metrics](working-with-training-metrics.md)\. 
 
  After you create a solution version, make sure you keep your solution version and data up to date\. With Popularity\-Count, you must manually create a new solution version \(retrain the model\) to reflect updates to your catalog and update the model with your user’s most recent behavior\. Then you must update any campaign using the solution version\. For more information, see [Maintaining recommendation relevance](maintaining-relevance.md)\.
 

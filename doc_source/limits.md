@@ -14,7 +14,7 @@ For a list of Amazon Personalize endpoints by region, see [AWS regions and endpo
 
 ## Compliance<a name="compliance"></a>
 
-For more information about Amazon Personalize compliance programs, see [AWS compliance](https://aws.amazon.com/compliance/), [AWS compliance programs](https://aws.amazon.com/compliance/programs/), and [AWS services in scope by compliance program](https://aws.amazon.com/compliance/services-in-scope)\.
+For information about Amazon Personalize compliance programs, see [AWS compliance](https://aws.amazon.com/compliance/), [AWS compliance programs](https://aws.amazon.com/compliance/programs/), and [AWS services in scope by compliance program](https://aws.amazon.com/compliance/services-in-scope)\.
 
 ## Service quotas<a name="limits-table"></a>
 
@@ -26,20 +26,21 @@ Your AWS account has the following quotas for Amazon Personalize\.
 | Interactions | 
 | --- |
 | Minimum number of unique combined historical and event interactions \(after filtering by eventType and eventValueThreshold, if provided\) required to train a model \(create a solution version\)\. | 1000 | 
-| Maximum number of interactions that are considered by a model during training\. | 500 million | 
+| Maximum number of interactions that are considered by a model during training\. | 500 million \(adjustable\) | 
 | Maximum number of distinct event types combined with total number of optional metadata columns in Interactions datasets\. | 10 | 
 | Maximum number of metadata columns, excluding reserved fields, in Interactions datasets\. | 5 | 
 | Maximum number of characters for categorical data and impression values\. | 1000 | 
-| Maximum amount of bulk interactions data per dataset import job\. | 100 GB | 
-| Minimum number of interactions records per dataset import job for both FULL and INCREMENTAL import modes\. | 1000 | 
+| Maximum amount of bulk interactions data per dataset import job with FULL import mode\. | 100 GB \(increases to 1TB with any increase to Interactions considered by a model\) | 
+| Maximum amount of bulk interactions data per dataset import job with INCREMENTAL import mode\. | 1 GB | 
+| Minimum number of interactions records per dataset import job with FULL or INCREMENTAL import mode\. | 1000 | 
 | Users | 
 | --- |
 | Minimum number of unique users, with at least 2 interactions each, required to train a model \(create a solution version\)\. | 25 | 
-| Maximum number of users that are considered by a model during training\. | 50 million | 
 | Maximum number of metadata fields for a Users dataset\. | 5 | 
 | Maximum number of characters for USER\_ID data values\. | 256 | 
 | Maximum number of characters for categorical data values\. | 1000 characters | 
-| Maximum amount of bulk user data per dataset import job\. | 100 GB | 
+| Maximum amount of bulk user data per dataset import job with FULL import mode\. | 100 GB | 
+| Maximum amount of bulk user data per dataset import job with INCREMENTAL import mode\. | 1 GB | 
 | Items | 
 | --- |
 | Maximum number of items that are considered by a model during training\. | 750,000 | 
@@ -48,7 +49,8 @@ Your AWS account has the following quotas for Amazon Personalize\.
 | Maximum number of characters for categorical data values\. | 1000 characters | 
 | Maximum number of characters for textual data values for Chinese and Japanese languages\. | 7,000 characters | 
 | Maximum number of characters for textual data values for all other languages\. | 20,000 characters | 
-| Maximum amount of bulk items data per dataset import job\. | 100 GB | 
+| Maximum amount of bulk items data per dataset import job with BULK import mode\. | 100 GB | 
+| Maximum amount of bulk item data per dataset import job with INCREMENTAL import mode\. | 1 GB | 
 | Individual record import APIs | 
 | --- |
 | Maximum rate of PutEvents requests per dataset group\. | 1000/second | 
@@ -68,7 +70,7 @@ Your AWS account has the following quotas for Amazon Personalize\.
 | Total number of filters per dataset group\. | 10 | 
 | Maximum number of distinct dataset fields for a filter\. | 5 | 
 | Total number of distinct dataset fields across all filters in a dataset group\. | 10 | 
-| Maximum number of interactions per user per event type considered by a filter\. | 100 | 
+| Maximum number of interactions per user per event type considered by a filter\. | 100 interactions \(adjustable\) | 
 | GetRecommendations / GetPersonalizedRanking requests | 
 | --- |
 | Maximum transaction rate \(GetRecommendations and GetPersonalizedRanking requests\)\. | 2500/sec | 
@@ -94,29 +96,32 @@ Your AWS account has the following quotas for each region\.
 | Resource | Quota | 
 | --- | --- | 
 | Total number of active schemas\. | 500 | 
-| Total number of active dataset groups\. | 5 | 
+| Total number of active dataset groups\. | 5 \(adjustable\) | 
 | Total number of pending or in progress dataset import jobs\. | 5 | 
-| Total number of pending or in progress batch inference jobs\. | 5 | 
+| Total number of pending or in progress batch inference jobs\. | 5 \(adjustable\) | 
 | Total number of pending or in progress batch segment jobs\. | 5 | 
-| Total number of pending or in progress solution versions\. | 20 | 
+| Total number of pending or in progress solution versions\. | 20 \(adjustable\) | 
 
 Each dataset group has the following quotas\.
 
 
 | Resource | Quota | 
 | --- | --- | 
-| Total number of active solutions\. | 10 | 
-| Total number of active campaigns\. | 5 | 
+| Total number of active solutions\. | 10 \(adjustable\) | 
+| Total number of active campaigns\. | 5 \(adjustable\) | 
 | Total number of recommenders\. | 5 | 
-| Total number of filters\. | 10 | 
+| Total number of filters\. | 10 \(adjustable\) | 
 | Total number of distinct dataset fields across all filters\. | 10 | 
 
 ## Requesting a quota increase<a name="requesting-limit-increase"></a>
 
  For adjustable quotas, you can request a quota increase using the [Service Quotas console](https://console.aws.amazon.com/servicequotas/)\. The following Amazon Personalize quotas are adjustable: 
-+  Total number of active campaigns 
-+  Total number of recommenders 
-+  Maximum number of filters per account 
++ Maximum number of interactions that are considered by a model during training\.
++ Active campaigns per dataset group 
++ Active dataset groups
++ Active filters per dataset group 
++ Active solutions per dataset group 
++ Amount of data per incremental import
 + Maximum number of interactions per user per event type considered by a filter
 +  Total number of pending or in progress batch inference jobs 
 +  Total number of pending or in progress solution versions 

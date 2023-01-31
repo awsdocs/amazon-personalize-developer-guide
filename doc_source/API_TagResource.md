@@ -28,7 +28,7 @@ Pattern: `arn:([a-z\d-]+):personalize:.*:.*:.+`
 Required: Yes
 
  ** [tags](#API_TagResource_RequestSyntax) **   <a name="personalize-TagResource-request-tags"></a>
-Tags to apply to the resource\. For more information see [Tagging Personalize resources](https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html)\.  
+Tags to apply to the resource\. For more information see [Tagging Amazon Personalize recources](https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html)\.  
 Type: Array of [Tag](API_Tag.md) objects  
 Array Members: Minimum number of 0 items\. Maximum number of 200 items\.  
 Required: Yes

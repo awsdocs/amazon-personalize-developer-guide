@@ -1,7 +1,7 @@
-# SIMS recipe \(legacy\)<a name="native-recipe-sims"></a>
+# SIMS recipe<a name="native-recipe-sims"></a>
 
 **Note**  
- We recommend using the aws\-similar\-items \(Similar\-Items\) recipe over the legacy SIMS recipe\. Similar\-Items is more accurate and it calculates similarity based on interactions data *and* any item metadata\. SIMS uses only interactions data\. For more information, see [Similar\-Items recipe](native-recipe-similar-items.md)\. 
+ All RELATED\_ITEMS recipes use interactions data\. Choose SIMS if you want to configure more hyperparameters for the model, such as the popularity discount factor\. Choose the [Similar\-Items recipe](native-recipe-similar-items.md) if you have also have item metadata and want Amazon Personalize to use it to find similar items\. 
 
  The Item\-to\-item similarities \(SIMS\) recipe uses collaborative filtering to recommend items that are most similar to an item you specify when you get recommendations\. SIMS uses your Interactions dataset, not item metadata such as color or price, to determine similarity\. SIMS identifies the co\-occurrence of the item in user histories in your Interaction dataset to recommend similar items\. For example, with SIMS Amazon Personalize could recommend coffee shop items customers frequently bought together or movies that different users also watched\. 
 

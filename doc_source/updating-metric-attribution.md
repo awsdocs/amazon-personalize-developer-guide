@@ -50,7 +50,10 @@ aws personalize update-metric-attribution \
 
 ## Updating a metric attribution \(AWS SDK\)<a name="updating-metric-attribution-sdk"></a>
 
-After you create a metric attribution, you can add or remove metrics and modify its output configuration\. The following code shows how to remove metrics with the SDK for Python \(Boto3\):
+After you create a metric attribution, you can add or remove metrics and modify its output configuration\. The following code shows how to remove metrics from a metric attribution\.
+
+------
+#### [ SDK for Python \(Boto3\) ]
 
 ```
 import boto3
@@ -65,7 +68,39 @@ response = personalize.update_metric_attribution(
 )
 ```
 
- The following code shows how to add an additional metric and specify a new output configuration with the SDK for Python \(Boto3\):
+------
+#### [ SDK for Java 2\.x ]
+
+```
+public static void removeMetrics(PersonalizeClient client,
+                                 String metricAttributionArn,
+                                 String metric1Name,
+                                 String metric2Name) {
+
+    ArrayList<String> metricsToRemove = new ArrayList<>(Arrays.asList(metric1Name, metric2Name));
+    
+    try {
+    
+        UpdateMetricAttributionRequest request = UpdateMetricAttributionRequest.builder()
+                .metricAttributionArn(metricAttributionArn)
+                .removeMetrics(metricsToRemove)
+                .build();
+                
+        UpdateMetricAttributionResponse response = client.updateMetricAttribution(request);
+        System.out.println(response);
+        
+    } catch (PersonalizeException e) {
+        System.out.println(e.awsErrorDetails().errorMessage());
+    }
+}
+```
+
+------
+
+ The following code shows how to add an additional metric and specify a new output configuration:
+
+------
+#### [ SDK for Python \(Boto3\) ]
 
 ```
 import boto3
@@ -92,5 +127,64 @@ response = personalize.update_metric_attribution(
   addMetrics = newMetrics
 )
 ```
+
+------
+#### [ SDK for Java 2\.x ]
+
+```
+public static void addMetricsAndUpdateOutputConfig(PersonalizeClient personalizeClient,
+                                                String metricAttributionArn,
+                                                String newMetric1EventType,
+                                                String newMetric1Expression,
+                                                String newMetric1Name,
+                                                String newMetric2EventType,
+                                                String newMetric2Expression,
+                                                String newMetric2Name,
+                                                String roleArn,
+                                                String s3Path,
+                                                String kmsKeyArn) {
+    try {
+    
+        MetricAttribute newAttribute = MetricAttribute.builder()
+                .eventType(newMetric1EventType)
+                .expression(newMetric1Expression)
+                .metricName(newMetric1Name)
+                .build();
+                
+        MetricAttribute newAttribute2 = MetricAttribute.builder()
+                .eventType(newMetric2EventType)
+                .expression(newMetric2Expression)
+                .metricName(newMetric2Name)
+                .build();
+
+        ArrayList<MetricAttribute> newAttributes = new ArrayList<>(Arrays.asList(newAttribute, newAttribute2));
+
+        S3DataConfig newDataDestination = S3DataConfig.builder()
+                .kmsKeyArn(kmsKeyArn)
+                .path(s3Path)
+                .build();
+
+        MetricAttributionOutput newOutputConfig = MetricAttributionOutput.builder()
+                .roleArn(roleArn)
+                .s3DataDestination(newDataDestination)
+                .build();
+                
+        UpdateMetricAttributionRequest request = UpdateMetricAttributionRequest.builder()
+                .metricAttributionArn(metricAttributionArn)
+                .metricsOutputConfig(newOutputConfig)
+                .addMetrics(newAttributes)
+                .build();
+                
+        UpdateMetricAttributionResponse response = personalizeClient.updateMetricAttribution(request);
+        System.out.println("New metrics added!");
+        System.out.println(response);
+        
+    } catch (PersonalizeException e) {
+        System.out.println(e.awsErrorDetails().errorMessage());
+    }
+}
+```
+
+------
 
 If successful, Amazon Personalize returns the ARN of the metric attribution you updated\. For a complete listing of all parameters, see [UpdateMetricAttribution](API_UpdateMetricAttribution.md)\.

@@ -13,7 +13,7 @@ If you already created a solution version \(trained a model\), new bulk records 
 + For *new items*, if you trained the solution version with User\-Personalization, Amazon Personalize automatically updates the model every two hours\. After each update, the new items might be included in recommendations with exploration\. For information about automatic updates see [Automatic updates](native-recipe-new-item-USER_PERSONALIZATION.md#automatic-updates)\. 
 
    For any other recipe, you must create a new solution version for the new items to be included in recommendations\. 
-+ For *new users* without interactions data, recommendations are initially for only popular items\. To get relevant recommendations for a new user, you can import bulk interactions for the user and create a new solution version\. Or you can record events for the user in real time as they interact with your catalog\. Their recommendations will be more relevant as you record more events\. For more information, see [Recording events](recording-events.md)\. 
++ For *new users* without interactions data, recommendations are initially for only popular items\. If you have metadata about the user in a Users dataset and you choose a recipe that uses metadata, such as User\-Personalization or Personalized\-Ranking, these popular items will be more relevant for the user\. To get relevant recommendations for a new user, you can import bulk interactions for the user and create a new solution version\. Or you can record events for the user in real time as they interact with your catalog\. Their recommendations will be more relevant as you record more events\. For more information, see [Recording events](recording-events.md)\. 
 
 **Topics**
 + [Import modes](#bulk-import-modes)

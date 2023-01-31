@@ -1,6 +1,6 @@
 # UntagResource<a name="API_UntagResource"></a>
 
-Remove [tags](https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html) that are attached to a resource\.
+Remove [tags](https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html) that are attached to a resource\.
 
 ## Request Syntax<a name="API_UntagResource_RequestSyntax"></a>
 

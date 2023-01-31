@@ -4,5 +4,4 @@
 
 USER\_PERSONALIZATION recipes are as follows:
 +  [User\-Personalization recipe](native-recipe-new-item-USER_PERSONALIZATION.md) 
-+  [Popularity\-Count recipe](native-recipe-popularity.md) 
 +  [Legacy user personalization recipes](legacy-user-personalization-recipes.md) 

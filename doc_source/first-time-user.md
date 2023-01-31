@@ -1,6 +1,18 @@
 # Guidance for first\-time Amazon Personalize users<a name="first-time-user"></a>
 
-If you're a first\-time user of Amazon Personalize, we recommend you read the following sections in order:
+If you're a first\-time user of Amazon Personalize, the following resources can help you get started\.
+
+**Topics**
++ [Discovering Amazon Personalize with the Magic Movie Machine](#explore-with-magic-movie-machine)
++ [Navigating this guide](#reading-this-guide)
+
+## Discovering Amazon Personalize with the Magic Movie Machine<a name="explore-with-magic-movie-machine"></a>
+
+ The Magic Movie Machine is an interactive learning experience\. It helps you discover Amazon Personalize features and learn more about generating recommendations\. For a short introduction, see the video below\. Then try the [Magic Movie Machine](https://dohy8sp8i3s5p.cloudfront.net/)\. 
+
+## Navigating this guide<a name="reading-this-guide"></a>
+
+We recommend you read the following sections in order:
 
 1. **[How it works](how-it-works.md)** – This section introduces the Amazon Personalize workflow and walks you through the steps to create personalized experiences for your users\. This section also includes common Amazon Personalize terms and their definitions\. Start with this section to make sure you have good understanding of Amazon Personalize workflows and terms before you start getting recommendations\. 
 
@@ -8,7 +20,7 @@ If you're a first\-time user of Amazon Personalize, we recommend you read the fo
 
 1. **[Getting started](getting-started.md)** – In this section you get started using Amazon Personalize with a simple movie dataset\. Complete these tutorials to get hands\-on experience with Amazon Personalize\. You can choose to either get started with a Domain dataset group or a Custom dataset group: 
    +  To get started creating a Domain dataset group, complete the [Getting started prerequisites](gs-prerequisites.md) and then start the tutorials in [Getting started with a Domain dataset group](getting-started-domain.md)\. 
-   +  To get started with a Custom dataset group, complete the [Getting started prerequisites](gs-prerequisites.md) and then start the tutorials in [Getting started with a Custom dataset group](getting-started-custom.md)\. 
+   +  To get started with a Custom dataset group, complete the [Getting started prerequisites](gs-prerequisites.md) and then start the tutorials in [Getting started with a Domain dataset group](getting-started-domain.md)\. 
 
 1. Depending on your application, complete either of the following sections:
    + **[Domain dataset groups](domain-dataset-groups.md)** – If you have a streaming video or ecommerce application, follow the procedures in this section to create a Domain dataset group and recommenders for your use cases\. These procedures build upon what you learned when completing the Domain dataset group getting started exercises\. They provide more in\-depth information about recommenders and domain use cases\. 

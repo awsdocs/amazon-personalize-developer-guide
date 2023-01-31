@@ -5,7 +5,7 @@
 
 To start generating metric reports, you create a metric attribution and import interactions data\. When you create a metric attribution, you specify a list of event types to report on\. For each event type, you specify a function that Amazon Personalize applies as it collects the data\. Available functions include `SUM(DatasetType.COLUMN_NAME)` and `SAMPLECOUNT()`\. 
 
- For example, you might have an online shopping app and want to track two metrics: the click\-through rate for recommendations, and the total revenue from purchases\. You would create a metric attribution and add two metrics, each with an event type and function\. The first might be for the `Click` event type with a `SAMPLECOUNT()` function\. The second might be for the `Purchase` event type with a `SUM(Items.price)` function\. 
+ For example, you might have an online video streaming app and want to track two metrics: the click\-through rate for recommendations, and the total length of movies watched, where each video in the Items dataset includes a `LENGTH` attribute\. You would create a metric attribution and add two metrics, each with an event type and function\. The first might be for the `Click` event type with a `SAMPLECOUNT()` function\. The second might be for the `Watch` event type with a `SUM(Items.LENGTH)` function\. 
 
 You can apply `SUM()` functions to only numeric columns of Items and Interactions datasets\. To apply a `SUM()` function to a column in an Items dataset, you must first import item metadata\.
 
@@ -54,9 +54,9 @@ You can apply `SUM()` functions to only numeric columns of Items and Interaction
 
      ```
      {
-         "EventType": "purchase",
-         "MetricName": "RevenueTracker", 
-         "MetricMathExpression": "SUM(Items.PRICE)"
+         "EventType": "watch",
+         "MetricName": "MinutesWatchedTracker", 
+         "MetricMathExpression": "SUM(Items.LENGTH)"
      }
      ```
 
@@ -68,7 +68,7 @@ You can apply `SUM()` functions to only numeric columns of Items and Interaction
 
  The following code shows how to create a metric attribution with the AWS Command Line Interface\. The role you specify must have `PutMetricData` permissions for CloudWatch and, if publishing to Amazon S3, `PutObject` permissions for your Amazon S3 bucket\. To use the role that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions), you might have to add policies for CloudWatch and Amazon S3\. For policy examples, see [Giving Amazon Personalize access to CloudWatch](metric-attribution-requirements.md#metric-attribution-cw-permissions) and [Giving Amazon Personalize access to your Amazon S3 bucket](metric-attribution-requirements.md#metric-attribution-s3-permissions)\. 
 
- For each metric specify a name, event type, and expression \(a function\)\. Available functions include `SUM(DatasetType.COLUMN_NAME)` and `SAMPLECOUNT()`\. For SUM\(\) functions, specify the dataset type and column name\. For example, `SUM(Items.PRICE)`\. For information on each parameter, see [CreateMetricAttribution](API_CreateMetricAttribution.md)\. 
+ For each metric specify a name, event type, and expression \(a function\)\. Available functions include `SUM(DatasetType.COLUMN_NAME)` and `SAMPLECOUNT()`\. For SUM\(\) functions, specify the dataset type and column name\. For example, `SUM(Items.LENGTH)`\. For information on each parameter, see [CreateMetricAttribution](API_CreateMetricAttribution.md)\. 
 
 ```
 aws personalize create-metric-attribution \
@@ -86,7 +86,10 @@ aws personalize create-metric-attribution \
 
  The following code shows how to create a metric attribution with the SDK for Python \(Boto3\)\. The role you specify must have `PutMetricData` permissions for CloudWatch and, if publishing to Amazon S3, `PutObject` permissions for your Amazon S3 bucket\. To use the role that you created in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions), you might have to add policies for CloudWatch and Amazon S3\. For policy examples, see [Giving Amazon Personalize access to CloudWatch](metric-attribution-requirements.md#metric-attribution-cw-permissions) and [Giving Amazon Personalize access to your Amazon S3 bucket](metric-attribution-requirements.md#metric-attribution-s3-permissions)\. 
 
- For each metric specify a name, event type, and expression \(a function\)\. Available functions include `SUM(DatasetType.COLUMN_NAME)` and `SAMPLECOUNT()`\. For SUM\(\) functions, specify the dataset type and column name\. For example, `SUM(Items.PRICE)`\. For information on each parameter, see [CreateMetricAttribution](API_CreateMetricAttribution.md)\. 
+ For each metric specify a name, event type, and expression \(a function\)\. Available functions include `SUM(DatasetType.COLUMN_NAME)` and `SAMPLECOUNT()`\. For SUM\(\) functions, specify the dataset type and column name\. For example, `SUM(Items.LENGTH)`\. For information on each parameter, see [CreateMetricAttribution](API_CreateMetricAttribution.md)\. 
+
+------
+#### [ SDK for Python \(Boto3\) ]
 
 ```
 import boto3
@@ -124,3 +127,59 @@ print('Name: ' + description['name'])
 print('ARN: ' + description['metricAttributionArn'])
 print('Status: ' + description['status'])
 ```
+
+------
+#### [ SDK for Java 2\.x ]
+
+```
+public static String createMetricAttribution(PersonalizeClient personalizeClient,
+                                             String eventType,
+                                             String expression,
+                                             String metricName,
+                                             String metricAttributionName,
+                                             String roleArn,
+                                             String s3Path,
+                                             String kmsKeyArn,
+                                             String datasetGroupArn) {
+    String metricAttributionArn = "";
+
+    try {
+
+        MetricAttribute attribute = MetricAttribute.builder()
+                .eventType(eventType)
+                .expression(expression)
+                .metricName(metricName)
+                .build();
+
+        ArrayList<MetricAttribute> metricAttributes = new ArrayList<>();
+        metricAttributes.add(attribute);
+
+        S3DataConfig s3DataDestination = S3DataConfig.builder()
+                .kmsKeyArn(kmsKeyArn)
+                .path(s3Path)
+                .build();
+
+        MetricAttributionOutput outputConfig = MetricAttributionOutput.builder()
+                .roleArn(roleArn)
+                .s3DataDestination(s3DataDestination)
+                .build();
+
+        CreateMetricAttributionRequest createMetricAttributionRequest = CreateMetricAttributionRequest.builder()
+                .name(metricAttributionName)
+                .datasetGroupArn(datasetGroupArn)
+                .metrics(metricAttributes)
+                .metricsOutputConfig(outputConfig)
+                .build();
+        CreateMetricAttributionResponse createMetricAttributionResponse = personalizeClient.createMetricAttribution(createMetricAttributionRequest);
+
+        metricAttributionArn = createMetricAttributionResponse.metricAttributionArn();
+        System.out.println("Metric attribution ARN: " + metricAttributionArn);
+        return metricAttributionArn;
+    } catch (PersonalizeException e) {
+        System.out.println(e.awsErrorDetails().errorMessage());
+    }
+    return "";
+}
+```
+
+------

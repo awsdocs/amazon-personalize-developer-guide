@@ -17,4 +17,6 @@ To import your training data into Amazon Personalize, you do the following:
    + Import historical records individually with the Amazon Personalize console or the [PutUsers](API_UBS_PutUsers.md), [PutItems](API_UBS_PutItems.md) APIs\. See [Importing individual records](incremental-data-updates.md)\. 
    + Import data from user interactions in real time with the [PutEvents](API_UBS_PutEvents.md) API operation\.
 
+  After you import data into an Amazon Personalize dataset, you can analyze it, export it to an Amazon S3 bucket, update it, or delete it by deleting the dataset\. For more information, see [Managing data](managing-data.md)\. 
+
 This section provides information about importing historical data into Amazon Personalize\. For information about recording data from live events in real time, see [Recording events](recording-events.md)\.

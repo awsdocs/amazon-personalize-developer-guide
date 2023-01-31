@@ -89,7 +89,7 @@ The following code shows how to promote items in recommendations with the AWS CL
 
 The code below shows how to use both a request filter and a promotion filter\. A promotion filter applies to only promoted items, while a request filter applies to only the remaining recommended items\. For more information, see [Promotion filters](#promotion-filters-domain)\. 
 
-For information about additional fields, see [Getting recommendations with a recommender \(AWS CLI\)Getting recommendations with a recommender \(AWS SDKs\)](domain-dsg-recommendations.md#get-domain-rec-cli)\.
+For information about additional fields, see [Getting recommendations with a recommender \(AWS CLI\)](domain-dsg-recommendations.md#get-domain-rec-cli)\.
 
 ```
 aws personalize-runtime get-recommendations \
@@ -138,7 +138,7 @@ The following code shows how to promote items in recommendations with the SDK fo
 
 The code below shows how to use both a request filter and a promotion filter\. A promotion filter applies to only promoted items, while a request filter applies to only the remaining recommended items\. For more information, see [Promotion filters](#promotion-filters-domain)\. 
 
-For information about additional fields, see [](domain-dsg-recommendations.md#get-domain-rec-sdk)\.
+For information about additional fields, see [Getting recommendations with a recommender \(AWS SDKs\)](domain-dsg-recommendations.md#get-domain-rec-sdk)\.
 
 ------
 #### [ SDK for Python \(Boto3\) ]

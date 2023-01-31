@@ -13,3 +13,11 @@ The following restrictions apply to tags:
 + For each associated resource, each tag key must be unique and it can have only one tag value\.
 + Your tag keys and tag values can't start with `aws:`\. AWS services apply tags that start with `aws:`, and those tags can't be modified\. They don't count towards tag limits\.
 + You can't update or delete a resource based only on its tags\. You must also specify the Amazon Resource Name \(ARN\) or resource ID, depending on the operation that you use\.
+
+## Additional information<a name="tagging-additional-resources-information"></a>
+
+For more information about tagging, see the following resources\.
++ [AWS Tagging Principles](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) in the *AWS General Reference*
++ [AWS Tagging Strategies](https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf) \(downloadable PDF\)
++ [AWS Access Control](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html) in the *AWS IAM User Guide*
++ [AWS Tagging Policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html) in the *AWS Organizations User Guide*

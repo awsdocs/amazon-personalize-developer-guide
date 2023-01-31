@@ -12,7 +12,7 @@
 
  As your catalog grows, update your historical data with bulk or individual data import operations\. We recommend that you first import your records in bulk, and then add individual items and users as your catalog grows\. For more information about importing historical data see [Preparing and importing data](data-prep.md)\. 
 
-For real\-time recommendations, keep your Interactions dataset up to date with your users' behavior by recording interaction *[events](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#event)* with an event tracker and the [PutEvents](API_UBS_PutEvents.md) operation\. Amazon Personalize updates recommendations based on your user's most recent activity as they interact with your application\. For more information on recording real\-time events, see [Recording events](recording-events.md)\. 
+ For real\-time recommendations with the User\-Personalization and Personalized\-Ranking recipes, keep your Interactions dataset up to date with your users' behavior by recording interaction *[events](https://docs.aws.amazon.com/general/latest/gr/glos-chap.html#event)* with an event tracker and the [PutEvents](API_UBS_PutEvents.md) operation\. Amazon Personalize updates recommendations based on your user's most recent activity as they interact with your catalog\. For more information on recording real\-time events, see [Recording events](recording-events.md)\. 
 
 If you have already created a solution version \(trained a model\), new records influence recommendations as follows:
 +  For *individual interactions*, Amazon Personalize immediately uses real\-time interaction events between a user and existing items \(items you included in the data you used to train the latest model\) when generating recommendations for the same user\. For more information, see [How real\-time events influence recommendations](recording-events.md#recorded-events-influence-recommendations)\. 
@@ -21,7 +21,9 @@ If you have already created a solution version \(trained a model\), new records 
 + For *individual and bulk item data*, if you trained the solution version with User\-Personalization and deployed it in a campaign, Amazon Personalize automatically updates the model every two hours\. After each update, the new items can be included in recommendations with exploration\. For information about exploration see [Automatic updates](native-recipe-new-item-USER_PERSONALIZATION.md#automatic-updates)\. 
 
    For any other recipe, you must retrain the model for the new items to be included in recommendations\. 
-+ For *new users* without interactions data, recommendations are initially for only popular items\. To get relevant recommendations for a new user, you can import bulk interactions for the user and create a new solution version\. Or you can record events for the user in real time as they interact with your catalog\. Their recommendations will be more relevant as you record more events\. For more information, see [Recording events](recording-events.md)\. 
++ For *new users* without interactions data, recommendations are initially for only popular items\. If you have metadata about the user in a Users dataset and you choose a recipe that uses metadata, such as User\-Personalization or Personalized\-Ranking, these popular items will be more relevant for the user\. 
+
+  To get more relevant recommendations for a new user, you can import bulk interactions for the user and create a new solution version\. Or you can record events for the user as they interact with your catalog\. Their recommendations will be more relevant as you record more events\. For more information, see [Recording events](recording-events.md)\. 
 
 ## Keeping solution versions up to date<a name="retraining-model"></a>
 

@@ -19,9 +19,10 @@ Amazon Personalize provides three types of recipes\. Besides behavioral differen
 
 | Recipe type | Recipes | API | API requirements | 
 | --- | --- | --- | --- | 
-| USER\_PERSONALIZATION |  [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md) [Popularity\-Count](native-recipe-popularity.md)  [HRNN recipe \(legacy\)](native-recipe-hrnn.md) [HRNN\-Metadata recipe \(legacy\)](native-recipe-hrnn-metadata.md) [HRNN\-Coldstart recipe \(legacy\)](native-recipe-hrnn-coldstart.md)  | [GetRecommendations](API_RS_GetRecommendations.md) |  `userId`: Required `itemId`: Not used `inputList`: NA  | 
+| USER\_PERSONALIZATION |  [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md)  [HRNN recipe \(legacy\)](native-recipe-hrnn.md) [HRNN\-Metadata recipe \(legacy\)](native-recipe-hrnn-metadata.md) [HRNN\-Coldstart recipe \(legacy\)](native-recipe-hrnn-coldstart.md)  | [GetRecommendations](API_RS_GetRecommendations.md) |  `userId`: Required `itemId`: Not used `inputList`: NA  | 
+| POPULAR\_ITEMS |  [Trending\-Now](native-recipe-trending-now.md) [Popularity\-Count](native-recipe-popularity.md)  | [GetRecommendations](API_RS_GetRecommendations.md) |  `userId`: Required only if you apply a filter that requires it `itemId`: Not used `inputList`: NA  | 
 | PERSONALIZED\_RANKING |  [Personalized\-Ranking](native-recipe-search.md)  | [GetPersonalizedRanking](API_RS_GetPersonalizedRanking.md) |  `userId`: Required `itemId`: NA `inputList`: list of itemId's  | 
-| RELATED\_ITEMS |  [Similar\-Items](native-recipe-similar-items.md) [SIMS \(legacy\)](native-recipe-sims.md)  | [GetRecommendations](API_RS_GetRecommendations.md) |  `userId`: Not used `itemId`: Required `inputList`: NA  | 
+| RELATED\_ITEMS |  [Similar\-Items](native-recipe-similar-items.md) [SIMS](native-recipe-sims.md)  | [GetRecommendations](API_RS_GetRecommendations.md) |  `userId`: Required only if you apply a filter that requires it `itemId`: Required `inputList`: NA  | 
 | USER\_SEGMENTATION |  [Item\-Affinity](item-affinity-recipe.md) [Item\-Attribute\-Affinity](item-attribute-affinity-recipe.md)  | [CreateBatchSegmentJob](API_CreateBatchSegmentJob.md) |  For batch workflow requirements, see [Creating a batch segment job](creating-batch-seg-job.md)\.  | 
 
 ## Viewing available Amazon Personalize recipes<a name="listing-recipes"></a>

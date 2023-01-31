@@ -45,6 +45,7 @@ Pattern: `^[a-zA-Z0-9][a-zA-Z0-9\-_]*`
 Required: No
 
  ** performAutoML **   <a name="personalize-Type-Solution-performAutoML"></a>
+We don't recommend enabling automated machine learning\. Instead, match your use case to the available Amazon Personalize recipes\. For more information, see [Determining your use case\.](https://docs.aws.amazon.com/personalize/latest/dg/determining-use-case.html) 
 When true, Amazon Personalize performs a search for the best USER\_PERSONALIZATION recipe from the list specified in the solution configuration \(`recipeArn` must not be specified\)\. When false \(the default\), Amazon Personalize uses `recipeArn` for training\.  
 Type: Boolean  
 Required: No
