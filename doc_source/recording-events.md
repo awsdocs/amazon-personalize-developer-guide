@@ -15,6 +15,7 @@
 + [Recording impressions data](#putevents-including-impressions-data)
 + [Event metrics and attribution reports](#event-metrics)
 + [Sample Jupyter notebook](#recording-events-sample-notebook)
++ [Third\-party event tracking services](#record-events-third-parties)
 + [Sample implementations](#recording-events-sample-architecture)
 
 ## Requirements for recording events and training a model<a name="recording-events-requirements"></a>
@@ -527,6 +528,13 @@ print(statusCode)
 ## Sample Jupyter notebook<a name="recording-events-sample-notebook"></a>
 
 For a sample Jupyter notebook that shows how to use Amazon Personalize to react to real\-time behavior of users using an event tracker and the [PutEvents](API_UBS_PutEvents.md) operation, see [2\.View\_Campaign\_And\_Interactions\.ipynb](https://github.com/aws-samples/amazon-personalize-samples/blob/master/getting_started/notebooks/2.View_Campaign_And_Interactions.ipynb) in the **getting\_started** folder of the [amazon\-personalize\-samples](https://github.com/aws-samples/amazon-personalize-samples) GitHub repository\. 
+
+## Third\-party event tracking services<a name="record-events-third-parties"></a>
+
+The following Customer Data Platforms \(CDPs\) can help you collect event data from your application and send it to Amazon Personalize\.
++ **Amplitude** – You can use Amplitude to track user actions to help you understand your users' behavior\. For information on using Amplitude and Amazon Personalize, see the following AWS Partner Network \(APN\) blog post: [Measuring the Effectiveness of Personalization with Amplitude and Amazon Personalize](http://aws.amazon.com/blogs/apn/measuring-the-effectiveness-of-personalization-with-amplitude-and-amazon-personalize/)\. 
++ **mParticle** – You can use mParticle to collect event data from your app\. For an example that shows how to use mParticle and Amazon Personalize to implement personalized product recommendations, see [How to harness the power of a CDP for machine learning: Part 2](https://www.mparticle.com/blog/cdp-machine-learning-part-2/)\.
++ **Segment** – You can use Segment to send your data to Amazon Personalize\. For more information on integrating Segment with Amazon Personalize, see [Amazon Personalize Destination](https://segment.com/docs/connections/destinations/catalog/amazon-personalize/)\. 
 
 ## Sample implementations<a name="recording-events-sample-architecture"></a>
 

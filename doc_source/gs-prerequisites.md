@@ -2,11 +2,7 @@
 
 The following steps are prerequisites for the getting started exercises\.
 
-1. Create an AWS account and an AWS Identity and Access Management user, as specified in [Sign up for AWS](setup.md#aws-personalize-set-up-aws-account)\. 
-
-1. Create an IAM policy that provides users and Amazon Personalize full access to your Amazon Personalize resources\. Then attach the policy to your Amazon Personalize user or group\. See [Creating a new IAM policy](aws-personalize-set-up-permissions.md#set-up-required-permissions)\. 
-
-1. Create an AWS Identity and Access Management \(IAM\) service role, as specified in [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\. Use the role ARN when you upload the movie training data\. 
+1.  Set up permissions so Amazon Personalize can access your resources on your behalf\. This involves creating a service role for Amazon Personalize and granting it access to Amazon Personalize resources with an IAM policy\. For more information see [Giving Amazon Personalize permission to access your Amazon Personalize resources](aws-personalize-set-up-permissions.md#set-up-required-permissions)\. 
 
 1. Prepare your training data and upload the data to your Amazon S3 bucket: 
    +  For Domain dataset group tutorials, see [Creating the training data \(Domain dataset group\)](#gs-data-prep-domain)\. 

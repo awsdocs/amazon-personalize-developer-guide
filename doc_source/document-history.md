@@ -4,6 +4,7 @@ The following table describes important changes in each release of the *Amazon P
 
 | Change | Description | Date | 
 | --- |--- |--- |
+| [New documentation feature](#document-history) |  The Amazon Personalize developer guide now includes a new readiness checklist\. This checklist helps you prepare to use Amazon Personalize with your own data\. For more information, see [Readiness checklist](https://docs.aws.amazon.com/personalize/latest/dg/readiness-checklist.html)\. | February 9, 2023 | 
 | [New feature](#document-history) | Amazon Personalize now supports generating insights and statistics for data that you import into datasets\. For more information, see [Analyzing data in datasets](https://docs.aws.amazon.com/personalize/latest/dg/analyzing-data.html)\. | January 25, 2023 | 
 | [New feature](#document-history) | Amazon Personalize now supports a new Trending\-Now recipe for Custom dataset groups\. For more information, see [Trending\-Now recipe](https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-trending-now.html)\. | January 6, 2023 | 
 | [New feature](#document-history) | Amazon Personalize now supports using tags in IAM policies\. For more information, see [Using tags in IAM policies](https://docs.aws.amazon.com/personalize/latest/dg/tags-iam.html)\.  | December 28, 2022 | 

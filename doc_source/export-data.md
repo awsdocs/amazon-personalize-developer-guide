@@ -23,7 +23,7 @@ You can create a dataset export job with the Amazon Personalize console, AWS Com
 
 To export a dataset, Amazon Personalize needs permission to add files to your Amazon S3 bucket\. To grant permissions, attach a new AWS Identity and Access Management \(IAM\) policy to your Amazon Personalize service role that grants the role permission to use the `PutObject` and `ListBucket` Actions on your bucket, and attach a bucket policy to your output Amazon S3 bucket that grants the Amazon Personalize principle permission to use the `PutObject` and `ListBucket` Actions\.
 
- Amazon S3 buckets and objects must be either encryption free or, if you are using AWS Key Management Service \(AWS KMS\) for encryption, you must grant Amazon Personalize and your Amazon Personalize IAM service role permission to use your key\. For more information, see [Giving Amazon Personalize permission to use your AWS KMS key](granting-personalize-key-access.md)\.
+ If you use AWS Key Management Service \(AWS KMS\) for encryption, you must grant Amazon Personalize and your Amazon Personalize IAM service role permission to use your key\. For more information, see [Giving Amazon Personalize permission to use your AWS KMS key](granting-personalize-key-access.md)\.
 
 ### Service role policy for exporting a dataset<a name="role-policy-for-dataset-export-job"></a>
 

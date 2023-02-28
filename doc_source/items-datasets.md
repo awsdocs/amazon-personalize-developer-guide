@@ -1,6 +1,6 @@
 # Item data<a name="items-datasets"></a>
 
- The item data that you can import into Amazon Personalize includes numerical and categorical metadata such as creation timestamp, price, genre, description, and availability\. You import metadata about your items into an Amazon Personalize *Items dataset*\. Some domains and recipes require an Items dataset\. For more information on recipe requirements see [Step 1: Choosing a recipe](working-with-predefined-recipes.md)\. 
+ The item data that you can import into Amazon Personalize includes numerical and categorical metadata such as creation timestamp, price, genre, description, and availability\. You import metadata about your items into an Amazon Personalize *Items dataset*\. The maximum number of metadata columns is 50\. The maximum number of items that are considered by a model during training is 750,000\. Amazon Personalize only considers these items when generating recommendations\. Some domains and recipes require an Items dataset\. For more information on recipe requirements see [Step 1: Choosing a recipe](working-with-predefined-recipes.md)\. 
 
  This topic provides information about the following types of item data: 
 

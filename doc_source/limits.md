@@ -43,7 +43,7 @@ Your AWS account has the following quotas for Amazon Personalize\.
 | Maximum amount of bulk user data per dataset import job with INCREMENTAL import mode\. | 1 GB | 
 | Items | 
 | --- |
-| Maximum number of items that are considered by a model during training\. | 750,000 | 
+| Maximum number of items that are considered by a model during training and generating recommendations\. | 750,000 | 
 | Maximum number of metadata fields for an Items dataset\. | 50 | 
 | Maximum number of characters for ITEM\_ID data values\. | 256 | 
 | Maximum number of characters for categorical data values\. | 1000 characters | 

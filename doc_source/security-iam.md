@@ -1,4 +1,8 @@
-# Identity and access management for Amazon Personalize<a name="security-iam"></a>
+# Identity and Access Management for Amazon Personalize<a name="security-iam"></a>
+
+
+
+
 
 AWS Identity and Access Management \(IAM\) is an AWS service that helps an administrator securely control access to AWS resources\. IAM administrators control who can be *authenticated* \(signed in\) and *authorized* \(have permissions\) to use Amazon Personalize resources\. IAM is an AWS service that you can use with no additional charge\.
 
@@ -8,7 +12,7 @@ AWS Identity and Access Management \(IAM\) is an AWS service that helps an admin
 + [Managing access using policies](#security_iam_access-manage)
 + [How Amazon Personalize works with IAM](security_iam_service-with-iam.md)
 + [Cross\-service confused deputy prevention](cross-service-confused-deputy-prevention.md)
-+ [Amazon Personalize identity\-based policy examples](security_iam_id-based-policy-examples.md)
++ [Identity\-based policy examples for Amazon Personalize](security_iam_id-based-policy-examples.md)
 + [Troubleshooting Amazon Personalize identity and access](security_iam_troubleshoot.md)
 
 ## Audience<a name="security_iam_audience"></a>
@@ -19,7 +23,7 @@ How you use AWS Identity and Access Management \(IAM\) differs, depending on the
 
 **Service administrator** – If you're in charge of Amazon Personalize resources at your company, you probably have full access to Amazon Personalize\. It's your job to determine which Amazon Personalize features and resources your service users should access\. You must then submit requests to your IAM administrator to change the permissions of your service users\. Review the information on this page to understand the basic concepts of IAM\. To learn more about how your company can use IAM with Amazon Personalize, see [How Amazon Personalize works with IAM](security_iam_service-with-iam.md)\.
 
-**IAM administrator** – If you're an IAM administrator, you might want to learn details about how you can write policies to manage access to Amazon Personalize\. To view example Amazon Personalize identity\-based policies that you can use in IAM, see [Amazon Personalize identity\-based policy examples](security_iam_id-based-policy-examples.md)\.
+**IAM administrator** – If you're an IAM administrator, you might want to learn details about how you can write policies to manage access to Amazon Personalize\. To view example Amazon Personalize identity\-based policies that you can use in IAM, see [Identity\-based policy examples for Amazon Personalize](security_iam_id-based-policy-examples.md)\.
 
 ## Authenticating with identities<a name="security_iam_authentication"></a>
 
@@ -36,6 +40,14 @@ Regardless of the authentication method that you use, you might be required to p
 ### AWS account root user<a name="security_iam_authentication-rootuser"></a>
 
   When you create an AWS account, you begin with one sign\-in identity that has complete access to all AWS services and resources in the account\. This identity is called the AWS account *root user* and is accessed by signing in with the email address and password that you used to create the account\. We strongly recommend that you don't use the root user for your everyday tasks\. Safeguard your root user credentials and use them to perform the tasks that only the root user can perform\. For the complete list of tasks that require you to sign in as the root user, see [Tasks that require root user credentials](https://docs.aws.amazon.com/accounts/latest/reference/root-user-tasks.html) in the *AWS Account Management Reference Guide*\. 
+
+### Federated identity<a name="security_iam_authentication-federated"></a>
+
+As a best practice, require human users, including users that require administrator access, to use federation with an identity provider to access AWS services by using temporary credentials\.
+
+A *federated identity* is a user from your enterprise user directory, a web identity provider, the AWS Directory Service, the Identity Center directory, or any user that accesses AWS services by using credentials provided through an identity source\. When federated identities access AWS accounts, they assume roles, and the roles provide temporary credentials\.
+
+For centralized access management, we recommend that you use AWS IAM Identity Center \(successor to AWS Single Sign\-On\)\. You can create users and groups in IAM Identity Center, or you can connect and synchronize to a set of users and groups in your own identity source for use across all your AWS accounts and applications\. For information about IAM Identity Center, see [What is IAM Identity Center?](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html) in the *AWS IAM Identity Center \(successor to AWS Single Sign\-On\) User Guide*\.
 
 ### IAM users and groups<a name="security_iam_authentication-iamuser"></a>
 
@@ -54,9 +66,9 @@ IAM roles with temporary credentials are useful in the following situations:
 + **Temporary IAM user permissions** – An IAM user or role can assume an IAM role to temporarily take on different permissions for a specific task\.
 + **Cross\-account access** – You can use an IAM role to allow someone \(a trusted principal\) in a different account to access resources in your account\. Roles are the primary way to grant cross\-account access\. However, with some AWS services, you can attach a policy directly to a resource \(instead of using a role as a proxy\)\. To learn the difference between roles and resource\-based policies for cross\-account access, see [How IAM roles differ from resource\-based policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_compare-resource-policies.html) in the *IAM User Guide*\.
 + **Cross\-service access** –  Some AWS services use features in other AWS services\. For example, when you make a call in a service, it's common for that service to run applications in Amazon EC2 or store objects in Amazon S3\. A service might do this using the calling principal's permissions, using a service role, or using a service\-linked role\. 
-  + **Principal permissions** –  When you use an IAM user or role to perform actions in AWS, you are considered a principal\. Policies grant permissions to a principal\. When you use some services, you might perform an action that then triggers another action in a different service\. In this case, you must have permissions to perform both actions\. To see whether an action requires additional dependent actions in a policy, see [Actions, Resources, and Condition Keys for Amazon Personalize](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awskeymanagementservice.html) in the *Service Authorization Reference*\. 
+  + **Principal permissions** –  When you use an IAM user or role to perform actions in AWS, you are considered a principal\. Policies grant permissions to a principal\. When you use some services, you might perform an action that then triggers another action in a different service\. In this case, you must have permissions to perform both actions\. To see whether an action requires additional dependent actions in a policy, see [Actions, resources, and condition keys for Amazon Personalize](https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonpersonalize.html) in the *Service Authorization Reference*\. 
   + **Service role** –  A service role is an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) that a service assumes to perform actions on your behalf\. An IAM administrator can create, modify, and delete a service role from within IAM\. For more information, see [Creating a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html) in the *IAM User Guide*\. 
-  + **Service\-linked role** –  A service\-linked role is a type of service role that is linked to an AWS service\. The service can assume the role to perform an action on your behalf\. Service\-linked roles appear in your IAM account and are owned by the service\. An IAM administrator can view, but not edit the permissions for service\-linked roles\. 
+  + **Service\-linked role** –  A service\-linked role is a type of service role that is linked to an AWS service\. The service can assume the role to perform an action on your behalf\. Service\-linked roles appear in your AWS account and are owned by the service\. An IAM administrator can view, but not edit the permissions for service\-linked roles\. 
 + **Applications running on Amazon EC2** –  You can use an IAM role to manage temporary credentials for applications that are running on an EC2 instance and making AWS CLI or AWS API requests\. This is preferable to storing access keys within the EC2 instance\. To assign an AWS role to an EC2 instance and make it available to all of its applications, you create an instance profile that is attached to the instance\. An instance profile contains the role and enables programs that are running on the EC2 instance to get temporary credentials\. For more information, see [Using an IAM role to grant permissions to applications running on Amazon EC2 instances](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html) in the *IAM User Guide*\. 
 
 To learn whether to use IAM roles or IAM users, see [When to create an IAM role \(instead of a user\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html#id_which-to-choose_role) in the *IAM User Guide*\.
@@ -99,3 +111,8 @@ AWS supports additional, less\-common policy types\. These policy types can set 
 ### Multiple policy types<a name="security_iam_access-manage-multiple-policies"></a>
 
 When multiple types of policies apply to a request, the resulting permissions are more complicated to understand\. To learn how AWS determines whether to allow a request when multiple policy types are involved, see [Policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide*\.
+
+
+
+
+

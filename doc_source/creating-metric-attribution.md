@@ -38,7 +38,7 @@ You can apply `SUM()` functions to only numeric columns of Items and Interaction
 
    **s3://<name of your S3 bucket>/<folder> path>**
 
-1. If you are using AWS KMS for encryption, for **KMS key ARN**, enter the Amazon Resource Name \(ARN\) for the AWS KMS key\. You must grant Amazon Personalize and your Amazon Personalize IAM service role decrypt permissions in your key policy\. For more information, see [Giving Amazon Personalize permission to use your AWS KMS key](granting-personalize-key-access.md)\.
+1. If you are using AWS KMS for encryption, for **KMS key ARN**, enter the Amazon Resource Name \(ARN\) for the AWS KMS key\. You must grant Amazon Personalize and your Amazon Personalize IAM service role permission to use your key\. For more information, see [Giving Amazon Personalize permission to use your AWS KMS key](granting-personalize-key-access.md)\.
 
 1. In **IAM role**, choose to create a new service role or use an existing one\. The role you choose must have `PutMetricData` permissions for CloudWatch\. If you want to publish to Amazon S3, the role must have `PutObject` permissions for your Amazon S3 bucket\. 
 

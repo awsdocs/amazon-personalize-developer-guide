@@ -14,7 +14,7 @@ A recommender can be in one of the following states:
 + CREATE PENDING > CREATE IN\_PROGRESS > ACTIVE \-or\- CREATE FAILED
 + DELETE PENDING > DELETE IN\_PROGRESS
 
-To get the recommender status, navigate to the Recommenders page in the Amazon Personalize console or use the the [DescribeRecommender](API_DescribeRecommender.md) operation\.
+To get the recommender status, navigate to the Recommenders page in the Amazon Personalize console or use the [DescribeRecommender](API_DescribeRecommender.md) operation\.
 
 **Topics**
 + [Choosing recommender use cases](domain-use-cases.md)
@@ -25,10 +25,11 @@ To get the recommender status, navigate to the Recommenders page in the Amazon P
 
 ## Minimum recommendation requests per second and auto\-scaling<a name="min-rrps-auto-scaling"></a>
 
+**Important**  
+A high `minRecommendationRequestsPerSecond` will increase your bill\. We recommend starting with 1 for `minRecommendationRequestsPerSecond` \(the default\)\. Track your usage using Amazon CloudWatch metrics, and increase the `minRecommendationRequestsPerSecond` as necessary\.
+
 When you create a recommender, you can configure the recommender's minimum recommendation requests per second\. The minimum recommendation requests per second \(`minRecommendationRequestsPerSecond`\) specifies the baseline recommendation request throughput provisioned by Amazon Personalize\. The default minRecommendationRequestsPerSecond is `1`\. A recommendation request is a single `GetRecommendations` operation\. Request throughput is measured in requests per second and Amazon Personalize uses your requests per second to derive your requests per hour and the price of your recommender usage\. 
 
  If your requests per second increases beyond `minRecommendationRequestsPerSecond`, Amazon Personalize auto\-scales the provisioned capacity up and down, but never below `minRecommendationRequestsPerSecond`\. There's a short time delay while the capacity is increased that might cause loss of requests\.
 
  Your bill is the greater of either the minimum requests per hour \(based on minRecommendationRequestsPerSecond\) or the actual number of requests\. The actual request throughput used is calculated as the average requests/second within a one\-hour window\. We recommend starting with the default `minRecommendationRequestsPerSecond`, track your usage using Amazon CloudWatch metrics, and then increase the `minRecommendationRequestsPerSecond` as necessary\. 
-
- 

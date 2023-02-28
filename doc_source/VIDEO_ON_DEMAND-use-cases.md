@@ -66,6 +66,8 @@ Get recommendations for videos that are currently trending\. Trending videos are
 ## Top picks for you<a name="top-picks-use-case"></a>
 
 Get personalized content recommendations for a user that you specify\. With this use case, Amazon Personalize automatically filters videos the user watched based on the userId that you specify and `Watch` events\.
+
+When recommending items, this use case uses exploration\. Exploration involves testing different item recommendations to learn how users respond to items with very little interaction data\. You can configure exploration when you create your recommender\. 
 + **Recipe ARN:** arn:aws:personalize:::recipe/aws\-vod\-top\-picks
 + **GetRecommendations requirements: **
 
@@ -75,3 +77,8 @@ Get personalized content recommendations for a user that you specify\. With this
 + **Required datasets:** Interactions and Items
 + **Required number of events:** At minimum, 1000 events\.
 + **Recommended event types:** `Click` and `Watch` events\.
++ **Exploration configuration parameters:** When you create a recommender, you can configure exploration with the following\.
+  + Emphasis on exploring less relevant items \(for APIs, this is called explorationWeight in the [RecommenderConfig](API_RecommenderConfig.md)\): Configure how much to explore\. Specify a decimal value between 0 to 1\. The default is 0\.3\. The closer the value is to 1, the more exploration\. With more exploration, recommendations include more items with less interactions data or relevance\. At zero, no exploration occurs and recommendations are based on current data \(relevance\)\.
+  + Exploration item age cutoff: Specify the maximum item age in days since the latest interaction\. This defines the scope of item exploration\. For example, if you enter 10, Amazon Personalize exploration includes only items with interactions data from the 10 days since the latest interaction in the dataset\.
+
+    To increase the items Amazon Personalize considers during exploration, enter a greater value\. The minimum is 1 day and the default is 30 days\. Recommendations might include items without interactions data from outside this time frame\. This is because these items are relevant to the user and exploration didn't identify them\.

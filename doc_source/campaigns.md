@@ -18,6 +18,9 @@ You create a campaign with the Amazon Personalize console, AWS Command Line Inte
 
 ## Minimum provisioned transactions per second and auto\-scaling<a name="min-tps-auto-scaling"></a>
 
+**Important**  
+ A high `minProvisionedTPS` will increase your bill\. We recommend starting with 1 for `minProvisionedTPS` \(the default\)\. Track your usage using Amazon CloudWatch metrics, and increase the `minProvisionedTPS` as necessary\. For more information, see [Minimum provisioned TPS](#min-tps-auto-scaling)\.
+
 When you create an Amazon Personalize campaign, you specify a dedicated transaction capacity for creating real\-time recommendations for your application users\. A transaction is a single `GetRecommendations` or `GetPersonalizedRanking` call\. Transactions per second \(TPS\) is the throughput and unit of billing for Amazon Personalize\. The minimum provisioned TPS \(`minProvisionedTPS`\) specifies the baseline throughput provisioned by Amazon Personalize, and thus, the minimum billing charge\. 
 
  If your TPS increases beyond `minProvisionedTPS`, Amazon Personalize auto\-scales the provisioned capacity up and down, but never below `minProvisionedTPS`\. There's a short time delay while the capacity is increased that might cause loss of transactions\.
@@ -25,6 +28,9 @@ When you create an Amazon Personalize campaign, you specify a dedicated transact
 The actual TPS used is calculated as the average requests/second within a 5\-minute window\. You pay for maximum of the minimum provisioned TPS or the actual TPS\. We recommend starting with a low `minProvisionedTPS`, track your usage using Amazon CloudWatch metrics, and then increase the `minProvisionedTPS` as necessary\.
 
 ## Creating a campaign \(console\)<a name="create-campaign-console"></a>
+
+**Important**  
+ A high `minProvisionedTPS` will increase your bill\. We recommend starting with 1 for `minProvisionedTPS` \(the default\)\. Track your usage using Amazon CloudWatch metrics, and increase the `minProvisionedTPS` as necessary\. For more information, see [Minimum provisioned TPS](#min-tps-auto-scaling)\.
 
 After your solution version status is Active you are ready to deploy it with an Amazon Personalize campaign\.
 
@@ -42,7 +48,7 @@ After your solution version status is Active you are ready to deploy it with an 
    + **Campaign name:** Enter the name of the campaign\. The text you enter here appears on the Campaign dashboard and details page\.
    + **Solution:** Choose the solution that you just created\.
    + **Solution version ID:** Choose the ID of the solution version that you just created\.
-   + **Minimum provisioned transactions per second:** Set the minimum provisioned transactions per second that Amazon Personalize supports\. For more information, see [Minimum provisioned transactions per second and auto\-scaling](#min-tps-auto-scaling)\.
+   + **Minimum provisioned transactions per second \(called minProvisionedTPS in APIs\):** Set the minimum provisioned transactions per second that Amazon Personalize supports\. A high value will increase your bill\. We recommend starting with 1 \(the default\)\. Track your usage using Amazon CloudWatch metrics, and increase the `minProvisionedTPS` as necessary\. For more information, see [Minimum provisioned transactions per second and auto\-scaling](#min-tps-auto-scaling)\.
 
 1. If you used the User\-Personalization recipe, in **Campaign configuration** optionally enter values for the **Exploration weight** and **Exploration item age cut off**\. For more information see [User\-Personalization](native-recipe-new-item-USER_PERSONALIZATION.md)\.
 

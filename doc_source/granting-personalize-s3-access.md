@@ -2,13 +2,13 @@
 
 To give Amazon Personalize access to your Amazon S3 bucket, do the following:
 
-1. If you haven't already, follow the steps in [Setting up permissions](aws-personalize-set-up-permissions.md) to set up permissions so your IAM users can access Amazon Personalize and Amazon Personalize can access your resources\.
+1. If you haven't already, follow the steps in [Setting up permissions](aws-personalize-set-up-permissions.md) to set up permissions so Amazon Personalize can access your resources in Amazon Personalize on your behalf\.
 
 1.  Attach a policy to the Amazon Personalize service role \(see [Creating an IAM role for Amazon Personalize](aws-personalize-set-up-permissions.md#set-up-create-role-with-permissions)\) that allows access to your Amazon S3 bucket\. For more information, see [Attaching an Amazon S3 policy to your Amazon Personalize service role](#attaching-s3-policy-to-role)\. 
 
 1.  Attach a bucket policy to the Amazon S3 bucket containing your data files so Amazon Personalize can access them\. For more information, see [Attaching an Amazon Personalize access policy to your Amazon S3 bucket](#attach-bucket-policy)\. 
 
-1.  Amazon S3 buckets and objects must be either encryption free or, if you are using AWS Key Management Service \(AWS KMS\) for encryption, you must grant Amazon Personalize and your Amazon Personalize IAM service role permission to use your key\. For more information, see [Giving Amazon Personalize permission to use your AWS KMS key](granting-personalize-key-access.md)\.
+1.  If you use AWS Key Management Service \(AWS KMS\) for encryption, you must grant Amazon Personalize and your Amazon Personalize IAM service role permission to use your key\. For more information, see [Giving Amazon Personalize permission to use your AWS KMS key](granting-personalize-key-access.md)\.
 
 **Note**  
 Because Amazon Personalize doesn’t communicate with AWS VPCs, Amazon Personalize can't interact with Amazon S3 buckets that allow only VPC access\.
@@ -96,7 +96,7 @@ To complete a batch worklfow, Amazon Personalize needs permission to access and 
 
 ### Service\-linked role policy for exporting a dataset<a name="role-policy-for-export"></a>
 
-To export a dataset, your Amazon Personalize service\-linked role needs permission to use the `PutObject` and `ListBucket` Actions on your Amazon S3 bucket\. The following example policy grants Amazon Personalize `PutObject` and `ListBucket` permissions\. Replace `bucket-name` with the name of your bucket and attach the policy to your service\-linked role\. For information about attaching policies to a service\-linked IAM role see [Attaching an Amazon S3 policy to your Amazon Personalize service role](#attaching-s3-policy-to-role)\. 
+To export a dataset, your Amazon Personalize service role needs permission to use the `PutObject` and `ListBucket` Actions on your Amazon S3 bucket\. The following example policy grants Amazon Personalize `PutObject` and `ListBucket` permissions\. Replace `bucket-name` with the name of your bucket and attach the policy to your service role for Amazon Personalize\. For information about attaching policies to a service role see [Attaching an Amazon S3 policy to your Amazon Personalize service role](#attaching-s3-policy-to-role)\. 
 
 ```
 {

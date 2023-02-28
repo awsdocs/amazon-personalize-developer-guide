@@ -1,10 +1,14 @@
 # Interactions data<a name="interactions-datasets"></a>
 
- In Amazon Personalize, an *interaction* is an *event* that you record and then import as training data\. You can record multiple event types, such as *click*, *watch* or *like*\. For example, if a user *clicks* a particular item and then *likes* the item, and you want Amazon Personalize to use these events as training data, for each event you would record the user's ID, the item's ID, the timestamp \(in Unix time epoch format\), and the event type \(*click* and *like*\)\. You would then add both interaction events to an Interactions dataset\. Once you have recorded enough events, you can train a model and use Amazon Personalize to generate recommendations for users\. For minimum requirements see [Service quotas](limits.md#limits-table)\. 
+ An *interaction* is an *event* that you record and then import as training data\. Amazon Personalize generates recommendations primarily based on the interactions data you import into an *Interactions dataset*\. You can record multiple event types, such as *click*, *watch* or *like*\. 
 
- Amazon Personalize stores interactions data in an *Interactions dataset*\. For all use cases \(Domain dataset groups\) and recipes \(Custom dataset groups\), your interactions data must have the following: 
+For example, if a user *clicks* a particular item and then *likes* the item, you can have Amazon Personalize use these events as training data\. For each event, you would record the user's ID, the item's ID, the timestamp \(in Unix time epoch format\), and the event type \(*click* and *like*\)\. You would then add both interaction events to an Interactions dataset\.
+
+ For all use cases \(Domain dataset groups\) and recipes \(Custom dataset groups\), your interactions data must have the following: 
 + At minimum 1000 interactions records from users interacting with items in your catalog\. These interactions can be from bulk imports, or streamed events, or both\.
 + At minimum 25 unique user IDs with at least 2 interactions for each\.
+
+ For quality recommendations, we recommend that you have at minimum 50,000 interactions from at least 1,000 users with 2 or more interactions each\. 
 
  To create a recommender or a custom solution, you must at minimum create an Interactions dataset\. This section provides information about the following types of interactions data you can import into Amazon Personalize\. 
 
@@ -16,7 +20,7 @@
 ## Event type and event value data<a name="event-type-and-event-value-data"></a>
 
  Interactions datasets can store event type data, such as *click* and *watch* event types, and event value data for each of your events\. 
-+  If you create a Domain dataset group for the VIDEO\_ON\_DEMAND or ECOMMERCE domain, all use cases require your data to include an EVENT\_TYPE field\. Different use cases require different event types\. For more information see [Choosing recommender use cases](domain-use-cases.md)\. 
++  If you create a Domain dataset group for the VIDEO\_ON\_DEMAND or ECOMMERCE domain, all use cases require your data to include an EVENT\_TYPE field\. Different use cases require different event types\. You are free to use additional event types\. For more information see [Choosing recommender use cases](domain-use-cases.md)\. 
 
    With a Domain dataset group, Amazon Personalize does not use event value data\. 
 +  If you create a Custom dataset group, Amazon Personalize uses event type and event value data to filter events before training\. You can import event type data, or event type *and* event value data\. Import this data to choose the interactions data Amazon Personalize uses in training as follows: 

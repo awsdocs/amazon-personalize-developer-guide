@@ -16,7 +16,7 @@
 + ADULT \(categorical `string`\): Whether the item is restricted to only adults, such as alcohol\. Values might be yes or no\.
 + GENDER \(categorical `string`\): The gender the item is for\. Values might be male, female, and unisex\.
 
- To get the best recommendations, we recommend that you keep these as many of these fields in your schema as you have data\. The data you import must match your schema\. The data you import must match your schema\. You are free to add additional fields depending on your use case and your data\. As long as the fields aren't listed as required or reserved, and the data types are listed in [Schema data types](how-it-works-dataset-schema.md#personalize-datatypes), the field names and data types are up to you\. 
+ To get the best recommendations, we recommend that you keep these as many of these fields in your schema as you have data\. The data you import must match your schema\. The data you import must match your schema\. The maximum number of metadata columns is 50\. You are free to add additional fields depending on your use case and your data\. As long as the fields aren't listed as required or reserved, and the data types are listed in [Schema data types](how-it-works-dataset-schema.md#personalize-datatypes), the field names and data types are up to you\. 
 
  Use reserved keywords CATEGORY\_L2 and CATEGORY\_L3 for items with multiple multi\-level categories\. For more information, see [Using categorical data](#ECOMMERCE-items-categorical-data)\. For information on textual and categorical metadata see [Unstructured text metadata](items-datasets.md#text-data)\. For an example of the default schema for Items datasets for ECOMMERCE domains, see [Default Items schema \(ECOMMERCE domain\)](#ECOMMERCE-items-dataset-schema)\. 
 
@@ -24,12 +24,12 @@
 
  To use categorical data, add a field of type `string` and set the field's categorical attribute to `true` in your schema\. Then include the categorical data in your bulk CSV file and individual item imports\. You can define your own range of values based on your use case\. Categorical values can have at most 1000 characters\. If you have an item with a categorical value with more than 1000 characters, your dataset import job will fail\.
 
- For items with multiple categories, separate each value with the vertical bar, '\|'\. For example, for a CATEGORY\_L1 field your data for an item might be `Electronics|Productivity|Mouse`\. If you have a multiple levels of categorical data and some items have multiple categories for each level in the hierarchy, add a field for each level and append a level indicator after each field name: CATEGORY\_L1, CATEGORY\_L2, CATEGORY\_L3\. This allows you filter recommendations based on sub\-categories, even if an item belongs to multiple multi\-level categories \(for information on creating and using filters see [Filtering recommendations and user segments](filter.md)\)\. For example, an item might have the following data for each category level: 
+ For items with multiple categories, separate each value with the vertical bar, '\|'\. For example, for a CATEGORY\_L1 field your data for an item might be `Electronics|Productivity|Mouse`\. If you have a multiple levels of categorical data and some items have multiple categories for each level in the hierarchy, add a field for each level and append a level indicator after each field name: CATEGORY\_L1, CATEGORY\_L2, CATEGORY\_L3\. This allows you filter recommendations based on sub\-categories, even if an item belongs to multiple multi\-level categories\. For example, an item might have the following data for each category level: 
 + CATEGORY\_L1: Electronics\|Productivity
 + CATEGORY\_L2: Productivity\|Computers
 + CATEGORY\_L3: Mouse
 
-In this example, the item is in the electronics > productivity > mouse hierarchy *and* the productivity > computers > mouse hierarchy\. We recommend only using up to L3 but you can use more levels if necessary\.
+In this example, the item is in the electronics > productivity > mouse hierarchy *and* the productivity > computers > mouse hierarchy\. We recommend only using up to L3 but you can use more levels if necessary\. For information on creating and using filters see [Filtering recommendations and user segments](filter.md)\. 
 
 ## Default Items schema \(ECOMMERCE domain\)<a name="ECOMMERCE-items-dataset-schema"></a>
 

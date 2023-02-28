@@ -16,3 +16,11 @@
    + Deploy the solution version with a campaign and get recommendations\.
    + Create a batch inference job to get batch recommendations\.
    + Create a user segment job to get user segments\.
+
+**Topics**
++ [Determining your use case](determining-use-case.md)
++ [Preparing and importing data](data-prep.md)
++ [Creating a solution](training-deploying-solutions.md)
++ [Creating a campaign](campaigns.md)
++ [Getting recommendations \(Custom dataset group\)](getting-recommendations.md)
++ [Maintaining recommendation relevance](maintaining-relevance.md)

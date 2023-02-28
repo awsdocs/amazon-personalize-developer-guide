@@ -2,6 +2,8 @@
 
  When you create a Domain dataset group for the ECOMMERCE domain, each dataset type has a default schema with a set of ECOMMERCE\-specific required and recommended fields\. You can use the default schema or create a new one based on the default schema\. The data you import must match your schema in format and type\. Use the default domain schemas listed in the sections below as a guide to determine what data to import to create your ECOMMERCE\-based recommender\.
 
+You are free to add additional fields\. As long as the fields aren't listed as required or reserved, and the data types are listed in [Schema data types](how-it-works-dataset-schema.md#personalize-datatypes), the field names and data types are up to you\.
+
 For information about general Amazon Personalize schema requirements, such as formatting requirements and available field data types, see [Datasets and schemas](how-it-works-dataset-schema.md)\. These requirements apply to all schemas, regardless of domain\.
 
  The following topics provide information about each dataset's required and recommended fields for the ECOMMERCE domain\. Each dataset section includes the default ECOMMERCE schema in JSON format\. 

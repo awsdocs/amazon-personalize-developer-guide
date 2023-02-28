@@ -42,11 +42,11 @@ Amazon Personalize schemas support the following Avro types for fields:
 + boolean \(values `true` and `false` must be lower case in your data\)
 + null
 
- You can use *null* for `EVENT_VALUE` and `RECOMMENDATION_ID` reserved keywords, and interaction, user, and item metadata fields\. Adding a `null` type to a field allows you to use imperfect data \(for example, metadata with blank values\), to generate personalized recommendations\. The following example shows how to add a null type for a GENRES field\.
+ Some required and reserved fields support null data\. Adding a `null` type to a field allows you to use imperfect data \(for example, metadata with blank values\) to generate recommendations\. For information on which fields support null data, see [Domain datasets and schemas](domain-datasets-and-schemas.md) or [Custom datasets and schemas](custom-datasets-and-schemas.md)\. The following example shows how to add a null type for a GENDER field\.
 
 ```
 {
-  "name": "GENRES",
+  "name": "GENDER",
   "type": [
     "null",
     "string"

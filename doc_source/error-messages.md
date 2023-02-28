@@ -26,9 +26,9 @@ If your CSV files are in a folder and you want to upload multiple files with one
 
 **Error message:** *Failed to create a data import job for <dataset type> dataset\.\.\.\.Insufficient privileges for accessing data in Amazon S3\.*
 
- Give Amazon Personalize access to your Amazon S3 resources by attaching access policies to your Amazon S3 bucket and your Amazon Personalize service\-linked role\. See [Giving Amazon Personalize access to Amazon S3 resources](granting-personalize-s3-access.md)\.
+ Give Amazon Personalize access to your Amazon S3 resources by attaching access policies to your Amazon S3 bucket and your Amazon Personalize service role\. See [Giving Amazon Personalize access to Amazon S3 resources](granting-personalize-s3-access.md)\.
 
- Amazon S3 buckets and objects must be either encryption free or, if you are using AWS Key Management Service \(AWS KMS\) for encryption, you must grant Amazon Personalize and your Amazon Personalize IAM service role permission to use your key\. For more information, see [Giving Amazon Personalize permission to use your AWS KMS key](granting-personalize-key-access.md)\.
+ If you use AWS Key Management Service \(AWS KMS\) for encryption, you must grant Amazon Personalize and your Amazon Personalize IAM service role permission to use your key\. For more information, see [Giving Amazon Personalize permission to use your AWS KMS key](granting-personalize-key-access.md)\.
 
 **Error message:** *Failed to create a data import job <dataset type> dataset\.\.\.Input CSV is missing the following columns:\[COLUMN\_NAME, COLUMN\_NAME\]\.*
 
@@ -50,7 +50,7 @@ For real\-time recommendations, import more data with a dataset import job or re
 
 **Error:** *Cannot create a campaign\. More than 5 resources in ACTIVE state\. Please delete some and try again\.*
 
- You can have a total of active Amazon Personalize campaigns per region\. This quota is adjustable and you can request a quota increase using the [Service Quotas console](https://console.aws.amazon.com/servicequotas/)\. For a complete list of limits and quotas for Amazon Personalize, see [Amazon Personalize endpoints and quotas](limits.md)\. 
+ You can have a total of 5 active Amazon Personalize campaigns per dataset group\. This quota is adjustable and you can request a quota increase using the [Service Quotas console](https://console.aws.amazon.com/servicequotas/)\. For a complete list of limits and quotas for Amazon Personalize, see [Amazon Personalize endpoints and quotas](limits.md)\. 
 
 ## Recommenders \(Domain dataset group\)<a name="recommender-errors"></a>
 

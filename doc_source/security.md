@@ -10,7 +10,7 @@ This documentation helps you understand how to apply the shared responsibility m
 
 **Topics**
 + [Data protection in Amazon Personalize](data-protection.md)
-+ [Identity and access management for Amazon Personalize](security-iam.md)
++ [Identity and Access Management for Amazon Personalize](security-iam.md)
 + [Logging and monitoring in Amazon Personalize](logging-monitoring.md)
 + [Compliance validation for Amazon Personalize](SERVICENAME-compliance.md)
 + [Resilience in Amazon Personalize](disaster-recovery-resiliency.md)
